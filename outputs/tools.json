@@ -61,9 +61,9 @@
       "index": 8,
       "tool": "image-mosaic-tool",
       "title": "이미지 모자이크 도구",
-      "description": "KOR/ENG 화면에서 이미지를 드래그해 모자이크 처리하고 PNG로 저장합니다.",
+      "description": "KOR/ENG 화면에서 브러시로 칠하거나 사각형으로 선택해 모자이크 처리하고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
-      "version": "0.1.0v"
+      "version": "0.2.0v"
     }
   ]
 }

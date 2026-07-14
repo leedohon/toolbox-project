@@ -1,0 +1,12 @@
+{
+  "tool": "base64-tools",
+  "version": "0.4.0v",
+  "releaseDate": "2026-07-15",
+  "changeLevel": "minor",
+  "changes": [
+    "URL-safe Base64 텍스트 인코딩 옵션을 추가했습니다.",
+    "일반 Base64와 URL-safe Base64 문자열을 자동으로 디코딩하도록 개선했습니다.",
+    "게시글에 URL-safe 형식 안내와 기능 설명을 추가했습니다.",
+    "데스크톱과 모바일에서 일반·URL-safe 변환, 긴 문자열, 버튼 줄바꿈과 전체 폭을 확인했습니다."
+  ]
+}

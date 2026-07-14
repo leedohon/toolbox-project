@@ -16,6 +16,9 @@ inputs:
   - key: file
     label: 파일
     type: file
+  - key: urlSafe
+    label: URL-safe Base64
+    type: checkbox
 ---
 
 # 기능
@@ -23,6 +26,7 @@ inputs:
 - UTF-8 텍스트 Base64 인코딩과 디코딩
 - 파일 선택 및 드래그 앤 드롭 Base64 변환
 - 결과 복사와 디코딩 파일 다운로드
+- URL-safe Base64 인코딩과 자동 디코딩
 
 # 인터페이스
 
@@ -34,3 +38,5 @@ inputs:
 
 - 모든 변환은 현재 브라우저 안에서 처리하고 서버로 전송하지 않는다.
 - 파일 입력은 선택 버튼과 드래그 앤 드롭 영역을 함께 제공한다.
+- URL-safe 인코딩은 `+`를 `-`, `/`를 `_`로 바꾸고 끝의 `=` 패딩을 제거한다.
+- 디코딩은 일반 Base64와 URL-safe Base64를 자동으로 인식한다.

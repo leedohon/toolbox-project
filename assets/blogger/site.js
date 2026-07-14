@@ -11,6 +11,8 @@
   var toolsUrl = new URL('../../outputs/tools.json', script.src);
   var homeMount = document.getElementById('ow-site-app');
   var postMount = document.getElementById('ow-post-nav');
+  if (homeMount) document.documentElement.classList.add('ow-is-home');
+  if (postMount) document.documentElement.classList.add('ow-is-post');
 
   function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, function (character) {

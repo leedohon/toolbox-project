@@ -18,6 +18,7 @@ outputs:
   - formattedJson
   - excelTable
   - xlsxFile
+  - csvFile
 ---
 
 # 기능
@@ -28,6 +29,7 @@ outputs:
 - 들여쓰기 정리와 한 줄 압축
 - 결과 복사, JSON 파일 저장, 전체 비우기
 - JSON 데이터의 Excel 표 미리보기와 실제 XLSX 파일 다운로드
+- Excel 표 데이터를 UTF-8 CSV 파일로 다운로드
 
 # 인터페이스
 
@@ -43,3 +45,4 @@ outputs:
 - 객체 배열은 행으로, 중첩 객체는 점 표기 열로, 일반 객체는 키·값 표로 변환한다.
 - 중첩 배열은 JSON 문자열 셀로 저장하고 화면 표는 최대 100행까지 미리 보여준다.
 - XLSX 생성에는 SheetJS Community Edition의 공식 브라우저 배포본을 사용한다.
+- CSV는 한글이 스프레드시트에서 올바르게 열리도록 UTF-8 BOM을 포함한다.

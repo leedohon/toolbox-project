@@ -184,7 +184,7 @@
     <section class="tb-excel" aria-labelledby="json-excel-title">
       <div class="tb-excel-head"><h3 id="json-excel-title">Excel 표 미리보기</h3><p class="tb-excel-meta" id="json-excel-meta">유효한 JSON을 입력하면 표를 만듭니다.</p></div>
       <div class="tb-table-wrap" tabindex="0" aria-label="Excel 변환 표 미리보기"><div class="tb-table-empty" id="json-table-empty">표시할 데이터가 없습니다.</div><table class="tb-table" id="json-table" hidden></table></div>
-      <div class="tb-actions"><button class="tb-primary" id="json-excel-download" type="button">Excel 다운로드 (.xlsx)</button></div>
+      <div class="tb-actions"><button class="tb-primary" id="json-excel-download" type="button">Excel 다운로드 (.xlsx)</button><button class="tb-secondary" id="json-csv-download" type="button">CSV 다운로드 (.csv)</button></div>
     </section>
   </div>
 
@@ -349,6 +349,19 @@
         const workbook = window.XLSX.utils.book_new();
         window.XLSX.utils.book_append_sheet(workbook, worksheet, 'JSON 데이터');
         window.XLSX.writeFileXLSX(workbook, 'toolbox-json.xlsx', { compression: true });
+      });
+      root.querySelector('#json-csv-download').addEventListener('click', function () {
+        if (!latestTable) { error.textContent = 'CSV로 저장할 유효한 JSON 데이터가 없습니다.'; return; }
+        const escapeCsv = function (value) {
+          const text = value === null ? 'null' : value === undefined ? '' : String(value);
+          return /[",\r\n]/.test(text) ? '"' + text.replace(/"/g, '""') + '"' : text;
+        };
+        const csv = [latestTable.headers].concat(latestTable.rows).map(function (row) { return row.map(escapeCsv).join(','); }).join('\r\n');
+        const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url; link.download = 'toolbox-json.csv'; link.click();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 0);
       });
       root.querySelector('#json-clear').addEventListener('click', function () {
         input.value = ''; latestResult = ''; latestTable = null; output.textContent = '유효한 JSON을 입력하면 결과가 여기에 표시됩니다.'; renderTable(null); error.textContent = ''; setStatus('', '입력과 결과를 비웠습니다.'); input.focus();

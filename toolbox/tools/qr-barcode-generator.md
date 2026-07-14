@@ -1,6 +1,7 @@
 ---
 title: QR · 바코드 생성기
 slug: qr-barcode-generator
+type: converter
 status: published
 runtime: blogger-inline
 description: 텍스트나 URL을 기본형 또는 둥근형 QR 코드, Code 128 바코드로 만듭니다.
@@ -20,6 +21,12 @@ inputs:
   - key: size
     label: 크기
     type: range
+  - key: foregroundColor
+    label: 전경색
+    type: color
+  - key: backgroundColor
+    label: 배경색
+    type: color
 ---
 
 # 기능
@@ -27,6 +34,7 @@ inputs:
 - QR 코드와 Code 128 바코드 생성
 - 기본형과 둥근형 QR 스타일(세 위치 표시 마크 포함)
 - 크기 조절 및 PNG·SVG 저장
+- QR 코드와 바코드의 전경색·배경색 설정
 
 # 게시 규칙
 

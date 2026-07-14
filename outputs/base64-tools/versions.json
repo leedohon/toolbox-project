@@ -2,9 +2,9 @@
   "index": 3,
   "tool": "base64-tools",
   "title": "Base64 도구",
-  "description": "텍스트와 파일을 Base64로 인코딩하거나 디코딩하고 결과를 저장합니다.",
+  "description": "텍스트와 파일을 일반 또는 URL-safe Base64로 변환하고 결과를 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
-  "latestVersion": "0.3.0v",
+  "latestVersion": "0.4.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -43,6 +43,7 @@
       "patchNotes": "0.2.0v/patch-notes.json"
     },
     {"version":"0.2.1v","releaseDate":"2026-07-15","changeLevel":"minimum","summary":"반복 CSS를 제거하고 Blogger 전역 게시글 테마를 사용하도록 전환했습니다.","directory":"0.2.1v","html":"0.2.1v/base64-tools.html","patchNotes":"0.2.1v/patch-notes.json"},
-    {"version":"0.3.0v","releaseDate":"2026-07-15","changeLevel":"minor","summary":"원본과 결과를 세로로 배치하고 전체 폭 반응형 레이아웃을 적용했습니다.","directory":"0.3.0v","html":"0.3.0v/base64-tools.html","patchNotes":"0.3.0v/patch-notes.json"}
+    {"version":"0.3.0v","releaseDate":"2026-07-15","changeLevel":"minor","summary":"원본과 결과를 세로로 배치하고 전체 폭 반응형 레이아웃을 적용했습니다.","directory":"0.3.0v","html":"0.3.0v/base64-tools.html","patchNotes":"0.3.0v/patch-notes.json"},
+    {"version":"0.4.0v","releaseDate":"2026-07-15","changeLevel":"minor","summary":"URL-safe Base64 인코딩과 자동 디코딩을 추가했습니다.","directory":"0.4.0v","html":"0.4.0v/base64-tools.html","patchNotes":"0.4.0v/patch-notes.json"}
   ]
 }

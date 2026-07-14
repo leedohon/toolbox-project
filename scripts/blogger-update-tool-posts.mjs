@@ -77,11 +77,12 @@ for (const entry of entries) {
   if (!latest) throw new Error(`Latest version metadata is missing for ${versions.tool}.`);
   const content = await fs.readFile(path.join(outputsDir, entry.name, latest.html), 'utf8');
   const post = matches[0];
+  const title = `[초간단 툴박스] ${versions.title}`;
   await request(`https://www.googleapis.com/blogger/v3/blogs/${encodeURIComponent(blog.id)}/posts/${encodeURIComponent(post.id)}`, {
     method: 'PUT',
-    body: JSON.stringify({ ...post, content }),
+    body: JSON.stringify({ ...post, title, content }),
   });
-  console.log(`Updated LIVE post: ${post.title} (${post.url})`);
+  console.log(`Updated LIVE post: ${title} (${post.url})`);
   updated += 1;
 }
 

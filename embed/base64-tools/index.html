@@ -18,6 +18,8 @@
   #b64-tools .b64-tab, #b64-tools .b64-button { border:0; cursor:pointer; font:inherit; font-weight:700; transition:transform .15s, background .15s; }
   #b64-tools .b64-tab { color:var(--b64-primary); background:transparent; border-radius:100px; padding:10px 18px; }
   #b64-tools .b64-tab[aria-selected="true"] { background:#e8def8; }
+  #b64-tools .b64-option { display:flex; align-items:flex-start; gap:9px; margin:-6px 0 20px; padding:11px 13px; color:var(--b64-muted); background:var(--b64-surface-alt); border-radius:12px; font-size:14px; cursor:pointer; }
+  #b64-tools .b64-option input { width:18px; height:18px; margin:1px 0 0; accent-color:var(--b64-primary); flex:0 0 auto; }
   #b64-tools .b64-tab:hover, #b64-tools .b64-button:hover { transform:translateY(-1px); }
   #b64-tools .b64-grid { display:grid; grid-template-columns:minmax(0, 1fr); gap:20px; }
   #b64-tools .b64-panel { min-width:0; }
@@ -56,6 +58,7 @@
         <button class="b64-tab" type="button" role="tab" aria-selected="true" data-mode="encode">Base64 인코딩</button>
         <button class="b64-tab" type="button" role="tab" aria-selected="false" data-mode="decode">Base64 디코딩</button>
       </div>
+      <label class="b64-option" for="b64-url-safe"><input id="b64-url-safe" type="checkbox"><span>텍스트 인코딩 결과를 URL-safe Base64 형식으로 만들기</span></label>
       <div class="b64-grid">
         <div class="b64-panel">
           <label for="b64-input" id="b64-input-label">원본 텍스트</label>
@@ -101,15 +104,17 @@
     var outputCount = root.querySelector('#b64-output-count');
     var convert = root.querySelector('#b64-convert');
     var message = root.querySelector('#b64-message');
+    var urlSafe = root.querySelector('#b64-url-safe');
     var mode = 'encode';
 
     function setMessage(text, isError) { message.textContent = text; message.className = isError ? 'b64-message error' : 'b64-message'; }
     function updateCounts() { inputCount.textContent = input.value.length.toLocaleString() + '자'; outputCount.textContent = output.value.length.toLocaleString() + '자'; }
     function bytesToBase64(bytes) { var binary = ''; for (var i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(binary); }
-    function base64ToBytes(value) { var normalized = value.replace(/^data:[^,]*,/, '').replace(/\s/g, ''); if (!normalized || !/^[A-Za-z0-9+/]*={0,2}$/.test(normalized) || normalized.length % 4 === 1) throw new Error('유효한 Base64 형식이 아닙니다.'); var binary = atob(normalized); var bytes = new Uint8Array(binary.length); for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i); return bytes; }
+    function base64ToBytes(value) { var normalized = value.replace(/^data:[^,]*,/, '').replace(/\s/g, '').replace(/-/g, '+').replace(/_/g, '/'); while (normalized.length % 4) normalized += '='; if (!normalized || !/^[A-Za-z0-9+/]*={0,2}$/.test(normalized)) throw new Error('유효한 Base64 형식이 아닙니다.'); var binary = atob(normalized); var bytes = new Uint8Array(binary.length); for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i); return bytes; }
+    function toUrlSafe(value) { return value.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, ''); }
     function convertValue() {
       try {
-        if (mode === 'encode') output.value = bytesToBase64(new TextEncoder().encode(input.value));
+        if (mode === 'encode') { var encoded = bytesToBase64(new TextEncoder().encode(input.value)); output.value = urlSafe.checked ? toUrlSafe(encoded) : encoded; }
         else output.value = new TextDecoder('utf-8', { fatal: true }).decode(base64ToBytes(input.value));
         updateCounts(); setMessage('변환이 완료되었습니다.');
       } catch (error) { setMessage(error.message || '변환 중 오류가 발생했습니다.', true); }
@@ -127,6 +132,7 @@
     }
     root.querySelectorAll('.b64-tab').forEach(function (tab) { tab.addEventListener('click', function () { setMode(tab.dataset.mode); }); });
     input.addEventListener('input', updateCounts);
+    urlSafe.addEventListener('change', function () { if (mode === 'encode' && input.value) convertValue(); });
     convert.addEventListener('click', convertValue);
     root.querySelector('#b64-clear').addEventListener('click', function () { input.value = ''; output.value = ''; updateCounts(); setMessage('입력과 결과를 비웠습니다.'); input.focus(); });
     root.querySelector('#b64-copy').addEventListener('click', async function () { if (!output.value) return setMessage('복사할 결과가 없습니다.', true); try { await navigator.clipboard.writeText(output.value); setMessage('결과를 클립보드에 복사했습니다.'); } catch (error) { output.select(); document.execCommand('copy'); setMessage('결과를 클립보드에 복사했습니다.'); } });

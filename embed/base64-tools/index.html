@@ -5,24 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Base64 도구</title>
 <style>
-  body { margin:0; padding:12px; background:#fff; }
-  #b64-tools { --b64-ink:#1d1b20; --b64-muted:#625b71; --b64-surface:#fffbff; --b64-surface-alt:#f7f2fa; --b64-primary:#6750a4; --b64-on-primary:#fff; --b64-outline:#79747e; --b64-error:#b3261e; color:var(--b64-ink); font-family:Arial, sans-serif; line-height:1.5; max-width:1024px; margin:24px auto; }
+  html, body { width:100%; min-width:0; box-sizing:border-box; }
+  body { margin:0; padding:clamp(6px, 1.8vw, 16px); background:#fff; overflow-x:hidden; }
+  #b64-tools { --b64-ink:#1d1b20; --b64-muted:#625b71; --b64-surface:#fffbff; --b64-surface-alt:#f7f2fa; --b64-primary:#6750a4; --b64-on-primary:#fff; --b64-outline:#79747e; width:100%; min-width:0; max-width:none; margin:0; box-sizing:border-box; color:var(--b64-ink); font-family:Arial, sans-serif; line-height:1.5; }
   #b64-tools * { box-sizing:border-box; }
   #b64-tools .b64-shell { background:var(--b64-surface); border:1px solid #e7e0ec; border-radius:28px; box-shadow:0 2px 8px rgba(30,20,40,.08); overflow:hidden; }
   #b64-tools .b64-head { padding:28px 30px 22px; background:linear-gradient(135deg,#f3edf7,#e8def8); }
   #b64-tools h2 { margin:0; font-size:28px; line-height:1.2; letter-spacing:-.5px; }
   #b64-tools .b64-head p { color:var(--b64-muted); margin:8px 0 0; }
-  #b64-tools .b64-main { padding:24px 30px 30px; }
-  #b64-tools .b64-tabs { display:flex; gap:8px; margin-bottom:20px; }
+  #b64-tools .b64-main { min-width:0; padding:24px 30px 30px; }
+  #b64-tools .b64-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
   #b64-tools .b64-tab, #b64-tools .b64-button { border:0; cursor:pointer; font:inherit; font-weight:700; transition:transform .15s, background .15s; }
   #b64-tools .b64-tab { color:var(--b64-primary); background:transparent; border-radius:100px; padding:10px 18px; }
   #b64-tools .b64-tab[aria-selected="true"] { background:#e8def8; }
   #b64-tools .b64-tab:hover, #b64-tools .b64-button:hover { transform:translateY(-1px); }
-  #b64-tools .b64-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  #b64-tools .b64-grid { display:grid; grid-template-columns:minmax(0, 1fr); gap:20px; }
   #b64-tools .b64-panel { min-width:0; }
   #b64-tools label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; }
   #b64-tools textarea, #b64-tools input[type="text"] { display:block; width:100%; color:var(--b64-ink); background:#fefbff; border:1px solid var(--b64-outline); border-radius:14px; font:inherit; outline:none; }
-  #b64-tools textarea { min-height:245px; padding:14px; resize:vertical; }
+  #b64-tools textarea { min-height:220px; padding:14px; resize:vertical; }
   #b64-tools textarea:focus, #b64-tools input[type="text"]:focus { border:2px solid var(--b64-primary); padding:13px; }
   #b64-tools .b64-meta { display:flex; justify-content:space-between; color:var(--b64-muted); font-size:13px; margin-top:7px; }
   #b64-tools .b64-drop { border:1.5px dashed var(--b64-outline); border-radius:14px; color:var(--b64-muted); font-size:13px; margin-top:12px; padding:11px 14px; text-align:center; transition:background .15s, border-color .15s; }
@@ -36,10 +37,10 @@
   #b64-tools input[type="file"] { max-width:100%; }
   #b64-tools .b64-download { border-top:1px solid #e7e0ec; margin-top:24px; padding-top:20px; }
   #b64-tools .b64-download-row { display:flex; gap:10px; margin-top:10px; }
-  #b64-tools .b64-download-row input { min-width:0; padding:11px 13px; }
+  #b64-tools .b64-download-row input { min-width:0; flex:1 1 220px; padding:11px 13px; }
   #b64-tools .b64-message { min-height:20px; color:var(--b64-muted); font-size:13px; margin:15px 0 0; }
   #b64-tools .b64-message.error { color:var(--b64-error); }
-  @media (max-width:680px) { #b64-tools { margin:12px auto; } #b64-tools .b64-shell { border-radius:20px; } #b64-tools .b64-head, #b64-tools .b64-main { padding-left:18px; padding-right:18px; } #b64-tools .b64-grid { grid-template-columns:1fr; } #b64-tools textarea { min-height:180px; } #b64-tools .b64-download-row { flex-wrap:wrap; } }
+  @media (max-width:680px) { #b64-tools .b64-shell { border-radius:20px; } #b64-tools .b64-head, #b64-tools .b64-main { padding-left:16px; padding-right:16px; } #b64-tools textarea { min-height:180px; } #b64-tools .b64-tab, #b64-tools .b64-actions .b64-button { flex:1 1 140px; } #b64-tools .b64-download-row { flex-wrap:wrap; } #b64-tools .b64-download-row .b64-button { width:100%; } #b64-tools input[type="file"] { width:100%; } }
 </style>
 </head>
 <body>

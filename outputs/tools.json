@@ -29,33 +29,33 @@
       "index": 4,
       "tool": "ladder-game",
       "title": "사다리게임",
-      "description": "KOR/ENG 화면에서 참가자와 결과를 추가해 사다리 경로와 매칭을 만듭니다.",
+      "description": "사다리 결과 코드를 공유해 같은 연결선과 매칭을 다시 열고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_14.html",
-      "version": "0.2.0v"
+      "version": "0.3.0v"
     },
     {
       "index": 5,
       "tool": "wheel-spinner",
       "title": "돌림판",
-      "description": "KOR/ENG 화면에서 후보를 추가하고 돌림판을 회전해 하나를 뽑습니다.",
+      "description": "돌림판 결과 코드를 공유해 같은 당첨 항목을 다시 열고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_964.html",
-      "version": "0.2.0v"
+      "version": "0.3.0v"
     },
     {
       "index": 6,
       "tool": "number-picker",
       "title": "숫자뽑기",
-      "description": "숫자 범위를 직접 정하거나 로또·주사위 빠른 설정으로 즉시 뽑습니다.",
+      "description": "숫자 결과 코드를 공유해 같은 숫자를 다시 열고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_549.html",
-      "version": "0.2.0v"
+      "version": "0.3.0v"
     },
     {
       "index": 7,
       "tool": "team-divider",
       "title": "다중팀 편가르기",
-      "description": "KOR/ENG 화면에서 참가자를 추가하고 2~10개 팀에 균등하게 나눕니다.",
+      "description": "편가르기 결과 코드를 공유해 같은 팀 구성을 다시 열고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_641.html",
-      "version": "0.2.0v"
+      "version": "0.3.0v"
     },
     {
       "index": 8,

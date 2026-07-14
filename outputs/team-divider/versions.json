@@ -2,9 +2,9 @@
   "index": 7,
   "tool": "team-divider",
   "title": "다중팀 편가르기",
-  "description": "KOR/ENG 화면에서 참가자를 추가하고 2~10개 팀에 균등하게 나눕니다.",
+  "description": "편가르기 결과 코드를 공유해 같은 팀 구성을 다시 열고 PNG로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_641.html",
-  "latestVersion": "0.2.0v",
+  "latestVersion": "0.3.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -32,6 +32,15 @@
       "directory": "0.2.0v",
       "html": "0.2.0v/team-divider.html",
       "patchNotes": "0.2.0v/patch-notes.json"
+    },
+    {
+      "version": "0.3.0v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minor",
+      "summary": "결과 코드 공유, 같은 팀 구성 복원과 PNG 저장을 추가했습니다.",
+      "directory": "0.3.0v",
+      "html": "0.3.0v/team-divider.html",
+      "patchNotes": "0.3.0v/patch-notes.json"
     }
   ]
 }

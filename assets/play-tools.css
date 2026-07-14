@@ -76,6 +76,12 @@ body { margin: 0; padding: clamp(6px, 1.8vw, 16px); background: #fff; overflow-x
 .play-team h3 { margin: 0 0 10px; color: #075675; font-size: 1rem; }
 .play-team ol { margin: 0; padding-left: 22px; }
 .play-team li { margin: 5px 0; overflow-wrap: anywhere; }
+.play-share { margin-top: 22px; padding: clamp(14px, 2.5vw, 20px); border: 1px solid var(--play-line); border-radius: 14px; background: #f8fcfe; }
+.play-share h2 { margin: 0 0 6px; font-size: 1.08rem; }
+.play-share .play-help { margin-bottom: 12px; }
+.play-share textarea { min-height: 92px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .78rem; overflow-wrap: anywhere; }
+.play-share-note { margin: 10px 0 0; color: var(--play-muted); font-size: .8rem; }
+.play-share .play-status { margin-top: 12px; }
 @media (max-width: 640px) {
   .play-tool { padding: 14px; }
   .play-grid, .play-mapping, .play-teams { grid-template-columns: 1fr; }

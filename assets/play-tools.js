@@ -104,10 +104,16 @@ export function setupListEditor({ container, addButton, initialValues, label, pl
     }
     return values;
   }
+  function setValues(values) {
+    container.replaceChildren();
+    values.slice(0, max).forEach((value) => add(String(value), false));
+    while (rows().length < min) add('', false);
+    sync();
+  }
   addButton.addEventListener('click', () => add('', true));
   initialValues.forEach((value) => add(value, false));
   sync();
-  return { add, getValues, count: () => rows().length };
+  return { add, getValues, setValues, count: () => rows().length };
 }
 
 export function setupPairedListEditor({ container, addButton, initialValues, leftLabel, rightLabel, leftPlaceholder, rightPlaceholder, min = 2, max, leftMaxLength = 24, rightMaxLength = 30 }) {
@@ -200,10 +206,16 @@ export function setupPairedListEditor({ container, addButton, initialValues, lef
     }
     return values;
   }
+  function setValues(values) {
+    container.replaceChildren();
+    values.slice(0, max).forEach((value) => add({ left: String(value.left || ''), right: String(value.right || '') }, false));
+    while (rows().length < min) add({ left: '', right: '' }, false);
+    sync();
+  }
   addButton.addEventListener('click', () => add({ left: '', right: '' }, true));
   initialValues.forEach((value) => add(value, false));
   sync();
-  return { add, getValues, count: () => rows().length };
+  return { add, getValues, setValues, count: () => rows().length };
 }
 
 export async function copyText(value) {

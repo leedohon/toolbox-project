@@ -78,7 +78,9 @@
 7. `node scripts/build-tool-catalog.mjs`를 실행해 모든 `versions.json`에서 `outputs/tools.json`을 다시 만든다. 카탈로그를 손으로 중복 편집하지 않는다.
 8. Blogger 게시글을 발행하거나 주소가 바뀌면 `node scripts/blogger-sync-post-urls.mjs`로 글 제목과 도구 제목을 대조해 `postUrl`과 카탈로그를 갱신한다.
 9. `versions.json`에 기록된 HTML 및 패치 노트 상대 경로가 실제 파일을 가리키는지, `outputs/tools.json`과 최신 버전이 일치하는지 확인하고 모든 JSON의 구문을 검증한다.
-10. 사용자에게 새 버전 번호, 변경 등급, 게시글 HTML 및 기능 HTML 경로, 주요 변경 내역을 보고한다.
+10. 구현이 끝나면 Blogger 게시글과 iframe 도구를 데스크톱·모바일 화면에서 직접 열어 디자인 이상 여부를 확인한다. 가로 넘침, 비정상적인 폭 축소, 잘림, 중복 스크롤, 간격, 글자 크기, 버튼 줄바꿈, 표·오류 상태를 점검하고 문제가 있으면 수정 후 같은 화면에서 다시 검증한다.
+11. 디자인 검증 결과와 실제 수정 사항을 새 버전의 `patch-notes.json`에 기록한다.
+12. 사용자에게 새 버전 번호, 변경 등급, 게시글 HTML 및 기능 HTML 경로, 주요 변경 내역과 디자인 검증 결과를 보고한다.
 
 ## Blogger 게시 자동화 원칙
 

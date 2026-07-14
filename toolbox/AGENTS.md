@@ -64,6 +64,8 @@
 6. `node scripts/build-tool-catalog.mjs`로 전체 카탈로그를 다시 만든다.
 7. Blogger 글을 발행하거나 주소가 바뀌면 `node scripts/blogger-sync-post-urls.mjs`로 `postUrl`을 동기화한다.
 8. JSON 구문, 버전 경로, 최신 버전 일치, iframe 높이 동작을 검증한다.
+9. 구현 완료 후 게시글과 iframe 도구를 데스크톱·모바일 화면에서 직접 확인한다. 폭 축소, 가로 넘침, 잘림, 중복 스크롤, 간격, 글자 크기, 버튼 줄바꿈, 표와 오류 상태가 이상하면 수정하고 다시 확인한다.
+10. 디자인 점검 결과와 점검 중 수정한 내용을 해당 버전의 `patch-notes.json`에 기록한 뒤 공개·배포를 완료한다.
 
 버전 형식은 `[major].[minor].[minimum]v`이며 최초 버전은 `0.0.1v`다. 단순 수정은 `minimum`, 작은 기능 변경은 `minor`, 기능 개편은 `major`로 올린다.
 

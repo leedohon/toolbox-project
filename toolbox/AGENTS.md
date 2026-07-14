@@ -9,11 +9,11 @@
 ## 반드시 지킬 원칙
 
 1. 한 게시글은 하나의 도구와 그 도구에 필요한 안내에만 집중한다.
-2. 도구는 가입·설치·별도 웹사이트 방문 없이 Blogger 게시글 안에서 바로 실행되어야 한다.
+2. 도구는 가입·설치·별도 웹사이트 방문 없이 Blogger 게시글의 iframe 안에서 바로 실행되어야 한다.
 3. 게시글 원고는 Blogger의 **HTML 보기**에 전체를 복사·붙여 넣을 수 있는 HTML 조각으로 작성한다.
 4. 모든 외부 스크립트·리소스는 HTTPS로 불러온다.
-5. JavaScript와 CSS는 해당 도구의 고유 ID 범위 안에서만 동작하게 작성해, 다른 게시글·테마와 충돌하지 않게 한다.
-6. 복잡한 서버 처리 또는 대용량 파일 처리가 꼭 필요한 경우에만 별도 도메인·iframe 방식을 검토한다.
+5. 게시글 HTML은 설명 콘텐츠와 고정 iframe 주소를 포함하고, JavaScript와 CSS 기능 구현은 `embed/<도구명>/index.html`에 둔다.
+6. iframe은 `https://leedohon.github.io/toolbox-project/embed/<도구명>/` 형식을 사용하여 GitHub Pages의 최신 기능을 불러온다.
 
 ## 게시글 기본 구성
 
@@ -42,9 +42,10 @@
 ## 파일 구성
 
 - `toolbox/tools/`: 도구 정의와 입력 규칙
-- `toolbox/posts/`: 블로그 게시글 원본
+- `toolbox/posts/`: Blogger에 복사할 게시글 HTML 원본
 - `toolbox/templates/`: 새 도구 게시글을 만들 때 참조하는 기본 템플릿
 - `outputs/<도구명>/<버전>/`: Blogger에 복사할 최종 HTML과 버전별 `patch-notes.json`
+- `embed/<도구명>/index.html`: GitHub Pages에서 제공하는 최신 iframe 기능 HTML
 
 ## 결과물 버전 관리
 

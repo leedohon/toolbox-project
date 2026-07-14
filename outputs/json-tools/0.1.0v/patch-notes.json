@@ -1,0 +1,11 @@
+{
+  "tool": "json-tools",
+  "version": "0.1.0v",
+  "releaseDate": "2026-07-15",
+  "changeLevel": "minor",
+  "changes": [
+    "Blogger 게시글의 설명 콘텐츠와 실행 기능을 분리했습니다.",
+    "게시글이 GitHub Pages의 고정 iframe 주소에서 최신 기능을 불러오도록 변경했습니다.",
+    "기존 0.0.1v 결과물은 변경하지 않고 보존했습니다."
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "tool": "base64-tools",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -10,6 +10,15 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/base64-tools.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minor",
+      "summary": "Blogger 게시글과 GitHub Pages iframe 기능을 분리한 자동 업데이트 구조입니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/base64-tools.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
   ]
 }

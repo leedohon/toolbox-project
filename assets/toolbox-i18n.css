@@ -1,0 +1,47 @@
+.toolbox-language {
+  display: flex;
+  width: 100%;
+  margin: 0 auto 12px;
+  justify-content: flex-end;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+}
+
+.toolbox-language__group {
+  display: inline-flex;
+  padding: 3px;
+  gap: 2px;
+  border: 1px solid #b9d8e7;
+  border-radius: 999px;
+  background: #f2fbff;
+}
+
+.toolbox-language__button {
+  min-width: 54px;
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #315464;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.toolbox-language__button[aria-pressed="true"] {
+  background: #0879b2;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(8, 76, 112, .2);
+}
+
+.toolbox-language__button:focus-visible {
+  outline: 3px solid rgba(8, 121, 178, .25);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .toolbox-language { margin-bottom: 10px; }
+  .toolbox-language__button { min-width: 50px; min-height: 40px; }
+}

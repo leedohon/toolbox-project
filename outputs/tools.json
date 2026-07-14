@@ -5,65 +5,65 @@
       "index": 1,
       "tool": "qr-barcode-generator",
       "title": "QR · 바코드 생성기",
-      "description": "텍스트나 URL로 원하는 색상의 QR 코드와 Code 128 바코드를 만들어 저장합니다.",
+      "description": "KOR/ENG 화면에서 QR·바코드를 만들고 바코드 하단 텍스트 표시를 선택합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
-      "version": "0.3.0v"
+      "version": "0.4.0v"
     },
     {
       "index": 2,
       "tool": "json-tools",
       "title": "JSON 도구",
-      "description": "JSON을 검사하고 정리하거나 표로 미리 본 뒤 Excel·CSV 파일로 저장합니다.",
+      "description": "KOR/ENG 화면에서 JSON을 검사·정리하고 Excel·CSV 파일로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-      "version": "0.4.0v"
+      "version": "0.5.0v"
     },
     {
       "index": 3,
       "tool": "base64-tools",
       "title": "Base64 도구",
-      "description": "텍스트와 파일을 일반 또는 URL-safe Base64로 변환하고 결과를 저장합니다.",
+      "description": "KOR/ENG 화면에서 텍스트와 파일을 일반 또는 URL-safe Base64로 변환하고 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
-      "version": "0.4.0v"
+      "version": "0.5.0v"
     },
     {
       "index": 4,
       "tool": "ladder-game",
       "title": "사다리게임",
-      "description": "참가자와 결과를 입력 행으로 추가해 실제 사다리 경로와 무작위 매칭을 만듭니다.",
+      "description": "KOR/ENG 화면에서 참가자와 결과를 추가해 사다리 경로와 매칭을 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_14.html",
-      "version": "0.1.0v"
+      "version": "0.2.0v"
     },
     {
       "index": 5,
       "tool": "wheel-spinner",
       "title": "돌림판",
-      "description": "메뉴나 벌칙 같은 항목을 입력 행으로 추가하고 돌림판을 회전해 하나를 뽑습니다.",
+      "description": "KOR/ENG 화면에서 후보를 추가하고 돌림판을 회전해 하나를 뽑습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_964.html",
-      "version": "0.1.0v"
+      "version": "0.2.0v"
     },
     {
       "index": 6,
       "tool": "number-picker",
       "title": "숫자뽑기",
-      "description": "숫자 범위와 개수, 중복 여부를 정해 무작위 숫자를 뽑습니다.",
+      "description": "KOR/ENG 화면에서 숫자 범위와 개수, 중복 여부를 정해 숫자를 뽑습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_549.html",
-      "version": "0.0.1v"
+      "version": "0.1.0v"
     },
     {
       "index": 7,
       "tool": "team-divider",
       "title": "다중팀 편가르기",
-      "description": "참가자를 입력 행으로 추가하고 무작위로 섞어 2~10개 팀에 균등하게 나눕니다.",
+      "description": "KOR/ENG 화면에서 참가자를 추가하고 2~10개 팀에 균등하게 나눕니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_641.html",
-      "version": "0.1.0v"
+      "version": "0.2.0v"
     },
     {
       "index": 8,
       "tool": "image-mosaic-tool",
       "title": "이미지 모자이크 도구",
-      "description": "이미지를 불러와 숨길 영역을 드래그해 모자이크 처리하고 PNG로 저장합니다.",
+      "description": "KOR/ENG 화면에서 이미지를 드래그해 모자이크 처리하고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
-      "version": "0.0.1v"
+      "version": "0.1.0v"
     }
   ]
 }

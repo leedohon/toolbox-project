@@ -54,6 +54,7 @@ export function setupListEditor({ container, addButton, initialValues, label, pl
     input.maxLength = maxLength;
     input.placeholder = placeholder;
     input.value = value;
+    if (value) input.dataset.i18nSample = 'true';
     const remove = document.createElement('button');
     remove.className = 'play-remove';
     remove.type = 'button';
@@ -137,12 +138,14 @@ export function setupPairedListEditor({ container, addButton, initialValues, lef
     left.maxLength = leftMaxLength;
     left.placeholder = leftPlaceholder;
     left.value = value.left;
+    if (value.left) left.dataset.i18nSample = 'true';
     const right = document.createElement('input');
     right.className = 'play-pair-right';
     right.type = 'text';
     right.maxLength = rightMaxLength;
     right.placeholder = rightPlaceholder;
     right.value = value.right;
+    if (value.right) right.dataset.i18nSample = 'true';
     const remove = document.createElement('button');
     remove.className = 'play-remove';
     remove.type = 'button';

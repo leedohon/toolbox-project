@@ -1,4 +1,6 @@
 <!-- Blogger 글쓰기 화면에서 HTML 보기로 전환한 뒤, 이 파일 전체를 붙여 넣으세요. -->
+<link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
+<script src="../../assets/toolbox-i18n.js?v=0.1.0"></script>
 <article id="toolbox-qr-post" class="toolbox-post">
   <style>
     html, body { width: 100%; min-width: 0; box-sizing: border-box; }
@@ -35,6 +37,8 @@
     #toolbox-qr-post .tb-colors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     #toolbox-qr-post .tb-color { display: flex; min-width: 0; padding: 10px 12px; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid #b9ccd6; border-radius: 10px; background: #fff; }
     #toolbox-qr-post .tb-color label { font-weight: 700; }
+    #toolbox-qr-post .tb-check { display: flex; min-height: 44px; padding: 10px 12px; align-items: center; gap: 10px; border: 1px solid #b9ccd6; border-radius: 10px; background: #fff; font-weight: 700; cursor: pointer; }
+    #toolbox-qr-post .tb-check input { width: 20px; height: 20px; margin: 0; accent-color: var(--tb-sky); }
     #toolbox-qr-post input[type="color"] { width: 48px; height: 36px; padding: 2px; border: 1px solid #b9ccd6; border-radius: 8px; background: #fff; cursor: pointer; }
     #toolbox-qr-post .tb-actions { display: flex; flex-wrap: wrap; gap: 10px; }
     #toolbox-qr-post button { min-height: 44px; padding: 0 18px; border: 1px solid transparent; border-radius: .5rem; font: inherit; font-weight: 700; cursor: pointer; }
@@ -82,6 +86,9 @@
         <div class="tb-choice"><input id="tb-rounded" name="tb-style" type="radio" value="rounded"><label for="tb-rounded">둥근형</label></div>
       </div>
     </fieldset>
+    <div class="tb-field" id="tb-barcode-text-field" hidden>
+      <label class="tb-check" for="tb-barcode-text"><input checked id="tb-barcode-text" type="checkbox">바코드 하단 텍스트 표시</label>
+    </div>
     <div class="tb-field">
       <div class="tb-range-label"><label class="tb-label" for="tb-size">크기</label><output id="tb-size-value">280px</output></div>
       <input id="tb-size" type="range" min="180" max="420" step="10" value="280">
@@ -117,7 +124,7 @@
     (function () {
       const root = document.getElementById('toolbox-qr-post');
       const $ = selector => root.querySelector(selector);
-      const content = $('#tb-content'), size = $('#tb-size'), foreground = $('#tb-foreground'), background = $('#tb-background'), canvas = $('#tb-canvas'), barcode = $('#tb-barcode-svg'), error = $('#tb-error');
+      const content = $('#tb-content'), size = $('#tb-size'), foreground = $('#tb-foreground'), background = $('#tb-background'), barcodeText = $('#tb-barcode-text'), canvas = $('#tb-canvas'), barcode = $('#tb-barcode-svg'), error = $('#tb-error');
       const valueOf = name => root.querySelector('input[name="' + name + '"]:checked').value;
       const finder = (r, c, n) => (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7);
       function roundedRect(ctx, x, y, width, height, radius) {
@@ -150,15 +157,16 @@
       }
       function makeBarcode() {
         const text = content.value.trim(); if (!text) throw new Error('텍스트 또는 URL을 입력해 주세요.');
-        JsBarcode(barcode, text, { format: 'CODE128', width: Math.max(1, Number(size.value) / 180), height: Math.round(Number(size.value) * .36), margin: 12, displayValue: true, fontSize: 16, background: background.value, lineColor: foreground.value });
+        JsBarcode(barcode, text, { format: 'CODE128', width: Math.max(1, Number(size.value) / 180), height: Math.round(Number(size.value) * .36), margin: 12, displayValue: barcodeText.checked, fontSize: 16, background: background.value, lineColor: foreground.value });
         barcode.style.width = Math.min(Number(size.value) * 1.4, 560) + 'px'; barcode.style.display = 'block'; canvas.style.display = 'none';
       }
       function generate() { error.textContent = ''; try { valueOf('tb-type') === 'qr' ? makeQr() : makeBarcode(); } catch (e) { error.textContent = e.message || '생성하지 못했습니다.'; } }
-      function updateType() { const qr = valueOf('tb-type') === 'qr'; $('#tb-style-field').hidden = !qr; generate(); }
+      function updateType() { const qr = valueOf('tb-type') === 'qr'; $('#tb-style-field').hidden = !qr; $('#tb-barcode-text-field').hidden = qr; generate(); }
       content.addEventListener('input', generate);
       size.addEventListener('input', function () { $('#tb-size-value').textContent = size.value + 'px'; generate(); });
       foreground.addEventListener('input', generate);
       background.addEventListener('input', generate);
+      barcodeText.addEventListener('change', generate);
       root.querySelectorAll('input[name="tb-type"]').forEach(el => el.addEventListener('change', updateType));
       root.querySelectorAll('input[name="tb-style"]').forEach(el => el.addEventListener('change', generate));
       $('#tb-download').addEventListener('click', function () { const a = document.createElement('a'); if (valueOf('tb-type') === 'qr') { a.href = canvas.toDataURL('image/png'); a.download = 'qr-code.png'; } else { a.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(barcode)); a.download = 'barcode.svg'; } a.click(); });

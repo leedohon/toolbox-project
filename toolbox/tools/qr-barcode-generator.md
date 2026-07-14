@@ -27,6 +27,9 @@ inputs:
   - key: backgroundColor
     label: 배경색
     type: color
+  - key: displayBarcodeText
+    label: 바코드 하단 텍스트 표시
+    type: checkbox
 ---
 
 # 기능
@@ -35,6 +38,12 @@ inputs:
 - 기본형과 둥근형 QR 스타일(세 위치 표시 마크 포함)
 - 크기 조절 및 PNG·SVG 저장
 - QR 코드와 바코드의 전경색·배경색 설정
+- Code 128 바코드 하단 텍스트 표시 여부 선택
+
+# 공통 언어
+
+- 공통 `KOR / ENG` 선택기를 사용하며 모든 조작·상태·오류 문구를 선택 언어로 표시한다.
+- 선택 언어는 다른 도구와 공유해 유지한다.
 
 # 게시 규칙
 

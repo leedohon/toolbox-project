@@ -2,9 +2,9 @@
   "index": 1,
   "tool": "qr-barcode-generator",
   "title": "QR · 바코드 생성기",
-  "description": "텍스트나 URL로 원하는 색상의 QR 코드와 Code 128 바코드를 만들어 저장합니다.",
+  "description": "KOR/ENG 화면에서 QR·바코드를 만들고 바코드 하단 텍스트 표시를 선택합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
-  "latestVersion": "0.3.0v",
+  "latestVersion": "0.4.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -43,6 +43,7 @@
       "patchNotes": "0.2.0v/patch-notes.json"
     },
     {"version":"0.2.1v","releaseDate":"2026-07-15","changeLevel":"minimum","summary":"반복 CSS를 제거하고 Blogger 전역 게시글 테마를 사용하도록 전환했습니다.","directory":"0.2.1v","html":"0.2.1v/first-post-qr-barcode-generator.html","patchNotes":"0.2.1v/patch-notes.json"},
-    {"version":"0.3.0v","releaseDate":"2026-07-15","changeLevel":"minor","summary":"전경색·배경색 설정과 전체 폭 반응형 레이아웃을 추가했습니다.","directory":"0.3.0v","html":"0.3.0v/first-post-qr-barcode-generator.html","patchNotes":"0.3.0v/patch-notes.json"}
+    {"version":"0.3.0v","releaseDate":"2026-07-15","changeLevel":"minor","summary":"전경색·배경색 설정과 전체 폭 반응형 레이아웃을 추가했습니다.","directory":"0.3.0v","html":"0.3.0v/first-post-qr-barcode-generator.html","patchNotes":"0.3.0v/patch-notes.json"},
+    {"version":"0.4.0v","releaseDate":"2026-07-15","changeLevel":"minor","summary":"공통 KOR / ENG 전환과 바코드 하단 텍스트 표시 선택을 추가했습니다.","directory":"0.4.0v","html":"0.4.0v/first-post-qr-barcode-generator.html","patchNotes":"0.4.0v/patch-notes.json"}
   ]
 }

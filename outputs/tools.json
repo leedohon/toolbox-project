@@ -5,25 +5,25 @@
       "index": 1,
       "tool": "qr-barcode-generator",
       "title": "QR · 바코드 생성기",
-      "description": "KOR/ENG 화면에서 QR·바코드를 만들고 바코드 하단 텍스트 표시를 선택합니다.",
+      "description": "KOR/ENG 화면에서 QR·바코드를 만들고 설정을 한 번에 초기화할 수 있습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
-      "version": "0.4.0v"
+      "version": "0.5.0v"
     },
     {
       "index": 2,
       "tool": "json-tools",
       "title": "JSON 도구",
-      "description": "KOR/ENG 화면에서 JSON을 검사·정리하고 Excel·CSV 파일로 저장합니다.",
+      "description": "예제 JSON을 바로 불러와 검사·정리하고 Excel·CSV 파일로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-      "version": "0.5.0v"
+      "version": "0.6.0v"
     },
     {
       "index": 3,
       "tool": "base64-tools",
       "title": "Base64 도구",
-      "description": "KOR/ENG 화면에서 텍스트와 파일을 일반 또는 URL-safe Base64로 변환하고 저장합니다.",
+      "description": "Base64 입력과 결과를 바꾸며 인코딩·디코딩을 빠르게 오갈 수 있습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
-      "version": "0.5.0v"
+      "version": "0.6.0v"
     },
     {
       "index": 4,
@@ -45,9 +45,9 @@
       "index": 6,
       "tool": "number-picker",
       "title": "숫자뽑기",
-      "description": "KOR/ENG 화면에서 숫자 범위와 개수, 중복 여부를 정해 숫자를 뽑습니다.",
+      "description": "숫자 범위를 직접 정하거나 로또·주사위 빠른 설정으로 즉시 뽑습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_549.html",
-      "version": "0.1.0v"
+      "version": "0.2.0v"
     },
     {
       "index": 7,

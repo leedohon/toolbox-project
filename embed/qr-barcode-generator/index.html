@@ -1,6 +1,6 @@
 <!-- Blogger 글쓰기 화면에서 HTML 보기로 전환한 뒤, 이 파일 전체를 붙여 넣으세요. -->
 <link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
-<script src="../../assets/toolbox-i18n.js?v=0.1.0"></script>
+<script src="../../assets/toolbox-i18n.js?v=0.1.1"></script>
 <article id="toolbox-qr-post" class="toolbox-post">
   <style>
     html, body { width: 100%; min-width: 0; box-sizing: border-box; }
@@ -102,7 +102,7 @@
       <canvas id="tb-canvas" aria-label="생성된 QR 코드"></canvas>
       <svg id="tb-barcode-svg" aria-label="생성된 바코드" style="display:none"></svg>
     </div>
-    <button class="tb-primary" id="tb-download" type="button">이미지 저장</button>
+    <div class="tb-actions"><button class="tb-primary" id="tb-download" type="button">이미지 저장</button><button class="tb-secondary" id="tb-reset" type="button">기본값으로 초기화</button></div>
   </div>
 
   <h2>사용 방법</h2>
@@ -169,6 +169,7 @@
       barcodeText.addEventListener('change', generate);
       root.querySelectorAll('input[name="tb-type"]').forEach(el => el.addEventListener('change', updateType));
       root.querySelectorAll('input[name="tb-style"]').forEach(el => el.addEventListener('change', generate));
+      $('#tb-reset').addEventListener('click', function () { content.value = 'https://bloggiedh.blogspot.com/'; $('#tb-qr').checked = true; $('#tb-basic').checked = true; size.value = '280'; $('#tb-size-value').textContent = '280px'; foreground.value = '#111111'; background.value = '#ffffff'; barcodeText.checked = true; updateType(); content.focus(); });
       $('#tb-download').addEventListener('click', function () { const a = document.createElement('a'); if (valueOf('tb-type') === 'qr') { a.href = canvas.toDataURL('image/png'); a.download = 'qr-code.png'; } else { a.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(barcode)); a.download = 'barcode.svg'; } a.click(); });
       generate();
     }());

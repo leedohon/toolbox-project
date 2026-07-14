@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Base64 도구</title>
 <link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
-<script src="../../assets/toolbox-i18n.js?v=0.1.0"></script>
+<script src="../../assets/toolbox-i18n.js?v=0.1.1"></script>
 <style>
   html, body { width:100%; min-width:0; box-sizing:border-box; }
   body { margin:0; padding:clamp(6px, 1.8vw, 16px); background:#fff; overflow-x:hidden; }
@@ -76,6 +76,7 @@
       </div>
       <div class="b64-actions">
         <button class="b64-button b64-primary" type="button" id="b64-convert">Base64로 인코딩</button>
+        <button class="b64-button b64-secondary" type="button" id="b64-swap">입력·결과 바꾸기</button>
         <button class="b64-button b64-secondary" type="button" id="b64-copy">결과 복사</button>
         <button class="b64-button b64-secondary" type="button" id="b64-clear">초기화</button>
       </div>
@@ -118,8 +119,8 @@
       try {
         if (mode === 'encode') { var encoded = bytesToBase64(new TextEncoder().encode(input.value)); output.value = urlSafe.checked ? toUrlSafe(encoded) : encoded; }
         else output.value = new TextDecoder('utf-8', { fatal: true }).decode(base64ToBytes(input.value));
-        updateCounts(); setMessage('변환이 완료되었습니다.');
-      } catch (error) { setMessage(error.message || '변환 중 오류가 발생했습니다.', true); }
+        updateCounts(); setMessage('변환이 완료되었습니다.'); return true;
+      } catch (error) { setMessage(error.message || '변환 중 오류가 발생했습니다.', true); return false; }
     }
     function setMode(nextMode) {
       mode = nextMode;
@@ -136,6 +137,7 @@
     input.addEventListener('input', updateCounts);
     urlSafe.addEventListener('change', function () { if (mode === 'encode' && input.value) convertValue(); });
     convert.addEventListener('click', convertValue);
+    root.querySelector('#b64-swap').addEventListener('click', function () { if (!output.value) return setMessage('바꿀 변환 결과가 없습니다.', true); var nextInput = output.value; setMode(mode === 'encode' ? 'decode' : 'encode'); input.value = nextInput; updateCounts(); if (convertValue()) setMessage('입력과 결과를 바꾸고 반대 변환 모드로 전환했습니다.'); });
     root.querySelector('#b64-clear').addEventListener('click', function () { input.value = ''; output.value = ''; updateCounts(); setMessage('입력과 결과를 비웠습니다.'); input.focus(); });
     root.querySelector('#b64-copy').addEventListener('click', async function () { if (!output.value) return setMessage('복사할 결과가 없습니다.', true); try { await navigator.clipboard.writeText(output.value); setMessage('결과를 클립보드에 복사했습니다.'); } catch (error) { output.select(); document.execCommand('copy'); setMessage('결과를 클립보드에 복사했습니다.'); } });
     function loadFile(file) { if (!file) return; var reader = new FileReader(); reader.onload = function () { setMode('encode'); input.value = String(reader.result); output.value = String(reader.result); root.querySelector('#b64-filename').value = file.name + '.txt'; updateCounts(); setMessage(file.name + ' 파일을 data: URL Base64로 변환했습니다.'); }; reader.onerror = function () { setMessage('파일을 읽지 못했습니다.', true); }; reader.readAsDataURL(file); }

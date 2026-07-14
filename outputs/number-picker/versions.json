@@ -2,9 +2,9 @@
   "index": 6,
   "tool": "number-picker",
   "title": "숫자뽑기",
-  "description": "KOR/ENG 화면에서 숫자 범위와 개수, 중복 여부를 정해 숫자를 뽑습니다.",
+  "description": "숫자 범위를 직접 정하거나 로또·주사위 빠른 설정으로 즉시 뽑습니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_549.html",
-  "latestVersion": "0.1.0v",
+  "latestVersion": "0.2.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -23,6 +23,15 @@
       "directory": "0.1.0v",
       "html": "0.1.0v/number-picker.html",
       "patchNotes": "0.1.0v/patch-notes.json"
+    },
+    {
+      "version": "0.2.0v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minor",
+      "summary": "로또 6/45와 주사위 1~6 빠른 설정을 추가했습니다.",
+      "directory": "0.2.0v",
+      "html": "0.2.0v/number-picker.html",
+      "patchNotes": "0.2.0v/patch-notes.json"
     }
   ]
 }

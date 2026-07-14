@@ -1,6 +1,6 @@
 <!-- Blogger 글쓰기 화면에서 HTML 보기로 전환한 뒤, 이 파일 전체를 붙여 넣으세요. -->
 <link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
-<script src="../../assets/toolbox-i18n.js?v=0.1.0"></script>
+<script src="../../assets/toolbox-i18n.js?v=0.1.1"></script>
 <article id="toolbox-json-tools" class="toolbox-post">
   <style>
     html, body { width: 100%; min-width: 0; box-sizing: border-box; }
@@ -179,6 +179,7 @@
     </div>
     <p class="tb-error" id="json-error" role="alert"></p>
     <div class="tb-actions">
+      <button class="tb-secondary" id="json-sample" type="button">예제 JSON 불러오기</button>
       <button class="tb-primary" id="json-copy" type="button">결과 복사</button>
       <button class="tb-primary" id="json-download" type="button">JSON 파일 저장</button>
       <button class="tb-secondary" id="json-clear" type="button">전체 비우기</button>
@@ -322,6 +323,7 @@
       root.querySelectorAll('input[name="json-mode"]').forEach(function (element) { element.addEventListener('change', update); });
       input.addEventListener('input', update);
       input.addEventListener('scroll', function () { output.scrollTop = input.scrollTop; output.scrollLeft = input.scrollLeft; });
+      root.querySelector('#json-sample').addEventListener('click', function () { root.querySelector('#json-pretty').checked = true; input.value = JSON.stringify([{ name: 'Toolbox', category: 'Utility', users: 1200, active: true }, { name: 'Converter', category: 'Text', users: 860, active: true }, { name: 'Play Tools', category: 'Game', users: 540, active: false }], null, 2); update(); setStatus('valid', '예제 JSON을 불러왔습니다.'); input.focus(); });
       root.querySelector('#json-copy').addEventListener('click', async function (event) {
         if (!latestResult) { error.textContent = '복사할 유효한 JSON 결과가 없습니다.'; return; }
         try {

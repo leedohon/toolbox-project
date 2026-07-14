@@ -1,0 +1,19 @@
+{
+  "index": 7,
+  "tool": "team-divider",
+  "title": "다중팀 편가르기",
+  "description": "참가자를 무작위로 섞어 2~10개 팀에 최대한 균등하게 나눕니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_641.html",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "최대 10개 팀 균등 배분과 결과 복사를 제공하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/team-divider.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "index": 5,
+  "tool": "wheel-spinner",
+  "title": "돌림판",
+  "description": "메뉴나 벌칙 같은 항목을 입력하고 돌림판을 회전해 하나를 뽑습니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_964.html",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "항목별 돌림판과 회전 추첨을 제공하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/wheel-spinner.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

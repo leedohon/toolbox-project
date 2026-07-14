@@ -1,0 +1,19 @@
+{
+  "index": 6,
+  "tool": "number-picker",
+  "title": "숫자뽑기",
+  "description": "숫자 범위와 개수, 중복 여부를 정해 무작위 숫자를 뽑습니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_549.html",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "범위, 개수, 중복과 정렬을 지원하는 숫자 추첨 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/number-picker.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

@@ -17,7 +17,11 @@ for (const filePath of jsonFiles) {
   JSON.parse(readFileSync(filePath, "utf8"));
 }
 
-for (const tool of ["json-tools", "base64-tools", "qr-barcode-generator"]) {
+const toolDirectories = readdirSync(outputRoot, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => entry.name);
+
+for (const tool of toolDirectories) {
   const versionFile = join(outputRoot, tool, "versions.json");
   const manifest = JSON.parse(readFileSync(versionFile, "utf8"));
   const latest = manifest.versions.find(

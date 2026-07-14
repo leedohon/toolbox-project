@@ -1,0 +1,19 @@
+{
+  "index": 4,
+  "tool": "ladder-game",
+  "title": "사다리게임",
+  "description": "참가자와 결과를 입력해 실제 사다리 경로로 무작위 매칭을 만듭니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_14.html",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "실제 사다리 경로와 매칭 결과를 제공하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/ladder-game.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

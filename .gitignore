@@ -1,0 +1,6 @@
+# Local credentials and OAuth tokens
+.secrets/
+credentials*.json
+client_secret*.json
+token*.json
+

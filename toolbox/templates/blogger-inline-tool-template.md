@@ -33,10 +33,12 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
   <iframe
     src="https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/"
     title="{{title}}"
+    id="toolbox-{{tool-id}}-frame"
     width="100%"
-    height="{{iframe-height}}"
+    height="{{iframe-fallback-height}}"
     loading="lazy"
-    style="display:block;width:100%;border:0;border-radius:12px;background:#fff"
+    scrolling="no"
+    style="display:block;width:100%;border:0;border-radius:12px;background:#fff;overflow:hidden"
     referrerpolicy="strict-origin-when-cross-origin"></iframe>
   <p>도구가 보이지 않으면 <a href="https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/" target="_blank" rel="noopener">새 창에서 열기</a>를 이용하세요.</p>
 
@@ -47,6 +49,16 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
   <details><summary>{{question-1}}</summary><p>{{answer-1}}</p></details>
   <details><summary>업데이트 때 게시글을 다시 수정해야 하나요?</summary><p>아니요. 고정된 iframe 주소에서 최신 기능을 불러옵니다.</p></details>
 </article>
+<script>
+  (function () {
+    var frame = document.getElementById('toolbox-{{tool-id}}-frame');
+    window.addEventListener('message', function (event) {
+      if (event.origin !== 'https://leedohon.github.io' || !event.data || event.data.source !== 'toolbox-embed' || event.data.tool !== '{{tool-id}}') return;
+      var height = Number(event.data.height);
+      if (Number.isFinite(height) && height >= 320 && height <= 3000) frame.style.height = Math.ceil(height) + 'px';
+    });
+  }());
+</script>
 ```
 
 ## 운영 절차
@@ -56,3 +68,4 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
 3. 게시글 iframe의 `src`는 버전과 관계없이 고정 주소를 유지한다.
 4. `patch-notes.json`과 `versions.json`을 함께 갱신한다.
 5. GitHub Pages의 배포 원본은 `main` 브랜치 루트로 설정한다.
+6. 기능 HTML은 `ResizeObserver`로 실제 높이를 감지하고 `{ source: 'toolbox-embed', tool: '{{tool-id}}', height }` 메시지를 부모로 전송한다.

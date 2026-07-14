@@ -1,6 +1,10 @@
 {
+  "index": 1,
   "tool": "qr-barcode-generator",
-  "latestVersion": "0.1.0v",
+  "title": "QR · 바코드 생성기",
+  "description": "텍스트나 URL로 QR 코드와 Code 128 바코드를 만들고 이미지로 저장합니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
+  "latestVersion": "0.1.1v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -19,6 +23,15 @@
       "directory": "0.1.0v",
       "html": "0.1.0v/first-post-qr-barcode-generator.html",
       "patchNotes": "0.1.0v/patch-notes.json"
+    },
+    {
+      "version": "0.1.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "iframe 높이를 콘텐츠에 맞춰 자동 조절해 내부 스크롤을 제거했습니다.",
+      "directory": "0.1.1v",
+      "html": "0.1.1v/first-post-qr-barcode-generator.html",
+      "patchNotes": "0.1.1v/patch-notes.json"
     }
   ]
 }

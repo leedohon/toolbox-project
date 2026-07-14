@@ -33,6 +33,7 @@
 - Blogger 게시글에는 도구별 고정 주소인 `https://leedohon.github.io/toolbox-project/embed/<도구명>/`을 iframe으로 삽입한다. 게시글을 다시 수정하지 않아도 이 주소의 기능 HTML을 갱신하면 최신 기능이 반영된다.
 - `embed/<도구명>/index.html`은 항상 최신 기능을 제공하는 배포 진입점이며, 게시글 제목·설명·사용 방법·FAQ와 사이트 탐색 요소를 포함하지 않는다.
 - 게시글 안의 iframe 도구도 독립 페이지와 같은 핵심 기능을 제공하되, 사이트 탐색·부가 설명·중복된 헤더는 표시하지 않는다.
+- iframe 기능 HTML은 `postMessage`로 실제 콘텐츠 높이를 부모 게시글에 전달하고, 게시글 HTML은 출처와 도구 식별자를 검증한 뒤 iframe 높이를 갱신해 내부 세로 스크롤이 생기지 않게 한다.
 - 블로그 게시글은 HTML 편집기에 그대로 붙여 넣을 수 있는 완성형 HTML 조각으로 출력한다. 기본 구성은 제목, 설명, 기능 안내, 사용 방법, 도구 임베드, FAQ 순서다.
 
 ## 초기 도구 범위
@@ -51,6 +52,11 @@
 - 버전을 올릴 때 이전 버전 폴더는 보존하고 새 버전 폴더를 만든다. `minimum` 증가 시 마지막 숫자만 올리고, `minor` 증가 시 `minimum`을 0으로, `major` 증가 시 `minor`와 `minimum`을 0으로 초기화한다.
 - 각 버전 폴더에는 완성형 HTML과 해당 버전의 처리 이력을 담은 `patch-notes.json`을 함께 둔다.
 - 각 도구 폴더 바로 아래에는 전체 버전 목록과 최신 버전 정보를 담은 `versions.json`을 둔다.
+- 각 `versions.json`에는 검색 및 정렬에 사용할 고유한 양의 정수 `index`, 도구 식별자인 `tool`, 표시 제목인 `title`, 카드 설명인 `description`, Blogger 게시글 주소인 `postUrl`, 최신 버전인 `latestVersion`을 포함한다.
+- 전체 도구 최신 목록은 `outputs/tools.json`에 두며 각 항목은 `index`, `tool`, `title`, `description`, `postUrl`, `version`을 포함한다. `index`는 중복하지 않고 한번 배정한 값은 바꾸지 않는다.
+- `outputs/tools.json`의 `version`은 해당 도구 `versions.json`의 `latestVersion`과 항상 같아야 한다.
+- `versions.json` 변경이 `main`에 푸시되면 `.github/workflows/update-tool-catalog.yml`이 카탈로그를 다시 만들고 변경된 결과를 자동 커밋한다.
+- 메인 소개글과 공통 화면 문구는 `outputs/site.json`에서 관리한다.
 - 새 버전을 만들 때 버전 폴더의 `patch-notes.json`과 도구 폴더의 `versions.json`을 함께 갱신한다.
 - 도구 Markdown은 YAML frontmatter에 `title`, `slug`, `type`, `description`, `status`, `inputs`를 포함한다.
 - 지원 유형은 우선 `template-generator`, `ai-generator`, `converter`, `calculator`로 제한한다.
@@ -69,8 +75,10 @@
 4. 최신 기능을 `embed/<도구명>/index.html`에 반영하고 게시글 iframe 주소가 이 고정 경로를 사용하는지 확인한다.
 5. 새 버전 폴더의 `patch-notes.json`에 해당 버전에서 실제로 처리한 변경만 기록한다.
 6. 도구 폴더의 `versions.json`에 새 버전 항목을 추가하고 `latestVersion`을 새 버전으로 갱신한다.
-7. `versions.json`에 기록된 HTML 및 패치 노트 상대 경로가 실제 파일을 가리키는지 확인하고 모든 JSON의 구문을 검증한다.
-8. 사용자에게 새 버전 번호, 변경 등급, 게시글 HTML 및 기능 HTML 경로, 주요 변경 내역을 보고한다.
+7. `node scripts/build-tool-catalog.mjs`를 실행해 모든 `versions.json`에서 `outputs/tools.json`을 다시 만든다. 카탈로그를 손으로 중복 편집하지 않는다.
+8. Blogger 게시글을 발행하거나 주소가 바뀌면 `node scripts/blogger-sync-post-urls.mjs`로 글 제목과 도구 제목을 대조해 `postUrl`과 카탈로그를 갱신한다.
+9. `versions.json`에 기록된 HTML 및 패치 노트 상대 경로가 실제 파일을 가리키는지, `outputs/tools.json`과 최신 버전이 일치하는지 확인하고 모든 JSON의 구문을 검증한다.
+10. 사용자에게 새 버전 번호, 변경 등급, 게시글 HTML 및 기능 HTML 경로, 주요 변경 내역을 보고한다.
 
 ## Git 기록 원칙
 
@@ -96,6 +104,13 @@
 - 크기·수치·강도 등 연속값을 조절하는 기능은 가로 슬라이더를 기본으로 한다. 현재 값은 슬라이더 가까이에 명확히 표시한다.
 - 선택 항목이 4개 이하이면 라디오 버튼을 사용하고, 5개 이상이면 콤보박스(셀렉트)를 사용한다.
 - 모든 도구 화면은 모바일과 PC에서 같은 기능을 제공해야 한다. 모바일에서는 한 열 중심의 넉넉한 터치 영역을 사용하고, PC에서는 내용 폭과 입력 영역을 읽기 좋게 제한한다.
+- Blogger 테마 원본은 `toolbox/theme/`에 두며 업로드용 XML과 편집용 CSS를 함께 관리한다.
+- 업로드용 Blogger XML에는 소개글, 도구명, 버전, 카드, 검색 문구, 색상, 글꼴, 레이아웃을 직접 하드코딩하지 않는다. XML은 Blogger 기본 골조, 표시 위치, 외부 로더 주소를 담은 테마 변수만 제공한다.
+- 사이트 디자인은 `assets/blogger/theme.css`, 동작은 `assets/blogger/site.js`, 소개와 문구는 `outputs/site.json`, 최신 도구 목록은 `outputs/tools.json`을 단일 원본으로 사용한다.
+- 페이지 로더는 `outputs/site.json`과 `outputs/tools.json`을 캐시 없이 다시 요청해 배포된 최신 값을 표시한다.
+- Blogger 홈 화면은 소개와 검색 가능한 JSON 도구 목록을 먼저 표시하고 기존 게시글 목록도 유지한다. 도구 카드는 `postUrl`이 있을 때만 해당 Blogger 게시글로 이동한다.
+- 모든 Blogger 게시글 페이지에는 블로그 메인의 도구 검색 영역으로 돌아가는 링크를 공통으로 표시한다.
+- 한글 기본 글꼴은 Pretendard Variable 동적 서브셋을 사용하고, 로딩 실패 시 시스템 한글 글꼴로 폴백한다.
 
 ## 의사결정 기록 및 업데이트
 

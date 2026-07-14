@@ -1,0 +1,29 @@
+{
+  "updatedAt": "2026-07-14",
+  "tools": [
+    {
+      "index": 1,
+      "tool": "qr-barcode-generator",
+      "title": "QR · 바코드 생성기",
+      "description": "텍스트나 URL로 QR 코드와 Code 128 바코드를 만들고 이미지로 저장합니다.",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
+      "version": "0.1.1v"
+    },
+    {
+      "index": 2,
+      "tool": "json-tools",
+      "title": "JSON 도구",
+      "description": "JSON을 실시간으로 검사하고 보기 좋게 정리하거나 한 줄로 압축합니다.",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
+      "version": "0.1.1v"
+    },
+    {
+      "index": 3,
+      "tool": "base64-tools",
+      "title": "Base64 도구",
+      "description": "텍스트와 파일을 Base64로 인코딩하거나 디코딩하고 결과를 저장합니다.",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
+      "version": "0.1.1v"
+    }
+  ]
+}

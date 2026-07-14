@@ -1,6 +1,10 @@
 {
+  "index": 3,
   "tool": "base64-tools",
-  "latestVersion": "0.1.0v",
+  "title": "Base64 도구",
+  "description": "텍스트와 파일을 Base64로 인코딩하거나 디코딩하고 결과를 저장합니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
+  "latestVersion": "0.1.1v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -19,6 +23,15 @@
       "directory": "0.1.0v",
       "html": "0.1.0v/base64-tools.html",
       "patchNotes": "0.1.0v/patch-notes.json"
+    },
+    {
+      "version": "0.1.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "iframe 높이를 콘텐츠에 맞춰 자동 조절해 내부 스크롤을 제거했습니다.",
+      "directory": "0.1.1v",
+      "html": "0.1.1v/base64-tools.html",
+      "patchNotes": "0.1.1v/patch-notes.json"
     }
   ]
 }

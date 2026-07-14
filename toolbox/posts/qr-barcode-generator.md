@@ -1,6 +1,6 @@
 # QR · 바코드 생성기 첫 게시글
 
-복사·붙여넣기용 게시글 원본은 `toolbox/posts/qr-barcode-generator.html`에 두며, 최신 버전 결과물은 `outputs/qr-barcode-generator/0.1.0v/first-post-qr-barcode-generator.html`이다.
+복사·붙여넣기용 게시글 원본은 `toolbox/posts/qr-barcode-generator.html`에 두며, 최신 버전 결과물은 `outputs/qr-barcode-generator/0.1.1v/first-post-qr-barcode-generator.html`이다.
 
 실제 기능은 게시글의 iframe이 `embed/qr-barcode-generator/index.html`에서 불러온다.
 

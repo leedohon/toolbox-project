@@ -139,5 +139,23 @@
     updateCounts();
   }());
 </script>
+<script>
+  (function () {
+    var scheduled = false;
+    function reportHeight() {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(function () {
+        scheduled = false;
+        var height = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        window.parent.postMessage({ source: 'toolbox-embed', tool: 'base64-tools', height: height }, '*');
+      });
+    }
+    window.addEventListener('load', reportHeight);
+    window.addEventListener('resize', reportHeight);
+    new ResizeObserver(reportHeight).observe(document.documentElement);
+    reportHeight();
+  }());
+</script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+{
+  "updatedAt": "2026-07-15",
+  "intro": {
+    "eyebrow": "Openworld Blog",
+    "title": "일상과 정보, 바로 쓰는 도구를 한곳에 담습니다.",
+    "description": "읽을 만한 이야기와 실용적인 정보를 기록하고, 필요한 순간 바로 사용할 수 있는 가벼운 웹 도구를 함께 제공합니다."
+  },
+  "labels": {
+    "catalogTitle": "도구 모음",
+    "searchLabel": "도구 검색",
+    "searchPlaceholder": "QR, JSON, Base64 등 도구 이름 검색",
+    "searchButton": "검색",
+    "countSuffix": "개의 도구",
+    "openPost": "게시글에서 사용하기",
+    "pendingPost": "게시글 준비 중",
+    "empty": "검색어와 일치하는 도구가 없습니다.",
+    "backToSearch": "← 도구 검색으로 돌아가기"
+  }
+}

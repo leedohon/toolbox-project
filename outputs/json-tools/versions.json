@@ -1,6 +1,10 @@
 {
+  "index": 2,
   "tool": "json-tools",
-  "latestVersion": "0.1.0v",
+  "title": "JSON 도구",
+  "description": "JSON을 실시간으로 검사하고 보기 좋게 정리하거나 한 줄로 압축합니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
+  "latestVersion": "0.1.1v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -19,6 +23,15 @@
       "directory": "0.1.0v",
       "html": "0.1.0v/json-tools.html",
       "patchNotes": "0.1.0v/patch-notes.json"
+    },
+    {
+      "version": "0.1.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "iframe 높이를 콘텐츠에 맞춰 자동 조절해 내부 스크롤을 제거했습니다.",
+      "directory": "0.1.1v",
+      "html": "0.1.1v/json-tools.html",
+      "patchNotes": "0.1.1v/patch-notes.json"
     }
   ]
 }

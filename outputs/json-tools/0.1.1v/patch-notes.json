@@ -1,0 +1,11 @@
+{
+  "tool": "json-tools",
+  "version": "0.1.1v",
+  "releaseDate": "2026-07-15",
+  "changeLevel": "minimum",
+  "changes": [
+    "iframe 내부 높이를 Blogger 게시글에 자동으로 전달하도록 개선했습니다.",
+    "화면 폭과 도구 상태에 따라 iframe 높이를 자동 조절해 내부 세로 스크롤을 제거했습니다.",
+    "자동 높이 조절을 사용할 수 없는 환경을 위한 기본 높이를 확대했습니다."
+  ]
+}

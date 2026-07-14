@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' lang='ko' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <b:include data='blog' name='all-head-content'/>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <meta content='#0879b2' name='theme-color'/>
+  <title><data:blog.pageTitle/></title>
+  <b:skin><![CDATA[
+:root{--ow-sky:#0879b2;--ow-sky-hover:#066d9f;--ow-sky-soft:#dff4ff;--ow-sky-pale:#f3fbff;--ow-ink:#16232c;--ow-muted:#5d707b;--ow-line:#d8e9f1;--ow-surface:#fff;--ow-page:#f8fcfe;--ow-shadow:0 14px 40px rgba(8,92,132,.09);--ow-radius:18px;--ow-content:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ow-ink);background:var(--ow-page);font-family:Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}a{color:var(--ow-sky);text-decoration:none}a:hover{color:var(--ow-sky-hover)}button,input{font:inherit}img{max-width:100%;height:auto}.screen-reader-text{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.ow-skip{position:fixed;z-index:100;top:12px;left:12px;padding:10px 14px;color:#fff;background:var(--ow-sky);border-radius:8px;transform:translateY(-160%)}.ow-skip:focus{color:#fff;transform:translateY(0)}
+.ow-header{position:sticky;z-index:20;top:0;border-bottom:1px solid rgba(216,233,241,.9);background:rgba(255,255,255,.94);backdrop-filter:blur(14px)}.ow-header-inner{display:flex;width:min(calc(100% - 32px),var(--ow-content));min-height:68px;margin:0 auto;align-items:center;justify-content:space-between;gap:24px}.ow-brand{display:flex;align-items:center;gap:11px;color:var(--ow-ink);font-weight:800}.ow-brand:hover{color:var(--ow-ink)}.ow-brand-mark{display:grid;width:38px;height:38px;color:#fff;background:var(--ow-sky);border-radius:11px;place-items:center;box-shadow:0 8px 18px rgba(8,121,178,.22)}.ow-nav{display:flex;align-items:center;gap:6px}.ow-nav a{padding:9px 12px;color:var(--ow-muted);border-radius:8px;font-size:.94rem;font-weight:700}.ow-nav a:hover{color:var(--ow-sky);background:var(--ow-sky-pale)}
+.ow-main{min-height:calc(100vh - 180px)}.ow-hero{padding:clamp(54px,9vw,104px) 16px clamp(44px,7vw,78px);text-align:center;background:radial-gradient(circle at 50% 0,#dff4ff 0,#f8fcfe 52%,#f8fcfe 100%)}.ow-eyebrow{margin:0 0 12px;color:var(--ow-sky);font-size:.84rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.ow-hero h1{max-width:760px;margin:0 auto 14px;font-size:clamp(2rem,6vw,4rem);line-height:1.14;letter-spacing:-.045em}.ow-hero-copy{max-width:650px;margin:0 auto;color:var(--ow-muted);font-size:clamp(1rem,2vw,1.15rem)}.ow-search{display:flex;width:min(100%,680px);margin:30px auto 0;padding:7px;align-items:center;gap:8px;background:#fff;border:1px solid var(--ow-line);border-radius:14px;box-shadow:var(--ow-shadow)}.ow-search input{width:100%;min-width:0;padding:12px 13px;color:var(--ow-ink);background:transparent;border:0;outline:0}.ow-search button{min-height:44px;padding:0 20px;color:#fff;background:var(--ow-sky);border:0;border-radius:9px;cursor:pointer;font-weight:800;white-space:nowrap}.ow-search button:hover{background:var(--ow-sky-hover)}
+.ow-catalog{width:min(calc(100% - 32px),var(--ow-content));margin:0 auto;padding:58px 0 74px}.ow-section-head{display:flex;margin-bottom:22px;align-items:end;justify-content:space-between;gap:20px}.ow-section-head h2{margin:0;font-size:clamp(1.45rem,3vw,2rem);letter-spacing:-.025em}.ow-count{margin:0;color:var(--ow-muted);font-size:.9rem}.ow-tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.ow-tool-card{display:flex;min-height:210px;padding:24px;color:var(--ow-ink);background:var(--ow-surface);border:1px solid var(--ow-line);border-radius:var(--ow-radius);flex-direction:column;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.ow-tool-card:hover{color:var(--ow-ink);border-color:#a9d9ef;box-shadow:var(--ow-shadow);transform:translateY(-3px)}.ow-card-index{display:grid;width:40px;height:40px;margin-bottom:24px;color:var(--ow-sky);background:var(--ow-sky-pale);border-radius:11px;place-items:center;font-size:.84rem;font-weight:900}.ow-tool-card h3{margin:0 0 7px;font-size:1.17rem;line-height:1.4}.ow-card-meta{margin:auto 0 0;padding-top:20px;color:var(--ow-muted);font-size:.84rem}.ow-empty{grid-column:1/-1;padding:34px;color:var(--ow-muted);background:#fff;border:1px dashed #b9d8e7;border-radius:16px;text-align:center}
+.ow-content-wrap{display:grid;width:min(calc(100% - 32px),var(--ow-content));margin:0 auto;padding:48px 0 72px;grid-template-columns:minmax(0,1fr);gap:34px;align-items:start}.ow-content-wrap.is-home{padding-top:0}.main.section{min-width:0}.post-outer,.widget.Blog{margin:0 0 24px}.post,.post-outer-container{padding:clamp(20px,4vw,38px);background:#fff;border:1px solid var(--ow-line);border-radius:var(--ow-radius);box-shadow:0 8px 30px rgba(8,92,132,.05)}.post-title,.post-title.entry-title{margin:0 0 12px;color:var(--ow-ink);font-size:clamp(1.55rem,4vw,2.35rem);line-height:1.3;letter-spacing:-.03em}.post-title a{color:inherit}.post-header,.post-timestamp,.post-footer{color:var(--ow-muted);font-size:.86rem}.post-body{color:var(--ow-ink);overflow-wrap:anywhere}.post-body h2,.post-body h3{line-height:1.4;letter-spacing:-.02em}.post-body iframe{max-width:100%}.blog-pager{display:flex;margin-top:24px;justify-content:space-between;gap:12px}.blog-pager a{padding:10px 14px;background:#fff;border:1px solid var(--ow-line);border-radius:9px;font-weight:700}.ow-footer{padding:28px 16px 40px;color:var(--ow-muted);border-top:1px solid var(--ow-line);background:#fff;text-align:center;font-size:.88rem}.ow-footer p{margin:0}
+@media(max-width:900px){.ow-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ow-content-wrap{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.sidebar .widget{margin:0}}@media(max-width:620px){.ow-header-inner{min-height:60px}.ow-nav a:not(:first-child){display:none}.ow-hero{padding-top:50px}.ow-search{align-items:stretch;flex-direction:column}.ow-tool-grid,.sidebar{grid-template-columns:1fr}.ow-tool-card{min-height:180px}.ow-section-head{align-items:start;flex-direction:column;gap:4px}.ow-content-wrap{width:min(calc(100% - 20px),var(--ow-content));padding-top:28px}.post,.post-outer-container{border-radius:14px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
+  ]]></b:skin>
+</head>
+<body>
+  <a class='ow-skip' href='#ow-content'>본문 바로가기</a>
+  <header class='ow-header'>
+    <div class='ow-header-inner'>
+      <a class='ow-brand' expr:href='data:blog.homepageUrl'>
+        <span aria-hidden='true' class='ow-brand-mark'>O</span>
+        <span><data:blog.title/></span>
+      </a>
+      <nav aria-label='주요 메뉴' class='ow-nav'>
+        <a expr:href='data:blog.homepageUrl'>도구 홈</a>
+        <a href='/search'>전체 글</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='ow-main' id='ow-content'>
+    <b:if cond='data:view.isHomepage'>
+      <section class='ow-hero'>
+        <p class='ow-eyebrow'>Openworld Toolbox</p>
+        <h1>필요한 도구를<br/>빠르게 찾아 바로 사용하세요</h1>
+        <p class='ow-hero-copy'>설치와 가입 없이 사용할 수 있는 가벼운 생성기, 변환기, 계산기를 제공합니다.</p>
+        <form class='ow-search' id='ow-tool-search' role='search'>
+          <label class='screen-reader-text' for='ow-query'>도구 검색</label>
+          <input autocomplete='off' id='ow-query' placeholder='예: QR, JSON, Base64' type='search'/>
+          <button type='submit'>도구 찾기</button>
+        </form>
+      </section>
+      <section aria-labelledby='ow-catalog-title' class='ow-catalog'>
+        <div class='ow-section-head'>
+          <h2 id='ow-catalog-title'>전체 도구</h2>
+          <p class='ow-count' id='ow-tool-count'>도구 목록을 불러오는 중입니다.</p>
+        </div>
+        <div aria-live='polite' class='ow-tool-grid' id='ow-tool-grid'></div>
+      </section>
+    </b:if>
+
+    <div class='ow-content-wrap'>
+      <b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
+        <b:widget id='Blog1' locked='yes' title='블로그 게시물' type='Blog'/>
+      </b:section>
+    </div>
+  </main>
+
+  <footer class='ow-footer'>
+    <p><data:blog.title/> · 누구나 바로 쓰는 가벼운 웹 도구</p>
+  </footer>
+
+  <b:if cond='data:view.isHomepage'>
+    <script type='text/javascript'>
+    //<![CDATA[
+    (function () {
+      var catalogUrl = 'https://leedohon.github.io/toolbox-project/outputs/tools.json';
+      var fallback = [
+        { index: 1, tool: 'qr-barcode-generator', title: 'QR · 바코드 생성기', version: '0.1.1v' },
+        { index: 2, tool: 'json-tools', title: 'JSON 도구', version: '0.1.1v' },
+        { index: 3, tool: 'base64-tools', title: 'Base64 도구', version: '0.1.1v' }
+      ];
+      var tools = [];
+      var grid = document.getElementById('ow-tool-grid');
+      var count = document.getElementById('ow-tool-count');
+      var query = document.getElementById('ow-query');
+      var search = document.getElementById('ow-tool-search');
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, function (character) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[character];
+        });
+      }
+      function render(value) {
+        var term = String(value || '').trim().toLocaleLowerCase('ko');
+        var visible = tools.filter(function (tool) {
+          return !term || (tool.title + ' ' + tool.tool).toLocaleLowerCase('ko').indexOf(term) !== -1;
+        });
+        count.textContent = visible.length + '개의 도구';
+        if (!visible.length) {
+          grid.innerHTML = '<div class="ow-empty">검색어와 일치하는 도구가 없습니다.</div>';
+          return;
+        }
+        grid.innerHTML = visible.map(function (tool) {
+          var href = 'https://leedohon.github.io/toolbox-project/embed/' + encodeURIComponent(tool.tool) + '/';
+          return '<a class="ow-tool-card" href="' + href + '">' +
+            '<span class="ow-card-index">' + String(tool.index).padStart(2, '0') + '</span>' +
+            '<h3>' + escapeHtml(tool.title) + '</h3>' +
+            '<p class="ow-card-meta">최신 버전 ' + escapeHtml(tool.version) + ' · 바로 사용하기</p>' +
+            '</a>';
+        }).join('');
+      }
+      function setTools(items) {
+        tools = items.slice().sort(function (a, b) { return Number(a.index) - Number(b.index); });
+        render(query.value);
+      }
+      search.addEventListener('submit', function (event) { event.preventDefault(); render(query.value); });
+      query.addEventListener('input', function () { render(query.value); });
+      fetch(catalogUrl, { cache: 'no-store' })
+        .then(function (response) { if (!response.ok) throw new Error('catalog'); return response.json(); })
+        .then(function (data) { setTools(Array.isArray(data.tools) ? data.tools : fallback); })
+        .catch(function () { setTools(fallback); });
+    }());
+    //]]>
+    </script>
+  </b:if>
+</body>
+</html>

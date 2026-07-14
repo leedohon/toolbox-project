@@ -29,17 +29,17 @@
       "index": 4,
       "tool": "ladder-game",
       "title": "사다리게임",
-      "description": "참가자와 결과를 입력해 실제 사다리 경로로 무작위 매칭을 만듭니다.",
+      "description": "참가자와 결과를 입력 행으로 추가해 실제 사다리 경로와 무작위 매칭을 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_14.html",
-      "version": "0.0.1v"
+      "version": "0.1.0v"
     },
     {
       "index": 5,
       "tool": "wheel-spinner",
       "title": "돌림판",
-      "description": "메뉴나 벌칙 같은 항목을 입력하고 돌림판을 회전해 하나를 뽑습니다.",
+      "description": "메뉴나 벌칙 같은 항목을 입력 행으로 추가하고 돌림판을 회전해 하나를 뽑습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_964.html",
-      "version": "0.0.1v"
+      "version": "0.1.0v"
     },
     {
       "index": 6,
@@ -53,9 +53,9 @@
       "index": 7,
       "tool": "team-divider",
       "title": "다중팀 편가르기",
-      "description": "참가자를 무작위로 섞어 2~10개 팀에 최대한 균등하게 나눕니다.",
+      "description": "참가자를 입력 행으로 추가하고 무작위로 섞어 2~10개 팀에 균등하게 나눕니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_641.html",
-      "version": "0.0.1v"
+      "version": "0.1.0v"
     },
     {
       "index": 8,

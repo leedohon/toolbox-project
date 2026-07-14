@@ -7,15 +7,16 @@ status: published
 inputs:
   - id: participants
     label: 참가자
-    type: textarea
+    type: repeatable-pair-list
   - id: outcomes
     label: 결과
-    type: textarea
+    type: repeatable-pair-list
 ---
 
 ## 기능
 
 - 2~12명의 참가자와 같은 수의 결과 입력
+- `+ 참가자와 결과 추가`, 행별 삭제와 빈칸 안내
 - 실제 사다리 가로선 생성과 경로 계산
 - 전체 매칭 결과 확인 및 다시 섞기
 

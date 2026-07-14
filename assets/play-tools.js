@@ -22,12 +22,201 @@ export function parseLines(value, { min = 2, max, maxLength = 40, label = '항�
   return lines;
 }
 
+function clearRowError(row) {
+  row.classList.remove('is-empty');
+  row.querySelectorAll('input').forEach((input) => input.removeAttribute('aria-invalid'));
+  const hint = row.querySelector('.play-row-hint');
+  if (hint) hint.hidden = true;
+}
+
+export function setupListEditor({ container, addButton, initialValues, label, placeholder, min = 2, max, maxLength = 40 }) {
+  function rows() { return [...container.querySelectorAll('.play-list-row')]; }
+  function sync() {
+    const current = rows();
+    current.forEach((row, index) => {
+      row.querySelector('.play-row-index').textContent = index + 1;
+      const input = row.querySelector('input');
+      input.setAttribute('aria-label', `${label} ${index + 1}`);
+      const remove = row.querySelector('.play-remove');
+      remove.disabled = current.length <= min;
+      remove.setAttribute('aria-label', `${label} ${index + 1} 삭제`);
+    });
+    addButton.disabled = current.length >= max;
+  }
+  function add(value = '', focus = true) {
+    if (rows().length >= max) return;
+    const row = document.createElement('div');
+    row.className = 'play-list-row';
+    const index = document.createElement('span');
+    index.className = 'play-row-index';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.maxLength = maxLength;
+    input.placeholder = placeholder;
+    input.value = value;
+    const remove = document.createElement('button');
+    remove.className = 'play-remove';
+    remove.type = 'button';
+    remove.textContent = '삭제';
+    const hint = document.createElement('small');
+    hint.className = 'play-row-hint';
+    hint.textContent = '이 칸을 입력해 주세요.';
+    hint.hidden = true;
+    input.addEventListener('input', () => {
+      if (input.value.trim()) clearRowError(row);
+      else {
+        row.classList.add('is-empty');
+        input.setAttribute('aria-invalid', 'true');
+        hint.hidden = false;
+      }
+    });
+    input.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter') return;
+      event.preventDefault();
+      const current = rows();
+      const position = current.indexOf(row);
+      if (position === current.length - 1 && current.length < max) add('', true);
+      else current[position + 1]?.querySelector('input').focus();
+    });
+    remove.addEventListener('click', () => { row.remove(); sync(); rows()[0]?.querySelector('input').focus(); });
+    row.append(index, input, remove, hint);
+    container.append(row);
+    sync();
+    if (focus) input.focus();
+  }
+  function getValues() {
+    const empty = [];
+    const values = rows().map((row, index) => {
+      const input = row.querySelector('input');
+      const value = input.value.trim();
+      if (!value) {
+        empty.push(index + 1);
+        row.classList.add('is-empty');
+        input.setAttribute('aria-invalid', 'true');
+        row.querySelector('.play-row-hint').hidden = false;
+      }
+      return value;
+    });
+    if (empty.length) {
+      rows()[empty[0] - 1].querySelector('input').focus();
+      throw new Error(`${label} ${empty.join(', ')}번 칸을 채워 주세요.`);
+    }
+    return values;
+  }
+  addButton.addEventListener('click', () => add('', true));
+  initialValues.forEach((value) => add(value, false));
+  sync();
+  return { add, getValues, count: () => rows().length };
+}
+
+export function setupPairedListEditor({ container, addButton, initialValues, leftLabel, rightLabel, leftPlaceholder, rightPlaceholder, min = 2, max, leftMaxLength = 24, rightMaxLength = 30 }) {
+  function rows() { return [...container.querySelectorAll('.play-pair-row')]; }
+  function sync() {
+    const current = rows();
+    current.forEach((row, index) => {
+      row.querySelector('.play-row-index').textContent = index + 1;
+      const left = row.querySelector('.play-pair-left');
+      const right = row.querySelector('.play-pair-right');
+      left.setAttribute('aria-label', `${leftLabel} ${index + 1}`);
+      right.setAttribute('aria-label', `${rightLabel} ${index + 1}`);
+      const remove = row.querySelector('.play-remove');
+      remove.disabled = current.length <= min;
+      remove.setAttribute('aria-label', `${index + 1}번 참가자와 결과 삭제`);
+    });
+    addButton.disabled = current.length >= max;
+  }
+  function add(value = { left: '', right: '' }, focus = true) {
+    if (rows().length >= max) return;
+    const row = document.createElement('div');
+    row.className = 'play-pair-row';
+    const index = document.createElement('span');
+    index.className = 'play-row-index';
+    const left = document.createElement('input');
+    left.className = 'play-pair-left';
+    left.type = 'text';
+    left.maxLength = leftMaxLength;
+    left.placeholder = leftPlaceholder;
+    left.value = value.left;
+    const right = document.createElement('input');
+    right.className = 'play-pair-right';
+    right.type = 'text';
+    right.maxLength = rightMaxLength;
+    right.placeholder = rightPlaceholder;
+    right.value = value.right;
+    const remove = document.createElement('button');
+    remove.className = 'play-remove';
+    remove.type = 'button';
+    remove.textContent = '삭제';
+    const hint = document.createElement('small');
+    hint.className = 'play-row-hint';
+    hint.textContent = '참가자와 결과를 모두 입력해 주세요.';
+    hint.hidden = true;
+    [left, right].forEach((input) => input.addEventListener('input', () => {
+      if (left.value.trim() && right.value.trim()) clearRowError(row);
+      else {
+        row.classList.add('is-empty');
+        left.toggleAttribute('aria-invalid', !left.value.trim());
+        right.toggleAttribute('aria-invalid', !right.value.trim());
+        hint.hidden = false;
+      }
+    }));
+    left.addEventListener('keydown', (event) => { if (event.key === 'Enter') { event.preventDefault(); right.focus(); } });
+    right.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter') return;
+      event.preventDefault();
+      const current = rows();
+      const position = current.indexOf(row);
+      if (position === current.length - 1 && current.length < max) add({ left: '', right: '' }, true);
+      else current[position + 1]?.querySelector('.play-pair-left').focus();
+    });
+    remove.addEventListener('click', () => { row.remove(); sync(); });
+    row.append(index, left, right, remove, hint);
+    container.append(row);
+    sync();
+    if (focus) left.focus();
+  }
+  function getValues() {
+    const empty = [];
+    const values = rows().map((row, index) => {
+      const left = row.querySelector('.play-pair-left');
+      const right = row.querySelector('.play-pair-right');
+      const value = { left: left.value.trim(), right: right.value.trim() };
+      if (!value.left || !value.right) {
+        empty.push(index + 1);
+        row.classList.add('is-empty');
+        if (!value.left) left.setAttribute('aria-invalid', 'true');
+        if (!value.right) right.setAttribute('aria-invalid', 'true');
+        row.querySelector('.play-row-hint').hidden = false;
+      }
+      return value;
+    });
+    if (empty.length) {
+      const row = rows()[empty[0] - 1];
+      (row.querySelector('[aria-invalid="true"]') || row.querySelector('input')).focus();
+      throw new Error(`${empty.join(', ')}번 줄의 참가자와 결과를 확인해 주세요.`);
+    }
+    return values;
+  }
+  addButton.addEventListener('click', () => add({ left: '', right: '' }, true));
+  initialValues.forEach((value) => add(value, false));
+  sync();
+  return { add, getValues, count: () => rows().length };
+}
+
 export async function copyText(value) {
   await navigator.clipboard.writeText(value);
 }
 
-export function setupEmbedHeight(tool) {
-  const send = () => parent.postMessage({ source: 'toolbox-embed', tool, height: Math.ceil(document.documentElement.scrollHeight) }, '*');
+export function setupEmbedHeight(tool, { content = false } = {}) {
+  const send = () => {
+    let height = document.documentElement.scrollHeight;
+    if (content) {
+      const root = document.querySelector('.play-tool');
+      const style = getComputedStyle(document.body);
+      height = root.getBoundingClientRect().bottom + Number.parseFloat(style.paddingBottom || 0);
+    }
+    parent.postMessage({ source: 'toolbox-embed', tool, height: Math.ceil(height) }, '*');
+  };
   new ResizeObserver(send).observe(document.body);
   addEventListener('load', send);
   send();

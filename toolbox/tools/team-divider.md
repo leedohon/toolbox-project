@@ -7,7 +7,7 @@ status: published
 inputs:
   - id: members
     label: 참가자 이름
-    type: textarea
+    type: repeatable-list
   - id: teamCount
     label: 팀 개수
     type: select
@@ -19,6 +19,7 @@ inputs:
 ## 기능
 
 - 2~100명 입력
+- `+ 참가자 추가`, 행별 삭제와 빈칸 안내
 - 2~10개 팀 선택
 - 팀별 인원 차이가 최대 1명인 무작위 배분
 - 결과 복사 및 다시 나누기

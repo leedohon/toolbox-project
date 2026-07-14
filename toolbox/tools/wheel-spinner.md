@@ -7,12 +7,13 @@ status: published
 inputs:
   - id: items
     label: 돌림판 항목
-    type: textarea
+    type: repeatable-list
 ---
 
 ## 기능
 
 - 2~20개 항목 입력
+- `+ 항목 추가`, 행별 삭제와 빈칸 안내
 - 항목별 자동 색상과 회전 애니메이션
 - 브라우저 난수를 사용한 결과 선택
 

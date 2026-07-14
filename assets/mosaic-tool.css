@@ -1,0 +1,36 @@
+:root {
+  --mosaic-sky: #0879b2; --mosaic-sky-dark: #066d9f; --mosaic-pale: #eefaff;
+  --mosaic-ink: #16232c; --mosaic-muted: #5d707b; --mosaic-line: #d8e9f1;
+  --mosaic-good: #087b5b; --mosaic-bad: #bd2f2f;
+}
+html, body { width: 100%; min-width: 0; box-sizing: border-box; }
+body { margin: 0; padding: clamp(6px, 1.8vw, 16px); background: #fff; overflow-x: hidden; }
+.mosaic-tool, .mosaic-tool * { box-sizing: border-box; }
+.mosaic-tool { width: 100%; min-width: 0; max-width: 1000px; margin: 0 auto; padding: clamp(14px, 3vw, 26px); color: var(--mosaic-ink); background: #fff; border: 1px solid var(--mosaic-line); border-radius: 18px; box-shadow: 0 14px 35px rgba(10,104,148,.09); font-family: Arial,"Noto Sans KR",sans-serif; line-height: 1.6; }
+.mosaic-drop { display: grid; place-items: center; min-height: 170px; padding: 24px; color: var(--mosaic-muted); background: var(--mosaic-pale); border: 2px dashed #9ecbde; border-radius: 14px; text-align: center; cursor: pointer; transition: border-color .16s, background .16s; }
+.mosaic-drop.is-dragging { color: #075675; background: #dff5ff; border-color: var(--mosaic-sky); }
+.mosaic-drop strong { display: block; margin-bottom: 6px; color: var(--mosaic-ink); font-size: 1.05rem; }
+.mosaic-drop-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; margin-top: 14px; padding: 0 18px; color: #fff; background: var(--mosaic-sky); border-radius: .5rem; font-weight: 800; }
+.mosaic-file { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.mosaic-sample { display: flex; justify-content: center; margin-top: 10px; }
+.mosaic-status { min-height: 28px; margin: 14px 0 0; padding: 7px 11px; color: var(--mosaic-muted); background: #f4f8fa; border-radius: 10px; font-size: .9rem; font-weight: 700; }
+.mosaic-status.is-error { color: var(--mosaic-bad); background: #fff0f0; }
+.mosaic-status.is-good { color: var(--mosaic-good); background: #e8f8f1; }
+.mosaic-editor { margin-top: 18px; }
+.mosaic-editor[hidden] { display: none; }
+.mosaic-controls { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin-bottom: 16px; }
+.mosaic-control { min-width: 0; padding: 13px 14px; background: #f8fcfe; border: 1px solid var(--mosaic-line); border-radius: 11px; }
+.mosaic-control-head { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 7px; font-weight: 800; }
+.mosaic-control output { color: #075675; }
+.mosaic-control input[type="range"] { width: 100%; accent-color: var(--mosaic-sky); }
+.mosaic-stage { width: 100%; min-width: 0; padding: 10px; overflow: hidden; background-color: #f5f8fa; background-image: linear-gradient(45deg,#e8eef1 25%,transparent 25%),linear-gradient(-45deg,#e8eef1 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e8eef1 75%),linear-gradient(-45deg,transparent 75%,#e8eef1 75%); background-size: 20px 20px; background-position: 0 0,0 10px,10px -10px,-10px 0; border: 1px solid var(--mosaic-line); border-radius: 12px; }
+.mosaic-stage canvas { display: block; width: 100%; max-width: 100%; height: auto; margin: 0 auto; background: #fff; border-radius: 6px; cursor: crosshair; touch-action: none; }
+.mosaic-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.mosaic-tool button { min-height: 46px; padding: 0 18px; border: 1px solid transparent; border-radius: .5rem; font: inherit; font-weight: 800; cursor: pointer; }
+.mosaic-primary { color: #fff; background: var(--mosaic-sky); border-color: var(--mosaic-sky) !important; }
+.mosaic-primary:hover { background: var(--mosaic-sky-dark); }
+.mosaic-secondary { color: #111; background: #fff; border-color: #b9c7cd !important; }
+.mosaic-tool button:disabled { opacity: .48; cursor: not-allowed; }
+.mosaic-tool input:focus-visible, .mosaic-tool button:focus-visible, .mosaic-drop:focus-visible { outline: 3px solid #a8e3fb; outline-offset: 2px; }
+@media (max-width: 640px) { .mosaic-tool { padding: 14px; } .mosaic-controls { grid-template-columns: 1fr; } .mosaic-actions button { flex: 1 1 130px; } .mosaic-sample button { width: 100%; } .mosaic-drop { min-height: 145px; padding: 18px; } .mosaic-stage { padding: 5px; } }
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { transition-duration: .01ms !important; } }

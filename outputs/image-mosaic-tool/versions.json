@@ -1,0 +1,19 @@
+{
+  "index": 8,
+  "tool": "image-mosaic-tool",
+  "title": "이미지 모자이크 도구",
+  "description": "이미지를 불러와 숨길 영역을 드래그해 모자이크 처리하고 PNG로 저장합니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "드래그 모자이크, 되돌리기와 PNG 저장을 제공하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/image-mosaic-tool.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

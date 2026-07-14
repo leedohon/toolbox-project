@@ -56,6 +56,14 @@
       "description": "참가자를 무작위로 섞어 2~10개 팀에 최대한 균등하게 나눕니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_641.html",
       "version": "0.0.1v"
+    },
+    {
+      "index": 8,
+      "tool": "image-mosaic-tool",
+      "title": "이미지 모자이크 도구",
+      "description": "이미지를 불러와 숨길 영역을 드래그해 모자이크 처리하고 PNG로 저장합니다.",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
+      "version": "0.0.1v"
     }
   ]
 }

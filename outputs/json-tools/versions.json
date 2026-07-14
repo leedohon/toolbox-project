@@ -4,7 +4,7 @@
   "title": "JSON 도구",
   "description": "JSON을 실시간으로 검사하고 보기 좋게 정리하거나 한 줄로 압축합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-  "latestVersion": "0.1.1v",
+  "latestVersion": "0.2.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -32,6 +32,15 @@
       "directory": "0.1.1v",
       "html": "0.1.1v/json-tools.html",
       "patchNotes": "0.1.1v/patch-notes.json"
+    },
+    {
+      "version": "0.2.0v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minor",
+      "summary": "초간단 툴박스 공통 게시글 테마와 반응형 카드 구성을 적용했습니다.",
+      "directory": "0.2.0v",
+      "html": "0.2.0v/json-tools.html",
+      "patchNotes": "0.2.0v/patch-notes.json"
     }
   ]
 }

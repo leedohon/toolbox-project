@@ -20,12 +20,5 @@
   <h2>자주 묻는 질문</h2><details><summary>입력한 JSON이 서버에 저장되나요?</summary><p>아니요. 모든 처리는 현재 브라우저 안에서 진행됩니다.</p></details><details><summary>기능 업데이트 때 게시글을 다시 수정해야 하나요?</summary><p>아니요. 고정된 iframe 주소가 최신 기능을 제공합니다.</p></details>
 </article>
 <script>
-  (function () {
-    var frame = document.getElementById('toolbox-json-frame');
-    window.addEventListener('message', function (event) {
-      if (event.origin !== 'https://leedohon.github.io' || !event.data || event.data.source !== 'toolbox-embed' || event.data.tool !== 'json-tools') return;
-      var height = Number(event.data.height);
-      if (Number.isFinite(height) && height >= 320 && height <= 3000) frame.style.height = Math.ceil(height) + 'px';
-    });
-  }());
+  (function(){var frame=document.getElementById('toolbox-json-frame');window.addEventListener('message',function(event){if(event.origin!=='https://leedohon.github.io'||!event.data||event.data.source!=='toolbox-embed'||event.data.tool!=='json-tools')return;var height=Number(event.data.height);if(Number.isFinite(height)&&height>=320&&height<=3000)frame.style.height=Math.ceil(height)+'px';});}());
 </script>

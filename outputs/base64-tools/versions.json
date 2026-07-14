@@ -4,7 +4,7 @@
   "title": "Base64 도구",
   "description": "텍스트와 파일을 Base64로 인코딩하거나 디코딩하고 결과를 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
-  "latestVersion": "0.1.1v",
+  "latestVersion": "0.2.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -32,6 +32,15 @@
       "directory": "0.1.1v",
       "html": "0.1.1v/base64-tools.html",
       "patchNotes": "0.1.1v/patch-notes.json"
+    },
+    {
+      "version": "0.2.0v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minor",
+      "summary": "JSON 도구와 같은 초간단 툴박스 공통 게시글 테마를 적용했습니다.",
+      "directory": "0.2.0v",
+      "html": "0.2.0v/base64-tools.html",
+      "patchNotes": "0.2.0v/patch-notes.json"
     }
   ]
 }

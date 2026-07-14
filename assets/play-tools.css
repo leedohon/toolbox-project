@@ -82,6 +82,8 @@ body { margin: 0; padding: clamp(6px, 1.8vw, 16px); background: #fff; overflow-x
 .play-share textarea { min-height: 92px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .78rem; overflow-wrap: anywhere; }
 .play-share-note { margin: 10px 0 0; color: var(--play-muted); font-size: .8rem; }
 .play-share .play-status { margin-top: 12px; }
+.play-copy-fallback { min-height: 92px !important; margin-top: 10px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important; font-size: .84rem !important; }
+.play-copy-fallback[hidden] { display: none; }
 @media (max-width: 640px) {
   .play-tool { padding: 14px; }
   .play-grid, .play-mapping, .play-teams { grid-template-columns: 1fr; }

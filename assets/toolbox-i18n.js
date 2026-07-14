@@ -64,6 +64,7 @@
     '참가자와 팀 개수를 확인해 주세요.': 'Check the participants and number of teams.', '편가르기 결과': 'Team division result',
     '팀 개수는 참가자 수보다 많을 수 없습니다.': 'The number of teams cannot exceed the number of participants.', '먼저 팀을 나눠 주세요.': 'Divide the teams first.',
     '팀 결과를 복사했습니다.': 'Team results copied.', '팀': 'Team',
+    '직접 복사할 결과': 'Result to copy manually', '자동 복사가 차단되었습니다. 아래 결과를 선택해 직접 복사해 주세요.': 'Automatic copying was blocked. Select the result below and copy it manually.',
 
     '이미지 모자이크 도구': 'Image mosaic tool', '이미지를 여기에 놓으세요': 'Drop an image here', 'PNG, JPEG, WebP · 최대 15MB': 'PNG, JPEG, WebP · up to 15MB', '이미지 선택': 'Choose image',
     '샘플 이미지로 체험': 'Try a sample image', '이미지는 서버로 전송되지 않고 현재 브라우저에서만 처리됩니다.': 'Images stay in this browser and are never uploaded.',

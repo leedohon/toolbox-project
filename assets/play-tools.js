@@ -219,7 +219,31 @@ export function setupPairedListEditor({ container, addButton, initialValues, lef
 }
 
 export async function copyText(value) {
-  await navigator.clipboard.writeText(value);
+  const text = String(value ?? '');
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch (_) {
+    // Blogger iframe permissions may block the modern Clipboard API.
+  }
+
+  const previousFocus = document.activeElement;
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.readOnly = true;
+  textarea.setAttribute('aria-hidden', 'true');
+  textarea.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0;pointer-events:none';
+  document.body.append(textarea);
+  textarea.focus({ preventScroll: true });
+  textarea.select();
+  textarea.setSelectionRange(0, textarea.value.length);
+  let copied = false;
+  try { copied = document.execCommand('copy'); } catch (_) { copied = false; }
+  textarea.remove();
+  if (previousFocus instanceof HTMLElement) previousFocus.focus({ preventScroll: true });
+  return copied;
 }
 
 export function setupEmbedHeight(tool, { content = false } = {}) {

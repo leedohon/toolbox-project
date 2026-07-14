@@ -4,7 +4,7 @@
   "title": "숫자뽑기",
   "description": "숫자 결과 코드를 공유해 같은 숫자를 다시 열고 PNG로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_549.html",
-  "latestVersion": "0.3.0v",
+  "latestVersion": "0.3.1v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -41,6 +41,15 @@
       "directory": "0.3.0v",
       "html": "0.3.0v/number-picker.html",
       "patchNotes": "0.3.0v/patch-notes.json"
+    },
+    {
+      "version": "0.3.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "클립보드 권한이 차단된 iframe에서도 결과 복사가 안전하게 동작하도록 개선했습니다.",
+      "directory": "0.3.1v",
+      "html": "0.3.1v/number-picker.html",
+      "patchNotes": "0.3.1v/patch-notes.json"
     }
   ]
 }

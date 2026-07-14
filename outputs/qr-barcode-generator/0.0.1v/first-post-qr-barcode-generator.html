@@ -1,0 +1,147 @@
+<!-- Blogger 글쓰기 화면에서 HTML 보기로 전환한 뒤, 이 파일 전체를 붙여 넣으세요. -->
+<article id="toolbox-qr-post" class="toolbox-post">
+  <style>
+    #toolbox-qr-post { --tb-sky: #0879b2; --tb-sky-hover: #066d9f; --tb-pale: #eefaff; --tb-ink: #16232c; --tb-muted: #5d707b; --tb-line: #d8e9f1; max-width: 760px; margin: 0 auto; color: var(--tb-ink); font-family: Arial, "Noto Sans KR", sans-serif; line-height: 1.7; }
+    #toolbox-qr-post h1 { margin: 0 0 12px; font-size: 2rem; line-height: 1.3; }
+    #toolbox-qr-post h2 { margin: 38px 0 14px; font-size: 1.35rem; }
+    #toolbox-qr-post p { margin: 0 0 14px; }
+    #toolbox-qr-post .tb-lead { color: var(--tb-muted); font-size: 1.05rem; }
+    #toolbox-qr-post .tb-box { margin: 24px 0; padding: 20px 22px; border: 1px solid var(--tb-line); border-radius: 12px; background: var(--tb-pale); }
+    #toolbox-qr-post ul, #toolbox-qr-post ol { margin: 0; padding-left: 22px; }
+    #toolbox-qr-post li { margin: 7px 0; }
+    #toolbox-qr-post .tb-tool { margin: 28px 0; padding: 22px; border: 1px solid var(--tb-line); border-radius: 12px; background: #fff; }
+    #toolbox-qr-post .tb-field { margin: 0 0 22px; }
+    #toolbox-qr-post .tb-label, #toolbox-qr-post legend { display: block; margin-bottom: 9px; font-weight: 700; }
+    #toolbox-qr-post textarea { width: 100%; min-height: 96px; padding: 12px; color: #17212b; border: 1px solid #b9ccd6; border-radius: 10px; font: inherit; resize: vertical; }
+    #toolbox-qr-post fieldset { border: 0; margin: 0; padding: 0; }
+    #toolbox-qr-post .tb-choices { display: flex; flex-wrap: wrap; gap: 9px; }
+    #toolbox-qr-post .tb-choice { position: relative; }
+    #toolbox-qr-post .tb-choice input { position: absolute; opacity: 0; }
+    #toolbox-qr-post .tb-choice label { display: block; min-width: 110px; padding: 10px 14px; border: 1px solid #b9ccd6; border-radius: .5rem; text-align: center; cursor: pointer; font-weight: 700; }
+    #toolbox-qr-post .tb-choice input:checked + label { border-color: var(--tb-sky); box-shadow: inset 0 0 0 1px var(--tb-sky); background: var(--tb-pale); color: #075675; }
+    #toolbox-qr-post .tb-range-label { display: flex; justify-content: space-between; gap: 12px; }
+    #toolbox-qr-post input[type="range"] { width: 100%; accent-color: var(--tb-sky); }
+    #toolbox-qr-post .tb-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    #toolbox-qr-post button { min-height: 44px; padding: 0 18px; border: 1px solid transparent; border-radius: .5rem; font: inherit; font-weight: 700; cursor: pointer; }
+    #toolbox-qr-post .tb-primary { background: var(--tb-sky); color: #fff; }
+    #toolbox-qr-post .tb-primary:hover { background: var(--tb-sky-hover); }
+    #toolbox-qr-post .tb-secondary { background: #fff; color: #111; border-color: #b9c7cd; }
+    #toolbox-qr-post .tb-preview { display: grid; min-height: 230px; margin: 22px 0 14px; padding: 20px; overflow: auto; place-items: center; border-radius: 10px; background: var(--tb-pale); }
+    #toolbox-qr-post canvas, #toolbox-qr-post svg { max-width: 100%; height: auto; background: #fff; }
+    #toolbox-qr-post .tb-error { min-height: 1.3em; color: #b42318; font-size: .9rem; }
+    #toolbox-qr-post details { margin: 10px 0; padding: 14px 16px; border: 1px solid var(--tb-line); border-radius: 10px; }
+    #toolbox-qr-post summary { cursor: pointer; font-weight: 700; }
+    @media (max-width: 600px) { #toolbox-qr-post h1 { font-size: 1.65rem; } #toolbox-qr-post .tb-tool { padding: 16px; } #toolbox-qr-post button { flex: 1; } }
+  </style>
+
+  <h1>QR · 바코드 생성기</h1>
+  <p class="tb-lead">텍스트나 URL을 입력하면 결과가 즉시 갱신됩니다. QR 코드 또는 바코드를 만든 뒤 이미지로 저장하세요.</p>
+
+  <div class="tb-box">
+    <strong>이 도구로 할 수 있는 일</strong>
+    <ul>
+      <li>URL, 연락처, 상품 코드 등 텍스트를 QR 코드로 생성</li>
+      <li>Code 128 형식의 바코드 생성</li>
+      <li>기본형 또는 둥근형 QR 스타일 선택</li>
+      <li>가로 슬라이더로 크기 조절 후 이미지 저장</li>
+    </ul>
+  </div>
+
+  <h2>QR · 바코드 만들기</h2>
+  <div class="tb-tool">
+    <div class="tb-field">
+      <label class="tb-label" for="tb-content">텍스트 또는 URL</label>
+      <textarea id="tb-content" maxlength="1000" placeholder="예: https://bloggiedh.blogspot.com/">https://bloggiedh.blogspot.com/</textarea>
+    </div>
+    <fieldset class="tb-field">
+      <legend>생성 유형</legend>
+      <div class="tb-choices">
+        <div class="tb-choice"><input checked id="tb-qr" name="tb-type" type="radio" value="qr"><label for="tb-qr">QR 코드</label></div>
+        <div class="tb-choice"><input id="tb-barcode" name="tb-type" type="radio" value="barcode"><label for="tb-barcode">바코드</label></div>
+      </div>
+    </fieldset>
+    <fieldset class="tb-field" id="tb-style-field">
+      <legend>QR 스타일</legend>
+      <div class="tb-choices">
+        <div class="tb-choice"><input checked id="tb-basic" name="tb-style" type="radio" value="basic"><label for="tb-basic">기본형</label></div>
+        <div class="tb-choice"><input id="tb-rounded" name="tb-style" type="radio" value="rounded"><label for="tb-rounded">둥근형</label></div>
+      </div>
+    </fieldset>
+    <div class="tb-field">
+      <div class="tb-range-label"><label class="tb-label" for="tb-size">크기</label><output id="tb-size-value">280px</output></div>
+      <input id="tb-size" type="range" min="180" max="420" step="10" value="280">
+    </div>
+    <p class="tb-error" id="tb-error" role="alert"></p>
+    <div class="tb-preview">
+      <canvas id="tb-canvas" aria-label="생성된 QR 코드"></canvas>
+      <svg id="tb-barcode-svg" aria-label="생성된 바코드" style="display:none"></svg>
+    </div>
+    <button class="tb-primary" id="tb-download" type="button">이미지 저장</button>
+  </div>
+
+  <h2>사용 방법</h2>
+  <ol>
+    <li>QR 코드나 바코드로 만들 텍스트 또는 URL을 입력합니다.</li>
+    <li>생성 유형을 선택합니다. QR 코드는 기본형과 둥근형 스타일을 고를 수 있습니다.</li>
+    <li>입력·선택·크기를 바꿀 때마다 결과가 즉시 갱신됩니다.</li>
+    <li>완성된 결과를 확인하고 <strong>이미지 저장</strong>을 눌러 보관합니다.</li>
+  </ol>
+
+  <h2>자주 묻는 질문</h2>
+  <details><summary>QR 코드와 바코드의 차이는 무엇인가요?</summary><p>QR 코드는 URL처럼 비교적 긴 정보를 담기 좋고, 바코드는 상품 관리용 짧은 코드처럼 단순한 텍스트에 적합합니다.</p></details>
+  <details><summary>둥근형 QR 코드도 인식되나요?</summary><p>네. 충분한 여백을 유지한 QR 코드라면 일반 QR 리더기로 인식할 수 있습니다. 인쇄물에는 너무 작은 크기를 피하는 것을 권장합니다.</p></details>
+  <details><summary>입력한 내용이 저장되나요?</summary><p>아니요. 이 도구는 브라우저 안에서만 동작하며 입력 내용을 별도로 저장하지 않습니다.</p></details>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+  <script>
+    (function () {
+      const root = document.getElementById('toolbox-qr-post');
+      const $ = selector => root.querySelector(selector);
+      const content = $('#tb-content'), size = $('#tb-size'), canvas = $('#tb-canvas'), barcode = $('#tb-barcode-svg'), error = $('#tb-error');
+      const valueOf = name => root.querySelector('input[name="' + name + '"]:checked').value;
+      const finder = (r, c, n) => (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7);
+      function roundedRect(ctx, x, y, width, height, radius) {
+        const r = Math.min(radius, width / 2, height / 2);
+        ctx.beginPath(); ctx.moveTo(x + r, y); ctx.lineTo(x + width - r, y); ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+        ctx.lineTo(x + width, y + height - r); ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+        ctx.lineTo(x + r, y + height); ctx.quadraticCurveTo(x, y + height, x, y + height - r); ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath(); ctx.fill();
+      }
+      function makeQr() {
+        const text = content.value.trim(); if (!text) throw new Error('텍스트 또는 URL을 입력해 주세요.');
+        const code = qrcode(0, 'M'); code.addData(text); code.make();
+        const n = code.getModuleCount(), output = Number(size.value), quiet = 4, unit = output / (n + quiet * 2), scale = 3;
+        canvas.width = output * scale; canvas.height = output * scale; canvas.style.width = output + 'px'; canvas.style.height = output + 'px';
+        const ctx = canvas.getContext('2d'); ctx.scale(scale, scale); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, output, output); ctx.fillStyle = '#111';
+        const rounded = valueOf('tb-style') === 'rounded';
+        for (let r = 0; r < n; r += 1) for (let c = 0; c < n; c += 1) if (code.isDark(r, c) && !(rounded && finder(r, c, n))) {
+          const x = (c + quiet) * unit, y = (r + quiet) * unit;
+          if (rounded) { ctx.beginPath(); ctx.arc(x + unit / 2, y + unit / 2, Math.max(1, unit * .42), 0, Math.PI * 2); ctx.fill(); }
+          else ctx.fillRect(x, y, Math.ceil(unit) + .2, Math.ceil(unit) + .2);
+        }
+        if (rounded) {
+          [[0, 0], [0, n - 7], [n - 7, 0]].forEach(function (position) {
+            const x = (position[1] + quiet) * unit, y = (position[0] + quiet) * unit;
+            ctx.fillStyle = '#111'; roundedRect(ctx, x, y, unit * 7, unit * 7, unit * 1.35);
+            ctx.fillStyle = '#fff'; roundedRect(ctx, x + unit, y + unit, unit * 5, unit * 5, unit * .95);
+            ctx.fillStyle = '#111'; roundedRect(ctx, x + unit * 2, y + unit * 2, unit * 3, unit * 3, unit * .6);
+          });
+        }
+        canvas.style.display = 'block'; barcode.style.display = 'none';
+      }
+      function makeBarcode() {
+        const text = content.value.trim(); if (!text) throw new Error('텍스트 또는 URL을 입력해 주세요.');
+        JsBarcode(barcode, text, { format: 'CODE128', width: Math.max(1, Number(size.value) / 180), height: Math.round(Number(size.value) * .36), margin: 12, displayValue: true, fontSize: 16, background: '#ffffff', lineColor: '#111111' });
+        barcode.style.width = Math.min(Number(size.value) * 1.4, 560) + 'px'; barcode.style.display = 'block'; canvas.style.display = 'none';
+      }
+      function generate() { error.textContent = ''; try { valueOf('tb-type') === 'qr' ? makeQr() : makeBarcode(); } catch (e) { error.textContent = e.message || '생성하지 못했습니다.'; } }
+      function updateType() { const qr = valueOf('tb-type') === 'qr'; $('#tb-style-field').hidden = !qr; generate(); }
+      content.addEventListener('input', generate);
+      size.addEventListener('input', function () { $('#tb-size-value').textContent = size.value + 'px'; generate(); });
+      root.querySelectorAll('input[name="tb-type"]').forEach(el => el.addEventListener('change', updateType));
+      root.querySelectorAll('input[name="tb-style"]').forEach(el => el.addEventListener('change', generate));
+      $('#tb-download').addEventListener('click', function () { const a = document.createElement('a'); if (valueOf('tb-type') === 'qr') { a.href = canvas.toDataURL('image/png'); a.download = 'qr-code.png'; } else { a.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(barcode)); a.download = 'barcode.svg'; } a.click(); });
+      generate();
+    }());
+  </script>
+</article>

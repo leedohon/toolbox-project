@@ -1,0 +1,24 @@
+/* Toolbox 공통 CSS 토큰: Blogger 게시글용 HTML에도 이 값을 우선 적용한다. */
+:root {
+  --toolbox-sky: #0879b2;
+  --toolbox-sky-hover: #066d9f;
+  --toolbox-sky-pale: #eefaff;
+  --toolbox-ink: #16232c;
+  --toolbox-muted: #5d707b;
+  --toolbox-line: #d8e9f1;
+  --toolbox-radius: .5rem;
+}
+
+.toolbox-button-primary {
+  min-height: 44px;
+  padding: 0 18px;
+  color: #fff;
+  background: var(--toolbox-sky);
+  border: 1px solid var(--toolbox-sky);
+  border-radius: var(--toolbox-radius);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toolbox-button-primary:hover { background: var(--toolbox-sky-hover); }

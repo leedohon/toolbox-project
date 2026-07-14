@@ -1,0 +1,15 @@
+{
+  "tool": "qr-barcode-generator",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "QR 코드와 Code 128 바코드 생성 및 이미지 저장을 제공하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/first-post-qr-barcode-generator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

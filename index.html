@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="텍스트와 URL로 QR 코드 또는 바코드를 생성합니다." />
+    <title>Toolbox | QR · 바코드 생성기</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+    <style>
+      :root { --sky: #55b8e9; --sky-dark: #249bd3; --sky-pale: #edf9ff; --ink: #17212b; --muted: #62717d; --line: #dce8ee; --white: #fff; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #f8fcfe; color: var(--ink); font-family: Pretendard, "Noto Sans KR", Arial, sans-serif; }
+      button, input { font: inherit; }
+      .shell { width: min(100% - 32px, 1040px); margin: 0 auto; padding: 48px 0 64px; }
+      header { margin-bottom: 32px; }
+      .brand { color: var(--sky-dark); font-size: .88rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      h1 { margin: 10px 0 8px; font-size: clamp(1.7rem, 4vw, 2.4rem); }
+      .intro { margin: 0; color: var(--muted); }
+      .layout { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr); gap: 24px; align-items: start; }
+      .panel { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: clamp(20px, 4vw, 32px); }
+      .field { margin-bottom: 25px; }
+      label, legend { display: block; margin-bottom: 10px; font-weight: 700; font-size: .95rem; }
+      textarea { width: 100%; min-height: 118px; resize: vertical; border: 1px solid #b9ccd6; border-radius: 10px; padding: 13px; color: var(--ink); background: #fff; outline-color: var(--sky-dark); }
+      fieldset { border: 0; padding: 0; margin: 0; }
+      .choices { display: flex; flex-wrap: wrap; gap: 10px; }
+      .choice { position: relative; }
+      .choice input { position: absolute; opacity: 0; }
+      .choice label { cursor: pointer; display: block; margin: 0; min-width: 118px; padding: 11px 15px; text-align: center; color: var(--ink); background: #fff; border: 1px solid #b9ccd6; border-radius: .5rem; font-weight: 600; }
+      .choice input:checked + label { color: #075675; background: var(--sky-pale); border-color: var(--sky-dark); box-shadow: inset 0 0 0 1px var(--sky-dark); }
+      .range-title { display: flex; justify-content: space-between; gap: 16px; }
+      output { color: var(--sky-dark); font-weight: 700; }
+      input[type="range"] { width: 100%; accent-color: var(--sky-dark); cursor: pointer; }
+      .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+      .button { min-height: 44px; padding: 0 20px; border: 1px solid transparent; border-radius: .5rem; cursor: pointer; font-weight: 700; }
+      .button.primary { background: var(--sky); color: #08354b; }
+      .button.primary:hover { background: var(--sky-dark); color: #fff; }
+      .button.secondary { background: #fff; color: #111; border-color: #b9c7cd; }
+      .button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 3px solid #a8e0fa; outline-offset: 2px; }
+      .result-panel { min-height: 450px; display: flex; flex-direction: column; }
+      .result-title { margin: 0 0 5px; font-size: 1.15rem; }
+      .hint { margin: 0; color: var(--muted); font-size: .9rem; }
+      .preview { flex: 1; display: grid; place-items: center; min-height: 280px; margin: 20px 0; padding: 24px; background: var(--sky-pale); border-radius: 12px; overflow: auto; }
+      canvas, #barcode-svg { max-width: 100%; height: auto; background: white; }
+      #barcode-svg { display: none; padding: 16px; }
+      .result-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+      .embed-area { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+      .embed-area p { margin: 0 0 10px; color: var(--muted); font-size: .9rem; }
+      body.embed .shell { width: min(100%, 620px); padding: 12px; }
+      body.embed header { display: none; }
+      body.embed .layout { display: block; }
+      body.embed .result-panel { display: none; }
+      body.embed .panel { border-radius: 12px; }
+      .error { min-height: 1.25em; margin: 10px 0 0; color: #b42318; font-size: .9rem; }
+      @media (max-width: 720px) { .shell { width: min(100% - 24px, 600px); padding-top: 28px; } .layout { grid-template-columns: 1fr; } .panel { border-radius: 12px; } .actions .button, .result-actions .button { flex: 1; } }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <div class="brand">toolbox</div>
+        <h1>QR · 바코드 생성기</h1>
+        <p class="intro">텍스트나 URL을 입력하면 바로 사용할 수 있는 코드 이미지를 만듭니다.</p>
+      </header>
+      <div class="layout">
+        <form class="panel" id="generator-form">
+          <div class="field">
+            <label for="content">텍스트 또는 URL</label>
+            <textarea id="content" required maxlength="1000" placeholder="예: https://toolbox.example 또는 상품 코드">https://toolbox.example</textarea>
+          </div>
+          <fieldset class="field">
+            <legend>생성 유형</legend>
+            <div class="choices">
+              <div class="choice"><input checked id="type-qr" name="type" type="radio" value="qr" /><label for="type-qr">QR 코드</label></div>
+              <div class="choice"><input id="type-barcode" name="type" type="radio" value="barcode" /><label for="type-barcode">바코드</label></div>
+            </div>
+          </fieldset>
+          <fieldset class="field" id="style-fieldset">
+            <legend>QR 스타일</legend>
+            <div class="choices">
+              <div class="choice"><input checked id="style-basic" name="style" type="radio" value="basic" /><label for="style-basic">기본형</label></div>
+              <div class="choice"><input id="style-rounded" name="style" type="radio" value="rounded" /><label for="style-rounded">둥근형</label></div>
+            </div>
+          </fieldset>
+          <div class="field">
+            <div class="range-title"><label for="size">크기</label><output id="size-value" for="size">280px</output></div>
+            <input id="size" type="range" min="180" max="420" step="10" value="280" />
+          </div>
+          <p class="error" id="error" role="alert"></p>
+          <div class="actions">
+            <button class="button primary" type="submit">생성하기</button>
+            <button class="button secondary" type="reset">취소</button>
+          </div>
+        </form>
+        <section class="panel result-panel" aria-labelledby="result-heading">
+          <h2 class="result-title" id="result-heading">미리보기</h2>
+          <p class="hint" id="result-hint">생성된 QR 코드를 확인하세요.</p>
+          <div class="preview" id="preview">
+            <canvas id="qr-canvas" aria-label="생성된 QR 코드"></canvas>
+            <svg id="barcode-svg" aria-label="생성된 바코드"></svg>
+          </div>
+          <div class="result-actions">
+            <button class="button primary" id="download" type="button">이미지 저장</button>
+          </div>
+          <div class="embed-area" id="embed-area">
+            <p>블로그 게시글에 이 도구를 넣을 수 있습니다.</p>
+            <button class="button secondary" id="copy-embed" type="button">임베드 코드 복사</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      const form = document.getElementById('generator-form');
+      const content = document.getElementById('content');
+      const size = document.getElementById('size');
+      const sizeValue = document.getElementById('size-value');
+      const canvas = document.getElementById('qr-canvas');
+      const barcodeSvg = document.getElementById('barcode-svg');
+      const styleFieldset = document.getElementById('style-fieldset');
+      const resultHint = document.getElementById('result-hint');
+      const error = document.getElementById('error');
+      const isEmbed = new URLSearchParams(window.location.search).has('embed');
+      if (isEmbed) document.body.classList.add('embed');
+
+      function selected(name) { return document.querySelector('input[name="' + name + '"]:checked').value; }
+      function isFinder(row, col, total) {
+        return (row < 7 && col < 7) || (row < 7 && col >= total - 7) || (row >= total - 7 && col < 7);
+      }
+      function drawQr() {
+        const value = content.value.trim();
+        if (!value) throw new Error('텍스트 또는 URL을 입력해 주세요.');
+        const qr = qrcode(0, 'M');
+        qr.addData(value);
+        qr.make();
+        const count = qr.getModuleCount();
+        const outputSize = Number(size.value);
+        const quiet = 4;
+        const unit = outputSize / (count + quiet * 2);
+        const scale = 3;
+        canvas.width = outputSize * scale;
+        canvas.height = outputSize * scale;
+        canvas.style.width = outputSize + 'px';
+        canvas.style.height = outputSize + 'px';
+        const context = canvas.getContext('2d');
+        context.scale(scale, scale);
+        context.fillStyle = '#fff';
+        context.fillRect(0, 0, outputSize, outputSize);
+        context.fillStyle = '#111';
+        const rounded = selected('style') === 'rounded';
+        for (let row = 0; row < count; row += 1) {
+          for (let col = 0; col < count; col += 1) {
+            if (!qr.isDark(row, col)) continue;
+            const x = (col + quiet) * unit;
+            const y = (row + quiet) * unit;
+            if (rounded && !isFinder(row, col, count)) {
+              context.beginPath();
+              context.arc(x + unit / 2, y + unit / 2, Math.max(1, unit * .42), 0, Math.PI * 2);
+              context.fill();
+            } else context.fillRect(x, y, Math.ceil(unit) + .2, Math.ceil(unit) + .2);
+          }
+        }
+        canvas.style.display = 'block';
+        barcodeSvg.style.display = 'none';
+        resultHint.textContent = rounded ? '둥근형 QR 코드가 준비되었습니다.' : '기본형 QR 코드가 준비되었습니다.';
+      }
+      function drawBarcode() {
+        const value = content.value.trim();
+        if (!value) throw new Error('텍스트 또는 URL을 입력해 주세요.');
+        JsBarcode(barcodeSvg, value, { format: 'CODE128', width: Math.max(1, Number(size.value) / 180), height: Math.round(Number(size.value) * .36), margin: 12, displayValue: true, fontSize: 16, background: '#ffffff', lineColor: '#111111' });
+        barcodeSvg.style.width = Math.min(Number(size.value) * 1.4, 560) + 'px';
+        barcodeSvg.style.display = 'block';
+        canvas.style.display = 'none';
+        resultHint.textContent = 'Code 128 바코드가 준비되었습니다.';
+      }
+      function generate() {
+        error.textContent = '';
+        try { selected('type') === 'qr' ? drawQr() : drawBarcode(); }
+        catch (err) { error.textContent = err.message || '생성할 수 없습니다. 입력 내용을 확인해 주세요.'; }
+      }
+      function updateType() {
+        const qr = selected('type') === 'qr';
+        styleFieldset.hidden = !qr;
+        generate();
+      }
+      size.addEventListener('input', () => { sizeValue.value = size.value + 'px'; sizeValue.textContent = size.value + 'px'; generate(); });
+      form.addEventListener('submit', event => { event.preventDefault(); generate(); });
+      form.addEventListener('reset', () => { setTimeout(() => { sizeValue.value = size.value + 'px'; sizeValue.textContent = size.value + 'px'; updateType(); }, 0); });
+      document.querySelectorAll('input[name="type"]').forEach(input => input.addEventListener('change', updateType));
+      document.querySelectorAll('input[name="style"]').forEach(input => input.addEventListener('change', generate));
+      document.getElementById('download').addEventListener('click', () => {
+        const type = selected('type');
+        const link = document.createElement('a');
+        if (type === 'qr') { link.href = canvas.toDataURL('image/png'); link.download = 'toolbox-qr-code.png'; }
+        else { link.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(barcodeSvg)); link.download = 'toolbox-barcode.svg'; }
+        link.click();
+      });
+      document.getElementById('copy-embed').addEventListener('click', async event => {
+        const embedUrl = window.location.origin + window.location.pathname + '?embed=1';
+        const snippet = '<iframe src="' + embedUrl + '" title="QR · 바코드 생성기" width="100%" height="620" loading="lazy" style="border:0;max-width:620px"></iframe>';
+        try {
+          await navigator.clipboard.writeText(snippet);
+          event.currentTarget.textContent = '복사했습니다';
+          setTimeout(() => { event.currentTarget.textContent = '임베드 코드 복사'; }, 1800);
+        } catch (err) { error.textContent = '임베드 코드를 복사하지 못했습니다. 브라우저 권한을 확인해 주세요.'; }
+      });
+      generate();
+    </script>
+  </body>
+</html>

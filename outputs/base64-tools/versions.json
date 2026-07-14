@@ -1,0 +1,15 @@
+{
+  "tool": "base64-tools",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "Base64 텍스트 인코딩·디코딩과 파일 변환을 제공하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/base64-tools.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

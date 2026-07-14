@@ -1,0 +1,19 @@
+{
+  "index": 9,
+  "tool": "url-encoder-decoder",
+  "title": "URL 인코더·디코더",
+  "description": "주소와 쿼리 값을 URL에 안전하게 인코딩하고 다시 원문으로 디코딩합니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/url.html",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "URL 인코딩·디코딩과 처리 범위 선택을 제공하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/url-encoder-decoder.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

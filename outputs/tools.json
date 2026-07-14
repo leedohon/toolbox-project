@@ -55,7 +55,7 @@
       "title": "다중팀 편가르기",
       "description": "편가르기 결과 코드를 공유해 같은 팀 구성을 다시 열고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_641.html",
-      "version": "0.3.1v"
+      "version": "0.4.0v"
     },
     {
       "index": 8,
@@ -64,6 +64,22 @@
       "description": "KOR/ENG 화면에서 브러시로 칠하거나 사각형으로 선택해 모자이크 처리하고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
       "version": "0.2.0v"
+    },
+    {
+      "index": 9,
+      "tool": "url-encoder-decoder",
+      "title": "URL 인코더·디코더",
+      "description": "주소와 쿼리 값을 URL에 안전하게 인코딩하고 다시 원문으로 디코딩합니다.",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/url.html",
+      "version": "0.0.1v"
+    },
+    {
+      "index": 10,
+      "tool": "date-calculator",
+      "title": "날짜 계산기",
+      "description": "두 날짜 사이의 일수를 계산하거나 기준일에서 원하는 일수를 더하고 뺍니다.",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
+      "version": "0.0.1v"
     }
   ]
 }

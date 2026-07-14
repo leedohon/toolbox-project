@@ -77,6 +77,17 @@
     'PNG 파일을 만들지 못했습니다.': 'Could not create the PNG file.', '모자이크 이미지를 PNG로 저장했습니다.': 'Saved the mosaic image as PNG.',
     '사각형 선택: 시작점에서 끝점까지 드래그하세요.': 'Rectangle selection: drag from the start point to the end point.', '브러시: 숨길 부분을 따라 드래그하세요.': 'Brush: drag over the area you want to hide.', '범위를 조금 더 크게 드래그해 주세요.': 'Drag a slightly larger area.',
 
+    'URL 인코더·디코더': 'URL encoder / decoder', '변환 방식': 'Conversion mode', 'URL 인코딩': 'URL encode', 'URL 디코딩': 'URL decode', '처리 범위': 'Encoding scope', '쿼리 값·문장': 'Query value / text', '주소 전체': 'Full URL',
+    '쿼리 값은 예약문자까지 안전하게 바꾸고, 주소 전체는 : / ? & = 같은 URL 구조를 유지합니다.': 'Query values encode reserved characters, while full URL mode keeps URL structure such as : / ? & =.',
+    '원본 입력': 'Original input', '변환할 주소나 문장을 입력하세요.': 'Enter a URL or text to convert.', '디코딩할 URL 문자열을 입력하세요.': 'Enter an encoded URL string.', '변환 결과': 'Converted result', '변환 결과가 여기에 표시됩니다.': 'The converted result appears here.',
+    '입력 내용은 현재 브라우저에서만 처리됩니다.': 'Your input is processed only in this browser.', '인코딩할 내용을 입력하세요.': 'Enter content to encode.', '디코딩할 내용을 입력하세요.': 'Enter content to decode.', '변환할 내용을 입력해 주세요.': 'Enter content to convert.',
+    'URL 변환을 완료했습니다.': 'URL conversion complete.', '올바른 URL 인코딩 형식이 아닙니다.': 'This is not a valid URL-encoded string.', '자동 복사가 차단되었습니다. 결과 상자를 선택해 직접 복사해 주세요.': 'Automatic copying was blocked. Select the result box and copy it manually.',
+
+    '날짜 계산기': 'Date calculator', '계산 방식': 'Calculation type', '두 날짜 사이': 'Days between dates', '날짜 더하기·빼기': 'Add / subtract days', '시작일': 'Start date', '종료일': 'End date', '종료일을 포함해서 계산': 'Include the end date',
+    '기준일': 'Base date', '더하거나 뺄 일수': 'Days to add or subtract', '빼려면 -30처럼 음수로 입력하세요.': 'Use a negative number such as -30 to subtract.', '날짜 계산': 'Calculate date', '날짜를 선택한 뒤 계산해 주세요.': 'Select dates, then calculate.',
+    '계산 결과': 'Calculation result', '시작일과 종료일을 모두 선택해 주세요.': 'Select both the start and end dates.', '두 날짜가 같습니다.': 'The two dates are the same.', '종료일이 시작일보다 뒤에 있습니다.': 'The end date is after the start date.', '종료일이 시작일보다 앞에 있습니다.': 'The end date is before the start date.',
+    '기준일을 선택해 주세요.': 'Select a base date.', '일수는 -100,000부터 100,000 사이의 정수로 입력해 주세요.': 'Enter a whole number of days from -100,000 to 100,000.', '날짜 계산을 완료했습니다.': 'Date calculation complete.', '복사할 계산 결과가 없습니다.': 'There is no calculation result to copy.', '계산 결과를 복사했습니다.': 'Calculation result copied.',
+
     '결과 공유': 'Share result', '결과 코드를 보내면 받은 사람이 같은 결과를 열 수 있습니다.': 'Send the result code so the recipient can open the same result.', '결과 코드를 보내면 받은 사람이 같은 숫자를 열 수 있습니다.': 'Send the result code so the recipient can open the same numbers.', '받은 결과 코드': 'Received result code', '친구에게 받은 코드를 붙여넣으세요.': 'Paste the result code you received.',
     '결과 코드 복사': 'Copy result code', '같은 결과 열기': 'Open same result', 'PNG 저장': 'Save PNG',
     '코드에는 입력값과 결과가 포함됩니다. 필요한 사람에게만 공유하세요.': 'The code contains the inputs and result. Share it only with people you trust.', '코드에는 입력한 이름과 결과가 포함됩니다. 필요한 사람에게만 공유하세요.': 'The code contains the inputs and result. Share it only with people you trust.',
@@ -101,6 +112,7 @@
     [/^결과는 “(.+)”입니다\.$/, 'The result is “$1”.'], [/^(.*) 파일을 data: URL Base64로 변환했습니다\.$/, 'Converted $1 to data: URL Base64.'],
     [/^(\d+) × (\d+)px 이미지를 불러왔습니다\. 드래그해 모자이크를 적용하세요\.$/, 'Loaded a $1 × $2px image. Drag to apply mosaic.'],
     [/^(\d+) × (\d+)px 이미지를 불러왔습니다\. 브러시로 칠하거나 사각형 범위를 드래그하세요\.$/, 'Loaded a $1 × $2px image. Paint with the brush or drag a rectangle.'],
+    [/^(\d{1,3}(?:,\d{3})*)일$/, '$1 days'],
     [/^모자이크를 적용했습니다\. 되돌리기 (\d+)단계가 저장되었습니다\.$/, 'Mosaic applied. $1 undo steps saved.'],
     [/^(.+)은 (\d+)~(\d+)개 입력해 주세요\.$/, 'Enter $2–$3 $1 values.'], [/^(.+)은 각각 (\d+)자 이하로 입력해 주세요\.$/, 'Each $1 must be $2 characters or fewer.'],
     [/^(.+) ([\d, ]+)번 칸을 채워 주세요\.$/, 'Fill in $1 fields $2.'], [/^([\d, ]+)번 줄의 참가자와 결과를 확인해 주세요\.$/, 'Check the participant and outcome in rows $1.'],

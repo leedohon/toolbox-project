@@ -15,11 +15,14 @@
 - `embed/<도구>/index.html`: 게시글의 고정 iframe 주소에서 실행되는 최신 기능
 - `assets/blogger/`: Blogger 메인·게시글 전역 디자인과 목록 로더
 - `toolbox/theme/openworld-toolbox-upload.xml`: Blogger 백업 골조를 보존한 업로드용 테마
+- `toolbox/BLOGGER-OPERATIONS.md`: Blogger 게시, URL 동기화, Git·배포까지의 전체 운영 기준
 
 GitHub Pages의 배포 원본을 `main` 브랜치의 루트로 설정하면 `embed/`의 변경 사항이 푸시 후 게시글에 자동 반영됩니다.
 
 도구 버전 정보를 바꾼 뒤 `node scripts/build-tool-catalog.mjs`를 실행하면 메인 목록이 갱신됩니다. Blogger 게시글을 발행한 뒤 `node scripts/blogger-sync-post-urls.mjs`를 실행하면 각 카드가 해당 게시글 주소로 연결됩니다. 업로드용 XML에는 콘텐츠와 디자인을 하드코딩하지 않으므로 이후 메인·게시글 테마는 저장소의 CSS·JS·JSON 배포만으로 바뀝니다.
 
 `versions.json` 변경을 `main`에 푸시하면 GitHub Actions도 최신 카탈로그를 자동 생성하고 커밋합니다. 메인 화면은 JSON을 캐시 없이 읽으므로 GitHub Pages 배포가 끝나는 즉시 최신 목록을 사용합니다.
+
+게시 또는 릴리스 작업은 [Blogger 게시 운영 및 자동화 기준](toolbox/BLOGGER-OPERATIONS.md)에 따라 게시글 생성·수정, URL 동기화, 검증, Git 커밋·푸시, Pages 배포 확인까지 한 흐름으로 처리합니다. 특정 단계, 특히 커밋을 사용자의 고정 역할로 두지 않습니다.
 
 프로젝트의 지속적인 운영 원칙과 결정 사항은 [AGENTS.md](AGENTS.md)에 기록합니다.

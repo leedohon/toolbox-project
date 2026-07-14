@@ -14,36 +14,28 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
 
 ## 게시글 HTML 뼈대
 
+공통 외형은 `assets/blogger/theme.css`의 `.tb-post` 규칙이 담당한다. 게시글마다 `<style>` 블록이나 공통 인라인 스타일을 복제하지 않는다.
+
 ```html
 <!-- Blogger 글쓰기 화면의 HTML 보기에 전체를 붙여 넣으세요. -->
-<article id="toolbox-{{tool-id}}-post" style="max-width:860px;margin:0 auto;color:#16232c;font-family:Arial,'Noto Sans KR',sans-serif;line-height:1.7">
-  <h1>{{title}}</h1>
-  <p>{{description}}</p>
-
-  <div style="margin:24px 0;padding:20px 22px;border:1px solid #d8e9f1;border-radius:12px;background:#eefaff">
-    <strong>이 도구로 할 수 있는 일</strong>
-    <ul>
+<article id="toolbox-{{tool-id}}-post" class="tb-post">
+  <header class="tb-hero">
+    <p class="tb-label">초간단 툴박스</p>
+    <h1>{{title}}</h1>
+    <p class="tb-lead">{{description}}</p>
+    <ul class="tb-features">
       <li>{{feature-1}}</li>
       <li>{{feature-2}}</li>
       <li>{{feature-3}}</li>
     </ul>
-  </div>
+  </header>
 
   <h2>{{title}} 사용하기</h2>
-  <iframe
-    src="https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/"
-    title="{{title}}"
-    id="toolbox-{{tool-id}}-frame"
-    width="100%"
-    height="{{iframe-fallback-height}}"
-    loading="lazy"
-    scrolling="no"
-    style="display:block;width:100%;border:0;border-radius:12px;background:#fff;overflow:hidden"
-    referrerpolicy="strict-origin-when-cross-origin"></iframe>
-  <p>도구가 보이지 않으면 <a href="https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/" target="_blank" rel="noopener">새 창에서 열기</a>를 이용하세요.</p>
+  <div class="tb-frame"><iframe src="https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/" title="{{title}}" id="toolbox-{{tool-id}}-frame" height="{{iframe-fallback-height}}" loading="lazy" scrolling="no" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+  <p class="tb-fallback">도구가 보이지 않으면 <a href="https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/" target="_blank" rel="noopener">새 창에서 열기</a>를 이용하세요.</p>
 
   <h2>사용 방법</h2>
-  <ol><li>{{step-1}}</li><li>{{step-2}}</li><li>{{step-3}}</li></ol>
+  <ol class="tb-steps"><li>{{step-1}}</li><li>{{step-2}}</li><li>{{step-3}}</li></ol>
 
   <h2>자주 묻는 질문</h2>
   <details><summary>{{question-1}}</summary><p>{{answer-1}}</p></details>
@@ -69,3 +61,9 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
 4. `patch-notes.json`과 `versions.json`을 함께 갱신한다.
 5. GitHub Pages의 배포 원본은 `main` 브랜치 루트로 설정한다.
 6. 기능 HTML은 `ResizeObserver`로 실제 높이를 감지하고 `{ source: 'toolbox-embed', tool: '{{tool-id}}', height }` 메시지를 부모로 전송한다.
+7. 게시 또는 릴리스 요청이면 최신 버전 HTML을 Blogger 초안 또는 공개 글로 생성하고 반환된 URL을 확인한다.
+8. `node scripts/blogger-sync-post-urls.mjs`로 `versions.json`과 `outputs/tools.json`의 `postUrl`을 맞춘다.
+9. 비밀값과 관련 없는 파일을 제외한 뒤 권한이 허용되면 에이전트가 직접 커밋하고 `main`에 푸시한다.
+10. GitHub Actions와 GitHub Pages 배포, 공개 게시글의 iframe 동작을 확인한다.
+
+상세한 게시 상태 판단, OAuth 보안, 실패 처리 기준은 [`toolbox/BLOGGER-OPERATIONS.md`](../BLOGGER-OPERATIONS.md)를 따른다.

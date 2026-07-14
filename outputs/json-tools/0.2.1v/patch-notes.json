@@ -1,0 +1,1 @@
+{"tool":"json-tools","version":"0.2.1v","releaseDate":"2026-07-15","changeLevel":"minimum","changes":["공통 게시글 스타일을 assets/blogger/theme.css로 이동했습니다.","게시글에서 반복되던 CSS를 제거하고 .tb-post 공통 클래스를 적용했습니다.","향후 도구가 공통 템플릿과 전역 테마를 재사용하도록 기준을 기록했습니다."]}

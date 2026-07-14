@@ -97,6 +97,27 @@ h3.post-title, h3.post-title a { color: var(--ow-ink) !important; font-family: i
 .ow-back-link { display: inline-flex; min-height: 42px; padding: 0 14px; align-items: center; color: var(--ow-primary) !important; background: #fff; border: 1px solid var(--ow-line); border-radius: 10px; font-size: .9rem; font-weight: 800; text-decoration: none !important; }
 .ow-back-link:hover { background: var(--ow-primary-soft); }
 
+/* Shared toolbox post theme. Keep tool posts structural and style them here. */
+.tb-post { max-width: 860px; margin: 0 auto; color: var(--ow-ink); font-family: inherit; line-height: 1.75; }
+.tb-post * { box-sizing: border-box; }
+.tb-post .tb-hero { padding: 28px; border: 1px solid var(--ow-line); border-radius: 18px; background: linear-gradient(145deg, #fff 0%, var(--ow-primary-soft) 100%); }
+.tb-post .tb-label { margin: 0 0 8px; color: var(--ow-primary); font-size: .8rem; font-weight: 800; letter-spacing: .12em; }
+.tb-post h1 { margin: 0; font-size: clamp(1.8rem, 5vw, 2.5rem); line-height: 1.25; letter-spacing: -.035em; }
+.tb-post .tb-lead { margin: 12px 0 0; color: var(--ow-muted); }
+.tb-post h2 { margin: 34px 0 14px; font-size: 1.4rem; line-height: 1.4; }
+.tb-post .tb-features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 18px 0 0; padding: 0; gap: 10px; list-style: none; }
+.tb-post .tb-features li { padding: 15px; color: #31505f; background: #fff; border: 1px solid var(--ow-line); border-radius: 12px; font-size: .92rem; font-weight: 700; }
+.tb-post .tb-frame { padding: 8px; border: 1px solid var(--ow-line); border-radius: 16px; background: #fff; box-shadow: 0 10px 28px rgba(8, 91, 132, .07); }
+.tb-post iframe { display: block; width: 100%; border: 0; border-radius: 10px; background: #fff; overflow: hidden; }
+.tb-post .tb-fallback { margin: 10px 2px 0; color: var(--ow-muted); font-size: .88rem; }
+.tb-post a { color: var(--ow-primary); font-weight: 700; }
+.tb-post .tb-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; gap: 10px; list-style: none; counter-reset: step; }
+.tb-post .tb-steps li { position: relative; padding: 17px 15px 15px 48px; border: 1px solid var(--ow-line); border-radius: 12px; background: #fff; counter-increment: step; }
+.tb-post .tb-steps li::before { position: absolute; top: 15px; left: 14px; display: grid; width: 25px; height: 25px; color: var(--ow-primary); background: var(--ow-primary-soft); border-radius: 8px; content: counter(step); font-size: .8rem; font-weight: 900; place-items: center; }
+.tb-post details { margin: 10px 0; border: 1px solid var(--ow-line); border-radius: 12px; background: #fff; }
+.tb-post summary { padding: 16px 18px; cursor: pointer; font-weight: 800; }
+.tb-post details p { margin: 0; padding: 0 18px 17px; color: var(--ow-muted); }
+
 @media (max-width: 820px) { .ow-tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) {
   .content-inner { padding-right: 10px !important; padding-left: 10px !important; }
@@ -105,5 +126,7 @@ h3.post-title, h3.post-title a { color: var(--ow-ink) !important; font-family: i
   .ow-tool-search { align-items: stretch; flex-direction: column; }
   .ow-tool-grid { grid-template-columns: 1fr; }
   .ow-tool-card { min-height: 165px; }
+  .tb-post .tb-hero { padding: 22px 18px; }
+  .tb-post .tb-features, .tb-post .tb-steps { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }

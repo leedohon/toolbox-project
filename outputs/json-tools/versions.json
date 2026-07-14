@@ -4,7 +4,7 @@
   "title": "JSON 도구",
   "description": "JSON을 실시간으로 검사하고 보기 좋게 정리하거나 한 줄로 압축합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-  "latestVersion": "0.2.0v",
+  "latestVersion": "0.2.1v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -41,6 +41,7 @@
       "directory": "0.2.0v",
       "html": "0.2.0v/json-tools.html",
       "patchNotes": "0.2.0v/patch-notes.json"
-    }
+    },
+    {"version":"0.2.1v","releaseDate":"2026-07-15","changeLevel":"minimum","summary":"반복 CSS를 제거하고 Blogger 전역 게시글 테마를 사용하도록 전환했습니다.","directory":"0.2.1v","html":"0.2.1v/json-tools.html","patchNotes":"0.2.1v/patch-notes.json"}
   ]
 }

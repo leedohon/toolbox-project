@@ -85,7 +85,7 @@ h3.post-title, h3.post-title a { color: var(--ow-ink) !important; font-family: i
 .ow-catalog-head { display: flex; margin-bottom: 18px; align-items: end; justify-content: space-between; gap: 16px; }
 .ow-catalog-head h2 { margin: 0; color: var(--ow-ink); font-size: clamp(1.4rem, 3vw, 1.85rem); letter-spacing: -.025em; }
 .ow-count { margin: 0; color: var(--ow-muted); font-size: .88rem; }
-.ow-tool-search { display: flex; width: min(100%, 560px); margin-bottom: 20px; padding: 6px; gap: 7px; background: #fff; border: 1px solid var(--ow-line); border-radius: 12px; }
+.ow-tool-search { box-sizing: border-box; display: flex; width: min(100%, 560px); margin-bottom: 20px; padding: 6px; gap: 7px; background: #fff; border: 1px solid var(--ow-line); border-radius: 12px; }
 .ow-tool-search input { width: 100%; min-width: 0; padding: 10px 12px; color: var(--ow-ink); background: transparent; border: 0; outline: 0; font: inherit; }
 .ow-tool-search button { min-width: 72px; min-height: 42px; padding: 0 18px; color: #fff; background: var(--ow-primary); border: 0; border-radius: 8px; cursor: pointer; font: inherit; font-weight: 800; white-space: nowrap; }
 .ow-tool-search button:hover { background: var(--ow-primary-dark); }

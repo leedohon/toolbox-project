@@ -4,7 +4,7 @@
   "title": "돌림판",
   "description": "돌림판 결과 코드를 공유해 같은 당첨 항목을 다시 열고 PNG로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_964.html",
-  "latestVersion": "0.3.0v",
+  "latestVersion": "0.3.1v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -41,6 +41,15 @@
       "directory": "0.3.0v",
       "html": "0.3.0v/wheel-spinner.html",
       "patchNotes": "0.3.0v/patch-notes.json"
+    },
+    {
+      "version": "0.3.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "Blogger 게시글 FAQ에 전체 버전 이력을 누적 표시하는 패치노트를 추가했습니다.",
+      "directory": "0.3.1v",
+      "html": "0.3.1v/wheel-spinner.html",
+      "patchNotes": "0.3.1v/patch-notes.json"
     }
   ]
 }

@@ -30,7 +30,7 @@
   function renderPostNavigation(config) {
     if (!postMount) return;
     var homeUrl = postMount.getAttribute('data-home-url') || '/';
-    postMount.innerHTML = '<a class="ow-back-link" href="' + escapeHtml(homeUrl) + '#ow-tool-search">' + escapeHtml(config.labels.backToSearch) + '</a>';
+    postMount.innerHTML = '<a class="ow-back-link" href="' + escapeHtml(homeUrl) + '#ow-tool-search" aria-label="' + escapeHtml(config.labels.backToSearch) + '">' + escapeHtml(config.labels.backToSearch) + '</a>';
   }
 
   function renderHome(config, toolsDocument) {
@@ -85,7 +85,7 @@
     if (window.location.hash === '#ow-tool-search') {
       window.requestAnimationFrame(function () {
         form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        query.focus({ preventScroll: true });
+        if (!window.matchMedia('(max-width: 767px), (pointer: coarse)').matches) query.focus({ preventScroll: true });
       });
     }
   }

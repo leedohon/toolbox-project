@@ -37,9 +37,9 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
   <h2>사용 방법</h2>
   <ol class="tb-steps"><li>{{step-1}}</li><li>{{step-2}}</li><li>{{step-3}}</li></ol>
 
-  <h2>자주 묻는 질문</h2>
-  <details><summary>{{question-1}}</summary><p>{{answer-1}}</p></details>
-  <details><summary>업데이트 때 게시글을 다시 수정해야 하나요?</summary><p>아니요. 고정된 iframe 주소에서 최신 기능을 불러옵니다.</p></details>
+  <!-- tb-tool-details:start --><section class="tb-tool-details">{{generated-tool-details}}</section><!-- tb-tool-details:end -->
+  <!-- tb-faq:start --><h2>자주 묻는 질문</h2>{{generated-user-faq}}{{generated-user-faq}}{{generated-user-faq}}{{generated-user-faq}}<!-- tb-faq:end -->
+  <!-- tb-patch-notes:start --><details class="tb-patch-notes"><summary>패치노트</summary><div class="tb-patch-list">{{generated-cumulative-patch-notes}}</div></details><!-- tb-patch-notes:end -->
 </article>
 <script>
   (function () {
@@ -59,11 +59,12 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
 2. 게시글 설명도 변경되면 다음 버전의 `outputs/` 폴더를 만들고 `toolbox/posts/{{tool-id}}.html`을 같은 내용으로 갱신한다.
 3. 게시글 iframe의 `src`는 버전과 관계없이 고정 주소를 유지한다.
 4. `patch-notes.json`과 `versions.json`을 함께 갱신한다.
-5. GitHub Pages의 배포 원본은 `main` 브랜치 루트로 설정한다.
-6. 기능 HTML은 `ResizeObserver`로 실제 높이를 감지하고 `{ source: 'toolbox-embed', tool: '{{tool-id}}', height }` 메시지를 부모로 전송한다.
-7. 게시 또는 릴리스 요청이면 최신 버전 HTML을 Blogger 초안 또는 공개 글로 생성하고 반환된 URL을 확인한다.
-8. `node scripts/blogger-sync-post-urls.mjs`로 `versions.json`과 `outputs/tools.json`의 `postUrl`을 맞춘다.
-9. 비밀값과 관련 없는 파일을 제외한 뒤 권한이 허용되면 에이전트가 직접 커밋하고 `main`에 푸시한다.
-10. GitHub Actions와 GitHub Pages 배포, 공개 게시글의 iframe 동작을 확인한다.
+5. `toolbox/post-content.json`에 상세 설명과 FAQ를 작성하고 `node scripts/build-tool-posts.mjs {{tool-id}}`를 실행해 공통 게시글 영역을 생성한다.
+6. GitHub Pages의 배포 원본은 `main` 브랜치 루트로 설정한다.
+7. 기능 HTML은 `ResizeObserver`로 실제 높이를 감지하고 `{ source: 'toolbox-embed', tool: '{{tool-id}}', height }` 메시지를 부모로 전송한다.
+8. 게시 또는 릴리스 요청이면 최신 버전 HTML을 Blogger 초안 또는 공개 글로 생성하고 반환된 URL을 확인한다.
+9. `node scripts/blogger-sync-post-urls.mjs`로 `versions.json`과 `outputs/tools.json`의 `postUrl`을 맞춘다.
+10. 비밀값과 관련 없는 파일을 제외한 뒤 권한이 허용되면 에이전트가 직접 커밋하고 `main`에 푸시한다.
+11. GitHub Actions와 GitHub Pages 배포, 공개 게시글의 iframe 동작을 확인한다.
 
 상세한 게시 상태 판단, OAuth 보안, 실패 처리 기준은 [`toolbox/BLOGGER-OPERATIONS.md`](../BLOGGER-OPERATIONS.md)를 따른다.

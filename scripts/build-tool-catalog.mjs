@@ -14,6 +14,7 @@ export async function buildToolCatalog() {
     const versionsPath = path.join(outputs, entry.name, 'versions.json');
     try {
       const versions = JSON.parse(await fs.readFile(versionsPath, 'utf8'));
+      if (versions.status === 'retired') continue;
       tools.push({
         index: versions.index,
         tool: versions.tool,

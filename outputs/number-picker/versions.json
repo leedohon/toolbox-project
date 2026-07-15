@@ -4,7 +4,7 @@
   "title": "숫자뽑기",
   "description": "숫자 결과 코드를 공유해 같은 숫자를 다시 열고 PNG로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_549.html",
-  "latestVersion": "0.3.1v",
+  "latestVersion": "0.3.2v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -50,6 +50,15 @@
       "directory": "0.3.1v",
       "html": "0.3.1v/number-picker.html",
       "patchNotes": "0.3.1v/patch-notes.json"
+    },
+    {
+      "version": "0.3.2v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "Blogger 게시글 FAQ에 전체 버전 이력을 누적 표시하는 패치노트를 추가했습니다.",
+      "directory": "0.3.2v",
+      "html": "0.3.2v/number-picker.html",
+      "patchNotes": "0.3.2v/patch-notes.json"
     }
   ]
 }

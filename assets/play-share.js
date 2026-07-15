@@ -43,8 +43,7 @@ export async function copyResultCode(code, input) {
   try {
     await navigator.clipboard.writeText(code);
   } catch (error) {
-    input.focus();
-    input.select();
+    window.ToolboxUX?.focusAndSelect(input);
     document.execCommand('copy');
   }
 }

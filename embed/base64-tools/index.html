@@ -2,171 +2,243 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Base64 도구</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>텍스트 인코더·디코더</title>
 <link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
-<script src="../../assets/toolbox-i18n.js?v=0.1.1"></script>
-<style>
-  html, body { width:100%; min-width:0; box-sizing:border-box; }
-  body { margin:0; padding:clamp(6px, 1.8vw, 16px); background:#fff; overflow-x:hidden; }
-  #b64-tools { --b64-ink:#1d1b20; --b64-muted:#625b71; --b64-surface:#fffbff; --b64-surface-alt:#f7f2fa; --b64-primary:#6750a4; --b64-on-primary:#fff; --b64-outline:#79747e; width:100%; min-width:0; max-width:none; margin:0; box-sizing:border-box; color:var(--b64-ink); font-family:Arial, sans-serif; line-height:1.5; }
-  #b64-tools * { box-sizing:border-box; }
-  #b64-tools .b64-shell { background:var(--b64-surface); border:1px solid #e7e0ec; border-radius:28px; box-shadow:0 2px 8px rgba(30,20,40,.08); overflow:hidden; }
-  #b64-tools .b64-head { padding:28px 30px 22px; background:linear-gradient(135deg,#f3edf7,#e8def8); }
-  #b64-tools h2 { margin:0; font-size:28px; line-height:1.2; letter-spacing:-.5px; }
-  #b64-tools .b64-head p { color:var(--b64-muted); margin:8px 0 0; }
-  #b64-tools .b64-main { min-width:0; padding:24px 30px 30px; }
-  #b64-tools .b64-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
-  #b64-tools .b64-tab, #b64-tools .b64-button { border:0; cursor:pointer; font:inherit; font-weight:700; transition:transform .15s, background .15s; }
-  #b64-tools .b64-tab { color:var(--b64-primary); background:transparent; border-radius:100px; padding:10px 18px; }
-  #b64-tools .b64-tab[aria-selected="true"] { background:#e8def8; }
-  #b64-tools .b64-option { display:flex; align-items:flex-start; gap:9px; margin:-6px 0 20px; padding:11px 13px; color:var(--b64-muted); background:var(--b64-surface-alt); border-radius:12px; font-size:14px; cursor:pointer; }
-  #b64-tools .b64-option input { width:18px; height:18px; margin:1px 0 0; accent-color:var(--b64-primary); flex:0 0 auto; }
-  #b64-tools .b64-tab:hover, #b64-tools .b64-button:hover { transform:translateY(-1px); }
-  #b64-tools .b64-grid { display:grid; grid-template-columns:minmax(0, 1fr); gap:20px; }
-  #b64-tools .b64-panel { min-width:0; }
-  #b64-tools label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; }
-  #b64-tools textarea, #b64-tools input[type="text"] { display:block; width:100%; color:var(--b64-ink); background:#fefbff; border:1px solid var(--b64-outline); border-radius:14px; font:inherit; outline:none; }
-  #b64-tools textarea { min-height:220px; padding:14px; resize:vertical; }
-  #b64-tools textarea:focus, #b64-tools input[type="text"]:focus { border:2px solid var(--b64-primary); padding:13px; }
-  #b64-tools .b64-meta { display:flex; justify-content:space-between; color:var(--b64-muted); font-size:13px; margin-top:7px; }
-  #b64-tools .b64-drop { border:1.5px dashed var(--b64-outline); border-radius:14px; color:var(--b64-muted); font-size:13px; margin-top:12px; padding:11px 14px; text-align:center; transition:background .15s, border-color .15s; }
-  #b64-tools .b64-drop.is-over { background:#ede5f4; border-color:var(--b64-primary); color:var(--b64-primary); }
-  #b64-tools .b64-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
-  #b64-tools .b64-button { border-radius:100px; padding:11px 18px; }
-  #b64-tools .b64-primary { background:var(--b64-primary); color:var(--b64-on-primary); }
-  #b64-tools .b64-secondary { color:var(--b64-primary); background:transparent; border:1px solid var(--b64-outline); }
-  #b64-tools .b64-file-row { align-items:center; display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
-  #b64-tools .b64-file-label { color:var(--b64-primary); cursor:pointer; font-size:14px; font-weight:700; margin:0; }
-  #b64-tools input[type="file"] { max-width:100%; }
-  #b64-tools .b64-download { border-top:1px solid #e7e0ec; margin-top:24px; padding-top:20px; }
-  #b64-tools .b64-download-row { display:flex; gap:10px; margin-top:10px; }
-  #b64-tools .b64-download-row input { min-width:0; flex:1 1 220px; padding:11px 13px; }
-  #b64-tools .b64-message { min-height:20px; color:var(--b64-muted); font-size:13px; margin:15px 0 0; }
-  #b64-tools .b64-message.error { color:var(--b64-error); }
-  @media (max-width:680px) { #b64-tools .b64-shell { border-radius:20px; } #b64-tools .b64-head, #b64-tools .b64-main { padding-left:16px; padding-right:16px; } #b64-tools textarea { min-height:180px; } #b64-tools .b64-tab, #b64-tools .b64-actions .b64-button { flex:1 1 140px; } #b64-tools .b64-download-row { flex-wrap:wrap; } #b64-tools .b64-download-row .b64-button { width:100%; } #b64-tools input[type="file"] { width:100%; } }
-</style>
+<script src="../../assets/toolbox-i18n.js?v=0.1.7"></script>
+<link rel="stylesheet" href="../../assets/simple-tools.css?v=0.1.0">
+<link rel="stylesheet" href="../../assets/base64-tools.css?v=0.2.0">
+<script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
 </head>
 <body>
+<section id="b64-tools" class="simple-tool" aria-label="텍스트 인코더·디코더">
+  <main class="b64-main">
+    <fieldset class="st-mode">
+      <legend>변환 형식</legend>
+      <div class="st-mode-options">
+        <label><input type="radio" name="codec-format" value="base64" checked><span>Base64</span></label>
+        <label><input type="radio" name="codec-format" value="url"><span>URL</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="st-mode">
+      <legend>변환 방식</legend>
+      <div class="st-mode-options">
+        <label><input type="radio" name="codec-mode" value="encode" checked><span id="codec-encode-label">Base64 인코딩</span></label>
+        <label><input type="radio" name="codec-mode" value="decode"><span id="codec-decode-label">Base64 디코딩</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="st-mode" id="url-scope-panel" hidden>
+      <legend>처리 범위</legend>
+      <div class="st-mode-options">
+        <label><input type="radio" name="url-scope" value="component" checked><span>쿼리 값·문장</span></label>
+        <label><input type="radio" name="url-scope" value="full"><span>주소 전체</span></label>
+      </div>
+      <p class="st-help">쿼리 값은 예약문자까지 변환하고, 주소 전체는 : / ? &amp; = 같은 URL 구조를 유지합니다.</p>
+    </fieldset>
+    <label class="b64-option st-check" id="url-safe-panel" for="b64-url-safe"><input id="b64-url-safe" type="checkbox"><span>텍스트 인코딩 결과를 URL-safe Base64 형식으로 만들기</span></label>
 
-<section id="b64-tools" aria-label="Base64 Tools">
-  <div class="b64-shell">
-    <header class="b64-head">
-      <h2>Base64 Tools</h2>
-      <p>텍스트와 파일을 브라우저 안에서 안전하게 Base64로 변환하세요.</p>
-    </header>
-    <main class="b64-main">
-      <div class="b64-tabs" role="tablist" aria-label="변환 모드">
-        <button class="b64-tab" type="button" role="tab" aria-selected="true" data-mode="encode">Base64 인코딩</button>
-        <button class="b64-tab" type="button" role="tab" aria-selected="false" data-mode="decode">Base64 디코딩</button>
+    <div class="b64-grid">
+      <div class="b64-panel">
+        <label class="st-label" for="b64-input" id="b64-input-label">원본 텍스트</label>
+        <textarea id="b64-input" maxlength="100000" placeholder="여기에 텍스트를 입력하거나 붙여 넣으세요." spellcheck="false"></textarea>
+        <div class="b64-meta"><span>입력</span><span id="b64-input-count">0자</span></div>
+        <div class="b64-drop" id="b64-drop" aria-label="텍스트 또는 파일 드롭 영역">텍스트나 파일을 이곳에 놓으세요</div>
       </div>
-      <label class="b64-option" for="b64-url-safe"><input id="b64-url-safe" type="checkbox"><span>텍스트 인코딩 결과를 URL-safe Base64 형식으로 만들기</span></label>
-      <div class="b64-grid">
-        <div class="b64-panel">
-          <label for="b64-input" id="b64-input-label">원본 텍스트</label>
-          <textarea id="b64-input" placeholder="여기에 텍스트를 입력하거나 붙여넣으세요." spellcheck="false"></textarea>
-          <div class="b64-meta"><span>입력</span><span id="b64-input-count">0자</span></div>
-          <div class="b64-drop" id="b64-drop" aria-label="텍스트 또는 파일 드롭 영역">텍스트나 파일을 이곳에 놓으세요</div>
-        </div>
-        <div class="b64-panel">
-          <label for="b64-output" id="b64-output-label">Base64 결과</label>
-          <textarea id="b64-output" placeholder="변환 결과가 여기에 표시됩니다." readonly spellcheck="false"></textarea>
-          <div class="b64-meta"><span>결과</span><span id="b64-output-count">0자</span></div>
-        </div>
+      <div class="b64-panel">
+        <label class="st-label" for="b64-output" id="b64-output-label">Base64 결과</label>
+        <textarea id="b64-output" placeholder="변환 결과가 여기에 표시됩니다." readonly spellcheck="false"></textarea>
+        <div class="b64-meta"><span>결과</span><span id="b64-output-count">0자</span></div>
       </div>
-      <div class="b64-actions">
-        <button class="b64-button b64-primary" type="button" id="b64-convert">Base64로 인코딩</button>
-        <button class="b64-button b64-secondary" type="button" id="b64-swap">입력·결과 바꾸기</button>
-        <button class="b64-button b64-secondary" type="button" id="b64-copy">결과 복사</button>
-        <button class="b64-button b64-secondary" type="button" id="b64-clear">초기화</button>
-      </div>
+    </div>
+
+    <div class="b64-actions st-actions">
+      <button class="st-primary" type="button" id="b64-convert">Base64로 인코딩</button>
+      <button class="st-secondary" type="button" id="b64-swap">입력·결과 바꾸기</button>
+      <button class="st-secondary" type="button" id="b64-copy">결과 복사</button>
+      <button class="st-secondary" type="button" id="b64-clear">초기화</button>
+    </div>
+
+    <div id="base64-file-tools">
       <div class="b64-file-row">
         <label class="b64-file-label" for="b64-file">파일을 Base64로 변환</label>
-        <input id="b64-file" type="file" aria-label="파일 선택" />
+        <input id="b64-file" type="file" aria-label="파일 선택">
       </div>
       <div class="b64-download">
         <label for="b64-filename">Base64 결과를 파일로 저장</label>
         <div class="b64-download-row">
-          <input id="b64-filename" type="text" value="decoded-file" aria-label="다운로드 파일 이름" />
-          <button class="b64-button b64-secondary" type="button" id="b64-download">파일 다운로드</button>
+          <input id="b64-filename" type="text" value="decoded-file" aria-label="다운로드 파일 이름">
+          <button class="st-secondary" type="button" id="b64-download">파일 다운로드</button>
         </div>
       </div>
-      <p class="b64-message" id="b64-message" role="status" aria-live="polite">모든 변환은 이 브라우저에서만 처리됩니다.</p>
-    </main>
-  </div>
+    </div>
+    <p class="st-status" id="b64-message" role="status" aria-live="polite">모든 변환은 이 브라우저에서만 처리합니다.</p>
+  </main>
 </section>
 
 <script>
-  (function () {
-    var root = document.getElementById('b64-tools');
-    var input = root.querySelector('#b64-input');
-    var output = root.querySelector('#b64-output');
-    var inputLabel = root.querySelector('#b64-input-label');
-    var outputLabel = root.querySelector('#b64-output-label');
-    var inputCount = root.querySelector('#b64-input-count');
-    var outputCount = root.querySelector('#b64-output-count');
-    var convert = root.querySelector('#b64-convert');
-    var message = root.querySelector('#b64-message');
-    var urlSafe = root.querySelector('#b64-url-safe');
-    var mode = 'encode';
+(function () {
+  'use strict';
+  var root = document.getElementById('b64-tools');
+  var input = root.querySelector('#b64-input');
+  var output = root.querySelector('#b64-output');
+  var inputLabel = root.querySelector('#b64-input-label');
+  var outputLabel = root.querySelector('#b64-output-label');
+  var inputCount = root.querySelector('#b64-input-count');
+  var outputCount = root.querySelector('#b64-output-count');
+  var convertButton = root.querySelector('#b64-convert');
+  var message = root.querySelector('#b64-message');
+  var urlSafe = root.querySelector('#b64-url-safe');
+  var format = function () { return root.querySelector('input[name="codec-format"]:checked').value; };
+  var mode = function () { return root.querySelector('input[name="codec-mode"]:checked').value; };
+  var scope = function () { return root.querySelector('input[name="url-scope"]:checked').value; };
 
-    function setMessage(text, isError) { message.textContent = text; message.className = isError ? 'b64-message error' : 'b64-message'; }
-    function updateCounts() { inputCount.textContent = input.value.length.toLocaleString() + '자'; outputCount.textContent = output.value.length.toLocaleString() + '자'; }
-    function bytesToBase64(bytes) { var binary = ''; for (var i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(binary); }
-    function base64ToBytes(value) { var normalized = value.replace(/^data:[^,]*,/, '').replace(/\s/g, '').replace(/-/g, '+').replace(/_/g, '/'); while (normalized.length % 4) normalized += '='; if (!normalized || !/^[A-Za-z0-9+/]*={0,2}$/.test(normalized)) throw new Error('유효한 Base64 형식이 아닙니다.'); var binary = atob(normalized); var bytes = new Uint8Array(binary.length); for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i); return bytes; }
-    function toUrlSafe(value) { return value.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, ''); }
-    function convertValue() {
-      try {
-        if (mode === 'encode') { var encoded = bytesToBase64(new TextEncoder().encode(input.value)); output.value = urlSafe.checked ? toUrlSafe(encoded) : encoded; }
-        else output.value = new TextDecoder('utf-8', { fatal: true }).decode(base64ToBytes(input.value));
-        updateCounts(); setMessage('변환이 완료되었습니다.'); return true;
-      } catch (error) { setMessage(error.message || '변환 중 오류가 발생했습니다.', true); return false; }
+  function setMessage(text, isError) {
+    message.textContent = text;
+    message.className = 'st-status ' + (isError ? 'is-error' : 'is-good');
+  }
+  function updateCounts() {
+    inputCount.textContent = input.value.length.toLocaleString() + '자';
+    outputCount.textContent = output.value.length.toLocaleString() + '자';
+  }
+  function bytesToBase64(bytes) {
+    var binary = '';
+    for (var index = 0; index < bytes.length; index += 0x8000) binary += String.fromCharCode.apply(null, bytes.subarray(index, index + 0x8000));
+    return btoa(binary);
+  }
+  function base64ToBytes(value) {
+    var normalized = value.replace(/^data:[^,]*,/, '').replace(/\s/g, '').replace(/-/g, '+').replace(/_/g, '/');
+    while (normalized.length % 4) normalized += '=';
+    if (!normalized || !/^[A-Za-z0-9+/]*={0,2}$/.test(normalized)) throw new Error('유효한 Base64 형식이 아닙니다.');
+    var binary = atob(normalized);
+    var bytes = new Uint8Array(binary.length);
+    for (var index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
+    return bytes;
+  }
+  function toUrlSafe(value) { return value.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, ''); }
+  function convertValue() {
+    try {
+      if (!input.value) throw new Error('변환할 내용을 입력해 주세요.');
+      if (format() === 'url') {
+        if (mode() === 'encode') output.value = scope() === 'component' ? encodeURIComponent(input.value) : encodeURI(input.value);
+        else output.value = scope() === 'component' ? decodeURIComponent(input.value) : decodeURI(input.value);
+        setMessage('URL 변환을 완료했습니다.');
+      } else {
+        if (mode() === 'encode') {
+          var encoded = bytesToBase64(new TextEncoder().encode(input.value));
+          output.value = urlSafe.checked ? toUrlSafe(encoded) : encoded;
+        } else output.value = new TextDecoder('utf-8', { fatal: true }).decode(base64ToBytes(input.value));
+        setMessage('변환이 완료되었습니다.');
+      }
+      updateCounts();
+      return true;
+    } catch (error) {
+      output.value = '';
+      updateCounts();
+      setMessage(error instanceof URIError ? '올바른 URL 인코딩 형식이 아닙니다.' : (error.message || '변환 중 오류가 발생했습니다.'), true);
+      return false;
     }
-    function setMode(nextMode) {
-      mode = nextMode;
-      var encoding = mode === 'encode';
-      root.querySelectorAll('.b64-tab').forEach(function (tab) { tab.setAttribute('aria-selected', String(tab.dataset.mode === mode)); });
-      inputLabel.textContent = encoding ? '원본 텍스트' : 'Base64 입력';
-      outputLabel.textContent = encoding ? 'Base64 결과' : '디코딩 결과';
-      input.placeholder = encoding ? '여기에 텍스트를 입력하거나 붙여넣으세요.' : 'Base64 문자열 또는 data: URL을 입력하세요.';
-      output.placeholder = encoding ? '변환 결과가 여기에 표시됩니다.' : '디코딩된 텍스트가 여기에 표시됩니다.';
-      convert.textContent = encoding ? 'Base64로 인코딩' : 'Base64 디코딩';
-      input.value = ''; output.value = ''; updateCounts(); setMessage('모드를 변경했습니다.');
-    }
-    root.querySelectorAll('.b64-tab').forEach(function (tab) { tab.addEventListener('click', function () { setMode(tab.dataset.mode); }); });
-    input.addEventListener('input', updateCounts);
-    urlSafe.addEventListener('change', function () { if (mode === 'encode' && input.value) convertValue(); });
-    convert.addEventListener('click', convertValue);
-    root.querySelector('#b64-swap').addEventListener('click', function () { if (!output.value) return setMessage('바꿀 변환 결과가 없습니다.', true); var nextInput = output.value; setMode(mode === 'encode' ? 'decode' : 'encode'); input.value = nextInput; updateCounts(); if (convertValue()) setMessage('입력과 결과를 바꾸고 반대 변환 모드로 전환했습니다.'); });
-    root.querySelector('#b64-clear').addEventListener('click', function () { input.value = ''; output.value = ''; updateCounts(); setMessage('입력과 결과를 비웠습니다.'); input.focus(); });
-    root.querySelector('#b64-copy').addEventListener('click', async function () { if (!output.value) return setMessage('복사할 결과가 없습니다.', true); try { await navigator.clipboard.writeText(output.value); setMessage('결과를 클립보드에 복사했습니다.'); } catch (error) { output.select(); document.execCommand('copy'); setMessage('결과를 클립보드에 복사했습니다.'); } });
-    function loadFile(file) { if (!file) return; var reader = new FileReader(); reader.onload = function () { setMode('encode'); input.value = String(reader.result); output.value = String(reader.result); root.querySelector('#b64-filename').value = file.name + '.txt'; updateCounts(); setMessage(file.name + ' 파일을 data: URL Base64로 변환했습니다.'); }; reader.onerror = function () { setMessage('파일을 읽지 못했습니다.', true); }; reader.readAsDataURL(file); }
-    root.querySelector('#b64-file').addEventListener('change', function () { loadFile(this.files[0]); });
-    var drop = root.querySelector('#b64-drop');
-    ['dragenter', 'dragover'].forEach(function (eventName) { drop.addEventListener(eventName, function (event) { event.preventDefault(); drop.classList.add('is-over'); }); });
-    ['dragleave', 'drop'].forEach(function (eventName) { drop.addEventListener(eventName, function (event) { event.preventDefault(); drop.classList.remove('is-over'); }); });
-    drop.addEventListener('drop', function (event) { var file = event.dataTransfer.files[0]; if (file) loadFile(file); else { input.value = event.dataTransfer.getData('text/plain'); updateCounts(); setMessage('텍스트를 불러왔습니다. 변환 버튼을 눌러주세요.'); } });
-    root.querySelector('#b64-download').addEventListener('click', function () { var source = mode === 'decode' ? input.value : output.value; if (!source) return setMessage('저장할 Base64 결과가 없습니다.', true); try { var mime = (/^data:([^;,]+)/.exec(source) || [])[1] || 'application/octet-stream'; var blob = new Blob([base64ToBytes(source)], { type: mime }); var url = URL.createObjectURL(blob); var link = document.createElement('a'); link.href = url; link.download = root.querySelector('#b64-filename').value.trim() || 'decoded-file'; document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url); setMessage('파일 다운로드를 시작했습니다.'); } catch (error) { setMessage(error.message || '파일을 만들지 못했습니다.', true); } });
+  }
+  function syncControls(clearResult) {
+    var isUrl = format() === 'url';
+    var encoding = mode() === 'encode';
+    root.querySelector('#url-scope-panel').hidden = !isUrl;
+    root.querySelector('#url-safe-panel').hidden = isUrl;
+    root.querySelector('#base64-file-tools').hidden = isUrl;
+    root.querySelector('#b64-drop').hidden = isUrl;
+    root.querySelector('#codec-encode-label').textContent = isUrl ? 'URL 인코딩' : 'Base64 인코딩';
+    root.querySelector('#codec-decode-label').textContent = isUrl ? 'URL 디코딩' : 'Base64 디코딩';
+    inputLabel.textContent = encoding ? '원본 입력' : (isUrl ? 'URL 인코딩 입력' : 'Base64 입력');
+    outputLabel.textContent = encoding ? (isUrl ? 'URL 인코딩 결과' : 'Base64 결과') : '디코딩 결과';
+    input.placeholder = encoding ? '변환할 주소나 문장을 입력하세요.' : (isUrl ? '디코딩할 URL 문자열을 입력하세요.' : 'Base64 문자열 또는 data: URL을 입력하세요.');
+    output.placeholder = '변환 결과가 여기에 표시됩니다.';
+    convertButton.textContent = (isUrl ? 'URL ' : 'Base64 ') + (encoding ? '인코딩' : '디코딩');
+    if (clearResult) output.value = '';
     updateCounts();
-  }());
+    setMessage((isUrl ? 'URL' : 'Base64') + ' 변환 방식을 선택했습니다.');
+  }
+  async function copyResult() {
+    if (!output.value) return setMessage('복사할 결과가 없습니다.', true);
+    try {
+      await navigator.clipboard.writeText(output.value);
+      setMessage('결과를 복사했습니다.');
+    } catch (error) {
+      var copied = false;
+      try { output.select(); copied = document.execCommand('copy'); } catch (fallbackError) { copied = false; }
+      if (copied) setMessage('결과를 복사했습니다.');
+      else { window.ToolboxUX?.focusAndSelect(output); setMessage('자동 복사가 차단되었습니다. 결과 상자를 선택해 직접 복사해 주세요.', true); }
+    }
+  }
+  function loadFile(file) {
+    if (!file) return;
+    root.querySelector('input[name="codec-format"][value="base64"]').checked = true;
+    root.querySelector('input[name="codec-mode"][value="encode"]').checked = true;
+    syncControls(false);
+    var reader = new FileReader();
+    reader.onload = function () {
+      output.value = String(reader.result);
+      root.querySelector('#b64-filename').value = file.name + '.txt';
+      updateCounts();
+      setMessage(file.name + ' 파일을 data: URL Base64로 변환했습니다.');
+    };
+    reader.onerror = function () { setMessage('파일을 읽지 못했습니다.', true); };
+    reader.readAsDataURL(file);
+  }
+
+  root.querySelectorAll('input[name="codec-format"], input[name="codec-mode"]').forEach(function (control) { control.addEventListener('change', function () { syncControls(true); }); });
+  root.querySelectorAll('input[name="url-scope"]').forEach(function (control) { control.addEventListener('change', function () { if (input.value) convertValue(); }); });
+  input.addEventListener('input', updateCounts);
+  urlSafe.addEventListener('change', function () { if (format() === 'base64' && mode() === 'encode' && input.value) convertValue(); });
+  convertButton.addEventListener('click', convertValue);
+  root.querySelector('#b64-swap').addEventListener('click', function () {
+    if (!output.value) return setMessage('바꿀 변환 결과가 없습니다.', true);
+    var nextInput = output.value;
+    root.querySelector('input[name="codec-mode"][value="' + (mode() === 'encode' ? 'decode' : 'encode') + '"]').checked = true;
+    syncControls(false);
+    input.value = nextInput;
+    updateCounts();
+    if (convertValue()) setMessage('입력과 결과를 바꾸고 반대 변환 방식으로 전환했습니다.');
+  });
+  root.querySelector('#b64-copy').addEventListener('click', copyResult);
+  root.querySelector('#b64-clear').addEventListener('click', function () { input.value = ''; output.value = ''; updateCounts(); setMessage('입력과 결과를 비웠습니다.'); window.ToolboxUX?.focus(input); });
+  root.querySelector('#b64-file').addEventListener('change', function () { loadFile(this.files[0]); });
+  var drop = root.querySelector('#b64-drop');
+  ['dragenter', 'dragover'].forEach(function (eventName) { drop.addEventListener(eventName, function (event) { event.preventDefault(); drop.classList.add('is-over'); }); });
+  ['dragleave', 'drop'].forEach(function (eventName) { drop.addEventListener(eventName, function (event) { event.preventDefault(); drop.classList.remove('is-over'); }); });
+  drop.addEventListener('drop', function (event) { var file = event.dataTransfer.files[0]; if (file) loadFile(file); else { input.value = event.dataTransfer.getData('text/plain'); updateCounts(); setMessage('텍스트를 불러왔습니다. 변환 버튼을 눌러 주세요.'); } });
+  root.querySelector('#b64-download').addEventListener('click', function () {
+    var source = mode() === 'decode' ? input.value : output.value;
+    if (!source) return setMessage('저장할 Base64 결과가 없습니다.', true);
+    try {
+      var mime = (/^data:([^;,]+)/.exec(source) || [])[1] || 'application/octet-stream';
+      var blob = new Blob([base64ToBytes(source)], { type: mime });
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = root.querySelector('#b64-filename').value.trim() || 'decoded-file';
+      document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url);
+      setMessage('파일 다운로드를 시작했습니다.');
+    } catch (error) { setMessage(error.message || '파일을 만들지 못했습니다.', true); }
+  });
+  syncControls(false);
+}());
 </script>
 <script>
-  (function () {
-    var scheduled = false;
-    function reportHeight() {
-      if (scheduled) return;
-      scheduled = true;
-      requestAnimationFrame(function () {
-        scheduled = false;
-        var height = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-        window.parent.postMessage({ source: 'toolbox-embed', tool: 'base64-tools', height: height }, '*');
-      });
-    }
-    window.addEventListener('load', reportHeight);
-    window.addEventListener('resize', reportHeight);
-    new ResizeObserver(reportHeight).observe(document.documentElement);
-    reportHeight();
-  }());
+(function () {
+  var scheduled = false;
+  function reportHeight() {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(function () {
+      scheduled = false;
+      var height = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+      window.parent.postMessage({ source: 'toolbox-embed', tool: 'base64-tools', height: height }, '*');
+    });
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  new ResizeObserver(reportHeight).observe(document.documentElement);
+  reportHeight();
+}());
 </script>
 </body>
 </html>

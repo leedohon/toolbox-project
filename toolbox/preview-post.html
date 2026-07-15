@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="../assets/blogger/theme.css">
+  <style>.preview-content-only .tb-frame,.preview-content-only .tb-fallback{display:none}</style>
+  <title>툴박스 게시글 미리보기</title>
+</head>
+<body><nav class="ow-post-nav" id="ow-post-nav" data-home-url="/"></nav><main id="preview"></main><script>
+  const params = new URLSearchParams(location.search);
+  const tool = params.get('tool');
+  if (params.has('contentOnly')) document.documentElement.classList.add('preview-content-only');
+  if (!/^[a-z0-9-]+$/.test(tool || '')) throw new Error('미리 볼 도구 식별자가 필요합니다.');
+  fetch(`./posts/${tool}.html`, { cache: 'no-store' }).then((response) => response.text()).then((html) => {
+    document.getElementById('preview').innerHTML = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+  });
+</script><script src="../assets/blogger/site.js"></script></body>
+</html>

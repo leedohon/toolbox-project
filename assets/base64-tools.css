@@ -1,0 +1,21 @@
+#b64-tools { max-width:1000px; }
+#b64-tools .b64-main { min-width:0; overflow-wrap:anywhere; }
+#b64-tools .b64-tabs { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:16px; }
+#b64-tools .b64-tab { flex:1 1 180px; min-height:46px; padding:0 14px; color:#111; background:#fff; border:1px solid #b9c7cd; border-radius:.5rem; }
+#b64-tools .b64-tab[aria-selected="true"] { color:#fff; background:var(--st-sky); border-color:var(--st-sky); }
+#b64-tools .b64-option { margin:0 0 16px; }
+#b64-tools .b64-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; }
+#b64-tools .b64-panel { min-width:0; }
+#b64-tools .b64-meta { display:flex; justify-content:space-between; margin-top:7px; color:var(--st-muted); font-size:.82rem; }
+#b64-tools .b64-drop { margin-top:10px; padding:13px 14px; color:var(--st-muted); background:#f8fcfe; border:1.5px dashed #9fc6d7; border-radius:10px; text-align:center; transition:background .15s,border-color .15s; }
+#b64-tools .b64-drop.is-over { color:var(--st-sky); background:var(--st-pale); border-color:var(--st-sky); }
+#b64-tools .b64-file-row { display:grid; margin-top:20px; gap:8px; }
+#b64-tools .b64-file-label { font-weight:800; }
+#b64-tools input[type="file"] { display:block; width:100%; min-width:0; padding:10px; color:var(--st-muted); background:#f8fcfe; border:1px solid var(--st-line); border-radius:10px; font:inherit; }
+#b64-tools fieldset[hidden],#b64-tools [hidden] { display:none!important; }
+#b64-tools .b64-download { margin-top:22px; padding-top:20px; border-top:1px solid var(--st-line); }
+#b64-tools .b64-download > label { display:block; margin-bottom:8px; font-weight:800; }
+#b64-tools .b64-download-row { display:flex; flex-wrap:wrap; gap:10px; }
+#b64-tools .b64-download-row input { flex:1 1 220px; }
+#b64-tools .b64-download-row button { flex:0 1 auto; }
+@media(max-width:640px){#b64-tools .b64-tab{flex-basis:100%}#b64-tools .b64-download-row button{flex:1 1 130px}#b64-tools .b64-download-row input{flex-basis:100%}#b64-tools input[type="file"]{font-size:.9rem}}

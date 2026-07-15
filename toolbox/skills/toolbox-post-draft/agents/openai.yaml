@@ -1,0 +1,4 @@
+interface:
+  display_name: "툴박스 게시글 초안"
+  short_description: "공통 템플릿으로 툴박스 게시글 초안과 릴리스를 작성합니다"
+  default_prompt: "Use $toolbox-post-draft to draft a consistent Toolbox post and release."

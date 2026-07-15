@@ -71,7 +71,7 @@ for (const entry of entries) {
   const versionsPath = path.join(outputsDir, entry.name, 'versions.json');
   let versions;
   try { versions = JSON.parse(await fs.readFile(versionsPath, 'utf8')); } catch (error) { if (error.code === 'ENOENT') continue; throw error; }
-  const matches = posts.filter((post) => normalize(post.title) === normalize(versions.title) || compact(post.title).endsWith(compact(versions.title)));
+  const matches = posts.filter((post) => (versions.postUrl && post.url === versions.postUrl) || normalize(post.title) === normalize(versions.title) || compact(post.title).endsWith(compact(versions.title)));
   if (matches.length !== 1) throw new Error(`Expected one published post for ${versions.title}, found ${matches.length}.`);
   const latest = versions.versions.find((item) => item.version === versions.latestVersion);
   if (!latest) throw new Error(`Latest version metadata is missing for ${versions.tool}.`);

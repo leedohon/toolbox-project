@@ -3,7 +3,7 @@
 
   const STORAGE_KEY = 'toolbox-language';
   const exact = new Map(Object.entries({
-    'Language / 언어': 'Language', '변환 모드': 'Conversion mode', 'Base64 인코딩': 'Base64 encode', 'Base64 디코딩': 'Base64 decode',
+    'Language / 언어': 'Language', '텍스트 인코더·디코더': 'Text encoder / decoder', '변환 형식': 'Encoding format', '변환 모드': 'Conversion mode', 'Base64 인코딩': 'Base64 encode', 'Base64 디코딩': 'Base64 decode',
     '텍스트 인코딩 결과를 URL-safe Base64 형식으로 만들기': 'Create URL-safe Base64 for encoded text',
     '원본 텍스트': 'Original text', 'Base64 입력': 'Base64 input', 'Base64 결과': 'Base64 result', '디코딩 결과': 'Decoded result',
     '입력': 'Input', '결과': 'Result', '텍스트나 파일을 이곳에 놓으세요': 'Drop text or a file here', '텍스트 또는 파일 드롭 영역': 'Text or file drop zone',

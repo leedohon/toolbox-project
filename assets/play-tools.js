@@ -15,6 +15,8 @@ export function shuffle(values) {
   return result;
 }
 
+const safeFocus = (element, options) => window.ToolboxUX?.focus(element, options) || false;
+
 export function parseLines(value, { min = 2, max, maxLength = 40, label = '항목' }) {
   const lines = String(value).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
   if (lines.length < min || lines.length > max) throw new Error(`${label}은 ${min}~${max}개 입력해 주세요.`);
@@ -77,13 +79,13 @@ export function setupListEditor({ container, addButton, initialValues, label, pl
       const current = rows();
       const position = current.indexOf(row);
       if (position === current.length - 1 && current.length < max) add('', true);
-      else current[position + 1]?.querySelector('input').focus();
+      else safeFocus(current[position + 1]?.querySelector('input'));
     });
-    remove.addEventListener('click', () => { row.remove(); sync(); rows()[0]?.querySelector('input').focus(); });
+    remove.addEventListener('click', () => { row.remove(); sync(); safeFocus(rows()[0]?.querySelector('input')); });
     row.append(index, input, remove, hint);
     container.append(row);
     sync();
-    if (focus) input.focus();
+    if (focus) safeFocus(input);
   }
   function getValues() {
     const empty = [];
@@ -99,7 +101,7 @@ export function setupListEditor({ container, addButton, initialValues, label, pl
       return value;
     });
     if (empty.length) {
-      rows()[empty[0] - 1].querySelector('input').focus();
+      safeFocus(rows()[empty[0] - 1].querySelector('input'));
       throw new Error(`${label} ${empty.join(', ')}번 칸을 채워 주세요.`);
     }
     return values;
@@ -169,20 +171,20 @@ export function setupPairedListEditor({ container, addButton, initialValues, lef
         hint.hidden = false;
       }
     }));
-    left.addEventListener('keydown', (event) => { if (event.key === 'Enter') { event.preventDefault(); right.focus(); } });
+    left.addEventListener('keydown', (event) => { if (event.key === 'Enter') { event.preventDefault(); safeFocus(right); } });
     right.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter') return;
       event.preventDefault();
       const current = rows();
       const position = current.indexOf(row);
       if (position === current.length - 1 && current.length < max) add({ left: '', right: '' }, true);
-      else current[position + 1]?.querySelector('.play-pair-left').focus();
+      else safeFocus(current[position + 1]?.querySelector('.play-pair-left'));
     });
     remove.addEventListener('click', () => { row.remove(); sync(); });
     row.append(index, left, right, remove, hint);
     container.append(row);
     sync();
-    if (focus) left.focus();
+    if (focus) safeFocus(left);
   }
   function getValues() {
     const empty = [];
@@ -201,7 +203,7 @@ export function setupPairedListEditor({ container, addButton, initialValues, lef
     });
     if (empty.length) {
       const row = rows()[empty[0] - 1];
-      (row.querySelector('[aria-invalid="true"]') || row.querySelector('input')).focus();
+      safeFocus(row.querySelector('[aria-invalid="true"]') || row.querySelector('input'));
       throw new Error(`${empty.join(', ')}번 줄의 참가자와 결과를 확인해 주세요.`);
     }
     return values;
@@ -236,13 +238,13 @@ export async function copyText(value) {
   textarea.setAttribute('aria-hidden', 'true');
   textarea.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0;pointer-events:none';
   document.body.append(textarea);
-  textarea.focus({ preventScroll: true });
+  safeFocus(textarea, { preventScroll: true });
   textarea.select();
   textarea.setSelectionRange(0, textarea.value.length);
   let copied = false;
   try { copied = document.execCommand('copy'); } catch (_) { copied = false; }
   textarea.remove();
-  if (previousFocus instanceof HTMLElement) previousFocus.focus({ preventScroll: true });
+  if (previousFocus instanceof HTMLElement) safeFocus(previousFocus, { preventScroll: true });
   return copied;
 }
 

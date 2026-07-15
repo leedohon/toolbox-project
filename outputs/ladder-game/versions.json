@@ -4,7 +4,7 @@
   "title": "사다리게임",
   "description": "사다리 결과 코드를 공유해 같은 연결선과 매칭을 다시 열고 PNG로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_14.html",
-  "latestVersion": "0.3.2v",
+  "latestVersion": "0.3.3v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -59,6 +59,15 @@
       "directory": "0.3.2v",
       "html": "0.3.2v/ladder-game.html",
       "patchNotes": "0.3.2v/patch-notes.json"
+    },
+    {
+      "version": "0.3.3v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "모든 내부 화면의 상단 검색과 전역 푸터를 통일했습니다.",
+      "directory": "0.3.3v",
+      "html": "0.3.3v/ladder-game.html",
+      "patchNotes": "0.3.3v/patch-notes.json"
     }
   ]
 }

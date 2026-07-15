@@ -11,8 +11,10 @@
   var toolsUrl = new URL('../../outputs/tools.json', script.src);
   var homeMount = document.getElementById('ow-site-app');
   var postMount = document.getElementById('ow-post-nav');
+  var isInnerPage = !homeMount;
   if (homeMount) document.documentElement.classList.add('ow-is-home');
   if (postMount) document.documentElement.classList.add('ow-is-post');
+  if (isInnerPage) document.documentElement.classList.add('ow-is-inner');
 
   function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, function (character) {
@@ -33,16 +35,15 @@
     postMount.innerHTML = '<a class="ow-back-link" href="' + escapeHtml(homeUrl) + '#ow-tool-search" aria-label="' + escapeHtml(config.labels.backToSearch) + '">' + escapeHtml(config.labels.backToSearch) + '</a>';
   }
 
-  function createPostDiscoveryMount() {
-    if (!postMount) return null;
-    var existing = document.getElementById('ow-post-discovery');
+  function createInnerDiscoveryMount() {
+    if (!isInnerPage) return null;
+    var existing = document.getElementById('ow-inner-discovery');
     if (existing) return existing;
-    var post = document.querySelector('.post');
-    if (!post) return null;
+    var anchor = document.querySelector('.date-header') || document.querySelector('.post') || document.querySelector('.main-inner > *');
+    if (!anchor || !anchor.parentNode) return null;
     var mount = document.createElement('div');
-    mount.id = 'ow-post-discovery';
+    mount.id = 'ow-inner-discovery';
     mount.className = 'ow-site-app ow-post-discovery';
-    var anchor = document.querySelector('.date-header') || post;
     anchor.parentNode.insertBefore(mount, anchor);
     return mount;
   }
@@ -71,6 +72,7 @@
 
   function renderDiscovery(mount, config, toolsDocument) {
     if (!mount) return;
+    var isHomeDiscovery = mount === homeMount;
     var labels = config.labels;
     var tools = Array.isArray(toolsDocument.tools) ? toolsDocument.tools.slice() : [];
     tools.sort(function (a, b) { return Number(a.index) - Number(b.index); });
@@ -83,7 +85,7 @@
       '<section class="ow-catalog" aria-labelledby="ow-catalog-title">' +
         '<div class="ow-catalog-head"><h2 id="ow-catalog-title">' + escapeHtml(labels.catalogTitle) + '</h2><p class="ow-count" id="ow-tool-count"></p></div>' +
         '<form class="ow-tool-search" id="ow-tool-search"><input aria-label="' + escapeHtml(labels.searchLabel) + '" autocomplete="off" id="ow-query" placeholder="' + escapeHtml(labels.searchPlaceholder) + '" type="search"><button type="submit">' + escapeHtml(labels.searchButton) + '</button></form>' +
-        '<div class="ow-tool-results" id="ow-tool-results" aria-live="polite" hidden></div>' +
+        '<div class="ow-tool-results' + (isHomeDiscovery ? ' ow-tool-grid' : '') + '" id="ow-tool-results" aria-live="polite"' + (isHomeDiscovery ? '' : ' hidden') + '></div>' +
       '</section>';
 
     var results = mount.querySelector('#ow-tool-results');
@@ -94,12 +96,17 @@
     function render(term) {
       var normalized = normalizeSearch(term);
       if (!normalized) {
-        count.textContent = labels.searchHint;
-        results.innerHTML = '';
-        results.hidden = true;
-        return;
+        if (isHomeDiscovery) {
+          count.textContent = tools.length + labels.countSuffix;
+          results.hidden = false;
+        } else {
+          count.textContent = labels.searchHint;
+          results.innerHTML = '';
+          results.hidden = true;
+          return;
+        }
       }
-      var visible = tools.filter(function (tool) { return matchesTool(tool, normalized); });
+      var visible = normalized ? tools.filter(function (tool) { return matchesTool(tool, normalized); }) : tools;
       count.textContent = visible.length + labels.countSuffix;
       results.hidden = false;
       if (!visible.length) {
@@ -111,6 +118,12 @@
         var tag = available ? 'a' : 'article';
         var link = available ? ' href="' + escapeHtml(tool.postUrl) + '"' : ' aria-disabled="true"';
         var action = available ? labels.openPost : labels.pendingPost;
+        if (isHomeDiscovery) return '<' + tag + ' class="ow-tool-card"' + link + '>' +
+          '<span class="ow-tool-index">' + String(tool.index).padStart(2, '0') + '</span>' +
+          '<h3>' + escapeHtml(tool.title) + '</h3>' +
+          '<p class="ow-tool-description">' + escapeHtml(tool.description || '') + '</p>' +
+          '<p class="ow-tool-meta">' + escapeHtml(action) + ' · ' + escapeHtml(tool.version) + '</p>' +
+          '</' + tag + '>';
         return '<' + tag + ' class="ow-tool-result"' + link + '>' +
           '<span class="ow-tool-result-copy"><strong>' + escapeHtml(tool.title) + '</strong><small>' + escapeHtml(tool.description || '') + '</small></span>' +
           '<span class="ow-tool-result-action">' + escapeHtml(action) + ' · ' + escapeHtml(tool.version) + '</span>' +
@@ -131,13 +144,14 @@
 
   loadJson(siteUrl).then(function (config) {
     renderPostNavigation(config);
-    if (!homeMount && !postMount) return null;
+    if (!homeMount && !isInnerPage) return null;
     return loadJson(toolsUrl).then(function (tools) {
       if (homeMount) renderDiscovery(homeMount, config, tools);
-      if (postMount) renderDiscovery(createPostDiscoveryMount(), config, tools);
+      if (isInnerPage) renderDiscovery(createInnerDiscoveryMount(), config, tools);
     });
   }).catch(function () {
     if (homeMount) homeMount.remove();
     if (postMount) postMount.remove();
+    document.getElementById('ow-inner-discovery')?.remove();
   });
 }());

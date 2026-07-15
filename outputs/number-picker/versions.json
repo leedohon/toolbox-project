@@ -4,7 +4,7 @@
   "title": "숫자뽑기",
   "description": "숫자 결과 코드를 공유해 같은 숫자를 다시 열고 PNG로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_549.html",
-  "latestVersion": "0.3.3v",
+  "latestVersion": "0.3.4v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -68,6 +68,15 @@
       "directory": "0.3.3v",
       "html": "0.3.3v/number-picker.html",
       "patchNotes": "0.3.3v/patch-notes.json"
+    },
+    {
+      "version": "0.3.4v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "모든 내부 화면의 상단 검색과 전역 푸터를 통일했습니다.",
+      "directory": "0.3.4v",
+      "html": "0.3.4v/number-picker.html",
+      "patchNotes": "0.3.4v/patch-notes.json"
     }
   ]
 }

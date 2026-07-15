@@ -7,7 +7,7 @@
       "title": "QR · 바코드 생성기",
       "description": "KOR/ENG 화면에서 QR·바코드를 만들고 설정을 한 번에 초기화할 수 있습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
-      "version": "0.5.2v",
+      "version": "0.5.3v",
       "keywords": [
         "QR코드",
         "바코드",
@@ -45,7 +45,7 @@
       "title": "JSON 도구",
       "description": "예제 JSON을 바로 불러와 검사·정리하고 Excel·CSV 파일로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-      "version": "0.6.2v",
+      "version": "0.6.3v",
       "keywords": [
         "JSON",
         "JSON포맷터",
@@ -83,7 +83,7 @@
       "title": "텍스트 인코더·디코더",
       "description": "Base64와 URL 인코딩·디코딩을 한 화면에서 빠르게 처리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
-      "version": "0.9.0v",
+      "version": "0.9.1v",
       "keywords": [
         "텍스트인코더",
         "Base64",
@@ -122,7 +122,7 @@
       "title": "사다리게임",
       "description": "사다리 결과 코드를 공유해 같은 연결선과 매칭을 다시 열고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_14.html",
-      "version": "0.3.2v",
+      "version": "0.3.3v",
       "keywords": [
         "사다리게임",
         "랜덤게임",
@@ -160,7 +160,7 @@
       "title": "돌림판",
       "description": "돌림판 결과 코드를 공유해 같은 당첨 항목을 다시 열고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_964.html",
-      "version": "0.3.2v",
+      "version": "0.3.3v",
       "keywords": [
         "돌림판",
         "랜덤추첨",
@@ -198,7 +198,7 @@
       "title": "숫자뽑기",
       "description": "숫자 결과 코드를 공유해 같은 숫자를 다시 열고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_549.html",
-      "version": "0.3.3v",
+      "version": "0.3.4v",
       "keywords": [
         "숫자뽑기",
         "랜덤숫자",
@@ -236,7 +236,7 @@
       "title": "다중팀 편가르기",
       "description": "편가르기 결과 코드를 공유해 같은 팀 구성을 다시 열고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_641.html",
-      "version": "0.4.2v",
+      "version": "0.4.3v",
       "keywords": [
         "편가르기",
         "팀나누기",
@@ -273,7 +273,7 @@
       "title": "이미지 모자이크 도구",
       "description": "KOR/ENG 화면에서 브러시로 칠하거나 사각형으로 선택해 모자이크 처리하고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
-      "version": "0.2.2v",
+      "version": "0.2.3v",
       "keywords": [
         "이미지모자이크",
         "사진편집",
@@ -311,7 +311,7 @@
       "title": "다용도 계산기",
       "description": "일반 사칙연산과 다양한 단위 환산 계산, 날짜 계산을 한 화면에서 처리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
-      "version": "1.0.1v",
+      "version": "1.0.2v",
       "keywords": [
         "다용도계산기",
         "단위변환",

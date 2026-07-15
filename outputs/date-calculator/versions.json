@@ -4,7 +4,7 @@
   "title": "다용도 계산기",
   "description": "일반 사칙연산과 다양한 단위 환산 계산, 날짜 계산을 한 화면에서 처리합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
-  "latestVersion": "1.0.1v",
+  "latestVersion": "1.0.2v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -41,6 +41,15 @@
       "directory": "1.0.1v",
       "html": "1.0.1v/date-calculator.html",
       "patchNotes": "1.0.1v/patch-notes.json"
+    },
+    {
+      "version": "1.0.2v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "모든 내부 화면의 상단 검색과 전역 푸터를 통일했습니다.",
+      "directory": "1.0.2v",
+      "html": "1.0.2v/date-calculator.html",
+      "patchNotes": "1.0.2v/patch-notes.json"
     }
   ]
 }

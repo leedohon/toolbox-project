@@ -1,0 +1,12 @@
+{
+  "tool": "qr-barcode-generator",
+  "version": "0.5.3v",
+  "releaseDate": "2026-07-15",
+  "changeLevel": "minimum",
+  "changes": [
+    "게시글, 라벨 검색, 검색 결과와 보관함에 같은 Openworld Blog 소개·도구 검색을 적용했습니다.",
+    "메인은 빈 검색에서도 3열 도구 카드를 유지하고 내부 화면만 빈 검색 결과를 숨깁니다.",
+    "기존 Blogger 검색 결과 목록과 링크 동작을 그대로 보존했습니다.",
+    "전역 푸터를 컴팩트하게 정리했습니다."
+  ]
+}

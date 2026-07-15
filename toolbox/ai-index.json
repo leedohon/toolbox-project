@@ -189,6 +189,86 @@
         "embed": "embed/multipurpose-draw-game/index.html",
         "moduleRegistry": "embed/multipurpose-draw-game/modules.json"
       }
+    },
+    {
+      "index": 12,
+      "tool": "password-generator",
+      "title": "안전 비밀번호 생성기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/password-generator.md",
+        "post": "toolbox/posts/password-generator.html",
+        "manifest": "outputs/password-generator/versions.json",
+        "embed": "embed/password-generator/index.html",
+        "moduleRegistry": "embed/password-generator/modules.json"
+      }
+    },
+    {
+      "index": 13,
+      "tool": "image-resizer-compressor",
+      "title": "이미지 크기·용량 변환기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/image-resizer-compressor.md",
+        "post": "toolbox/posts/image-resizer-compressor.html",
+        "manifest": "outputs/image-resizer-compressor/versions.json",
+        "embed": "embed/image-resizer-compressor/index.html",
+        "moduleRegistry": "embed/image-resizer-compressor/modules.json"
+      }
+    },
+    {
+      "index": 14,
+      "tool": "color-converter-contrast",
+      "title": "색상 변환·대비 검사기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/color-converter-contrast.md",
+        "post": "toolbox/posts/color-converter-contrast.html",
+        "manifest": "outputs/color-converter-contrast/versions.json",
+        "embed": "embed/color-converter-contrast/index.html",
+        "moduleRegistry": "embed/color-converter-contrast/modules.json"
+      }
+    },
+    {
+      "index": 15,
+      "tool": "unix-timestamp-converter",
+      "title": "Unix 시간 변환기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/unix-timestamp-converter.md",
+        "post": "toolbox/posts/unix-timestamp-converter.html",
+        "manifest": "outputs/unix-timestamp-converter/versions.json",
+        "embed": "embed/unix-timestamp-converter/index.html",
+        "moduleRegistry": "embed/unix-timestamp-converter/modules.json"
+      }
+    },
+    {
+      "index": 16,
+      "tool": "text-counter-cleaner",
+      "title": "글자수·텍스트 정리기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/text-counter-cleaner.md",
+        "post": "toolbox/posts/text-counter-cleaner.html",
+        "manifest": "outputs/text-counter-cleaner/versions.json",
+        "embed": "embed/text-counter-cleaner/index.html",
+        "moduleRegistry": "embed/text-counter-cleaner/modules.json"
+      }
     }
   ]
 }

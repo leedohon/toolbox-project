@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "password-generator",
+      "label": {
+        "ko": "안전 비밀번호 생성기",
+        "en": "password-generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "password-generator",
+      "capabilities": {
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

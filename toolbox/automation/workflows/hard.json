@@ -1,0 +1,1 @@
+{"schemaVersion":1,"id":"hard","pageWork":{"improvements":6,"newOrMerge":3,"commonFixes":2},"requirements":["rotatePublicTools","preserveRetiredEntrypoints"],"publish":"completed-only","validationProfiles":["impact-selected","release","responsive","blogger","deployment"],"completion":["requiredCounts","gitPushed","publicChangesLive"]}

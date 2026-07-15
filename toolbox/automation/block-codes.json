@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "codes": {
+    "BLOGGER_AUTH_REQUIRED":{"retryable":true,"next":"refresh Blogger OAuth and retry publish"},
+    "GIT_WRITE_BLOCKED":{"retryable":true,"next":"preserve files and retry Git with approved repository access"},
+    "VALIDATION_FAILED":{"retryable":true,"next":"fix the named check and resume at validate"},
+    "DEPLOY_PENDING":{"retryable":true,"next":"poll the deployment and resume at deploy"},
+    "USER_CONFIRMATION_REQUIRED":{"retryable":false,"next":"wait for explicit confirmation without changing confirm"},
+    "NETWORK_UNAVAILABLE":{"retryable":true,"next":"keep local results and retry the blocked external step"},
+    "UNSUPPORTED_REQUIREMENT":{"retryable":false,"next":"record the excluded requirement and reason without substitution"}
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "tool": "color-converter-contrast",
+  "index": 14,
+  "title": "색상 변환·대비 검사기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/color-converter-contrast.md",
+    "post": "toolbox/posts/color-converter-contrast.html",
+    "manifest": "outputs/color-converter-contrast/versions.json",
+    "embed": "embed/color-converter-contrast/index.html",
+    "moduleRegistry": "embed/color-converter-contrast/modules.json"
+  },
+  "modules": [
+    {
+      "id": "color-converter-contrast",
+      "label": {
+        "ko": "색상 변환·대비 검사기",
+        "en": "color-converter-contrast"
+      },
+      "entry": "./tool.js",
+      "messageTool": "color-converter-contrast",
+      "capabilities": {
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "tool": "text-counter-cleaner",
+  "index": 16,
+  "title": "글자수·텍스트 정리기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/text-counter-cleaner.md",
+    "post": "toolbox/posts/text-counter-cleaner.html",
+    "manifest": "outputs/text-counter-cleaner/versions.json",
+    "embed": "embed/text-counter-cleaner/index.html",
+    "moduleRegistry": "embed/text-counter-cleaner/modules.json"
+  },
+  "modules": [
+    {
+      "id": "text-counter-cleaner",
+      "label": {
+        "ko": "글자수·텍스트 정리기",
+        "en": "text-counter-cleaner"
+      },
+      "entry": "./tool.js",
+      "messageTool": "text-counter-cleaner",
+      "capabilities": {
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

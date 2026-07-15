@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "tool": "image-resizer-compressor",
+  "index": 13,
+  "title": "이미지 크기·용량 변환기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/image-resizer-compressor.md",
+    "post": "toolbox/posts/image-resizer-compressor.html",
+    "manifest": "outputs/image-resizer-compressor/versions.json",
+    "embed": "embed/image-resizer-compressor/index.html",
+    "moduleRegistry": "embed/image-resizer-compressor/modules.json"
+  },
+  "modules": [
+    {
+      "id": "image-resizer-compressor",
+      "label": {
+        "ko": "이미지 크기·용량 변환기",
+        "en": "image-resizer-compressor"
+      },
+      "entry": "./tool.js",
+      "messageTool": "image-resizer-compressor",
+      "capabilities": {
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

@@ -1,0 +1,1 @@
+{"schemaVersion":1,"id":"all-in","pageWork":{"dynamic":true,"maximizeCompleted":true},"requirements":["reserveFinalizationBudget","neverPublishIncomplete"],"publish":"completed-only","validationProfiles":["impact-selected","release","responsive","blogger","deployment"],"completion":["resultRecorded","gitPushed","completedChangesLive"]}

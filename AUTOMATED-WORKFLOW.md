@@ -26,6 +26,14 @@
 
 ## 공통 실행 원칙
 
+### 기계 판독 실행 설정
+
+- 실행 수량·완료 조건은 `toolbox/automation/workflows/<워크플로>.json`을 먼저 읽고, 이 문서는 설명과 정책 판단이 필요할 때만 참조한다.
+- 변경 파일에 필요한 검사만 고를 때는 `toolbox/automation/impact-rules.json`을 사용한다. `always`와 릴리스 시 `releaseAlways` 검사는 생략하지 않는다.
+- 실행 결과에는 `toolbox/automation/run-state.schema.json`의 `select → implement → validate → publish → commit → deploy → confirm` 단계 상태를 포함한다. 재개할 때 `completed` 단계는 건너뛰고 최초 미완료 단계부터 이어간다.
+- 반복 오류와 차단은 `toolbox/automation/block-codes.json`의 코드를 사용하고 재시도 가능 여부와 다음 행동을 함께 기록한다.
+- 작업을 시작할 때 요청을 `작업 종류`, `대상 도구`, `버전 단계`, `Blogger 게시`, `Git·배포`, `종료 예약` 여섯 필드로 정규화해 결과 JSON에 기록한다. 이미 확정된 값은 중간에 다시 질문하거나 추론하지 않는다.
+
 - 공개 도구 후보는 `outputs/tools.json`과 각 `versions.json`을 기준으로 정한다. `draft`와 `retired` 도구는 기본 표본에서 제외한다.
 - 무작위 점검 대상과 선택 기준은 결과 JSON에 기록한다. 가능한 경우 최근 자동 작업에서 점검한 도구를 피해서 순환하고, 대상 수가 부족하면 존재하는 공개 도구를 모두 사용한다.
 - 작업 시작 전에 관련 `toolbox/requests/*.md`, `toolbox/tools/*.md`, 최신 버전 이력과 공통 규약을 확인한다.

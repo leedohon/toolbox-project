@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "text-counter-cleaner",
+      "label": {
+        "ko": "글자수·텍스트 정리기",
+        "en": "text-counter-cleaner"
+      },
+      "entry": "./tool.js",
+      "messageTool": "text-counter-cleaner",
+      "capabilities": {
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

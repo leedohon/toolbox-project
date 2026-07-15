@@ -1,0 +1,11 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Toolbox automation resumable run state",
+  "type":"object",
+  "required":["current","stages"],
+  "properties":{
+    "current":{"enum":["select","implement","validate","publish","commit","deploy","confirm"]},
+    "stages":{"type":"object","required":["select","implement","validate","publish","commit","deploy","confirm"],"additionalProperties":false,"properties":{"select":{"$ref":"#/$defs/stage"},"implement":{"$ref":"#/$defs/stage"},"validate":{"$ref":"#/$defs/stage"},"publish":{"$ref":"#/$defs/stage"},"commit":{"$ref":"#/$defs/stage"},"deploy":{"$ref":"#/$defs/stage"},"confirm":{"$ref":"#/$defs/stage"}}}
+  },
+  "$defs":{"stage":{"type":"object","required":["status"],"properties":{"status":{"enum":["pending","in_progress","completed","blocked","failed","skipped"]},"startedAt":{"type":["string","null"]},"completedAt":{"type":["string","null"]},"evidence":{"type":"array"},"blockCode":{"type":["string","null"]}}}}
+}

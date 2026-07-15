@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "image-resizer-compressor",
+      "label": {
+        "ko": "이미지 크기·용량 변환기",
+        "en": "image-resizer-compressor"
+      },
+      "entry": "./tool.js",
+      "messageTool": "image-resizer-compressor",
+      "capabilities": {
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

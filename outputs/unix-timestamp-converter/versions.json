@@ -1,0 +1,19 @@
+{
+  "index": 15,
+  "tool": "unix-timestamp-converter",
+  "title": "Unix 시간 변환기",
+  "description": "Unix 초·밀리초와 읽기 쉬운 지역 날짜·UTC 시간을 서로 변환합니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/unix.html",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "Unix 시간과 읽기 쉬운 날짜를 양방향 변환하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/unix-timestamp-converter.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

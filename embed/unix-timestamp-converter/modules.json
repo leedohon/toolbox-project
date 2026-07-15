@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "unix-timestamp-converter",
+      "label": {
+        "ko": "Unix 시간 변환기",
+        "en": "unix-timestamp-converter"
+      },
+      "entry": "./tool.js",
+      "messageTool": "unix-timestamp-converter",
+      "capabilities": {
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

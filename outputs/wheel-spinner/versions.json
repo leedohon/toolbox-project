@@ -1,6 +1,8 @@
 {
   "index": 5,
   "tool": "wheel-spinner",
+  "status": "retired",
+  "replacementTool": "multipurpose-draw-game",
   "title": "돌림판",
   "description": "돌림판 결과 코드를 공유해 같은 당첨 항목을 다시 열고 PNG로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_964.html",

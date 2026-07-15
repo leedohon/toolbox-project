@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "ladder",
+      "label": { "ko": "사다리", "en": "Ladder" },
+      "entry": "../ladder-game/",
+      "messageTool": "ladder-game",
+      "capabilities": { "resultCode": true, "png": true, "copyFallback": true, "i18n": true }
+    },
+    {
+      "id": "wheel",
+      "label": { "ko": "돌림판", "en": "Wheel" },
+      "entry": "../wheel-spinner/",
+      "messageTool": "wheel-spinner",
+      "capabilities": { "resultCode": true, "png": true, "copyFallback": true, "i18n": true }
+    },
+    {
+      "id": "number",
+      "label": { "ko": "숫자뽑기", "en": "Numbers" },
+      "entry": "../number-picker/",
+      "messageTool": "number-picker",
+      "capabilities": { "resultCode": true, "png": true, "copyFallback": true, "i18n": true }
+    },
+    {
+      "id": "team",
+      "label": { "ko": "편가르기", "en": "Teams" },
+      "entry": "../team-divider/",
+      "messageTool": "team-divider",
+      "capabilities": { "resultCode": true, "png": true, "copyFallback": true, "i18n": true }
+    }
+  ]
+}

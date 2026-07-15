@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>다용도 뽑기게임</title>
+  <link rel="stylesheet" href="../../assets/funbox.css?v=0.0.1">
+<script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
+</head>
+<body>
+  <main class="funbox" aria-labelledby="funbox-title">
+    <section class="funbox-picker">
+      <h1 id="funbox-title">게임 선택 / Choose a game</h1>
+      <p class="funbox-help">원하는 방식을 선택하세요. 모드를 바꿔도 각 게임의 입력과 결과가 유지됩니다.</p>
+      <fieldset class="funbox-modes" id="funbox-modes" aria-label="뽑기게임 선택"></fieldset>
+    </section>
+    <section class="funbox-stage" id="funbox-stage" aria-live="polite"></section>
+    <p class="funbox-status" id="funbox-status">게임 모듈을 준비하고 있습니다.</p>
+  </main>
+  <script type="module">
+    const registryUrl = new URL('./modules.json', location.href);
+    const modeRoot = document.querySelector('#funbox-modes');
+    const stage = document.querySelector('#funbox-stage');
+    const status = document.querySelector('#funbox-status');
+    const storedModeKey = 'multipurpose-draw-game-mode';
+    const frames = new Map();
+    const modulesByTool = new Map();
+    let modules = [];
+    let activeId = '';
+
+    function notifyHeight() {
+      const height = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      parent.postMessage({ source: 'toolbox-embed', tool: 'multipurpose-draw-game', height: Math.ceil(height) }, '*');
+    }
+
+    function activate(id, persist = true) {
+      if (!frames.has(id)) return;
+      activeId = id;
+      for (const [moduleId, frame] of frames) frame.hidden = moduleId !== id;
+      const input = modeRoot.querySelector(`input[value="${CSS.escape(id)}"]`);
+      if (input) input.checked = true;
+      const module = modules.find((item) => item.id === id);
+      status.textContent = module ? `${module.label.ko} / ${module.label.en}` : '';
+      if (persist) localStorage.setItem(storedModeKey, id);
+      requestAnimationFrame(notifyHeight);
+    }
+
+    function buildModule(module, index) {
+      const option = document.createElement('label');
+      option.className = 'funbox-option';
+      option.innerHTML = `<input type="radio" name="funbox-mode" value="${module.id}"${index === 0 ? ' checked' : ''}><span>${module.label.ko}<br><small>${module.label.en}</small></span>`;
+      option.querySelector('input').addEventListener('change', () => activate(module.id));
+      modeRoot.append(option);
+
+      const frame = document.createElement('iframe');
+      frame.className = 'funbox-frame';
+      frame.src = new URL(module.entry, registryUrl).toString();
+      frame.title = `${module.label.ko} / ${module.label.en}`;
+      frame.loading = index === 0 ? 'eager' : 'lazy';
+      frame.scrolling = 'no';
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.allow = 'clipboard-write';
+      frame.hidden = index !== 0;
+      frame.addEventListener('load', notifyHeight);
+      stage.append(frame);
+      frames.set(module.id, frame);
+      modulesByTool.set(module.messageTool, module);
+    }
+
+    addEventListener('message', (event) => {
+      if (event.origin !== location.origin || !event.data || event.data.source !== 'toolbox-embed') return;
+      const module = modulesByTool.get(event.data.tool);
+      const frame = module && frames.get(module.id);
+      const height = Number(event.data.height);
+      if (!frame || !Number.isFinite(height) || height < 260 || height > 6000) return;
+      frame.style.height = `${Math.ceil(height)}px`;
+      if (module.id === activeId) requestAnimationFrame(notifyHeight);
+    });
+
+    try {
+      const response = await fetch(registryUrl, { cache: 'no-store' });
+      if (!response.ok) throw new Error('모듈 목록을 불러오지 못했습니다.');
+      const documentData = await response.json();
+      modules = Array.isArray(documentData.modules) ? documentData.modules : [];
+      if (modules.length !== 4) throw new Error('사용할 게임 모듈을 확인해 주세요.');
+      modules.forEach(buildModule);
+      const preferred = localStorage.getItem(storedModeKey);
+      activate(modules.some((item) => item.id === preferred) ? preferred : modules[0].id, false);
+      status.textContent = '원하는 게임을 선택해 바로 시작하세요.';
+    } catch (error) {
+      status.textContent = error.message;
+      status.setAttribute('role', 'alert');
+    }
+
+    new ResizeObserver(notifyHeight).observe(document.body);
+    addEventListener('load', notifyHeight);
+  </script>
+</body>
+</html>
+

@@ -5,8 +5,8 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const tagsPath = path.join(root, 'toolbox', 'post-tags.json');
 
-export function formatToolPostTitle(title) {
-  return `[초간단 툴박스] ${title}`;
+export function formatToolPostTitle(title, category = '초간단 툴박스') {
+  return `[${String(category || '초간단 툴박스').trim()}] ${title}`;
 }
 
 export async function loadToolPostLabels(tool) {

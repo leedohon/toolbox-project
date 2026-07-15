@@ -61,7 +61,7 @@ for (const tool of tools) {
   const latest = versions.versions.find((release) => release.version === versions.latestVersion);
   if (!latest) throw new Error(`${tool}: 최신 버전 정보가 없습니다.`);
   const content = await fs.readFile(path.join(outputsDir, tool, latest.html), 'utf8');
-  const title = formatToolPostTitle(versions.title);
+  const title = formatToolPostTitle(versions.title, versions.category);
   const labels = await loadToolPostLabels(versions.tool);
   const matches = published.filter((post) => (versions.postUrl && post.url === versions.postUrl) || compact(post.title).includes(compact(versions.title)));
   if (matches.length > 1) throw new Error(`${versions.title}: 같은 제목의 공개 글이 여러 개입니다.`);

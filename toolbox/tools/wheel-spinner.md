@@ -3,7 +3,7 @@ title: 돌림판
 slug: wheel-spinner
 type: converter
 description: 항목을 입력하고 돌림판을 회전해 무작위 결과를 뽑습니다.
-status: published
+status: retired
 inputs:
   - id: items
     label: 돌림판 항목
@@ -26,3 +26,7 @@ inputs:
 ## 공통 언어
 
 - 공통 `KOR / ENG` 선택기를 사용하며 동적으로 추가되는 입력 행과 결과까지 선택 언어로 표시한다.
+
+## 통합
+
+- 공개 카탈로그에서는 `multipurpose-draw-game`으로 대체하며 기존 결과 코드 호환 엔진으로 유지한다.

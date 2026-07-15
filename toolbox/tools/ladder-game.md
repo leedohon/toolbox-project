@@ -3,7 +3,7 @@ title: 사다리게임
 slug: ladder-game
 type: converter
 description: 참가자와 결과를 입력해 무작위 사다리 경로와 매칭 결과를 만듭니다.
-status: published
+status: retired
 inputs:
   - id: participants
     label: 참가자
@@ -30,3 +30,7 @@ inputs:
 ## 공통 언어
 
 - 공통 `KOR / ENG` 선택기를 사용하며 동적으로 추가되는 입력 행과 결과까지 선택 언어로 표시한다.
+
+## 통합
+
+- 공개 카탈로그에서는 `multipurpose-draw-game`으로 대체하며 기존 결과 코드 호환 엔진으로 유지한다.

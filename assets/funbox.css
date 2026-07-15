@@ -1,0 +1,26 @@
+:root { --fun-sky:#0879b2; --fun-sky-dark:#066d9f; --fun-pale:#eefaff; --fun-ink:#16232c; --fun-muted:#5d707b; --fun-line:#d8e9f1; }
+html,body { width:100%; min-width:0; margin:0; box-sizing:border-box; }
+body { padding:clamp(6px,1.8vw,16px); overflow-x:hidden; background:#fff; font-family:Arial,"Noto Sans KR",sans-serif; }
+.funbox,.funbox * { box-sizing:border-box; }
+.funbox { width:100%; max-width:1040px; margin:0 auto; color:var(--fun-ink); }
+.funbox-picker { padding:clamp(14px,3vw,24px); border:1px solid var(--fun-line); border-radius:18px; background:linear-gradient(145deg,#fff 0%,var(--fun-pale) 100%); box-shadow:0 14px 35px rgba(10,104,148,.08); }
+.funbox-picker h1 { margin:0; font-size:clamp(1.2rem,3vw,1.65rem); line-height:1.35; }
+.funbox-help { margin:6px 0 16px; color:var(--fun-muted); font-size:.9rem; line-height:1.6; }
+.funbox-modes { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; border:0; margin:0; padding:0; }
+.funbox-option { position:relative; display:block; min-width:0; cursor:pointer; }
+.funbox-option input { position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
+.funbox-option span { display:flex; min-height:52px; padding:9px 10px; align-items:center; justify-content:center; color:#174454; background:#fff; border:1px solid #b9d4e0; border-radius:11px; font-weight:800; text-align:center; transition:border-color .15s,background .15s,color .15s,transform .15s; }
+.funbox-option input:checked + span { color:#fff; background:var(--fun-sky); border-color:var(--fun-sky); box-shadow:0 6px 16px rgba(8,121,178,.18); }
+.funbox-option input:focus-visible + span { outline:3px solid #a8e3fb; outline-offset:2px; }
+.funbox-option:hover span { transform:translateY(-1px); border-color:var(--fun-sky); }
+.funbox-stage { min-width:0; margin-top:14px; }
+.funbox-frame { display:block; width:100%; min-width:0; min-height:560px; border:0; background:#fff; }
+.funbox-frame[hidden] { display:none; }
+.funbox-status { min-height:24px; margin:10px 4px 0; color:var(--fun-muted); font-size:.82rem; }
+@media (max-width:640px) {
+  .funbox-modes { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .funbox-option span { min-height:50px; }
+  .funbox-frame { min-height:640px; }
+}
+@media (prefers-reduced-motion:reduce) { .funbox-option span { transition:none; } }
+

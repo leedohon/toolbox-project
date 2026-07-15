@@ -1,7 +1,9 @@
 {
   "index": 7,
   "tool": "team-divider",
-  "title": "다중팀 편가르기",
+  "status": "retired",
+  "replacementTool": "multipurpose-draw-game",
+  "title": "편가르기",
   "description": "편가르기 결과 코드를 공유해 같은 팀 구성을 다시 열고 PNG로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_641.html",
   "latestVersion": "0.4.3v",

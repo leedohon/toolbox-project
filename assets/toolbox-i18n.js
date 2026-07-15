@@ -59,7 +59,7 @@
     '-1,000,000부터 1,000,000 사이의 올바른 범위를 입력해 주세요.': 'Enter a valid range from -1,000,000 to 1,000,000.',
     '뽑을 개수는 1~100으로 입력해 주세요.': 'Enter a quantity from 1 to 100.', '중복 없이 뽑으려면 개수를 숫자 범위보다 작게 입력해 주세요.': 'Without duplicates, the quantity cannot exceed the size of the range.',
 
-    '다중팀 편가르기': 'Multi-team divider', '참가자 이름': 'Participant names', '+ 참가자 추가': '+ Add participant', '2~100명 · 마지막 칸에서 Enter를 누르면 다음 참가자가 추가됩니다.': '2–100 people · Press Enter in the last field to add another participant.',
+    '편가르기': 'Team divider', '다중팀 편가르기': 'Team divider', '참가자 이름': 'Participant names', '+ 참가자 추가': '+ Add participant', '2~100명 · 마지막 칸에서 Enter를 누르면 다음 참가자가 추가됩니다.': '2–100 people · Press Enter in the last field to add another participant.',
     '팀 개수': 'Number of teams', '팀 이름': 'Team name', '예: 팀, 조, 그룹': 'e.g. Team, Group', '팀 나누기': 'Divide teams',
     '참가자와 팀 개수를 확인해 주세요.': 'Check the participants and number of teams.', '편가르기 결과': 'Team division result',
     '팀 개수는 참가자 수보다 많을 수 없습니다.': 'The number of teams cannot exceed the number of participants.', '먼저 팀을 나눠 주세요.': 'Divide the teams first.',

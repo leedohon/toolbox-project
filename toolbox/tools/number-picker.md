@@ -3,7 +3,7 @@ title: 숫자뽑기
 slug: number-picker
 type: calculator
 description: 숫자 범위와 개수를 정해 중복 허용 여부에 따라 무작위 숫자를 뽑습니다.
-status: published
+status: retired
 inputs:
   - id: min
     label: 최솟값
@@ -34,3 +34,7 @@ inputs:
 ## 공통 언어
 
 - 공통 `KOR / ENG` 선택기를 사용하며 모든 조작·상태·오류 문구를 선택 언어로 표시한다.
+
+## 통합
+
+- 공개 카탈로그에서는 `multipurpose-draw-game`으로 대체하며 기존 결과 코드 호환 엔진으로 유지한다.

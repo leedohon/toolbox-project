@@ -20,7 +20,7 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
 <!-- Blogger 글쓰기 화면의 HTML 보기에 전체를 붙여 넣으세요. -->
 <article id="toolbox-{{tool-id}}-post" class="tb-post">
   <header class="tb-hero">
-    <p class="tb-label">초간단 툴박스</p>
+    <p class="tb-label">{{category}}</p>
     <h1>{{title}}</h1>
     <p class="tb-lead">{{description}}</p>
     <ul class="tb-features">

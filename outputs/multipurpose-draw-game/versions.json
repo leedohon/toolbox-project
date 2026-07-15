@@ -1,0 +1,21 @@
+{
+  "index": 11,
+  "tool": "multipurpose-draw-game",
+  "category": "다용도 펀박스",
+  "title": "다용도 뽑기게임",
+  "description": "사다리, 돌림판, 숫자뽑기와 편가르기를 한 화면에서 선택하고 결과를 공유합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "네 가지 뽑기게임을 하나의 모듈형 화면과 게시글로 통합한 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/multipurpose-draw-game.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}
+

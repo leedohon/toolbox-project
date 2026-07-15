@@ -78,7 +78,7 @@ for (const entry of entries) {
   if (!latest) throw new Error(`Latest version metadata is missing for ${versions.tool}.`);
   const content = await fs.readFile(path.join(outputsDir, entry.name, latest.html), 'utf8');
   const post = matches[0];
-  const title = formatToolPostTitle(versions.title);
+  const title = formatToolPostTitle(versions.title, versions.category);
   const labels = await loadToolPostLabels(versions.tool);
   await request(`https://www.googleapis.com/blogger/v3/blogs/${encodeURIComponent(blog.id)}/posts/${encodeURIComponent(post.id)}`, {
     method: 'PUT',

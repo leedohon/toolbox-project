@@ -4,9 +4,11 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputs = path.join(root, 'outputs');
+const tagsPath = path.join(root, 'toolbox', 'post-tags.json');
 
 export async function buildToolCatalog() {
   const entries = await fs.readdir(outputs, { withFileTypes: true });
+  const tagsDocument = JSON.parse(await fs.readFile(tagsPath, 'utf8'));
   const tools = [];
 
   for (const entry of entries) {
@@ -15,6 +17,8 @@ export async function buildToolCatalog() {
     try {
       const versions = JSON.parse(await fs.readFile(versionsPath, 'utf8'));
       if (versions.status === 'retired') continue;
+      const keywords = [...new Set([...(tagsDocument.tools?.[versions.tool] || []), ...(tagsDocument.keywords?.[versions.tool] || [])])];
+      if (keywords.length < 20 || keywords.length > 30) throw new Error(`${versions.tool}: 20~30개의 검색 키워드가 필요합니다.`);
       tools.push({
         index: versions.index,
         tool: versions.tool,
@@ -22,6 +26,7 @@ export async function buildToolCatalog() {
         description: versions.description,
         postUrl: versions.postUrl || '',
         version: versions.latestVersion,
+        keywords,
       });
     } catch (error) {
       if (error.code !== 'ENOENT') throw error;

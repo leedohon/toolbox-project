@@ -2,13 +2,13 @@
 title: 텍스트 인코더·디코더
 slug: base64-tools
 type: converter
-description: Base64와 URL 인코딩·디코딩을 한 화면에서 처리하고 Base64 파일 변환을 지원합니다.
+description: Base64, URL, ASCII, Unicode, UTF-8 16진수·2진수 인코딩과 디코딩을 한 화면에서 처리합니다.
 status: published
 inputs:
   - key: format
     label: 변환 형식
-    type: radio
-    options: [base64, url]
+    type: select
+    options: [base64, url, ascii, unicode, hex, binary]
   - key: mode
     label: 변환 모드
     type: radio
@@ -27,7 +27,7 @@ inputs:
 
 # 기능
 
-- Base64와 URL 인코딩·디코딩 형식 선택
+- Base64, URL, ASCII 10진 코드, Unicode 코드 포인트, UTF-8 16진수·2진수 형식 선택
 - URL 쿼리 값·문장과 주소 전체 처리 범위 구분
 - UTF-8 텍스트 Base64 인코딩과 디코딩
 - 파일 선택 및 드래그 앤 드롭 Base64 변환
@@ -49,6 +49,9 @@ inputs:
 - URL-safe 인코딩은 `+`를 `-`, `/`를 `_`로 바꾸고 끝의 `=` 패딩을 제거한다.
 - 디코딩은 일반 Base64와 URL-safe Base64를 자동으로 인식한다.
 - 현재 결과를 다음 입력으로 옮기고 반대 변환 모드로 전환할 수 있다.
+- ASCII는 0~127 범위만 허용하고 범위를 벗어난 문자는 Unicode 사용을 안내한다.
+- Unicode는 `U+XXXX` 코드 포인트를 사용하며 이모지 같은 보조 평면 문자도 한 문자로 처리한다.
+- 16진수와 2진수는 UTF-8 바이트를 기준으로 변환한다.
 
 # 공통 언어
 

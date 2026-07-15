@@ -5,8 +5,11 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const postsDir = path.join(root, 'toolbox', 'posts');
 const contentPath = path.join(root, 'toolbox', 'post-content.json');
+const tagsPath = path.join(root, 'toolbox', 'post-tags.json');
 const detailStart = '<!-- tb-tool-details:start -->';
 const detailEnd = '<!-- tb-tool-details:end -->';
+const tagsStart = '<!-- tb-tags:start -->';
+const tagsEnd = '<!-- tb-tags:end -->';
 const faqStart = '<!-- tb-faq:start -->';
 const faqEnd = '<!-- tb-faq:end -->';
 const patchStart = '<!-- tb-patch-notes:start -->';
@@ -33,11 +36,21 @@ function renderFaq(content) {
   return `${faqStart}<h2>자주 묻는 질문</h2>${items}${faqEnd}`;
 }
 
-function injectGeneratedContent(html, details, faq, tool) {
+function renderTags(tool, tagsDocument) {
+  const tags = [...new Set([...(tagsDocument.common || []), ...(tagsDocument.tools?.[tool] || [])])];
+  if (tags.length < 4 || tags.length > 10) throw new Error(`${tool}: 4~10개의 해시태그가 필요합니다.`);
+  const links = tags.map((tag) => `<a href="/search/label/${encodeURIComponent(tag)}" rel="tag">#${escapeHtml(tag)}</a>`).join('');
+  return `${tagsStart}<nav class="tb-tags" aria-label="관련 태그">${links}</nav>${tagsEnd}`;
+}
+
+function injectGeneratedContent(html, details, tags, faq, tool) {
   const detailPattern = new RegExp(`${detailStart}[\\s\\S]*?${detailEnd}`);
+  const tagsPattern = new RegExp(`${tagsStart}[\\s\\S]*?${tagsEnd}`);
   const faqPattern = new RegExp(`${faqStart}[\\s\\S]*?${faqEnd}`);
   if (detailPattern.test(html) && faqPattern.test(html)) {
-    return html.replace(detailPattern, details).replace(faqPattern, faq);
+    const withDetails = html.replace(detailPattern, details);
+    const withTags = tagsPattern.test(withDetails) ? withDetails.replace(tagsPattern, tags) : withDetails.replace(faqStart, `${tags}\n  ${faqStart}`);
+    return withTags.replace(faqPattern, faq);
   }
 
   const faqHeading = '<h2>자주 묻는 질문</h2>';
@@ -45,18 +58,19 @@ function injectGeneratedContent(html, details, faq, tool) {
   const patch = html.indexOf(patchStart);
   const end = patch >= 0 ? patch : html.lastIndexOf('</article>');
   if (start < 0 || end < start) throw new Error(`${tool}: FAQ insertion point is missing`);
-  return `${html.slice(0, start)}${details}\n  ${faq}\n  ${html.slice(end)}`;
+  return `${html.slice(0, start)}${details}\n  ${tags}\n  ${faq}\n  ${html.slice(end)}`;
 }
 
 export async function buildToolPostContent(toolNames = []) {
   const content = JSON.parse(await fs.readFile(contentPath, 'utf8'));
+  const tagsDocument = JSON.parse(await fs.readFile(tagsPath, 'utf8'));
   const tools = toolNames.length ? toolNames : Object.keys(content);
   const built = [];
   for (const tool of tools) {
     if (!content[tool]) throw new Error(`${tool}: post content is missing`);
     const postPath = path.join(postsDir, `${tool}.html`);
     const html = await fs.readFile(postPath, 'utf8');
-    const updated = injectGeneratedContent(html, renderDetails(content[tool]), renderFaq(content[tool]), tool);
+    const updated = injectGeneratedContent(html, renderDetails(content[tool]), renderTags(tool, tagsDocument), renderFaq(content[tool]), tool);
     await fs.writeFile(postPath, updated);
     built.push(tool);
   }

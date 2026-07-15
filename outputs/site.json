@@ -10,6 +10,7 @@
     "searchLabel": "도구 검색",
     "searchPlaceholder": "QR, JSON, Base64 등 도구 이름 검색",
     "searchButton": "검색",
+    "searchHint": "검색어를 입력하면 관련 도구 링크가 표시됩니다.",
     "countSuffix": "개의 도구",
     "openPost": "게시글에서 사용하기",
     "pendingPost": "게시글 준비 중",

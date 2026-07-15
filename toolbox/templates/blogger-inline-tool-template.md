@@ -38,6 +38,7 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
   <ol class="tb-steps"><li>{{step-1}}</li><li>{{step-2}}</li><li>{{step-3}}</li></ol>
 
   <!-- tb-tool-details:start --><section class="tb-tool-details">{{generated-tool-details}}</section><!-- tb-tool-details:end -->
+  <!-- tb-tags:start --><nav class="tb-tags" aria-label="관련 태그">{{generated-tool-tags}}</nav><!-- tb-tags:end -->
   <!-- tb-faq:start --><h2>자주 묻는 질문</h2>{{generated-user-faq}}{{generated-user-faq}}{{generated-user-faq}}{{generated-user-faq}}<!-- tb-faq:end -->
   <!-- tb-patch-notes:start --><details class="tb-patch-notes"><summary>패치노트</summary><div class="tb-patch-list">{{generated-cumulative-patch-notes}}</div></details><!-- tb-patch-notes:end -->
 </article>

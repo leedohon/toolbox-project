@@ -4,7 +4,7 @@
   "title": "텍스트 인코더·디코더",
   "description": "Base64와 URL 인코딩·디코딩을 한 화면에서 빠르게 처리합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
-  "latestVersion": "0.8.0v",
+  "latestVersion": "0.9.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -113,6 +113,15 @@
       "directory": "0.8.0v",
       "html": "0.8.0v/base64-tools.html",
       "patchNotes": "0.8.0v/patch-notes.json"
+    },
+    {
+      "version": "0.9.0v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minor",
+      "summary": "ASCII, Unicode와 UTF-8 바이트 코드 변환을 추가하고 게시글 유입 구조를 개선했습니다.",
+      "directory": "0.9.0v",
+      "html": "0.9.0v/base64-tools.html",
+      "patchNotes": "0.9.0v/patch-notes.json"
     }
   ]
 }

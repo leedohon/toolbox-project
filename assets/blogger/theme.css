@@ -54,6 +54,7 @@ a { color: var(--ow-primary); }
   box-shadow: 0 8px 28px rgba(8, 91, 132, .05);
 }
 h3.post-title, h3.post-title a { color: var(--ow-ink) !important; font-family: inherit !important; font-size: clamp(1.55rem, 4vw, 2.3rem) !important; line-height: 1.35 !important; letter-spacing: -.025em; }
+.ow-is-post .header-outer { display: none !important; }
 .post-body { color: var(--ow-ink); font-size: 1rem !important; line-height: 1.8 !important; overflow-wrap: anywhere; }
 .post-body > :first-child { margin-top: 0; }
 .post-body > :last-child { margin-bottom: 0; }
@@ -89,6 +90,15 @@ h3.post-title, h3.post-title a { color: var(--ow-ink) !important; font-family: i
 .ow-tool-search input { width: 100%; min-width: 0; padding: 10px 12px; color: var(--ow-ink); background: transparent; border: 0; outline: 0; font: inherit; }
 .ow-tool-search button { min-width: 72px; min-height: 42px; padding: 0 18px; color: #fff; background: var(--ow-primary); border: 0; border-radius: 8px; cursor: pointer; font: inherit; font-weight: 800; white-space: nowrap; }
 .ow-tool-search button:hover { background: var(--ow-primary-dark); }
+.ow-tool-results[hidden] { display: none !important; }
+.ow-tool-results { display: grid; gap: 9px; }
+.ow-tool-result { display: flex; min-width: 0; padding: 14px 16px; align-items: center; justify-content: space-between; gap: 16px; color: var(--ow-ink) !important; background: #fff; border: 1px solid var(--ow-line); border-radius: 12px; text-decoration: none !important; }
+.ow-tool-result[href]:hover { border-color: #9fcfe2; box-shadow: 0 8px 22px rgba(8,91,132,.08); }
+.ow-tool-result-copy { display: grid; min-width: 0; gap: 3px; }
+.ow-tool-result-copy strong { font-size: 1rem; }
+.ow-tool-result-copy small { color: var(--ow-muted); font-size: .82rem; line-height: 1.5; }
+.ow-tool-result-action { color: var(--ow-primary); font-size: .78rem; font-weight: 800; white-space: nowrap; }
+.ow-post-discovery { width: 100%; margin-top: 0; margin-bottom: 24px; }
 .ow-tool-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .ow-tool-card { display: flex; min-height: 180px; padding: 21px; color: var(--ow-ink) !important; background: #fff; border: 1px solid var(--ow-line); border-radius: 14px; flex-direction: column; text-decoration: none !important; transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease; }
 .ow-tool-card[href]:hover { border-color: #add8ea; box-shadow: var(--ow-shadow); transform: translateY(-2px); }
@@ -127,6 +137,9 @@ h3.post-title, h3.post-title a { color: var(--ow-ink) !important; font-family: i
 .tb-post .tb-detail-copy { padding: 18px 20px; color: #31505f; background: var(--ow-primary-soft); border: 1px solid var(--ow-line); border-radius: 14px; }
 .tb-post .tb-detail-copy p { margin: 0; }
 .tb-post .tb-detail-copy p + p { margin-top: 12px; }
+.tb-post .tb-tags { display: flex; margin: 18px 0 30px; flex-wrap: wrap; gap: 8px; }
+.tb-post .tb-tags a { display: inline-flex; min-height: 36px; padding: 6px 11px; align-items: center; color: var(--ow-primary) !important; background: var(--ow-primary-soft); border: 1px solid #c9e6f2; border-radius: 999px; font-size: .84rem; font-weight: 750; text-decoration: none !important; }
+.tb-post .tb-tags a:hover { background: #dff3fc; border-color: #9fcfe2; }
 .tb-post .tb-patch-notes[open] > summary { border-bottom: 1px solid var(--ow-line); }
 .tb-post .tb-patch-list { display: grid; padding: 2px 18px 18px; gap: 12px; }
 .tb-post .tb-patch-release { padding: 14px 0 0; border-top: 1px solid var(--ow-line); }
@@ -145,6 +158,8 @@ h3.post-title, h3.post-title a { color: var(--ow-ink) !important; font-family: i
   .ow-back-link { width: auto; min-height: 48px; }
   .ow-catalog-head { align-items: start; flex-direction: column; gap: 4px; }
   .ow-tool-search { align-items: stretch; flex-direction: column; }
+  .ow-tool-result { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .ow-tool-result-action { white-space: normal; }
   .ow-tool-grid { grid-template-columns: 1fr; }
   .ow-tool-card { min-height: 165px; }
   .post { padding: 12px !important; }

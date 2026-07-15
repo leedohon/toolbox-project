@@ -1,0 +1,12 @@
+{
+  "tool": "url-encoder-decoder",
+  "version": "0.1.1v",
+  "releaseDate": "2026-07-15",
+  "changeLevel": "minimum",
+  "changes": [
+    "관련 해시태그와 Blogger 라벨을 추가했습니다.",
+    "메인과 게시글 상단에 같은 Openworld Blog 소개와 JSON 도구 검색을 적용했습니다.",
+    "검색어가 없을 때 링크를 숨기고 해시태그 및 20~30개 키워드의 일치·유사 결과만 표시합니다."
+  ],
+  "qa": ["모바일과 PC에서 컴팩트 사이트 헤더, 해시태그 링크와 Blogger 라벨을 확인합니다."]
+}

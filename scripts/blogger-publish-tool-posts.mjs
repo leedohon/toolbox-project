@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildToolCatalog } from './build-tool-catalog.mjs';
+import { formatToolPostTitle, loadToolPostLabels } from './tool-post-meta.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const secretDir = path.join(root, '.secrets', 'blogger');
@@ -60,15 +61,16 @@ for (const tool of tools) {
   const latest = versions.versions.find((release) => release.version === versions.latestVersion);
   if (!latest) throw new Error(`${tool}: 최신 버전 정보가 없습니다.`);
   const content = await fs.readFile(path.join(outputsDir, tool, latest.html), 'utf8');
-  const title = `[초간단 툴박스] ${versions.title}`;
-  const matches = published.filter((post) => compact(post.title).endsWith(compact(versions.title)));
+  const title = formatToolPostTitle(versions.title);
+  const labels = await loadToolPostLabels(versions.tool);
+  const matches = published.filter((post) => (versions.postUrl && post.url === versions.postUrl) || compact(post.title).includes(compact(versions.title)));
   if (matches.length > 1) throw new Error(`${versions.title}: 같은 제목의 공개 글이 여러 개입니다.`);
 
   let post;
   if (matches.length === 1) {
     post = await request(`https://www.googleapis.com/blogger/v3/blogs/${encodeURIComponent(blog.id)}/posts/${encodeURIComponent(matches[0].id)}`, {
       method: 'PUT',
-      body: JSON.stringify({ ...matches[0], title, content }),
+      body: JSON.stringify({ ...matches[0], title, content, labels }),
     });
     console.log(`Updated LIVE post: ${title} (${post.url})`);
   } else {
@@ -76,7 +78,7 @@ for (const tool of tools) {
     endpoint.searchParams.set('isDraft', 'false');
     post = await request(endpoint, {
       method: 'POST',
-      body: JSON.stringify({ kind: 'blogger#post', blog: { id: String(blog.id) }, title, content }),
+      body: JSON.stringify({ kind: 'blogger#post', blog: { id: String(blog.id) }, title, content, labels }),
     });
     console.log(`Published LIVE post: ${title} (${post.url})`);
     published.push(post);

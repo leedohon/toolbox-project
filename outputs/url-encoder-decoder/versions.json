@@ -5,7 +5,7 @@
   "title": "URL 인코더·디코더",
   "description": "주소와 쿼리 값을 URL에 안전하게 인코딩하고 다시 원문으로 디코딩합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/url.html",
-  "latestVersion": "0.1.0v",
+  "latestVersion": "0.1.1v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -33,6 +33,15 @@
       "directory": "0.1.0v",
       "html": "0.1.0v/url-encoder-decoder.html",
       "patchNotes": "0.1.0v/patch-notes.json"
+    },
+    {
+      "version": "0.1.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "게시글 검색 유입과 상단 브랜드 헤더를 개선했습니다.",
+      "directory": "0.1.1v",
+      "html": "0.1.1v/url-encoder-decoder.html",
+      "patchNotes": "0.1.1v/patch-notes.json"
     }
   ]
 }

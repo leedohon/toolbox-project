@@ -4,7 +4,7 @@
   "title": "QR · 바코드 생성기",
   "description": "KOR/ENG 화면에서 QR·바코드를 만들고 설정을 한 번에 초기화할 수 있습니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
-  "latestVersion": "0.5.1v",
+  "latestVersion": "0.5.2v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -86,6 +86,15 @@
       "directory": "0.5.1v",
       "html": "0.5.1v/first-post-qr-barcode-generator.html",
       "patchNotes": "0.5.1v/patch-notes.json"
+    },
+    {
+      "version": "0.5.2v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "게시글 검색 유입과 상단 브랜드 헤더를 개선했습니다.",
+      "directory": "0.5.2v",
+      "html": "0.5.2v/first-post-qr-barcode-generator.html",
+      "patchNotes": "0.5.2v/patch-notes.json"
     }
   ]
 }

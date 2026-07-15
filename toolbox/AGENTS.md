@@ -23,9 +23,12 @@
 - 메인 소개글과 공통 문구는 `outputs/site.json`에서 관리한다.
 - 메인 도구 목록은 `outputs/tools.json`을 페이지 로드마다 읽고 `index` 순서로 표시한다.
 - JSON은 캐시 없이 요청하며, `versions.json`이 `main`에 푸시되면 GitHub Actions가 `outputs/tools.json`을 자동 재생성하고 커밋한다.
-- 메인에는 소개, 도구 검색, 도구 카드와 기존 Blogger 게시글 목록을 함께 제공한다.
+- 메인과 도구 게시글 상단에는 `outputs/site.json`의 Openworld Blog 소개와 JSON 도구 검색을 공통으로 제공한다.
+- 검색어가 없으면 도구 링크를 표시하지 않고, 입력 뒤에만 `outputs/tools.json`의 제목·설명·해시태그·20~30개 키워드에 일치하거나 유사한 결과를 가벼운 링크 목록으로 표시한다.
 - 도구 카드는 `postUrl`이 있을 때 해당 Blogger 게시글로 이동하며, 비어 있으면 준비 중 상태로 표시한다.
 - 모든 게시글 페이지에는 메인의 도구 검색 영역으로 돌아가는 공통 링크를 표시한다.
+- 모든 게시글 본문에는 `toolbox/post-tags.json`에서 생성한 관련 해시태그를 표시하고 같은 값을 Blogger 라벨로 등록한다.
+- 공개 게시글 제목은 `[초간단 툴박스] 도구명` 브랜드 형식을 유지한다.
 - 전역 디자인 변경은 XML을 다시 편집하지 않고 저장소의 CSS·JS·JSON을 수정해 배포한다.
 - 도구 게시글은 `assets/blogger/theme.css`의 `.tb-post` 공통 테마와 `templates/blogger-inline-tool-template.md`의 구조를 참조한다.
 - 게시글 HTML에는 공통 `<style>` 블록이나 반복 인라인 스타일을 넣지 않는다. 새 기능과 수정 사항은 기존 공통 클래스를 우선 재사용하고, 공통 외형 변경은 전역 CSS에서만 처리한다.

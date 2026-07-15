@@ -4,6 +4,7 @@
 #b64-tools .b64-tab { flex:1 1 180px; min-height:46px; padding:0 14px; color:#111; background:#fff; border:1px solid #b9c7cd; border-radius:.5rem; }
 #b64-tools .b64-tab[aria-selected="true"] { color:#fff; background:var(--st-sky); border-color:var(--st-sky); }
 #b64-tools .b64-option { margin:0 0 16px; }
+#b64-tools .b64-format-field { margin-bottom:18px; }
 #b64-tools .b64-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; }
 #b64-tools .b64-panel { min-width:0; }
 #b64-tools .b64-meta { display:flex; justify-content:space-between; margin-top:7px; color:var(--st-muted); font-size:.82rem; }

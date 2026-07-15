@@ -16,6 +16,7 @@
 - `assets/blogger/`: Blogger 메인·게시글 전역 디자인과 목록 로더
 - `toolbox/theme/openworld-toolbox-upload.xml`: Blogger 백업 골조를 보존한 업로드용 테마
 - `toolbox/BLOGGER-OPERATIONS.md`: Blogger 게시, URL 동기화, Git·배포까지의 전체 운영 기준
+- `AUTOMATED-WORKFLOW.md`: 수동 트리거형 자동 작업, 실행 결과 JSON과 확인 처리 기준
 
 GitHub Pages의 배포 원본을 `main` 브랜치의 루트로 설정하면 `embed/`의 변경 사항이 푸시 후 게시글에 자동 반영됩니다.
 

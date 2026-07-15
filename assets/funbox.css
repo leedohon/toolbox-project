@@ -9,18 +9,18 @@ body { padding:clamp(6px,1.8vw,16px); overflow-x:hidden; background:#fff; font-f
 .funbox-modes { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; border:0; margin:0; padding:0; }
 .funbox-option { position:relative; display:block; min-width:0; cursor:pointer; }
 .funbox-option input { position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
-.funbox-option span { display:flex; min-height:52px; padding:9px 10px; align-items:center; justify-content:center; color:#174454; background:#fff; border:1px solid #b9d4e0; border-radius:11px; font-weight:800; text-align:center; transition:border-color .15s,background .15s,color .15s,transform .15s; }
+.funbox-option span { display:flex; min-height:58px; padding:9px 10px; flex-direction:column; align-items:center; justify-content:center; gap:1px; color:#174454; background:#fff; border:1px solid #b9d4e0; border-radius:11px; font-weight:800; line-height:1.25; text-align:center; transition:border-color .15s,background .15s,color .15s,transform .15s; }
+.funbox-option small { font-size:.72rem; font-weight:700; opacity:.72; }
 .funbox-option input:checked + span { color:#fff; background:var(--fun-sky); border-color:var(--fun-sky); box-shadow:0 6px 16px rgba(8,121,178,.18); }
 .funbox-option input:focus-visible + span { outline:3px solid #a8e3fb; outline-offset:2px; }
 .funbox-option:hover span { transform:translateY(-1px); border-color:var(--fun-sky); }
 .funbox-stage { min-width:0; margin-top:14px; }
 .funbox-frame { display:block; width:100%; min-width:0; min-height:560px; border:0; background:#fff; }
 .funbox-frame[hidden] { display:none; }
-.funbox-status { min-height:24px; margin:10px 4px 0; color:var(--fun-muted); font-size:.82rem; }
+.funbox-status { min-height:24px; margin:10px 4px 0; color:var(--fun-muted); font-size:.82rem; font-weight:700; }
 @media (max-width:640px) {
   .funbox-modes { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .funbox-option span { min-height:50px; }
   .funbox-frame { min-height:640px; }
 }
 @media (prefers-reduced-motion:reduce) { .funbox-option span { transition:none; } }
-

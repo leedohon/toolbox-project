@@ -80,6 +80,7 @@ h3.post-title, h3.post-title a { color: var(--ow-ink) !important; font-family: i
 .footer-outer .footer-inner { width: min(calc(100% - 32px), var(--ow-width)) !important; max-width: var(--ow-width) !important; margin: 0 auto !important; padding: 20px 0 24px !important; }
 .footer-outer .section, .footer-outer .widget { margin: 0 !important; padding: 0 !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
 .footer-outer .section:empty { display: none !important; }
+.footer-outer .footer-inner .widget:not(.Attribution) { display: none !important; }
 .footer-outer .widget-content, .footer-outer .Attribution { color: var(--ow-muted) !important; font-size: .78rem !important; line-height: 1.6 !important; text-align: center !important; }
 .footer-outer a { color: #496775 !important; text-decoration: none !important; }
 .footer-outer a:hover { color: var(--ow-primary) !important; text-decoration: underline !important; }

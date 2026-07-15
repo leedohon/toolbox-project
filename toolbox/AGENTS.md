@@ -16,7 +16,7 @@
 1. Blogger HTML 보기에 그대로 붙일 완성형 게시글 HTML을 제공한다.
 2. 게시글의 설명·사용법·FAQ는 `toolbox/posts/`와 `outputs/<도구>/<버전>/`에 둔다.
 3. 실행 기능은 `embed/<도구>/index.html`에 두고 고정 GitHub Pages 주소를 iframe으로 사용한다.
-4. iframe은 실제 높이를 `postMessage`로 전달하며 부모 게시글은 출처와 도구 식별자를 검증해 내부 세로 스크롤을 없앤다.
+4. iframe은 실제 높이를 `postMessage`로 전달하며 `assets/blogger/site.js`의 전역 수신기가 출처와 도구 식별자를 검증해 높이를 조절한다. Blogger 게시글의 인라인 스크립트 실행에 의존하지 않는다.
 5. 실행 도구 안에는 사이트 탐색, 중복 제목, 부가 설명을 넣지 않는다.
 
 ## Blogger 테마와 메인 화면
@@ -82,8 +82,12 @@
 - `outputs/site.json`: 메인 소개와 공통 화면 문구
 - `embed/<도구>/index.html`: GitHub Pages 최신 실행 기능
 - `assets/blogger/`: Blogger 전역 CSS와 JavaScript
+- `ai-index.json`, `toolbox/ai-index.json`: AI가 프로젝트와 도구 파일을 빠르게 찾는 중앙 색인
+- `embed/<도구>/ai-index.json`: 신규·수정 도구의 기능·모듈·호환 관계 색인
 
 각 `versions.json`은 `index`, `tool`, `title`, `description`, `postUrl`, `latestVersion`, `versions`를 포함한다. `index`는 양의 정수이며 중복하거나 재배정하지 않는다. `outputs/tools.json`은 손으로 중복 관리하지 않고 `node scripts/build-tool-catalog.mjs`로 생성한다.
+
+작업 시작 시 루트와 toolbox의 `ai-index.json`을 먼저 읽어 대상 경로를 좁힌다. 신규·수정 도구는 `node scripts/build-ai-index.mjs <도구>`로 도구별 색인까지 갱신하며 기존 전체 도구에는 소급 생성을 요구하지 않는다. 세부 규칙은 `guides/ai-index-guide.md`를 따른다.
 
 ## 버전 릴리스 절차
 

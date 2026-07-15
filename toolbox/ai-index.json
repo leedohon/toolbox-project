@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "project": "toolbox",
+  "keySources": {
+    "content": "toolbox/post-content.json",
+    "discovery": "toolbox/post-tags.json",
+    "catalog": "outputs/tools.json",
+    "sharedPostTheme": "assets/blogger/theme.css",
+    "sharedToolStyles": [
+      "assets/simple-tools.css",
+      "assets/play-tools.css"
+    ],
+    "sharedUx": "assets/toolbox-ux.js"
+  },
+  "tools": [
+    {
+      "index": 1,
+      "tool": "qr-barcode-generator",
+      "title": "QR · 바코드 생성기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.5.3v",
+      "paths": {
+        "definition": "toolbox/tools/qr-barcode-generator.md",
+        "post": "toolbox/posts/qr-barcode-generator.html",
+        "manifest": "outputs/qr-barcode-generator/versions.json",
+        "embed": "embed/qr-barcode-generator/index.html",
+        "moduleRegistry": null
+      }
+    },
+    {
+      "index": 2,
+      "tool": "json-tools",
+      "title": "JSON 도구",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.6.3v",
+      "paths": {
+        "definition": "toolbox/tools/json-tools.md",
+        "post": "toolbox/posts/json-tools.html",
+        "manifest": "outputs/json-tools/versions.json",
+        "embed": "embed/json-tools/index.html",
+        "moduleRegistry": null
+      }
+    },
+    {
+      "index": 3,
+      "tool": "base64-tools",
+      "title": "텍스트 인코더·디코더",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.9.1v",
+      "paths": {
+        "definition": "toolbox/tools/base64-tools.md",
+        "post": "toolbox/posts/base64-tools.html",
+        "manifest": "outputs/base64-tools/versions.json",
+        "embed": "embed/base64-tools/index.html",
+        "moduleRegistry": null
+      }
+    },
+    {
+      "index": 4,
+      "tool": "ladder-game",
+      "title": "사다리게임 통합 안내",
+      "category": "다용도 펀박스",
+      "status": "retired",
+      "replacementTool": "multipurpose-draw-game",
+      "latestVersion": "1.0.0v",
+      "paths": {
+        "definition": "toolbox/tools/ladder-game.md",
+        "post": "toolbox/posts/ladder-game.html",
+        "manifest": "outputs/ladder-game/versions.json",
+        "embed": "embed/ladder-game/index.html",
+        "moduleRegistry": null
+      }
+    },
+    {
+      "index": 5,
+      "tool": "wheel-spinner",
+      "title": "돌림판 통합 안내",
+      "category": "다용도 펀박스",
+      "status": "retired",
+      "replacementTool": "multipurpose-draw-game",
+      "latestVersion": "1.0.0v",
+      "paths": {
+        "definition": "toolbox/tools/wheel-spinner.md",
+        "post": "toolbox/posts/wheel-spinner.html",
+        "manifest": "outputs/wheel-spinner/versions.json",
+        "embed": "embed/wheel-spinner/index.html",
+        "moduleRegistry": null
+      }
+    },
+    {
+      "index": 6,
+      "tool": "number-picker",
+      "title": "숫자뽑기 통합 안내",
+      "category": "다용도 펀박스",
+      "status": "retired",
+      "replacementTool": "multipurpose-draw-game",
+      "latestVersion": "1.0.0v",
+      "paths": {
+        "definition": "toolbox/tools/number-picker.md",
+        "post": "toolbox/posts/number-picker.html",
+        "manifest": "outputs/number-picker/versions.json",
+        "embed": "embed/number-picker/index.html",
+        "moduleRegistry": null
+      }
+    },
+    {
+      "index": 7,
+      "tool": "team-divider",
+      "title": "편가르기 통합 안내",
+      "category": "다용도 펀박스",
+      "status": "retired",
+      "replacementTool": "multipurpose-draw-game",
+      "latestVersion": "1.0.0v",
+      "paths": {
+        "definition": "toolbox/tools/team-divider.md",
+        "post": "toolbox/posts/team-divider.html",
+        "manifest": "outputs/team-divider/versions.json",
+        "embed": "embed/team-divider/index.html",
+        "moduleRegistry": null
+      }
+    },
+    {
+      "index": 8,
+      "tool": "image-mosaic-tool",
+      "title": "이미지 모자이크 도구",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.2.3v",
+      "paths": {
+        "definition": "toolbox/tools/image-mosaic-tool.md",
+        "post": "toolbox/posts/image-mosaic-tool.html",
+        "manifest": "outputs/image-mosaic-tool/versions.json",
+        "embed": "embed/image-mosaic-tool/index.html",
+        "moduleRegistry": null
+      }
+    },
+    {
+      "index": 9,
+      "tool": "url-encoder-decoder",
+      "title": "URL 인코더·디코더",
+      "category": "초간단 툴박스",
+      "status": "retired",
+      "replacementTool": null,
+      "latestVersion": "0.1.2v",
+      "paths": {
+        "definition": "toolbox/tools/url-encoder-decoder.md",
+        "post": "toolbox/posts/url-encoder-decoder.html",
+        "manifest": "outputs/url-encoder-decoder/versions.json",
+        "embed": "embed/url-encoder-decoder/index.html",
+        "moduleRegistry": null
+      }
+    },
+    {
+      "index": 10,
+      "tool": "date-calculator",
+      "title": "다용도 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "1.0.2v",
+      "paths": {
+        "definition": "toolbox/tools/date-calculator.md",
+        "post": "toolbox/posts/date-calculator.html",
+        "manifest": "outputs/date-calculator/versions.json",
+        "embed": "embed/date-calculator/index.html",
+        "moduleRegistry": null
+      }
+    },
+    {
+      "index": 11,
+      "tool": "multipurpose-draw-game",
+      "title": "다용도 뽑기게임",
+      "category": "다용도 펀박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/multipurpose-draw-game.md",
+        "post": "toolbox/posts/multipurpose-draw-game.html",
+        "manifest": "outputs/multipurpose-draw-game/versions.json",
+        "embed": "embed/multipurpose-draw-game/index.html",
+        "moduleRegistry": "embed/multipurpose-draw-game/modules.json"
+      }
+    }
+  ]
+}

@@ -17,6 +17,19 @@
   if (postMount) document.documentElement.classList.add('ow-is-post');
   if (isInnerPage) document.documentElement.classList.add('ow-is-inner');
 
+  window.addEventListener('message', function (event) {
+    if (event.origin !== 'https://leedohon.github.io' || !event.data || event.data.source !== 'toolbox-embed') return;
+    var tool = String(event.data.tool || '');
+    var height = Number(event.data.height);
+    if (!/^[a-z0-9-]+$/.test(tool) || !Number.isFinite(height) || height < 320 || height > 6000) return;
+    document.querySelectorAll('iframe[src]').forEach(function (frame) {
+      try {
+        var source = new URL(frame.src, location.href);
+        if (source.origin === event.origin && source.pathname.replace(/\/+$/, '') === '/toolbox-project/embed/' + tool) frame.style.height = Math.ceil(height) + 'px';
+      } catch (_) {}
+    });
+  });
+
   function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, function (character) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[character];

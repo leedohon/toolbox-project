@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "tool": "multipurpose-draw-game",
+  "index": 11,
+  "title": "다용도 뽑기게임",
+  "category": "다용도 펀박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/multipurpose-draw-game.md",
+    "post": "toolbox/posts/multipurpose-draw-game.html",
+    "manifest": "outputs/multipurpose-draw-game/versions.json",
+    "embed": "embed/multipurpose-draw-game/index.html",
+    "moduleRegistry": "embed/multipurpose-draw-game/modules.json"
+  },
+  "modules": [
+    {
+      "id": "ladder",
+      "label": {
+        "ko": "사다리",
+        "en": "Ladder"
+      },
+      "entry": "../ladder-game/",
+      "messageTool": "ladder-game",
+      "capabilities": {
+        "resultCode": true,
+        "png": true,
+        "copyFallback": true,
+        "i18n": true
+      }
+    },
+    {
+      "id": "wheel",
+      "label": {
+        "ko": "돌림판",
+        "en": "Wheel"
+      },
+      "entry": "../wheel-spinner/",
+      "messageTool": "wheel-spinner",
+      "capabilities": {
+        "resultCode": true,
+        "png": true,
+        "copyFallback": true,
+        "i18n": true
+      }
+    },
+    {
+      "id": "number",
+      "label": {
+        "ko": "숫자뽑기",
+        "en": "Numbers"
+      },
+      "entry": "../number-picker/",
+      "messageTool": "number-picker",
+      "capabilities": {
+        "resultCode": true,
+        "png": true,
+        "copyFallback": true,
+        "i18n": true
+      }
+    },
+    {
+      "id": "team",
+      "label": {
+        "ko": "편가르기",
+        "en": "Teams"
+      },
+      "entry": "../team-divider/",
+      "messageTool": "team-divider",
+      "capabilities": {
+        "resultCode": true,
+        "png": true,
+        "copyFallback": true,
+        "i18n": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

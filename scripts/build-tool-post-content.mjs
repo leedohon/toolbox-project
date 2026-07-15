@@ -64,7 +64,15 @@ function injectGeneratedContent(html, details, tags, faq, tool) {
 export async function buildToolPostContent(toolNames = []) {
   const content = JSON.parse(await fs.readFile(contentPath, 'utf8'));
   const tagsDocument = JSON.parse(await fs.readFile(tagsPath, 'utf8'));
-  const tools = toolNames.length ? toolNames : Object.keys(content);
+  const tools = toolNames.length ? toolNames : (await Promise.all(Object.keys(content).map(async (tool) => {
+    try {
+      const manifest = JSON.parse(await fs.readFile(path.join(root, 'outputs', tool, 'versions.json'), 'utf8'));
+      return manifest.status === 'retired' ? null : tool;
+    } catch (error) {
+      if (error.code === 'ENOENT') return tool;
+      throw error;
+    }
+  }))).filter(Boolean);
   const built = [];
   for (const tool of tools) {
     if (!content[tool]) throw new Error(`${tool}: post content is missing`);

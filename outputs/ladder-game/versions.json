@@ -3,10 +3,12 @@
   "tool": "ladder-game",
   "status": "retired",
   "replacementTool": "multipurpose-draw-game",
-  "title": "사다리게임",
-  "description": "사다리 결과 코드를 공유해 같은 연결선과 매칭을 다시 열고 PNG로 저장합니다.",
+  "category": "다용도 펀박스",
+  "legacyTitle": "사다리게임",
+  "title": "사다리게임 통합 안내",
+  "description": "사다리게임은 다용도 뽑기게임으로 통합되어 기존 결과 코드와 함께 계속 사용할 수 있습니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_14.html",
-  "latestVersion": "0.3.3v",
+  "latestVersion": "1.0.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -70,6 +72,15 @@
       "directory": "0.3.3v",
       "html": "0.3.3v/ladder-game.html",
       "patchNotes": "0.3.3v/patch-notes.json"
+    },
+    {
+      "version": "1.0.0v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "major",
+      "summary": "다용도 뽑기게임 통합 안내로 전환했습니다.",
+      "directory": "1.0.0v",
+      "html": "1.0.0v/ladder-game.html",
+      "patchNotes": "1.0.0v/patch-notes.json"
     }
   ]
 }

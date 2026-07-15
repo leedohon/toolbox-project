@@ -59,6 +59,7 @@ export async function buildPostPatchNotes(toolNames = []) {
       if (error.code === 'ENOENT') continue;
       throw error;
     }
+    if (!requested.size && manifest.status === 'retired') continue;
 
     const latest = manifest.versions.find((release) => release.version === manifest.latestVersion);
     if (!latest) throw new Error(`${manifest.tool}: latest version entry is missing`);

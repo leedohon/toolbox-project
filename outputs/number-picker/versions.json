@@ -3,10 +3,12 @@
   "tool": "number-picker",
   "status": "retired",
   "replacementTool": "multipurpose-draw-game",
-  "title": "숫자뽑기",
-  "description": "숫자 결과 코드를 공유해 같은 숫자를 다시 열고 PNG로 저장합니다.",
+  "category": "다용도 펀박스",
+  "legacyTitle": "숫자뽑기",
+  "title": "숫자뽑기 통합 안내",
+  "description": "숫자뽑기는 다용도 뽑기게임으로 통합되어 기존 결과 코드와 함께 계속 사용할 수 있습니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_549.html",
-  "latestVersion": "0.3.4v",
+  "latestVersion": "1.0.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -79,6 +81,15 @@
       "directory": "0.3.4v",
       "html": "0.3.4v/number-picker.html",
       "patchNotes": "0.3.4v/patch-notes.json"
+    },
+    {
+      "version": "1.0.0v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "major",
+      "summary": "다용도 뽑기게임 통합 안내로 전환했습니다.",
+      "directory": "1.0.0v",
+      "html": "1.0.0v/number-picker.html",
+      "patchNotes": "1.0.0v/patch-notes.json"
     }
   ]
 }

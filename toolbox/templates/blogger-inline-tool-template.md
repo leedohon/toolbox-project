@@ -62,7 +62,7 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
 4. `patch-notes.json`과 `versions.json`을 함께 갱신한다.
 5. `toolbox/post-content.json`에 상세 설명과 FAQ를 작성하고 `node scripts/build-tool-posts.mjs {{tool-id}}`를 실행해 공통 게시글 영역을 생성한다.
 6. GitHub Pages의 배포 원본은 `main` 브랜치 루트로 설정한다.
-7. 기능 HTML은 `ResizeObserver`로 실제 높이를 감지하고 `{ source: 'toolbox-embed', tool: '{{tool-id}}', height }` 메시지를 부모로 전송한다.
+7. 기능 HTML은 `ResizeObserver`로 실제 높이를 감지하고 `{ source: 'toolbox-embed', tool: '{{tool-id}}', height }` 메시지를 부모로 전송한다. 실제 Blogger 화면의 높이 조절은 `assets/blogger/site.js` 전역 수신기가 담당하며 게시글 인라인 스크립트에 의존하지 않는다.
 8. 게시 또는 릴리스 요청이면 최신 버전 HTML을 Blogger 초안 또는 공개 글로 생성하고 반환된 URL을 확인한다.
 9. `node scripts/blogger-sync-post-urls.mjs`로 `versions.json`과 `outputs/tools.json`의 `postUrl`을 맞춘다.
 10. 비밀값과 관련 없는 파일을 제외한 뒤 권한이 허용되면 에이전트가 직접 커밋하고 `main`에 푸시한다.

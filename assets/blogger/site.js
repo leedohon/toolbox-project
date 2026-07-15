@@ -3,9 +3,10 @@
 
   var script = document.currentScript;
   if (!script) return;
+  var themeRelease = '2026-07-15.1';
   var stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
-  stylesheet.href = new URL('theme.css', script.src).toString();
+  stylesheet.href = new URL('theme.css?v=' + themeRelease, script.src).toString();
   document.head.appendChild(stylesheet);
   var siteUrl = new URL('../../outputs/site.json', script.src);
   var toolsUrl = new URL('../../outputs/tools.json', script.src);

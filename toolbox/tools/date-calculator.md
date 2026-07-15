@@ -1,33 +1,42 @@
 ---
-title: 날짜 계산기
+title: 다용도 계산기
 slug: date-calculator
 type: calculator
-description: 두 날짜 사이의 일수를 계산하거나 기준일에서 원하는 일수를 더하고 뺍니다.
+description: 일반 사칙연산과 길이, 넓이, 부피, 무게, 속도, 시간, 데이터 단위 및 날짜 계산을 한 화면에서 처리합니다.
 status: published
 inputs:
-  - id: mode
-    label: 계산 방식
+  - id: calculatorType
+    label: 계산 종류
     type: radio
-  - id: startDate
-    label: 시작일
-    type: date
-  - id: endDate
-    label: 종료일
-    type: date
-  - id: days
-    label: 더하거나 뺄 일수
+    options: [general, unit, date]
+  - id: category
+    label: 단위 분야
+    type: select
+  - id: operator
+    label: 연산
+    type: radio
+    options: [add, subtract, multiply, divide]
+  - id: leftValue
+    label: 첫 번째 값
+    type: number
+  - id: rightValue
+    label: 두 번째 값
     type: number
 ---
 
 ## 기능
 
-- 두 날짜 사이의 절대 일수와 앞뒤 관계 표시
-- 종료일 포함 여부 선택
-- 기준일에 양수 또는 음수 일수 적용
-- 계산 날짜의 요일 표시와 결과 복사
-- 윤년과 월 길이를 브라우저 UTC 날짜 계산으로 안전하게 처리
-- KOR / ENG 화면 전환
+- 일반 숫자의 덧셈, 뺄셈, 곱셈, 나눗셈
+- 길이, 넓이, 부피, 무게, 속도, 시간, 데이터 단위 간 환산 사칙연산
+- mm, cm, m, km, inch, ft, yd, mile 등 자주 쓰는 다양한 단위
+- 입력과 결과를 소수점 둘째 자리까지 처리
+- 두 날짜 차이, 종료일 포함, 기준일에 날짜 더하기·빼기
+- 결과 복사와 KOR / ENG 화면 전환
 
-## 제한
+## 실행 규칙
 
-- 더하거나 뺄 일수는 -100,000부터 100,000 사이의 정수로 제한한다.
+- 단위 계산은 두 입력값을 결과 단위로 각각 환산한 다음 선택 연산을 적용한다.
+- 곱셈과 나눗셈은 결과 단위의 물리 차원이 달라질 수 있으므로 선택 단위 기준 계산값으로 안내한다.
+- 입력은 소수점 둘째 자리까지만 허용하고 결과도 둘째 자리에서 반올림한다.
+- 0으로 나누기는 실행하지 않는다.
+- 모바일에서는 초기화나 오류 뒤 입력칸에 자동 포커스하지 않는다.

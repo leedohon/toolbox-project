@@ -1,10 +1,10 @@
 {
   "index": 10,
   "tool": "date-calculator",
-  "title": "날짜 계산기",
-  "description": "두 날짜 사이의 일수를 계산하거나 기준일에서 원하는 일수를 더하고 뺍니다.",
+  "title": "다용도 계산기",
+  "description": "일반 사칙연산과 다양한 단위 환산 계산, 날짜 계산을 한 화면에서 처리합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
-  "latestVersion": "0.0.2v",
+  "latestVersion": "1.0.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -23,6 +23,15 @@
       "directory": "0.0.2v",
       "html": "0.0.2v/date-calculator.html",
       "patchNotes": "0.0.2v/patch-notes.json"
+    },
+    {
+      "version": "1.0.0v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "major",
+      "summary": "날짜 계산기를 일반 사칙연산과 다양한 단위 계산을 포함한 다용도 계산기로 개편했습니다.",
+      "directory": "1.0.0v",
+      "html": "1.0.0v/date-calculator.html",
+      "patchNotes": "1.0.0v/patch-notes.json"
     }
   ]
 }

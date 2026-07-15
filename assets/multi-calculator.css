@@ -1,0 +1,10 @@
+#multi-calculator { max-width:1000px; }
+#multi-calculator .mc-panel { min-width:0; }
+#multi-calculator .mc-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+#multi-calculator .mc-value-row { display:grid; grid-template-columns:minmax(0,1fr) minmax(120px,.65fr); gap:10px; }
+#multi-calculator .mc-operator { margin-top:16px; }
+#multi-calculator .mc-unit-result { margin-top:16px; }
+#multi-calculator .mc-result-note { margin:7px 0 0; color:var(--st-muted); font-size:.84rem; }
+#multi-calculator .mc-result-unit { color:var(--st-muted); font-size:.9rem; font-weight:800; }
+#multi-calculator [hidden] { display:none!important; }
+@media(max-width:640px){#multi-calculator .mc-grid,#multi-calculator .mc-value-row{grid-template-columns:1fr}#multi-calculator .mc-value-row select{margin-top:-2px}}

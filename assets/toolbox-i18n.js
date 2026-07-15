@@ -3,7 +3,7 @@
 
   const STORAGE_KEY = 'toolbox-language';
   const exact = new Map(Object.entries({
-    'Language / 언어': 'Language', '텍스트 인코더·디코더': 'Text encoder / decoder', '변환 형식': 'Encoding format', '변환 모드': 'Conversion mode', 'Base64 인코딩': 'Base64 encode', 'Base64 디코딩': 'Base64 decode',
+    'Language / 언어': 'Language', '텍스트 인코더·디코더': 'Text encoder / decoder', '변환 형식': 'Encoding format', '변환 모드': 'Conversion mode', 'Base64 인코딩': 'Base64 encode', 'Base64 디코딩': 'Base64 decode', 'URL 인코딩 문자열': 'URL-encoded input', 'URL 인코딩 결과': 'URL-encoded result',
     '텍스트 인코딩 결과를 URL-safe Base64 형식으로 만들기': 'Create URL-safe Base64 for encoded text',
     '원본 텍스트': 'Original text', 'Base64 입력': 'Base64 input', 'Base64 결과': 'Base64 result', '디코딩 결과': 'Decoded result',
     '입력': 'Input', '결과': 'Result', '텍스트나 파일을 이곳에 놓으세요': 'Drop text or a file here', '텍스트 또는 파일 드롭 영역': 'Text or file drop zone',
@@ -81,7 +81,7 @@
     '쿼리 값은 예약문자까지 안전하게 바꾸고, 주소 전체는 : / ? & = 같은 URL 구조를 유지합니다.': 'Query values encode reserved characters, while full URL mode keeps URL structure such as : / ? & =.',
     '원본 입력': 'Original input', '변환할 주소나 문장을 입력하세요.': 'Enter a URL or text to convert.', '디코딩할 URL 문자열을 입력하세요.': 'Enter an encoded URL string.', '변환 결과': 'Converted result', '변환 결과가 여기에 표시됩니다.': 'The converted result appears here.',
     '입력 내용은 현재 브라우저에서만 처리됩니다.': 'Your input is processed only in this browser.', '인코딩할 내용을 입력하세요.': 'Enter content to encode.', '디코딩할 내용을 입력하세요.': 'Enter content to decode.', '변환할 내용을 입력해 주세요.': 'Enter content to convert.',
-    'URL 변환을 완료했습니다.': 'URL conversion complete.', '올바른 URL 인코딩 형식이 아닙니다.': 'This is not a valid URL-encoded string.', '자동 복사가 차단되었습니다. 결과 상자를 선택해 직접 복사해 주세요.': 'Automatic copying was blocked. Select the result box and copy it manually.',
+    'URL 변환을 완료했습니다.': 'URL conversion complete.', 'Base64 변환 방식을 선택했습니다.': 'Base64 conversion selected.', 'URL 변환 방식을 선택했습니다.': 'URL conversion selected.', '올바른 URL 인코딩 형식이 아닙니다.': 'This is not a valid URL-encoded string.', '자동 복사가 차단되었습니다. 결과 상자를 선택해 직접 복사해 주세요.': 'Automatic copying was blocked. Select the result box and copy it manually.',
 
     '날짜 계산기': 'Date calculator', '계산 방식': 'Calculation type', '두 날짜 사이': 'Days between dates', '날짜 더하기·빼기': 'Add / subtract days', '시작일': 'Start date', '종료일': 'End date', '종료일을 포함해서 계산': 'Include the end date',
     '기준일': 'Base date', '더하거나 뺄 일수': 'Days to add or subtract', '빼려면 -30처럼 음수로 입력하세요.': 'Use a negative number such as -30 to subtract.', '날짜 계산': 'Calculate date', '날짜를 선택한 뒤 계산해 주세요.': 'Select dates, then calculate.',

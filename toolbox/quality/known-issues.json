@@ -21,6 +21,16 @@
       "fixContract": ["그리드·플렉스 컴포넌트에 [hidden]{display:none!important} 계약 적용", "초기 상태와 데이터 생성 뒤 상태를 각각 확인"],
       "regressionChecks": ["초기 화면에서 빈 결과·통계·미리보기 비표시", "입력 처리 뒤 해당 영역 표시", "초기화 뒤 다시 비표시"],
       "affectedPatterns": ["assets/**/*.css", "embed/**/*.html", "embed/**/*.js"]
+    },
+    {
+      "code": "SHARED_ASSET_CACHE_STALE",
+      "status": "guarded",
+      "summary": "공통 자산을 배포해도 고정된 쿼리 버전 때문에 도구가 이전 CSS 또는 중간 모듈의 이전 import를 계속 사용함",
+      "fingerprints": ["?v=", "shared asset", "tool.js", "cache key", "stale import"],
+      "rootCause": "변경한 공통 파일의 직접 URL만 갱신하고 해당 파일을 import하는 중간 모듈 캐시 키를 갱신하지 않음",
+      "fixContract": ["공통 자산 버전 변경 시 직접 참조와 전이 import 참조를 모두 탐색", "bump-embed-asset-version 스크립트로 캐시 키 일괄 갱신", "공개 네트워크 로그에서 새 버전 URL 확인"],
+      "regressionChecks": ["공개 HTML이 새 모듈 캐시 키를 요청", "새 모듈이 새 공통 자산 버전을 import", "콘솔 오류 URL에 이전 버전이 없음"],
+      "affectedPatterns": ["assets/**/*.js", "assets/**/*.css", "embed/**/*.html", "embed/**/*.js"]
     }
   ]
 }

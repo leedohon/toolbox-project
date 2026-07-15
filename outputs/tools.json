@@ -426,7 +426,7 @@
       "tool": "text-diff-checker",
       "title": "텍스트 비교·차이 확인기",
       "description": "원본과 수정본을 줄 단위로 비교해 추가·삭제·변경된 내용을 한눈에 표시합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_912.html",
       "version": "0.0.1v",
       "keywords": [
         "텍스트비교",
@@ -464,7 +464,7 @@
       "tool": "markdown-preview-converter",
       "title": "마크다운 미리보기·HTML 변환기",
       "description": "마크다운 문서를 실시간으로 미리 보고 안전한 HTML 결과를 복사하거나 저장합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/html.html",
       "version": "0.0.1v",
       "keywords": [
         "마크다운",
@@ -502,7 +502,7 @@
       "tool": "csv-table-converter",
       "title": "CSV 표 보기·변환기",
       "description": "CSV·TSV 텍스트를 표로 확인하고 JSON 또는 다른 구분자 형식으로 변환합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/csv.html",
       "version": "0.0.1v",
       "keywords": [
         "CSV변환",
@@ -540,7 +540,7 @@
       "tool": "uuid-generator",
       "title": "UUID 일괄 생성기",
       "description": "브라우저의 안전한 난수로 UUID v4를 한 번에 여러 개 만들고 원하는 형식으로 복사합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/uuid.html",
       "version": "0.0.1v",
       "keywords": [
         "UUID생성기",
@@ -578,7 +578,7 @@
       "tool": "css-gradient-generator",
       "title": "CSS 그라데이션 생성기",
       "description": "색상과 방향을 조절해 선형·원형 그라데이션을 미리 보고 CSS 코드를 만듭니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/css.html",
       "version": "0.0.1v",
       "keywords": [
         "CSS그라데이션",

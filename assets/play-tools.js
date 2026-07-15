@@ -248,17 +248,36 @@ export async function copyText(value) {
   return copied;
 }
 
-export function setupEmbedHeight(tool, { content = false } = {}) {
-  const send = () => {
-    let height = document.documentElement.scrollHeight;
-    if (content) {
-      const root = document.querySelector('.play-tool');
-      const style = getComputedStyle(document.body);
-      height = root.getBoundingClientRect().bottom + Number.parseFloat(style.paddingBottom || 0);
+export function setupEmbedHeight(tool, { content = false, rootSelector = '.play-tool,.simple-tool,.mosaic-tool' } = {}) {
+  const root = document.querySelector(rootSelector) || document.body;
+  let scheduled = 0;
+  let lastHeight = -1;
+  const measure = () => {
+    scheduled = 0;
+    const bodyStyle = getComputedStyle(document.body);
+    const paddingBottom = Number.parseFloat(bodyStyle.paddingBottom || 0);
+    let height = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+    if (content && root !== document.body) {
+      const rect = root.getBoundingClientRect();
+      height = rect.bottom + window.scrollY + paddingBottom;
     }
-    parent.postMessage({ source: 'toolbox-embed', tool, height: Math.ceil(height) }, '*');
+    height = Math.max(320, Math.ceil(height));
+    if (height === lastHeight) return;
+    lastHeight = height;
+    parent.postMessage({ source: 'toolbox-embed', tool, height }, '*');
   };
-  new ResizeObserver(send).observe(document.body);
+  const send = () => {
+    if (scheduled) cancelAnimationFrame(scheduled);
+    scheduled = requestAnimationFrame(() => { scheduled = requestAnimationFrame(measure); });
+  };
+  const resizeObserver = new ResizeObserver(send);
+  [document.documentElement, document.body, root].forEach((element, index, list) => {
+    if (element && list.indexOf(element) === index) resizeObserver.observe(element);
+  });
+  new MutationObserver(send).observe(root, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['class', 'hidden', 'style'] });
   addEventListener('load', send);
+  addEventListener('resize', send);
+  document.fonts?.ready.then(send);
+  root.querySelectorAll('img').forEach((image) => { image.addEventListener('load', send); image.addEventListener('error', send); });
   send();
 }

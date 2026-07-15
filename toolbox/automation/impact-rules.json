@@ -8,6 +8,6 @@
     {"patterns":["outputs/**/*.json","toolbox/automation/**/*.json","toolbox/automation-results/*.json"],"profiles":["json"],"checks":["parse","schema"]},
     {"patterns":["toolbox/skills/**","AUTOMATED-WORKFLOW.md","AGENTS.md","toolbox/AGENTS.md"],"profiles":["workflow"],"checks":["skillValidation","singleSource","machineConfigSync"]}
   ],
-  "always":["secretScan","changedFileReview"],
+  "always":["secretScan","changedFileReview","knownIssueMatch"],
   "releaseAlways":["validateToolReleases","catalogBuild","aiIndexBuild"]
 }

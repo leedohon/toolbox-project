@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "tool": "date-calculator",
+  "index": 10,
+  "title": "다용도 계산기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "1.0.3v",
+  "paths": {
+    "definition": "toolbox/tools/date-calculator.md",
+    "post": "toolbox/posts/date-calculator.html",
+    "manifest": "outputs/date-calculator/versions.json",
+    "embed": "embed/date-calculator/index.html",
+    "moduleRegistry": null
+  },
+  "modules": [],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

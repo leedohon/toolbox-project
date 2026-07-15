@@ -4,7 +4,7 @@
   "title": "글자수·텍스트 정리기",
   "description": "글자·단어·줄·UTF-8 용량을 실시간으로 세고 불필요한 공백과 빈 줄을 정리합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.0.2v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,15 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/text-counter-cleaner.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.0.2v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "동적 콘텐츠 높이 동기화를 개선했습니다.",
+      "directory": "0.0.2v",
+      "html": "0.0.2v/text-counter-cleaner.html",
+      "patchNotes": "0.0.2v/patch-notes.json"
     }
   ]
 }

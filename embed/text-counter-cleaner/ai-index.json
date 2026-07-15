@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.0.2v",
   "paths": {
     "definition": "toolbox/tools/text-counter-cleaner.md",
     "post": "toolbox/posts/text-counter-cleaner.html",

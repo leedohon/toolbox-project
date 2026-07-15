@@ -1,0 +1,9 @@
+{
+  "tool": "unix-timestamp-converter",
+  "version": "0.0.2v",
+  "releaseDate": "2026-07-15",
+  "changeLevel": "minimum",
+  "changes": [
+    "결과 높이가 바뀔 때 iframe 높이를 실시간으로 늘리거나 줄입니다."
+  ]
+}

@@ -160,7 +160,7 @@
       "title": "다용도 계산기",
       "description": "일반 사칙연산과 다양한 단위 환산 계산, 날짜 계산을 한 화면에서 처리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
-      "version": "1.0.2v",
+      "version": "1.0.3v",
       "keywords": [
         "다용도계산기",
         "단위변환",
@@ -237,7 +237,7 @@
       "title": "안전 비밀번호 생성기",
       "description": "길이와 문자 구성을 선택해 브라우저 안에서 안전한 무작위 비밀번호를 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
-      "version": "0.0.1v",
+      "version": "0.0.2v",
       "keywords": [
         "비밀번호생성기",
         "안전한비밀번호",
@@ -275,7 +275,7 @@
       "title": "이미지 크기·용량 변환기",
       "description": "이미지 크기와 저장 형식·품질을 바꿔 용량을 줄이고 바로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html",
-      "version": "0.0.1v",
+      "version": "0.0.2v",
       "keywords": [
         "이미지압축",
         "이미지리사이즈",
@@ -313,7 +313,7 @@
       "title": "색상 변환·대비 검사기",
       "description": "두 색상을 HEX·RGB·HSL로 변환하고 글자와 배경의 접근성 대비를 확인합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-      "version": "0.0.1v",
+      "version": "0.0.2v",
       "keywords": [
         "색상변환",
         "대비검사",
@@ -351,7 +351,7 @@
       "title": "Unix 시간 변환기",
       "description": "Unix 초·밀리초와 읽기 쉬운 지역 날짜·UTC 시간을 서로 변환합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/unix.html",
-      "version": "0.0.1v",
+      "version": "0.0.2v",
       "keywords": [
         "Unix시간",
         "타임스탬프",
@@ -389,7 +389,7 @@
       "title": "글자수·텍스트 정리기",
       "description": "글자·단어·줄·UTF-8 용량을 실시간으로 세고 불필요한 공백과 빈 줄을 정리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
-      "version": "0.0.1v",
+      "version": "0.0.2v",
       "keywords": [
         "글자수세기",
         "텍스트정리",

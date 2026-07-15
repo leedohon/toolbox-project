@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "issues": [
+    {
+      "code": "IFRAME_HEIGHT_STALE",
+      "status": "guarded",
+      "summary": "내부 콘텐츠 크기가 바뀐 뒤 iframe 높이가 줄거나 늘지 않아 빈 여백 또는 내부 스크롤이 남음",
+      "fingerprints": ["assets/play-tools.js", "setupEmbedHeight", "postMessage", "ResizeObserver", "iframe height", "hidden result", "dynamic list"],
+      "rootCause": "공통 측정기가 특정 .play-tool 루트만 찾고 body 크기 관찰에 의존해 .simple-tool 또는 콘텐츠 축소를 놓침",
+      "fixContract": ["play-tool, simple-tool, mosaic-tool 루트를 모두 지원", "ResizeObserver와 MutationObserver로 확대·축소 모두 감지", "두 프레임 뒤 실제 콘텐츠 하단을 측정", "이전 높이보다 작아져도 postMessage 전송"],
+      "regressionChecks": ["결과 영역 열기 전후 부모 iframe 높이 비교", "결과 영역 닫기 뒤 높이 감소 확인", "동적 목록 행 추가·삭제 뒤 높이 갱신", "모바일과 데스크톱에서 내부 세로 스크롤 및 큰 하단 여백 없음"],
+      "affectedPatterns": ["assets/play-tools.js", "embed/**/index.html", "embed/**/tool.js", "toolbox/posts/*.html"]
+    },
+    {
+      "code": "HIDDEN_GRID_OVERRIDE",
+      "status": "guarded",
+      "summary": "hidden 속성이 display:grid 규칙에 덮여 초기 상태의 빈 결과·미리보기 영역이 표시됨",
+      "fingerprints": ["[hidden]", "display:grid", "wf-preview", "wf-stats", "empty preview"],
+      "rootCause": "작성자 CSS의 display:grid가 사용자 에이전트 hidden 규칙보다 우선함",
+      "fixContract": ["그리드·플렉스 컴포넌트에 [hidden]{display:none!important} 계약 적용", "초기 상태와 데이터 생성 뒤 상태를 각각 확인"],
+      "regressionChecks": ["초기 화면에서 빈 결과·통계·미리보기 비표시", "입력 처리 뒤 해당 영역 표시", "초기화 뒤 다시 비표시"],
+      "affectedPatterns": ["assets/**/*.css", "embed/**/*.html", "embed/**/*.js"]
+    }
+  ]
+}

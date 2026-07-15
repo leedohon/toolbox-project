@@ -1,4 +1,4 @@
-import {copyText,setupEmbedHeight} from '../../assets/play-tools.js?v=0.3.1';
+import {copyText,setupEmbedHeight} from '../../assets/play-tools.js?v=0.3.2';
 const $=s=>document.querySelector(s), sets={lower:'abcdefghijklmnopqrstuvwxyz',upper:'ABCDEFGHIJKLMNOPQRSTUVWXYZ',number:'0123456789',symbol:'!@#$%^&*()-_=+[]{};:,.?'};
 const tr=(ko,en)=>window.ToolboxI18n?.language==='en'?en:ko;let current='';
 function random(max){const limit=256-256%max,buffer=new Uint8Array(1);do{crypto.getRandomValues(buffer);}while(buffer[0]>=limit);return buffer[0]%max;}

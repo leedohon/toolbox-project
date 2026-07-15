@@ -1,0 +1,11 @@
+{
+  "tool": "image-resizer-compressor",
+  "version": "0.0.2v",
+  "releaseDate": "2026-07-15",
+  "changeLevel": "minimum",
+  "changes": [
+    "파일을 선택하기 전에는 미리보기와 변환 통계 영역을 숨깁니다.",
+    "모바일 공개 화면에서 초기 상태와 가로 넘침을 다시 확인했습니다.",
+    "결과 높이가 바뀔 때 iframe 높이를 실시간으로 늘리거나 줄입니다."
+  ]
+}

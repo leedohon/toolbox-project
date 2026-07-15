@@ -4,7 +4,7 @@
   "title": "Unix 시간 변환기",
   "description": "Unix 초·밀리초와 읽기 쉬운 지역 날짜·UTC 시간을 서로 변환합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/unix.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.0.2v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,15 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/unix-timestamp-converter.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.0.2v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "동적 콘텐츠 높이 동기화를 개선했습니다.",
+      "directory": "0.0.2v",
+      "html": "0.0.2v/unix-timestamp-converter.html",
+      "patchNotes": "0.0.2v/patch-notes.json"
     }
   ]
 }

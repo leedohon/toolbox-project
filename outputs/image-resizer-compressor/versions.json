@@ -4,7 +4,7 @@
   "title": "이미지 크기·용량 변환기",
   "description": "이미지 크기와 저장 형식·품질을 바꿔 용량을 줄이고 바로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.0.2v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,15 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/image-resizer-compressor.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.0.2v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "파일 선택 전 빈 미리보기와 통계가 보이지 않도록 수정했습니다.",
+      "directory": "0.0.2v",
+      "html": "0.0.2v/image-resizer-compressor.html",
+      "patchNotes": "0.0.2v/patch-notes.json"
     }
   ]
 }

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "tool": "csv-table-converter",
+  "index": 19,
+  "title": "CSV 표 보기·변환기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/csv-table-converter.md",
+    "post": "toolbox/posts/csv-table-converter.html",
+    "manifest": "outputs/csv-table-converter/versions.json",
+    "embed": "embed/csv-table-converter/index.html",
+    "moduleRegistry": "embed/csv-table-converter/modules.json"
+  },
+  "modules": [
+    {
+      "id": "csv-table-converter",
+      "label": {
+        "ko": "CSV 표 보기·변환기",
+        "en": "CSV table viewer and converter"
+      },
+      "entry": "./tool.js",
+      "messageTool": "csv-table-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

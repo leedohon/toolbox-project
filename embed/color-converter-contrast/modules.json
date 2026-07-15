@@ -10,6 +10,8 @@
       "entry": "./tool.js",
       "messageTool": "color-converter-contrast",
       "capabilities": {
+        "resultCode": false,
+        "png": false,
         "copyFallback": true,
         "i18n": true,
         "responsive": true,

@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "modules": [
     {
-      "id": "password-generator",
+      "id": "css-gradient-generator",
       "label": {
-        "ko": "안전 비밀번호 생성기",
-        "en": "password-generator"
+        "ko": "CSS 그라데이션 생성기",
+        "en": "CSS gradient generator"
       },
       "entry": "./tool.js",
-      "messageTool": "password-generator",
+      "messageTool": "css-gradient-generator",
       "capabilities": {
         "resultCode": false,
         "png": false,

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "tool": "uuid-generator",
+  "index": 20,
+  "title": "UUID 일괄 생성기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/uuid-generator.md",
+    "post": "toolbox/posts/uuid-generator.html",
+    "manifest": "outputs/uuid-generator/versions.json",
+    "embed": "embed/uuid-generator/index.html",
+    "moduleRegistry": "embed/uuid-generator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "uuid-generator",
+      "label": {
+        "ko": "UUID 일괄 생성기",
+        "en": "Bulk UUID generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "uuid-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

@@ -1,0 +1,19 @@
+{
+  "index": 20,
+  "tool": "uuid-generator",
+  "title": "UUID 일괄 생성기",
+  "description": "브라우저의 안전한 난수로 UUID v4를 한 번에 여러 개 만들고 원하는 형식으로 복사합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "UUID v4를 브라우저에서 일괄 생성하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/uuid-generator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

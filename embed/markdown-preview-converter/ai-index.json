@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "tool": "markdown-preview-converter",
+  "index": 18,
+  "title": "마크다운 미리보기·HTML 변환기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/markdown-preview-converter.md",
+    "post": "toolbox/posts/markdown-preview-converter.html",
+    "manifest": "outputs/markdown-preview-converter/versions.json",
+    "embed": "embed/markdown-preview-converter/index.html",
+    "moduleRegistry": "embed/markdown-preview-converter/modules.json"
+  },
+  "modules": [
+    {
+      "id": "markdown-preview-converter",
+      "label": {
+        "ko": "마크다운 미리보기·HTML 변환기",
+        "en": "Markdown preview and HTML converter"
+      },
+      "entry": "./tool.js",
+      "messageTool": "markdown-preview-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

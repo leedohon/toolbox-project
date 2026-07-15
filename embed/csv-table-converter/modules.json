@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "modules": [
     {
-      "id": "password-generator",
+      "id": "csv-table-converter",
       "label": {
-        "ko": "안전 비밀번호 생성기",
-        "en": "password-generator"
+        "ko": "CSV 표 보기·변환기",
+        "en": "CSV table viewer and converter"
       },
       "entry": "./tool.js",
-      "messageTool": "password-generator",
+      "messageTool": "csv-table-converter",
       "capabilities": {
         "resultCode": false,
         "png": false,

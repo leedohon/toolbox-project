@@ -67,6 +67,18 @@
       "measure": "repeated manual edits",
       "targetReduction": 0.5,
       "evidence": []
+    },
+    {
+      "id": "OPT-003",
+      "status": "completed",
+      "triggerPaths": ["scripts/scaffold-tool-releases.mjs", "embed/*/modules.json"],
+      "problem": "Generated module registries omitted two required boolean capabilities and required repeated manual corrections.",
+      "proposedChange": "Generate explicit resultCode and png defaults in every new module registry.",
+      "measure": "repeated manual edits",
+      "targetReduction": 0.5,
+      "evidence": [
+        {"before":10,"after":0,"unit":"manual capability field additions per five-tool create run","reduction":1.0,"verifiedAt":"2026-07-15"}
+      ]
     }
   ]
 }

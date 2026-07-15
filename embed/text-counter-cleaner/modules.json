@@ -10,6 +10,8 @@
       "entry": "./tool.js",
       "messageTool": "text-counter-cleaner",
       "capabilities": {
+        "resultCode": false,
+        "png": false,
         "copyFallback": true,
         "i18n": true,
         "responsive": true,

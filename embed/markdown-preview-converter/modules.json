@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "modules": [
     {
-      "id": "password-generator",
+      "id": "markdown-preview-converter",
       "label": {
-        "ko": "안전 비밀번호 생성기",
-        "en": "password-generator"
+        "ko": "마크다운 미리보기·HTML 변환기",
+        "en": "Markdown preview and HTML converter"
       },
       "entry": "./tool.js",
-      "messageTool": "password-generator",
+      "messageTool": "markdown-preview-converter",
       "capabilities": {
         "resultCode": false,
         "png": false,

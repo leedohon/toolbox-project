@@ -1,0 +1,19 @@
+{
+  "index": 17,
+  "tool": "text-diff-checker",
+  "title": "텍스트 비교·차이 확인기",
+  "description": "원본과 수정본을 줄 단위로 비교해 추가·삭제·변경된 내용을 한눈에 표시합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "두 텍스트의 줄 단위 차이를 브라우저에서 확인하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/text-diff-checker.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

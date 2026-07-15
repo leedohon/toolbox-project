@@ -1,0 +1,19 @@
+{
+  "index": 21,
+  "tool": "css-gradient-generator",
+  "title": "CSS 그라데이션 생성기",
+  "description": "색상과 방향을 조절해 선형·원형 그라데이션을 미리 보고 CSS 코드를 만듭니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-15",
+      "changeLevel": "minimum",
+      "summary": "색상 지점을 조절해 CSS 그라데이션을 만드는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/css-gradient-generator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

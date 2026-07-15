@@ -271,6 +271,86 @@
         "embed": "embed/text-counter-cleaner/index.html",
         "moduleRegistry": "embed/text-counter-cleaner/modules.json"
       }
+    },
+    {
+      "index": 17,
+      "tool": "text-diff-checker",
+      "title": "텍스트 비교·차이 확인기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/text-diff-checker.md",
+        "post": "toolbox/posts/text-diff-checker.html",
+        "manifest": "outputs/text-diff-checker/versions.json",
+        "embed": "embed/text-diff-checker/index.html",
+        "moduleRegistry": "embed/text-diff-checker/modules.json"
+      }
+    },
+    {
+      "index": 18,
+      "tool": "markdown-preview-converter",
+      "title": "마크다운 미리보기·HTML 변환기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/markdown-preview-converter.md",
+        "post": "toolbox/posts/markdown-preview-converter.html",
+        "manifest": "outputs/markdown-preview-converter/versions.json",
+        "embed": "embed/markdown-preview-converter/index.html",
+        "moduleRegistry": "embed/markdown-preview-converter/modules.json"
+      }
+    },
+    {
+      "index": 19,
+      "tool": "csv-table-converter",
+      "title": "CSV 표 보기·변환기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/csv-table-converter.md",
+        "post": "toolbox/posts/csv-table-converter.html",
+        "manifest": "outputs/csv-table-converter/versions.json",
+        "embed": "embed/csv-table-converter/index.html",
+        "moduleRegistry": "embed/csv-table-converter/modules.json"
+      }
+    },
+    {
+      "index": 20,
+      "tool": "uuid-generator",
+      "title": "UUID 일괄 생성기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/uuid-generator.md",
+        "post": "toolbox/posts/uuid-generator.html",
+        "manifest": "outputs/uuid-generator/versions.json",
+        "embed": "embed/uuid-generator/index.html",
+        "moduleRegistry": "embed/uuid-generator/modules.json"
+      }
+    },
+    {
+      "index": 21,
+      "tool": "css-gradient-generator",
+      "title": "CSS 그라데이션 생성기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/css-gradient-generator.md",
+        "post": "toolbox/posts/css-gradient-generator.html",
+        "manifest": "outputs/css-gradient-generator/versions.json",
+        "embed": "embed/css-gradient-generator/index.html",
+        "moduleRegistry": "embed/css-gradient-generator/modules.json"
+      }
     }
   ]
 }

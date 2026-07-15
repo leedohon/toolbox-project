@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-15",
+  "tool": "css-gradient-generator",
+  "index": 21,
+  "title": "CSS 그라데이션 생성기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/css-gradient-generator.md",
+    "post": "toolbox/posts/css-gradient-generator.html",
+    "manifest": "outputs/css-gradient-generator/versions.json",
+    "embed": "embed/css-gradient-generator/index.html",
+    "moduleRegistry": "embed/css-gradient-generator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "css-gradient-generator",
+      "label": {
+        "ko": "CSS 그라데이션 생성기",
+        "en": "CSS gradient generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "css-gradient-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

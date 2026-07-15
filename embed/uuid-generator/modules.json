@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "modules": [
     {
-      "id": "password-generator",
+      "id": "uuid-generator",
       "label": {
-        "ko": "안전 비밀번호 생성기",
-        "en": "password-generator"
+        "ko": "UUID 일괄 생성기",
+        "en": "Bulk UUID generator"
       },
       "entry": "./tool.js",
-      "messageTool": "password-generator",
+      "messageTool": "uuid-generator",
       "capabilities": {
         "resultCode": false,
         "png": false,

@@ -59,7 +59,7 @@ ${rules.map((value) => `- ${value}`).join('\n')}
   await write(path.join(root, 'outputs', slug, 'versions.json'), `${JSON.stringify(manifest, null, 2)}\n`);
   await write(path.join(root, 'outputs', slug, version, 'patch-notes.json'), `${JSON.stringify(release, null, 2)}\n`);
   await write(path.join(root, 'outputs', slug, version, `${slug}.html`), post);
-  await write(path.join(root, 'embed', slug, 'modules.json'), `${JSON.stringify({ schemaVersion: 1, modules: [{ id: slug, label: { ko: tool.title, en: tool.englishTitle || slug }, entry: './tool.js', messageTool: slug, capabilities: { copyFallback: true, i18n: true, responsive: true, browserOnly: true } }] }, null, 2)}\n`);
+  await write(path.join(root, 'embed', slug, 'modules.json'), `${JSON.stringify({ schemaVersion: 1, modules: [{ id: slug, label: { ko: tool.title, en: tool.englishTitle || slug }, entry: './tool.js', messageTool: slug, capabilities: { resultCode: false, png: false, copyFallback: true, i18n: true, responsive: true, browserOnly: true } }] }, null, 2)}\n`);
   postContent[slug] = { detailTitle: `${tool.title} 상세 설명`, details: tool.details, faq: tool.faq };
   postTags.tools[slug] = tool.tags;
   postTags.keywords[slug] = tool.keywords;

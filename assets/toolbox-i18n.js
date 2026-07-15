@@ -209,6 +209,17 @@
     while ((node = walker.nextNode())) applyText(node);
     if (root.nodeType === Node.ELEMENT_NODE) applyElement(root);
     root.querySelectorAll?.('*').forEach(applyElement);
+    const localized = [];
+    if (root.nodeType === Node.ELEMENT_NODE && root.matches('[data-ko][data-en]')) localized.push(root);
+    root.querySelectorAll?.('[data-ko][data-en]').forEach((element) => localized.push(element));
+    localized.forEach((element) => {
+      const value = element.dataset[language];
+      if (value !== undefined && element.textContent !== value) element.textContent = value;
+    });
+    const placeholders = [];
+    if (root.nodeType === Node.ELEMENT_NODE && root.matches('[data-ko-placeholder][data-en-placeholder]')) placeholders.push(root);
+    root.querySelectorAll?.('[data-ko-placeholder][data-en-placeholder]').forEach((element) => placeholders.push(element));
+    placeholders.forEach((element) => element.setAttribute('placeholder', element.dataset[`${language}Placeholder`] || ''));
     document.querySelectorAll('.toolbox-language__button').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.language === language)));
     applying = false;
   }

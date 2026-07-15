@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "modules": [
     {
-      "id": "password-generator",
+      "id": "text-diff-checker",
       "label": {
-        "ko": "안전 비밀번호 생성기",
-        "en": "password-generator"
+        "ko": "텍스트 비교·차이 확인기",
+        "en": "Text diff checker"
       },
       "entry": "./tool.js",
-      "messageTool": "password-generator",
+      "messageTool": "text-diff-checker",
       "capabilities": {
         "resultCode": false,
         "png": false,

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "0.1.0",
+  "updatedAt": "2026-07-15",
+  "scope": [
+    "repository markdown instructions",
+    "toolbox skills",
+    "machine-readable workflow policy"
+  ],
+  "objective": {
+    "targetReductionPerIteration": 0.5,
+    "measures": [
+      "required source files read",
+      "instruction characters loaded",
+      "repeated decisions",
+      "repeated manual edits"
+    ],
+    "claimRule": "Record a reduction only when the same measure has before and after evidence. Otherwise record it as unmeasured."
+  },
+  "execution": {
+    "mode": "on-touch",
+    "maxImprovementsPerWorkflow": 1,
+    "maxWorkflowBudgetShare": 0.05,
+    "skipWhenUnrelated": true,
+    "neverBulkRetrofit": true,
+    "priority": [
+      "remove duplicated reads",
+      "replace repeated decisions with machine-readable routing",
+      "replace repeated edits with one generated source",
+      "shorten overlapping skill and markdown instructions"
+    ]
+  },
+  "versioning": {
+    "format": "major.minor.patch",
+    "major": "breaking schema or execution contract",
+    "minor": "new reusable optimization mechanism or metric",
+    "patch": "clarification or compatible routing improvement",
+    "backlogOnlyChangesDoNotBumpPolicyVersion": true
+  },
+  "candidateFields": [
+    "id",
+    "status",
+    "triggerPaths",
+    "problem",
+    "proposedChange",
+    "measure",
+    "targetReduction",
+    "evidence"
+  ],
+  "backlog": [
+    {
+      "id": "OPT-001",
+      "status": "queued",
+      "triggerPaths": ["AGENTS.md", "toolbox/AGENTS.md"],
+      "problem": "Automation guidance can be repeated across root and Toolbox instructions.",
+      "proposedChange": "When either file is next changed for automation policy, keep only routing there and move detailed policy to the indexed source.",
+      "measure": "instruction characters loaded",
+      "targetReduction": 0.5,
+      "evidence": []
+    },
+    {
+      "id": "OPT-002",
+      "status": "queued",
+      "triggerPaths": ["toolbox/automation-results/*.json", "AUTOMATED-WORKFLOW.md"],
+      "problem": "Result records repeat a large structure and can require manual edits.",
+      "proposedChange": "When the result format is next changed, generate and validate records from one compact template or schema-aware helper.",
+      "measure": "repeated manual edits",
+      "targetReduction": 0.5,
+      "evidence": []
+    }
+  ]
+}

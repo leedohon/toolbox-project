@@ -58,6 +58,8 @@ await writeJson(path.join(root, 'toolbox', 'ai-index.json'), {
   keySources: {
     content: 'toolbox/post-content.json',
     discovery: 'toolbox/post-tags.json',
+    seoRules: 'toolbox/seo-rules.json',
+    workflowOptimization: 'toolbox/automation/knowledge-optimization.json',
     catalog: 'outputs/tools.json',
     sharedPostTheme: 'assets/blogger/theme.css',
     sharedToolStyles: ['assets/simple-tools.css', 'assets/play-tools.css'],
@@ -90,4 +92,3 @@ for (const tool of requestedTools) {
 }
 
 console.log(`Built AI indexes for ${tools.length} tools${requestedTools.length ? ` and ${requestedTools.length} tool folders` : ''}.`);
-

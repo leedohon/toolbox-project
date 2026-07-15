@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "scope": "Blogger post content only; do not add SEO copy to embed runtimes or functional tool UI.",
+  "rules": {
+    "searchIntent": ["Define one primary user intent per post.", "Answer that intent in the title, lead, usage steps, details, and FAQ without unrelated filler."],
+    "titleAndLead": ["Use a specific tool name in the existing category title format.", "Write a unique one-to-two sentence lead that states the input, result, and practical benefit.", "Avoid clickbait, vague superlatives, and duplicate leads across posts."],
+    "headings": ["Use exactly one H1 for the tool title.", "Use descriptive H2 headings for action, usage, details, FAQ, and patch notes.", "Keep heading order logical and do not use headings only for visual styling."],
+    "keywords": ["Use the primary term and close Korean/English variants naturally.", "Maintain 20–30 discovery terms and 4–10 visible labels/hashtags in central sources.", "Do not stuff, hide, or mechanically repeat keywords."],
+    "contentQuality": ["Write original user-facing explanations with concrete inputs, outputs, limitations, privacy, and error recovery.", "Keep at least two substantive detail paragraphs and four intent-based FAQs.", "Do not use patch notes or irrelevant FAQ as filler."],
+    "linksAndMedia": ["Use descriptive link text for tool and related-post links.", "Give informative images meaningful alt text and keep decorative images empty-alt when applicable."],
+    "validation": ["Confirm title, lead, headings, details, FAQ, labels, hashtags, and discovery keywords express the same intent.", "Check mobile readability and rendered Blogger snippet quality.", "Reject hidden text, keyword stuffing, duplicate copy, and operator-facing content."]
+  },
+  "sources": {"content":"toolbox/post-content.json","discovery":"toolbox/post-tags.json","template":"toolbox/templates/blogger-inline-tool-template.md","manifest":"outputs/<tool>/versions.json"}
+}

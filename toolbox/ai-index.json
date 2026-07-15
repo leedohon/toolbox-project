@@ -5,6 +5,8 @@
   "keySources": {
     "content": "toolbox/post-content.json",
     "discovery": "toolbox/post-tags.json",
+    "seoRules": "toolbox/seo-rules.json",
+    "workflowOptimization": "toolbox/automation/knowledge-optimization.json",
     "catalog": "outputs/tools.json",
     "sharedPostTheme": "assets/blogger/theme.css",
     "sharedToolStyles": [

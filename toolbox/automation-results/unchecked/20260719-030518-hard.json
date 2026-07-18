@@ -48,6 +48,18 @@
     {"target":"retired-post-builder","result":"일반 통합 게시글에 게임 전용 문구가 섞이지 않도록 대체 유형별 문구 분리"}
   ],
   "knowledgeOptimization": {"policyVersion":"0.2.0","applied":["OPT-001"],"recorded":[],"skipped":[],"measuredReduction":{"before":979,"after":194,"unit":"duplicated automation instruction characters","reduction":0.8018}},
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {"baseline":null,"current":null,"accountingMethod":null},
+    "instructionReduction": {"before":979,"after":194,"unit":"duplicated automation instruction characters","reduction":0.8018},
+    "overallReduction": null,
+    "proxies": [
+      {"metric":"automation instruction characters","before":979,"after":194,"reduction":0.8018},
+      {"metric":"startup result files read","before":3,"after":1,"reduction":0.6667}
+    ],
+    "note": "비교 가능한 전체 개발 토큰 수가 제공되지 않아 전체 감소율은 확정하지 않음"
+  },
   "validation": ["기존 공개 도구 28개 모바일·데스크톱 사전 화면 측정","181개 JSON과 모든 최신 릴리스 경로 통과","25개 모듈 레지스트리 28개 계약 통과","공개 카탈로그 구조 검사 29개 통과","변경 HTML과 신규 ES 모듈 문법 통과","변경 대상 10개 공개 375×812·1280×900 가로 넘침·hidden 누출·콘솔 오류 없음","XML 정상·오류, URL 반복 행·재구성, 데이터 단위 9개 결과 표 동작 확인","신규 Blogger 게시글 2개 H1·iframe·FAQ·누적 패치노트 확인"],
   "blogger": {"created":["https://bloggiedh.blogspot.com/2026/07/xml.html","https://bloggiedh.blogspot.com/2026/07/url_01194177481.html"],"updated":["https://bloggiedh.blogspot.com/2026/07/blog-post.html","https://bloggiedh.blogspot.com/2026/07/json.html","https://bloggiedh.blogspot.com/2026/07/base64.html","https://bloggiedh.blogspot.com/2026/07/blog-post_912.html","https://bloggiedh.blogspot.com/2026/07/html.html","https://bloggiedh.blogspot.com/2026/07/blog-post_273.html","https://bloggiedh.blogspot.com/2026/07/blog-post_704.html","https://bloggiedh.blogspot.com/2026/07/blog-post_112.html"],"skipped":[],"status":"completed"},
   "git": {"branch":"main","commit":"6f9f71a8c809aa1a1b373839960e236d16c11f67","pushed":true},

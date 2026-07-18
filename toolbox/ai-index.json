@@ -7,6 +7,7 @@
     "discovery": "toolbox/post-tags.json",
     "seoRules": "toolbox/seo-rules.json",
     "workflowOptimization": "toolbox/automation/knowledge-optimization.json",
+    "developmentTokenEfficiency": "toolbox/quality/development-token-efficiency.json",
     "catalog": "outputs/tools.json",
     "sharedPostTheme": "assets/blogger/theme.css",
     "sharedToolStyles": [

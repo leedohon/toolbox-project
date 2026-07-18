@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.2.0",
-  "updatedAt": "2026-07-18",
+  "policyVersion": "0.3.0",
+  "updatedAt": "2026-07-19",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -36,6 +36,28 @@
     "minor": "new reusable optimization mechanism or metric",
     "patch": "clarification or compatible routing improvement",
     "backlogOnlyChangesDoNotBumpPolicyVersion": true
+  },
+  "developmentTokenTracking": {
+    "enabled": true,
+    "scope": "all project development work",
+    "log": "toolbox/quality/development-token-efficiency.json",
+    "resultField": "developmentTokenEfficiency",
+    "measurementStatus": ["measured", "proxy_only", "unavailable"],
+    "primaryMetric": "total input and output tokens",
+    "comparisonRequirements": [
+      "token counts are exposed by the execution environment",
+      "baseline and current work have the same workflow type",
+      "target count and implementation scope are comparable",
+      "both measurements use the same token accounting method"
+    ],
+    "proxyMetrics": [
+      "instruction characters loaded",
+      "required source files read",
+      "repeated manual edits",
+      "validation reruns"
+    ],
+    "claimRule": "Set overallReduction only from comparable measured token totals. Keep it null for proxy-only or unavailable records.",
+    "separateMetrics": ["instructionReduction", "overallReduction"]
   },
   "candidateFields": [
     "id",

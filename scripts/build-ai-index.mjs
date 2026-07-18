@@ -60,6 +60,7 @@ await writeJson(path.join(root, 'toolbox', 'ai-index.json'), {
     discovery: 'toolbox/post-tags.json',
     seoRules: 'toolbox/seo-rules.json',
     workflowOptimization: 'toolbox/automation/knowledge-optimization.json',
+    developmentTokenEfficiency: 'toolbox/quality/development-token-efficiency.json',
     catalog: 'outputs/tools.json',
     sharedPostTheme: 'assets/blogger/theme.css',
     sharedToolStyles: ['assets/simple-tools.css', 'assets/play-tools.css'],

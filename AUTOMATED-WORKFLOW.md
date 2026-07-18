@@ -32,6 +32,8 @@
 - Skill·Markdown 최적화는 `toolbox/automation/knowledge-optimization.json`을 읽어 현재 변경 경로와 일치하는 대기 항목만 처리한다. 작업 중 새 개선점을 발견하면 중복을 확인해 대기열에 기록하며, 관련이 없으면 그 실행에서 구현하지 않는다.
 - 최적화는 워크플로당 최대 1건, 전체 실행 예산의 5% 이내로 제한한다. 같은 측정 기준의 전후 증거가 있을 때만 감소율을 기록하고 50% 이상을 목표로 한다. 목표 미달이나 측정 불가를 숨기지 않으며 이를 맞추기 위한 전면 문서 개편은 하지 않는다.
 - 최적화 정책은 중앙 파일의 `policyVersion`으로 관리한다. 대기열 추가는 버전을 올리지 않고 실행 계약 변경만 의미 버전에 따라 올려 일괄 수정 비용을 줄인다.
+- 개발 작업 완료 시 `toolbox/quality/development-token-efficiency.json`에 실행별 효율 기록을 추가하고 결과 JSON에도 `developmentTokenEfficiency`를 포함한다. 실제 총 토큰이 노출되고 비교 가능한 기준 실행이 있을 때만 전체 개발 토큰 감소율을 계산한다.
+- 실제 토큰을 확인할 수 없으면 `measurementStatus`를 `proxy_only` 또는 `unavailable`로 기록한다. 지침 문자, 읽은 파일, 반복 수정과 검사 재실행 등의 대체 지표는 실제 토큰 감소율과 분리하고 `overallReduction`은 `null`로 둔다.
 - 변경 파일에 필요한 검사만 고를 때는 `toolbox/automation/impact-rules.json`을 사용한다. `always`와 릴리스 시 `releaseAlways` 검사는 생략하지 않는다.
 - 실행 결과에는 `toolbox/automation/run-state.schema.json`의 `select → implement → validate → publish → commit → deploy → confirm` 단계 상태를 포함한다. 재개할 때 `completed` 단계는 건너뛰고 최초 미완료 단계부터 이어간다.
 - 반복 오류와 차단은 `toolbox/automation/block-codes.json`의 코드를 사용하고 재시도 가능 여부와 다음 행동을 함께 기록한다.
@@ -174,3 +176,4 @@
 - 필요한 Blogger 게시글 생성 또는 수정을 수행하고 공개 상태를 확인했다.
 - 관련 변경과 결과 JSON을 커밋하고 `main`에 푸시했으며 GitHub Pages 상태를 확인했다.
 - 실패하거나 제외한 항목은 임의 대체하지 않고 결과 JSON에 대상과 이유를 남겼다.
+- 전체 개발 토큰 또는 확인 가능한 대체 지표를 전역 효율 기록과 결과 JSON에 남겼으며, 측정 불가 값을 추정치로 확정하지 않았다.

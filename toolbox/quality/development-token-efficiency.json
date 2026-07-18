@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "0.3.0",
+  "updatedAt": "2026-07-19",
+  "records": [
+    {
+      "runId": "20260719-030518-hard",
+      "workflow": "hard",
+      "measurementStatus": "proxy_only",
+      "baselineRunId": null,
+      "tokens": {
+        "baseline": null,
+        "current": null,
+        "accountingMethod": null
+      },
+      "instructionReduction": {
+        "before": 979,
+        "after": 194,
+        "unit": "duplicated automation instruction characters",
+        "reduction": 0.8018
+      },
+      "overallReduction": null,
+      "proxies": [
+        {
+          "metric": "automation instruction characters",
+          "before": 979,
+          "after": 194,
+          "reduction": 0.8018
+        },
+        {
+          "metric": "startup result files read",
+          "before": 3,
+          "after": 1,
+          "reduction": 0.6667
+        }
+      ],
+      "note": "The execution environment did not expose comparable total development token counts, so no overall token reduction was claimed."
+    }
+  ]
+}

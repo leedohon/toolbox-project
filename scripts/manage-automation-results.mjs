@@ -6,6 +6,8 @@ const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url))
 const resultsRoot = path.join(repositoryRoot, 'toolbox', 'automation-results');
 const checkedRoot = path.join(resultsRoot, 'checked');
 const uncheckedRoot = path.join(resultsRoot, 'unchecked');
+const efficiencyLog = path.join(repositoryRoot, 'toolbox', 'quality', 'development-token-efficiency.json');
+const measurementStatuses = new Set(['measured', 'proxy_only', 'unavailable']);
 
 async function ensureFolders() {
   await Promise.all([
@@ -97,6 +99,24 @@ async function confirm(runId) {
 
 async function validate() {
   const errors = [];
+  let efficiency;
+  try {
+    efficiency = await readJson(efficiencyLog);
+    if (!Array.isArray(efficiency.records)) errors.push('Development token efficiency log has no records array.');
+    else {
+      const runIds = new Set();
+      for (const record of efficiency.records) {
+        if (!record.runId || runIds.has(record.runId)) errors.push(`Invalid or duplicate efficiency runId: ${record.runId ?? 'missing'}`);
+        runIds.add(record.runId);
+        if (!measurementStatuses.has(record.measurementStatus)) errors.push(`${record.runId}: invalid measurementStatus.`);
+        if (record.measurementStatus === 'measured') {
+          if (!(record.tokens?.baseline > 0) || !(record.tokens?.current >= 0) || typeof record.overallReduction !== 'number') errors.push(`${record.runId}: measured record requires comparable token totals and overallReduction.`);
+        } else if (record.overallReduction !== null) errors.push(`${record.runId}: proxy-only or unavailable record must keep overallReduction null.`);
+      }
+    }
+  } catch (error) {
+    errors.push(`Development token efficiency log: ${error.message}`);
+  }
   const rootJson = (await readdir(resultsRoot, {withFileTypes: true}))
     .filter(entry => entry.isFile() && entry.name.endsWith('.json'));
   if (rootJson.length) errors.push(`Result root contains JSON files: ${rootJson.map(entry => entry.name).join(', ')}`);
@@ -112,6 +132,14 @@ async function validate() {
         if (value.confirm !== expectedConfirm) errors.push(`${name} has confirm ${value.confirm}; expected ${expectedConfirm}.`);
         if (expectedConfirm === 'Y' && !value.confirmedAt) errors.push(`${name} is checked without confirmedAt.`);
         if (expectedConfirm === 'N' && value.confirmedAt) errors.push(`${name} is unchecked with confirmedAt.`);
+        if (value.knowledgeOptimization?.policyVersion === '0.3.0' && !value.developmentTokenEfficiency) errors.push(`${name} uses policy 0.3.0 without developmentTokenEfficiency.`);
+        if (value.developmentTokenEfficiency) {
+          const item = value.developmentTokenEfficiency;
+          if (!measurementStatuses.has(item.measurementStatus)) errors.push(`${name} has invalid development token measurementStatus.`);
+          if (item.measurementStatus === 'measured' && (!(item.tokens?.baseline > 0) || !(item.tokens?.current >= 0) || typeof item.overallReduction !== 'number')) errors.push(`${name} measured tokens are incomplete.`);
+          if (item.measurementStatus !== 'measured' && item.overallReduction !== null) errors.push(`${name} must not claim overallReduction without measured tokens.`);
+          if (!efficiency?.records?.some(record => record.runId === value.runId)) errors.push(`${name} has no matching global development token efficiency record.`);
+        }
       } catch (error) {
         errors.push(`${name}: ${error.message}`);
       }

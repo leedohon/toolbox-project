@@ -3,7 +3,7 @@
   "tool": "hash-generator",
   "title": "텍스트·파일 해시 생성기",
   "description": "텍스트나 파일을 선택해 SHA-256·SHA-384·SHA-512 해시값을 브라우저에서 계산합니다.",
-  "postUrl": "",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html",
   "latestVersion": "0.0.1v",
   "versions": [
     {

@@ -3,7 +3,7 @@
   "tool": "lorem-ipsum-generator",
   "title": "Lorem Ipsum 문장 생성기",
   "description": "레이아웃 테스트에 쓸 Lorem Ipsum 문단을 원하는 개수와 길이로 생성합니다.",
-  "postUrl": "",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/lorem-ipsum.html",
   "latestVersion": "0.0.1v",
   "versions": [
     {

@@ -3,7 +3,7 @@
   "tool": "dpi-ppi-calculator",
   "title": "DPI·PPI 해상도 계산기",
   "description": "이미지 픽셀과 실제 출력 크기를 입력해 가로·세로 DPI와 PPI를 계산합니다.",
-  "postUrl": "",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/dpippi.html",
   "latestVersion": "0.0.1v",
   "versions": [
     {

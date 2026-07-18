@@ -11,6 +11,11 @@
   "qa": [
     "빈 입력·텍스트·파일 상태 확인",
     "375px 모바일 가로 넘침 확인",
-    "KOR / ENG와 iframe 높이 확인"
+    "KOR / ENG와 iframe 높이 확인",
+    "공개 1280px·375px 가로 넘침과 버튼 줄바꿈 없음",
+    "정상 입력·오류 입력·동적 결과·숨김 상태 확인",
+    "KOR / ENG와 모바일 자동 포커스 없음",
+    "공개 iframe 콘솔 오류 0건",
+    "IFRAME_HEIGHT_STALE·HIDDEN_GRID_OVERRIDE·SHARED_ASSET_CACHE_STALE 회귀 확인"
   ]
 }

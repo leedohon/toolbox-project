@@ -3,7 +3,7 @@
   "tool": "css-clamp-calculator",
   "title": "CSS clamp 반응형 계산기",
   "description": "최소·최대 크기와 뷰포트 범위를 입력해 반응형 CSS clamp 식을 계산합니다.",
-  "postUrl": "",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/css-clamp.html",
   "latestVersion": "0.0.1v",
   "versions": [
     {

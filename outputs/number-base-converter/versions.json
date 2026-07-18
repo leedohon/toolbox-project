@@ -3,7 +3,7 @@
   "tool": "number-base-converter",
   "title": "2진수·16진수 진법 변환기",
   "description": "2진수·8진수·10진수·16진수를 정수 정밀도 손실 없이 서로 변환합니다.",
-  "postUrl": "",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/216.html",
   "latestVersion": "0.0.1v",
   "versions": [
     {

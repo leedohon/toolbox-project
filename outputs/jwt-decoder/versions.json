@@ -3,7 +3,7 @@
   "tool": "jwt-decoder",
   "title": "JWT 내용 확인기",
   "description": "JWT의 헤더와 페이로드를 서명 검증 없이 브라우저에서 읽기 좋게 확인합니다.",
-  "postUrl": "",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/jwt.html",
   "latestVersion": "0.0.1v",
   "versions": [
     {

@@ -695,7 +695,7 @@
       "tool": "hash-generator",
       "title": "텍스트·파일 해시 생성기",
       "description": "텍스트나 파일을 선택해 SHA-256·SHA-384·SHA-512 해시값을 브라우저에서 계산합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html",
       "version": "0.0.1v",
       "keywords": [
         "해시",
@@ -734,7 +734,7 @@
       "tool": "number-base-converter",
       "title": "2진수·16진수 진법 변환기",
       "description": "2진수·8진수·10진수·16진수를 정수 정밀도 손실 없이 서로 변환합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/216.html",
       "version": "0.0.1v",
       "keywords": [
         "진법변환",
@@ -773,7 +773,7 @@
       "tool": "filename-sanitizer",
       "title": "안전한 파일명 정리기",
       "description": "파일명에서 사용할 수 없는 문자와 불필요한 공백을 정리해 복사 가능한 이름으로 바꿉니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_493.html",
       "version": "0.0.1v",
       "keywords": [
         "파일명",
@@ -812,7 +812,7 @@
       "tool": "lorem-ipsum-generator",
       "title": "Lorem Ipsum 문장 생성기",
       "description": "레이아웃 테스트에 쓸 Lorem Ipsum 문단을 원하는 개수와 길이로 생성합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/lorem-ipsum.html",
       "version": "0.0.1v",
       "keywords": [
         "LoremIpsum",
@@ -851,7 +851,7 @@
       "tool": "css-clamp-calculator",
       "title": "CSS clamp 반응형 계산기",
       "description": "최소·최대 크기와 뷰포트 범위를 입력해 반응형 CSS clamp 식을 계산합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/css-clamp.html",
       "version": "0.0.1v",
       "keywords": [
         "CSS",
@@ -890,7 +890,7 @@
       "tool": "unicode-inspector",
       "title": "유니코드 문자 분석기",
       "description": "텍스트의 각 문자를 유니코드 코드 포인트와 UTF-16·HTML 표기로 나누어 확인합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_273.html",
       "version": "0.0.1v",
       "keywords": [
         "유니코드",
@@ -929,7 +929,7 @@
       "tool": "jwt-decoder",
       "title": "JWT 내용 확인기",
       "description": "JWT의 헤더와 페이로드를 서명 검증 없이 브라우저에서 읽기 좋게 확인합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/jwt.html",
       "version": "0.0.1v",
       "keywords": [
         "JWT",
@@ -968,7 +968,7 @@
       "tool": "data-size-converter",
       "title": "데이터 용량 단위 변환기",
       "description": "바이트·KB·MB·GB·KiB·MiB·GiB 용량을 SI와 IEC 기준으로 한 번에 변환합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_112.html",
       "version": "0.0.1v",
       "keywords": [
         "용량변환",
@@ -1007,7 +1007,7 @@
       "tool": "dpi-ppi-calculator",
       "title": "DPI·PPI 해상도 계산기",
       "description": "이미지 픽셀과 실제 출력 크기를 입력해 가로·세로 DPI와 PPI를 계산합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/dpippi.html",
       "version": "0.0.1v",
       "keywords": [
         "DPI",
@@ -1046,7 +1046,7 @@
       "tool": "css-box-shadow-generator",
       "title": "CSS 그림자 생성기",
       "description": "위치·흐림·확산·색상을 조절해 box-shadow 미리보기와 CSS 코드를 만듭니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/css_0600697105.html",
       "version": "0.0.1v",
       "keywords": [
         "CSS",

@@ -32,9 +32,16 @@
   color: var(--st-muted);
 }
 
+.up-components input[readonly] {
+  color: var(--st-muted);
+  background: #f3f8fa;
+}
+
 @media (max-width: 640px) {
   .up-components { grid-template-columns: 1fr; }
-  .up-query-row { grid-template-columns: 30px minmax(0, 1fr); }
-  .up-query-row .up-value,
-  .up-query-row button { grid-column: 2; }
+  .up-query-row { grid-template-columns: 30px minmax(0, 1fr) auto; }
+  .up-query-number { grid-row: 1 / span 2; }
+  .up-query-row .up-name { grid-column: 2; }
+  .up-query-row .up-delete { grid-column: 3; grid-row: 1; padding-inline: 12px; }
+  .up-query-row .up-value { grid-column: 2 / 4; }
 }

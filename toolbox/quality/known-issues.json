@@ -3,6 +3,16 @@
   "updatedAt": "2026-07-19",
   "issues": [
     {
+      "code": "DEFAULT_TEXT_INPUT_UNSTYLED",
+      "status": "guarded",
+      "summary": "type 속성이 없는 기본 텍스트 input이 공통 입력 스타일에서 빠져 작고 엉성하게 표시됨",
+      "fingerprints": ["input[type=\"text\"]", "default text input", "21px input", "dynamic input", "url query row"],
+      "rootCause": "HTML의 기본 input 타입은 text지만 CSS 속성 선택자는 명시된 type 속성만 일치시킴",
+      "fixContract": ["한 줄 텍스트 input에 type=\"text\"를 명시", "동적으로 만드는 input에도 같은 속성 적용", "모바일 반복 행에서 입력과 삭제 동작의 위계 유지"],
+      "regressionChecks": ["정적·동적 텍스트 입력의 계산 높이가 44px 이상", "정적·동적 텍스트 입력이 컨테이너 가용 폭 사용", "375px에서 쿼리 이름·값·삭제 버튼이 겹치거나 가로 넘치지 않음", "1280px에서 쿼리 이름과 값이 같은 행에 정렬"],
+      "affectedPatterns": ["embed/**/*.html", "embed/**/*.js", "assets/simple-tools.css", "assets/*-builder.css"]
+    },
+    {
       "code": "RELEASE_DATE_UTC_DRIFT",
       "status": "guarded",
       "summary": "한국 시간 자정 이후 생성한 릴리스가 UTC 기준 전날 날짜로 기록됨",

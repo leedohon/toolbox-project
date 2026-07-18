@@ -1,0 +1,10 @@
+{
+  "tool": "url-parser-builder",
+  "version": "0.0.2v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "주소 구성요소와 쿼리 입력에 일관된 한 줄 입력 스타일 적용",
+    "모바일 쿼리 행의 이름·값·삭제 배치 개선"
+  ]
+}

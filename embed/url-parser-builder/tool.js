@@ -13,7 +13,7 @@ function setStatus(ko, en, error = false) {
 function addRow(name = '', value = '', focus = false) {
   const row = document.createElement('div');
   row.className = 'up-query-row';
-  row.innerHTML = `<span class="up-query-number"></span><input class="up-name" maxlength="1000"><input class="up-value" maxlength="10000"><button class="st-secondary up-delete" type="button"></button>`;
+  row.innerHTML = `<span class="up-query-number"></span><input class="up-name" type="text" maxlength="1000"><input class="up-value" type="text" maxlength="10000"><button class="st-secondary up-delete" type="button"></button>`;
   row.querySelector('.up-name').value = name;
   row.querySelector('.up-value').value = value;
   row.querySelectorAll('input').forEach((input) => {

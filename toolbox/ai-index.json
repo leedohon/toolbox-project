@@ -383,6 +383,166 @@
         "embed": "embed/aspect-ratio-calculator/index.html",
         "moduleRegistry": "embed/aspect-ratio-calculator/modules.json"
       }
+    },
+    {
+      "index": 24,
+      "tool": "hash-generator",
+      "title": "텍스트·파일 해시 생성기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/hash-generator.md",
+        "post": "toolbox/posts/hash-generator.html",
+        "manifest": "outputs/hash-generator/versions.json",
+        "embed": "embed/hash-generator/index.html",
+        "moduleRegistry": "embed/hash-generator/modules.json"
+      }
+    },
+    {
+      "index": 25,
+      "tool": "number-base-converter",
+      "title": "2진수·16진수 진법 변환기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/number-base-converter.md",
+        "post": "toolbox/posts/number-base-converter.html",
+        "manifest": "outputs/number-base-converter/versions.json",
+        "embed": "embed/number-base-converter/index.html",
+        "moduleRegistry": "embed/number-base-converter/modules.json"
+      }
+    },
+    {
+      "index": 26,
+      "tool": "filename-sanitizer",
+      "title": "안전한 파일명 정리기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/filename-sanitizer.md",
+        "post": "toolbox/posts/filename-sanitizer.html",
+        "manifest": "outputs/filename-sanitizer/versions.json",
+        "embed": "embed/filename-sanitizer/index.html",
+        "moduleRegistry": "embed/filename-sanitizer/modules.json"
+      }
+    },
+    {
+      "index": 27,
+      "tool": "lorem-ipsum-generator",
+      "title": "Lorem Ipsum 문장 생성기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/lorem-ipsum-generator.md",
+        "post": "toolbox/posts/lorem-ipsum-generator.html",
+        "manifest": "outputs/lorem-ipsum-generator/versions.json",
+        "embed": "embed/lorem-ipsum-generator/index.html",
+        "moduleRegistry": "embed/lorem-ipsum-generator/modules.json"
+      }
+    },
+    {
+      "index": 28,
+      "tool": "css-clamp-calculator",
+      "title": "CSS clamp 반응형 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/css-clamp-calculator.md",
+        "post": "toolbox/posts/css-clamp-calculator.html",
+        "manifest": "outputs/css-clamp-calculator/versions.json",
+        "embed": "embed/css-clamp-calculator/index.html",
+        "moduleRegistry": "embed/css-clamp-calculator/modules.json"
+      }
+    },
+    {
+      "index": 29,
+      "tool": "unicode-inspector",
+      "title": "유니코드 문자 분석기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/unicode-inspector.md",
+        "post": "toolbox/posts/unicode-inspector.html",
+        "manifest": "outputs/unicode-inspector/versions.json",
+        "embed": "embed/unicode-inspector/index.html",
+        "moduleRegistry": "embed/unicode-inspector/modules.json"
+      }
+    },
+    {
+      "index": 30,
+      "tool": "jwt-decoder",
+      "title": "JWT 내용 확인기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/jwt-decoder.md",
+        "post": "toolbox/posts/jwt-decoder.html",
+        "manifest": "outputs/jwt-decoder/versions.json",
+        "embed": "embed/jwt-decoder/index.html",
+        "moduleRegistry": "embed/jwt-decoder/modules.json"
+      }
+    },
+    {
+      "index": 31,
+      "tool": "data-size-converter",
+      "title": "데이터 용량 단위 변환기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/data-size-converter.md",
+        "post": "toolbox/posts/data-size-converter.html",
+        "manifest": "outputs/data-size-converter/versions.json",
+        "embed": "embed/data-size-converter/index.html",
+        "moduleRegistry": "embed/data-size-converter/modules.json"
+      }
+    },
+    {
+      "index": 32,
+      "tool": "dpi-ppi-calculator",
+      "title": "DPI·PPI 해상도 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/dpi-ppi-calculator.md",
+        "post": "toolbox/posts/dpi-ppi-calculator.html",
+        "manifest": "outputs/dpi-ppi-calculator/versions.json",
+        "embed": "embed/dpi-ppi-calculator/index.html",
+        "moduleRegistry": "embed/dpi-ppi-calculator/modules.json"
+      }
+    },
+    {
+      "index": 33,
+      "tool": "css-box-shadow-generator",
+      "title": "CSS 그림자 생성기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/css-box-shadow-generator.md",
+        "post": "toolbox/posts/css-box-shadow-generator.html",
+        "manifest": "outputs/css-box-shadow-generator/versions.json",
+        "embed": "embed/css-box-shadow-generator/index.html",
+        "moduleRegistry": "embed/css-box-shadow-generator/modules.json"
+      }
     }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "hash-generator",
+      "label": {
+        "ko": "텍스트·파일 해시 생성기",
+        "en": "Text and file hash generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "hash-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

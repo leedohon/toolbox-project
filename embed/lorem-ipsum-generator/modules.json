@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "lorem-ipsum-generator",
+      "label": {
+        "ko": "Lorem Ipsum 문장 생성기",
+        "en": "Lorem Ipsum generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "lorem-ipsum-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

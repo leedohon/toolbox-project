@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "data-size-converter",
+  "index": 31,
+  "title": "데이터 용량 단위 변환기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/data-size-converter.md",
+    "post": "toolbox/posts/data-size-converter.html",
+    "manifest": "outputs/data-size-converter/versions.json",
+    "embed": "embed/data-size-converter/index.html",
+    "moduleRegistry": "embed/data-size-converter/modules.json"
+  },
+  "modules": [
+    {
+      "id": "data-size-converter",
+      "label": {
+        "ko": "데이터 용량 단위 변환기",
+        "en": "Data size converter"
+      },
+      "entry": "./tool.js",
+      "messageTool": "data-size-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

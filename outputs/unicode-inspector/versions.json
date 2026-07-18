@@ -1,0 +1,19 @@
+{
+  "index": 29,
+  "tool": "unicode-inspector",
+  "title": "유니코드 문자 분석기",
+  "description": "텍스트의 각 문자를 유니코드 코드 포인트와 UTF-16·HTML 표기로 나누어 확인합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "텍스트를 문자별 유니코드 표기로 분석하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/unicode-inspector.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

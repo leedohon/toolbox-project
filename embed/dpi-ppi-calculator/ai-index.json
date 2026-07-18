@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "dpi-ppi-calculator",
+  "index": 32,
+  "title": "DPI·PPI 해상도 계산기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/dpi-ppi-calculator.md",
+    "post": "toolbox/posts/dpi-ppi-calculator.html",
+    "manifest": "outputs/dpi-ppi-calculator/versions.json",
+    "embed": "embed/dpi-ppi-calculator/index.html",
+    "moduleRegistry": "embed/dpi-ppi-calculator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "dpi-ppi-calculator",
+      "label": {
+        "ko": "DPI·PPI 해상도 계산기",
+        "en": "DPI and PPI calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "dpi-ppi-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

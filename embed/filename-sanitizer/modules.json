@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "filename-sanitizer",
+      "label": {
+        "ko": "안전한 파일명 정리기",
+        "en": "Safe filename sanitizer"
+      },
+      "entry": "./tool.js",
+      "messageTool": "filename-sanitizer",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

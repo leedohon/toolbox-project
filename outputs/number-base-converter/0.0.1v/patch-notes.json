@@ -1,0 +1,16 @@
+{
+  "tool": "number-base-converter",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "2·8·10·16진수 상호 변환",
+    "BigInt 기반 큰 정수·음수 처리",
+    "접두어 선택과 전체 결과 복사"
+  ],
+  "qa": [
+    "잘못된 숫자·큰 정수·음수 확인",
+    "375px 모바일 가로 넘침 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

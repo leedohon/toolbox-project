@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "jwt-decoder",
+      "label": {
+        "ko": "JWT 내용 확인기",
+        "en": "JWT payload viewer"
+      },
+      "entry": "./tool.js",
+      "messageTool": "jwt-decoder",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "tool": "unicode-inspector",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "문자별 U+·UTF-16·HTML 표기",
+    "공백·제어 문자 이름 표시",
+    "TSV 복사와 KOR / ENG"
+  ],
+  "qa": [
+    "한글·이모지·공백·결합 문자 확인",
+    "375px 표 가로 처리 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

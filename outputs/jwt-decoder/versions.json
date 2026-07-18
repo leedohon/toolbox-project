@@ -1,0 +1,19 @@
+{
+  "index": 30,
+  "tool": "jwt-decoder",
+  "title": "JWT 내용 확인기",
+  "description": "JWT의 헤더와 페이로드를 서명 검증 없이 브라우저에서 읽기 좋게 확인합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "JWT 헤더와 페이로드를 로컬에서 확인하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/jwt-decoder.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

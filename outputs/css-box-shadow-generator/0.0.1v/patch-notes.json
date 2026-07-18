@@ -1,0 +1,16 @@
+{
+  "tool": "css-box-shadow-generator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "위치·흐림·확산·색상·투명도 조절",
+    "inset 그림자와 실시간 미리보기",
+    "CSS 복사·KOR / ENG"
+  ],
+  "qa": [
+    "슬라이더 경계·inset·투명도 확인",
+    "375px 미리보기 넘침 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

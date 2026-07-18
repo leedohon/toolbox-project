@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "css-clamp-calculator",
+  "index": 28,
+  "title": "CSS clamp 반응형 계산기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/css-clamp-calculator.md",
+    "post": "toolbox/posts/css-clamp-calculator.html",
+    "manifest": "outputs/css-clamp-calculator/versions.json",
+    "embed": "embed/css-clamp-calculator/index.html",
+    "moduleRegistry": "embed/css-clamp-calculator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "css-clamp-calculator",
+      "label": {
+        "ko": "CSS clamp 반응형 계산기",
+        "en": "CSS clamp calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "css-clamp-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

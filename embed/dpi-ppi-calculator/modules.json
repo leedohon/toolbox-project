@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "dpi-ppi-calculator",
+      "label": {
+        "ko": "DPI·PPI 해상도 계산기",
+        "en": "DPI and PPI calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "dpi-ppi-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

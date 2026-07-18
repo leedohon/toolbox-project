@@ -1,0 +1,16 @@
+{
+  "tool": "dpi-ppi-calculator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "가로·세로 픽셀과 inch·cm 입력",
+    "가로·세로·평균 DPI 계산",
+    "비율 차이 안내·KOR / ENG"
+  ],
+  "qa": [
+    "inch·cm·비율 불일치 확인",
+    "375px 결과 카드 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "index": 24,
+  "tool": "hash-generator",
+  "title": "텍스트·파일 해시 생성기",
+  "description": "텍스트나 파일을 선택해 SHA-256·SHA-384·SHA-512 해시값을 브라우저에서 계산합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "텍스트와 파일의 SHA 계열 해시를 로컬에서 계산하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/hash-generator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

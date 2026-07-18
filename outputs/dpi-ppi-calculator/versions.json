@@ -1,0 +1,19 @@
+{
+  "index": 32,
+  "tool": "dpi-ppi-calculator",
+  "title": "DPI·PPI 해상도 계산기",
+  "description": "이미지 픽셀과 실제 출력 크기를 입력해 가로·세로 DPI와 PPI를 계산합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "픽셀과 실제 크기로 DPI·PPI를 계산하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/dpi-ppi-calculator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

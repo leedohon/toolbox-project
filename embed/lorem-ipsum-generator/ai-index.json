@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "lorem-ipsum-generator",
+  "index": 27,
+  "title": "Lorem Ipsum 문장 생성기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/lorem-ipsum-generator.md",
+    "post": "toolbox/posts/lorem-ipsum-generator.html",
+    "manifest": "outputs/lorem-ipsum-generator/versions.json",
+    "embed": "embed/lorem-ipsum-generator/index.html",
+    "moduleRegistry": "embed/lorem-ipsum-generator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "lorem-ipsum-generator",
+      "label": {
+        "ko": "Lorem Ipsum 문장 생성기",
+        "en": "Lorem Ipsum generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "lorem-ipsum-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

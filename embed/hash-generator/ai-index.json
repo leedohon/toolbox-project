@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "hash-generator",
+  "index": 24,
+  "title": "텍스트·파일 해시 생성기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/hash-generator.md",
+    "post": "toolbox/posts/hash-generator.html",
+    "manifest": "outputs/hash-generator/versions.json",
+    "embed": "embed/hash-generator/index.html",
+    "moduleRegistry": "embed/hash-generator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "hash-generator",
+      "label": {
+        "ko": "텍스트·파일 해시 생성기",
+        "en": "Text and file hash generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "hash-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "filename-sanitizer",
+  "index": 26,
+  "title": "안전한 파일명 정리기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/filename-sanitizer.md",
+    "post": "toolbox/posts/filename-sanitizer.html",
+    "manifest": "outputs/filename-sanitizer/versions.json",
+    "embed": "embed/filename-sanitizer/index.html",
+    "moduleRegistry": "embed/filename-sanitizer/modules.json"
+  },
+  "modules": [
+    {
+      "id": "filename-sanitizer",
+      "label": {
+        "ko": "안전한 파일명 정리기",
+        "en": "Safe filename sanitizer"
+      },
+      "entry": "./tool.js",
+      "messageTool": "filename-sanitizer",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

@@ -1,0 +1,19 @@
+{
+  "index": 33,
+  "tool": "css-box-shadow-generator",
+  "title": "CSS 그림자 생성기",
+  "description": "위치·흐림·확산·색상을 조절해 box-shadow 미리보기와 CSS 코드를 만듭니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "슬라이더 미리보기로 box-shadow 코드를 만드는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/css-box-shadow-generator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

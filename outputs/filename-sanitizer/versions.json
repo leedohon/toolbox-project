@@ -1,0 +1,19 @@
+{
+  "index": 26,
+  "tool": "filename-sanitizer",
+  "title": "안전한 파일명 정리기",
+  "description": "파일명에서 사용할 수 없는 문자와 불필요한 공백을 정리해 복사 가능한 이름으로 바꿉니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "운영체제 호환 파일명을 미리 만들어 복사하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/filename-sanitizer.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

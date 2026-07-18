@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "jwt-decoder",
+  "index": 30,
+  "title": "JWT 내용 확인기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/jwt-decoder.md",
+    "post": "toolbox/posts/jwt-decoder.html",
+    "manifest": "outputs/jwt-decoder/versions.json",
+    "embed": "embed/jwt-decoder/index.html",
+    "moduleRegistry": "embed/jwt-decoder/modules.json"
+  },
+  "modules": [
+    {
+      "id": "jwt-decoder",
+      "label": {
+        "ko": "JWT 내용 확인기",
+        "en": "JWT payload viewer"
+      },
+      "entry": "./tool.js",
+      "messageTool": "jwt-decoder",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

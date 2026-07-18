@@ -1,0 +1,75 @@
+{
+  "releaseDate": "2026-07-18",
+  "tools": [
+    {
+      "index": 29, "slug": "unicode-inspector", "title": "유니코드 문자 분석기", "englishTitle": "Unicode character inspector", "type": "converter",
+      "description": "텍스트의 각 문자를 유니코드 코드 포인트와 UTF-16·HTML 표기로 나누어 확인합니다.", "actionTitle": "문자 코드 분석하기",
+      "features": ["문자별 코드 포인트", "U+·UTF-16·HTML 표기", "공백 문자 이름", "TSV 결과 복사"],
+      "inputs": [{"id":"text","label":"분석할 텍스트","type":"textarea"}],
+      "steps": ["분석할 텍스트를 입력합니다.", "문자별 코드 포인트와 표기를 확인합니다.", "필요한 결과를 TSV 형식으로 복사합니다."],
+      "details": ["유니코드 문자 분석기는 눈으로 비슷해 보이는 문자와 보이지 않는 공백을 코드값으로 구분해 보여 줍니다. 다국어 텍스트, 이모지, 특수문자의 실제 구성을 확인할 때 유용합니다.", "브라우저의 코드 포인트 순회 방식을 사용해 기본 다국어 영역 밖의 문자도 한 글자로 처리합니다. 결합 문자와 이모지 조합은 여러 코드 포인트로 표시될 수 있으며 원문은 서버로 전송하지 않습니다."],
+      "faq": [{"question":"이모지가 여러 줄로 표시되는 이유는 무엇인가요?","answer":"일부 이모지는 여러 코드 포인트를 결합해 한 모양으로 보이기 때문입니다."},{"question":"공백도 분석할 수 있나요?","answer":"네. 일반 공백, 줄바꿈, 탭, 줄바꿈 없는 공백 등 대표 문자를 이름으로 표시합니다."},{"question":"UTF-16 값은 왜 두 개일 수 있나요?","answer":"U+FFFF를 넘는 문자는 UTF-16에서 서로게이트 두 단위로 표현됩니다."},{"question":"텍스트가 외부로 전송되나요?","answer":"아니요. 입력과 분석 결과는 현재 브라우저에서만 처리합니다."}],
+      "tags": ["유니코드", "코드포인트", "특수문자", "이모지", "개발도구"],
+      "keywords": ["유니코드 분석기","코드 포인트 확인","U+ 코드","UTF-16 확인","HTML 엔티티 코드","unicode inspector","code point tool","특수문자 코드","이모지 코드","공백 문자 확인","보이지 않는 문자","zero width character","문자 인코딩 확인","유니코드 변환","문자별 분석","서로게이트 페어","UTF16 units","HTML numeric entity","탭 문자 코드","줄바꿈 코드","NBSP 확인","다국어 문자 분석","TSV 복사","브라우저 유니코드 도구"],
+      "summary": "텍스트를 문자별 유니코드 표기로 분석하는 최초 버전입니다.",
+      "changes": ["문자별 U+·UTF-16·HTML 표기", "공백·제어 문자 이름 표시", "TSV 복사와 KOR / ENG"],
+      "qa": ["한글·이모지·공백·결합 문자 확인", "375px 표 가로 처리 확인", "KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index": 30, "slug": "jwt-decoder", "title": "JWT 내용 확인기", "englishTitle": "JWT payload viewer", "type": "converter",
+      "description": "JWT의 헤더와 페이로드를 서명 검증 없이 브라우저에서 읽기 좋게 확인합니다.", "actionTitle": "JWT 내용 열기",
+      "features": ["Base64URL 디코딩", "헤더·페이로드 JSON", "exp·iat 시간 안내", "서명 미검증 경고"],
+      "inputs": [{"id":"token","label":"JWT 문자열","type":"textarea"}],
+      "steps": ["점으로 구분된 JWT 문자열을 붙여넣습니다.", "헤더와 페이로드 내용을 확인합니다.", "필요한 JSON만 복사하고 민감한 토큰은 공유하지 않습니다."],
+      "details": ["JWT 내용 확인기는 토큰의 앞 두 구간을 Base64URL 방식으로 풀어 헤더와 페이로드 JSON을 보여 줍니다. exp와 iat처럼 Unix 시간으로 들어 있는 대표 항목은 읽기 쉬운 시각도 함께 표시합니다.", "이 도구는 서명을 검증하지 않으므로 표시된 내용을 신뢰성 증명으로 사용하면 안 됩니다. 토큰은 현재 브라우저에서만 처리하지만 실제 접근 권한이 담긴 토큰은 공개 장소나 공유 컴퓨터에 붙여넣지 마세요."],
+      "faq": [{"question":"이 도구가 JWT 서명을 검증하나요?","answer":"아니요. 내용을 디코딩해 보여 줄 뿐이며 위조 여부나 발급자를 검증하지 않습니다."},{"question":"토큰이 서버로 전송되나요?","answer":"아니요. 입력은 현재 브라우저 안에서만 처리합니다."},{"question":"점이 세 구간보다 많은 토큰도 되나요?","answer":"이 도구는 일반적인 세 구간 JWS 형태의 JWT에 맞춰져 있습니다."},{"question":"exp 시간이 지났다는 표시는 무엇인가요?","answer":"현재 시각이 exp 값보다 뒤라면 만료된 것으로 안내하지만 실제 서버 정책을 대신하지는 않습니다."}],
+      "tags": ["JWT", "토큰디코더", "Base64URL", "JSON", "개발도구"],
+      "keywords": ["JWT 디코더","JWT 내용 확인","JWT payload","JWT header","토큰 디코딩","Base64URL decoder","JSON web token viewer","JWT exp 확인","JWT iat 시간","토큰 만료 확인","서명 미검증","JWT parser","개발자 토큰 도구","JWT JSON 보기","access token decode","ID token viewer","로컬 JWT 디코더","브라우저 JWT","JWT 세 구간","토큰 헤더 확인","토큰 페이로드 복사","Unix 시간 JWT","JWT 오류 확인","서버 전송 없는 JWT"],
+      "summary": "JWT 헤더와 페이로드를 로컬에서 확인하는 최초 버전입니다.",
+      "changes": ["JWT 헤더·페이로드 Base64URL 디코딩", "exp·iat 시각과 만료 상태 안내", "서명 미검증 경고·복사·KOR / ENG"],
+      "qa": ["정상·손상·만료 JWT 확인", "375px 긴 토큰 넘침 확인", "KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index": 31, "slug": "data-size-converter", "title": "데이터 용량 단위 변환기", "englishTitle": "Data size converter", "type": "converter",
+      "description": "바이트·KB·MB·GB·KiB·MiB·GiB 용량을 SI와 IEC 기준으로 한 번에 변환합니다.", "actionTitle": "데이터 용량 변환하기",
+      "features": ["SI·IEC 단위 지원", "바이트 기준 정밀 계산", "모든 단위 동시 결과", "소수 자릿수 선택"],
+      "inputs": [{"id":"value","label":"용량 값","type":"number"},{"id":"unit","label":"입력 단위","type":"select"}],
+      "steps": ["변환할 숫자와 현재 단위를 입력합니다.", "표시할 소수 자릿수를 선택합니다.", "SI와 IEC 결과를 비교해 필요한 값을 복사합니다."],
+      "details": ["데이터 용량 단위 변환기는 1000배 기준의 KB·MB·GB와 1024배 기준의 KiB·MiB·GiB를 같은 바이트 값으로 비교합니다. 저장장치 표기와 운영체제 표시가 다른 이유를 확인할 때 유용합니다.", "입력값은 브라우저에서 숫자로 계산하며 매우 큰 값은 표시 정밀도가 제한될 수 있습니다. 파일을 읽거나 업로드하지 않고 사용자가 입력한 용량 숫자만 변환합니다."],
+      "faq": [{"question":"MB와 MiB는 왜 다른가요?","answer":"MB는 보통 1,000,000바이트, MiB는 1,048,576바이트를 뜻합니다."},{"question":"파일을 선택해 용량을 읽을 수 있나요?","answer":"현재는 숫자 단위 변환에 집중하며 실제 파일은 읽지 않습니다."},{"question":"소수점은 몇 자리까지 표시되나요?","answer":"0~6자리 중 선택할 수 있으며 내부 계산값은 그대로 유지합니다."},{"question":"음수 용량도 변환되나요?","answer":"아니요. 실제 데이터 용량에 맞춰 0 이상의 값만 허용합니다."}],
+      "tags": ["용량변환", "바이트", "MB", "MiB", "데이터단위"],
+      "keywords": ["용량 단위 변환기","바이트 변환","KB MB 변환","MB GB 변환","MiB GiB 변환","data size converter","byte converter","MB to MiB","GB to GiB","SI IEC units","1000 1024 차이","파일 용량 계산","저장 용량 변환","byte to megabyte","megabyte to byte","데이터 단위 계산","KiB 변환","테라바이트 변환","TiB 변환","소수 용량","바이트 표","디스크 용량 차이","네트워크 용량","브라우저 용량 계산"],
+      "summary": "SI와 IEC 데이터 용량 단위를 함께 변환하는 최초 버전입니다.",
+      "changes": ["B·KB·MB·GB·TB와 KiB·MiB·GiB·TiB 변환", "소수 자릿수 선택과 전체 결과", "입력 검증·복사·KOR / ENG"],
+      "qa": ["0·소수·큰 값·음수 오류 확인", "375px 결과 표 확인", "KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index": 32, "slug": "dpi-ppi-calculator", "title": "DPI·PPI 해상도 계산기", "englishTitle": "DPI and PPI calculator", "type": "calculator",
+      "description": "이미지 픽셀과 실제 출력 크기를 입력해 가로·세로 DPI와 PPI를 계산합니다.", "actionTitle": "해상도 밀도 계산하기",
+      "features": ["px와 inch·cm 입력", "가로·세로 밀도", "평균 밀도와 출력 크기", "인쇄 기준 안내"],
+      "inputs": [{"id":"pixels","label":"가로·세로 픽셀","type":"number"},{"id":"size","label":"실제 크기","type":"number"}],
+      "steps": ["이미지의 가로·세로 픽셀을 입력합니다.", "출력할 실제 크기와 inch 또는 cm 단위를 선택합니다.", "계산된 가로·세로 DPI와 평균값을 확인합니다."],
+      "details": ["DPI·PPI 계산기는 이미지의 픽셀 수를 인쇄 또는 화면의 실제 길이로 나눠 밀도를 구합니다. 같은 이미지라도 출력 크기가 작을수록 인치당 픽셀 수가 높아집니다.", "계산값은 이미지의 픽셀과 목표 크기에 따른 이론적인 밀도입니다. 프린터 품질, 이미지 보간, 화면 배율 같은 실제 출력 조건은 별도로 확인해야 합니다."],
+      "faq": [{"question":"DPI와 PPI는 같은 뜻인가요?","answer":"엄밀히는 인쇄 점과 화면 픽셀을 가리키지만 이미지 크기 계산에서는 관행적으로 비슷하게 사용됩니다."},{"question":"cm를 입력해도 되나요?","answer":"네. cm를 선택하면 내부에서 inch로 바꿔 계산합니다."},{"question":"300 DPI면 항상 인쇄 품질이 좋은가요?","answer":"일반적인 기준이지만 원본 선명도와 프린터·종이 조건도 결과에 영향을 줍니다."},{"question":"가로와 세로 DPI가 다르면 문제인가요?","answer":"입력한 픽셀 비율과 실제 크기 비율이 다르다는 뜻이며 이미지가 늘어날 가능성을 확인해야 합니다."}],
+      "tags": ["DPI", "PPI", "인쇄해상도", "이미지크기", "픽셀계산"],
+      "keywords": ["DPI 계산기","PPI 계산기","인쇄 해상도","픽셀 인치 계산","pixel density calculator","DPI calculator","PPI calculator","300 DPI 크기","이미지 출력 크기","px to inch","px to cm","인쇄 사진 해상도","가로 세로 DPI","픽셀 밀도","사진 인화 계산","이미지 크기 계산","cm DPI 변환","inch PPI","프린터 해상도","평균 DPI","출력 비율 확인","이미지 늘어남 확인","브라우저 DPI 계산","인쇄용 이미지"],
+      "summary": "픽셀과 실제 크기로 DPI·PPI를 계산하는 최초 버전입니다.",
+      "changes": ["가로·세로 픽셀과 inch·cm 입력", "가로·세로·평균 DPI 계산", "비율 차이 안내·KOR / ENG"],
+      "qa": ["inch·cm·비율 불일치 확인", "375px 결과 카드 확인", "KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index": 33, "slug": "css-box-shadow-generator", "title": "CSS 그림자 생성기", "englishTitle": "CSS box shadow generator", "type": "template-generator",
+      "description": "위치·흐림·확산·색상을 조절해 box-shadow 미리보기와 CSS 코드를 만듭니다.", "actionTitle": "CSS 그림자 만들기",
+      "features": ["가로·세로·흐림·확산 슬라이더", "색상·투명도 선택", "inset 안쪽 그림자", "실시간 미리보기·복사"],
+      "inputs": [{"id":"geometry","label":"그림자 위치와 크기","type":"range"},{"id":"color","label":"색상과 투명도","type":"color"}],
+      "steps": ["슬라이더로 그림자의 위치와 흐림·확산을 조절합니다.", "색상·투명도와 inset 여부를 선택합니다.", "미리보기를 확인하고 CSS 코드를 복사합니다."],
+      "details": ["CSS 그림자 생성기는 box-shadow의 여러 숫자와 색상을 슬라이더로 조절하면서 결과를 즉시 확인하게 해 줍니다. 카드, 버튼, 모달의 높이감과 경계를 코드 작성 전에 빠르게 비교할 수 있습니다.", "생성 결과는 표준 box-shadow 한 줄이며 현재 브라우저에서만 계산합니다. 과도한 흐림과 진한 그림자는 가독성을 떨어뜨릴 수 있으므로 실제 배경과 모바일 화면에서도 확인하세요."],
+      "faq": [{"question":"각 슬라이더는 무엇을 바꾸나요?","answer":"가로·세로 위치, 흐림 반경, 그림자 확산 크기를 순서대로 조절합니다."},{"question":"안쪽 그림자는 어떻게 만드나요?","answer":"inset 옵션을 선택하면 요소 내부로 들어간 그림자가 됩니다."},{"question":"투명도는 색상과 별도인가요?","answer":"네. 색상 선택 뒤 투명도 슬라이더로 알파 값을 조절합니다."},{"question":"여러 그림자를 겹칠 수 있나요?","answer":"최초 버전은 한 개의 명확한 그림자 생성에 집중합니다."}],
+      "tags": ["CSS", "box-shadow", "그림자", "웹디자인", "CSS생성기"],
+      "keywords": ["CSS 그림자 생성기","box shadow generator","CSS box-shadow","카드 그림자","버튼 그림자","inset shadow","CSS shadow preview","그림자 코드 복사","blur radius","spread radius","그림자 투명도","RGBA shadow","웹 디자인 그림자","CSS 미리보기","가로 세로 그림자","box shadow calculator","모달 그림자","UI 그림자","카드 디자인 CSS","soft shadow","hard shadow","안쪽 그림자","브라우저 CSS 도구","프론트엔드 생성기"],
+      "summary": "슬라이더 미리보기로 box-shadow 코드를 만드는 최초 버전입니다.",
+      "changes": ["위치·흐림·확산·색상·투명도 조절", "inset 그림자와 실시간 미리보기", "CSS 복사·KOR / ENG"],
+      "qa": ["슬라이더 경계·inset·투명도 확인", "375px 미리보기 넘침 확인", "KOR / ENG와 iframe 높이 확인"]
+    }
+  ]
+}

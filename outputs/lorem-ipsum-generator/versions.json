@@ -1,0 +1,19 @@
+{
+  "index": 27,
+  "tool": "lorem-ipsum-generator",
+  "title": "Lorem Ipsum 문장 생성기",
+  "description": "레이아웃 테스트에 쓸 Lorem Ipsum 문단을 원하는 개수와 길이로 생성합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "문단 수와 길이를 조절하는 Lorem Ipsum 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/lorem-ipsum-generator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

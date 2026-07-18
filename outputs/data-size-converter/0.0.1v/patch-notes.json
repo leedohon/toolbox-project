@@ -1,0 +1,16 @@
+{
+  "tool": "data-size-converter",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "B·KB·MB·GB·TB와 KiB·MiB·GiB·TiB 변환",
+    "소수 자릿수 선택과 전체 결과",
+    "입력 검증·복사·KOR / ENG"
+  ],
+  "qa": [
+    "0·소수·큰 값·음수 오류 확인",
+    "375px 결과 표 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "tool": "filename-sanitizer",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "금지 문자·예약 이름 안전 처리",
+    "확장자 보존과 공백 구분자 선택",
+    "변경 내역과 복사 대체 처리"
+  ],
+  "qa": [
+    "예약 이름·확장자·한글 입력 확인",
+    "375px 모바일 가로 넘침 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

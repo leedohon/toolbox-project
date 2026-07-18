@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "css-box-shadow-generator",
+      "label": {
+        "ko": "CSS 그림자 생성기",
+        "en": "CSS box shadow generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "css-box-shadow-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

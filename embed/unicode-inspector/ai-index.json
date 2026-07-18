@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "unicode-inspector",
+  "index": 29,
+  "title": "유니코드 문자 분석기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/unicode-inspector.md",
+    "post": "toolbox/posts/unicode-inspector.html",
+    "manifest": "outputs/unicode-inspector/versions.json",
+    "embed": "embed/unicode-inspector/index.html",
+    "moduleRegistry": "embed/unicode-inspector/modules.json"
+  },
+  "modules": [
+    {
+      "id": "unicode-inspector",
+      "label": {
+        "ko": "유니코드 문자 분석기",
+        "en": "Unicode character inspector"
+      },
+      "entry": "./tool.js",
+      "messageTool": "unicode-inspector",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

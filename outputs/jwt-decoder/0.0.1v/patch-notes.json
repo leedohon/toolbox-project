@@ -1,0 +1,16 @@
+{
+  "tool": "jwt-decoder",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "JWT 헤더·페이로드 Base64URL 디코딩",
+    "exp·iat 시각과 만료 상태 안내",
+    "서명 미검증 경고·복사·KOR / ENG"
+  ],
+  "qa": [
+    "정상·손상·만료 JWT 확인",
+    "375px 긴 토큰 넘침 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

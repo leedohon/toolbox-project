@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "css-box-shadow-generator",
+  "index": 33,
+  "title": "CSS 그림자 생성기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/css-box-shadow-generator.md",
+    "post": "toolbox/posts/css-box-shadow-generator.html",
+    "manifest": "outputs/css-box-shadow-generator/versions.json",
+    "embed": "embed/css-box-shadow-generator/index.html",
+    "moduleRegistry": "embed/css-box-shadow-generator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "css-box-shadow-generator",
+      "label": {
+        "ko": "CSS 그림자 생성기",
+        "en": "CSS box shadow generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "css-box-shadow-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

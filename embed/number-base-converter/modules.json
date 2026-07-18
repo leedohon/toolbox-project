@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "number-base-converter",
+      "label": {
+        "ko": "2진수·16진수 진법 변환기",
+        "en": "Number base converter"
+      },
+      "entry": "./tool.js",
+      "messageTool": "number-base-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

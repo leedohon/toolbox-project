@@ -1,0 +1,16 @@
+{
+  "tool": "css-clamp-calculator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "최소·최대 크기와 뷰포트 입력",
+    "선형 clamp 식과 미리보기",
+    "입력 검증·KOR / ENG·코드 복사"
+  ],
+  "qa": [
+    "경계값·역전값·미리보기 확인",
+    "375px 모바일 가로 넘침 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

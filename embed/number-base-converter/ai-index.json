@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "number-base-converter",
+  "index": 25,
+  "title": "2진수·16진수 진법 변환기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/number-base-converter.md",
+    "post": "toolbox/posts/number-base-converter.html",
+    "manifest": "outputs/number-base-converter/versions.json",
+    "embed": "embed/number-base-converter/index.html",
+    "moduleRegistry": "embed/number-base-converter/modules.json"
+  },
+  "modules": [
+    {
+      "id": "number-base-converter",
+      "label": {
+        "ko": "2진수·16진수 진법 변환기",
+        "en": "Number base converter"
+      },
+      "entry": "./tool.js",
+      "messageTool": "number-base-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

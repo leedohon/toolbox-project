@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.1.0",
-  "updatedAt": "2026-07-15",
+  "policyVersion": "0.2.0",
+  "updatedAt": "2026-07-18",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -60,13 +60,16 @@
     },
     {
       "id": "OPT-002",
-      "status": "queued",
-      "triggerPaths": ["toolbox/automation-results/*.json", "AUTOMATED-WORKFLOW.md"],
+      "status": "completed",
+      "triggerPaths": ["toolbox/automation-results/unchecked/*.json", "toolbox/automation-results/checked/*.json", "AUTOMATED-WORKFLOW.md"],
       "problem": "Result records repeat a large structure and can require manual edits.",
-      "proposedChange": "When the result format is next changed, generate and validate records from one compact template or schema-aware helper.",
+      "proposedChange": "Route unchecked and checked records into separate folders and use one helper to validate, migrate, and apply confirmations without manual JSON edits.",
       "measure": "repeated manual edits",
       "targetReduction": 0.5,
-      "evidence": []
+      "evidence": [
+        {"before":4,"after":0,"unit":"manual confirmation field and file-state edits per confirmed run","reduction":1.0,"verifiedAt":"2026-07-18"},
+        {"before":3,"after":1,"unit":"result files read during startup for the current repository state","reduction":0.6667,"verifiedAt":"2026-07-18"}
+      ]
     },
     {
       "id": "OPT-003",

@@ -5,7 +5,7 @@
     {"patterns":["embed/**/index.html","embed/**/tool.js","assets/**/*.js"],"profiles":["runtime","responsive"],"checks":["coreInteraction","errors","mobileNoAutofocus","iframeHeight","korEng"]},
     {"patterns":["toolbox/post-tags.json","outputs/tools.json","outputs/*/versions.json"],"profiles":["discovery"],"checks":["keywordCount","catalogVersion","uniqueIndex","searchMatch"]},
     {"patterns":["toolbox/posts/*.html","toolbox/post-content.json","outputs/*/*v/*.html"],"profiles":["content"],"checks":["details","faq","patchNotes","hashtags","userGuidance"]},
-    {"patterns":["outputs/**/*.json","toolbox/automation/**/*.json","toolbox/automation-results/*.json"],"profiles":["json"],"checks":["parse","schema"]},
+    {"patterns":["outputs/**/*.json","toolbox/automation/**/*.json","toolbox/automation-results/checked/*.json","toolbox/automation-results/unchecked/*.json"],"profiles":["json"],"checks":["parse","schema"]},
     {"patterns":["toolbox/skills/**","AUTOMATED-WORKFLOW.md","AGENTS.md","toolbox/AGENTS.md"],"profiles":["workflow"],"checks":["skillValidation","singleSource","machineConfigSync"]}
   ],
   "always":["secretScan","changedFileReview","knownIssueMatch"],

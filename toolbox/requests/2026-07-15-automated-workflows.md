@@ -4,7 +4,7 @@
 
 - 어느 작업창에서든 `자동작업처리` 요청을 받으면 실행할 워크플로를 확인하고 선택된 작업을 끝까지 수행한다.
 - 구현 결과는 GitHub 반영과 Blogger 게시글 생성 또는 수정까지 포함한다.
-- 실행 결과는 JSON으로 저장하고, 새 작업 시작 시 미확인 결과를 보고한다.
+- 실행 결과는 JSON으로 저장하고, 새 작업 시작 시 `unchecked/`의 미확인 결과만 보고한다.
 - 사용자가 확인했다고 명시한 결과만 `confirm: Y`로 변경하며 이후에는 다시 보고하지 않는다.
 - 워크플로는 `데일리 라이트`, `하드`, `올인`, `크리에이트` 네 종류로 운영한다.
 
@@ -12,7 +12,9 @@
 
 - 전체 기준은 저장소 루트 `AUTOMATED-WORKFLOW.md`에서 관리한다.
 - 루트와 Toolbox `AGENTS.md`에서 해당 문서를 필수 운영 기준으로 연결한다.
-- 실행 결과는 `toolbox/automation-results/<실행시각>-<워크플로>.json`에 실행별로 저장한다.
+- 새 실행 결과는 `toolbox/automation-results/unchecked/<실행시각>-<워크플로>.json`에 저장한다.
+- 확인 완료 결과는 `toolbox/automation-results/checked/`로 이동해 보관하고, 새 작업 시작 점검에서는 읽지 않는다.
+- 확인 처리는 `scripts/manage-automation-results.mjs`로 JSON 상태 갱신과 폴더 이동을 한 번에 수행한다.
 - 예약 실행은 포함하지 않으며 사용자의 수동 지시를 트리거로 사용한다.
 
 ## 워크플로 수량 변경

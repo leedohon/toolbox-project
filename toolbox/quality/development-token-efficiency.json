@@ -35,6 +35,21 @@
         }
       ],
       "note": "The execution environment did not expose comparable total development token counts, so no overall token reduction was claimed."
+    },
+    {
+      "runId": "20260719-035900-daily-light",
+      "workflow": "daily-light",
+      "measurementStatus": "unavailable",
+      "baselineRunId": null,
+      "tokens": {
+        "baseline": null,
+        "current": null,
+        "accountingMethod": null
+      },
+      "instructionReduction": null,
+      "overallReduction": null,
+      "proxies": [],
+      "note": "The execution environment did not expose comparable total development token counts, and no same-scope daily-light baseline was available, so no reduction was claimed."
     }
   ]
 }

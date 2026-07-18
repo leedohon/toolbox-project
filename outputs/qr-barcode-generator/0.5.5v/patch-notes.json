@@ -1,9 +1,14 @@
 {
   "tool": "qr-barcode-generator",
   "version": "0.5.5v",
-  "releaseDate": "2026-07-18",
+  "releaseDate": "2026-07-19",
   "changeLevel": "minimum",
   "changes": [
     "빈 문서 제목을 QR · 바코드 생성기로 지정"
+  ],
+  "qa": [
+    "375px·1280px 가로 넘침과 hidden 상태 누출 없음",
+    "공개 iframe 콘솔 오류 없음·KOR / ENG 선택기 확인",
+    "Blogger 게시글 H1·iframe·FAQ·누적 패치노트 확인"
   ]
 }

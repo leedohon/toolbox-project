@@ -26,7 +26,7 @@
     },
     {
       "version": "0.0.3v",
-      "releaseDate": "2026-07-18",
+      "releaseDate": "2026-07-19",
       "changeLevel": "minimum",
       "summary": "두 장문 비교 입력을 위아래 전체 폭으로 개선했습니다.",
       "directory": "0.0.3v",

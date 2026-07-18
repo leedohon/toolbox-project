@@ -143,7 +143,7 @@
     },
     {
       "version": "0.9.3v",
-      "releaseDate": "2026-07-18",
+      "releaseDate": "2026-07-19",
       "changeLevel": "minimum",
       "summary": "복사 차단 시 모바일 선택 동작을 안전하게 개선했습니다.",
       "directory": "0.9.3v",

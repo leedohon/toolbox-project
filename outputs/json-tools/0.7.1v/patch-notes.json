@@ -1,10 +1,15 @@
 {
   "tool": "json-tools",
   "version": "0.7.1v",
-  "releaseDate": "2026-07-18",
+  "releaseDate": "2026-07-19",
   "changeLevel": "minimum",
   "changes": [
     "빈 문서 제목을 JSON 도구로 지정",
     "직접 입력에도 5MB 상한과 가까운 오류 안내 적용"
+  ],
+  "qa": [
+    "375px·1280px 가로 넘침과 hidden 상태 누출 없음",
+    "공개 iframe 콘솔 오류 없음·KOR / ENG 선택기 확인",
+    "Blogger 게시글 H1·iframe·FAQ·누적 패치노트 확인"
   ]
 }

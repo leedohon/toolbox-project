@@ -11,6 +11,9 @@
   "qa": [
     "정상·태그 불일치·CDATA·주석 확인",
     "375px 장문 입력과 오류 넘침 확인",
-    "KOR / ENG와 iframe 높이 확인"
+    "KOR / ENG와 iframe 높이 확인",
+    "375px·1280px 가로 넘침과 hidden 상태 누출 없음",
+    "공개 iframe 콘솔 오류 없음·KOR / ENG 선택기 확인",
+    "Blogger 게시글 H1·iframe·FAQ·누적 패치노트 확인"
   ]
 }

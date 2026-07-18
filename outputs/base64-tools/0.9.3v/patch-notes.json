@@ -1,9 +1,14 @@
 {
   "tool": "base64-tools",
   "version": "0.9.3v",
-  "releaseDate": "2026-07-18",
+  "releaseDate": "2026-07-19",
   "changeLevel": "minimum",
   "changes": [
     "복사 대체 영역을 표시하되 결과를 강제로 선택하지 않음"
+  ],
+  "qa": [
+    "375px·1280px 가로 넘침과 hidden 상태 누출 없음",
+    "공개 iframe 콘솔 오류 없음·KOR / ENG 선택기 확인",
+    "Blogger 게시글 H1·iframe·FAQ·누적 패치노트 확인"
   ]
 }

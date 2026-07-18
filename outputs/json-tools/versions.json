@@ -125,7 +125,7 @@
     },
     {
       "version": "0.7.1v",
-      "releaseDate": "2026-07-18",
+      "releaseDate": "2026-07-19",
       "changeLevel": "minimum",
       "summary": "문서 제목과 직접 입력 용량 보호를 보완했습니다.",
       "directory": "0.7.1v",

@@ -11,6 +11,10 @@
   "qa": [
     "데스크톱·375px 모바일 가로 넘침 확인",
     "잘못된 패턴과 0건·다건 일치 상태 확인",
-    "KOR / ENG와 iframe 높이 확인"
+    "KOR / ENG와 iframe 높이 확인",
+    "공개 데스크톱·375px 모바일 가로 넘침 없음",
+    "KOR / ENG 및 오류·빈 상태 확인",
+    "공개 iframe과 Blogger 게시글 콘솔 오류 없음",
+    "IFRAME_HEIGHT_STALE·HIDDEN_GRID_OVERRIDE·SHARED_ASSET_CACHE_STALE 회귀 확인"
   ]
 }

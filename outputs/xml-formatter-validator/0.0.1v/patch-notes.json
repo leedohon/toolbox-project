@@ -1,0 +1,16 @@
+{
+  "tool": "xml-formatter-validator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "XML 문법 오류와 위치 안내",
+    "2칸·4칸 들여쓰기와 압축",
+    "결과 복사·XML 저장·KOR / ENG"
+  ],
+  "qa": [
+    "정상·태그 불일치·CDATA·주석 확인",
+    "375px 장문 입력과 오류 넘침 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

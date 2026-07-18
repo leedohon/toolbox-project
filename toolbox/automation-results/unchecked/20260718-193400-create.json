@@ -26,5 +26,5 @@
   "git": {"branch":"main","commit":"ce986d4f93a984b1d439872656254e7a4a5751d3","pushed":true},
   "deployment": {"status":"completed","urls":["https://leedohon.github.io/toolbox-project/embed/unicode-inspector/","https://leedohon.github.io/toolbox-project/embed/jwt-decoder/","https://leedohon.github.io/toolbox-project/embed/data-size-converter/","https://leedohon.github.io/toolbox-project/embed/dpi-ppi-calculator/","https://leedohon.github.io/toolbox-project/embed/css-box-shadow-generator/"]},
   "shutdown": {"requested":false,"scheduled":false,"input":"아니오","scheduledFor":null,"cancelled":false},
-  "blocked": [], "reportHistory": []
+  "blocked": [], "reportHistory": ["2026-07-19T02:42:40+09:00"]
 }

@@ -4,7 +4,7 @@
   "title": "유니코드 문자 분석기",
   "description": "텍스트의 각 문자를 유니코드 코드 포인트와 UTF-16·HTML 표기로 나누어 확인합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_273.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.0.2v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,15 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/unicode-inspector.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.0.2v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "넓은 결과 표의 키보드 탐색성을 개선했습니다.",
+      "directory": "0.0.2v",
+      "html": "0.0.2v/unicode-inspector.html",
+      "patchNotes": "0.0.2v/patch-notes.json"
     }
   ]
 }

@@ -1,0 +1,9 @@
+{
+  "tool": "base64-tools",
+  "version": "0.9.3v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "복사 대체 영역을 표시하되 결과를 강제로 선택하지 않음"
+  ]
+}

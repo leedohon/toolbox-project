@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "url-parser-builder",
+      "label": {
+        "ko": "URL 분석·쿼리 편집기",
+        "en": "URL parser and query editor"
+      },
+      "entry": "./tool.js",
+      "messageTool": "url-parser-builder",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

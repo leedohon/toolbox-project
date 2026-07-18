@@ -50,13 +50,15 @@
   "backlog": [
     {
       "id": "OPT-001",
-      "status": "queued",
+      "status": "completed",
       "triggerPaths": ["AGENTS.md", "toolbox/AGENTS.md"],
       "problem": "Automation guidance can be repeated across root and Toolbox instructions.",
       "proposedChange": "When either file is next changed for automation policy, keep only routing there and move detailed policy to the indexed source.",
       "measure": "instruction characters loaded",
       "targetReduction": 0.5,
-      "evidence": []
+      "evidence": [
+        {"before":979,"after":194,"unit":"characters in the duplicated automation sections of AGENTS.md and toolbox/AGENTS.md","reduction":0.8018,"verifiedAt":"2026-07-19"}
+      ]
     },
     {
       "id": "OPT-002",

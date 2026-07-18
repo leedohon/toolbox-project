@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.5.4v",
+  "latestVersion": "0.5.5v",
   "paths": {
     "definition": "toolbox/tools/qr-barcode-generator.md",
     "post": "toolbox/posts/qr-barcode-generator.html",

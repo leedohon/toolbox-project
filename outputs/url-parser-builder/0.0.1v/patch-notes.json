@@ -1,0 +1,16 @@
+{
+  "tool": "url-parser-builder",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "URL 프로토콜·호스트·경로·해시 분석",
+    "번호가 있는 쿼리 행 추가·삭제·편집",
+    "완성 URL 복사·KOR / ENG"
+  ],
+  "qa": [
+    "한글·중복 키·빈 값·해시 URL 확인",
+    "375px 반복 행과 긴 URL 넘침 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

@@ -3,7 +3,7 @@ title: 데이터 용량 단위 변환기
 slug: data-size-converter
 type: converter
 description: 바이트·KB·MB·GB·KiB·MiB·GiB 용량을 SI와 IEC 기준으로 한 번에 변환합니다.
-status: published
+status: retired
 inputs:
   - id: value
     label: 용량 값
@@ -27,5 +27,6 @@ inputs:
 
 ## 호환성
 
-- 기능은 고정 주소 `embed/data-size-converter/`와 독립 `tool.js` 모듈로 제공한다.
-- 공통 CSS, KOR / ENG, 모바일 포커스 방지, iframe 높이 동기화 인터페이스를 재사용한다.
+- 모든 SI·IEC 데이터 단위 결과 기능을 `date-calculator`의 데이터 단위 분야로 통합했다.
+- 공개 카탈로그에서는 제외하고 기존 게시글과 `embed/data-size-converter/` 주소는 통합 도구의 호환 진입점으로 유지한다.
+- `replacementTool`은 `date-calculator`로 기록한다.

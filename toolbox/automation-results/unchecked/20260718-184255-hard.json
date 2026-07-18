@@ -71,5 +71,5 @@
   },
   "shutdown": {"requested":false,"scheduled":false,"input":"아니오","scheduledFor":null,"cancelled":false},
   "blocked": [],
-  "reportHistory": ["2026-07-18T19:13:45+09:00", "2026-07-18T19:23:16+09:00"]
+  "reportHistory": ["2026-07-18T19:13:45+09:00", "2026-07-18T19:23:16+09:00", "2026-07-19T02:42:40+09:00"]
 }

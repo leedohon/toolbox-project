@@ -1,0 +1,9 @@
+{
+  "tool": "qr-barcode-generator",
+  "version": "0.5.5v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "빈 문서 제목을 QR · 바코드 생성기로 지정"
+  ]
+}

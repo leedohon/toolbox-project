@@ -4,7 +4,7 @@
   "title": "텍스트 비교·차이 확인기",
   "description": "원본과 수정본을 줄 단위로 비교해 추가·삭제·변경된 내용을 한눈에 표시합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_912.html",
-  "latestVersion": "0.0.2v",
+  "latestVersion": "0.0.3v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -23,6 +23,15 @@
       "directory": "0.0.2v",
       "html": "0.0.2v/text-diff-checker.html",
       "patchNotes": "0.0.2v/patch-notes.json"
+    },
+    {
+      "version": "0.0.3v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "두 장문 비교 입력을 위아래 전체 폭으로 개선했습니다.",
+      "directory": "0.0.3v",
+      "html": "0.0.3v/text-diff-checker.html",
+      "patchNotes": "0.0.3v/patch-notes.json"
     }
   ]
 }

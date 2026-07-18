@@ -1,0 +1,19 @@
+{
+  "index": 35,
+  "tool": "url-parser-builder",
+  "title": "URL 분석·쿼리 편집기",
+  "description": "URL의 주소 구성요소와 쿼리 항목을 나누어 확인하고 수정한 주소를 다시 만듭니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/url_01194177481.html",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "URL 구성요소 분석과 쿼리 행 편집을 제공하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/url-parser-builder.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

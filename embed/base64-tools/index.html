@@ -205,9 +205,9 @@
       setMessage('결과를 복사했습니다.');
     } catch (error) {
       var copied = false;
-      try { output.select(); copied = document.execCommand('copy'); } catch (fallbackError) { copied = false; }
+      try { copied = document.execCommand('copy'); } catch (fallbackError) { copied = false; }
       if (copied) setMessage('결과를 복사했습니다.');
-      else { window.ToolboxUX?.focusAndSelect(output); setMessage('자동 복사가 차단되었습니다. 결과 상자를 선택해 직접 복사해 주세요.', true); }
+      else { setMessage('자동 복사가 차단되었습니다. 결과 상자에서 필요한 내용을 직접 선택해 복사해 주세요.', true); }
     }
   }
   function loadFile(file) {

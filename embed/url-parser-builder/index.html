@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>URL 분석·쿼리 편집기</title>
+<link rel="stylesheet" href="../../assets/simple-tools.css?v=0.1.1">
+<link rel="stylesheet" href="../../assets/longtext-tools.css?v=0.1.0">
+<link rel="stylesheet" href="../../assets/url-parser-builder.css?v=0.1.0">
+<link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
+<script src="../../assets/toolbox-i18n.js?v=0.3.0"></script>
+<script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
+</head>
+<body>
+<article class="simple-tool" aria-label="URL 분석·쿼리 편집기">
+  <div class="st-field"><label class="st-label" for="url-input" data-ko="분석할 URL" data-en="URL to inspect">분석할 URL</label><textarea id="url-input" maxlength="100000" data-ko-placeholder="https://example.com/path?name=value#section" data-en-placeholder="https://example.com/path?name=value#section">https://example.com/tools?lang=ko&amp;tag=web&amp;tag=utility#guide</textarea></div>
+  <div class="st-actions"><button class="st-primary" id="url-parse" type="button" data-ko="URL 분석" data-en="Parse URL">URL 분석</button><button class="st-secondary" id="url-reset" type="button" data-ko="초기화" data-en="Reset">초기화</button></div>
+  <p class="st-status" id="url-status" aria-live="polite"></p>
+  <section class="st-result" id="url-editor" hidden><h2 data-ko="주소 구성요소" data-en="URL components">주소 구성요소</h2><div class="up-components"><div class="st-field"><label class="st-label" for="url-protocol" data-ko="프로토콜" data-en="Protocol">프로토콜</label><input id="url-protocol" readonly></div><div class="st-field"><label class="st-label" for="url-host" data-ko="호스트" data-en="Host">호스트</label><input id="url-host" readonly></div><div class="st-field"><label class="st-label" for="url-port" data-ko="포트" data-en="Port">포트</label><input id="url-port" readonly></div><div class="st-field"><label class="st-label" for="url-path" data-ko="경로" data-en="Path">경로</label><input id="url-path"></div><div class="st-field"><label class="st-label" for="url-hash" data-ko="해시" data-en="Hash">해시</label><input id="url-hash"></div></div>
+    <h2 data-ko="쿼리 항목" data-en="Query parameters">쿼리 항목</h2><p class="st-help" data-ko="이름과 값을 같은 행에서 편집합니다. 빈 이름은 가까운 행에 표시됩니다." data-en="Edit each name and value in one row. Empty names are marked in place.">이름과 값을 같은 행에서 편집합니다. 빈 이름은 가까운 행에 표시됩니다.</p><div class="up-query-list" id="url-query-list"></div><button class="st-secondary" id="url-add" type="button" data-ko="+ 쿼리 항목 추가" data-en="+ Add query parameter">+ 쿼리 항목 추가</button>
+    <h2 data-ko="완성 URL" data-en="Rebuilt URL">완성 URL</h2><code class="wf-result-code" id="url-output"></code><div class="st-actions"><button class="st-primary" id="url-copy" type="button" data-ko="완성 URL 복사" data-en="Copy rebuilt URL">완성 URL 복사</button></div>
+  </section>
+  <textarea class="st-copy-fallback" id="url-fallback" readonly hidden></textarea>
+</article>
+<script type="module" src="./tool.js?v=0.0.1"></script>
+</body>
+</html>

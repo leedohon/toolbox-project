@@ -1,3 +1,6 @@
+<title>JSON 도구</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON 도구</title>
 <script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
 <!-- Blogger 글쓰기 화면에서 HTML 보기로 전환한 뒤, 이 파일 전체를 붙여 넣으세요. -->
 <link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
@@ -176,7 +179,7 @@
     <div class="tb-editors">
       <div class="tb-editor">
         <label class="tb-label" for="json-input">JSON 입력</label>
-        <textarea id="json-input" spellcheck="false" placeholder='예: {"name":"toolbox","enabled":true}' aria-describedby="json-error"></textarea>
+        <textarea id="json-input" maxlength="5242880" spellcheck="false" placeholder='예: {"name":"toolbox","enabled":true}' aria-describedby="json-error"></textarea>
       </div>
       <div class="tb-editor">
         <label class="tb-label" for="json-output">결과 및 오류 위치</label>
@@ -298,8 +301,19 @@
         excelTable.appendChild(body); excelEmpty.hidden = true; excelTable.hidden = false;
         excelMeta.textContent = tableData.rows.length.toLocaleString() + '행 · ' + tableData.headers.length.toLocaleString() + '열' + (tableData.rows.length > 100 ? ' (미리보기 100행)' : '');
       };
+      const maxJsonBytes = 5 * 1024 * 1024;
       const update = function () {
-        const text = input.value.trim();
+        const source = input.value;
+        if (new TextEncoder().encode(source).byteLength > maxJsonBytes) {
+          latestResult = '';
+          latestTable = null;
+          output.textContent = '입력 크기를 줄이면 결과가 여기에 표시됩니다.';
+          renderTable(null);
+          setStatus('invalid', 'JSON 입력은 5MB 이하로 줄여 주세요.');
+          error.textContent = '직접 붙여넣는 JSON도 5MB 이하만 처리할 수 있습니다.';
+          return;
+        }
+        const text = source.trim();
         error.textContent = '';
         if (!text) {
           latestResult = '';

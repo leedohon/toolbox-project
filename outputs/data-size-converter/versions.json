@@ -1,10 +1,12 @@
 {
   "index": 31,
   "tool": "data-size-converter",
+  "status": "retired",
+  "replacementTool": "date-calculator",
   "title": "데이터 용량 단위 변환기",
   "description": "바이트·KB·MB·GB·KiB·MiB·GiB 용량을 SI와 IEC 기준으로 한 번에 변환합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_112.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +16,15 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/data-size-converter.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minor",
+      "summary": "데이터 단위 변환 기능을 다용도 계산기로 통합했습니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/data-size-converter.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
   ]
 }

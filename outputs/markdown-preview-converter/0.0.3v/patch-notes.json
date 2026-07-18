@@ -1,0 +1,9 @@
+{
+  "tool": "markdown-preview-converter",
+  "version": "0.0.3v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "마크다운 입력과 미리보기를 모든 화면에서 위아래 한 열로 고정"
+  ]
+}

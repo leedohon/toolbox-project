@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "xml-formatter-validator",
+  "index": 34,
+  "title": "XML 검사·정리 도구",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/xml-formatter-validator.md",
+    "post": "toolbox/posts/xml-formatter-validator.html",
+    "manifest": "outputs/xml-formatter-validator/versions.json",
+    "embed": "embed/xml-formatter-validator/index.html",
+    "moduleRegistry": "embed/xml-formatter-validator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "xml-formatter-validator",
+      "label": {
+        "ko": "XML 검사·정리 도구",
+        "en": "XML formatter and validator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "xml-formatter-validator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

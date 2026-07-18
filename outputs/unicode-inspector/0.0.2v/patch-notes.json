@@ -1,0 +1,9 @@
+{
+  "tool": "unicode-inspector",
+  "version": "0.0.2v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "결과 표 스크롤 영역에 이름과 키보드 포커스 제공"
+  ]
+}

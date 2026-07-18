@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "xml-formatter-validator",
+      "label": {
+        "ko": "XML 검사·정리 도구",
+        "en": "XML formatter and validator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "xml-formatter-validator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

@@ -23,7 +23,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.5.4v",
+      "latestVersion": "0.5.5v",
       "paths": {
         "definition": "toolbox/tools/qr-barcode-generator.md",
         "post": "toolbox/posts/qr-barcode-generator.html",
@@ -39,7 +39,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.7.0v",
+      "latestVersion": "0.7.1v",
       "paths": {
         "definition": "toolbox/tools/json-tools.md",
         "post": "toolbox/posts/json-tools.html",
@@ -55,7 +55,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.9.2v",
+      "latestVersion": "0.9.3v",
       "paths": {
         "definition": "toolbox/tools/base64-tools.md",
         "post": "toolbox/posts/base64-tools.html",
@@ -167,7 +167,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.4v",
+      "latestVersion": "1.1.0v",
       "paths": {
         "definition": "toolbox/tools/date-calculator.md",
         "post": "toolbox/posts/date-calculator.html",
@@ -279,7 +279,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/text-diff-checker.md",
         "post": "toolbox/posts/text-diff-checker.html",
@@ -295,7 +295,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/markdown-preview-converter.md",
         "post": "toolbox/posts/markdown-preview-converter.html",
@@ -471,7 +471,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/unicode-inspector.md",
         "post": "toolbox/posts/unicode-inspector.html",
@@ -501,9 +501,9 @@
       "tool": "data-size-converter",
       "title": "데이터 용량 단위 변환기",
       "category": "초간단 툴박스",
-      "status": "published",
-      "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "status": "retired",
+      "replacementTool": "date-calculator",
+      "latestVersion": "0.1.0v",
       "paths": {
         "definition": "toolbox/tools/data-size-converter.md",
         "post": "toolbox/posts/data-size-converter.html",
@@ -542,6 +542,38 @@
         "manifest": "outputs/css-box-shadow-generator/versions.json",
         "embed": "embed/css-box-shadow-generator/index.html",
         "moduleRegistry": "embed/css-box-shadow-generator/modules.json"
+      }
+    },
+    {
+      "index": 34,
+      "tool": "xml-formatter-validator",
+      "title": "XML 검사·정리 도구",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/xml-formatter-validator.md",
+        "post": "toolbox/posts/xml-formatter-validator.html",
+        "manifest": "outputs/xml-formatter-validator/versions.json",
+        "embed": "embed/xml-formatter-validator/index.html",
+        "moduleRegistry": "embed/xml-formatter-validator/modules.json"
+      }
+    },
+    {
+      "index": 35,
+      "tool": "url-parser-builder",
+      "title": "URL 분석·쿼리 편집기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/url-parser-builder.md",
+        "post": "toolbox/posts/url-parser-builder.html",
+        "manifest": "outputs/url-parser-builder/versions.json",
+        "embed": "embed/url-parser-builder/index.html",
+        "moduleRegistry": "embed/url-parser-builder/modules.json"
       }
     }
   ]

@@ -1,0 +1,10 @@
+{
+  "tool": "data-size-converter",
+  "version": "0.1.0v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minor",
+  "changes": [
+    "모든 SI·IEC 데이터 단위 결과를 다용도 계산기로 통합",
+    "기존 주소를 KOR / ENG 호환 안내로 보존"
+  ]
+}

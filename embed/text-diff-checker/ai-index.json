@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.2v",
+  "latestVersion": "0.0.3v",
   "paths": {
     "definition": "toolbox/tools/text-diff-checker.md",
     "post": "toolbox/posts/text-diff-checker.html",

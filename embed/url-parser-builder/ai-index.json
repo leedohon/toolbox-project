@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "url-parser-builder",
+  "index": 35,
+  "title": "URL 분석·쿼리 편집기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/url-parser-builder.md",
+    "post": "toolbox/posts/url-parser-builder.html",
+    "manifest": "outputs/url-parser-builder/versions.json",
+    "embed": "embed/url-parser-builder/index.html",
+    "moduleRegistry": "embed/url-parser-builder/modules.json"
+  },
+  "modules": [
+    {
+      "id": "url-parser-builder",
+      "label": {
+        "ko": "URL 분석·쿼리 편집기",
+        "en": "URL parser and query editor"
+      },
+      "entry": "./tool.js",
+      "messageTool": "url-parser-builder",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

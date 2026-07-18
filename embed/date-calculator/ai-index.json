@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "1.0.4v",
+  "latestVersion": "1.1.0v",
   "paths": {
     "definition": "toolbox/tools/date-calculator.md",
     "post": "toolbox/posts/date-calculator.html",

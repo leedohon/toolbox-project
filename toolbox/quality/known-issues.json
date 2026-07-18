@@ -41,6 +41,16 @@
       "fixContract": ["대체 manifest의 title과 category를 사용", "게임 전용 결과 코드 문구는 multipurpose-draw-game 대체에만 사용", "일반 통합은 기존 주소와 입력·결과 호환을 안내"],
       "regressionChecks": ["생성된 H1에 실제 대체 도구 제목 표시", "대체 도구와 무관한 게임·PNG·결과 코드 문구 없음", "대체 게시글과 embed 링크가 manifest와 일치"],
       "affectedPatterns": ["scripts/build-retired-tool-posts.mjs", "toolbox/posts/*retired*.html", "outputs/*/*v/*.html"]
+    },
+    {
+      "code": "PORTRAIT_LONG_TEXT_SQUEEZE",
+      "status": "guarded",
+      "summary": "비교 원문과 수정문처럼 긴 텍스트 입력 영역을 좌우로 나눠 각 입력 폭과 편집 편의가 줄어듦",
+      "fingerprints": ["textarea", "wf-grid", "long text", "side by side", "portrait", "text diff"],
+      "rootCause": "짧은 수치 입력용 2열 그리드를 장문 텍스트 입력에도 동일하게 사용함",
+      "fixContract": ["장문 텍스트 입력 영역이 둘 이상이면 모든 화면에서 위아래 한 열로 고정", "각 장문 입력은 전체 가용 폭과 충분한 세로 높이를 사용", "입력과 장문 미리보기를 함께 편집하는 화면도 세로 입력 동선을 우선 검토"],
+      "regressionChecks": ["장문 입력 두 개의 left 위치가 같고 두 번째 top이 첫 번째 하단보다 큼", "모바일 375px와 데스크톱 1280px에서 각 장문 입력이 컨테이너 전체 폭 사용", "가로 문서 넘침과 입력 내부 이중 스크롤 없음"],
+      "affectedPatterns": ["assets/longtext-tools.css", "embed/**/index.html", "toolbox/tools/*.md"]
     }
   ]
 }

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-18",
   "tool": "markdown-preview-converter",
   "index": 18,
   "title": "마크다운 미리보기·HTML 변환기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.0.2v",
   "paths": {
     "definition": "toolbox/tools/markdown-preview-converter.md",
     "post": "toolbox/posts/markdown-preview-converter.html",

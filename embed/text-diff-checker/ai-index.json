@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-18",
   "tool": "text-diff-checker",
   "index": 17,
   "title": "텍스트 비교·차이 확인기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.0.2v",
   "paths": {
     "definition": "toolbox/tools/text-diff-checker.md",
     "post": "toolbox/posts/text-diff-checker.html",

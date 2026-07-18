@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-18",
   "project": "toolbox",
   "keySources": {
     "content": "toolbox/post-content.json",
@@ -23,7 +23,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.5.3v",
+      "latestVersion": "0.5.4v",
       "paths": {
         "definition": "toolbox/tools/qr-barcode-generator.md",
         "post": "toolbox/posts/qr-barcode-generator.html",
@@ -39,7 +39,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.6.3v",
+      "latestVersion": "0.7.0v",
       "paths": {
         "definition": "toolbox/tools/json-tools.md",
         "post": "toolbox/posts/json-tools.html",
@@ -55,7 +55,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.9.1v",
+      "latestVersion": "0.9.2v",
       "paths": {
         "definition": "toolbox/tools/base64-tools.md",
         "post": "toolbox/posts/base64-tools.html",
@@ -135,7 +135,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.2.3v",
+      "latestVersion": "0.2.4v",
       "paths": {
         "definition": "toolbox/tools/image-mosaic-tool.md",
         "post": "toolbox/posts/image-mosaic-tool.html",
@@ -150,8 +150,8 @@
       "title": "URL 인코더·디코더",
       "category": "초간단 툴박스",
       "status": "retired",
-      "replacementTool": null,
-      "latestVersion": "0.1.2v",
+      "replacementTool": "base64-tools",
+      "latestVersion": "0.1.3v",
       "paths": {
         "definition": "toolbox/tools/url-encoder-decoder.md",
         "post": "toolbox/posts/url-encoder-decoder.html",
@@ -167,7 +167,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.3v",
+      "latestVersion": "1.0.4v",
       "paths": {
         "definition": "toolbox/tools/date-calculator.md",
         "post": "toolbox/posts/date-calculator.html",
@@ -183,7 +183,7 @@
       "category": "다용도 펀박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.1.0v",
       "paths": {
         "definition": "toolbox/tools/multipurpose-draw-game.md",
         "post": "toolbox/posts/multipurpose-draw-game.html",
@@ -199,7 +199,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/password-generator.md",
         "post": "toolbox/posts/password-generator.html",
@@ -215,7 +215,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/image-resizer-compressor.md",
         "post": "toolbox/posts/image-resizer-compressor.html",
@@ -231,7 +231,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/color-converter-contrast.md",
         "post": "toolbox/posts/color-converter-contrast.html",
@@ -247,7 +247,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/unix-timestamp-converter.md",
         "post": "toolbox/posts/unix-timestamp-converter.html",
@@ -263,7 +263,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/text-counter-cleaner.md",
         "post": "toolbox/posts/text-counter-cleaner.html",
@@ -279,7 +279,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/text-diff-checker.md",
         "post": "toolbox/posts/text-diff-checker.html",
@@ -295,7 +295,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/markdown-preview-converter.md",
         "post": "toolbox/posts/markdown-preview-converter.html",
@@ -311,7 +311,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/csv-table-converter.md",
         "post": "toolbox/posts/csv-table-converter.html",
@@ -327,7 +327,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/uuid-generator.md",
         "post": "toolbox/posts/uuid-generator.html",
@@ -343,13 +343,45 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/css-gradient-generator.md",
         "post": "toolbox/posts/css-gradient-generator.html",
         "manifest": "outputs/css-gradient-generator/versions.json",
         "embed": "embed/css-gradient-generator/index.html",
         "moduleRegistry": "embed/css-gradient-generator/modules.json"
+      }
+    },
+    {
+      "index": 22,
+      "tool": "regex-tester",
+      "title": "정규식 테스트 도구",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/regex-tester.md",
+        "post": "toolbox/posts/regex-tester.html",
+        "manifest": "outputs/regex-tester/versions.json",
+        "embed": "embed/regex-tester/index.html",
+        "moduleRegistry": "embed/regex-tester/modules.json"
+      }
+    },
+    {
+      "index": 23,
+      "tool": "aspect-ratio-calculator",
+      "title": "화면 비율 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/aspect-ratio-calculator.md",
+        "post": "toolbox/posts/aspect-ratio-calculator.html",
+        "manifest": "outputs/aspect-ratio-calculator/versions.json",
+        "embed": "embed/aspect-ratio-calculator/index.html",
+        "moduleRegistry": "embed/aspect-ratio-calculator/modules.json"
       }
     }
   ]

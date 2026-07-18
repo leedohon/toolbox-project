@@ -5,7 +5,7 @@
   "title": "다용도 뽑기게임",
   "description": "사다리, 돌림판, 숫자뽑기와 편가르기를 한 화면에서 선택하고 결과를 공유합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_15.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -15,6 +15,15 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/multipurpose-draw-game.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minor",
+      "summary": "통합 게임 컨테이너에 공통 언어 선택을 적용했습니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/multipurpose-draw-game.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
   ]
 }

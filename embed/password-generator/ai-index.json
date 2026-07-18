@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-18",
   "tool": "password-generator",
   "index": 12,
   "title": "안전 비밀번호 생성기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.2v",
+  "latestVersion": "0.0.3v",
   "paths": {
     "definition": "toolbox/tools/password-generator.md",
     "post": "toolbox/posts/password-generator.html",
@@ -25,6 +25,8 @@
       "entry": "./tool.js",
       "messageTool": "password-generator",
       "capabilities": {
+        "resultCode": false,
+        "png": false,
         "copyFallback": true,
         "i18n": true,
         "responsive": true,

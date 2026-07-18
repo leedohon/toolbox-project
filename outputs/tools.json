@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-18",
   "tools": [
     {
       "index": 1,
@@ -7,7 +7,7 @@
       "title": "QR · 바코드 생성기",
       "description": "KOR/ENG 화면에서 QR·바코드를 만들고 설정을 한 번에 초기화할 수 있습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
-      "version": "0.5.3v",
+      "version": "0.5.4v",
       "keywords": [
         "QR코드",
         "바코드",
@@ -45,7 +45,7 @@
       "title": "JSON 도구",
       "description": "예제 JSON을 바로 불러와 검사·정리하고 Excel·CSV 파일로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-      "version": "0.6.3v",
+      "version": "0.7.0v",
       "keywords": [
         "JSON",
         "JSON포맷터",
@@ -83,7 +83,7 @@
       "title": "텍스트 인코더·디코더",
       "description": "Base64와 URL 인코딩·디코딩을 한 화면에서 빠르게 처리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
-      "version": "0.9.1v",
+      "version": "0.9.2v",
       "keywords": [
         "텍스트인코더",
         "Base64",
@@ -122,7 +122,7 @@
       "title": "이미지 모자이크 도구",
       "description": "KOR/ENG 화면에서 브러시로 칠하거나 사각형으로 선택해 모자이크 처리하고 PNG로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
-      "version": "0.2.3v",
+      "version": "0.2.4v",
       "keywords": [
         "이미지모자이크",
         "사진편집",
@@ -160,7 +160,7 @@
       "title": "다용도 계산기",
       "description": "일반 사칙연산과 다양한 단위 환산 계산, 날짜 계산을 한 화면에서 처리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
-      "version": "1.0.3v",
+      "version": "1.0.4v",
       "keywords": [
         "다용도계산기",
         "단위변환",
@@ -198,7 +198,7 @@
       "title": "다용도 뽑기게임",
       "description": "사다리, 돌림판, 숫자뽑기와 편가르기를 한 화면에서 선택하고 결과를 공유합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_15.html",
-      "version": "0.0.1v",
+      "version": "0.1.0v",
       "keywords": [
         "다용도펀박스",
         "다용도뽑기게임",
@@ -237,7 +237,7 @@
       "title": "안전 비밀번호 생성기",
       "description": "길이와 문자 구성을 선택해 브라우저 안에서 안전한 무작위 비밀번호를 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
-      "version": "0.0.2v",
+      "version": "0.0.3v",
       "keywords": [
         "비밀번호생성기",
         "안전한비밀번호",
@@ -275,7 +275,7 @@
       "title": "이미지 크기·용량 변환기",
       "description": "이미지 크기와 저장 형식·품질을 바꿔 용량을 줄이고 바로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html",
-      "version": "0.0.2v",
+      "version": "0.0.3v",
       "keywords": [
         "이미지압축",
         "이미지리사이즈",
@@ -313,7 +313,7 @@
       "title": "색상 변환·대비 검사기",
       "description": "두 색상을 HEX·RGB·HSL로 변환하고 글자와 배경의 접근성 대비를 확인합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-      "version": "0.0.2v",
+      "version": "0.0.3v",
       "keywords": [
         "색상변환",
         "대비검사",
@@ -351,7 +351,7 @@
       "title": "Unix 시간 변환기",
       "description": "Unix 초·밀리초와 읽기 쉬운 지역 날짜·UTC 시간을 서로 변환합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/unix.html",
-      "version": "0.0.2v",
+      "version": "0.0.3v",
       "keywords": [
         "Unix시간",
         "타임스탬프",
@@ -389,7 +389,7 @@
       "title": "글자수·텍스트 정리기",
       "description": "글자·단어·줄·UTF-8 용량을 실시간으로 세고 불필요한 공백과 빈 줄을 정리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
-      "version": "0.0.2v",
+      "version": "0.0.3v",
       "keywords": [
         "글자수세기",
         "텍스트정리",
@@ -427,7 +427,7 @@
       "title": "텍스트 비교·차이 확인기",
       "description": "원본과 수정본을 줄 단위로 비교해 추가·삭제·변경된 내용을 한눈에 표시합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_912.html",
-      "version": "0.0.1v",
+      "version": "0.0.2v",
       "keywords": [
         "텍스트비교",
         "문서차이",
@@ -465,7 +465,7 @@
       "title": "마크다운 미리보기·HTML 변환기",
       "description": "마크다운 문서를 실시간으로 미리 보고 안전한 HTML 결과를 복사하거나 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/html.html",
-      "version": "0.0.1v",
+      "version": "0.0.2v",
       "keywords": [
         "마크다운",
         "MarkdownPreview",
@@ -503,7 +503,7 @@
       "title": "CSV 표 보기·변환기",
       "description": "CSV·TSV 텍스트를 표로 확인하고 JSON 또는 다른 구분자 형식으로 변환합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/csv.html",
-      "version": "0.0.1v",
+      "version": "0.0.2v",
       "keywords": [
         "CSV변환",
         "CSV뷰어",
@@ -541,7 +541,7 @@
       "title": "UUID 일괄 생성기",
       "description": "브라우저의 안전한 난수로 UUID v4를 한 번에 여러 개 만들고 원하는 형식으로 복사합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/uuid.html",
-      "version": "0.0.1v",
+      "version": "0.0.2v",
       "keywords": [
         "UUID생성기",
         "UUIDv4",
@@ -579,7 +579,7 @@
       "title": "CSS 그라데이션 생성기",
       "description": "색상과 방향을 조절해 선형·원형 그라데이션을 미리 보고 CSS 코드를 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/css.html",
-      "version": "0.0.1v",
+      "version": "0.0.2v",
       "keywords": [
         "CSS그라데이션",
         "그라데이션생성기",
@@ -609,6 +609,85 @@
         "무료 그라데이션",
         "모바일 CSS 생성",
         "색상 지점 추가"
+      ]
+    },
+    {
+      "index": 22,
+      "tool": "regex-tester",
+      "title": "정규식 테스트 도구",
+      "description": "정규식 패턴과 테스트 문장을 입력해 일치 항목과 위치를 브라우저에서 바로 확인합니다.",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_18.html",
+      "version": "0.0.1v",
+      "keywords": [
+        "정규식",
+        "텍스트검사",
+        "개발도구",
+        "패턴테스트",
+        "정규식테스터",
+        "정규식 테스트",
+        "regex tester",
+        "regular expression",
+        "정규표현식",
+        "패턴 검사",
+        "문자열 검색",
+        "텍스트 매칭",
+        "정규식 플래그",
+        "regex flags",
+        "global regex",
+        "case insensitive regex",
+        "multiline regex",
+        "dotall regex",
+        "정규식 문법",
+        "패턴 오류",
+        "일치 항목",
+        "match positions",
+        "텍스트 하이라이트",
+        "개발자 도구",
+        "온라인 정규식",
+        "브라우저 정규식",
+        "무료 정규식 도구",
+        "문장 패턴 검사",
+        "로그 패턴 검사",
+        "코드 정규식"
+      ]
+    },
+    {
+      "index": 23,
+      "tool": "aspect-ratio-calculator",
+      "title": "화면 비율 계산기",
+      "description": "가로·세로 크기의 비율을 줄여 표시하고 한쪽 길이에 맞는 반대쪽 길이를 계산합니다.",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_78.html",
+      "version": "0.0.1v",
+      "keywords": [
+        "화면비율",
+        "가로세로비율",
+        "이미지크기",
+        "반응형계산",
+        "화면비율계산기",
+        "aspect ratio calculator",
+        "이미지 비율",
+        "영상 비율",
+        "16대9",
+        "4대3",
+        "세로 비율",
+        "해상도 계산",
+        "이미지 크기 계산",
+        "비율 유지",
+        "반응형 크기",
+        "width height ratio",
+        "resolution calculator",
+        "aspect ratio",
+        "비율 줄이기",
+        "최대공약수 비율",
+        "목표 가로",
+        "목표 세로",
+        "픽셀 계산",
+        "유튜브 비율",
+        "썸네일 비율",
+        "사진 비율",
+        "캔버스 크기",
+        "웹 디자인 도구",
+        "온라인 비율 계산"
       ]
     }
   ]

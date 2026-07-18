@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "regex-tester",
+      "label": {
+        "ko": "정규식 테스트 도구",
+        "en": "Regular expression tester"
+      },
+      "entry": "./tool.js",
+      "messageTool": "regex-tester",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

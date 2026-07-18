@@ -135,6 +135,9 @@
     #toolbox-json-tools .tb-primary:hover { background: var(--tb-sky-hover); border-color: var(--tb-sky-hover); }
     #toolbox-json-tools .tb-secondary { color: #111; background: #fff; border-color: #b9c7cd; }
     #toolbox-json-tools .tb-error { min-height: 1.35em; margin: 10px 0 0; color: var(--tb-bad); font-size: .9rem; }
+    #toolbox-json-tools .tb-file-drop { display:flex; min-height:48px; margin:0 0 14px; padding:10px 14px; align-items:center; justify-content:center; border:1px dashed #83bfd9; border-radius:10px; background:#f5fcff; color:#075675; font-weight:700; cursor:pointer; text-align:center; }
+    #toolbox-json-tools .tb-file-drop.is-over { border-color:var(--tb-sky); background:#e5f7ff; }
+    #toolbox-json-tools .tb-file-input { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
     #toolbox-json-tools details { margin: 10px 0; padding: 14px 16px; border: 1px solid var(--tb-line); border-radius: 10px; }
     #toolbox-json-tools summary { cursor: pointer; font-weight: 700; }
     @media (max-width: 640px) {
@@ -168,6 +171,8 @@
       </div>
     </fieldset>
     <p class="tb-status" id="json-status" aria-live="polite">JSON을 입력하면 실시간으로 검사합니다.</p>
+    <label class="tb-file-drop" id="json-file-drop" for="json-file">JSON 파일을 선택하거나 이곳에 놓으세요 · 최대 5MB</label>
+    <input class="tb-file-input" id="json-file" type="file" accept="application/json,.json">
     <div class="tb-editors">
       <div class="tb-editor">
         <label class="tb-label" for="json-input">JSON 입력</label>
@@ -323,6 +328,20 @@
       };
       root.querySelectorAll('input[name="json-mode"]').forEach(function (element) { element.addEventListener('change', update); });
       input.addEventListener('input', update);
+      const fileInput = root.querySelector('#json-file');
+      const fileDrop = root.querySelector('#json-file-drop');
+      const loadFile = function (file) {
+        if (!file) return;
+        if (file.size > 5 * 1024 * 1024) { error.textContent = 'JSON 파일은 5MB 이하로 선택해 주세요.'; fileInput.value = ''; return; }
+        const reader = new FileReader();
+        reader.onload = function () { input.value = String(reader.result); update(); setStatus(latestResult ? 'valid' : 'invalid', file.name + ' 파일을 불러왔습니다.'); fileInput.value = ''; };
+        reader.onerror = function () { error.textContent = 'JSON 파일을 읽지 못했습니다.'; fileInput.value = ''; };
+        reader.readAsText(file, 'utf-8');
+      };
+      fileInput.addEventListener('change', function () { loadFile(fileInput.files[0]); });
+      ['dragenter', 'dragover'].forEach(function (name) { fileDrop.addEventListener(name, function (event) { event.preventDefault(); fileDrop.classList.add('is-over'); }); });
+      ['dragleave', 'drop'].forEach(function (name) { fileDrop.addEventListener(name, function (event) { event.preventDefault(); fileDrop.classList.remove('is-over'); }); });
+      fileDrop.addEventListener('drop', function (event) { loadFile(event.dataTransfer.files[0]); });
       input.addEventListener('scroll', function () { output.scrollTop = input.scrollTop; output.scrollLeft = input.scrollLeft; });
       root.querySelector('#json-sample').addEventListener('click', function () { root.querySelector('#json-pretty').checked = true; input.value = JSON.stringify([{ name: 'Toolbox', category: 'Utility', users: 1200, active: true }, { name: 'Converter', category: 'Text', users: 860, active: true }, { name: 'Play Tools', category: 'Game', users: 540, active: false }], null, 2); update(); setStatus('valid', '예제 JSON을 불러왔습니다.'); window.ToolboxUX?.focus(input); });
       root.querySelector('#json-copy').addEventListener('click', async function (event) {

@@ -4,7 +4,7 @@
   "title": "CSV 표 보기·변환기",
   "description": "CSV·TSV 텍스트를 표로 확인하고 JSON 또는 다른 구분자 형식으로 변환합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/csv.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.0.2v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,15 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/csv-table-converter.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.0.2v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "공통 입력 접근성 표시를 개선했습니다.",
+      "directory": "0.0.2v",
+      "html": "0.0.2v/csv-table-converter.html",
+      "patchNotes": "0.0.2v/patch-notes.json"
     }
   ]
 }

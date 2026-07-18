@@ -1,0 +1,9 @@
+{
+  "tool": "image-resizer-compressor",
+  "version": "0.0.3v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "select 키보드 포커스와 비활성 컨트롤 표시 개선"
+  ]
+}

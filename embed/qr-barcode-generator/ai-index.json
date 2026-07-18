@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "qr-barcode-generator",
+  "index": 1,
+  "title": "QR · 바코드 생성기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.5.4v",
+  "paths": {
+    "definition": "toolbox/tools/qr-barcode-generator.md",
+    "post": "toolbox/posts/qr-barcode-generator.html",
+    "manifest": "outputs/qr-barcode-generator/versions.json",
+    "embed": "embed/qr-barcode-generator/index.html",
+    "moduleRegistry": null
+  },
+  "modules": [],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

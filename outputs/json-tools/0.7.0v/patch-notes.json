@@ -1,0 +1,9 @@
+{
+  "tool": "json-tools",
+  "version": "0.7.0v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minor",
+  "changes": [
+    "JSON 파일 선택과 드래그 앤 드롭 입력"
+  ]
+}

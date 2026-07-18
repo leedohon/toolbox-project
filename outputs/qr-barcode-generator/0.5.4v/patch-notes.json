@@ -1,0 +1,9 @@
+{
+  "tool": "qr-barcode-generator",
+  "version": "0.5.4v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "전경색과 배경색이 같을 때 오류와 저장 차단"
+  ]
+}

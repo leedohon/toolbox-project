@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>정규식 테스트 도구</title>
+  <link rel="stylesheet" href="../../assets/simple-tools.css?v=0.1.1">
+  <link rel="stylesheet" href="../../assets/workflow-tools.css?v=0.0.3">
+  <link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
+  <script src="../../assets/toolbox-i18n.js?v=0.3.0"></script>
+  <script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
+</head>
+<body>
+<article class="simple-tool" aria-label="정규식 테스트 도구">
+  <div class="st-field">
+    <label class="st-label" for="regex-pattern" data-ko="정규식 패턴" data-en="Regular expression pattern">정규식 패턴</label>
+    <input id="regex-pattern" type="text" maxlength="500" value="[가-힣]+" placeholder="예: [가-힣]+" spellcheck="false">
+    <p class="st-help" data-ko="양쪽 슬래시 없이 패턴 내용만 입력하세요." data-en="Enter the pattern without surrounding slashes.">양쪽 슬래시 없이 패턴 내용만 입력하세요.</p>
+  </div>
+  <fieldset class="st-mode">
+    <legend data-ko="플래그" data-en="Flags">플래그</legend>
+    <div class="st-mode-options">
+      <label><input name="regex-flag" type="checkbox" value="g" checked><span data-ko="전체 찾기 (g)" data-en="Find all (g)">전체 찾기 (g)</span></label>
+      <label><input name="regex-flag" type="checkbox" value="i"><span data-ko="대소문자 무시 (i)" data-en="Ignore case (i)">대소문자 무시 (i)</span></label>
+      <label><input name="regex-flag" type="checkbox" value="m"><span data-ko="여러 줄 (m)" data-en="Multiline (m)">여러 줄 (m)</span></label>
+      <label><input name="regex-flag" type="checkbox" value="s"><span data-ko="줄바꿈 포함 (s)" data-en="Dot matches newline (s)">줄바꿈 포함 (s)</span></label>
+    </div>
+  </fieldset>
+  <div class="st-field">
+    <label class="st-label" for="regex-text" data-ko="테스트 텍스트" data-en="Test text">테스트 텍스트</label>
+    <textarea id="regex-text" maxlength="50000" spellcheck="false">Hello 정규식 tester
+두 번째 한글 문장</textarea>
+  </div>
+  <div class="st-actions">
+    <button class="st-primary" id="regex-run" type="button" data-ko="일치 항목 찾기" data-en="Find matches">일치 항목 찾기</button>
+    <button class="st-secondary" id="regex-copy" type="button" data-ko="결과 복사" data-en="Copy results">결과 복사</button>
+    <button class="st-secondary" id="regex-reset" type="button" data-ko="초기화" data-en="Reset">초기화</button>
+  </div>
+  <p class="st-status" id="regex-status" role="status" aria-live="polite"></p>
+  <textarea class="st-copy-fallback" id="regex-fallback" readonly hidden></textarea>
+  <section class="st-result" id="regex-result" hidden>
+    <h2 data-ko="일치 결과" data-en="Match results">일치 결과</h2>
+    <p class="st-result-detail" id="regex-summary"></p>
+    <div class="wf-highlight" id="regex-highlight" aria-label="일치 부분이 강조된 텍스트"></div>
+    <ol class="wf-match-list" id="regex-list"></ol>
+  </section>
+</article>
+<script type="module" src="./tool.js?v=0.0.1"></script>
+</body>
+</html>

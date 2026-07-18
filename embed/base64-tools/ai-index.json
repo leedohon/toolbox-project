@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "base64-tools",
+  "index": 3,
+  "title": "텍스트 인코더·디코더",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.9.2v",
+  "paths": {
+    "definition": "toolbox/tools/base64-tools.md",
+    "post": "toolbox/posts/base64-tools.html",
+    "manifest": "outputs/base64-tools/versions.json",
+    "embed": "embed/base64-tools/index.html",
+    "moduleRegistry": null
+  },
+  "modules": [],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

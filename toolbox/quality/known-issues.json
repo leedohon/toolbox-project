@@ -31,6 +31,16 @@
       "fixContract": ["공통 자산 버전 변경 시 직접 참조와 전이 import 참조를 모두 탐색", "bump-embed-asset-version 스크립트로 캐시 키 일괄 갱신", "공개 네트워크 로그에서 새 버전 URL 확인"],
       "regressionChecks": ["공개 HTML이 새 모듈 캐시 키를 요청", "새 모듈이 새 공통 자산 버전을 import", "콘솔 오류 URL에 이전 버전이 없음"],
       "affectedPatterns": ["assets/**/*.js", "assets/**/*.css", "embed/**/*.html", "embed/**/*.js"]
+    },
+    {
+      "code": "RETIRED_POST_COPY_LEAK",
+      "status": "guarded",
+      "summary": "은퇴 도구 호환 게시글이 실제 대체 도구와 무관한 특정 게임 문구를 출력함",
+      "fingerprints": ["build-retired-tool-posts", "다용도 뽑기게임으로 통합", "replacementTool", "retired compatibility post"],
+      "rootCause": "은퇴 게시글 생성기가 최초 게임 통합 사례의 제목·기능·사용 단계를 고정 문구로 사용함",
+      "fixContract": ["대체 manifest의 title과 category를 사용", "게임 전용 결과 코드 문구는 multipurpose-draw-game 대체에만 사용", "일반 통합은 기존 주소와 입력·결과 호환을 안내"],
+      "regressionChecks": ["생성된 H1에 실제 대체 도구 제목 표시", "대체 도구와 무관한 게임·PNG·결과 코드 문구 없음", "대체 게시글과 embed 링크가 manifest와 일치"],
+      "affectedPatterns": ["scripts/build-retired-tool-posts.mjs", "toolbox/posts/*retired*.html", "outputs/*/*v/*.html"]
     }
   ]
 }

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-18",
   "tool": "csv-table-converter",
   "index": 19,
   "title": "CSV 표 보기·변환기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.0.2v",
   "paths": {
     "definition": "toolbox/tools/csv-table-converter.md",
     "post": "toolbox/posts/csv-table-converter.html",

@@ -1,0 +1,9 @@
+{
+  "tool": "multipurpose-draw-game",
+  "version": "0.1.0v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minor",
+  "changes": [
+    "컨테이너 KOR / ENG 선택과 모듈 전달"
+  ]
+}

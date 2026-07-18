@@ -125,7 +125,8 @@
     (function () {
       const root = document.getElementById('toolbox-qr-post');
       const $ = selector => root.querySelector(selector);
-      const content = $('#tb-content'), size = $('#tb-size'), foreground = $('#tb-foreground'), background = $('#tb-background'), barcodeText = $('#tb-barcode-text'), canvas = $('#tb-canvas'), barcode = $('#tb-barcode-svg'), error = $('#tb-error');
+      const content = $('#tb-content'), size = $('#tb-size'), foreground = $('#tb-foreground'), background = $('#tb-background'), barcodeText = $('#tb-barcode-text'), canvas = $('#tb-canvas'), barcode = $('#tb-barcode-svg'), error = $('#tb-error'), download = $('#tb-download');
+      let validOutput = false;
       const valueOf = name => root.querySelector('input[name="' + name + '"]:checked').value;
       const finder = (r, c, n) => (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7);
       function roundedRect(ctx, x, y, width, height, radius) {
@@ -136,6 +137,7 @@
       }
       function makeQr() {
         const text = content.value.trim(); if (!text) throw new Error('텍스트 또는 URL을 입력해 주세요.');
+        if (foreground.value.toLowerCase() === background.value.toLowerCase()) throw new Error('전경색과 배경색을 서로 다르게 선택해 주세요.');
         const code = qrcode(0, 'M'); code.addData(text); code.make();
         const n = code.getModuleCount(), output = Number(size.value), quiet = 4, unit = output / (n + quiet * 2), scale = 3;
         canvas.width = output * scale; canvas.height = output * scale; canvas.style.width = output + 'px'; canvas.style.height = output + 'px';
@@ -158,10 +160,11 @@
       }
       function makeBarcode() {
         const text = content.value.trim(); if (!text) throw new Error('텍스트 또는 URL을 입력해 주세요.');
+        if (foreground.value.toLowerCase() === background.value.toLowerCase()) throw new Error('전경색과 배경색을 서로 다르게 선택해 주세요.');
         JsBarcode(barcode, text, { format: 'CODE128', width: Math.max(1, Number(size.value) / 180), height: Math.round(Number(size.value) * .36), margin: 12, displayValue: barcodeText.checked, fontSize: 16, background: background.value, lineColor: foreground.value });
         barcode.style.width = Math.min(Number(size.value) * 1.4, 560) + 'px'; barcode.style.display = 'block'; canvas.style.display = 'none';
       }
-      function generate() { error.textContent = ''; try { valueOf('tb-type') === 'qr' ? makeQr() : makeBarcode(); } catch (e) { error.textContent = e.message || '생성하지 못했습니다.'; } }
+      function generate() { error.textContent = ''; validOutput = false; try { valueOf('tb-type') === 'qr' ? makeQr() : makeBarcode(); validOutput = true; download.disabled = false; } catch (e) { canvas.style.display = 'none'; barcode.style.display = 'none'; download.disabled = true; error.textContent = e.message || '생성하지 못했습니다.'; } }
       function updateType() { const qr = valueOf('tb-type') === 'qr'; $('#tb-style-field').hidden = !qr; $('#tb-barcode-text-field').hidden = qr; generate(); }
       content.addEventListener('input', generate);
       size.addEventListener('input', function () { $('#tb-size-value').textContent = size.value + 'px'; generate(); });
@@ -171,7 +174,7 @@
       root.querySelectorAll('input[name="tb-type"]').forEach(el => el.addEventListener('change', updateType));
       root.querySelectorAll('input[name="tb-style"]').forEach(el => el.addEventListener('change', generate));
       $('#tb-reset').addEventListener('click', function () { content.value = 'https://bloggiedh.blogspot.com/'; $('#tb-qr').checked = true; $('#tb-basic').checked = true; size.value = '280'; $('#tb-size-value').textContent = '280px'; foreground.value = '#111111'; background.value = '#ffffff'; barcodeText.checked = true; updateType(); window.ToolboxUX?.focus(content); });
-      $('#tb-download').addEventListener('click', function () { const a = document.createElement('a'); if (valueOf('tb-type') === 'qr') { a.href = canvas.toDataURL('image/png'); a.download = 'qr-code.png'; } else { a.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(barcode)); a.download = 'barcode.svg'; } a.click(); });
+      download.addEventListener('click', function () { if (!validOutput) { error.textContent = '저장할 수 있는 결과를 먼저 만들어 주세요.'; return; } const a = document.createElement('a'); if (valueOf('tb-type') === 'qr') { a.href = canvas.toDataURL('image/png'); a.download = 'qr-code.png'; } else { a.href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(barcode)); a.download = 'barcode.svg'; } a.click(); });
       generate();
     }());
   </script>

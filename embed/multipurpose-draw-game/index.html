@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>다용도 뽑기게임</title>
   <link rel="stylesheet" href="../../assets/funbox.css?v=0.0.2">
+  <link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
+  <script src="../../assets/toolbox-i18n.js?v=0.3.0"></script>
 <script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
 </head>
 <body>
   <main class="funbox" aria-labelledby="funbox-title">
     <section class="funbox-picker">
-      <h1 id="funbox-title">게임 선택 / Choose a game</h1>
-      <p class="funbox-help">원하는 방식을 선택하세요. 모드를 바꿔도 각 게임의 입력과 결과가 유지됩니다.</p>
+      <h1 id="funbox-title" data-ko="게임 선택" data-en="Choose a game">게임 선택</h1>
+      <p class="funbox-help" data-ko="원하는 방식을 선택하세요. 모드를 바꿔도 각 게임의 입력과 결과가 유지됩니다." data-en="Choose a mode. Each game keeps its inputs and results when you switch.">원하는 방식을 선택하세요. 모드를 바꿔도 각 게임의 입력과 결과가 유지됩니다.</p>
       <fieldset class="funbox-modes" id="funbox-modes" aria-label="뽑기게임 선택"></fieldset>
     </section>
-    <p class="funbox-status" id="funbox-status">게임 모듈을 준비하고 있습니다.</p>
+    <p class="funbox-status" id="funbox-status" data-ko="게임 모듈을 준비하고 있습니다." data-en="Preparing game modules.">게임 모듈을 준비하고 있습니다.</p>
     <section class="funbox-stage" id="funbox-stage" aria-live="polite"></section>
   </main>
   <script type="module">
@@ -27,6 +29,7 @@
     const modulesByTool = new Map();
     let modules = [];
     let activeId = '';
+    const isEnglish = () => window.ToolboxI18n?.language === 'en';
 
     function notifyHeight() {
       const height = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
@@ -40,7 +43,7 @@
       const input = modeRoot.querySelector(`input[value="${CSS.escape(id)}"]`);
       if (input) input.checked = true;
       const module = modules.find((item) => item.id === id);
-      status.textContent = module ? `${module.label.ko} / ${module.label.en}` : '';
+      status.textContent = module ? (isEnglish() ? module.label.en : module.label.ko) : '';
       if (persist) localStorage.setItem(storedModeKey, id);
       requestAnimationFrame(notifyHeight);
     }
@@ -48,7 +51,7 @@
     function buildModule(module, index) {
       const option = document.createElement('label');
       option.className = 'funbox-option';
-      option.innerHTML = `<input type="radio" name="funbox-mode" value="${module.id}"${index === 0 ? ' checked' : ''}><span>${module.label.ko}<br><small>${module.label.en}</small></span>`;
+      option.innerHTML = `<input type="radio" name="funbox-mode" value="${module.id}"${index === 0 ? ' checked' : ''}><span data-ko="${module.label.ko}" data-en="${module.label.en}">${isEnglish()?module.label.en:module.label.ko}</span>`;
       option.querySelector('input').addEventListener('change', () => activate(module.id));
       modeRoot.append(option);
 
@@ -86,11 +89,18 @@
       modules.forEach(buildModule);
       const preferred = localStorage.getItem(storedModeKey);
       activate(modules.some((item) => item.id === preferred) ? preferred : modules[0].id, false);
-      status.textContent = '원하는 게임을 선택해 바로 시작하세요.';
+      status.textContent = isEnglish() ? 'Choose a game to begin.' : '원하는 게임을 선택해 바로 시작하세요.';
     } catch (error) {
       status.textContent = error.message;
       status.setAttribute('role', 'alert');
     }
+
+    addEventListener('toolbox-language-change', () => {
+      const module = modules.find((item) => item.id === activeId);
+      status.textContent = module ? (isEnglish() ? module.label.en : module.label.ko) : (isEnglish() ? 'Preparing game modules.' : '게임 모듈을 준비하고 있습니다.');
+      for (const frame of frames.values()) { try { frame.contentWindow?.ToolboxI18n?.setLanguage(isEnglish() ? 'en' : 'ko'); } catch (_) {} }
+      requestAnimationFrame(notifyHeight);
+    });
 
     new ResizeObserver(notifyHeight).observe(document.body);
     addEventListener('load', notifyHeight);

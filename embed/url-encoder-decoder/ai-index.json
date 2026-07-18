@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "url-encoder-decoder",
+  "index": 9,
+  "title": "URL 인코더·디코더",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "base64-tools",
+  "latestVersion": "0.1.3v",
+  "paths": {
+    "definition": "toolbox/tools/url-encoder-decoder.md",
+    "post": "toolbox/posts/url-encoder-decoder.html",
+    "manifest": "outputs/url-encoder-decoder/versions.json",
+    "embed": "embed/url-encoder-decoder/index.html",
+    "moduleRegistry": null
+  },
+  "modules": [],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

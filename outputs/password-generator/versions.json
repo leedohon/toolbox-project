@@ -4,7 +4,7 @@
   "title": "안전 비밀번호 생성기",
   "description": "길이와 문자 구성을 선택해 브라우저 안에서 안전한 무작위 비밀번호를 만듭니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
-  "latestVersion": "0.0.2v",
+  "latestVersion": "0.0.3v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -23,6 +23,15 @@
       "directory": "0.0.2v",
       "html": "0.0.2v/password-generator.html",
       "patchNotes": "0.0.2v/patch-notes.json"
+    },
+    {
+      "version": "0.0.3v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "공통 입력 접근성 표시를 개선했습니다.",
+      "directory": "0.0.3v",
+      "html": "0.0.3v/password-generator.html",
+      "patchNotes": "0.0.3v/patch-notes.json"
     }
   ]
 }

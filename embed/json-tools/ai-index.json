@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "json-tools",
+  "index": 2,
+  "title": "JSON 도구",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.7.0v",
+  "paths": {
+    "definition": "toolbox/tools/json-tools.md",
+    "post": "toolbox/posts/json-tools.html",
+    "manifest": "outputs/json-tools/versions.json",
+    "embed": "embed/json-tools/index.html",
+    "moduleRegistry": null
+  },
+  "modules": [],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

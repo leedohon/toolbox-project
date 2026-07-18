@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-18",
   "tool": "uuid-generator",
   "index": 20,
   "title": "UUID 일괄 생성기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.0.2v",
   "paths": {
     "definition": "toolbox/tools/uuid-generator.md",
     "post": "toolbox/posts/uuid-generator.html",

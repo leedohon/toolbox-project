@@ -1,0 +1,16 @@
+{
+  "tool": "aspect-ratio-calculator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "정수 가로·세로의 간단한 비율 계산",
+    "목표 가로·세로 기준 반대쪽 크기 계산",
+    "KOR / ENG와 결과 복사 대체 처리"
+  ],
+  "qa": [
+    "데스크톱·375px 모바일 가로 넘침 확인",
+    "가로형·세로형·잘못된 입력 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

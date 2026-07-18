@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "aspect-ratio-calculator",
+  "index": 23,
+  "title": "화면 비율 계산기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/aspect-ratio-calculator.md",
+    "post": "toolbox/posts/aspect-ratio-calculator.html",
+    "manifest": "outputs/aspect-ratio-calculator/versions.json",
+    "embed": "embed/aspect-ratio-calculator/index.html",
+    "moduleRegistry": "embed/aspect-ratio-calculator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "aspect-ratio-calculator",
+      "label": {
+        "ko": "화면 비율 계산기",
+        "en": "Aspect ratio calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "aspect-ratio-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-18",
   "tool": "multipurpose-draw-game",
   "index": 11,
   "title": "다용도 뽑기게임",
   "category": "다용도 펀박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.1.0v",
   "paths": {
     "definition": "toolbox/tools/multipurpose-draw-game.md",
     "post": "toolbox/posts/multipurpose-draw-game.html",

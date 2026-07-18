@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "image-mosaic-tool",
+  "index": 8,
+  "title": "이미지 모자이크 도구",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.2.4v",
+  "paths": {
+    "definition": "toolbox/tools/image-mosaic-tool.md",
+    "post": "toolbox/posts/image-mosaic-tool.html",
+    "manifest": "outputs/image-mosaic-tool/versions.json",
+    "embed": "embed/image-mosaic-tool/index.html",
+    "moduleRegistry": null
+  },
+  "modules": [],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

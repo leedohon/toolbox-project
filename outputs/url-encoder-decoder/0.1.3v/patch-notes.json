@@ -1,0 +1,9 @@
+{
+  "tool": "url-encoder-decoder",
+  "version": "0.1.3v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "replacementTool 기록과 이중 언어 호환 진입점"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "aspect-ratio-calculator",
+      "label": {
+        "ko": "화면 비율 계산기",
+        "en": "Aspect ratio calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "aspect-ratio-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

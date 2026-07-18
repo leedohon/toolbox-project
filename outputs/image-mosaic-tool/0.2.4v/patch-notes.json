@@ -1,0 +1,9 @@
+{
+  "tool": "image-mosaic-tool",
+  "version": "0.2.4v",
+  "releaseDate": "2026-07-18",
+  "changeLevel": "minimum",
+  "changes": [
+    "Enter와 Space로 이미지 선택 창 열기"
+  ]
+}

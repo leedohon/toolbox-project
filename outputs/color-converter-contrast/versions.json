@@ -4,7 +4,7 @@
   "title": "색상 변환·대비 검사기",
   "description": "두 색상을 HEX·RGB·HSL로 변환하고 글자와 배경의 접근성 대비를 확인합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-  "latestVersion": "0.0.2v",
+  "latestVersion": "0.0.3v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -23,6 +23,15 @@
       "directory": "0.0.2v",
       "html": "0.0.2v/color-converter-contrast.html",
       "patchNotes": "0.0.2v/patch-notes.json"
+    },
+    {
+      "version": "0.0.3v",
+      "releaseDate": "2026-07-18",
+      "changeLevel": "minimum",
+      "summary": "공통 입력 접근성 표시를 개선했습니다.",
+      "directory": "0.0.3v",
+      "html": "0.0.3v/color-converter-contrast.html",
+      "patchNotes": "0.0.3v/patch-notes.json"
     }
   ]
 }

@@ -2,13 +2,13 @@
   "runId": "20260715-222329-create",
   "workflow": "create",
   "status": "completed",
-  "confirm": "N",
+  "confirm": "Y",
   "startedAt": "2026-07-15T22:23:29+09:00",
   "completedAt": "2026-07-15T22:42:16+09:00",
-  "confirmedAt": null,
+  "confirmedAt": "2026-07-18T18:39:46+09:00",
   "summary": "신규 실용 도구 5개를 제작하고 SEO 게시글, Blogger 공개 발행, GitHub Pages 배포와 공개 검증을 완료했습니다.",
   "normalizedRequest": {"workType":"new","targets":["text-diff-checker","markdown-preview-converter","csv-table-converter","uuid-generator","css-gradient-generator"],"versionLevel":"minimum","bloggerPublish":true,"gitDeploy":true,"shutdown":false},
-  "runState": {"current":"confirm","stages":{"select":{"status":"completed","startedAt":"2026-07-15T22:23:29+09:00","completedAt":"2026-07-15T22:26:00+09:00","evidence":["기존 공개 도구와 목적이 겹치지 않는 신규 도구 5개 선정"],"blockCode":null},"implement":{"status":"completed","startedAt":"2026-07-15T22:26:00+09:00","completedAt":"2026-07-15T22:38:00+09:00","evidence":["신규 5개 도구의 기능·게시글·0.0.1v·검색 메타데이터 생성","공통 다국어 속성·반응형 결과 스타일 재사용"],"blockCode":null},"validate":{"status":"completed","startedAt":"2026-07-15T22:38:00+09:00","completedAt":"2026-07-15T22:40:30+09:00","evidence":["128 JSON 및 최신 릴리스 경로 통과","14개 모듈 등록 계약 통과","5개 SEO 게시글 구조 통과","6개 JavaScript 모듈 구문 통과","375px 5개 도구 가로 넘침 0·자동 포커스 0","데스크톱 텍스트 비교와 모바일 그라데이션 시각 검증","그라데이션 + 항목 추가 동작 검증"],"blockCode":null},"publish":{"status":"completed","startedAt":"2026-07-15T22:40:30+09:00","completedAt":"2026-07-15T22:41:30+09:00","evidence":["Blogger LIVE 게시글 5개 생성","게시글 5개와 iframe 5개 공개 HTTP 200 확인"],"blockCode":null},"commit":{"status":"completed","startedAt":"2026-07-15T22:36:00+09:00","completedAt":"2026-07-15T22:42:16+09:00","evidence":["9842c5a","최종 게시글 URL 및 실행 기록 커밋"],"blockCode":null},"deploy":{"status":"completed","startedAt":"2026-07-15T22:36:35+09:00","completedAt":"2026-07-15T22:42:16+09:00","evidence":["GitHub Pages run 29419909538 success","신규 5개 iframe 공개 응답 확인"],"blockCode":null},"confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":"USER_CONFIRMATION_REQUIRED"}}},
+  "runState": {"current":"confirm","stages":{"select":{"status":"completed","startedAt":"2026-07-15T22:23:29+09:00","completedAt":"2026-07-15T22:26:00+09:00","evidence":["기존 공개 도구와 목적이 겹치지 않는 신규 도구 5개 선정"],"blockCode":null},"implement":{"status":"completed","startedAt":"2026-07-15T22:26:00+09:00","completedAt":"2026-07-15T22:38:00+09:00","evidence":["신규 5개 도구의 기능·게시글·0.0.1v·검색 메타데이터 생성","공통 다국어 속성·반응형 결과 스타일 재사용"],"blockCode":null},"validate":{"status":"completed","startedAt":"2026-07-15T22:38:00+09:00","completedAt":"2026-07-15T22:40:30+09:00","evidence":["128 JSON 및 최신 릴리스 경로 통과","14개 모듈 등록 계약 통과","5개 SEO 게시글 구조 통과","6개 JavaScript 모듈 구문 통과","375px 5개 도구 가로 넘침 0·자동 포커스 0","데스크톱 텍스트 비교와 모바일 그라데이션 시각 검증","그라데이션 + 항목 추가 동작 검증"],"blockCode":null},"publish":{"status":"completed","startedAt":"2026-07-15T22:40:30+09:00","completedAt":"2026-07-15T22:41:30+09:00","evidence":["Blogger LIVE 게시글 5개 생성","게시글 5개와 iframe 5개 공개 HTTP 200 확인"],"blockCode":null},"commit":{"status":"completed","startedAt":"2026-07-15T22:36:00+09:00","completedAt":"2026-07-15T22:42:16+09:00","evidence":["9842c5a","최종 게시글 URL 및 실행 기록 커밋"],"blockCode":null},"deploy":{"status":"completed","startedAt":"2026-07-15T22:36:35+09:00","completedAt":"2026-07-15T22:42:16+09:00","evidence":["GitHub Pages run 29419909538 success","신규 5개 iframe 공개 응답 확인"],"blockCode":null},"confirm":{"status":"completed","startedAt":"2026-07-18T18:39:46+09:00","completedAt":"2026-07-18T18:39:46+09:00","evidence":["사용자 확인 완료"],"blockCode":null}}},
   "selectedTools": ["text-diff-checker","markdown-preview-converter","csv-table-converter","uuid-generator","css-gradient-generator"],
   "changes": [
     {"target":"text-diff-checker","result":"0.0.1v 공개","files":["embed/text-diff-checker/","outputs/text-diff-checker/"]},
@@ -26,5 +26,5 @@
   "deployment": {"status":"completed","urls":["https://leedohon.github.io/toolbox-project/embed/text-diff-checker/","https://leedohon.github.io/toolbox-project/embed/markdown-preview-converter/","https://leedohon.github.io/toolbox-project/embed/csv-table-converter/","https://leedohon.github.io/toolbox-project/embed/uuid-generator/","https://leedohon.github.io/toolbox-project/embed/css-gradient-generator/"]},
   "shutdown": {"requested":false,"scheduled":false,"input":"종료없이","scheduledFor":null,"cancelled":false},
   "blocked": [],
-  "reportHistory": []
+  "reportHistory": ["2026-07-18T18:38:03+09:00"]
 }

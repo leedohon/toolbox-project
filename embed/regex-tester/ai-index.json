@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "regex-tester",
+  "index": 22,
+  "title": "정규식 테스트 도구",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/regex-tester.md",
+    "post": "toolbox/posts/regex-tester.html",
+    "manifest": "outputs/regex-tester/versions.json",
+    "embed": "embed/regex-tester/index.html",
+    "moduleRegistry": "embed/regex-tester/modules.json"
+  },
+  "modules": [
+    {
+      "id": "regex-tester",
+      "label": {
+        "ko": "정규식 테스트 도구",
+        "en": "Regular expression tester"
+      },
+      "entry": "./tool.js",
+      "messageTool": "regex-tester",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

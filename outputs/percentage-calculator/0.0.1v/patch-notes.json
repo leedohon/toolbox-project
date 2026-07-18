@@ -1,0 +1,20 @@
+{
+  "tool": "percentage-calculator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "전체의 일정 퍼센트와 구성 비율 계산",
+    "이전 값 대비 증가·감소율 계산",
+    "입력 검증·KOR / ENG·결과 복사"
+  ],
+  "qa": [
+    "정상값·소수·음수·0 나눗셈 오류 확인",
+    "375px 모바일 가로 넘침 확인",
+    "KOR / ENG와 iframe 높이 확인",
+    "375px·1280px 가로 넘침 없음",
+    "세 계산 모드와 0 나눗셈 오류·복사 비활성 확인",
+    "초기화 후 모바일 입력 자동 포커스 없음과 KOR / ENG 확인",
+    "IFRAME_HEIGHT_STALE·HIDDEN_GRID_OVERRIDE·SHARED_ASSET_CACHE_STALE 회귀 확인"
+  ]
+}

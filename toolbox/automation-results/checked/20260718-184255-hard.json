@@ -1,0 +1,270 @@
+{
+  "runId": "20260718-184255-hard",
+  "workflow": "hard",
+  "status": "completed",
+  "confirm": "Y",
+  "startedAt": "2026-07-18T18:42:55+09:00",
+  "completedAt": "2026-07-18T19:10:24+09:00",
+  "confirmedAt": "2026-07-19T03:56:27+09:00",
+  "summary": "공개 도구 개선 6건, 페이지 작업 3건, 공통 결함 수정 2건 이상을 구현하고 Blogger·GitHub Pages 공개 배포와 모바일·데스크톱 검증을 완료했습니다.",
+  "normalizedRequest": {
+    "workType": "improve-new-merge",
+    "targets": [
+      "qr-barcode-generator",
+      "json-tools",
+      "base64-tools",
+      "image-mosaic-tool",
+      "date-calculator",
+      "multipurpose-draw-game",
+      "url-encoder-decoder",
+      "regex-tester",
+      "aspect-ratio-calculator"
+    ],
+    "versionLevel": "minimum-and-initial",
+    "bloggerPublish": true,
+    "gitDeploy": true,
+    "shutdown": false
+  },
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-07-18T18:42:55+09:00",
+        "completedAt": "2026-07-18T18:42:55+09:00",
+        "evidence": [
+          "최근 create 실행 10개를 제외하고 오래된 공개 도구 6개 순환 선정",
+          "개선 6건·페이지 작업 3건·공통 결함 2건 확정"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-07-18T18:42:55+09:00",
+        "completedAt": "2026-07-18T18:55:00+09:00",
+        "evidence": [
+          "기존 공개 도구 6건 개선",
+          "regex-tester·aspect-ratio-calculator 신규 0.0.1v",
+          "url-encoder-decoder 대체 관계와 호환 진입점 완성",
+          "공통 포커스·비활성 상태 개선",
+          "은퇴 게시글 문구 오염 생성기 수정"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-07-18T18:55:00+09:00",
+        "completedAt": "2026-07-18T19:09:00+09:00",
+        "evidence": [
+          "149 JSON 및 최신 릴리스 경로 통과",
+          "16개 모듈 계약 통과",
+          "수정 HTML 인라인 JavaScript와 신규 ES 모듈 구문 통과",
+          "공개 375px·1280px 가로 넘침 없음",
+          "QR 동일 색상 오류와 저장 비활성 확인",
+          "계산기 영문 결과·오류 확인",
+          "게임 컨테이너와 내부 모듈 ENG 전달 확인",
+          "URL 호환 게시글과 base64-tools 이동 확인",
+          "IFRAME_HEIGHT_STALE·HIDDEN_GRID_OVERRIDE·SHARED_ASSET_CACHE_STALE·RETIRED_POST_COPY_LEAK 회귀 확인",
+          "공개 콘솔 오류 0건"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-07-18T18:57:00+09:00",
+        "completedAt": "2026-07-18T19:02:00+09:00",
+        "evidence": [
+          "Blogger 기존 게시글 17개 갱신",
+          "신규 LIVE 게시글 2개 생성",
+          "은퇴 URL 호환 게시글 공개 갱신"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-07-18T19:02:00+09:00",
+        "completedAt": "2026-07-18T19:04:00+09:00",
+        "evidence": [
+          "b96089d7ac82e94bf950d703c9a863ea7e32a2c1",
+          "origin/main 푸시 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-07-18T19:03:16+09:00",
+        "completedAt": "2026-07-18T19:04:30+09:00",
+        "evidence": [
+          "GitHub Pages run 29640206526 success",
+          "Update tool catalog run 29640206736 success",
+          "공개 신규 iframe·Blogger 모바일·데스크톱 검증"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "completed",
+        "startedAt": "2026-07-19T03:56:27+09:00",
+        "completedAt": "2026-07-19T03:56:27+09:00",
+        "evidence": [
+          "사용자 확인 완료"
+        ],
+        "blockCode": null
+      }
+    }
+  },
+  "selectedTools": [
+    "qr-barcode-generator",
+    "json-tools",
+    "base64-tools",
+    "image-mosaic-tool",
+    "date-calculator",
+    "multipurpose-draw-game"
+  ],
+  "selectionBasis": "최근 두 create 실행에서 다룬 10개 도구를 피하고 기존 공개 도구를 index 순으로 순환 선정",
+  "changes": [
+    {
+      "target": "qr-barcode-generator",
+      "version": "0.5.4v",
+      "result": "전경색과 배경색이 같은 읽을 수 없는 결과의 생성·저장을 차단"
+    },
+    {
+      "target": "json-tools",
+      "version": "0.7.0v",
+      "result": "5MB 이하 JSON 파일 선택과 드래그 앤 드롭 입력 추가"
+    },
+    {
+      "target": "base64-tools",
+      "version": "0.9.2v",
+      "result": "Base64 파일 입력 10MB 제한과 가까운 오류 안내"
+    },
+    {
+      "target": "image-mosaic-tool",
+      "version": "0.2.4v",
+      "result": "파일 드롭 영역 Enter·Space 키보드 실행 추가"
+    },
+    {
+      "target": "date-calculator",
+      "version": "1.0.4v",
+      "result": "동적 결과·오류·복사 상태 KOR / ENG 적용"
+    },
+    {
+      "target": "multipurpose-draw-game",
+      "version": "0.1.0v",
+      "result": "컨테이너 공통 KOR / ENG 선택과 내부 모듈 전달"
+    },
+    {
+      "target": "url-encoder-decoder",
+      "version": "0.1.3v",
+      "result": "replacementTool=base64-tools와 기존 주소 호환 안내 완성"
+    },
+    {
+      "target": "regex-tester",
+      "version": "0.0.1v",
+      "result": "정규식 일치·위치·하이라이트·복사 도구 신규 공개"
+    },
+    {
+      "target": "aspect-ratio-calculator",
+      "version": "0.0.1v",
+      "result": "정수 비율과 목표 가로·세로 계산 도구 신규 공개"
+    },
+    {
+      "target": "shared-simple-tools",
+      "result": "select 포커스 링과 비활성 컨트롤 표시를 12개 embed 캐시 키와 함께 배포"
+    }
+  ],
+  "newIdeas": [],
+  "commonModules": [
+    {
+      "target": "simple-tools-focus",
+      "result": "select 요소에도 공통 focus-visible 윤곽 적용"
+    },
+    {
+      "target": "simple-tools-disabled",
+      "result": "버튼·입력·select 비활성 상태의 불투명도와 커서 적용"
+    },
+    {
+      "target": "retired-post-builder",
+      "result": "대체 도구와 무관한 게임 전용 문구 오염 제거 및 RETIRED_POST_COPY_LEAK 등록"
+    }
+  ],
+  "knowledgeOptimization": {
+    "policyVersion": "0.1.0",
+    "applied": [],
+    "recorded": [],
+    "skipped": [
+      {
+        "id": "OPT-002",
+        "reason": "결과 스키마 생성기 변경은 이번 기능·게시 범위의 5% 예산을 넘으므로 대기열 유지"
+      }
+    ],
+    "measuredReduction": null
+  },
+  "validation": [
+    "149개 JSON과 모든 최신 릴리스 경로 통과",
+    "16개 기능 모듈 등록 계약 통과",
+    "신규 ES 모듈과 수정된 7개 HTML 인라인 스크립트 구문 통과",
+    "신규 Blogger 게시글 H1 1개·FAQ 4개+·누적 패치노트 확인",
+    "모바일 375px와 데스크톱 1280px 가로 넘침 없음",
+    "모바일 초기 자동 포커스 없음·버튼 자연스러운 줄바꿈",
+    "공개 iframe과 Blogger 페이지 콘솔 오류 0건",
+    "GitHub Pages 및 카탈로그 Actions 성공"
+  ],
+  "blogger": {
+    "created": [
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_18.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_78.html"
+    ],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
+      "https://bloggiedh.blogspot.com/2026/07/json.html",
+      "https://bloggiedh.blogspot.com/2026/07/base64.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_15.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
+      "https://bloggiedh.blogspot.com/2026/07/css.html",
+      "https://bloggiedh.blogspot.com/2026/07/csv.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html",
+      "https://bloggiedh.blogspot.com/2026/07/html.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_912.html",
+      "https://bloggiedh.blogspot.com/2026/07/unix.html",
+      "https://bloggiedh.blogspot.com/2026/07/uuid.html",
+      "https://bloggiedh.blogspot.com/2026/07/url.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "b96089d7ac82e94bf950d703c9a863ea7e32a2c1",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/regex-tester/",
+      "https://leedohon.github.io/toolbox-project/embed/aspect-ratio-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/qr-barcode-generator/",
+      "https://leedohon.github.io/toolbox-project/embed/json-tools/",
+      "https://leedohon.github.io/toolbox-project/embed/base64-tools/",
+      "https://leedohon.github.io/toolbox-project/embed/image-mosaic-tool/",
+      "https://leedohon.github.io/toolbox-project/embed/date-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/multipurpose-draw-game/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": "아니오",
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "reportHistory": [
+    "2026-07-18T19:13:45+09:00",
+    "2026-07-18T19:23:16+09:00",
+    "2026-07-19T02:42:40+09:00"
+  ]
+}

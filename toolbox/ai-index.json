@@ -200,7 +200,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.3v",
+      "latestVersion": "0.0.4v",
       "paths": {
         "definition": "toolbox/tools/password-generator.md",
         "post": "toolbox/posts/password-generator.html",
@@ -216,7 +216,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.3v",
+      "latestVersion": "0.0.4v",
       "paths": {
         "definition": "toolbox/tools/image-resizer-compressor.md",
         "post": "toolbox/posts/image-resizer-compressor.html",
@@ -232,7 +232,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.3v",
+      "latestVersion": "0.0.4v",
       "paths": {
         "definition": "toolbox/tools/color-converter-contrast.md",
         "post": "toolbox/posts/color-converter-contrast.html",
@@ -575,6 +575,22 @@
         "manifest": "outputs/url-parser-builder/versions.json",
         "embed": "embed/url-parser-builder/index.html",
         "moduleRegistry": "embed/url-parser-builder/modules.json"
+      }
+    },
+    {
+      "index": 36,
+      "tool": "percentage-calculator",
+      "title": "백분율 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/percentage-calculator.md",
+        "post": "toolbox/posts/percentage-calculator.html",
+        "manifest": "outputs/percentage-calculator/versions.json",
+        "embed": "embed/percentage-calculator/index.html",
+        "moduleRegistry": "embed/percentage-calculator/modules.json"
       }
     }
   ]

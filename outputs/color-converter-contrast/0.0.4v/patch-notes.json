@@ -1,0 +1,17 @@
+{
+  "tool": "color-converter-contrast",
+  "version": "0.0.4v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "3자리와 6자리 HEX 입력 지원",
+    "입력 중간 상태의 성급한 오류 억제",
+    "UI 구성요소 3:1 판정과 복사 대체 안내 추가"
+  ],
+  "qa": [
+    "375px·1280px 가로 넘침 없음",
+    "3자리 HEX 확장과 입력 중간 상태 안내 확인",
+    "UI 구성요소 3:1 배지와 KOR / ENG 확인",
+    "IFRAME_HEIGHT_STALE·HIDDEN_GRID_OVERRIDE·SHARED_ASSET_CACHE_STALE 회귀 확인"
+  ]
+}

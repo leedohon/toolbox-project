@@ -237,7 +237,7 @@
       "title": "안전 비밀번호 생성기",
       "description": "길이와 문자 구성을 선택해 브라우저 안에서 안전한 무작위 비밀번호를 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
-      "version": "0.0.3v",
+      "version": "0.0.4v",
       "keywords": [
         "비밀번호생성기",
         "안전한비밀번호",
@@ -275,7 +275,7 @@
       "title": "이미지 크기·용량 변환기",
       "description": "이미지 크기와 저장 형식·품질을 바꿔 용량을 줄이고 바로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html",
-      "version": "0.0.3v",
+      "version": "0.0.4v",
       "keywords": [
         "이미지압축",
         "이미지리사이즈",
@@ -313,7 +313,7 @@
       "title": "색상 변환·대비 검사기",
       "description": "두 색상을 HEX·RGB·HSL로 변환하고 글자와 배경의 접근성 대비를 확인합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-      "version": "0.0.3v",
+      "version": "0.0.4v",
       "keywords": [
         "색상변환",
         "대비검사",
@@ -1117,6 +1117,45 @@
         "API URL 편집",
         "검색 파라미터",
         "서버 전송 없는 URL"
+      ]
+    },
+    {
+      "index": 36,
+      "tool": "percentage-calculator",
+      "title": "백분율 계산기",
+      "description": "두 숫자를 입력해 비율값, 전체에서 차지하는 퍼센트, 증가·감소율을 계산합니다.",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_732.html",
+      "version": "0.0.1v",
+      "keywords": [
+        "백분율",
+        "퍼센트계산",
+        "증감률",
+        "비율계산",
+        "계산기",
+        "백분율 계산기",
+        "퍼센트 계산기",
+        "비율 계산",
+        "증가율 계산",
+        "감소율 계산",
+        "증감률 계산",
+        "전체의 몇 퍼센트",
+        "몇 퍼센트인지 계산",
+        "percentage calculator",
+        "percent change",
+        "percentage of total",
+        "increase percentage",
+        "decrease percentage",
+        "할인율 계산",
+        "목표 달성률",
+        "수치 변화율",
+        "부분값 전체값",
+        "퍼센트 공식",
+        "백분율 공식",
+        "온라인 비율 계산기",
+        "숫자 비율",
+        "퍼센트 결과 복사",
+        "브라우저 계산기",
+        "전체값 계산"
       ]
     }
   ]

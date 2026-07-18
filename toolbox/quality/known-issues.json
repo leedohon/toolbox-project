@@ -1,7 +1,17 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-19",
   "issues": [
+    {
+      "code": "RELEASE_DATE_UTC_DRIFT",
+      "status": "guarded",
+      "summary": "한국 시간 자정 이후 생성한 릴리스가 UTC 기준 전날 날짜로 기록됨",
+      "fingerprints": ["create-tool-release.mjs", "toISOString().slice(0, 10)", "releaseDate", "Asia/Seoul"],
+      "rootCause": "릴리스 생성기가 프로젝트 기준 시간대 대신 UTC 날짜를 사용함",
+      "fixContract": ["릴리스 날짜는 Asia/Seoul 달력 날짜로 계산", "versions.json과 patch-notes.json의 날짜 일치 확인"],
+      "regressionChecks": ["한국 시간과 UTC 날짜가 다른 시각의 생성 결과 확인", "최신 manifest와 패치노트 releaseDate 일치 확인"],
+      "affectedPatterns": ["scripts/create-tool-release.mjs", "outputs/*/versions.json", "outputs/*/*v/patch-notes.json"]
+    },
     {
       "code": "IFRAME_HEIGHT_STALE",
       "status": "guarded",

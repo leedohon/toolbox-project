@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "tool": "percentage-calculator",
+  "index": 36,
+  "title": "백분율 계산기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/percentage-calculator.md",
+    "post": "toolbox/posts/percentage-calculator.html",
+    "manifest": "outputs/percentage-calculator/versions.json",
+    "embed": "embed/percentage-calculator/index.html",
+    "moduleRegistry": "embed/percentage-calculator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "percentage-calculator",
+      "label": {
+        "ko": "백분율 계산기",
+        "en": "Percentage calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "percentage-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

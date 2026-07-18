@@ -1,0 +1,19 @@
+{
+  "index": 36,
+  "tool": "percentage-calculator",
+  "title": "백분율 계산기",
+  "description": "두 숫자를 입력해 비율값, 전체에서 차지하는 퍼센트, 증가·감소율을 계산합니다.",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_732.html",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "세 가지 백분율 관계를 한 화면에서 계산하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/percentage-calculator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

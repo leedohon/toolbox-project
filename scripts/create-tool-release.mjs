@@ -45,7 +45,7 @@ const directory = path.join(root, 'outputs', tool, version);
 await fs.mkdir(directory);
 const htmlName = path.basename(current.html);
 await fs.copyFile(path.join(root, 'toolbox', 'posts', `${tool}.html`), path.join(directory, htmlName));
-const releaseDate = new Date().toISOString().slice(0, 10);
+const releaseDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 await fs.writeFile(path.join(directory, 'patch-notes.json'), `${JSON.stringify({ tool, version, releaseDate, changeLevel: level, changes }, null, 2)}\n`);
 manifest.latestVersion = version;
 manifest.versions.push({ version, releaseDate, changeLevel: level, summary, directory: version, html: `${version}/${htmlName}`, patchNotes: `${version}/patch-notes.json` });

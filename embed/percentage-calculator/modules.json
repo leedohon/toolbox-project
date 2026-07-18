@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "percentage-calculator",
+      "label": {
+        "ko": "백분율 계산기",
+        "en": "Percentage calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "percentage-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

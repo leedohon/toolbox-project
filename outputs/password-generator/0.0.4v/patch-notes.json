@@ -1,0 +1,17 @@
+{
+  "tool": "password-generator",
+  "version": "0.0.4v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "문자 그룹이 없으면 이전 결과를 지우고 복사를 차단",
+    "언어 전환 시 비밀번호를 다시 만들지 않고 강도 설명만 갱신",
+    "모바일·데스크톱 결과 상태 접근성 재검증"
+  ],
+  "qa": [
+    "375px·1280px 가로 넘침 없음",
+    "문자 그룹 전체 해제 시 결과 제거·복사 비활성 확인",
+    "KOR / ENG 전환 시 비밀번호 유지와 동적 상태 번역 확인",
+    "IFRAME_HEIGHT_STALE·HIDDEN_GRID_OVERRIDE·SHARED_ASSET_CACHE_STALE 회귀 확인"
+  ]
+}

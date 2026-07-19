@@ -53,7 +53,7 @@
       "index":51,"slug":"isbn-validator","title":"ISBN-10·ISBN-13 검사기","englishTitle":"ISBN-10 and ISBN-13 validator","type":"converter","runtimePreset":"isbn-validator",
       "description":"하이픈이 포함된 ISBN-10·ISBN-13을 정리하고 체크 숫자가 올바른지 검사합니다.","actionTitle":"ISBN 검사하기",
       "features":["ISBN-10·ISBN-13", "하이픈·공백 정리", "체크 숫자 검증", "형식 표시"],"inputs":[{"id":"isbn","label":"ISBN","type":"text"}],
-      "ui":{"runLabel":"ISBN 검사","runEn":"Validate ISBN","resultTitle":"ISBN 검사 결과","resultTitleEn":"ISBN validation result","fields":[{"id":"isbn","label":"ISBN-10 또는 ISBN-13","enLabel":"ISBN-10 or ISBN-13","type":"text","value":"978-89-546-2288-3","placeholder":"예: 978-89-546-2288-3","enPlaceholder":"Example: 978-0-306-40615-7","maxlength":40}]},
+      "ui":{"runLabel":"ISBN 검사","runEn":"Validate ISBN","resultTitle":"ISBN 검사 결과","resultTitleEn":"ISBN validation result","fields":[{"id":"isbn","label":"ISBN-10 또는 ISBN-13","enLabel":"ISBN-10 or ISBN-13","type":"text","value":"978-0-306-40615-7","placeholder":"예: 978-0-306-40615-7","enPlaceholder":"Example: 978-0-306-40615-7","maxlength":40}]},
       "steps":["ISBN-10 또는 ISBN-13을 입력합니다.","ISBN 검사를 실행합니다.","정리된 번호와 체크 숫자 결과를 확인합니다."],
       "details":["ISBN 검사기는 책 번호에서 하이픈과 공백을 제거한 뒤 ISBN-10 또는 ISBN-13의 가중치 규칙으로 마지막 체크 숫자를 검증합니다. 서지 정보를 입력할 때 오타를 빠르게 찾을 수 있습니다.","체크 숫자가 맞다는 결과는 번호 구조가 수학적으로 유효하다는 뜻이며 실제 출판물 등록 여부를 확인하는 조회 서비스는 아닙니다. 입력은 현재 브라우저에서만 처리합니다."],
       "faq":[{"question":"하이픈이 있어도 검사되나요?","answer":"네. 하이픈과 공백을 제거한 뒤 숫자를 검사합니다."},{"question":"ISBN-10의 X도 지원하나요?","answer":"네. 마지막 체크 문자로 쓰이는 X를 지원합니다."},{"question":"유효하면 실제 등록된 책인가요?","answer":"아니요. 체크 숫자 구조만 검사하며 등록 데이터베이스를 조회하지 않습니다."},{"question":"ISBN-10과 ISBN-13을 자동 구분하나요?","answer":"네. 정리한 문자열 길이로 형식을 구분합니다."}],

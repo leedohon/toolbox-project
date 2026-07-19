@@ -1,0 +1,19 @@
+{
+  "index": 48,
+  "tool": "cron-expression-explainer",
+  "title": "Cron 표현식 설명기",
+  "description": "5개 항목의 기본 Cron 표현식을 분·시·일·월·요일별 쉬운 문장으로 나누어 설명합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "기본 5필드 Cron 표현식을 설명하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/cron-expression-explainer.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

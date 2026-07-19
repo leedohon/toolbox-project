@@ -1,0 +1,16 @@
+{
+  "tool": "cron-expression-explainer",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "분·시·일·월·요일 필드 분리",
+    "별표·간격·목록·숫자 설명",
+    "오류 안내·KOR / ENG·복사"
+  ],
+  "qa": [
+    "별표·간격·목록·필드 부족 확인",
+    "375px 긴 표현식 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

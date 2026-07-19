@@ -1,0 +1,19 @@
+{
+  "index": 50,
+  "tool": "mime-type-lookup",
+  "title": "파일 확장자 MIME 타입 찾기",
+  "description": "파일 확장자를 입력해 대표 MIME 타입과 Content-Type 헤더 예시를 확인합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "대표 파일 확장자의 MIME 타입을 조회하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/mime-type-lookup.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "index": 49,
+  "tool": "http-status-lookup",
+  "title": "HTTP 상태 코드 찾기",
+  "description": "자주 쓰는 HTTP 상태 코드의 영문 이름과 한글 의미, 응답 분류를 확인합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "대표 HTTP 상태 코드의 뜻을 조회하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/http-status-lookup.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

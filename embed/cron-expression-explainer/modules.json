@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "cron-expression-explainer",
+      "label": {
+        "ko": "Cron 표현식 설명기",
+        "en": "Cron expression explainer"
+      },
+      "entry": "./tool.js",
+      "messageTool": "cron-expression-explainer",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

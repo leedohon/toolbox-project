@@ -752,6 +752,86 @@
         "embed": "embed/markdown-table-generator/index.html",
         "moduleRegistry": "embed/markdown-table-generator/modules.json"
       }
+    },
+    {
+      "index": 47,
+      "tool": "chmod-calculator",
+      "title": "chmod 권한 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/chmod-calculator.md",
+        "post": "toolbox/posts/chmod-calculator.html",
+        "manifest": "outputs/chmod-calculator/versions.json",
+        "embed": "embed/chmod-calculator/index.html",
+        "moduleRegistry": "embed/chmod-calculator/modules.json"
+      }
+    },
+    {
+      "index": 48,
+      "tool": "cron-expression-explainer",
+      "title": "Cron 표현식 설명기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/cron-expression-explainer.md",
+        "post": "toolbox/posts/cron-expression-explainer.html",
+        "manifest": "outputs/cron-expression-explainer/versions.json",
+        "embed": "embed/cron-expression-explainer/index.html",
+        "moduleRegistry": "embed/cron-expression-explainer/modules.json"
+      }
+    },
+    {
+      "index": 49,
+      "tool": "http-status-lookup",
+      "title": "HTTP 상태 코드 찾기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/http-status-lookup.md",
+        "post": "toolbox/posts/http-status-lookup.html",
+        "manifest": "outputs/http-status-lookup/versions.json",
+        "embed": "embed/http-status-lookup/index.html",
+        "moduleRegistry": "embed/http-status-lookup/modules.json"
+      }
+    },
+    {
+      "index": 50,
+      "tool": "mime-type-lookup",
+      "title": "파일 확장자 MIME 타입 찾기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/mime-type-lookup.md",
+        "post": "toolbox/posts/mime-type-lookup.html",
+        "manifest": "outputs/mime-type-lookup/versions.json",
+        "embed": "embed/mime-type-lookup/index.html",
+        "moduleRegistry": "embed/mime-type-lookup/modules.json"
+      }
+    },
+    {
+      "index": 51,
+      "tool": "isbn-validator",
+      "title": "ISBN-10·ISBN-13 검사기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/isbn-validator.md",
+        "post": "toolbox/posts/isbn-validator.html",
+        "manifest": "outputs/isbn-validator/versions.json",
+        "embed": "embed/isbn-validator/index.html",
+        "moduleRegistry": "embed/isbn-validator/modules.json"
+      }
     }
   ]
 }

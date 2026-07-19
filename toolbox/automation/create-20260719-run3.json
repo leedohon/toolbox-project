@@ -1,0 +1,65 @@
+{
+  "releaseDate":"2026-07-19",
+  "tools":[
+    {
+      "index":47,"slug":"chmod-calculator","title":"chmod 권한 계산기","englishTitle":"chmod permission calculator","type":"calculator","runtimePreset":"chmod-calculator",
+      "description":"소유자·그룹·기타 사용자의 읽기·쓰기·실행 조합을 숫자와 기호 권한으로 확인합니다.","actionTitle":"chmod 권한 계산하기",
+      "features":["0~7 권한 선택","숫자 권한","rwx 기호 권한","명령 예시"],"inputs":[{"id":"owner","label":"소유자 권한","type":"select"},{"id":"group","label":"그룹 권한","type":"select"},{"id":"other","label":"기타 권한","type":"select"}],
+      "ui":{"runLabel":"권한 계산","runEn":"Calculate permissions","resultTitle":"chmod 결과","resultTitleEn":"chmod result","fields":[{"id":"owner","label":"소유자","enLabel":"Owner","type":"select","options":[{"value":"7","label":"7 · 읽기+쓰기+실행","en":"7 · read+write+execute"},{"value":"6","label":"6 · 읽기+쓰기","en":"6 · read+write"},{"value":"5","label":"5 · 읽기+실행","en":"5 · read+execute"},{"value":"4","label":"4 · 읽기","en":"4 · read"},{"value":"0","label":"0 · 권한 없음","en":"0 · none"}]},{"id":"group","label":"그룹","enLabel":"Group","type":"select","options":[{"value":"5","label":"5 · 읽기+실행","en":"5 · read+execute"},{"value":"7","label":"7 · 읽기+쓰기+실행","en":"7 · read+write+execute"},{"value":"6","label":"6 · 읽기+쓰기","en":"6 · read+write"},{"value":"4","label":"4 · 읽기","en":"4 · read"},{"value":"0","label":"0 · 권한 없음","en":"0 · none"}]},{"id":"other","label":"기타 사용자","enLabel":"Others","type":"select","options":[{"value":"5","label":"5 · 읽기+실행","en":"5 · read+execute"},{"value":"4","label":"4 · 읽기","en":"4 · read"},{"value":"0","label":"0 · 권한 없음","en":"0 · none"},{"value":"6","label":"6 · 읽기+쓰기","en":"6 · read+write"},{"value":"7","label":"7 · 읽기+쓰기+실행","en":"7 · read+write+execute"}]}]},
+      "steps":["소유자·그룹·기타 사용자의 권한을 선택합니다.","권한 계산을 실행합니다.","숫자·rwx 표기와 chmod 명령 예시를 확인합니다."],
+      "details":["chmod 권한 계산기는 유닉스 파일 권한의 읽기 4, 쓰기 2, 실행 1 값을 조합해 세 자리 숫자로 보여 줍니다. 755나 644가 어떤 사용자 권한을 뜻하는지 확인할 때 유용합니다.","표시된 명령은 형식 예시이며 실제 서버 파일을 변경하지 않습니다. 중요한 시스템 파일에 적용하기 전에는 대상 경로와 필요한 최소 권한을 별도로 확인하세요."],
+      "faq":[{"question":"755는 무엇을 뜻하나요?","answer":"소유자는 읽기·쓰기·실행, 그룹과 기타 사용자는 읽기·실행 권한을 가집니다."},{"question":"644는 언제 쓰나요?","answer":"일반 파일에서 소유자만 쓰고 나머지는 읽기만 하는 조합으로 자주 사용됩니다."},{"question":"이 도구가 실제 파일 권한을 바꾸나요?","answer":"아니요. 권한 숫자와 명령 예시만 계산합니다."},{"question":"특수 권한도 지원하나요?","answer":"최초 버전은 기본 rwx 세 자리 권한에 집중합니다."}],
+      "tags":["chmod", "파일권한", "리눅스", "rwx", "개발도구"],
+      "keywords":["chmod 계산기","리눅스 권한 계산","755 권한","644 권한","chmod calculator","file permission calculator","rwx 변환","유닉스 파일 권한","소유자 그룹 기타","읽기 쓰기 실행","chmod 명령","권한 숫자 변환","Linux permissions","numeric permission","symbolic permission","서버 파일 권한","웹호스팅 권한","chmod 777","최소 권한","브라우저 chmod 도구"],
+      "summary":"기본 chmod 권한을 숫자와 기호로 계산하는 최초 버전입니다.","changes":["소유자·그룹·기타 권한 선택","숫자·rwx 표기와 명령 예시","KOR / ENG와 복사"],"qa":["755·644·000 조합 확인","375px 셀렉트 흐름 확인","KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index":48,"slug":"cron-expression-explainer","title":"Cron 표현식 설명기","englishTitle":"Cron expression explainer","type":"converter","runtimePreset":"cron-expression-explainer",
+      "description":"5개 항목의 기본 Cron 표현식을 분·시·일·월·요일별 쉬운 문장으로 나누어 설명합니다.","actionTitle":"Cron 표현식 읽기",
+      "features":["5필드 Cron", "별표·간격·목록·숫자", "항목별 설명", "결과 복사"],"inputs":[{"id":"expression","label":"Cron 표현식","type":"text"}],
+      "ui":{"runLabel":"표현식 설명","runEn":"Explain expression","resultTitle":"Cron 설명","resultTitleEn":"Cron explanation","fields":[{"id":"expression","label":"Cron 표현식","enLabel":"Cron expression","type":"text","value":"*/15 9 * * 1,2,3,4,5","placeholder":"분 시 일 월 요일","enPlaceholder":"minute hour day month weekday","maxlength":100}]},
+      "steps":["분·시·일·월·요일 순서의 표현식을 입력합니다.","표현식 설명을 실행합니다.","다섯 항목의 해석을 확인합니다."],
+      "details":["Cron 표현식 설명기는 다섯 필드를 분리해 별표, 일정 간격, 쉼표 목록과 단일 숫자를 쉬운 문장으로 보여 줍니다. 서버 예약 작업을 검토할 때 필드 순서를 빠르게 확인할 수 있습니다.","이 도구는 범위와 복잡한 조합 전체를 검증하는 스케줄러가 아니라 기본 표현 학습과 점검에 집중합니다. 실제 운영 전에는 사용하는 Cron 구현의 시간대와 확장 문법을 확인하세요."],
+      "faq":[{"question":"다섯 필드 순서는 무엇인가요?","answer":"분, 시, 일, 월, 요일 순서입니다."},{"question":"별표는 무엇을 뜻하나요?","answer":"해당 필드의 모든 가능한 값에 실행한다는 뜻입니다."},{"question":"*/15는 어떻게 읽나요?","answer":"해당 단위를 15 간격마다 실행한다는 뜻입니다."},{"question":"범위나 L 같은 확장 문법도 되나요?","answer":"최초 버전은 별표, 간격, 쉼표 목록과 단일 숫자에 집중합니다."}],
+      "tags":["Cron", "크론표현식", "스케줄러", "서버작업", "개발도구"],
+      "keywords":["Cron 표현식 설명기","크론 문법","Cron 해석","Cron explainer","crontab expression","분 시 일 월 요일","별표 Cron","15분마다 Cron","평일 Cron","Cron 목록 문법","서버 예약 작업","스케줄 표현식","crontab reader","Cron 5 fields","Cron 시간 확인","개발자 스케줄 도구","Cron 간격","Cron 쉼표 목록","브라우저 Cron","예약 명령 설명"],
+      "summary":"기본 5필드 Cron 표현식을 설명하는 최초 버전입니다.","changes":["분·시·일·월·요일 필드 분리","별표·간격·목록·숫자 설명","오류 안내·KOR / ENG·복사"],"qa":["별표·간격·목록·필드 부족 확인","375px 긴 표현식 확인","KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index":49,"slug":"http-status-lookup","title":"HTTP 상태 코드 찾기","englishTitle":"HTTP status code lookup","type":"converter","runtimePreset":"http-status-lookup",
+      "description":"자주 쓰는 HTTP 상태 코드의 영문 이름과 한글 의미, 응답 분류를 확인합니다.","actionTitle":"HTTP 코드 확인하기",
+      "features":["2xx·3xx·4xx·5xx", "영문 상태 이름", "한글 의미", "응답 분류"],"inputs":[{"id":"code","label":"HTTP 상태 코드","type":"number"}],
+      "ui":{"runLabel":"상태 코드 찾기","runEn":"Look up status","resultTitle":"HTTP 상태 결과","resultTitleEn":"HTTP status result","fields":[{"id":"code","label":"HTTP 상태 코드","enLabel":"HTTP status code","type":"number","value":404,"min":100,"max":599,"step":1}]},
+      "steps":["확인할 세 자리 HTTP 상태 코드를 입력합니다.","상태 코드 찾기를 실행합니다.","영문 이름과 한글 의미, 분류를 확인합니다."],
+      "details":["HTTP 상태 코드 찾기는 웹 요청 응답에서 자주 만나는 200, 301, 404, 500 등의 뜻을 빠르게 확인합니다. 성공, 리디렉션, 클라이언트 오류, 서버 오류 분류도 함께 보여 줍니다.","전체 IANA 목록이 아니라 실무에서 자주 쓰는 대표 코드를 담은 가벼운 조회 도구입니다. 서버별 추가 상태나 세부 처리 방식은 해당 서비스 문서를 확인하세요."],
+      "faq":[{"question":"404는 무엇을 뜻하나요?","answer":"요청한 리소스를 서버에서 찾을 수 없다는 뜻입니다."},{"question":"401과 403은 어떻게 다른가요?","answer":"401은 인증이 필요하거나 실패한 경우, 403은 인증 여부와 별개로 접근이 금지된 경우에 주로 사용됩니다."},{"question":"모든 HTTP 코드를 지원하나요?","answer":"현재는 자주 쓰는 대표 상태 코드를 빠르게 찾는 데 집중합니다."},{"question":"이 도구가 서버 응답을 검사하나요?","answer":"아니요. 사용자가 입력한 코드의 의미만 로컬 목록에서 조회합니다."}],
+      "tags":["HTTP", "상태코드", "404", "웹개발", "개발도구"],
+      "keywords":["HTTP 상태 코드","404 뜻","500 오류","HTTP status lookup","status code finder","200 OK","301 redirect","401 403 차이","404 Not Found","500 Internal Server Error","웹 오류 코드","HTTP 응답 분류","2xx 성공","3xx 리디렉션","4xx 클라이언트 오류","5xx 서버 오류","개발자 HTTP 도구","상태 코드 한글","HTTP 코드 이름","브라우저 코드 조회"],
+      "summary":"대표 HTTP 상태 코드의 뜻을 조회하는 최초 버전입니다.","changes":["대표 2xx·3xx·4xx·5xx 조회","영문 이름·한글 의미·분류","오류 안내·KOR / ENG·복사"],"qa":["200·301·404·500·미지원 코드 확인","375px 결과 행 확인","KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index":50,"slug":"mime-type-lookup","title":"파일 확장자 MIME 타입 찾기","englishTitle":"File extension MIME type lookup","type":"converter","runtimePreset":"mime-type-lookup",
+      "description":"파일 확장자를 입력해 대표 MIME 타입과 Content-Type 헤더 예시를 확인합니다.","actionTitle":"MIME 타입 찾기",
+      "features":["대표 웹·문서·이미지 확장자", "MIME 타입", "Content-Type 예시", "결과 복사"],"inputs":[{"id":"extension","label":"파일 확장자","type":"text"}],
+      "ui":{"runLabel":"MIME 타입 찾기","runEn":"Look up MIME type","resultTitle":"MIME 타입 결과","resultTitleEn":"MIME type result","fields":[{"id":"extension","label":"파일 확장자","enLabel":"File extension","type":"text","value":".json","placeholder":"예: .json 또는 photo.webp","enPlaceholder":"Example: .json or photo.webp","maxlength":100}]},
+      "steps":["확장자나 파일명을 입력합니다.","MIME 타입 찾기를 실행합니다.","대표 MIME 타입과 헤더 예시를 복사합니다."],
+      "details":["파일 확장자 MIME 타입 찾기는 json, html, png, pdf, mp4 같은 대표 확장자를 인터넷 미디어 타입으로 연결합니다. 업로드 허용 목록이나 응답 헤더를 작성할 때 빠르게 참고할 수 있습니다.","확장자는 파일 내용의 실제 형식을 보장하지 않으므로 보안 검증에서는 파일 시그니처와 서버 측 검사를 함께 사용해야 합니다. 조회는 브라우저의 정적 목록에서 수행됩니다."],
+      "faq":[{"question":"파일명 전체를 입력해도 되나요?","answer":"네. 마지막 점 뒤의 확장자를 사용해 조회합니다."},{"question":"jpg와 jpeg는 같은 타입인가요?","answer":"둘 다 대표적으로 image/jpeg를 사용합니다."},{"question":"확장자만으로 파일이 안전한지 알 수 있나요?","answer":"아니요. 확장자는 바꿀 수 있으므로 실제 내용 검사가 필요합니다."},{"question":"모든 확장자를 지원하나요?","answer":"현재는 웹에서 자주 쓰는 대표 형식을 지원합니다."}],
+      "tags":["MIME타입", "파일확장자", "ContentType", "웹개발", "개발도구"],
+      "keywords":["MIME 타입 찾기","파일 확장자 MIME","Content-Type 조회","MIME type lookup","extension to MIME","json MIME type","png MIME type","pdf Content-Type","jpg image jpeg","html text html","파일 형식 헤더","웹 업로드 타입","HTTP Content-Type","확장자 조회","파일명 MIME","브라우저 MIME 도구","미디어 타입","application json","image webp","파일 타입 확인"],
+      "summary":"대표 파일 확장자의 MIME 타입을 조회하는 최초 버전입니다.","changes":["대표 확장자 MIME 조회","파일명에서 확장자 정리","Content-Type 예시·KOR / ENG·복사"],"qa":["json·jpg·파일명·미지원 확장자 확인","375px 입력·결과 확인","KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index":51,"slug":"isbn-validator","title":"ISBN-10·ISBN-13 검사기","englishTitle":"ISBN-10 and ISBN-13 validator","type":"converter","runtimePreset":"isbn-validator",
+      "description":"하이픈이 포함된 ISBN-10·ISBN-13을 정리하고 체크 숫자가 올바른지 검사합니다.","actionTitle":"ISBN 검사하기",
+      "features":["ISBN-10·ISBN-13", "하이픈·공백 정리", "체크 숫자 검증", "형식 표시"],"inputs":[{"id":"isbn","label":"ISBN","type":"text"}],
+      "ui":{"runLabel":"ISBN 검사","runEn":"Validate ISBN","resultTitle":"ISBN 검사 결과","resultTitleEn":"ISBN validation result","fields":[{"id":"isbn","label":"ISBN-10 또는 ISBN-13","enLabel":"ISBN-10 or ISBN-13","type":"text","value":"978-89-546-2288-3","placeholder":"예: 978-89-546-2288-3","enPlaceholder":"Example: 978-0-306-40615-7","maxlength":40}]},
+      "steps":["ISBN-10 또는 ISBN-13을 입력합니다.","ISBN 검사를 실행합니다.","정리된 번호와 체크 숫자 결과를 확인합니다."],
+      "details":["ISBN 검사기는 책 번호에서 하이픈과 공백을 제거한 뒤 ISBN-10 또는 ISBN-13의 가중치 규칙으로 마지막 체크 숫자를 검증합니다. 서지 정보를 입력할 때 오타를 빠르게 찾을 수 있습니다.","체크 숫자가 맞다는 결과는 번호 구조가 수학적으로 유효하다는 뜻이며 실제 출판물 등록 여부를 확인하는 조회 서비스는 아닙니다. 입력은 현재 브라우저에서만 처리합니다."],
+      "faq":[{"question":"하이픈이 있어도 검사되나요?","answer":"네. 하이픈과 공백을 제거한 뒤 숫자를 검사합니다."},{"question":"ISBN-10의 X도 지원하나요?","answer":"네. 마지막 체크 문자로 쓰이는 X를 지원합니다."},{"question":"유효하면 실제 등록된 책인가요?","answer":"아니요. 체크 숫자 구조만 검사하며 등록 데이터베이스를 조회하지 않습니다."},{"question":"ISBN-10과 ISBN-13을 자동 구분하나요?","answer":"네. 정리한 문자열 길이로 형식을 구분합니다."}],
+      "tags":["ISBN", "ISBN검사", "체크숫자", "도서번호", "문서도구"],
+      "keywords":["ISBN 검사기","ISBN-10 검증","ISBN-13 검증","ISBN validator","check ISBN","도서 번호 확인","ISBN 체크 숫자","ISBN 하이픈 제거","ISBN X 검증","책 번호 검사","978 ISBN","서지 정보 검사","ISBN checksum","유효한 ISBN","ISBN 형식 구분","브라우저 ISBN 도구","출판 번호 검사","ISBN 오타 확인","ISBN 10 13","체크디지트 계산"],
+      "summary":"ISBN-10과 ISBN-13 체크 숫자를 검사하는 최초 버전입니다.","changes":["ISBN-10·13 자동 구분","하이픈·공백 정리와 체크 숫자 검증","KOR / ENG와 복사"],"qa":["유효·손상·X·길이 오류 ISBN 확인","375px 긴 번호 확인","KOR / ENG와 iframe 높이 확인"]
+    }
+  ]
+}

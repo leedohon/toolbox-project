@@ -1,0 +1,16 @@
+{
+  "tool": "mime-type-lookup",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "대표 확장자 MIME 조회",
+    "파일명에서 확장자 정리",
+    "Content-Type 예시·KOR / ENG·복사"
+  ],
+  "qa": [
+    "json·jpg·파일명·미지원 확장자 확인",
+    "375px 입력·결과 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

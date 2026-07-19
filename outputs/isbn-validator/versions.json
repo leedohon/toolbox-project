@@ -1,0 +1,19 @@
+{
+  "index": 51,
+  "tool": "isbn-validator",
+  "title": "ISBN-10·ISBN-13 검사기",
+  "description": "하이픈이 포함된 ISBN-10·ISBN-13을 정리하고 체크 숫자가 올바른지 검사합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "ISBN-10과 ISBN-13 체크 숫자를 검사하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/isbn-validator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

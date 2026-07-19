@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "http-status-lookup",
+      "label": {
+        "ko": "HTTP 상태 코드 찾기",
+        "en": "HTTP status code lookup"
+      },
+      "entry": "./tool.js",
+      "messageTool": "http-status-lookup",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

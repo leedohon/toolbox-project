@@ -1,0 +1,16 @@
+{
+  "tool": "http-status-lookup",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "대표 2xx·3xx·4xx·5xx 조회",
+    "영문 이름·한글 의미·분류",
+    "오류 안내·KOR / ENG·복사"
+  ],
+  "qa": [
+    "200·301·404·500·미지원 코드 확인",
+    "375px 결과 행 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

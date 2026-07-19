@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "isbn-validator",
+      "label": {
+        "ko": "ISBN-10·ISBN-13 검사기",
+        "en": "ISBN-10 and ISBN-13 validator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "isbn-validator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "tool": "isbn-validator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "ISBN-10·13 자동 구분",
+    "하이픈·공백 정리와 체크 숫자 검증",
+    "KOR / ENG와 복사"
+  ],
+  "qa": [
+    "유효·손상·X·길이 오류 ISBN 확인",
+    "375px 긴 번호 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

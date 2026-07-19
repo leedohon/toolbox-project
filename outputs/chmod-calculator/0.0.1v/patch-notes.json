@@ -1,0 +1,16 @@
+{
+  "tool": "chmod-calculator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "소유자·그룹·기타 권한 선택",
+    "숫자·rwx 표기와 명령 예시",
+    "KOR / ENG와 복사"
+  ],
+  "qa": [
+    "755·644·000 조합 확인",
+    "375px 셀렉트 흐름 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

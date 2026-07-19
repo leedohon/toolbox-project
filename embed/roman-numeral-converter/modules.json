@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "roman-numeral-converter",
+      "label": {
+        "ko": "로마 숫자 변환기",
+        "en": "Roman numeral converter"
+      },
+      "entry": "./tool.js",
+      "messageTool": "roman-numeral-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

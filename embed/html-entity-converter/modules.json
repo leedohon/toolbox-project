@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "html-entity-converter",
+      "label": {
+        "ko": "HTML 엔티티 변환기",
+        "en": "HTML entity converter"
+      },
+      "entry": "./tool.js",
+      "messageTool": "html-entity-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

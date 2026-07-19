@@ -1,0 +1,16 @@
+{
+  "tool": "html-entity-converter",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "HTML 엔티티 인코딩·디코딩",
+    "장문 텍스트와 안전한 결과 표시",
+    "KOR / ENG와 복사 대체 처리"
+  ],
+  "qa": [
+    "태그·따옴표·숫자 엔티티 확인",
+    "375px 장문 결과 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "tool": "roman-numeral-converter",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "1~3999 아라비아 숫자 변환",
+    "표준 로마 숫자 역변환·검증",
+    "KOR / ENG와 결과 복사"
+  ],
+  "qa": [
+    "1·4·3999·비표준 표기 확인",
+    "375px 입력·결과 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

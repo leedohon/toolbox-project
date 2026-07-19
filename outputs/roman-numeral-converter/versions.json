@@ -1,0 +1,19 @@
+{
+  "index": 40,
+  "tool": "roman-numeral-converter",
+  "title": "로마 숫자 변환기",
+  "description": "1~3999의 아라비아 숫자와 표준 로마 숫자 표기를 서로 변환합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "아라비아 숫자와 로마 숫자를 상호 변환하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/roman-numeral-converter.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "line-sort-deduplicator",
+      "label": {
+        "ko": "줄 정렬·중복 제거기",
+        "en": "Line sorter and deduplicator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "line-sort-deduplicator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "tool": "line-sort-deduplicator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "오름차순·내림차순 줄 정렬",
+    "대소문자 무시 중복 제거",
+    "KOR / ENG와 결과 복사"
+  ],
+  "qa": [
+    "한글·영문·숫자·빈 줄 확인",
+    "375px 장문 입력 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

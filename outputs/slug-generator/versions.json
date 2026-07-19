@@ -1,0 +1,19 @@
+{
+  "index": 37,
+  "tool": "slug-generator",
+  "title": "URL 슬러그 생성기",
+  "description": "제목이나 문구를 소문자 URL 경로에 쓰기 좋은 슬러그로 정리합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "제목과 문구를 URL 슬러그로 정리하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/slug-generator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

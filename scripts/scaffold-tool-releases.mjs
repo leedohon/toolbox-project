@@ -10,6 +10,22 @@ const date = config.releaseDate || new Date().toISOString().slice(0, 10);
 const version = '0.0.1v';
 const escape = (value) => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 const write = async (file, value) => { await fs.mkdir(path.dirname(file), { recursive: true }); await fs.writeFile(file, value); };
+const renderUiField = (field) => {
+  const label = `<label class="st-label" for="${escape(field.id)}" data-ko="${escape(field.label)}" data-en="${escape(field.enLabel || field.label)}">${escape(field.label)}</label>`;
+  if (field.type === 'textarea') return `<div class="st-field">${label}<textarea id="${escape(field.id)}" maxlength="${field.maxlength || 100000}" data-ko-placeholder="${escape(field.placeholder || '')}" data-en-placeholder="${escape(field.enPlaceholder || field.placeholder || '')}">${escape(field.value || '')}</textarea></div>`;
+  if (field.type === 'select') return `<div class="st-field">${label}<select id="${escape(field.id)}">${field.options.map((option) => `<option value="${escape(option.value)}">${escape(option.label)} / ${escape(option.en || option.label)}</option>`).join('')}</select></div>`;
+  const attributes = [`id="${escape(field.id)}"`, `type="${field.type === 'number' ? 'number' : 'text'}"`];
+  for (const name of ['min', 'max', 'step']) if (field[name] !== undefined) attributes.push(`${name}="${escape(field[name])}"`);
+  if (field.maxlength) attributes.push(`maxlength="${escape(field.maxlength)}"`);
+  if (field.value !== undefined) attributes.push(`value="${escape(field.value)}"`);
+  attributes.push(`data-ko-placeholder="${escape(field.placeholder || '')}"`, `data-en-placeholder="${escape(field.enPlaceholder || field.placeholder || '')}"`);
+  return `<div class="st-field">${label}<input ${attributes.join(' ')}></div>`;
+};
+const renderGeneratedEmbed = (tool) => `<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(tool.title)}</title>
+<link rel="stylesheet" href="../../assets/simple-tools.css?v=0.1.1"><link rel="stylesheet" href="../../assets/generated-tools.css?v=0.1.0"><link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0"><script src="../../assets/toolbox-i18n.js?v=0.3.0"></script><script src="../../assets/toolbox-ux.js?v=0.1.0"></script></head><body>
+<article class="simple-tool" aria-label="${escape(tool.title)}">${tool.ui.fields.map(renderUiField).join('')}<div class="st-actions"><button class="st-primary" id="sg-run" type="button" data-ko="${escape(tool.ui.runLabel || '실행')}" data-en="${escape(tool.ui.runEn || 'Run')}">${escape(tool.ui.runLabel || '실행')}</button><button class="st-secondary" id="sg-copy" type="button" data-ko="결과 복사" data-en="Copy result">결과 복사</button><button class="st-secondary" id="sg-reset" type="button" data-ko="초기화" data-en="Reset">초기화</button></div><p class="st-status" id="sg-status" aria-live="polite"></p><section class="st-result" id="sg-result" hidden><h2 data-ko="${escape(tool.ui.resultTitle || '결과')}" data-en="${escape(tool.ui.resultTitleEn || 'Result')}">${escape(tool.ui.resultTitle || '결과')}</h2><div id="sg-output"></div></section><textarea class="st-copy-fallback" id="sg-fallback" readonly hidden></textarea></article><script type="module" src="./tool.js?v=0.0.1"></script></body></html>
+`;
 const postContentPath = path.join(root, 'toolbox/post-content.json');
 const postTagsPath = path.join(root, 'toolbox/post-tags.json');
 const postContent = JSON.parse(await fs.readFile(postContentPath, 'utf8'));
@@ -60,6 +76,10 @@ ${rules.map((value) => `- ${value}`).join('\n')}
   await write(path.join(root, 'outputs', slug, version, 'patch-notes.json'), `${JSON.stringify(release, null, 2)}\n`);
   await write(path.join(root, 'outputs', slug, version, `${slug}.html`), post);
   await write(path.join(root, 'embed', slug, 'modules.json'), `${JSON.stringify({ schemaVersion: 1, modules: [{ id: slug, label: { ko: tool.title, en: tool.englishTitle || slug }, entry: './tool.js', messageTool: slug, capabilities: { resultCode: false, png: false, copyFallback: true, i18n: true, responsive: true, browserOnly: true } }] }, null, 2)}\n`);
+  if (tool.runtimePreset && tool.ui?.fields?.length) {
+    await write(path.join(root, 'embed', slug, 'index.html'), renderGeneratedEmbed(tool));
+    await write(path.join(root, 'embed', slug, 'tool.js'), `import {mountGeneratedTool} from '../../assets/generated-tool-runtime.js?v=0.1.0';\nmountGeneratedTool(${JSON.stringify({slug, preset: tool.runtimePreset, fields: tool.ui.fields.map((field) => field.id)}, null, 2)});\n`);
+  }
   postContent[slug] = { detailTitle: `${tool.title} 상세 설명`, details: tool.details, faq: tool.faq };
   postTags.tools[slug] = tool.tags;
   postTags.keywords[slug] = tool.keywords;

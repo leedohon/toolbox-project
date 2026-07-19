@@ -1,0 +1,7 @@
+.sg-results { display:grid; gap:10px; margin:0; }
+.sg-result-row { display:grid; grid-template-columns:minmax(120px,.45fr) minmax(0,1fr); gap:12px; align-items:start; padding:10px 0; border-bottom:1px solid var(--st-line); }
+.sg-result-row:last-child { border-bottom:0; }
+.sg-result-row dt { color:var(--st-muted); font-weight:800; }
+.sg-result-row dd { min-width:0; margin:0; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; overflow-wrap:anywhere; white-space:pre-wrap; }
+.sg-notice { margin:12px 0 0; color:var(--st-muted); }
+@media(max-width:640px){.sg-result-row{grid-template-columns:1fr;gap:3px}}

@@ -31,7 +31,7 @@ for (const item of catalog.tools) {
     viewport: /name=["']viewport["']/i.test(html),
     i18n: html.includes('toolbox-i18n.js') && html.includes('toolbox-i18n.css'),
     safeUx: html.includes('toolbox-ux.js') && !/\bautofocus\b/i.test(html),
-    heightSync: /setupEmbedHeight|source\s*:\s*["']toolbox-embed["']|location\.replace/.test(runtimeSource),
+    heightSync: /setupEmbedHeight|mountGeneratedTool|source\s*:\s*["']toolbox-embed["']|location\.replace/.test(runtimeSource),
     hiddenGuard: !/\[hidden\][^{]*\{[^}]*display\s*:\s*(?:grid|flex)(?![^}]*!important)/i.test(html),
     moduleContract: modules
       ? Array.isArray(modules.modules) && modules.modules.length > 0 && modules.modules.every((module) => module.entry && module.capabilities?.i18n)

@@ -1,0 +1,19 @@
+{
+  "index": 39,
+  "tool": "html-entity-converter",
+  "title": "HTML 엔티티 변환기",
+  "description": "HTML 특수문자를 안전한 엔티티로 바꾸거나 엔티티 표기를 원문으로 되돌립니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "HTML 특수문자와 엔티티를 상호 변환하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/html-entity-converter.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

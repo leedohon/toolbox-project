@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-19",
   "project": "toolbox",
   "keySources": {
     "content": "toolbox/post-content.json",
@@ -591,6 +591,86 @@
         "manifest": "outputs/percentage-calculator/versions.json",
         "embed": "embed/percentage-calculator/index.html",
         "moduleRegistry": "embed/percentage-calculator/modules.json"
+      }
+    },
+    {
+      "index": 37,
+      "tool": "slug-generator",
+      "title": "URL 슬러그 생성기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/slug-generator.md",
+        "post": "toolbox/posts/slug-generator.html",
+        "manifest": "outputs/slug-generator/versions.json",
+        "embed": "embed/slug-generator/index.html",
+        "moduleRegistry": "embed/slug-generator/modules.json"
+      }
+    },
+    {
+      "index": 38,
+      "tool": "line-sort-deduplicator",
+      "title": "줄 정렬·중복 제거기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/line-sort-deduplicator.md",
+        "post": "toolbox/posts/line-sort-deduplicator.html",
+        "manifest": "outputs/line-sort-deduplicator/versions.json",
+        "embed": "embed/line-sort-deduplicator/index.html",
+        "moduleRegistry": "embed/line-sort-deduplicator/modules.json"
+      }
+    },
+    {
+      "index": 39,
+      "tool": "html-entity-converter",
+      "title": "HTML 엔티티 변환기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/html-entity-converter.md",
+        "post": "toolbox/posts/html-entity-converter.html",
+        "manifest": "outputs/html-entity-converter/versions.json",
+        "embed": "embed/html-entity-converter/index.html",
+        "moduleRegistry": "embed/html-entity-converter/modules.json"
+      }
+    },
+    {
+      "index": 40,
+      "tool": "roman-numeral-converter",
+      "title": "로마 숫자 변환기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/roman-numeral-converter.md",
+        "post": "toolbox/posts/roman-numeral-converter.html",
+        "manifest": "outputs/roman-numeral-converter/versions.json",
+        "embed": "embed/roman-numeral-converter/index.html",
+        "moduleRegistry": "embed/roman-numeral-converter/modules.json"
+      }
+    },
+    {
+      "index": 41,
+      "tool": "fraction-simplifier",
+      "title": "분수 약분 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/fraction-simplifier.md",
+        "post": "toolbox/posts/fraction-simplifier.html",
+        "manifest": "outputs/fraction-simplifier/versions.json",
+        "embed": "embed/fraction-simplifier/index.html",
+        "moduleRegistry": "embed/fraction-simplifier/modules.json"
       }
     }
   ]

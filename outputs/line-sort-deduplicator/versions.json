@@ -1,0 +1,19 @@
+{
+  "index": 38,
+  "tool": "line-sort-deduplicator",
+  "title": "줄 정렬·중복 제거기",
+  "description": "여러 줄 목록을 가나다·알파벳순으로 정렬하고 같은 줄을 한 번만 남깁니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "여러 줄을 정렬하고 중복을 제거하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/line-sort-deduplicator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

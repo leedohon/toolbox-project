@@ -1,0 +1,19 @@
+{
+  "index": 41,
+  "tool": "fraction-simplifier",
+  "title": "분수 약분 계산기",
+  "description": "분자와 분모의 최대공약수를 구해 분수를 가장 간단한 기약분수로 약분합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "정수 분수를 기약분수로 약분하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/fraction-simplifier.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

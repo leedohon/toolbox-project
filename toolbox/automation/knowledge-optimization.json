@@ -106,6 +106,18 @@
       "evidence": [
         {"before":10,"after":0,"unit":"manual capability field additions per five-tool create run","reduction":1.0,"verifiedAt":"2026-07-15"}
       ]
+    },
+    {
+      "id": "OPT-004",
+      "status": "completed",
+      "triggerPaths": ["scripts/scaffold-tool-releases.mjs", "toolbox/automation/create-*.json", "toolbox/guides/post-drafting-guide.md"],
+      "problem": "크리에이트 실행마다 다섯 도구의 index.html과 tool.js를 반복해서 수작업으로 만들어야 함",
+      "proposedChange": "설정의 runtimePreset과 ui.fields에서 공통 실행 셸과 도구 연결 모듈을 생성함",
+      "measure": "repeated manual edits",
+      "targetReduction": 0.5,
+      "evidence": [
+        {"before":10,"after":0,"unit":"manually created embed shell and entry files per five-tool create run","reduction":1.0,"verifiedAt":"2026-07-19"}
+      ]
     }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "fraction-simplifier",
+      "label": {
+        "ko": "분수 약분 계산기",
+        "en": "Fraction simplifier"
+      },
+      "entry": "./tool.js",
+      "messageTool": "fraction-simplifier",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

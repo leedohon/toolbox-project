@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "css-unit-converter",
+      "label": {
+        "ko": "CSS px·rem·em 변환기",
+        "en": "CSS px rem em converter"
+      },
+      "entry": "./tool.js",
+      "messageTool": "css-unit-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

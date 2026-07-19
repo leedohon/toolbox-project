@@ -1,0 +1,16 @@
+{
+  "tool": "css-unit-converter",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "px·rem·em 상호 변환",
+    "기준 글자 크기 설정",
+    "입력 검증·KOR / ENG·복사"
+  ],
+  "qa": [
+    "px·rem·em·소수·0 기준 오류 확인",
+    "375px 네 입력 세로 흐름 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

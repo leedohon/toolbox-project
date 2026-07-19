@@ -16,6 +16,8 @@
 
 크리에이트 설정에 `runtimePreset`과 `ui.fields`가 있으면 `scripts/scaffold-tool-releases.mjs`가 공통 생성 런타임을 연결한 `embed/<tool>/index.html`과 `tool.js`까지 만든다. 같은 입력·실행·결과·복사 구조를 가진 신규 도구는 이 경로를 우선 사용하고 수작업 셸을 반복하지 않는다.
 
+다섯 도구 크리에이트 실행은 `node scripts/run-create-config.mjs <config.json>`을 우선 사용한다. 이 실행기가 스캐폴드, 게시글 빌드, 카탈로그·AI 색인 생성, 릴리스·모듈 검증을 순서대로 수행한다.
+
 공통 HTML이나 CSS를 게시글마다 다시 작성하지 않는다. 기능은 `embed/<도구>/index.html`에서 개별 구현하고, 나머지 게시글 영역은 생성 스크립트로 만든다.
 
 ## 사용자용 글 구성

@@ -1,0 +1,19 @@
+{
+  "index": 42,
+  "tool": "average-median-calculator",
+  "title": "평균·중앙값 계산기",
+  "description": "쉼표나 줄바꿈으로 입력한 숫자의 평균·중앙값·합계·범위를 한 번에 계산합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "숫자 목록의 대표 통계를 계산하는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/average-median-calculator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

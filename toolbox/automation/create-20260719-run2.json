@@ -1,0 +1,65 @@
+{
+  "releaseDate":"2026-07-19",
+  "tools":[
+    {
+      "index":42,"slug":"average-median-calculator","title":"평균·중앙값 계산기","englishTitle":"Average and median calculator","type":"calculator","runtimePreset":"average-median-calculator",
+      "description":"쉼표나 줄바꿈으로 입력한 숫자의 평균·중앙값·합계·범위를 한 번에 계산합니다.","actionTitle":"숫자 통계 계산하기",
+      "features":["평균·중앙값","합계·개수","최솟값·최댓값","결과 복사"],"inputs":[{"id":"numbers","label":"숫자 목록","type":"textarea"}],
+      "ui":{"runLabel":"통계 계산","runEn":"Calculate statistics","resultTitle":"통계 결과","resultTitleEn":"Statistics","fields":[{"id":"numbers","label":"숫자 목록","enLabel":"Number list","type":"textarea","placeholder":"쉼표·공백·줄바꿈으로 구분","enPlaceholder":"Separate with commas, spaces, or new lines","value":"12, 18, 25, 25, 40"}]},
+      "steps":["숫자를 쉼표·공백·줄바꿈으로 구분해 입력합니다.","통계 계산을 실행합니다.","평균과 중앙값, 합계와 범위를 확인합니다."],
+      "details":["평균·중앙값 계산기는 여러 숫자의 대표값과 분포 범위를 빠르게 요약합니다. 평균은 전체 합계를 개수로 나누고 중앙값은 크기순으로 정렬한 가운데 값을 사용합니다.","짝수 개 목록은 가운데 두 값의 평균을 중앙값으로 표시합니다. 숫자가 아닌 항목은 가까운 오류로 안내하며 입력과 계산은 현재 브라우저 안에서만 처리합니다."],
+      "faq":[{"question":"평균과 중앙값은 어떻게 다른가요?","answer":"평균은 합계를 개수로 나눈 값이고 중앙값은 정렬했을 때 가운데 위치한 값입니다."},{"question":"숫자를 어떻게 구분하나요?","answer":"쉼표, 공백 또는 줄바꿈을 사용할 수 있습니다."},{"question":"같은 숫자가 여러 번 있어도 되나요?","answer":"네. 입력된 횟수만큼 모두 계산에 포함합니다."},{"question":"소수와 음수도 계산되나요?","answer":"네. 일반적인 소수와 음수를 지원합니다."}],
+      "tags":["평균계산","중앙값","통계계산","숫자목록","수학도구"],
+      "keywords":["평균 계산기","중앙값 계산기","숫자 평균","목록 통계","average calculator","median calculator","합계 계산","최솟값 최댓값","숫자 개수","통계 요약","소수 평균","음수 평균","여러 숫자 계산","mean median","number statistics","데이터 대표값","성적 평균","값 범위","브라우저 통계","평균 중앙값 차이"],
+      "summary":"숫자 목록의 대표 통계를 계산하는 최초 버전입니다.","changes":["평균·중앙값·합계 계산","최솟값·최댓값·개수 표시","입력 검증·KOR / ENG·복사"],"qa":["홀수·짝수·소수·음수 목록 확인","375px 결과 행 확인","KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index":43,"slug":"ratio-simplifier","title":"비율 간단히 계산기","englishTitle":"Ratio simplifier","type":"calculator","runtimePreset":"ratio-simplifier",
+      "description":"두 정수의 최대공약수를 구해 가장 간단한 정수 비율로 정리합니다.","actionTitle":"비율 간단히 만들기",
+      "features":["정수 비율 약분","최대공약수","0 포함 비율","나눗셈 값"],"inputs":[{"id":"left","label":"첫 번째 값","type":"number"},{"id":"right","label":"두 번째 값","type":"number"}],
+      "ui":{"runLabel":"비율 정리","runEn":"Simplify ratio","resultTitle":"비율 결과","resultTitleEn":"Ratio result","fields":[{"id":"left","label":"첫 번째 값","enLabel":"First value","type":"number","value":1920,"step":1},{"id":"right","label":"두 번째 값","enLabel":"Second value","type":"number","value":1080,"step":1}]},
+      "steps":["두 정수를 입력합니다.","비율 정리를 실행합니다.","간단한 비와 최대공약수를 확인합니다."],
+      "details":["비율 간단히 계산기는 두 수를 최대공약수로 나눠 같은 관계를 유지하는 가장 작은 정수 비로 바꿉니다. 화면 크기, 재료 배합, 수량 비교를 간단히 적을 때 유용합니다.","한쪽 값이 0인 비율도 처리하지만 두 값이 모두 0이면 관계를 정할 수 없어 오류로 안내합니다. 계산은 브라우저에서만 수행됩니다."],
+      "faq":[{"question":"1920:1080은 어떻게 되나요?","answer":"최대공약수 120으로 나눠 16:9가 됩니다."},{"question":"소수 비율도 되나요?","answer":"현재는 정확한 최대공약수 계산을 위해 정수 입력에 집중합니다."},{"question":"한쪽이 0이어도 되나요?","answer":"네. 다만 두 값이 모두 0이면 비율을 만들 수 없습니다."},{"question":"음수도 입력할 수 있나요?","answer":"계산은 가능하지만 실제 길이와 수량 비율에는 보통 0 이상의 값을 사용합니다."}],
+      "tags":["비율계산","비율약분","최대공약수","화면비율","수학도구"],
+      "keywords":["비율 계산기","비율 간단히","비율 약분","1920 1080 비율","ratio simplifier","simplify ratio","16대9 계산","정수 비율","최대공약수 비율","화면 비율 약분","재료 배합 비율","수량 비교","0 비율","두 수 비율","ratio calculator","비례 계산","가로 세로 비율","브라우저 비율","정수 최대공약수","비율 결과 복사"],
+      "summary":"두 정수를 가장 간단한 비율로 정리하는 최초 버전입니다.","changes":["최대공약수 기반 비율 정리","0·음수 입력 검증","나눗셈 값·KOR / ENG·복사"],"qa":["일반·0·음수·동일값 확인","375px 숫자 입력 확인","KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index":44,"slug":"css-unit-converter","title":"CSS px·rem·em 변환기","englishTitle":"CSS px rem em converter","type":"converter","runtimePreset":"css-unit-converter",
+      "description":"기준 글자 크기를 사용해 CSS px·rem·em 값을 서로 변환합니다.","actionTitle":"CSS 단위 변환하기",
+      "features":["px·rem·em 변환","기준 글자 크기 설정","소수값 지원","결과 복사"],"inputs":[{"id":"value","label":"변환할 값","type":"number"},{"id":"from","label":"원본 단위","type":"select"},{"id":"to","label":"결과 단위","type":"select"},{"id":"base","label":"기준 글자 크기","type":"number"}],
+      "ui":{"runLabel":"단위 변환","runEn":"Convert units","resultTitle":"CSS 단위 결과","resultTitleEn":"CSS unit result","fields":[{"id":"value","label":"변환할 값","enLabel":"Value","type":"number","value":16,"step":0.01},{"id":"from","label":"원본 단위","enLabel":"From unit","type":"select","options":[{"value":"px","label":"px","en":"px"},{"value":"rem","label":"rem","en":"rem"},{"value":"em","label":"em","en":"em"}]},{"id":"to","label":"결과 단위","enLabel":"To unit","type":"select","options":[{"value":"rem","label":"rem","en":"rem"},{"value":"px","label":"px","en":"px"},{"value":"em","label":"em","en":"em"}]},{"id":"base","label":"기준 글자 크기(px)","enLabel":"Base font size (px)","type":"number","value":16,"min":0.01,"step":0.01}]},
+      "steps":["값과 원본·결과 단위를 선택합니다.","기준 글자 크기를 px로 입력합니다.","변환된 CSS 값을 확인하고 복사합니다."],
+      "details":["CSS 단위 변환기는 px 값을 기준 글자 크기로 나누어 rem·em으로 바꾸거나 반대로 곱해 px 값을 구합니다. 디자인 명세와 코드의 단위가 다를 때 빠르게 대조할 수 있습니다.","이 계산은 rem과 em이 같은 기준값을 사용한다고 가정합니다. 실제 em은 요소의 부모 글자 크기에 따라 달라질 수 있으므로 적용 위치의 계산 스타일도 확인하세요."],
+      "faq":[{"question":"16px는 몇 rem인가요?","answer":"기준 글자 크기가 16px이면 1rem입니다."},{"question":"em과 rem은 항상 같은가요?","answer":"아니요. rem은 루트, em은 현재 요소 주변의 글자 크기를 기준으로 할 수 있습니다."},{"question":"기준 글자 크기를 바꿀 수 있나요?","answer":"네. 프로젝트가 사용하는 기준 px 값을 입력할 수 있습니다."},{"question":"소수값도 변환되나요?","answer":"네. 소수 입력과 최대 6자리로 정리된 결과를 지원합니다."}],
+      "tags":["CSS단위", "px변환", "rem변환", "em변환", "프론트엔드"],
+      "keywords":["px rem 변환기","rem px 변환","CSS 단위 변환","px em 변환","CSS unit converter","px to rem","rem to px","em to px","기준 글자 크기","16px 1rem","반응형 CSS 단위","프론트엔드 계산기","웹디자인 단위","font size converter","root font size","CSS 소수 단위","브라우저 CSS 계산","rem 계산법","em 계산법","CSS 값 복사"],
+      "summary":"기준 글자 크기로 CSS 단위를 변환하는 최초 버전입니다.","changes":["px·rem·em 상호 변환","기준 글자 크기 설정","입력 검증·KOR / ENG·복사"],"qa":["px·rem·em·소수·0 기준 오류 확인","375px 네 입력 세로 흐름 확인","KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index":45,"slug":"css-border-radius-generator","title":"CSS 모서리 둥글기 생성기","englishTitle":"CSS border radius generator","type":"template-generator","runtimePreset":"css-border-radius-generator",
+      "description":"네 모서리의 px 값을 입력해 border-radius CSS 코드를 만듭니다.","actionTitle":"모서리 CSS 만들기",
+      "features":["네 모서리 개별 입력","0~999px 검증","표준 순서 안내","CSS 코드 복사"],"inputs":[{"id":"corners","label":"네 모서리 값","type":"number"}],
+      "ui":{"runLabel":"CSS 만들기","runEn":"Create CSS","resultTitle":"border-radius 결과","resultTitleEn":"border-radius result","fields":[{"id":"topLeft","label":"왼쪽 위(px)","enLabel":"Top left (px)","type":"number","value":16,"min":0,"max":999},{"id":"topRight","label":"오른쪽 위(px)","enLabel":"Top right (px)","type":"number","value":16,"min":0,"max":999},{"id":"bottomRight","label":"오른쪽 아래(px)","enLabel":"Bottom right (px)","type":"number","value":16,"min":0,"max":999},{"id":"bottomLeft","label":"왼쪽 아래(px)","enLabel":"Bottom left (px)","type":"number","value":16,"min":0,"max":999}]},
+      "steps":["왼쪽 위부터 시계 방향으로 네 값을 입력합니다.","CSS 만들기를 실행합니다.","border-radius 한 줄을 복사해 스타일에 적용합니다."],
+      "details":["CSS 모서리 둥글기 생성기는 border-radius의 네 위치 값을 시계 방향으로 정리해 한 줄 코드를 만듭니다. 카드나 이미지의 일부 모서리만 다르게 둥글게 만들 때 순서를 헷갈리지 않게 합니다.","모든 값이 같으면 네 값 코드도 같은 결과를 냅니다. 이 도구는 px 단위의 단순한 모서리 설정에 집중하며 결과는 현재 브라우저에서 생성됩니다."],
+      "faq":[{"question":"값의 순서는 어떻게 되나요?","answer":"왼쪽 위, 오른쪽 위, 오른쪽 아래, 왼쪽 아래의 시계 방향입니다."},{"question":"모두 같은 값으로 입력해도 되나요?","answer":"네. 네 모서리가 같은 크기로 둥글어집니다."},{"question":"퍼센트 단위도 지원하나요?","answer":"현재는 카드와 버튼에 자주 쓰는 px 단위에 집중합니다."},{"question":"음수 값을 사용할 수 있나요?","answer":"아니요. CSS 모서리 반경에 맞춰 0 이상의 값만 허용합니다."}],
+      "tags":["CSS", "borderRadius", "모서리둥글기", "CSS생성기", "웹디자인"],
+      "keywords":["CSS 모서리 둥글기","border radius generator","CSS border-radius","네 모서리 CSS","카드 둥근 모서리","이미지 모서리","버튼 radius","border radius 순서","왼쪽 위 radius","오른쪽 아래 radius","CSS 코드 생성","웹디자인 모서리","둥근 카드 CSS","px border radius","프론트엔드 생성기","CSS 스타일 복사","모서리 값 계산","브라우저 CSS 도구","개별 모서리","rounded corners CSS"],
+      "summary":"네 모서리 border-radius 코드를 만드는 최초 버전입니다.","changes":["네 모서리 px 입력","표준 시계 방향 CSS 생성","범위 검증·KOR / ENG·복사"],"qa":["동일·개별·0·범위 초과 확인","375px 네 입력 배치 확인","KOR / ENG와 iframe 높이 확인"]
+    },
+    {
+      "index":46,"slug":"markdown-table-generator","title":"마크다운 표 생성기","englishTitle":"Markdown table generator","type":"template-generator","runtimePreset":"markdown-table-generator",
+      "description":"쉼표로 구분한 머리글과 행 데이터를 마크다운 표 문법으로 바꿉니다.","actionTitle":"마크다운 표 만들기",
+      "features":["쉼표 구분 머리글","여러 데이터 행","열 수 자동 맞춤","표 문법 복사"],"inputs":[{"id":"headers","label":"머리글","type":"text"},{"id":"rows","label":"행 데이터","type":"textarea"}],
+      "ui":{"runLabel":"표 만들기","runEn":"Create table","resultTitle":"마크다운 표 결과","resultTitleEn":"Markdown table result","fields":[{"id":"headers","label":"머리글(쉼표 구분)","enLabel":"Headers (comma-separated)","type":"text","value":"이름, 점수, 상태","placeholder":"이름, 점수, 상태","enPlaceholder":"Name, Score, Status"},{"id":"rows","label":"행 데이터(한 줄에 한 행)","enLabel":"Rows (one row per line)","type":"textarea","value":"민수, 92, 완료\n지수, 87, 진행 중","placeholder":"각 행의 셀을 쉼표로 구분","enPlaceholder":"Separate cells with commas"}]},
+      "steps":["머리글을 쉼표로 구분해 입력합니다.","한 줄에 한 행씩 셀을 쉼표로 구분해 입력합니다.","생성된 마크다운 표를 복사합니다."],
+      "details":["마크다운 표 생성기는 머리글과 행 데이터를 파이프 문법으로 변환해 README, 이슈, 문서에 바로 붙일 수 있게 합니다. 열 구분선과 머리글 구분 행을 자동으로 만듭니다.","행의 셀이 부족하면 빈 칸을 채우고 머리글보다 많은 셀은 제외해 열 수를 맞춥니다. 셀 안의 파이프 문자는 이스케이프하며 데이터는 브라우저에서만 처리합니다."],
+      "faq":[{"question":"셀은 어떻게 구분하나요?","answer":"한 행 안에서는 쉼표, 행 사이는 줄바꿈을 사용합니다."},{"question":"행마다 셀 수가 다르면 어떻게 되나요?","answer":"머리글 수에 맞춰 부족한 셀은 비우고 초과 셀은 제외합니다."},{"question":"파이프 문자를 입력할 수 있나요?","answer":"네. 마크다운 표가 깨지지 않도록 역슬래시로 이스케이프합니다."},{"question":"정렬 문법도 선택할 수 있나요?","answer":"최초 버전은 기본 왼쪽 정렬 표 생성에 집중합니다."}],
+      "tags":["마크다운표", "Markdown", "표생성기", "README", "문서도구"],
+      "keywords":["마크다운 표 생성기","Markdown table generator","마크다운 테이블","README 표 만들기","파이프 표 문법","쉼표 표 변환","문서 표 생성","GitHub markdown table","마크다운 머리글","표 구분선","여러 행 표","셀 수 맞춤","파이프 이스케이프","Markdown 표 복사","이슈 표 작성","위키 표 만들기","브라우저 문서 도구","간단 표 생성","마크다운 코드","table markdown syntax"],
+      "summary":"쉼표 데이터를 마크다운 표로 만드는 최초 버전입니다.","changes":["머리글·행 데이터 표 변환","열 수 정규화와 파이프 이스케이프","KOR / ENG와 결과 복사"],"qa":["빈 셀·열 부족·파이프 문자 확인","375px 장문 입력·결과 확인","KOR / ENG와 iframe 높이 확인"]
+    }
+  ]
+}

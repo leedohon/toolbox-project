@@ -672,6 +672,86 @@
         "embed": "embed/fraction-simplifier/index.html",
         "moduleRegistry": "embed/fraction-simplifier/modules.json"
       }
+    },
+    {
+      "index": 42,
+      "tool": "average-median-calculator",
+      "title": "평균·중앙값 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/average-median-calculator.md",
+        "post": "toolbox/posts/average-median-calculator.html",
+        "manifest": "outputs/average-median-calculator/versions.json",
+        "embed": "embed/average-median-calculator/index.html",
+        "moduleRegistry": "embed/average-median-calculator/modules.json"
+      }
+    },
+    {
+      "index": 43,
+      "tool": "ratio-simplifier",
+      "title": "비율 간단히 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/ratio-simplifier.md",
+        "post": "toolbox/posts/ratio-simplifier.html",
+        "manifest": "outputs/ratio-simplifier/versions.json",
+        "embed": "embed/ratio-simplifier/index.html",
+        "moduleRegistry": "embed/ratio-simplifier/modules.json"
+      }
+    },
+    {
+      "index": 44,
+      "tool": "css-unit-converter",
+      "title": "CSS px·rem·em 변환기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/css-unit-converter.md",
+        "post": "toolbox/posts/css-unit-converter.html",
+        "manifest": "outputs/css-unit-converter/versions.json",
+        "embed": "embed/css-unit-converter/index.html",
+        "moduleRegistry": "embed/css-unit-converter/modules.json"
+      }
+    },
+    {
+      "index": 45,
+      "tool": "css-border-radius-generator",
+      "title": "CSS 모서리 둥글기 생성기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/css-border-radius-generator.md",
+        "post": "toolbox/posts/css-border-radius-generator.html",
+        "manifest": "outputs/css-border-radius-generator/versions.json",
+        "embed": "embed/css-border-radius-generator/index.html",
+        "moduleRegistry": "embed/css-border-radius-generator/modules.json"
+      }
+    },
+    {
+      "index": 46,
+      "tool": "markdown-table-generator",
+      "title": "마크다운 표 생성기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/markdown-table-generator.md",
+        "post": "toolbox/posts/markdown-table-generator.html",
+        "manifest": "outputs/markdown-table-generator/versions.json",
+        "embed": "embed/markdown-table-generator/index.html",
+        "moduleRegistry": "embed/markdown-table-generator/modules.json"
+      }
     }
   ]
 }

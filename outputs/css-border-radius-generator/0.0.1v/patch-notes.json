@@ -1,0 +1,16 @@
+{
+  "tool": "css-border-radius-generator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "네 모서리 px 입력",
+    "표준 시계 방향 CSS 생성",
+    "범위 검증·KOR / ENG·복사"
+  ],
+  "qa": [
+    "동일·개별·0·범위 초과 확인",
+    "375px 네 입력 배치 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "tool": "markdown-table-generator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "머리글·행 데이터 표 변환",
+    "열 수 정규화와 파이프 이스케이프",
+    "KOR / ENG와 결과 복사"
+  ],
+  "qa": [
+    "빈 셀·열 부족·파이프 문자 확인",
+    "375px 장문 입력·결과 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

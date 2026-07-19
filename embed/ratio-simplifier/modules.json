@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "ratio-simplifier",
+      "label": {
+        "ko": "비율 간단히 계산기",
+        "en": "Ratio simplifier"
+      },
+      "entry": "./tool.js",
+      "messageTool": "ratio-simplifier",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

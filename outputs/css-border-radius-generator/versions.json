@@ -1,0 +1,19 @@
+{
+  "index": 45,
+  "tool": "css-border-radius-generator",
+  "title": "CSS 모서리 둥글기 생성기",
+  "description": "네 모서리의 px 값을 입력해 border-radius CSS 코드를 만듭니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-19",
+      "changeLevel": "minimum",
+      "summary": "네 모서리 border-radius 코드를 만드는 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/css-border-radius-generator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

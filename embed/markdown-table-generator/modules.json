@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "markdown-table-generator",
+      "label": {
+        "ko": "마크다운 표 생성기",
+        "en": "Markdown table generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "markdown-table-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

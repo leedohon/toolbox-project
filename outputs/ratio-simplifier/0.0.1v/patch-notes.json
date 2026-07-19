@@ -1,0 +1,16 @@
+{
+  "tool": "ratio-simplifier",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-19",
+  "changeLevel": "minimum",
+  "changes": [
+    "최대공약수 기반 비율 정리",
+    "0·음수 입력 검증",
+    "나눗셈 값·KOR / ENG·복사"
+  ],
+  "qa": [
+    "일반·0·음수·동일값 확인",
+    "375px 숫자 입력 확인",
+    "KOR / ENG와 iframe 높이 확인"
+  ]
+}

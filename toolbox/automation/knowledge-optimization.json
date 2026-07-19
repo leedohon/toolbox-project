@@ -118,6 +118,18 @@
       "evidence": [
         {"before":10,"after":0,"unit":"manually created embed shell and entry files per five-tool create run","reduction":1.0,"verifiedAt":"2026-07-19"}
       ]
+    },
+    {
+      "id": "OPT-005",
+      "status": "completed",
+      "triggerPaths": ["scripts/run-create-config.mjs", "toolbox/automation/create-*.json", "toolbox/guides/post-drafting-guide.md"],
+      "problem": "한 크리에이트 설정을 완성하려면 생성·빌드·색인·검증 명령을 여섯 번 따로 호출해야 함",
+      "proposedChange": "설정 경로 하나로 여섯 단계를 순서대로 실행하고 실패 즉시 중단하는 실행기를 제공함",
+      "measure": "repeated manual edits",
+      "targetReduction": 0.5,
+      "evidence": [
+        {"before":6,"after":1,"unit":"automation command invocations per five-tool create config","reduction":0.8333,"verifiedAt":"2026-07-19"}
+      ]
     }
   ]
 }

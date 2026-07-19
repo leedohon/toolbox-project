@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "css-border-radius-generator",
+      "label": {
+        "ko": "CSS 모서리 둥글기 생성기",
+        "en": "CSS border radius generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "css-border-radius-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

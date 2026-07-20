@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-19",
+  "updatedAt": "2026-07-20",
   "project": "toolbox",
   "keySources": {
     "content": "toolbox/post-content.json",
@@ -168,7 +168,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.1.0v",
+      "latestVersion": "1.2.0v",
       "paths": {
         "definition": "toolbox/tools/date-calculator.md",
         "post": "toolbox/posts/date-calculator.html",
@@ -328,7 +328,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/uuid-generator.md",
         "post": "toolbox/posts/uuid-generator.html",
@@ -472,7 +472,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/unicode-inspector.md",
         "post": "toolbox/posts/unicode-inspector.html",
@@ -600,7 +600,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/slug-generator.md",
         "post": "toolbox/posts/slug-generator.html",
@@ -662,9 +662,9 @@
       "tool": "fraction-simplifier",
       "title": "분수 약분 계산기",
       "category": "초간단 툴박스",
-      "status": "published",
-      "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "status": "retired",
+      "replacementTool": "date-calculator",
+      "latestVersion": "0.1.0v",
       "paths": {
         "definition": "toolbox/tools/fraction-simplifier.md",
         "post": "toolbox/posts/fraction-simplifier.html",
@@ -694,9 +694,9 @@
       "tool": "ratio-simplifier",
       "title": "비율 간단히 계산기",
       "category": "초간단 툴박스",
-      "status": "published",
-      "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "status": "retired",
+      "replacementTool": "date-calculator",
+      "latestVersion": "0.1.0v",
       "paths": {
         "definition": "toolbox/tools/ratio-simplifier.md",
         "post": "toolbox/posts/ratio-simplifier.html",

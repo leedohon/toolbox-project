@@ -1,0 +1,12 @@
+{
+  "tool": "ratio-simplifier",
+  "version": "0.1.0v",
+  "releaseDate": "2026-07-21",
+  "changeLevel": "minor",
+  "changes": [
+    "다용도 계산기 통합 안내로 전환"
+  ],
+  "qa": [
+    "기존 주소의 다용도 계산기 통합 안내 확인"
+  ]
+}

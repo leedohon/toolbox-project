@@ -1,0 +1,14 @@
+{
+  "tool": "unicode-inspector",
+  "version": "0.0.3v",
+  "releaseDate": "2026-07-21",
+  "changeLevel": "minimum",
+  "changes": [
+    "문자별 UTF-8 바이트 열 추가"
+  ],
+  "qa": [
+    "375x812 및 1280x900 가로 넘침 없음",
+    "KOR / ENG 동적 결과 확인",
+    "한글 문자 UTF-8 3바이트와 TSV 열 확인"
+  ]
+}

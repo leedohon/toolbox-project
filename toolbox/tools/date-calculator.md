@@ -15,7 +15,7 @@ inputs:
   - id: operator
     label: 연산
     type: radio
-    options: [add, subtract, multiply, divide]
+    options: [add, subtract, multiply, divide, fraction, ratio]
   - id: leftValue
     label: 첫 번째 값
     type: number
@@ -27,6 +27,7 @@ inputs:
 ## 기능
 
 - 일반 숫자의 덧셈, 뺄셈, 곱셈, 나눗셈
+- 두 정수의 분수 약분과 비율 약분
 - 길이, 넓이, 부피, 무게, 속도, 시간, 데이터 단위 간 환산 사칙연산
 - 데이터 분야에서는 첫 번째 값의 B·KB·MB·GB·TB와 KiB·MiB·GiB·TiB 전체 결과를 함께 표시
 - mm, cm, m, km, inch, ft, yd, mile 등 자주 쓰는 다양한 단위

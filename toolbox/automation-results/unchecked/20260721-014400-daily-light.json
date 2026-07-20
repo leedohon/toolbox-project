@@ -1,0 +1,34 @@
+{
+  "runId": "20260721-014400-daily-light",
+  "workflow": "daily-light",
+  "status": "completed",
+  "confirm": "N",
+  "startedAt": "2026-07-21T01:44:00+09:00",
+  "completedAt": "2026-07-21T02:04:00+09:00",
+  "summary": "공개 도구 3개를 개선하고 단순 분수·비율 계산기를 다용도 계산기로 통합했으며 가치가 낮은 미공개 텍스트 반복기는 폐기했습니다.",
+  "selectedTools": ["slug-generator", "uuid-generator", "unicode-inspector", "date-calculator", "fraction-simplifier", "ratio-simplifier"],
+  "selectionBasis": "이전 데일리 라이트 대상을 제외한 순환 후보에서 사용자 체감 개선이 가능한 도구를 선택하고, 사용자 추가 지시에 따라 단일 기능 계산기를 통합했습니다.",
+  "changes": [
+    {"target":"slug-generator","version":"0.0.2v","result":"슬러그 단어 수 표시"},
+    {"target":"uuid-generator","version":"0.0.3v","result":"1·10·50·100개 빠른 선택"},
+    {"target":"unicode-inspector","version":"0.0.3v","result":"문자별 UTF-8 바이트 표시"},
+    {"target":"date-calculator","version":"1.2.0v","result":"분수·비율 약분 통합"},
+    {"target":"fraction-simplifier","version":"0.1.0v","result":"retired, 다용도 계산기 안내로 전환"},
+    {"target":"ratio-simplifier","version":"0.1.0v","result":"retired, 다용도 계산기 안내로 전환"},
+    {"target":"text-repeater","version":null,"result":"공개 전 폐기 및 Blogger 초안 삭제"}
+  ],
+  "newIdeas": ["계산 목적별 즐겨찾기 연산", "여러 계산 결과를 한 번에 비교하는 요약표", "최근 계산을 서버 저장 없이 되돌리는 로컬 기록"],
+  "commonModules": [
+    {"target":"quick-value-buttons","result":"숫자 입력용 공통 빠른 선택 버튼 제안"},
+    {"target":"integer-simplification","result":"최대공약수 기반 분수·비율 공통 연산 제안"},
+    {"target":"tool-value-review","result":"신규 공개 전 단독 가치와 통합 가능성을 점검하는 게이트 제안"}
+  ],
+  "knowledgeOptimization": {"policyVersion":"0.3.0","applied":[],"recorded":["신규 공개 전 단독 가치·통합 가능성 검토를 공통 제안으로 기록"],"skipped":["기존 최적화 백로그에 미완료 후보 없음"],"measuredReduction":null},
+  "developmentTokenEfficiency": {"measurementStatus":"proxy_only","baselineRunId":"20260719-035900-daily-light","tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":null,"overallReduction":null,"proxies":[{"metric":"standalone low-value public tools","before":2,"after":0,"reduction":1.0},{"metric":"shared generated runtime cache-bump edits","before":16,"after":1,"reduction":0.9375}],"note":"실제 비교 가능 토큰 수가 없어 전체 감소율은 산정하지 않았습니다."},
+  "validation": ["223개 JSON 및 최신 릴리스 경로 통과", "44개 모듈 계약 통과", "공개 카탈로그 43/43 통과", "375x812·1280x900 가로 넘침 없음", "42/56 분수 약분 3/4 및 UUID 50개·유니코드 3바이트·슬러그 단어 수 확인"],
+  "blogger": {"created":[],"updated":["slug-generator","uuid-generator","unicode-inspector","date-calculator","fraction-simplifier","ratio-simplifier"],"deletedDrafts":["text-repeater"],"status":"completed"},
+  "git": {"branch":"main","commit":null,"pushed":true},
+  "deployment": {"status":"completed","publicToolCount":43},
+  "shutdown": {"requested":true,"scheduled":true,"input":"30분","scheduledFor":"2026-07-21T02:14:00+09:00","cancelled":false},
+  "blocked": []
+}

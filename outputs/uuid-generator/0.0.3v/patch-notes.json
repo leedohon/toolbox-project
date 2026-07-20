@@ -1,0 +1,14 @@
+{
+  "tool": "uuid-generator",
+  "version": "0.0.3v",
+  "releaseDate": "2026-07-21",
+  "changeLevel": "minimum",
+  "changes": [
+    "1·10·50·100개 빠른 선택 버튼 추가"
+  ],
+  "qa": [
+    "375x812 및 1280x900 가로 넘침 없음",
+    "KOR / ENG 동적 결과 확인",
+    "빠른 선택 50개 생성과 중복 없는 UUID 결과 확인"
+  ]
+}

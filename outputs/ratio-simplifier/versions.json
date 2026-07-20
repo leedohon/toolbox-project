@@ -1,10 +1,12 @@
 {
   "index": 43,
   "tool": "ratio-simplifier",
+  "status": "retired",
+  "replacementTool": "date-calculator",
   "title": "비율 간단히 계산기",
   "description": "두 정수의 최대공약수를 구해 가장 간단한 정수 비율로 정리합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_681.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +16,15 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/ratio-simplifier.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-21",
+      "changeLevel": "minor",
+      "summary": "비율 약분 기능을 다용도 계산기로 통합했습니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/ratio-simplifier.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
   ]
 }

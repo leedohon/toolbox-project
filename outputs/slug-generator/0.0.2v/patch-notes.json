@@ -1,0 +1,14 @@
+{
+  "tool": "slug-generator",
+  "version": "0.0.2v",
+  "releaseDate": "2026-07-21",
+  "changeLevel": "minimum",
+  "changes": [
+    "슬러그 결과에 단어 수 표시"
+  ],
+  "qa": [
+    "375x812 및 1280x900 가로 넘침 없음",
+    "KOR / ENG 동적 결과 확인",
+    "단어 수 4와 길이 15 결과 확인"
+  ]
+}

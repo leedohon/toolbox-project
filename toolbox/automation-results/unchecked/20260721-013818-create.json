@@ -23,8 +23,8 @@
       "implement": {"status": "completed", "evidence": ["기존 구현 재사용, 기능 파일 변경 없음"], "blockCode": null},
       "validate": {"status": "completed", "evidence": ["217개 릴리스 JSON, 44개 모듈, 공개 도구 45/45 통과"], "blockCode": null},
       "publish": {"status": "completed", "evidence": ["Blogger API 403 재현", "Blogger 관리자 화면으로 10개 LIVE 발행", "postUrl 10개 동기화"], "blockCode": null},
-      "commit": {"status": "pending", "evidence": [], "blockCode": null},
-      "deploy": {"status": "pending", "evidence": [], "blockCode": null},
+      "commit": {"status": "completed", "evidence": ["fce9959", "origin/main 푸시 완료"], "blockCode": null},
+      "deploy": {"status": "completed", "evidence": ["Update tool catalog 29760637967 success", "Pages 29760636531 success"], "blockCode": null},
       "confirm": {"status": "pending", "evidence": [], "blockCode": "USER_CONFIRMATION_REQUIRED"}
     }
   },
@@ -54,8 +54,8 @@
     "proxies": [],
     "note": "실제 입력·출력 토큰 수와 비교 가능한 동일 범위 재시도 기준이 제공되지 않아 감소율을 계산하지 않았습니다."
   },
-  "git": {"branch": "main", "commit": null, "pushed": false},
-  "deployment": {"status": "pending", "urls": []},
+  "git": {"branch": "main", "commit": "fce9959699f41a3150a1a237692f9416b20523a7", "pushed": true},
+  "deployment": {"status": "completed", "urls": ["https://leedohon.github.io/toolbox-project/"], "runs": [29760637967, 29760636531]},
   "shutdown": {"requested": false, "scheduled": false, "input": "아니오", "scheduledFor": null, "cancelled": false},
   "blocked": [],
   "reportHistory": []

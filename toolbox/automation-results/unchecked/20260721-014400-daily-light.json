@@ -4,7 +4,7 @@
   "status": "completed",
   "confirm": "N",
   "startedAt": "2026-07-21T01:44:00+09:00",
-  "completedAt": "2026-07-21T02:04:00+09:00",
+  "completedAt": "2026-07-21T02:06:32+09:00",
   "summary": "공개 도구 3개를 개선하고 단순 분수·비율 계산기를 다용도 계산기로 통합했으며 가치가 낮은 미공개 텍스트 반복기는 폐기했습니다.",
   "selectedTools": ["slug-generator", "uuid-generator", "unicode-inspector", "date-calculator", "fraction-simplifier", "ratio-simplifier"],
   "selectionBasis": "이전 데일리 라이트 대상을 제외한 순환 후보에서 사용자 체감 개선이 가능한 도구를 선택하고, 사용자 추가 지시에 따라 단일 기능 계산기를 통합했습니다.",
@@ -27,8 +27,8 @@
   "developmentTokenEfficiency": {"measurementStatus":"proxy_only","baselineRunId":"20260719-035900-daily-light","tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":null,"overallReduction":null,"proxies":[{"metric":"standalone low-value public tools","before":2,"after":0,"reduction":1.0},{"metric":"shared generated runtime cache-bump edits","before":16,"after":1,"reduction":0.9375}],"note":"실제 비교 가능 토큰 수가 없어 전체 감소율은 산정하지 않았습니다."},
   "validation": ["223개 JSON 및 최신 릴리스 경로 통과", "44개 모듈 계약 통과", "공개 카탈로그 43/43 통과", "375x812·1280x900 가로 넘침 없음", "42/56 분수 약분 3/4 및 UUID 50개·유니코드 3바이트·슬러그 단어 수 확인"],
   "blogger": {"created":[],"updated":["slug-generator","uuid-generator","unicode-inspector","date-calculator","fraction-simplifier","ratio-simplifier"],"deletedDrafts":["text-repeater"],"status":"completed"},
-  "git": {"branch":"main","commit":null,"pushed":true},
-  "deployment": {"status":"completed","publicToolCount":43},
+  "git": {"branch":"main","commit":"3b9fbf88622ca52e72c5e6a736f2bbc7090f1397","pushed":true},
+  "deployment": {"status":"completed","publicToolCount":43,"pagesRun":29762321363,"catalogRun":29762322354},
   "shutdown": {"requested":true,"scheduled":true,"input":"30분","scheduledFor":"2026-07-21T02:14:00+09:00","cancelled":false},
   "blocked": []
 }

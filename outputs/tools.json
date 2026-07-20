@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-19",
+  "updatedAt": "2026-07-20",
   "tools": [
     {
       "index": 1,
@@ -1338,7 +1338,7 @@
       "tool": "average-median-calculator",
       "title": "평균·중앙값 계산기",
       "description": "쉼표나 줄바꿈으로 입력한 숫자의 평균·중앙값·합계·범위를 한 번에 계산합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_20.html",
       "version": "0.0.1v",
       "keywords": [
         "평균계산",
@@ -1373,7 +1373,7 @@
       "tool": "ratio-simplifier",
       "title": "비율 간단히 계산기",
       "description": "두 정수의 최대공약수를 구해 가장 간단한 정수 비율로 정리합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_681.html",
       "version": "0.0.1v",
       "keywords": [
         "비율계산",
@@ -1408,7 +1408,7 @@
       "tool": "css-unit-converter",
       "title": "CSS px·rem·em 변환기",
       "description": "기준 글자 크기를 사용해 CSS px·rem·em 값을 서로 변환합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/css-pxremem.html",
       "version": "0.0.1v",
       "keywords": [
         "CSS단위",
@@ -1443,7 +1443,7 @@
       "tool": "css-border-radius-generator",
       "title": "CSS 모서리 둥글기 생성기",
       "description": "네 모서리의 px 값을 입력해 border-radius CSS 코드를 만듭니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/css_0628404825.html",
       "version": "0.0.1v",
       "keywords": [
         "CSS",
@@ -1478,7 +1478,7 @@
       "tool": "markdown-table-generator",
       "title": "마크다운 표 생성기",
       "description": "쉼표로 구분한 머리글과 행 데이터를 마크다운 표 문법으로 바꿉니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_202.html",
       "version": "0.0.1v",
       "keywords": [
         "마크다운표",
@@ -1513,7 +1513,7 @@
       "tool": "chmod-calculator",
       "title": "chmod 권한 계산기",
       "description": "소유자·그룹·기타 사용자의 읽기·쓰기·실행 조합을 숫자와 기호 권한으로 확인합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/chmod.html",
       "version": "0.0.1v",
       "keywords": [
         "chmod",
@@ -1548,7 +1548,7 @@
       "tool": "cron-expression-explainer",
       "title": "Cron 표현식 설명기",
       "description": "5개 항목의 기본 Cron 표현식을 분·시·일·월·요일별 쉬운 문장으로 나누어 설명합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/cron.html",
       "version": "0.0.1v",
       "keywords": [
         "Cron",
@@ -1583,7 +1583,7 @@
       "tool": "http-status-lookup",
       "title": "HTTP 상태 코드 찾기",
       "description": "자주 쓰는 HTTP 상태 코드의 영문 이름과 한글 의미, 응답 분류를 확인합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/http.html",
       "version": "0.0.1v",
       "keywords": [
         "HTTP",
@@ -1618,7 +1618,7 @@
       "tool": "mime-type-lookup",
       "title": "파일 확장자 MIME 타입 찾기",
       "description": "파일 확장자를 입력해 대표 MIME 타입과 Content-Type 헤더 예시를 확인합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/mime.html",
       "version": "0.0.1v",
       "keywords": [
         "MIME타입",
@@ -1653,7 +1653,7 @@
       "tool": "isbn-validator",
       "title": "ISBN-10·ISBN-13 검사기",
       "description": "하이픈이 포함된 ISBN-10·ISBN-13을 정리하고 체크 숫자가 올바른지 검사합니다.",
-      "postUrl": "",
+      "postUrl": "https://bloggiedh.blogspot.com/2026/07/isbn-10isbn-13.html",
       "version": "0.0.1v",
       "keywords": [
         "ISBN",

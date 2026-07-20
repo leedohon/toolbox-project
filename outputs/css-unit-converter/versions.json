@@ -3,7 +3,7 @@
   "tool": "css-unit-converter",
   "title": "CSS px·rem·em 변환기",
   "description": "기준 글자 크기를 사용해 CSS px·rem·em 값을 서로 변환합니다.",
-  "postUrl": "",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/css-pxremem.html",
   "latestVersion": "0.0.1v",
   "versions": [
     {

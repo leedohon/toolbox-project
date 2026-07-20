@@ -3,7 +3,7 @@
   "tool": "mime-type-lookup",
   "title": "파일 확장자 MIME 타입 찾기",
   "description": "파일 확장자를 입력해 대표 MIME 타입과 Content-Type 헤더 예시를 확인합니다.",
-  "postUrl": "",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/mime.html",
   "latestVersion": "0.0.1v",
   "versions": [
     {

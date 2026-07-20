@@ -3,7 +3,7 @@
   "tool": "isbn-validator",
   "title": "ISBN-10·ISBN-13 검사기",
   "description": "하이픈이 포함된 ISBN-10·ISBN-13을 정리하고 체크 숫자가 올바른지 검사합니다.",
-  "postUrl": "",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/07/isbn-10isbn-13.html",
   "latestVersion": "0.0.1v",
   "versions": [
     {

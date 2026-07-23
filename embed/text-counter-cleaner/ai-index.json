@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "1.0.1v",
+  "latestVersion": "1.0.2v",
   "paths": {
     "definition": "toolbox/tools/text-counter-cleaner.md",
     "post": "toolbox/posts/text-counter-cleaner.html",
@@ -22,7 +22,7 @@
         "ko": "글자수·텍스트 정리",
         "en": "Count & clean text"
       },
-      "entry": "./engine.html?release=1.0.0v",
+      "entry": "./engine.html?release=1.0.2v",
       "messageTool": "text-counter-cleaner",
       "capabilities": {
         "resultCode": false,

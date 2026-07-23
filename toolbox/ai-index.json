@@ -56,7 +56,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.1v",
+      "latestVersion": "1.0.2v",
       "paths": {
         "definition": "toolbox/tools/base64-tools.md",
         "post": "toolbox/posts/base64-tools.html",
@@ -168,7 +168,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "2.0.1v",
+      "latestVersion": "2.0.2v",
       "paths": {
         "definition": "toolbox/tools/date-calculator.md",
         "post": "toolbox/posts/date-calculator.html",
@@ -200,7 +200,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.1v",
+      "latestVersion": "1.0.2v",
       "paths": {
         "definition": "toolbox/tools/password-generator.md",
         "post": "toolbox/posts/password-generator.html",
@@ -216,7 +216,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.1v",
+      "latestVersion": "1.0.2v",
       "paths": {
         "definition": "toolbox/tools/image-resizer-compressor.md",
         "post": "toolbox/posts/image-resizer-compressor.html",
@@ -232,7 +232,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.1v",
+      "latestVersion": "1.0.2v",
       "paths": {
         "definition": "toolbox/tools/color-converter-contrast.md",
         "post": "toolbox/posts/color-converter-contrast.html",
@@ -264,7 +264,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.1v",
+      "latestVersion": "1.0.2v",
       "paths": {
         "definition": "toolbox/tools/text-counter-cleaner.md",
         "post": "toolbox/posts/text-counter-cleaner.html",
@@ -296,7 +296,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.1v",
+      "latestVersion": "1.0.2v",
       "paths": {
         "definition": "toolbox/tools/markdown-preview-converter.md",
         "post": "toolbox/posts/markdown-preview-converter.html",
@@ -792,7 +792,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.1v",
+      "latestVersion": "1.0.2v",
       "paths": {
         "definition": "toolbox/tools/http-status-lookup.md",
         "post": "toolbox/posts/http-status-lookup.html",

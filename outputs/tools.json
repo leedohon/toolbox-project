@@ -83,7 +83,7 @@
       "title": "인코딩·문자 변환 도구",
       "description": "Base64·URL·HTML 엔티티·진법·유니코드·로마 숫자 변환과 분석을 한곳에서 처리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
-      "version": "1.0.1v",
+      "version": "1.0.2v",
       "keywords": [
         "인코딩도구",
         "Base64",
@@ -161,7 +161,7 @@
       "title": "다용도 계산기",
       "description": "일반·단위·날짜 계산과 Unix 시간, 화면 비율, 백분율, 평균·중앙값 계산을 한곳에서 처리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
-      "version": "2.0.1v",
+      "version": "2.0.2v",
       "keywords": [
         "다용도계산기",
         "단위변환",
@@ -240,7 +240,7 @@
       "title": "비밀번호·UUID 생성기",
       "description": "안전한 무작위 비밀번호와 UUID v4를 필요한 형식과 개수로 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
-      "version": "1.0.1v",
+      "version": "1.0.2v",
       "keywords": [
         "비밀번호생성기",
         "UUID",
@@ -279,7 +279,7 @@
       "title": "이미지 크기·압축·DPI 도구",
       "description": "이미지 크기·저장 품질을 바꾸거나 출력 크기에 맞는 DPI·PPI를 계산합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html",
-      "version": "1.0.1v",
+      "version": "1.0.2v",
       "keywords": [
         "이미지압축",
         "이미지리사이즈",
@@ -319,7 +319,7 @@
       "title": "CSS 디자인 도구",
       "description": "색상·대비·그라데이션·clamp·그림자·단위·모서리 CSS를 한곳에서 만들고 확인합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-      "version": "1.0.1v",
+      "version": "1.0.2v",
       "keywords": [
         "CSS디자인",
         "색상변환",
@@ -359,7 +359,7 @@
       "title": "텍스트 정리·생성 도구",
       "description": "글자 수·공백·목록·파일명·슬러그를 정리하고 테스트 문장을 생성합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
-      "version": "1.0.1v",
+      "version": "1.0.2v",
       "keywords": [
         "글자수세기",
         "텍스트정리",
@@ -437,7 +437,7 @@
       "title": "마크다운 작성 도구",
       "description": "마크다운 문서를 미리 보고 HTML로 변환하거나 표 문법을 빠르게 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/html.html",
-      "version": "1.0.1v",
+      "version": "1.0.2v",
       "keywords": [
         "마크다운",
         "MarkdownPreview",
@@ -710,7 +710,7 @@
       "title": "개발자 빠른 참조·검사 도구",
       "description": "HTTP·MIME·Cron·chmod 정보를 찾고 ISBN 체크 숫자를 한곳에서 검사합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/http.html",
-      "version": "1.0.1v",
+      "version": "1.0.2v",
       "keywords": [
         "개발자도구",
         "HTTP상태코드",

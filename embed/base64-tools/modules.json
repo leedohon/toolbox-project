@@ -19,7 +19,7 @@
         "ko": "텍스트·Base64",
         "en": "Text & Base64"
       },
-      "entry": "./engine.html?release=1.0.1v",
+      "entry": "./engine.html?release=1.0.2v",
       "messageTool": "base64-tools",
       "capabilities": {
         "resultCode": false,

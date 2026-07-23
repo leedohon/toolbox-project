@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "1.0.1v",
+  "latestVersion": "1.0.2v",
   "paths": {
     "definition": "toolbox/tools/markdown-preview-converter.md",
     "post": "toolbox/posts/markdown-preview-converter.html",
@@ -22,7 +22,7 @@
         "ko": "미리보기·HTML",
         "en": "Preview & HTML"
       },
-      "entry": "./engine.html?release=1.0.0v",
+      "entry": "./engine.html?release=1.0.2v",
       "messageTool": "markdown-preview-converter",
       "capabilities": {
         "resultCode": false,

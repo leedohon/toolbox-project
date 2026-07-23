@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "2.0.1v",
+  "latestVersion": "2.0.2v",
   "paths": {
     "definition": "toolbox/tools/date-calculator.md",
     "post": "toolbox/posts/date-calculator.html",
@@ -22,7 +22,7 @@
         "ko": "일반·단위·날짜",
         "en": "General, unit & date"
       },
-      "entry": "./engine.html?release=2.0.0v",
+      "entry": "./engine.html?release=2.0.2v",
       "messageTool": "date-calculator",
       "capabilities": {
         "resultCode": false,

@@ -162,7 +162,8 @@ function syncFrameHeight(frame) {
     const body = frame.contentDocument?.body;
     if (!body) return;
     const height = Math.min(5600, Math.max(320, Math.ceil(body.scrollHeight)));
-    frame.style.height = `${height}px`;
+    const nextHeight = `${height}px`;
+    if (frame.style.height !== nextHeight) frame.style.height = nextHeight;
   } catch (_) {
     // Registry validation keeps current modules same-origin; tolerate a frame closing during navigation.
   }
@@ -171,12 +172,38 @@ function syncFrameHeight(frame) {
 function observeFrameHeight(frame) {
   frameObservers.get(frame)?.disconnect();
   try {
-    const body = frame.contentDocument?.body;
+    const document = frame.contentDocument;
+    const body = document?.body;
     if (!body) return;
-    const observer = new ResizeObserver(() => syncFrameHeight(frame));
-    observer.observe(body);
-    frameObservers.set(frame, observer);
-    syncFrameHeight(frame);
+    let scheduled = 0;
+    const send = () => {
+      if (scheduled) cancelAnimationFrame(scheduled);
+      scheduled = requestAnimationFrame(() => {
+        scheduled = requestAnimationFrame(() => syncFrameHeight(frame));
+      });
+    };
+    const resizeObserver = new ResizeObserver(send);
+    resizeObserver.observe(body);
+    resizeObserver.observe(document.documentElement);
+    const mutationObserver = new MutationObserver(send);
+    mutationObserver.observe(body, {
+      subtree: true,
+      childList: true,
+      characterData: true,
+      attributes: true,
+      attributeFilter: ['class', 'hidden', 'style'],
+    });
+    frameObservers.set(frame, {
+      disconnect() {
+        if (scheduled) cancelAnimationFrame(scheduled);
+        resizeObserver.disconnect();
+        mutationObserver.disconnect();
+      },
+    });
+    document.fonts?.ready.then(send);
+    send();
+    setTimeout(send, 250);
+    setTimeout(send, 750);
   } catch (_) {
     // A child can briefly be unavailable while its document is being replaced.
   }

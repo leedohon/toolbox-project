@@ -1,0 +1,289 @@
+{
+  "runId": "20260723-235321-all-in",
+  "workflow": "all-in",
+  "status": "completed",
+  "confirm": "N",
+  "startedAt": "2026-07-23T23:53:21+09:00",
+  "completedAt": "2026-07-24T00:19:29+09:00",
+  "confirmedAt": null,
+  "summary": "공개 도구 43개를 8개 통합 허브 중심의 19개 공개 도구로 정리하고, 24개 기존 도구를 기능이 유지되는 호환 진입점으로 전환했습니다.",
+  "normalizedRequest": {
+    "workType": "public-tool-consolidation",
+    "targets": [
+      "all-published-tools"
+    ],
+    "versionLevel": "impact-selected",
+    "bloggerPublish": true,
+    "gitDeploy": true,
+    "shutdown": false
+  },
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "evidence": [
+          "공개 도구 43개와 기능 중복 관계 전수 확인",
+          "8개 유지 허브와 24개 편입 도구 확정",
+          "기존 주소와 기능 엔진 보존 원칙 확정"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "evidence": [
+          "설정 기반 8개 허브와 32개 선택 모드 생성",
+          "24개 도구를 retired와 replacementTool로 전환",
+          "공통 KOR / ENG 전달과 지연 콘텐츠 높이 감시 적용",
+          "게시글 상세 설명·FAQ·태그·AI 색인·릴리스 메타데이터 갱신"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "evidence": [
+          "공개 카탈로그 19/19 구조 검사 통과",
+          "43개 레지스트리의 70개 모듈 계약 통과",
+          "271개 JSON과 모든 최신 릴리스 경로 통과",
+          "32개 허브 모드 모바일·PC 공개 화면 검사 통과"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "evidence": [
+          "Blogger 공개 게시글 32개 사전 검증 후 일괄 수정",
+          "Blogger URL 동기화 불일치 0건",
+          "8개 허브 게시글과 24개 기존 주소 안내 공개 확인"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "evidence": [
+          "09d92bde0ed40b1277f35b45fb911f8fee7b531a",
+          "5daaf0e02e7700c0f87904ef76b391c3e2d9d8a2",
+          "fbb1e5a14f05ff97d0f102b28a228f86be897589",
+          "origin/main 푸시 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "evidence": [
+          "pages-build-deployment 30019134479 success",
+          "Update tool catalog 30019135811 success",
+          "공개 GitHub Pages와 Blogger 브라우저 오류·경고 0건"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "pending",
+        "evidence": [],
+        "blockCode": "USER_CONFIRMATION_REQUIRED"
+      }
+    }
+  },
+  "selectedTools": [
+    "base64-tools",
+    "number-base-converter",
+    "unicode-inspector",
+    "html-entity-converter",
+    "roman-numeral-converter",
+    "date-calculator",
+    "unix-timestamp-converter",
+    "aspect-ratio-calculator",
+    "percentage-calculator",
+    "average-median-calculator",
+    "password-generator",
+    "uuid-generator",
+    "image-resizer-compressor",
+    "dpi-ppi-calculator",
+    "color-converter-contrast",
+    "css-gradient-generator",
+    "css-clamp-calculator",
+    "css-box-shadow-generator",
+    "css-unit-converter",
+    "css-border-radius-generator",
+    "text-counter-cleaner",
+    "filename-sanitizer",
+    "lorem-ipsum-generator",
+    "slug-generator",
+    "line-sort-deduplicator",
+    "markdown-preview-converter",
+    "markdown-table-generator",
+    "http-status-lookup",
+    "chmod-calculator",
+    "cron-expression-explainer",
+    "mime-type-lookup",
+    "isbn-validator"
+  ],
+  "selectionBasis": "입력과 결과 구조가 겹치고 단독 공개 가치가 낮은 도구를 목적별 허브로 합치되 기존 기능과 주소는 그대로 유지했습니다.",
+  "changes": [
+    {"target":"base64-tools","version":"1.0.2v","result":"인코딩·문자 변환 5개 모드 허브와 동적 높이 추적"},
+    {"target":"number-base-converter","version":"0.1.0v","result":"인코딩·문자 변환 도구의 진법 모드로 편입"},
+    {"target":"unicode-inspector","version":"0.1.0v","result":"인코딩·문자 변환 도구의 유니코드 분석 모드로 편입"},
+    {"target":"html-entity-converter","version":"0.1.0v","result":"인코딩·문자 변환 도구의 HTML 엔티티 모드로 편입"},
+    {"target":"roman-numeral-converter","version":"0.1.0v","result":"인코딩·문자 변환 도구의 로마 숫자 모드로 편입"},
+    {"target":"date-calculator","version":"2.0.2v","result":"다용도 계산 5개 모드 허브와 동적 높이 추적"},
+    {"target":"unix-timestamp-converter","version":"0.1.0v","result":"다용도 계산기의 Unix 시간 모드로 편입"},
+    {"target":"aspect-ratio-calculator","version":"0.1.0v","result":"다용도 계산기의 화면 비율 모드로 편입"},
+    {"target":"percentage-calculator","version":"0.1.0v","result":"다용도 계산기의 백분율 모드로 편입"},
+    {"target":"average-median-calculator","version":"0.1.0v","result":"다용도 계산기의 평균·중앙값 모드로 편입"},
+    {"target":"password-generator","version":"1.0.2v","result":"비밀번호·UUID 2개 모드 허브와 동적 높이 추적"},
+    {"target":"uuid-generator","version":"0.1.0v","result":"비밀번호·UUID 생성기의 UUID 모드로 편입"},
+    {"target":"image-resizer-compressor","version":"1.0.2v","result":"이미지 변환·DPI 2개 모드 허브와 동적 높이 추적"},
+    {"target":"dpi-ppi-calculator","version":"0.1.0v","result":"이미지 크기·압축·DPI 도구의 해상도 모드로 편입"},
+    {"target":"color-converter-contrast","version":"1.0.2v","result":"CSS 디자인 6개 모드 허브와 동적 높이 추적"},
+    {"target":"css-gradient-generator","version":"0.1.0v","result":"CSS 디자인 도구의 그라데이션 모드로 편입"},
+    {"target":"css-clamp-calculator","version":"0.1.0v","result":"CSS 디자인 도구의 clamp 모드로 편입"},
+    {"target":"css-box-shadow-generator","version":"0.1.0v","result":"CSS 디자인 도구의 그림자 모드로 편입"},
+    {"target":"css-unit-converter","version":"0.1.0v","result":"CSS 디자인 도구의 단위 변환 모드로 편입"},
+    {"target":"css-border-radius-generator","version":"0.1.0v","result":"CSS 디자인 도구의 모서리 모드로 편입"},
+    {"target":"text-counter-cleaner","version":"1.0.2v","result":"텍스트 정리·생성 5개 모드 허브와 동적 높이 추적"},
+    {"target":"filename-sanitizer","version":"0.1.0v","result":"텍스트 정리·생성 도구의 파일명 모드로 편입"},
+    {"target":"lorem-ipsum-generator","version":"0.1.0v","result":"텍스트 정리·생성 도구의 Lorem Ipsum 모드로 편입"},
+    {"target":"slug-generator","version":"0.1.0v","result":"텍스트 정리·생성 도구의 URL 슬러그 모드로 편입"},
+    {"target":"line-sort-deduplicator","version":"0.1.0v","result":"텍스트 정리·생성 도구의 줄 정리 모드로 편입"},
+    {"target":"markdown-preview-converter","version":"1.0.2v","result":"마크다운 작성 2개 모드 허브와 동적 높이 추적"},
+    {"target":"markdown-table-generator","version":"0.1.0v","result":"마크다운 작성 도구의 표 생성 모드로 편입"},
+    {"target":"http-status-lookup","version":"1.0.2v","result":"개발자 참조·검사 5개 모드 허브와 동적 높이 추적"},
+    {"target":"chmod-calculator","version":"0.1.0v","result":"개발자 참조·검사 도구의 chmod 모드로 편입"},
+    {"target":"cron-expression-explainer","version":"0.1.0v","result":"개발자 참조·검사 도구의 Cron 모드로 편입"},
+    {"target":"mime-type-lookup","version":"0.1.0v","result":"개발자 참조·검사 도구의 MIME 모드로 편입"},
+    {"target":"isbn-validator","version":"0.1.0v","result":"개발자 참조·검사 도구의 ISBN 모드로 편입"}
+  ],
+  "newIdeas": [],
+  "commonModules": [
+    {"target":"tool-hub-generator","result":"단일 설정에서 허브 셸·모듈 목록·기존 엔진 보존 파일 생성"},
+    {"target":"tool-hub-height-observer","result":"초기·지연 렌더·글꼴·DOM 변화까지 내부 프레임 높이 동기화"},
+    {"target":"blogger-publish-preflight","result":"32개 게시글 전체를 먼저 검증한 뒤 수정 요청 실행"},
+    {"target":"retired-post-builder","result":"대체 도구 링크와 일반 안내를 중앙 태그 원본에서 생성"}
+  ],
+  "knowledgeOptimization": {
+    "policyVersion": "0.4.0",
+    "applied": [
+      "OPT-006"
+    ],
+    "recorded": [],
+    "skipped": [],
+    "measuredReduction": {
+      "before": 24,
+      "after": 0,
+      "unit": "manual hub shell, module registry, and preserved anchor engine creations per eight-hub consolidation",
+      "reduction": 1.0
+    }
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": null,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "public standalone tool entries",
+        "before": 43,
+        "after": 19,
+        "reduction": 0.5581
+      },
+      {
+        "metric": "manual hub runtime artifact creations",
+        "before": 24,
+        "after": 0,
+        "reduction": 1.0
+      },
+      {
+        "metric": "manual release manifest metadata synchronizations",
+        "before": 32,
+        "after": 0,
+        "reduction": 1.0
+      }
+    ],
+    "note": "Comparable total development token counts were not exposed. Verified product-consolidation and generated-edit proxies are recorded separately, and no overall token reduction is claimed."
+  },
+  "validation": [
+    "설정 기반 8개 허브와 32개 모드 생성 결과 일치",
+    "43개 레지스트리의 70개 모듈 계약 통과",
+    "271개 JSON과 모든 최신 릴리스 경로 통과",
+    "공개 카탈로그 19/19 구조·고유 index·최신 버전 일치",
+    "375×812과 1280×900에서 32개 허브 모드 가로 넘침·내부 스크롤·프레임 높이·자동 포커스 검사 통과",
+    "셀렉트·라디오 기능 전환, 입력 상태 유지, KOR / ENG 전달과 자식 언어 선택 중복 방지 통과",
+    "Blogger 통합 게시글 8개 모바일·PC 검사 통과",
+    "Blogger 기존 주소 안내 24개 모바일 H1·FAQ·패치노트·대체 링크 검사 통과",
+    "공개 브라우저 오류와 경고 0건"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "base64-tools",
+      "number-base-converter",
+      "unicode-inspector",
+      "html-entity-converter",
+      "roman-numeral-converter",
+      "date-calculator",
+      "unix-timestamp-converter",
+      "aspect-ratio-calculator",
+      "percentage-calculator",
+      "average-median-calculator",
+      "password-generator",
+      "uuid-generator",
+      "image-resizer-compressor",
+      "dpi-ppi-calculator",
+      "color-converter-contrast",
+      "css-gradient-generator",
+      "css-clamp-calculator",
+      "css-box-shadow-generator",
+      "css-unit-converter",
+      "css-border-radius-generator",
+      "text-counter-cleaner",
+      "filename-sanitizer",
+      "lorem-ipsum-generator",
+      "slug-generator",
+      "line-sort-deduplicator",
+      "markdown-preview-converter",
+      "markdown-table-generator",
+      "http-status-lookup",
+      "chmod-calculator",
+      "cron-expression-explainer",
+      "mime-type-lookup",
+      "isbn-validator"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "fbb1e5a14f05ff97d0f102b28a228f86be897589",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "publicToolCount": 19,
+    "pagesRun": 30019134479,
+    "catalogRun": 30019135811,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/base64-tools/",
+      "https://leedohon.github.io/toolbox-project/embed/date-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/password-generator/",
+      "https://leedohon.github.io/toolbox-project/embed/image-resizer-compressor/",
+      "https://leedohon.github.io/toolbox-project/embed/color-converter-contrast/",
+      "https://leedohon.github.io/toolbox-project/embed/text-counter-cleaner/",
+      "https://leedohon.github.io/toolbox-project/embed/markdown-preview-converter/",
+      "https://leedohon.github.io/toolbox-project/embed/http-status-lookup/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": "안 함",
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "reportHistory": []
+}

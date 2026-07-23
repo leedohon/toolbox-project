@@ -9,6 +9,13 @@ const uncheckedRoot = path.join(resultsRoot, 'unchecked');
 const efficiencyLog = path.join(repositoryRoot, 'toolbox', 'quality', 'development-token-efficiency.json');
 const measurementStatuses = new Set(['measured', 'proxy_only', 'unavailable']);
 
+function requiresDevelopmentEfficiency(policyVersion) {
+  const match = /^(\d+)\.(\d+)\.(\d+)$/.exec(String(policyVersion || ''));
+  if (!match) return false;
+  const [, major, minor] = match.map(Number);
+  return major > 0 || minor >= 3;
+}
+
 async function ensureFolders() {
   await Promise.all([
     mkdir(checkedRoot, {recursive: true}),
@@ -132,7 +139,7 @@ async function validate() {
         if (value.confirm !== expectedConfirm) errors.push(`${name} has confirm ${value.confirm}; expected ${expectedConfirm}.`);
         if (expectedConfirm === 'Y' && !value.confirmedAt) errors.push(`${name} is checked without confirmedAt.`);
         if (expectedConfirm === 'N' && value.confirmedAt) errors.push(`${name} is unchecked with confirmedAt.`);
-        if (value.knowledgeOptimization?.policyVersion === '0.3.0' && !value.developmentTokenEfficiency) errors.push(`${name} uses policy 0.3.0 without developmentTokenEfficiency.`);
+        if (requiresDevelopmentEfficiency(value.knowledgeOptimization?.policyVersion) && !value.developmentTokenEfficiency) errors.push(`${name} uses token-tracking policy without developmentTokenEfficiency.`);
         if (value.developmentTokenEfficiency) {
           const item = value.developmentTokenEfficiency;
           if (!measurementStatuses.has(item.measurementStatus)) errors.push(`${name} has invalid development token measurementStatus.`);

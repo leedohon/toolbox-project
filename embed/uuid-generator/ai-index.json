@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "uuid-generator",
   "index": 20,
   "title": "UUID 일괄 생성기",
   "category": "초간단 툴박스",
-  "status": "published",
-  "replacementTool": null,
-  "latestVersion": "0.0.2v",
+  "status": "retired",
+  "replacementTool": "password-generator",
+  "latestVersion": "0.1.0v",
   "paths": {
     "definition": "toolbox/tools/uuid-generator.md",
     "post": "toolbox/posts/uuid-generator.html",

@@ -1,9 +1,10 @@
 ---
-title: 이미지 크기·용량 변환기
+title: 이미지 크기·압축·DPI 도구
 slug: image-resizer-compressor
 type: converter
-description: 이미지 크기와 저장 형식·품질을 바꿔 용량을 줄이고 바로 저장합니다.
+description: 이미지 크기·저장 품질을 바꾸거나 출력 크기에 맞는 DPI·PPI를 계산합니다.
 status: published
+modules: [image-resizer-compressor, dpi-ppi-calculator]
 inputs:
   - id: file
     label: 이미지 파일

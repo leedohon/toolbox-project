@@ -1,9 +1,10 @@
 ---
-title: 마크다운 미리보기·HTML 변환기
+title: 마크다운 작성 도구
 slug: markdown-preview-converter
 type: converter
-description: 마크다운 문서를 실시간으로 미리 보고 안전한 HTML 결과를 복사하거나 저장합니다.
+description: 마크다운 문서를 미리 보고 HTML로 변환하거나 표 문법을 빠르게 만듭니다.
 status: published
+modules: [markdown-preview-converter, markdown-table-generator]
 inputs:
   - id: markdown
     label: 마크다운 입력

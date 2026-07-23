@@ -3,7 +3,8 @@ title: 화면 비율 계산기
 slug: aspect-ratio-calculator
 type: calculator
 description: 가로·세로 크기의 비율을 줄여 표시하고 한쪽 길이에 맞는 반대쪽 길이를 계산합니다.
-status: published
+status: retired
+replacementTool: date-calculator
 inputs:
   - id: width
     label: 원본 가로

@@ -3,7 +3,8 @@ title: CSS 그림자 생성기
 slug: css-box-shadow-generator
 type: template-generator
 description: 위치·흐림·확산·색상을 조절해 box-shadow 미리보기와 CSS 코드를 만듭니다.
-status: published
+status: retired
+replacementTool: color-converter-contrast
 inputs:
   - id: geometry
     label: 그림자 위치와 크기

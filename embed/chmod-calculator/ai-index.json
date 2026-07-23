@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "chmod-calculator",
+  "index": 47,
+  "title": "chmod 권한 계산기",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "http-status-lookup",
+  "latestVersion": "0.1.0v",
+  "paths": {
+    "definition": "toolbox/tools/chmod-calculator.md",
+    "post": "toolbox/posts/chmod-calculator.html",
+    "manifest": "outputs/chmod-calculator/versions.json",
+    "embed": "embed/chmod-calculator/index.html",
+    "moduleRegistry": "embed/chmod-calculator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "chmod-calculator",
+      "label": {
+        "ko": "chmod 권한 계산기",
+        "en": "chmod permission calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "chmod-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

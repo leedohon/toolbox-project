@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "color-converter-contrast",
   "index": 14,
-  "title": "색상 변환·대비 검사기",
+  "title": "CSS 디자인 도구",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.4v",
+  "latestVersion": "1.0.0v",
   "paths": {
     "definition": "toolbox/tools/color-converter-contrast.md",
     "post": "toolbox/posts/color-converter-contrast.html",
@@ -19,11 +19,96 @@
     {
       "id": "color-converter-contrast",
       "label": {
-        "ko": "색상 변환·대비 검사기",
-        "en": "color-converter-contrast"
+        "ko": "색상·대비",
+        "en": "Color & contrast"
       },
-      "entry": "./tool.js",
+      "entry": "./engine.html?release=1.0.0v",
       "messageTool": "color-converter-contrast",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "css-gradient-generator",
+      "label": {
+        "ko": "그라데이션",
+        "en": "Gradient"
+      },
+      "entry": "../css-gradient-generator/?release=0.1.0v",
+      "messageTool": "css-gradient-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "css-clamp-calculator",
+      "label": {
+        "ko": "clamp 계산",
+        "en": "Clamp"
+      },
+      "entry": "../css-clamp-calculator/?release=0.1.0v",
+      "messageTool": "css-clamp-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "css-box-shadow-generator",
+      "label": {
+        "ko": "그림자",
+        "en": "Box shadow"
+      },
+      "entry": "../css-box-shadow-generator/?release=0.1.0v",
+      "messageTool": "css-box-shadow-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "css-unit-converter",
+      "label": {
+        "ko": "CSS 단위",
+        "en": "CSS units"
+      },
+      "entry": "../css-unit-converter/?release=0.1.0v",
+      "messageTool": "css-unit-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "css-border-radius-generator",
+      "label": {
+        "ko": "모서리 둥글기",
+        "en": "Border radius"
+      },
+      "entry": "../css-border-radius-generator/?release=0.1.0v",
+      "messageTool": "css-border-radius-generator",
       "capabilities": {
         "resultCode": false,
         "png": false,

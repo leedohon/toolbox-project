@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "markdown-table-generator",
+  "index": 46,
+  "title": "마크다운 표 생성기",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "markdown-preview-converter",
+  "latestVersion": "0.1.0v",
+  "paths": {
+    "definition": "toolbox/tools/markdown-table-generator.md",
+    "post": "toolbox/posts/markdown-table-generator.html",
+    "manifest": "outputs/markdown-table-generator/versions.json",
+    "embed": "embed/markdown-table-generator/index.html",
+    "moduleRegistry": "embed/markdown-table-generator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "markdown-table-generator",
+      "label": {
+        "ko": "마크다운 표 생성기",
+        "en": "Markdown table generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "markdown-table-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

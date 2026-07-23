@@ -1,10 +1,10 @@
 {
   "index": 49,
   "tool": "http-status-lookup",
-  "title": "HTTP 상태 코드 찾기",
-  "description": "자주 쓰는 HTTP 상태 코드의 영문 이름과 한글 의미, 응답 분류를 확인합니다.",
+  "title": "개발자 빠른 참조·검사 도구",
+  "description": "HTTP·MIME·Cron·chmod 정보를 찾고 ISBN 체크 숫자를 한곳에서 검사합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/http.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "1.0.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,16 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/http-status-lookup.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "1.0.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "major",
+      "summary": "개발자 빠른 참조·검사 도구의 관련 기능을 목적별 모드로 통합했습니다.",
+      "directory": "1.0.0v",
+      "html": "1.0.0v/http-status-lookup.html",
+      "patchNotes": "1.0.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "published"
 }

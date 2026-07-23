@@ -1,10 +1,10 @@
 {
   "index": 12,
   "tool": "password-generator",
-  "title": "안전 비밀번호 생성기",
-  "description": "길이와 문자 구성을 선택해 브라우저 안에서 안전한 무작위 비밀번호를 만듭니다.",
+  "title": "비밀번호·UUID 생성기",
+  "description": "안전한 무작위 비밀번호와 UUID v4를 필요한 형식과 개수로 만듭니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
-  "latestVersion": "0.0.4v",
+  "latestVersion": "1.0.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -41,6 +41,16 @@
       "directory": "0.0.4v",
       "html": "0.0.4v/password-generator.html",
       "patchNotes": "0.0.4v/patch-notes.json"
+    },
+    {
+      "version": "1.0.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "major",
+      "summary": "비밀번호·UUID 생성기의 관련 기능을 목적별 모드로 통합했습니다.",
+      "directory": "1.0.0v",
+      "html": "1.0.0v/password-generator.html",
+      "patchNotes": "1.0.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "published"
 }

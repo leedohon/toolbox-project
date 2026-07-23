@@ -4,7 +4,7 @@
   "title": "CSS px·rem·em 변환기",
   "description": "기준 글자 크기를 사용해 CSS px·rem·em 값을 서로 변환합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/css-pxremem.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,18 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/css-unit-converter.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "minor",
+      "summary": "기능을 CSS 디자인 도구 안으로 통합하고 기존 주소를 호환 안내로 전환했습니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/css-unit-converter.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "retired",
+  "replacementTool": "color-converter-contrast",
+  "legacyTitle": "CSS px·rem·em 변환기"
 }

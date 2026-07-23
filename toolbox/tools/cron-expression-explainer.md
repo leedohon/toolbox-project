@@ -3,7 +3,8 @@ title: Cron 표현식 설명기
 slug: cron-expression-explainer
 type: converter
 description: 5개 항목의 기본 Cron 표현식을 분·시·일·월·요일별 쉬운 문장으로 나누어 설명합니다.
-status: published
+status: retired
+replacementTool: http-status-lookup
 inputs:
   - id: expression
     label: Cron 표현식

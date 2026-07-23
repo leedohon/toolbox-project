@@ -3,7 +3,8 @@ title: 2진수·16진수 진법 변환기
 slug: number-base-converter
 type: converter
 description: 2진수·8진수·10진수·16진수를 정수 정밀도 손실 없이 서로 변환합니다.
-status: published
+status: retired
+replacementTool: base64-tools
 inputs:
   - id: value
     label: 변환할 정수

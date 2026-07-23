@@ -1,14 +1,94 @@
 {
   "schemaVersion": 1,
+  "hub": {
+    "kind": "iframe",
+    "tool": "http-status-lookup",
+    "title": {
+      "ko": "개발자 빠른 참조·검사 도구",
+      "en": "Developer reference & validation tools"
+    },
+    "help": {
+      "ko": "HTTP, 권한, Cron, MIME과 ISBN 정보를 빠르게 확인하세요.",
+      "en": "Quickly check HTTP, permissions, Cron, MIME, and ISBN information."
+    }
+  },
   "modules": [
     {
       "id": "http-status-lookup",
       "label": {
-        "ko": "HTTP 상태 코드 찾기",
-        "en": "HTTP status code lookup"
+        "ko": "HTTP 상태",
+        "en": "HTTP status"
       },
-      "entry": "./tool.js",
+      "entry": "./engine.html?release=1.0.0v",
       "messageTool": "http-status-lookup",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "chmod-calculator",
+      "label": {
+        "ko": "chmod 권한",
+        "en": "chmod permissions"
+      },
+      "entry": "../chmod-calculator/?release=0.1.0v",
+      "messageTool": "chmod-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "cron-expression-explainer",
+      "label": {
+        "ko": "Cron 표현식",
+        "en": "Cron expression"
+      },
+      "entry": "../cron-expression-explainer/?release=0.1.0v",
+      "messageTool": "cron-expression-explainer",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "mime-type-lookup",
+      "label": {
+        "ko": "MIME 타입",
+        "en": "MIME type"
+      },
+      "entry": "../mime-type-lookup/?release=0.1.0v",
+      "messageTool": "mime-type-lookup",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "isbn-validator",
+      "label": {
+        "ko": "ISBN 검사",
+        "en": "ISBN validation"
+      },
+      "entry": "../isbn-validator/?release=0.1.0v",
+      "messageTool": "isbn-validator",
       "capabilities": {
         "resultCode": false,
         "png": false,

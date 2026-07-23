@@ -3,7 +3,8 @@ title: CSS clamp 반응형 계산기
 slug: css-clamp-calculator
 type: calculator
 description: 최소·최대 크기와 뷰포트 범위를 입력해 반응형 CSS clamp 식을 계산합니다.
-status: published
+status: retired
+replacementTool: color-converter-contrast
 inputs:
   - id: sizes
     label: 최소·최대 크기

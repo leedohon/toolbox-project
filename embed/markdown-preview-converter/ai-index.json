@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "markdown-preview-converter",
   "index": 18,
-  "title": "마크다운 미리보기·HTML 변환기",
+  "title": "마크다운 작성 도구",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.3v",
+  "latestVersion": "1.0.0v",
   "paths": {
     "definition": "toolbox/tools/markdown-preview-converter.md",
     "post": "toolbox/posts/markdown-preview-converter.html",
@@ -19,11 +19,28 @@
     {
       "id": "markdown-preview-converter",
       "label": {
-        "ko": "마크다운 미리보기·HTML 변환기",
-        "en": "Markdown preview and HTML converter"
+        "ko": "미리보기·HTML",
+        "en": "Preview & HTML"
       },
-      "entry": "./tool.js",
+      "entry": "./engine.html?release=1.0.0v",
       "messageTool": "markdown-preview-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "markdown-table-generator",
+      "label": {
+        "ko": "표 만들기",
+        "en": "Table builder"
+      },
+      "entry": "../markdown-table-generator/?release=0.1.0v",
+      "messageTool": "markdown-table-generator",
       "capabilities": {
         "resultCode": false,
         "png": false,

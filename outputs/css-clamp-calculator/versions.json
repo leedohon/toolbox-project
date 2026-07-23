@@ -4,7 +4,7 @@
   "title": "CSS clamp 반응형 계산기",
   "description": "최소·최대 크기와 뷰포트 범위를 입력해 반응형 CSS clamp 식을 계산합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/css-clamp.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,18 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/css-clamp-calculator.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "minor",
+      "summary": "기능을 CSS 디자인 도구 안으로 통합하고 기존 주소를 호환 안내로 전환했습니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/css-clamp-calculator.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "retired",
+  "replacementTool": "color-converter-contrast",
+  "legacyTitle": "CSS clamp 반응형 계산기"
 }

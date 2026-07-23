@@ -2,6 +2,7 @@
   'use strict';
 
   const STORAGE_KEY = 'toolbox-language';
+  const isHubChild = new URLSearchParams(location.search).get('toolbox-hub-child') === '1';
   const exact = new Map(Object.entries({
     '안전 비밀번호 생성기': 'Secure password generator', '비밀번호 길이': 'Password length', '포함할 문자': 'Character groups', '영문 소문자': 'Lowercase letters', '영문 대문자': 'Uppercase letters', '숫자': 'Numbers', '특수문자': 'Symbols', '헷갈리는 문자 제외 (0, O, l, I)': 'Exclude ambiguous characters (0, O, l, I)', '새 비밀번호 만들기': 'Create new password', '생성 결과': 'Generated password', '설정을 선택하면 안전한 난수로 비밀번호를 만듭니다.': 'Choose settings to create a cryptographically random password.',
     '이미지 크기·용량 변환기': 'Image resize and compress tool', '이미지를 선택하거나 여기에 놓으세요': 'Choose an image or drop it here', 'PNG, JPEG, WebP · 최대 20MB · 브라우저 안에서 처리': 'PNG, JPEG, WebP · up to 20MB · processed in this browser', '가로 크기 (px)': 'Width (px)', '세로 크기 (px)': 'Height (px)', '원본 비율 유지': 'Keep original aspect ratio', '저장 형식': 'Output format', '이미지 품질': 'Image quality', '크기·용량 변환': 'Resize and compress', '이미지를 선택하면 크기와 저장 형식을 설정할 수 있습니다.': 'Choose an image to set its size and output format.', '원본': 'Original', '변환 결과': 'Converted', '용량 변화': 'Size change', '변환 이미지 미리보기': 'Converted image preview',
@@ -242,7 +243,7 @@
   }
 
   function start() {
-    createSelector();
+    if (!isHubChild) createSelector();
     apply(document.body);
     new MutationObserver((mutations) => {
       if (applying) return;
@@ -259,6 +260,12 @@
     }).observe(document.body, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: attributes });
     window.dispatchEvent(new CustomEvent('toolbox-language-change', { detail: { language } }));
   }
+
+  window.addEventListener('message', (event) => {
+    if (!isHubChild || event.source !== parent || event.origin !== location.origin) return;
+    if (event.data?.source !== 'toolbox-hub' || !['ko', 'en'].includes(event.data.language)) return;
+    setLanguage(event.data.language);
+  });
 
   window.ToolboxI18n = { get language() { return language; }, setLanguage, translate };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });

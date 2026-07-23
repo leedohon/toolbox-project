@@ -3,7 +3,8 @@ title: CSS px·rem·em 변환기
 slug: css-unit-converter
 type: converter
 description: 기준 글자 크기를 사용해 CSS px·rem·em 값을 서로 변환합니다.
-status: published
+status: retired
+replacementTool: color-converter-contrast
 inputs:
   - id: value
     label: 변환할 값

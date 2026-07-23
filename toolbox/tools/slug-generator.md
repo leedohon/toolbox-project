@@ -3,7 +3,8 @@ title: URL 슬러그 생성기
 slug: slug-generator
 type: converter
 description: 제목이나 문구를 소문자 URL 경로에 쓰기 좋은 슬러그로 정리합니다.
-status: published
+status: retired
+replacementTool: text-counter-cleaner
 inputs:
   - id: text
     label: 원본 문구

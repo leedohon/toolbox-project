@@ -4,7 +4,7 @@
   "title": "chmod 권한 계산기",
   "description": "소유자·그룹·기타 사용자의 읽기·쓰기·실행 조합을 숫자와 기호 권한으로 확인합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/chmod.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,18 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/chmod-calculator.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "minor",
+      "summary": "기능을 개발자 빠른 참조·검사 도구 안으로 통합하고 기존 주소를 호환 안내로 전환했습니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/chmod-calculator.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "retired",
+  "replacementTool": "http-status-lookup",
+  "legacyTitle": "chmod 권한 계산기"
 }

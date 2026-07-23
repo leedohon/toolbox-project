@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "css-gradient-generator",
   "index": 21,
   "title": "CSS 그라데이션 생성기",
   "category": "초간단 툴박스",
-  "status": "published",
-  "replacementTool": null,
-  "latestVersion": "0.0.2v",
+  "status": "retired",
+  "replacementTool": "color-converter-contrast",
+  "latestVersion": "0.1.0v",
   "paths": {
     "definition": "toolbox/tools/css-gradient-generator.md",
     "post": "toolbox/posts/css-gradient-generator.html",

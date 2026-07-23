@@ -2,8 +2,9 @@
 title: 다용도 계산기
 slug: date-calculator
 type: calculator
-description: 일반 사칙연산과 길이, 넓이, 부피, 무게, 속도, 시간, 데이터 단위 및 날짜 계산을 한 화면에서 처리합니다.
+description: 일반·단위·날짜 계산과 Unix 시간, 화면 비율, 백분율, 평균·중앙값 계산을 한곳에서 처리합니다.
 status: published
+modules: [date-calculator, unix-timestamp-converter, aspect-ratio-calculator, percentage-calculator, average-median-calculator]
 inputs:
   - id: calculatorType
     label: 계산 종류

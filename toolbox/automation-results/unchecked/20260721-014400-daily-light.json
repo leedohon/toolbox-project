@@ -30,5 +30,8 @@
   "git": {"branch":"main","commit":"3b9fbf88622ca52e72c5e6a736f2bbc7090f1397","pushed":true},
   "deployment": {"status":"completed","publicToolCount":43,"pagesRun":29762321363,"catalogRun":29762322354},
   "shutdown": {"requested":true,"scheduled":true,"input":"30분","scheduledFor":"2026-07-21T02:14:00+09:00","cancelled":false},
-  "blocked": []
+  "blocked": [],
+  "reportHistory": [
+    {"reportedAt":"2026-07-23T23:20:39+09:00","context":"공개 도구 일괄 통합 작업 시작 전 미확인 기록 보고"}
+  ]
 }

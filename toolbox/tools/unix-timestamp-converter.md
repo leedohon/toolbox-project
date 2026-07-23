@@ -3,7 +3,8 @@ title: Unix 시간 변환기
 slug: unix-timestamp-converter
 type: converter
 description: Unix 초·밀리초와 읽기 쉬운 지역 날짜·UTC 시간을 서로 변환합니다.
-status: published
+status: retired
+replacementTool: date-calculator
 inputs:
   - id: timestamp
     label: Unix 시간

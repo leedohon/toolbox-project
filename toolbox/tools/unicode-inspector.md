@@ -3,7 +3,8 @@ title: 유니코드 문자 분석기
 slug: unicode-inspector
 type: converter
 description: 텍스트의 각 문자를 유니코드 코드 포인트와 UTF-16·HTML 표기로 나누어 확인합니다.
-status: published
+status: retired
+replacementTool: base64-tools
 inputs:
   - id: text
     label: 분석할 텍스트

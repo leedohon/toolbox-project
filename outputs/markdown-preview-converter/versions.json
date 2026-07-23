@@ -1,10 +1,10 @@
 {
   "index": 18,
   "tool": "markdown-preview-converter",
-  "title": "마크다운 미리보기·HTML 변환기",
-  "description": "마크다운 문서를 실시간으로 미리 보고 안전한 HTML 결과를 복사하거나 저장합니다.",
+  "title": "마크다운 작성 도구",
+  "description": "마크다운 문서를 미리 보고 HTML로 변환하거나 표 문법을 빠르게 만듭니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/html.html",
-  "latestVersion": "0.0.3v",
+  "latestVersion": "1.0.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -32,6 +32,16 @@
       "directory": "0.0.3v",
       "html": "0.0.3v/markdown-preview-converter.html",
       "patchNotes": "0.0.3v/patch-notes.json"
+    },
+    {
+      "version": "1.0.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "major",
+      "summary": "마크다운 작성 도구의 관련 기능을 목적별 모드로 통합했습니다.",
+      "directory": "1.0.0v",
+      "html": "1.0.0v/markdown-preview-converter.html",
+      "patchNotes": "1.0.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "published"
 }

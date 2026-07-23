@@ -3,7 +3,8 @@ title: HTML 엔티티 변환기
 slug: html-entity-converter
 type: converter
 description: HTML 특수문자를 안전한 엔티티로 바꾸거나 엔티티 표기를 원문으로 되돌립니다.
-status: published
+status: retired
+replacementTool: base64-tools
 inputs:
   - id: mode
     label: 변환 방식

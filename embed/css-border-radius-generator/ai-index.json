@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "css-border-radius-generator",
+  "index": 45,
+  "title": "CSS 모서리 둥글기 생성기",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "color-converter-contrast",
+  "latestVersion": "0.1.0v",
+  "paths": {
+    "definition": "toolbox/tools/css-border-radius-generator.md",
+    "post": "toolbox/posts/css-border-radius-generator.html",
+    "manifest": "outputs/css-border-radius-generator/versions.json",
+    "embed": "embed/css-border-radius-generator/index.html",
+    "moduleRegistry": "embed/css-border-radius-generator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "css-border-radius-generator",
+      "label": {
+        "ko": "CSS 모서리 둥글기 생성기",
+        "en": "CSS border radius generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "css-border-radius-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

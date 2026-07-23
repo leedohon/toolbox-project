@@ -3,7 +3,8 @@ title: 파일 확장자 MIME 타입 찾기
 slug: mime-type-lookup
 type: converter
 description: 파일 확장자를 입력해 대표 MIME 타입과 Content-Type 헤더 예시를 확인합니다.
-status: published
+status: retired
+replacementTool: http-status-lookup
 inputs:
   - id: extension
     label: 파일 확장자

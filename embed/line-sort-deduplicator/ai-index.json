@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "line-sort-deduplicator",
+  "index": 38,
+  "title": "줄 정렬·중복 제거기",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "text-counter-cleaner",
+  "latestVersion": "0.1.0v",
+  "paths": {
+    "definition": "toolbox/tools/line-sort-deduplicator.md",
+    "post": "toolbox/posts/line-sort-deduplicator.html",
+    "manifest": "outputs/line-sort-deduplicator/versions.json",
+    "embed": "embed/line-sort-deduplicator/index.html",
+    "moduleRegistry": "embed/line-sort-deduplicator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "line-sort-deduplicator",
+      "label": {
+        "ko": "줄 정렬·중복 제거기",
+        "en": "Line sorter and deduplicator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "line-sort-deduplicator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

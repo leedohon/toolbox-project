@@ -1,9 +1,10 @@
 ---
-title: 텍스트 인코더·디코더
+title: 인코딩·문자 변환 도구
 slug: base64-tools
 type: converter
-description: Base64, URL, ASCII, Unicode, UTF-8 16진수·2진수 인코딩과 디코딩을 한 화면에서 처리합니다.
+description: Base64·URL·HTML 엔티티·진법·유니코드·로마 숫자 변환과 분석을 한곳에서 처리합니다.
 status: published
+modules: [base64-tools, number-base-converter, unicode-inspector, html-entity-converter, roman-numeral-converter]
 inputs:
   - key: format
     label: 변환 형식

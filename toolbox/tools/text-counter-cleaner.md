@@ -1,9 +1,10 @@
 ---
-title: 글자수·텍스트 정리기
+title: 텍스트 정리·생성 도구
 slug: text-counter-cleaner
 type: converter
-description: 글자·단어·줄·UTF-8 용량을 실시간으로 세고 불필요한 공백과 빈 줄을 정리합니다.
+description: 글자 수·공백·목록·파일명·슬러그를 정리하고 테스트 문장을 생성합니다.
 status: published
+modules: [text-counter-cleaner, filename-sanitizer, lorem-ipsum-generator, slug-generator, line-sort-deduplicator]
 inputs:
   - id: text
     label: 원본 텍스트

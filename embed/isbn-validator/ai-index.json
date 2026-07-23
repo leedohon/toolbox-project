@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "isbn-validator",
+  "index": 51,
+  "title": "ISBN-10·ISBN-13 검사기",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "http-status-lookup",
+  "latestVersion": "0.1.0v",
+  "paths": {
+    "definition": "toolbox/tools/isbn-validator.md",
+    "post": "toolbox/posts/isbn-validator.html",
+    "manifest": "outputs/isbn-validator/versions.json",
+    "embed": "embed/isbn-validator/index.html",
+    "moduleRegistry": "embed/isbn-validator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "isbn-validator",
+      "label": {
+        "ko": "ISBN-10·ISBN-13 검사기",
+        "en": "ISBN-10 and ISBN-13 validator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "isbn-validator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

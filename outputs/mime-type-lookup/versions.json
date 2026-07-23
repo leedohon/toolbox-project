@@ -4,7 +4,7 @@
   "title": "파일 확장자 MIME 타입 찾기",
   "description": "파일 확장자를 입력해 대표 MIME 타입과 Content-Type 헤더 예시를 확인합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/mime.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,18 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/mime-type-lookup.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "minor",
+      "summary": "기능을 개발자 빠른 참조·검사 도구 안으로 통합하고 기존 주소를 호환 안내로 전환했습니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/mime-type-lookup.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "retired",
+  "replacementTool": "http-status-lookup",
+  "legacyTitle": "파일 확장자 MIME 타입 찾기"
 }

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "lorem-ipsum-generator",
   "index": 27,
   "title": "Lorem Ipsum 문장 생성기",
   "category": "초간단 툴박스",
-  "status": "published",
-  "replacementTool": null,
-  "latestVersion": "0.0.1v",
+  "status": "retired",
+  "replacementTool": "text-counter-cleaner",
+  "latestVersion": "0.1.0v",
   "paths": {
     "definition": "toolbox/tools/lorem-ipsum-generator.md",
     "post": "toolbox/posts/lorem-ipsum-generator.html",

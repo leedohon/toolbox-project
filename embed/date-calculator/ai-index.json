@@ -1,20 +1,106 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "date-calculator",
   "index": 10,
   "title": "다용도 계산기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "1.1.0v",
+  "latestVersion": "2.0.0v",
   "paths": {
     "definition": "toolbox/tools/date-calculator.md",
     "post": "toolbox/posts/date-calculator.html",
     "manifest": "outputs/date-calculator/versions.json",
     "embed": "embed/date-calculator/index.html",
-    "moduleRegistry": null
+    "moduleRegistry": "embed/date-calculator/modules.json"
   },
-  "modules": [],
+  "modules": [
+    {
+      "id": "date-calculator",
+      "label": {
+        "ko": "일반·단위·날짜",
+        "en": "General, unit & date"
+      },
+      "entry": "./engine.html?release=2.0.0v",
+      "messageTool": "date-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "unix-timestamp-converter",
+      "label": {
+        "ko": "Unix 시간",
+        "en": "Unix time"
+      },
+      "entry": "../unix-timestamp-converter/?release=0.1.0v",
+      "messageTool": "unix-timestamp-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "aspect-ratio-calculator",
+      "label": {
+        "ko": "화면 비율",
+        "en": "Aspect ratio"
+      },
+      "entry": "../aspect-ratio-calculator/?release=0.1.0v",
+      "messageTool": "aspect-ratio-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "percentage-calculator",
+      "label": {
+        "ko": "백분율",
+        "en": "Percentage"
+      },
+      "entry": "../percentage-calculator/?release=0.1.0v",
+      "messageTool": "percentage-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "average-median-calculator",
+      "label": {
+        "ko": "평균·중앙값",
+        "en": "Average & median"
+      },
+      "entry": "../average-median-calculator/?release=0.1.0v",
+      "messageTool": "average-median-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
   "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
 }

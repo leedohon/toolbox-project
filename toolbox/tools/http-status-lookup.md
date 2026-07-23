@@ -1,9 +1,10 @@
 ---
-title: HTTP 상태 코드 찾기
+title: 개발자 빠른 참조·검사 도구
 slug: http-status-lookup
 type: converter
-description: 자주 쓰는 HTTP 상태 코드의 영문 이름과 한글 의미, 응답 분류를 확인합니다.
+description: HTTP·MIME·Cron·chmod 정보를 찾고 ISBN 체크 숫자를 한곳에서 검사합니다.
 status: published
+modules: [http-status-lookup, chmod-calculator, cron-expression-explainer, mime-type-lookup, isbn-validator]
 inputs:
   - id: code
     label: HTTP 상태 코드

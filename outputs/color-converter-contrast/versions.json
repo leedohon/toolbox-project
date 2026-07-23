@@ -1,10 +1,10 @@
 {
   "index": 14,
   "tool": "color-converter-contrast",
-  "title": "색상 변환·대비 검사기",
-  "description": "두 색상을 HEX·RGB·HSL로 변환하고 글자와 배경의 접근성 대비를 확인합니다.",
+  "title": "CSS 디자인 도구",
+  "description": "색상·대비·그라데이션·clamp·그림자·단위·모서리 CSS를 한곳에서 만들고 확인합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-  "latestVersion": "0.0.4v",
+  "latestVersion": "1.0.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -41,6 +41,16 @@
       "directory": "0.0.4v",
       "html": "0.0.4v/color-converter-contrast.html",
       "patchNotes": "0.0.4v/patch-notes.json"
+    },
+    {
+      "version": "1.0.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "major",
+      "summary": "CSS 디자인 도구의 관련 기능을 목적별 모드로 통합했습니다.",
+      "directory": "1.0.0v",
+      "html": "1.0.0v/color-converter-contrast.html",
+      "patchNotes": "1.0.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "published"
 }

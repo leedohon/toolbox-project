@@ -3,7 +3,8 @@ title: 마크다운 표 생성기
 slug: markdown-table-generator
 type: template-generator
 description: 쉼표로 구분한 머리글과 행 데이터를 마크다운 표 문법으로 바꿉니다.
-status: published
+status: retired
+replacementTool: markdown-preview-converter
 inputs:
   - id: headers
     label: 머리글

@@ -64,29 +64,50 @@ const normalize = (value) => String(value || '').trim().replace(/\s+/g, ' ').toL
 const compact = (value) => normalize(value).match(/[\p{L}\p{N}]+/gu)?.join('') || '';
 const posts = await loadPublishedPosts();
 const toolNames = process.argv.slice(2);
+const requestedTools = new Set(toolNames);
+if (requestedTools.size !== toolNames.length) throw new Error('Duplicate tool names are not allowed.');
 const entries = await fs.readdir(outputsDir, { withFileTypes: true });
-let updated = 0;
+const plans = [];
+const plannedPostIds = new Map();
 
 for (const entry of entries) {
-  if (!entry.isDirectory() || (toolNames.length && !toolNames.includes(entry.name))) continue;
+  if (!entry.isDirectory() || (requestedTools.size && !requestedTools.has(entry.name))) continue;
   const versionsPath = path.join(outputsDir, entry.name, 'versions.json');
   let versions;
   try { versions = JSON.parse(await fs.readFile(versionsPath, 'utf8')); } catch (error) { if (error.code === 'ENOENT') continue; throw error; }
-  const matches = posts.filter((post) => (versions.postUrl && post.url === versions.postUrl) || normalize(post.title) === normalize(versions.title) || compact(post.title).endsWith(compact(versions.title)));
+  const urlMatches = versions.postUrl ? posts.filter((post) => post.url === versions.postUrl) : [];
+  const titleMatches = posts.filter((post) => normalize(post.title) === normalize(versions.title) || compact(post.title).endsWith(compact(versions.title)));
+  const matches = urlMatches.length ? urlMatches : titleMatches;
   if (matches.length !== 1) throw new Error(`Expected one published post for ${versions.title}, found ${matches.length}.`);
   const latest = versions.versions.find((item) => item.version === versions.latestVersion);
   if (!latest) throw new Error(`Latest version metadata is missing for ${versions.tool}.`);
   const content = await fs.readFile(path.join(outputsDir, entry.name, latest.html), 'utf8');
+  if (!content.trim() || !/<article\b/i.test(content)) throw new Error(`Latest post body is invalid for ${versions.tool}.`);
   const post = matches[0];
+  if (!post.id || !post.url) throw new Error(`Published post identity is incomplete for ${versions.tool}.`);
+  if (plannedPostIds.has(post.id)) throw new Error(`${versions.tool} and ${plannedPostIds.get(post.id)} resolve to the same Blogger post.`);
   const title = formatToolPostTitle(versions.title, versions.category);
   const labels = await loadToolPostLabels(versions.tool);
-  await request(`https://www.googleapis.com/blogger/v3/blogs/${encodeURIComponent(blog.id)}/posts/${encodeURIComponent(post.id)}`, {
-    method: 'PUT',
-    body: JSON.stringify({ ...post, title, content, labels }),
-  });
-  console.log(`Updated LIVE post: ${title} (${post.url})`);
-  updated += 1;
+  const body = JSON.stringify({ ...post, title, content, labels });
+  plannedPostIds.set(post.id, versions.tool);
+  plans.push({ tool: versions.tool, post, title, body });
 }
 
-if (!updated) throw new Error('No matching tool posts were updated.');
-console.log(`Updated ${updated} Blogger post(s).`);
+if (requestedTools.size) {
+  const plannedTools = new Set(plans.map((plan) => plan.tool));
+  const missing = [...requestedTools].filter((tool) => !plannedTools.has(tool));
+  if (missing.length) throw new Error(`Unknown or incomplete tool targets: ${missing.join(', ')}`);
+}
+if (!plans.length) throw new Error('No matching tool posts were prepared.');
+
+console.log(`Preflight passed for ${plans.length} Blogger post(s).`);
+for (const plan of plans) {
+  const { post, title, body } = plan;
+  await request(`https://www.googleapis.com/blogger/v3/blogs/${encodeURIComponent(blog.id)}/posts/${encodeURIComponent(post.id)}`, {
+    method: 'PUT',
+    body,
+  });
+  console.log(`Updated LIVE post: ${title} (${post.url})`);
+}
+
+console.log(`Updated ${plans.length} Blogger post(s).`);

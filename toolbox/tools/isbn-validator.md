@@ -3,7 +3,8 @@ title: ISBN-10·ISBN-13 검사기
 slug: isbn-validator
 type: converter
 description: 하이픈이 포함된 ISBN-10·ISBN-13을 정리하고 체크 숫자가 올바른지 검사합니다.
-status: published
+status: retired
+replacementTool: http-status-lookup
 inputs:
   - id: isbn
     label: ISBN

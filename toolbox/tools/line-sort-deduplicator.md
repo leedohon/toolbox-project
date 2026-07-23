@@ -3,7 +3,8 @@ title: 줄 정렬·중복 제거기
 slug: line-sort-deduplicator
 type: converter
 description: 여러 줄 목록을 가나다·알파벳순으로 정렬하고 같은 줄을 한 번만 남깁니다.
-status: published
+status: retired
+replacementTool: text-counter-cleaner
 inputs:
   - id: lines
     label: 줄 목록

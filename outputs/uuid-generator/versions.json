@@ -4,7 +4,7 @@
   "title": "UUID 일괄 생성기",
   "description": "브라우저의 안전한 난수로 UUID v4를 한 번에 여러 개 만들고 원하는 형식으로 복사합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/uuid.html",
-  "latestVersion": "0.0.3v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -32,6 +32,18 @@
       "directory": "0.0.3v",
       "html": "0.0.3v/uuid-generator.html",
       "patchNotes": "0.0.3v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "minor",
+      "summary": "기능을 비밀번호·UUID 생성기 안으로 통합하고 기존 주소를 호환 안내로 전환했습니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/uuid-generator.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "retired",
+  "replacementTool": "password-generator",
+  "legacyTitle": "UUID 일괄 생성기"
 }

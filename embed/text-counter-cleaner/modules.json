@@ -1,14 +1,94 @@
 {
   "schemaVersion": 1,
+  "hub": {
+    "kind": "iframe",
+    "tool": "text-counter-cleaner",
+    "title": {
+      "ko": "텍스트 정리·생성 도구",
+      "en": "Text cleanup & generation tools"
+    },
+    "help": {
+      "ko": "글, 줄, 파일명과 URL용 텍스트를 빠르게 정리하거나 생성하세요.",
+      "en": "Clean or generate text for writing, lines, filenames, and URLs."
+    }
+  },
   "modules": [
     {
       "id": "text-counter-cleaner",
       "label": {
-        "ko": "글자수·텍스트 정리기",
-        "en": "text-counter-cleaner"
+        "ko": "글자수·텍스트 정리",
+        "en": "Count & clean text"
       },
-      "entry": "./tool.js",
+      "entry": "./engine.html?release=1.0.0v",
       "messageTool": "text-counter-cleaner",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "filename-sanitizer",
+      "label": {
+        "ko": "파일명 정리",
+        "en": "Filename cleanup"
+      },
+      "entry": "../filename-sanitizer/?release=0.1.0v",
+      "messageTool": "filename-sanitizer",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "lorem-ipsum-generator",
+      "label": {
+        "ko": "Lorem Ipsum",
+        "en": "Lorem Ipsum"
+      },
+      "entry": "../lorem-ipsum-generator/?release=0.1.0v",
+      "messageTool": "lorem-ipsum-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "slug-generator",
+      "label": {
+        "ko": "URL 슬러그",
+        "en": "URL slug"
+      },
+      "entry": "../slug-generator/?release=0.1.0v",
+      "messageTool": "slug-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "line-sort-deduplicator",
+      "label": {
+        "ko": "줄 정렬·중복 제거",
+        "en": "Sort & deduplicate"
+      },
+      "entry": "../line-sort-deduplicator/?release=0.1.0v",
+      "messageTool": "line-sort-deduplicator",
       "capabilities": {
         "resultCode": false,
         "png": false,

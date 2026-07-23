@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "mime-type-lookup",
+  "index": 50,
+  "title": "파일 확장자 MIME 타입 찾기",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "http-status-lookup",
+  "latestVersion": "0.1.0v",
+  "paths": {
+    "definition": "toolbox/tools/mime-type-lookup.md",
+    "post": "toolbox/posts/mime-type-lookup.html",
+    "manifest": "outputs/mime-type-lookup/versions.json",
+    "embed": "embed/mime-type-lookup/index.html",
+    "moduleRegistry": "embed/mime-type-lookup/modules.json"
+  },
+  "modules": [
+    {
+      "id": "mime-type-lookup",
+      "label": {
+        "ko": "파일 확장자 MIME 타입 찾기",
+        "en": "File extension MIME type lookup"
+      },
+      "entry": "./tool.js",
+      "messageTool": "mime-type-lookup",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

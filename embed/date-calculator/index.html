@@ -1,110 +1,23 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>다용도 계산기</title>
-<link rel="stylesheet" href="../../assets/simple-tools.css?v=0.1.1">
-<link rel="stylesheet" href="../../assets/multi-calculator.css?v=1.0.0">
-<link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
-<script src="../../assets/toolbox-i18n.js?v=0.1.9"></script>
-<script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>다용도 계산기</title>
+  <link rel="stylesheet" href="../../assets/tool-hub.css?v=0.1.0">
+  <link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
+  <script src="../../assets/toolbox-i18n.js?v=0.3.1"></script>
+  <script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
 </head>
 <body>
-<article id="multi-calculator" class="simple-tool" aria-label="다용도 계산기">
-  <fieldset class="st-mode">
-    <legend>계산 종류</legend>
-    <div class="st-mode-options">
-      <label><input type="radio" name="calculator-type" value="general" checked><span>일반 계산</span></label>
-      <label><input type="radio" name="calculator-type" value="unit"><span>단위 계산</span></label>
-      <label><input type="radio" name="calculator-type" value="date"><span>날짜 계산</span></label>
-    </div>
-  </fieldset>
-
-  <section class="mc-panel" id="general-panel">
-    <div class="mc-grid">
-      <div class="st-field"><label class="st-label" for="general-left">첫 번째 값</label><input id="general-left" type="number" inputmode="decimal" step="0.01" value="1"></div>
-      <div class="st-field"><label class="st-label" for="general-right">두 번째 값</label><input id="general-right" type="number" inputmode="decimal" step="0.01" value="1"></div>
-    </div>
-  </section>
-
-  <section class="mc-panel" id="unit-panel" hidden>
-    <div class="st-field"><label class="st-label" for="unit-category">단위 분야</label><select id="unit-category"><option value="length">길이</option><option value="area">넓이</option><option value="volume">부피</option><option value="weight">무게</option><option value="speed">속도</option><option value="time">시간</option><option value="data">데이터</option></select></div>
-    <div class="mc-grid">
-      <div class="st-field"><label class="st-label" for="unit-left">첫 번째 값과 단위</label><div class="mc-value-row"><input id="unit-left" type="number" inputmode="decimal" step="0.01" value="1"><select id="unit-left-name" aria-label="첫 번째 단위"></select></div></div>
-      <div class="st-field"><label class="st-label" for="unit-right">두 번째 값과 단위</label><div class="mc-value-row"><input id="unit-right" type="number" inputmode="decimal" step="0.01" value="1"><select id="unit-right-name" aria-label="두 번째 단위"></select></div></div>
-    </div>
-    <div class="st-field mc-unit-result"><label class="st-label" for="unit-output-name">결과 단위</label><select id="unit-output-name"></select><p class="mc-result-note">두 값을 결과 단위로 각각 환산한 뒤 선택한 연산을 적용합니다.</p></div>
-    <section class="mc-data-results" id="data-all-results" hidden><h2 id="data-all-title" data-ko="첫 번째 값의 전체 데이터 단위" data-en="All data units for the first value">첫 번째 값의 전체 데이터 단위</h2><p data-ko="첫 번째 값과 단위를 기준으로 SI·IEC 용량을 함께 비교합니다. 결과 복사에도 이 표가 포함됩니다." data-en="Compare SI and IEC sizes from the first value and unit. The copied result includes this table.">첫 번째 값과 단위를 기준으로 SI·IEC 용량을 함께 비교합니다. 결과 복사에도 이 표가 포함됩니다.</p><div class="mc-table-wrap" tabindex="0" role="region" aria-labelledby="data-all-title"><table><thead><tr><th data-ko="단위" data-en="Unit">단위</th><th data-ko="값" data-en="Value">값</th><th data-ko="기준" data-en="System">기준</th></tr></thead><tbody id="data-all-body"></tbody></table></div></section>
-  </section>
-
-  <fieldset class="st-mode mc-operator" id="number-operator">
-    <legend>연산</legend>
-    <div class="st-mode-options">
-      <label><input type="radio" name="operator" value="add" checked><span>더하기 +</span></label>
-      <label><input type="radio" name="operator" value="subtract"><span>빼기 −</span></label>
-      <label><input type="radio" name="operator" value="multiply"><span>곱하기 ×</span></label>
-      <label><input type="radio" name="operator" value="divide"><span>나누기 ÷</span></label>
-      <label><input type="radio" name="operator" value="fraction"><span data-ko="분수 약분" data-en="Simplify fraction">분수 약분</span></label>
-      <label><input type="radio" name="operator" value="ratio"><span data-ko="비율 약분" data-en="Simplify ratio">비율 약분</span></label>
-    </div>
-  </fieldset>
-
-  <section class="mc-panel" id="date-panel" hidden>
-    <fieldset class="st-mode"><legend>날짜 계산 방식</legend><div class="st-mode-options"><label><input type="radio" name="date-mode" value="difference" checked><span>두 날짜 사이</span></label><label><input type="radio" name="date-mode" value="offset"><span>날짜 더하기·빼기</span></label></div></fieldset>
-    <section id="date-difference"><div class="mc-grid"><div class="st-field"><label class="st-label" for="date-start">시작일</label><input id="date-start" type="date"></div><div class="st-field"><label class="st-label" for="date-end">종료일</label><input id="date-end" type="date"></div></div><label class="st-check"><input id="date-inclusive" type="checkbox"><span>종료일을 포함해서 계산</span></label></section>
-    <section id="date-offset" hidden><div class="mc-grid"><div class="st-field"><label class="st-label" for="date-base">기준일</label><input id="date-base" type="date"></div><div class="st-field"><label class="st-label" for="date-days">더하거나 뺄 일수</label><input id="date-days" type="number" min="-100000" max="100000" step="1" value="30"><p class="st-help">빼려면 -30처럼 음수로 입력하세요.</p></div></div></section>
-  </section>
-
-  <div class="st-actions"><button class="st-secondary" id="calculator-copy" type="button">결과 복사</button><button class="st-secondary" id="calculator-reset" type="button">초기화</button></div>
-  <p class="st-status" id="calculator-status" aria-live="polite">입력값을 바꾸면 결과가 즉시 계산됩니다.</p>
-  <textarea class="st-copy-fallback" id="calculator-copy-fallback" aria-label="직접 복사할 결과" readonly hidden></textarea>
-  <section class="st-result" id="calculator-result" aria-labelledby="calculator-result-title"><h2 id="calculator-result-title">계산 결과</h2><p class="st-result-value" id="calculator-result-value"></p><p class="st-result-detail" id="calculator-result-detail"></p></section>
-</article>
-
-<script type="module">
-import {copyText,setupEmbedHeight} from '../../assets/play-tools.js?v=0.3.2';
-const $=selector=>document.querySelector(selector), all=selector=>[...document.querySelectorAll(selector)];
-const units={
-  length:[['mm','mm',.001],['cm','cm',.01],['m','m',1],['km','km',1000],['inch','inch',.0254],['ft','ft',.3048],['yd','yd',.9144],['mile','mile',1609.344],['nmi','nautical mile',1852]],
-  area:[['mm2','mm²',.000001],['cm2','cm²',.0001],['m2','m²',1],['km2','km²',1000000],['in2','in²',.00064516],['ft2','ft²',.09290304],['yd2','yd²',.83612736],['acre','acre',4046.8564224],['ha','ha',10000],['pyeong','평',3.305785]],
-  volume:[['ml','mL',.001],['l','L',1],['cm3','cm³ / cc',.001],['m3','m³',1000],['in3','in³',.016387064],['ft3','ft³',28.316846592],['gal','US gal',3.785411784],['qt','US qt',.946352946],['pt','US pt',.473176473],['cup','US cup',.2365882365]],
-  weight:[['mg','mg',.000001],['g','g',.001],['kg','kg',1],['t','metric ton',1000],['oz','oz',.028349523125],['lb','lb',.45359237],['don','돈',.00375],['geun','근',.6]],
-  speed:[['ms','m/s',1],['kmh','km/h',.2777777778],['mph','mph',.44704],['knot','knot',.5144444444],['fts','ft/s',.3048]],
-  time:[['ms','ms',.001],['sec','sec',1],['min','min',60],['hour','hour',3600],['day','day',86400],['week','week',604800]],
-  data:[['byte','B',1],['kb','KB',1000],['mb','MB',1000000],['gb','GB',1000000000],['tb','TB',1000000000000],['kib','KiB',1024],['mib','MiB',1048576],['gib','GiB',1073741824],['tib','TiB',1099511627776]]
-};
-const status=$('#calculator-status'),result=$('#calculator-result'),resultValue=$('#calculator-result-value'),resultDetail=$('#calculator-result-detail'),fallback=$('#calculator-copy-fallback');
-let copyValue='';
-const calculatorType=()=>$('input[name="calculator-type"]:checked').value, operator=()=>$('input[name="operator"]:checked').value, dateMode=()=>$('input[name="date-mode"]:checked').value, isEnglish=()=>window.ToolboxI18n?.language==='en';
-const messages=new Map([['숫자는 소수점 둘째 자리까지 입력해 주세요.','Enter a number with up to two decimal places.'],['숫자는 -1조부터 1조 사이로 입력해 주세요.','Enter a number between -1 trillion and 1 trillion.'],['0으로 나눌 수 없습니다.','Cannot divide by zero.'],['시작일과 종료일을 모두 선택해 주세요.','Select both the start and end dates.'],['기준일을 선택해 주세요.','Select a base date.'],['일수는 -100,000부터 100,000 사이의 정수로 입력해 주세요.','Enter a whole number of days from -100,000 to 100,000.'],['복사할 계산 결과가 없습니다.','There is no calculation result to copy.'],['계산 결과를 복사했습니다.','Calculation result copied.'],['자동 복사가 차단되었습니다. 아래 결과를 선택해 직접 복사해 주세요.','Automatic copying was blocked. Select the result below to copy it manually.'],['기본값으로 초기화했습니다.','Reset to the default values.'],['계산이 완료되었습니다.','Calculation completed.'],['날짜 계산을 완료했습니다.','Date calculation completed.']]);
-function translated(message){return isEnglish()?(messages.get(message)||message):message;}
-function setStatus(message,error=false){status.textContent=translated(message);status.className='st-status '+(error?'is-error':'is-good');}
-function validNumber(input){const raw=input.value.trim();if(!/^-?\d+(?:\.\d{1,2})?$/.test(raw))throw new Error('숫자는 소수점 둘째 자리까지 입력해 주세요.');const value=Number(raw);if(!Number.isFinite(value)||Math.abs(value)>1e12)throw new Error('숫자는 -1조부터 1조 사이로 입력해 주세요.');return value;}
-function format(value){const rounded=Math.round((value+Number.EPSILON)*100)/100;return (Object.is(rounded,-0)?0:rounded).toLocaleString(undefined,{maximumFractionDigits:2});}
-function applyOperator(left,right){if(operator()==='add')return left+right;if(operator()==='subtract')return left-right;if(operator()==='multiply')return left*right;if(right===0)throw new Error('0으로 나눌 수 없습니다.');return left/right;}
-function integerValue(input){const value=Number(input.value);if(!Number.isInteger(value))throw new Error(isEnglish()?'Enter whole numbers for simplifying.':'약분할 값은 정수로 입력해 주세요.');return value;}
-function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b)[a,b]=[b,a%b];return a||1;}
-function selectedUnit(select){return units[$('#unit-category').value].find(unit=>unit[0]===select.value);}
-function formatData(value){if(value===0)return'0';if(Math.abs(value)>=1e15||Math.abs(value)<1e-6)return value.toExponential(6);return value.toLocaleString(undefined,{maximumFractionDigits:6});}
-function renderAllDataUnits(){const panel=$('#data-all-results'),body=$('#data-all-body');if(calculatorType()!=='unit'||$('#unit-category').value!=='data'){panel.hidden=true;return'';}const input=validNumber($('#unit-left')),source=selectedUnit($('#unit-left-name')),bytes=input*source[2];body.replaceChildren();const lines=[];units.data.forEach(unit=>{const value=bytes/unit[2],system=unit[1]==='B'?'—':unit[1].includes('i')?'IEC (1024)':'SI (1000)',row=document.createElement('tr');[unit[1],formatData(value),system].forEach(text=>{const cell=document.createElement('td');cell.textContent=text;row.append(cell);});body.append(row);lines.push(`${unit[1]}: ${formatData(value)} (${system})`);});panel.hidden=false;return lines.join('\n');}
-function fillUnits(){const list=units[$('#unit-category').value],selects=[$('#unit-left-name'),$('#unit-right-name'),$('#unit-output-name')];selects.forEach((select,index)=>{const previous=select.value;select.innerHTML=list.map(unit=>`<option value="${unit[0]}">${unit[1]}</option>`).join('');if(list.some(unit=>unit[0]===previous))select.value=previous;else select.selectedIndex=Math.min(index,list.length-1);});calculate();}
-function calculateNumber(){const isUnit=calculatorType()==='unit';let left,right,detail='';if(isUnit){const out=selectedUnit($('#unit-output-name')),leftUnit=selectedUnit($('#unit-left-name')),rightUnit=selectedUnit($('#unit-right-name'));left=validNumber($('#unit-left'))*leftUnit[2]/out[2];right=validNumber($('#unit-right'))*rightUnit[2]/out[2];const calculated=applyOperator(left,right),dimensionSafe=['add','subtract'].includes(operator());resultValue.textContent=format(calculated)+(dimensionSafe?' '+out[1]:'');detail=dimensionSafe?`${format(left)} ${out[1]} · ${format(right)} ${out[1]}`:(isEnglish()?`${out[1]} basis value`:`${out[1]} 기준 계산값`);copyValue=resultValue.textContent+(detail?` (${detail})`:'');const allData=renderAllDataUnits();if(allData)copyValue+=`\n\n${isEnglish()?'All data units':'전체 데이터 단위'}\n${allData}`;}else if(['fraction','ratio'].includes(operator())){left=integerValue($('#general-left'));right=integerValue($('#general-right'));if(operator()==='fraction'&&right===0)throw new Error('0으로 나눌 수 없습니다.');if(operator()==='ratio'&&left===0&&right===0)throw new Error(isEnglish()?'Both ratio values cannot be zero.':'비율의 두 값이 모두 0일 수 없습니다.');if(operator()==='fraction'&&right<0){left=-left;right=-right;}const divisor=gcd(left,right);resultValue.textContent=operator()==='fraction'?`${left/divisor}/${right/divisor}`:`${left/divisor} : ${right/divisor}`;detail=isEnglish()?`Greatest common divisor: ${divisor}`:`최대공약수: ${divisor}`;copyValue=`${resultValue.textContent} (${detail})`;$('#data-all-results').hidden=true;}else{left=validNumber($('#general-left'));right=validNumber($('#general-right'));const calculated=applyOperator(left,right);resultValue.textContent=format(calculated);detail=`${format(left)} ${operatorSymbol()} ${format(right)}`;copyValue=`${detail} = ${resultValue.textContent}`;$('#data-all-results').hidden=true;}resultDetail.textContent=detail;result.hidden=false;setStatus('계산이 완료되었습니다.');}
-function operatorSymbol(){return{add:'+',subtract:'−',multiply:'×',divide:'÷'}[operator()];}
-const dayMs=86400000;
-function iso(date){return`${date.getUTCFullYear()}-${String(date.getUTCMonth()+1).padStart(2,'0')}-${String(date.getUTCDate()).padStart(2,'0')}`;}
-function parseDate(text){if(!/^\d{4}-\d{2}-\d{2}$/.test(text))return null;const [y,m,d]=text.split('-').map(Number),date=new Date(Date.UTC(y,m-1,d));return iso(date)===text?date:null;}
-function dateText(date){const language=window.ToolboxI18n?.language==='en'?'en-US':'ko-KR';return new Intl.DateTimeFormat(language,{timeZone:'UTC',year:'numeric',month:'long',day:'numeric',weekday:'long'}).format(date);}
-function calculateDate(){if(dateMode()==='difference'){const a=parseDate($('#date-start').value),b=parseDate($('#date-end').value);if(!a||!b)throw new Error('시작일과 종료일을 모두 선택해 주세요.');const raw=Math.round((b-a)/dayMs),total=Math.abs(raw)+($('#date-inclusive').checked?1:0);resultValue.textContent=isEnglish()?`${total.toLocaleString()} days`:`${total.toLocaleString()}일`;resultDetail.textContent=isEnglish()?(raw===0?'The dates are the same.':raw>0?'The end date is after the start date.':'The end date is before the start date.'):(raw===0?'두 날짜가 같습니다.':raw>0?'종료일이 시작일보다 뒤에 있습니다.':'종료일이 시작일보다 앞에 있습니다.');copyValue=`${$('#date-start').value} ~ ${$('#date-end').value}: ${resultValue.textContent}`;}else{const date=parseDate($('#date-base').value),amount=Number($('#date-days').value);if(!date)throw new Error('기준일을 선택해 주세요.');if(!Number.isInteger(amount)||amount< -100000||amount>100000)throw new Error('일수는 -100,000부터 100,000 사이의 정수로 입력해 주세요.');date.setUTCDate(date.getUTCDate()+amount);resultValue.textContent=iso(date);resultDetail.textContent=dateText(date);copyValue=`${$('#date-base').value} ${amount>=0?'+':''}${amount}${isEnglish()?' days':'일'} = ${iso(date)} (${dateText(date)})`;}result.hidden=false;setStatus('날짜 계산을 완료했습니다.');}
-function calculate(){try{calculatorType()==='date'?calculateDate():calculateNumber();}catch(error){result.hidden=true;copyValue='';setStatus(error.message,true);}}
-function syncType(){const type=calculatorType();if(type==='unit'&&['fraction','ratio'].includes(operator()))all('input[name="operator"]')[0].checked=true;$('#general-panel').hidden=type!=='general';$('#unit-panel').hidden=type!=='unit';$('#date-panel').hidden=type!=='date';$('#number-operator').hidden=type==='date';fallback.hidden=true;calculate();}
-function syncDateMode(){const difference=dateMode()==='difference';$('#date-difference').hidden=!difference;$('#date-offset').hidden=difference;calculate();}
-function reset(){all('input[name="calculator-type"]')[0].checked=true;all('input[name="operator"]')[0].checked=true;$('#general-left').value='1';$('#general-right').value='1';$('#unit-left').value='1';$('#unit-right').value='1';$('#unit-category').selectedIndex=0;$('#date-inclusive').checked=false;const today=new Date(),todayIso=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;$('#date-start').value=todayIso;$('#date-end').value=todayIso;$('#date-base').value=todayIso;$('#date-days').value='30';fillUnits();syncType();setStatus('기본값으로 초기화했습니다.');window.ToolboxUX?.focus($('#general-left'));}
-all('input[name="calculator-type"]').forEach(input=>input.addEventListener('change',syncType));all('input[name="operator"]').forEach(input=>input.addEventListener('change',calculate));all('input[name="date-mode"]').forEach(input=>input.addEventListener('change',syncDateMode));
-['#general-left','#general-right','#unit-left','#unit-right','#date-start','#date-end','#date-base','#date-days'].forEach(selector=>$(selector).addEventListener('input',calculate));['#unit-left-name','#unit-right-name','#unit-output-name','#date-inclusive'].forEach(selector=>$(selector).addEventListener('change',calculate));$('#unit-category').addEventListener('change',fillUnits);
-$('#calculator-copy').addEventListener('click',async()=>{if(!copyValue)return setStatus('복사할 계산 결과가 없습니다.',true);const copied=await copyText(copyValue);if(copied){fallback.hidden=true;setStatus('계산 결과를 복사했습니다.');}else{fallback.value=copyValue;fallback.hidden=false;window.ToolboxUX?.focusAndSelect(fallback);setStatus('자동 복사가 차단되었습니다. 아래 결과를 선택해 직접 복사해 주세요.',true);}});
-$('#calculator-reset').addEventListener('click',reset);addEventListener('toolbox-language-change',()=>calculate());
-reset();if(new URLSearchParams(location.search).get('mode')==='data'){document.querySelector('input[name="calculator-type"][value="unit"]').checked=true;$('#unit-category').value='data';fillUnits();syncType();}setupEmbedHeight('date-calculator',{content:true});
-</script>
+  <main class="tool-hub" data-tool-hub data-tool="date-calculator" data-registry="./modules.json">
+    <section class="tool-hub__picker" aria-label="다용도 계산기">
+      <p class="tool-hub__help" data-ko="날짜, 단위, 비율과 자주 쓰는 숫자 계산을 한곳에서 선택하세요." data-en="Choose date, unit, ratio, or common number calculations in one place.">날짜, 단위, 비율과 자주 쓰는 숫자 계산을 한곳에서 선택하세요.</p>
+      <div data-tool-hub-control></div>
+    </section>
+    <p class="tool-hub__status" data-tool-hub-status aria-live="polite" data-ko="도구를 준비하고 있습니다." data-en="Preparing tools.">도구를 준비하고 있습니다.</p>
+    <section class="tool-hub__stage" data-tool-hub-stage></section>
+  </main>
+  <script type="module" src="../../assets/tool-hub.js?v=0.1.0"></script>
 </body>
 </html>

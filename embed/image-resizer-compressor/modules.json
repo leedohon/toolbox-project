@@ -1,14 +1,43 @@
 {
   "schemaVersion": 1,
+  "hub": {
+    "kind": "iframe",
+    "tool": "image-resizer-compressor",
+    "title": {
+      "ko": "이미지 크기·압축·DPI 도구",
+      "en": "Image resize, compression & DPI tools"
+    },
+    "help": {
+      "ko": "이미지 크기와 용량을 바꾸거나 DPI·PPI를 계산하세요.",
+      "en": "Resize and compress an image or calculate its DPI and PPI."
+    }
+  },
   "modules": [
     {
       "id": "image-resizer-compressor",
       "label": {
-        "ko": "이미지 크기·용량 변환기",
-        "en": "image-resizer-compressor"
+        "ko": "크기·용량 변환",
+        "en": "Resize & compress"
       },
-      "entry": "./tool.js",
+      "entry": "./engine.html?release=1.0.0v",
       "messageTool": "image-resizer-compressor",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "dpi-ppi-calculator",
+      "label": {
+        "ko": "DPI·PPI 계산",
+        "en": "DPI & PPI"
+      },
+      "entry": "../dpi-ppi-calculator/?release=0.1.0v",
+      "messageTool": "dpi-ppi-calculator",
       "capabilities": {
         "resultCode": false,
         "png": false,

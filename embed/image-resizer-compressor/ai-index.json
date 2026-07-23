@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "image-resizer-compressor",
   "index": 13,
-  "title": "이미지 크기·용량 변환기",
+  "title": "이미지 크기·압축·DPI 도구",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.4v",
+  "latestVersion": "1.0.0v",
   "paths": {
     "definition": "toolbox/tools/image-resizer-compressor.md",
     "post": "toolbox/posts/image-resizer-compressor.html",
@@ -19,11 +19,28 @@
     {
       "id": "image-resizer-compressor",
       "label": {
-        "ko": "이미지 크기·용량 변환기",
-        "en": "image-resizer-compressor"
+        "ko": "크기·용량 변환",
+        "en": "Resize & compress"
       },
-      "entry": "./tool.js",
+      "entry": "./engine.html?release=1.0.0v",
       "messageTool": "image-resizer-compressor",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "dpi-ppi-calculator",
+      "label": {
+        "ko": "DPI·PPI 계산",
+        "en": "DPI & PPI"
+      },
+      "entry": "../dpi-ppi-calculator/?release=0.1.0v",
+      "messageTool": "dpi-ppi-calculator",
       "capabilities": {
         "resultCode": false,
         "png": false,

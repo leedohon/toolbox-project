@@ -1,9 +1,10 @@
 ---
-title: 안전 비밀번호 생성기
+title: 비밀번호·UUID 생성기
 slug: password-generator
 type: template-generator
-description: 길이와 문자 구성을 선택해 브라우저 안에서 안전한 무작위 비밀번호를 만듭니다.
+description: 안전한 무작위 비밀번호와 UUID v4를 필요한 형식과 개수로 만듭니다.
 status: published
+modules: [password-generator, uuid-generator]
 inputs:
   - id: length
     label: 비밀번호 길이

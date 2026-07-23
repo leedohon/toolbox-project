@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "filename-sanitizer",
   "index": 26,
   "title": "안전한 파일명 정리기",
   "category": "초간단 툴박스",
-  "status": "published",
-  "replacementTool": null,
-  "latestVersion": "0.0.1v",
+  "status": "retired",
+  "replacementTool": "text-counter-cleaner",
+  "latestVersion": "0.1.0v",
   "paths": {
     "definition": "toolbox/tools/filename-sanitizer.md",
     "post": "toolbox/posts/filename-sanitizer.html",

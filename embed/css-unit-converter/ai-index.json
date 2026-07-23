@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "css-unit-converter",
+  "index": 44,
+  "title": "CSS px·rem·em 변환기",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "color-converter-contrast",
+  "latestVersion": "0.1.0v",
+  "paths": {
+    "definition": "toolbox/tools/css-unit-converter.md",
+    "post": "toolbox/posts/css-unit-converter.html",
+    "manifest": "outputs/css-unit-converter/versions.json",
+    "embed": "embed/css-unit-converter/index.html",
+    "moduleRegistry": "embed/css-unit-converter/modules.json"
+  },
+  "modules": [
+    {
+      "id": "css-unit-converter",
+      "label": {
+        "ko": "CSS px·rem·em 변환기",
+        "en": "CSS px rem em converter"
+      },
+      "entry": "./tool.js",
+      "messageTool": "css-unit-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

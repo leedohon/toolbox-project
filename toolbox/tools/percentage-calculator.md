@@ -3,7 +3,8 @@ title: 백분율 계산기
 slug: percentage-calculator
 type: calculator
 description: 두 숫자를 입력해 비율값, 전체에서 차지하는 퍼센트, 증가·감소율을 계산합니다.
-status: published
+status: retired
+replacementTool: date-calculator
 inputs:
   - id: mode
     label: 계산 방식

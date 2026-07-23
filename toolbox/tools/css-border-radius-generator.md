@@ -3,7 +3,8 @@ title: CSS 모서리 둥글기 생성기
 slug: css-border-radius-generator
 type: template-generator
 description: 네 모서리의 px 값을 입력해 border-radius CSS 코드를 만듭니다.
-status: published
+status: retired
+replacementTool: color-converter-contrast
 inputs:
   - id: corners
     label: 네 모서리 값

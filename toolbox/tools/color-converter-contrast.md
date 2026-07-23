@@ -1,9 +1,10 @@
 ---
-title: 색상 변환·대비 검사기
+title: CSS 디자인 도구
 slug: color-converter-contrast
 type: converter
-description: 두 색상을 HEX·RGB·HSL로 변환하고 글자와 배경의 접근성 대비를 확인합니다.
+description: 색상·대비·그라데이션·clamp·그림자·단위·모서리 CSS를 한곳에서 만들고 확인합니다.
 status: published
+modules: [color-converter-contrast, css-gradient-generator, css-clamp-calculator, css-box-shadow-generator, css-unit-converter, css-border-radius-generator]
 inputs:
   - id: foreground
     label: 글자색

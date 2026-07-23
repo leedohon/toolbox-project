@@ -5,6 +5,10 @@ import {fileURLToPath} from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const writeReport = process.argv.includes('--write');
 const catalog = JSON.parse(await fs.readFile(path.join(root, 'outputs', 'tools.json'), 'utf8'));
+const hubRuntime = await fs.readFile(path.join(root, 'assets', 'tool-hub.js'), 'utf8').catch((error) => {
+  if (error.code === 'ENOENT') return '';
+  throw error;
+});
 const rows = [];
 
 for (const item of catalog.tools) {
@@ -31,7 +35,8 @@ for (const item of catalog.tools) {
     viewport: /name=["']viewport["']/i.test(html),
     i18n: html.includes('toolbox-i18n.js') && html.includes('toolbox-i18n.css'),
     safeUx: html.includes('toolbox-ux.js') && !/\bautofocus\b/i.test(html),
-    heightSync: /setupEmbedHeight|mountGeneratedTool|source\s*:\s*["']toolbox-embed["']|location\.replace/.test(runtimeSource),
+    heightSync: /setupEmbedHeight|mountGeneratedTool|source\s*:\s*["']toolbox-embed["']|location\.replace/.test(runtimeSource)
+      || (html.includes('tool-hub.js') && /setupEmbedHeight/.test(hubRuntime)),
     hiddenGuard: !/\[hidden\][^{]*\{[^}]*display\s*:\s*(?:grid|flex)(?![^}]*!important)/i.test(html),
     moduleContract: modules
       ? Array.isArray(modules.modules) && modules.modules.length > 0 && modules.modules.every((module) => module.entry && module.capabilities?.i18n)

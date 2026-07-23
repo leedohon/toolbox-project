@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "assetVersion": "0.1.0",
+  "hubs": [
+    {
+      "tool": "base64-tools",
+      "title": {
+        "ko": "인코딩·문자 변환 도구",
+        "en": "Encoding & character conversion tools"
+      },
+      "help": {
+        "ko": "필요한 문자 변환 기능을 선택하세요. 기능을 바꿔도 열어 둔 입력과 결과는 유지됩니다.",
+        "en": "Choose a character conversion tool. Open inputs and results stay in place when you switch."
+      },
+      "modules": [
+        {
+          "tool": "base64-tools",
+          "label": {
+            "ko": "텍스트·Base64",
+            "en": "Text & Base64"
+          }
+        },
+        {
+          "tool": "number-base-converter",
+          "label": {
+            "ko": "진법 변환",
+            "en": "Number bases"
+          }
+        },
+        {
+          "tool": "unicode-inspector",
+          "label": {
+            "ko": "유니코드 분석",
+            "en": "Unicode inspector"
+          }
+        },
+        {
+          "tool": "html-entity-converter",
+          "label": {
+            "ko": "HTML 엔티티",
+            "en": "HTML entities"
+          }
+        },
+        {
+          "tool": "roman-numeral-converter",
+          "label": {
+            "ko": "로마 숫자",
+            "en": "Roman numerals"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "date-calculator",
+      "title": {
+        "ko": "다용도 계산기",
+        "en": "Multi calculator"
+      },
+      "help": {
+        "ko": "날짜, 단위, 비율과 자주 쓰는 숫자 계산을 한곳에서 선택하세요.",
+        "en": "Choose date, unit, ratio, or common number calculations in one place."
+      },
+      "modules": [
+        {
+          "tool": "date-calculator",
+          "label": {
+            "ko": "일반·단위·날짜",
+            "en": "General, unit & date"
+          }
+        },
+        {
+          "tool": "unix-timestamp-converter",
+          "label": {
+            "ko": "Unix 시간",
+            "en": "Unix time"
+          }
+        },
+        {
+          "tool": "aspect-ratio-calculator",
+          "label": {
+            "ko": "화면 비율",
+            "en": "Aspect ratio"
+          }
+        },
+        {
+          "tool": "percentage-calculator",
+          "label": {
+            "ko": "백분율",
+            "en": "Percentage"
+          }
+        },
+        {
+          "tool": "average-median-calculator",
+          "label": {
+            "ko": "평균·중앙값",
+            "en": "Average & median"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "password-generator",
+      "title": {
+        "ko": "비밀번호·UUID 생성기",
+        "en": "Password & UUID generator"
+      },
+      "help": {
+        "ko": "안전한 비밀번호 또는 여러 개의 UUID를 바로 만드세요.",
+        "en": "Create a secure password or a batch of UUIDs."
+      },
+      "modules": [
+        {
+          "tool": "password-generator",
+          "label": {
+            "ko": "비밀번호",
+            "en": "Passwords"
+          }
+        },
+        {
+          "tool": "uuid-generator",
+          "label": {
+            "ko": "UUID",
+            "en": "UUIDs"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "image-resizer-compressor",
+      "title": {
+        "ko": "이미지 크기·압축·DPI 도구",
+        "en": "Image resize, compression & DPI tools"
+      },
+      "help": {
+        "ko": "이미지 크기와 용량을 바꾸거나 DPI·PPI를 계산하세요.",
+        "en": "Resize and compress an image or calculate its DPI and PPI."
+      },
+      "modules": [
+        {
+          "tool": "image-resizer-compressor",
+          "label": {
+            "ko": "크기·용량 변환",
+            "en": "Resize & compress"
+          }
+        },
+        {
+          "tool": "dpi-ppi-calculator",
+          "label": {
+            "ko": "DPI·PPI 계산",
+            "en": "DPI & PPI"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "color-converter-contrast",
+      "title": {
+        "ko": "CSS 디자인 도구",
+        "en": "CSS design tools"
+      },
+      "help": {
+        "ko": "색상, 반응형 크기와 자주 쓰는 CSS 모양을 한곳에서 만드세요.",
+        "en": "Build colors, responsive sizes, and common CSS shapes in one place."
+      },
+      "modules": [
+        {
+          "tool": "color-converter-contrast",
+          "label": {
+            "ko": "색상·대비",
+            "en": "Color & contrast"
+          }
+        },
+        {
+          "tool": "css-gradient-generator",
+          "label": {
+            "ko": "그라데이션",
+            "en": "Gradient"
+          }
+        },
+        {
+          "tool": "css-clamp-calculator",
+          "label": {
+            "ko": "clamp 계산",
+            "en": "Clamp"
+          }
+        },
+        {
+          "tool": "css-box-shadow-generator",
+          "label": {
+            "ko": "그림자",
+            "en": "Box shadow"
+          }
+        },
+        {
+          "tool": "css-unit-converter",
+          "label": {
+            "ko": "CSS 단위",
+            "en": "CSS units"
+          }
+        },
+        {
+          "tool": "css-border-radius-generator",
+          "label": {
+            "ko": "모서리 둥글기",
+            "en": "Border radius"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "text-counter-cleaner",
+      "title": {
+        "ko": "텍스트 정리·생성 도구",
+        "en": "Text cleanup & generation tools"
+      },
+      "help": {
+        "ko": "글, 줄, 파일명과 URL용 텍스트를 빠르게 정리하거나 생성하세요.",
+        "en": "Clean or generate text for writing, lines, filenames, and URLs."
+      },
+      "modules": [
+        {
+          "tool": "text-counter-cleaner",
+          "label": {
+            "ko": "글자수·텍스트 정리",
+            "en": "Count & clean text"
+          }
+        },
+        {
+          "tool": "filename-sanitizer",
+          "label": {
+            "ko": "파일명 정리",
+            "en": "Filename cleanup"
+          }
+        },
+        {
+          "tool": "lorem-ipsum-generator",
+          "label": {
+            "ko": "Lorem Ipsum",
+            "en": "Lorem Ipsum"
+          }
+        },
+        {
+          "tool": "slug-generator",
+          "label": {
+            "ko": "URL 슬러그",
+            "en": "URL slug"
+          }
+        },
+        {
+          "tool": "line-sort-deduplicator",
+          "label": {
+            "ko": "줄 정렬·중복 제거",
+            "en": "Sort & deduplicate"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "markdown-preview-converter",
+      "title": {
+        "ko": "마크다운 작성 도구",
+        "en": "Markdown authoring tools"
+      },
+      "help": {
+        "ko": "마크다운을 미리 보고 HTML로 바꾸거나 표 문법을 만드세요.",
+        "en": "Preview Markdown, convert it to HTML, or build table syntax."
+      },
+      "modules": [
+        {
+          "tool": "markdown-preview-converter",
+          "label": {
+            "ko": "미리보기·HTML",
+            "en": "Preview & HTML"
+          }
+        },
+        {
+          "tool": "markdown-table-generator",
+          "label": {
+            "ko": "표 만들기",
+            "en": "Table builder"
+          }
+        }
+      ]
+    },
+    {
+      "tool": "http-status-lookup",
+      "title": {
+        "ko": "개발자 빠른 참조·검사 도구",
+        "en": "Developer reference & validation tools"
+      },
+      "help": {
+        "ko": "HTTP, 권한, Cron, MIME과 ISBN 정보를 빠르게 확인하세요.",
+        "en": "Quickly check HTTP, permissions, Cron, MIME, and ISBN information."
+      },
+      "modules": [
+        {
+          "tool": "http-status-lookup",
+          "label": {
+            "ko": "HTTP 상태",
+            "en": "HTTP status"
+          }
+        },
+        {
+          "tool": "chmod-calculator",
+          "label": {
+            "ko": "chmod 권한",
+            "en": "chmod permissions"
+          }
+        },
+        {
+          "tool": "cron-expression-explainer",
+          "label": {
+            "ko": "Cron 표현식",
+            "en": "Cron expression"
+          }
+        },
+        {
+          "tool": "mime-type-lookup",
+          "label": {
+            "ko": "MIME 타입",
+            "en": "MIME type"
+          }
+        },
+        {
+          "tool": "isbn-validator",
+          "label": {
+            "ko": "ISBN 검사",
+            "en": "ISBN validation"
+          }
+        }
+      ]
+    }
+  ]
+}

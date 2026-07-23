@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "percentage-calculator",
   "index": 36,
   "title": "백분율 계산기",
   "category": "초간단 툴박스",
-  "status": "published",
-  "replacementTool": null,
-  "latestVersion": "0.0.1v",
+  "status": "retired",
+  "replacementTool": "date-calculator",
+  "latestVersion": "0.1.0v",
   "paths": {
     "definition": "toolbox/tools/percentage-calculator.md",
     "post": "toolbox/posts/percentage-calculator.html",

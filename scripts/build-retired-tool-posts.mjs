@@ -5,17 +5,35 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputs = path.join(root, 'outputs');
 const posts = path.join(root, 'toolbox', 'posts');
+const tagsDocument = JSON.parse(await fs.readFile(path.join(root, 'toolbox', 'post-tags.json'), 'utf8'));
 const [replacementTool, ...retiredTools] = process.argv.slice(2);
 if (!replacementTool || !retiredTools.length) throw new Error('Usage: node scripts/build-retired-tool-posts.mjs <replacement-tool> <retired-tool...>');
 const replacement = JSON.parse(await fs.readFile(path.join(outputs, replacementTool, 'versions.json'), 'utf8'));
 if (!replacement.postUrl) throw new Error(`${replacementTool}: published postUrl is required`);
 
 const escapeHtml = (value) => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+const uniqueTags = (values) => [...new Set(values.map((value) => String(value || '').trim()).filter(Boolean))];
+function retirementTags(tool, legacyTitle, isGameReplacement) {
+  if (isGameReplacement) return ['다용도펀박스', '다용도뽑기게임', '랜덤게임', legacyTitle];
+  const tags = uniqueTags([
+    ...(tagsDocument.common || []),
+    ...(tagsDocument.tools?.[replacementTool] || []).slice(0, 3),
+    ...(tagsDocument.tools?.[tool] || []).slice(0, 3),
+    legacyTitle,
+  ]).slice(0, 10);
+  if (tags.length < 4) throw new Error(`${tool}: at least four retirement tags are required`);
+  return tags;
+}
+const renderTags = (tags) => tags
+  .map((tag) => `<a href="/search/label/${encodeURIComponent(tag)}" rel="tag">#${escapeHtml(tag)}</a>`)
+  .join('');
+
 for (const tool of retiredTools) {
   const manifest = JSON.parse(await fs.readFile(path.join(outputs, tool, 'versions.json'), 'utf8'));
   if (manifest.status !== 'retired' || manifest.replacementTool !== replacementTool) throw new Error(`${tool}: retirement metadata is incomplete`);
   const legacyTitle = manifest.legacyTitle || manifest.title.replace(/ 통합 안내$/, '');
   const isGameReplacement = replacementTool === 'multipurpose-draw-game';
+  const tags = retirementTags(tool, legacyTitle, isGameReplacement);
   const category = replacement.category || (isGameReplacement ? '다용도 펀박스' : '초간단 툴박스');
   const lead = isGameReplacement
     ? `기존 기능은 한곳에서 더 편하게 선택할 수 있습니다. 아래 새 게시글에서 ${legacyTitle} 모드를 이용하세요.`
@@ -49,7 +67,7 @@ for (const tool of retiredTools) {
   <p class="tb-fallback">게시글이 열리지 않으면 <a href="https://leedohon.github.io/toolbox-project/embed/${escapeHtml(replacementTool)}/" target="_blank" rel="noopener">새 창에서 ${escapeHtml(replacement.title)} 열기</a>를 이용하세요.</p>
   <h2>이용 안내</h2><ol class="tb-steps">${steps.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol>
   <!-- tb-tool-details:start --><section class="tb-tool-details"><h2>통합 안내 상세 설명</h2><div class="tb-detail-copy">${details.map((item) => `<p>${escapeHtml(item)}</p>`).join('')}</div></section><!-- tb-tool-details:end -->
-  <!-- tb-tags:start --><nav class="tb-tags" aria-label="관련 태그"><a href="/search/label/${encodeURIComponent('다용도펀박스')}" rel="tag">#다용도펀박스</a><a href="/search/label/${encodeURIComponent('다용도뽑기게임')}" rel="tag">#다용도뽑기게임</a><a href="/search/label/${encodeURIComponent('랜덤게임')}" rel="tag">#랜덤게임</a><a href="/search/label/${encodeURIComponent(legacyTitle)}" rel="tag">#${escapeHtml(legacyTitle)}</a></nav><!-- tb-tags:end -->
+  <!-- tb-tags:start --><nav class="tb-tags" aria-label="관련 태그">${renderTags(tags)}</nav><!-- tb-tags:end -->
   <!-- tb-faq:start --><h2>자주 묻는 질문</h2>${faq.map(([question, answer]) => `<details><summary>${escapeHtml(question)}</summary><p>${escapeHtml(answer)}</p></details>`).join('')}<!-- tb-faq:end -->
   <!-- tb-patch-notes:start --><details class="tb-patch-notes"><summary>패치노트</summary><div class="tb-patch-list">통합 안내 릴리스가 표시됩니다.</div></details><!-- tb-patch-notes:end -->
 </article>

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "password-generator",
   "index": 12,
-  "title": "안전 비밀번호 생성기",
+  "title": "비밀번호·UUID 생성기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.0.4v",
+  "latestVersion": "1.0.0v",
   "paths": {
     "definition": "toolbox/tools/password-generator.md",
     "post": "toolbox/posts/password-generator.html",
@@ -19,11 +19,28 @@
     {
       "id": "password-generator",
       "label": {
-        "ko": "안전 비밀번호 생성기",
-        "en": "password-generator"
+        "ko": "비밀번호",
+        "en": "Passwords"
       },
-      "entry": "./tool.js",
+      "entry": "./engine.html?release=1.0.0v",
       "messageTool": "password-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "uuid-generator",
+      "label": {
+        "ko": "UUID",
+        "en": "UUIDs"
+      },
+      "entry": "../uuid-generator/?release=0.1.0v",
+      "messageTool": "uuid-generator",
       "capabilities": {
         "resultCode": false,
         "png": false,

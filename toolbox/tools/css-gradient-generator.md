@@ -3,7 +3,8 @@ title: CSS 그라데이션 생성기
 slug: css-gradient-generator
 type: template-generator
 description: 색상과 방향을 조절해 선형·원형 그라데이션을 미리 보고 CSS 코드를 만듭니다.
-status: published
+status: retired
+replacementTool: color-converter-contrast
 inputs:
   - id: type
     label: 그라데이션 유형

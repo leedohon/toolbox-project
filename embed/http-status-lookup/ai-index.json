@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "http-status-lookup",
+  "index": 49,
+  "title": "개발자 빠른 참조·검사 도구",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "1.0.0v",
+  "paths": {
+    "definition": "toolbox/tools/http-status-lookup.md",
+    "post": "toolbox/posts/http-status-lookup.html",
+    "manifest": "outputs/http-status-lookup/versions.json",
+    "embed": "embed/http-status-lookup/index.html",
+    "moduleRegistry": "embed/http-status-lookup/modules.json"
+  },
+  "modules": [
+    {
+      "id": "http-status-lookup",
+      "label": {
+        "ko": "HTTP 상태",
+        "en": "HTTP status"
+      },
+      "entry": "./engine.html?release=1.0.0v",
+      "messageTool": "http-status-lookup",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "chmod-calculator",
+      "label": {
+        "ko": "chmod 권한",
+        "en": "chmod permissions"
+      },
+      "entry": "../chmod-calculator/?release=0.1.0v",
+      "messageTool": "chmod-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "cron-expression-explainer",
+      "label": {
+        "ko": "Cron 표현식",
+        "en": "Cron expression"
+      },
+      "entry": "../cron-expression-explainer/?release=0.1.0v",
+      "messageTool": "cron-expression-explainer",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "mime-type-lookup",
+      "label": {
+        "ko": "MIME 타입",
+        "en": "MIME type"
+      },
+      "entry": "../mime-type-lookup/?release=0.1.0v",
+      "messageTool": "mime-type-lookup",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "isbn-validator",
+      "label": {
+        "ko": "ISBN 검사",
+        "en": "ISBN validation"
+      },
+      "entry": "../isbn-validator/?release=0.1.0v",
+      "messageTool": "isbn-validator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

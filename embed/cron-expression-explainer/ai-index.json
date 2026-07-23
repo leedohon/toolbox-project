@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "cron-expression-explainer",
+  "index": 48,
+  "title": "Cron 표현식 설명기",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "http-status-lookup",
+  "latestVersion": "0.1.0v",
+  "paths": {
+    "definition": "toolbox/tools/cron-expression-explainer.md",
+    "post": "toolbox/posts/cron-expression-explainer.html",
+    "manifest": "outputs/cron-expression-explainer/versions.json",
+    "embed": "embed/cron-expression-explainer/index.html",
+    "moduleRegistry": "embed/cron-expression-explainer/modules.json"
+  },
+  "modules": [
+    {
+      "id": "cron-expression-explainer",
+      "label": {
+        "ko": "Cron 표현식 설명기",
+        "en": "Cron expression explainer"
+      },
+      "entry": "./tool.js",
+      "messageTool": "cron-expression-explainer",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

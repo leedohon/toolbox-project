@@ -3,7 +3,8 @@ title: UUID 일괄 생성기
 slug: uuid-generator
 type: template-generator
 description: 브라우저의 안전한 난수로 UUID v4를 한 번에 여러 개 만들고 원하는 형식으로 복사합니다.
-status: published
+status: retired
+replacementTool: password-generator
 inputs:
   - id: count
     label: 생성 개수

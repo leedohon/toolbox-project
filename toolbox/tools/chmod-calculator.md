@@ -3,7 +3,8 @@ title: chmod 권한 계산기
 slug: chmod-calculator
 type: calculator
 description: 소유자·그룹·기타 사용자의 읽기·쓰기·실행 조합을 숫자와 기호 권한으로 확인합니다.
-status: published
+status: retired
+replacementTool: http-status-lookup
 inputs:
   - id: owner
     label: 소유자 권한

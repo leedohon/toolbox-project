@@ -1,10 +1,10 @@
 {
   "index": 13,
   "tool": "image-resizer-compressor",
-  "title": "이미지 크기·용량 변환기",
-  "description": "이미지 크기와 저장 형식·품질을 바꿔 용량을 줄이고 바로 저장합니다.",
+  "title": "이미지 크기·압축·DPI 도구",
+  "description": "이미지 크기·저장 품질을 바꾸거나 출력 크기에 맞는 DPI·PPI를 계산합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html",
-  "latestVersion": "0.0.4v",
+  "latestVersion": "1.0.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -41,6 +41,16 @@
       "directory": "0.0.4v",
       "html": "0.0.4v/image-resizer-compressor.html",
       "patchNotes": "0.0.4v/patch-notes.json"
+    },
+    {
+      "version": "1.0.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "major",
+      "summary": "이미지 크기·압축·DPI 도구의 관련 기능을 목적별 모드로 통합했습니다.",
+      "directory": "1.0.0v",
+      "html": "1.0.0v/image-resizer-compressor.html",
+      "patchNotes": "1.0.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "published"
 }

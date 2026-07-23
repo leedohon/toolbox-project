@@ -3,7 +3,8 @@ title: DPI·PPI 해상도 계산기
 slug: dpi-ppi-calculator
 type: calculator
 description: 이미지 픽셀과 실제 출력 크기를 입력해 가로·세로 DPI와 PPI를 계산합니다.
-status: published
+status: retired
+replacementTool: image-resizer-compressor
 inputs:
   - id: pixels
     label: 가로·세로 픽셀

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "average-median-calculator",
+  "index": 42,
+  "title": "평균·중앙값 계산기",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "date-calculator",
+  "latestVersion": "0.1.0v",
+  "paths": {
+    "definition": "toolbox/tools/average-median-calculator.md",
+    "post": "toolbox/posts/average-median-calculator.html",
+    "manifest": "outputs/average-median-calculator/versions.json",
+    "embed": "embed/average-median-calculator/index.html",
+    "moduleRegistry": "embed/average-median-calculator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "average-median-calculator",
+      "label": {
+        "ko": "평균·중앙값 계산기",
+        "en": "Average and median calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "average-median-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

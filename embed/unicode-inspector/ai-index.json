@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "unicode-inspector",
   "index": 29,
   "title": "유니코드 문자 분석기",
   "category": "초간단 툴박스",
-  "status": "published",
-  "replacementTool": null,
-  "latestVersion": "0.0.2v",
+  "status": "retired",
+  "replacementTool": "base64-tools",
+  "latestVersion": "0.1.0v",
   "paths": {
     "definition": "toolbox/tools/unicode-inspector.md",
     "post": "toolbox/posts/unicode-inspector.html",

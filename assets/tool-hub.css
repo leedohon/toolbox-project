@@ -1,0 +1,188 @@
+:root {
+  --hub-sky: #0879b2;
+  --hub-sky-dark: #066d9f;
+  --hub-pale: #eefaff;
+  --hub-ink: #16232c;
+  --hub-muted: #5d707b;
+  --hub-line: #d8e9f1;
+}
+
+html,
+body {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: clamp(6px, 1.8vw, 16px);
+  overflow-x: hidden;
+  background: #fff;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+}
+
+.tool-hub,
+.tool-hub * {
+  box-sizing: border-box;
+}
+
+.tool-hub {
+  width: 100%;
+  min-width: 0;
+  max-width: 1040px;
+  margin: 0 auto;
+  color: var(--hub-ink);
+}
+
+.tool-hub__picker {
+  padding: clamp(14px, 3vw, 24px);
+  border: 1px solid var(--hub-line);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fff 0%, var(--hub-pale) 100%);
+  box-shadow: 0 14px 35px rgba(10, 104, 148, 0.08);
+}
+
+.tool-hub__help {
+  margin: 0 0 16px;
+  color: var(--hub-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.tool-hub__fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.tool-hub__legend,
+.tool-hub__select-label {
+  display: block;
+  margin: 0 0 8px;
+  font-weight: 800;
+}
+
+.tool-hub__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.tool-hub__option {
+  position: relative;
+  display: block;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.tool-hub__option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tool-hub__option span {
+  display: grid;
+  min-height: 50px;
+  padding: 9px 12px;
+  place-items: center;
+  color: #174454;
+  background: #fff;
+  border: 1px solid #b9d4e0;
+  border-radius: 11px;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.15s;
+}
+
+.tool-hub__option input:checked + span {
+  color: #fff;
+  background: var(--hub-sky);
+  border-color: var(--hub-sky);
+  box-shadow: 0 6px 16px rgba(8, 121, 178, 0.18);
+}
+
+.tool-hub__option input:focus-visible + span {
+  outline: 3px solid #a8e3fb;
+  outline-offset: 2px;
+}
+
+.tool-hub__option:hover span {
+  border-color: var(--hub-sky);
+  transform: translateY(-1px);
+}
+
+.tool-hub__select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 10px 12px;
+  color: var(--hub-ink);
+  background: #fff;
+  border: 1px solid #b9d4e0;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 750;
+}
+
+.tool-hub__select:focus-visible {
+  outline: 3px solid #a8e3fb;
+  outline-offset: 2px;
+}
+
+.tool-hub__status {
+  min-height: 24px;
+  margin: 10px 4px 0;
+  color: var(--hub-muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.tool-hub__status.is-error {
+  color: #bd2f2f;
+}
+
+.tool-hub__stage {
+  min-width: 0;
+  margin-top: 14px;
+}
+
+.tool-hub__frame {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 320px;
+  height: 640px;
+  border: 0;
+  background: #fff;
+}
+
+.tool-hub__frame[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .tool-hub__picker {
+    padding: 14px;
+  }
+
+  .tool-hub__options {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-hub__frame {
+    height: 720px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-hub__option span {
+    transition: none;
+  }
+}

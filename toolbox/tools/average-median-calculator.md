@@ -3,7 +3,8 @@ title: 평균·중앙값 계산기
 slug: average-median-calculator
 type: calculator
 description: 쉼표나 줄바꿈으로 입력한 숫자의 평균·중앙값·합계·범위를 한 번에 계산합니다.
-status: published
+status: retired
+replacementTool: date-calculator
 inputs:
   - id: numbers
     label: 숫자 목록

@@ -4,7 +4,7 @@
   "title": "로마 숫자 변환기",
   "description": "1~3999의 아라비아 숫자와 표준 로마 숫자 표기를 서로 변환합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_701.html",
-  "latestVersion": "0.0.1v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,18 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/roman-numeral-converter.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "minor",
+      "summary": "기능을 인코딩·문자 변환 도구 안으로 통합하고 기존 주소를 호환 안내로 전환했습니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/roman-numeral-converter.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "retired",
+  "replacementTool": "base64-tools",
+  "legacyTitle": "로마 숫자 변환기"
 }

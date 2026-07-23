@@ -3,7 +3,8 @@ title: Lorem Ipsum 문장 생성기
 slug: lorem-ipsum-generator
 type: template-generator
 description: 레이아웃 테스트에 쓸 Lorem Ipsum 문단을 원하는 개수와 길이로 생성합니다.
-status: published
+status: retired
+replacementTool: text-counter-cleaner
 inputs:
   - id: paragraphs
     label: 문단 수

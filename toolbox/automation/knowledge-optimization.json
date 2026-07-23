@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.3.0",
-  "updatedAt": "2026-07-19",
+  "policyVersion": "0.4.0",
+  "updatedAt": "2026-07-23",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -111,8 +111,8 @@
       "id": "OPT-004",
       "status": "completed",
       "triggerPaths": ["scripts/scaffold-tool-releases.mjs", "toolbox/automation/create-*.json", "toolbox/guides/post-drafting-guide.md"],
-      "problem": "크리에이트 실행마다 다섯 도구의 index.html과 tool.js를 반복해서 수작업으로 만들어야 함",
-      "proposedChange": "설정의 runtimePreset과 ui.fields에서 공통 실행 셸과 도구 연결 모듈을 생성함",
+      "problem": "Each create run otherwise required manually repeating the tool index.html and tool.js runtime shell.",
+      "proposedChange": "Generate the shared runtime shell and tool connection module from runtimePreset and ui.fields configuration.",
       "measure": "repeated manual edits",
       "targetReduction": 0.5,
       "evidence": [
@@ -123,12 +123,25 @@
       "id": "OPT-005",
       "status": "completed",
       "triggerPaths": ["scripts/run-create-config.mjs", "toolbox/automation/create-*.json", "toolbox/guides/post-drafting-guide.md"],
-      "problem": "한 크리에이트 설정을 완성하려면 생성·빌드·색인·검증 명령을 여섯 번 따로 호출해야 함",
-      "proposedChange": "설정 경로 하나로 여섯 단계를 순서대로 실행하고 실패 즉시 중단하는 실행기를 제공함",
+      "problem": "Completing one create configuration required invoking create, build, release, and validation commands separately.",
+      "proposedChange": "Provide one runner that executes the configured stages in order and stops immediately when a stage fails.",
       "measure": "repeated manual edits",
       "targetReduction": 0.5,
       "evidence": [
         {"before":6,"after":1,"unit":"automation command invocations per five-tool create config","reduction":0.8333,"verifiedAt":"2026-07-19"}
+      ]
+    },
+    {
+      "id": "OPT-006",
+      "status": "completed",
+      "triggerPaths": ["toolbox/tool-hubs.json", "scripts/build-tool-hubs.mjs", "scripts/sync-tool-hub-metadata.mjs"],
+      "problem": "Consolidating related tools into hubs would otherwise require repeated manual creation of hub shells, module registries, preserved anchor engines, and release metadata edits.",
+      "proposedChange": "Use one machine-readable hub configuration to generate each hub runtime and synchronize hub and retired-tool release metadata.",
+      "measure": "repeated manual edits",
+      "targetReduction": 0.5,
+      "evidence": [
+        {"before":24,"after":0,"unit":"manual hub shell, module registry, and preserved anchor engine creations per eight-hub consolidation","reduction":1.0,"verifiedAt":"2026-07-23"},
+        {"before":32,"after":0,"unit":"manual release manifest metadata synchronizations per thirty-two-tool consolidation","reduction":1.0,"verifiedAt":"2026-07-23"}
       ]
     }
   ]

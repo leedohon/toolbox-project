@@ -4,7 +4,7 @@
   "title": "Unix 시간 변환기",
   "description": "Unix 초·밀리초와 읽기 쉬운 지역 날짜·UTC 시간을 서로 변환합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/unix.html",
-  "latestVersion": "0.0.3v",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -32,6 +32,18 @@
       "directory": "0.0.3v",
       "html": "0.0.3v/unix-timestamp-converter.html",
       "patchNotes": "0.0.3v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-07-23",
+      "changeLevel": "minor",
+      "summary": "기능을 다용도 계산기 안으로 통합하고 기존 주소를 호환 안내로 전환했습니다.",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/unix-timestamp-converter.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
-  ]
+  ],
+  "status": "retired",
+  "replacementTool": "date-calculator",
+  "legacyTitle": "Unix 시간 변환기"
 }

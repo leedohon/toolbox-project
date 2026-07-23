@@ -13,5 +13,5 @@
   "blogger":{"created":["https://bloggiedh.blogspot.com/2026/07/url_0487522378.html","https://bloggiedh.blogspot.com/2026/07/blog-post_19.html","https://bloggiedh.blogspot.com/2026/07/html_01179361276.html","https://bloggiedh.blogspot.com/2026/07/blog-post_701.html","https://bloggiedh.blogspot.com/2026/07/blog-post_51.html"],"updated":[],"skipped":[],"status":"completed"},
   "git":{"branch":"main","commit":"05e7a088a02ef4c401523c936ef1b67a41578900","pushed":true},
   "deployment":{"status":"completed","urls":["https://leedohon.github.io/toolbox-project/embed/slug-generator/","https://leedohon.github.io/toolbox-project/embed/line-sort-deduplicator/","https://leedohon.github.io/toolbox-project/embed/html-entity-converter/","https://leedohon.github.io/toolbox-project/embed/roman-numeral-converter/","https://leedohon.github.io/toolbox-project/embed/fraction-simplifier/"]},
-  "shutdown":{"requested":false,"scheduled":false,"input":"아니오","scheduledFor":null,"cancelled":false},"blocked":[],"reportHistory":[]
+  "shutdown":{"requested":false,"scheduled":false,"input":"아니오","scheduledFor":null,"cancelled":false},"blocked":[],"reportHistory":[{"reportedAt":"2026-07-23T23:20:39+09:00","context":"공개 도구 일괄 통합 작업 시작 전 미확인 기록 보고"}]
 }

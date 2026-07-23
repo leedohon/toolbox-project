@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-07-23",
   "tool": "unix-timestamp-converter",
   "index": 15,
   "title": "Unix 시간 변환기",
   "category": "초간단 툴박스",
-  "status": "published",
-  "replacementTool": null,
-  "latestVersion": "0.0.3v",
+  "status": "retired",
+  "replacementTool": "date-calculator",
+  "latestVersion": "0.1.0v",
   "paths": {
     "definition": "toolbox/tools/unix-timestamp-converter.md",
     "post": "toolbox/posts/unix-timestamp-converter.html",

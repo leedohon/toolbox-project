@@ -3,7 +3,8 @@ title: 안전한 파일명 정리기
 slug: filename-sanitizer
 type: converter
 description: 파일명에서 사용할 수 없는 문자와 불필요한 공백을 정리해 복사 가능한 이름으로 바꿉니다.
-status: published
+status: retired
+replacementTool: text-counter-cleaner
 inputs:
   - id: filename
     label: 원본 파일명

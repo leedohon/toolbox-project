@@ -3,7 +3,8 @@ title: 로마 숫자 변환기
 slug: roman-numeral-converter
 type: converter
 description: 1~3999의 아라비아 숫자와 표준 로마 숫자 표기를 서로 변환합니다.
-status: published
+status: retired
+replacementTool: base64-tools
 inputs:
   - id: mode
     label: 변환 방향

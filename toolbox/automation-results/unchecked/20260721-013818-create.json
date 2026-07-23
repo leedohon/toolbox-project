@@ -58,5 +58,7 @@
   "deployment": {"status": "completed", "urls": ["https://leedohon.github.io/toolbox-project/"], "runs": [29760637967, 29760636531]},
   "shutdown": {"requested": false, "scheduled": false, "input": "아니오", "scheduledFor": null, "cancelled": false},
   "blocked": [],
-  "reportHistory": []
+  "reportHistory": [
+    {"reportedAt":"2026-07-23T23:20:39+09:00","context":"공개 도구 일괄 통합 작업 시작 전 미확인 기록 보고"}
+  ]
 }

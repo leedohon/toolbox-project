@@ -1,14 +1,43 @@
 {
   "schemaVersion": 1,
+  "hub": {
+    "kind": "iframe",
+    "tool": "markdown-preview-converter",
+    "title": {
+      "ko": "마크다운 작성 도구",
+      "en": "Markdown authoring tools"
+    },
+    "help": {
+      "ko": "마크다운을 미리 보고 HTML로 바꾸거나 표 문법을 만드세요.",
+      "en": "Preview Markdown, convert it to HTML, or build table syntax."
+    }
+  },
   "modules": [
     {
       "id": "markdown-preview-converter",
       "label": {
-        "ko": "마크다운 미리보기·HTML 변환기",
-        "en": "Markdown preview and HTML converter"
+        "ko": "미리보기·HTML",
+        "en": "Preview & HTML"
       },
-      "entry": "./tool.js",
+      "entry": "./engine.html?release=1.0.0v",
       "messageTool": "markdown-preview-converter",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "markdown-table-generator",
+      "label": {
+        "ko": "표 만들기",
+        "en": "Table builder"
+      },
+      "entry": "../markdown-table-generator/?release=0.1.0v",
+      "messageTool": "markdown-table-generator",
       "capabilities": {
         "resultCode": false,
         "png": false,

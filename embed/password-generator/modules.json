@@ -1,14 +1,43 @@
 {
   "schemaVersion": 1,
+  "hub": {
+    "kind": "iframe",
+    "tool": "password-generator",
+    "title": {
+      "ko": "비밀번호·UUID 생성기",
+      "en": "Password & UUID generator"
+    },
+    "help": {
+      "ko": "안전한 비밀번호 또는 여러 개의 UUID를 바로 만드세요.",
+      "en": "Create a secure password or a batch of UUIDs."
+    }
+  },
   "modules": [
     {
       "id": "password-generator",
       "label": {
-        "ko": "안전 비밀번호 생성기",
-        "en": "password-generator"
+        "ko": "비밀번호",
+        "en": "Passwords"
       },
-      "entry": "./tool.js",
+      "entry": "./engine.html?release=1.0.0v",
       "messageTool": "password-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    },
+    {
+      "id": "uuid-generator",
+      "label": {
+        "ko": "UUID",
+        "en": "UUIDs"
+      },
+      "entry": "../uuid-generator/?release=0.1.0v",
+      "messageTool": "uuid-generator",
       "capabilities": {
         "resultCode": false,
         "png": false,

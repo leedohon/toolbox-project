@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-23",
+  "tool": "slug-generator",
+  "index": 37,
+  "title": "URL 슬러그 생성기",
+  "category": "초간단 툴박스",
+  "status": "retired",
+  "replacementTool": "text-counter-cleaner",
+  "latestVersion": "0.1.0v",
+  "paths": {
+    "definition": "toolbox/tools/slug-generator.md",
+    "post": "toolbox/posts/slug-generator.html",
+    "manifest": "outputs/slug-generator/versions.json",
+    "embed": "embed/slug-generator/index.html",
+    "moduleRegistry": "embed/slug-generator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "slug-generator",
+      "label": {
+        "ko": "URL 슬러그 생성기",
+        "en": "URL slug generator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "slug-generator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

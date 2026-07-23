@@ -4,7 +4,7 @@
   "title": "비밀번호·UUID 생성기",
   "description": "안전한 무작위 비밀번호와 UUID v4를 필요한 형식과 개수로 만듭니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
-  "latestVersion": "1.0.0v",
+  "latestVersion": "1.0.1v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -50,6 +50,15 @@
       "directory": "1.0.0v",
       "html": "1.0.0v/password-generator.html",
       "patchNotes": "1.0.0v/patch-notes.json"
+    },
+    {
+      "version": "1.0.1v",
+      "releaseDate": "2026-07-24",
+      "changeLevel": "minimum",
+      "summary": "통합 허브의 내부 도구 높이 동기화를 안정화했습니다.",
+      "directory": "1.0.1v",
+      "html": "1.0.1v/password-generator.html",
+      "patchNotes": "1.0.1v/patch-notes.json"
     }
   ],
   "status": "published"

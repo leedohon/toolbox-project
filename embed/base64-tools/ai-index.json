@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "1.0.0v",
+  "latestVersion": "1.0.1v",
   "paths": {
     "definition": "toolbox/tools/base64-tools.md",
     "post": "toolbox/posts/base64-tools.html",

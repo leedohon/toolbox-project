@@ -19,7 +19,7 @@
         "ko": "크기·용량 변환",
         "en": "Resize & compress"
       },
-      "entry": "./engine.html?release=1.0.0v",
+      "entry": "./engine.html?release=1.0.1v",
       "messageTool": "image-resizer-compressor",
       "capabilities": {
         "resultCode": false,

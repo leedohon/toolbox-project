@@ -19,7 +19,7 @@
         "ko": "글자수·텍스트 정리",
         "en": "Count & clean text"
       },
-      "entry": "./engine.html?release=1.0.0v",
+      "entry": "./engine.html?release=1.0.1v",
       "messageTool": "text-counter-cleaner",
       "capabilities": {
         "resultCode": false,

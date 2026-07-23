@@ -4,7 +4,7 @@
   "title": "다용도 계산기",
   "description": "일반·단위·날짜 계산과 Unix 시간, 화면 비율, 백분율, 평균·중앙값 계산을 한곳에서 처리합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
-  "latestVersion": "2.0.0v",
+  "latestVersion": "2.0.1v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -95,6 +95,15 @@
       "directory": "2.0.0v",
       "html": "2.0.0v/date-calculator.html",
       "patchNotes": "2.0.0v/patch-notes.json"
+    },
+    {
+      "version": "2.0.1v",
+      "releaseDate": "2026-07-24",
+      "changeLevel": "minimum",
+      "summary": "통합 허브의 내부 도구 높이 동기화를 안정화했습니다.",
+      "directory": "2.0.1v",
+      "html": "2.0.1v/date-calculator.html",
+      "patchNotes": "2.0.1v/patch-notes.json"
     }
   ],
   "status": "published"

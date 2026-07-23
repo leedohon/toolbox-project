@@ -19,7 +19,7 @@
         "ko": "색상·대비",
         "en": "Color & contrast"
       },
-      "entry": "./engine.html?release=1.0.0v",
+      "entry": "./engine.html?release=1.0.1v",
       "messageTool": "color-converter-contrast",
       "capabilities": {
         "resultCode": false,

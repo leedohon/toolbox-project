@@ -11,6 +11,7 @@ const stage = root.querySelector('[data-tool-hub-stage]');
 const status = root.querySelector('[data-tool-hub-status]');
 const frames = new Map();
 const modulesByTool = new Map();
+const frameObservers = new WeakMap();
 const storedModeKey = `${hubTool}-module`;
 const childFlag = 'toolbox-hub-child';
 const modulePattern = /^[a-z0-9-]+$/;
@@ -156,6 +157,31 @@ function forwardLanguage(frame) {
   }
 }
 
+function syncFrameHeight(frame) {
+  try {
+    const body = frame.contentDocument?.body;
+    if (!body) return;
+    const height = Math.min(5600, Math.max(320, Math.ceil(body.scrollHeight)));
+    frame.style.height = `${height}px`;
+  } catch (_) {
+    // Registry validation keeps current modules same-origin; tolerate a frame closing during navigation.
+  }
+}
+
+function observeFrameHeight(frame) {
+  frameObservers.get(frame)?.disconnect();
+  try {
+    const body = frame.contentDocument?.body;
+    if (!body) return;
+    const observer = new ResizeObserver(() => syncFrameHeight(frame));
+    observer.observe(body);
+    frameObservers.set(frame, observer);
+    syncFrameHeight(frame);
+  } catch (_) {
+    // A child can briefly be unavailable while its document is being replaced.
+  }
+}
+
 function updateHubLanguage() {
   if (!hubMeta) return;
   const title = translated(hubMeta.title);
@@ -173,11 +199,14 @@ function buildFrame(module, initialId) {
   frame.referrerPolicy = 'strict-origin-when-cross-origin';
   frame.allow = 'clipboard-write';
   frame.hidden = module.id !== initialId;
-  frame.addEventListener('load', () => forwardLanguage(frame));
-  if (module.id === initialId) frame.src = frame.dataset.src;
-  stage.append(frame);
+  frame.addEventListener('load', () => {
+    forwardLanguage(frame);
+    observeFrameHeight(frame);
+  });
   frames.set(module.id, frame);
   modulesByTool.set(module.messageTool, module);
+  if (module.id === initialId) frame.src = frame.dataset.src;
+  stage.append(frame);
 }
 
 function activate(id, persist = true) {
@@ -186,6 +215,7 @@ function activate(id, persist = true) {
   for (const [moduleId, frame] of frames) {
     frame.hidden = moduleId !== id;
     if (moduleId === id && !frame.hasAttribute('src')) frame.src = frame.dataset.src;
+    if (moduleId === id) syncFrameHeight(frame);
   }
 
   const select = control.querySelector('select');
@@ -214,7 +244,10 @@ addEventListener('message', (event) => {
 
 addEventListener('toolbox-language-change', () => {
   updateHubLanguage();
-  for (const frame of frames.values()) forwardLanguage(frame);
+  for (const frame of frames.values()) {
+    forwardLanguage(frame);
+    syncFrameHeight(frame);
+  }
   const module = modules.find((item) => item.id === activeId);
   if (module) {
     setStatus(

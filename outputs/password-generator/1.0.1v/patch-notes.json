@@ -1,0 +1,10 @@
+{
+  "tool": "password-generator",
+  "version": "1.0.1v",
+  "releaseDate": "2026-07-24",
+  "changeLevel": "minimum",
+  "changes": [
+    "프레임 등록 순서를 조정해 첫 로드 높이 메시지를 놓치지 않게 했습니다.",
+    "동일 출처 내부 화면의 실제 높이를 관찰해 내용 변화와 모바일 레이아웃을 자동 반영합니다."
+  ]
+}

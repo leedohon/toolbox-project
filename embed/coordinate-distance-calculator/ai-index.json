@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-24",
+  "tool": "coordinate-distance-calculator",
+  "index": 56,
+  "title": "좌표·거리 계산기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/coordinate-distance-calculator.md",
+    "post": "toolbox/posts/coordinate-distance-calculator.html",
+    "manifest": "outputs/coordinate-distance-calculator/versions.json",
+    "embed": "embed/coordinate-distance-calculator/index.html",
+    "moduleRegistry": "embed/coordinate-distance-calculator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "coordinate-distance-calculator",
+      "label": {
+        "ko": "좌표·거리 계산기",
+        "en": "Coordinate & Distance Calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "coordinate-distance-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

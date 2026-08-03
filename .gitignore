@@ -4,3 +4,6 @@ credentials*.json
 client_secret*.json
 token*.json
 
+# Local previews and recoverable Blogger backups
+work/
+_site/

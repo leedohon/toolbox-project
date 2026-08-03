@@ -5,6 +5,12 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputs = path.join(root, 'outputs');
 const tagsPath = path.join(root, 'toolbox', 'post-tags.json');
+const kstDate = () => new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Asia/Seoul',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+}).format(new Date());
 
 export async function buildToolCatalog() {
   const entries = await fs.readdir(outputs, { withFileTypes: true });
@@ -16,7 +22,7 @@ export async function buildToolCatalog() {
     const versionsPath = path.join(outputs, entry.name, 'versions.json');
     try {
       const versions = JSON.parse(await fs.readFile(versionsPath, 'utf8'));
-      if (versions.status === 'retired') continue;
+      if (versions.status === 'retired' || !versions.postUrl) continue;
       const keywords = [...new Set([...(tagsDocument.tools?.[versions.tool] || []), ...(tagsDocument.keywords?.[versions.tool] || [])])];
       if (keywords.length < 20 || keywords.length > 30) throw new Error(`${versions.tool}: 20~30개의 검색 키워드가 필요합니다.`);
       tools.push({
@@ -24,7 +30,7 @@ export async function buildToolCatalog() {
         tool: versions.tool,
         title: versions.title,
         description: versions.description,
-        postUrl: versions.postUrl || '',
+        postUrl: versions.postUrl,
         version: versions.latestVersion,
         keywords,
       });
@@ -39,10 +45,10 @@ export async function buildToolCatalog() {
   for (const tool of tools) {
     if (!Number.isInteger(tool.index) || tool.index < 1) throw new Error(`Invalid index: ${tool.tool}`);
     if (!tool.tool || !tool.title || !tool.description || !tool.version) throw new Error(`Missing catalog field: ${tool.tool}`);
-    if (tool.postUrl && !/^https:\/\//.test(tool.postUrl)) throw new Error(`Post URL must use HTTPS: ${tool.tool}`);
+    if (!/^https:\/\//.test(tool.postUrl)) throw new Error(`Post URL must use HTTPS: ${tool.tool}`);
   }
 
-  const catalog = { updatedAt: new Date().toISOString().slice(0, 10), tools };
+  const catalog = { updatedAt: kstDate(), tools };
   await fs.writeFile(path.join(outputs, 'tools.json'), `${JSON.stringify(catalog, null, 2)}\n`);
   return catalog;
 }

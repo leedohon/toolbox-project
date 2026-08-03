@@ -1,0 +1,154 @@
+{
+  "runId": "20260724-004007-create",
+  "workflow": "create",
+  "status": "partial",
+  "confirm": "N",
+  "startedAt": "2026-07-24T00:40:07+09:00",
+  "completedAt": "2026-07-24T01:06:01+09:00",
+  "confirmedAt": null,
+  "summary": "추가 후보 20개를 5개 통합 도구로 구현·검증했습니다. Blogger 공개와 Git·배포는 명시적 공개 승인 대기 중입니다.",
+  "normalizedRequest": {
+    "workType": "create",
+    "targets": [
+      "text-extractor-tool",
+      "web-meta-preview-builder",
+      "loan-savings-calculator",
+      "ip-network-calculator",
+      "coordinate-distance-calculator"
+    ],
+    "versionLevel": "initial-0.0.1v",
+    "bloggerPublish": true,
+    "gitDeploy": true,
+    "shutdown": false
+  },
+  "runState": {
+    "current": "publish",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-07-24T00:40:07+09:00",
+        "completedAt": "2026-07-24T00:40:07+09:00",
+        "evidence": [
+          "공개 19개와 은퇴 32개 중복 점검",
+          "추가 후보 20개를 목적별 5개 도구로 통합"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-07-24T00:40:07+09:00",
+        "completedAt": "2026-07-24T00:49:00+09:00",
+        "evidence": [
+          "도구 정의·embed·게시글·0.0.1v 릴리스·카탈로그·다국어·AI 색인 5세트 생성",
+          "20개 후보 기능을 5개 공개 진입점으로 통합",
+          "4개 이하 선택지를 라디오로 제공하고 모드별 불필요 입력 숨김"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-07-24T00:49:00+09:00",
+        "completedAt": "2026-07-24T01:02:00+09:00",
+        "evidence": [
+          "281개 JSON·최신 릴리스 경로 통과",
+          "48개 레지스트리 75개 모듈 계약 통과",
+          "375px·1280px 5개 화면 가로 넘침 0",
+          "20개 기능 정상·경계·오류 입력과 KOR / ENG·복사·초기화 확인",
+          "브라우저 콘솔 경고·오류 없음",
+          "한국 날짜 릴리스·카탈로그·AI 색인 2026-07-24 일치"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "blocked",
+        "startedAt": "2026-07-24T01:02:00+09:00",
+        "completedAt": "2026-07-24T01:06:01+09:00",
+        "evidence": [
+          "공개 변경 전 추가 명시 승인 필요",
+          "Blogger postUrl 5개 모두 빈 값으로 공개 변경 없음"
+        ],
+        "blockCode": "USER_CONFIRMATION_REQUIRED"
+      },
+      "commit": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": null},
+      "deploy": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": null},
+      "confirm": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": "USER_CONFIRMATION_REQUIRED"}
+    }
+  },
+  "selectedTools": [
+    "text-extractor-tool",
+    "web-meta-preview-builder",
+    "loan-savings-calculator",
+    "ip-network-calculator",
+    "coordinate-distance-calculator"
+  ],
+  "changes": [
+    {"tool": "text-extractor-tool", "version": "0.0.1v", "result": "이메일·URL/도메인·전화번호·해시태그/멘션 추출 통합"},
+    {"tool": "web-meta-preview-builder", "version": "0.0.1v", "result": "검색 미리보기·Open Graph·Twitter/X·canonical/robots 통합"},
+    {"tool": "loan-savings-calculator", "version": "0.0.1v", "result": "대출 비교·일시금·월 적립·목표 역산 통합"},
+    {"tool": "ip-network-calculator", "version": "0.0.1v", "result": "IPv4 CIDR·마스크·범위·MAC 통합"},
+    {"tool": "coordinate-distance-calculator", "version": "0.0.1v", "result": "DMS 변환·거리·방위·중간점 통합"}
+  ],
+  "newIdeas": [],
+  "commonModules": [
+    "생성 런타임에 조건부 입력·라디오 그룹·동적 다국어 결과 지원",
+    "embed-only 안전 재생성으로 공통 UI 계약 변경의 수동 파일 수정 제거",
+    "create runner의 도구별 AI 색인 자동 생성",
+    "카탈로그·AI 색인의 한국 날짜 생성"
+  ],
+  "validation": [
+    "281개 JSON·릴리스 경로 통과",
+    "75개 모듈 계약 통과",
+    "375px·1280px 5개 화면 가로 넘침 없음",
+    "정상·경계·오류·KOR/ENG·복사·초기화·높이 감소 확인",
+    "공개 전 Blogger postUrl 5개 빈 값 확인"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [],
+    "skipped": [
+      "text-extractor-tool",
+      "web-meta-preview-builder",
+      "loan-savings-calculator",
+      "ip-network-calculator",
+      "coordinate-distance-calculator"
+    ],
+    "status": "blocked"
+  },
+  "git": {"branch": "main", "commit": null, "pushed": false},
+  "deployment": {"status": "pending", "urls": []},
+  "shutdown": {"requested": false, "scheduled": false, "input": "아니오", "scheduledFor": null, "cancelled": false},
+  "blocked": [
+    {
+      "code": "USER_CONFIRMATION_REQUIRED",
+      "stage": "publish",
+      "retryable": true,
+      "next": "사용자가 Blogger 5개 공개와 GitHub main 푸시를 명시적으로 승인하면 publish 단계부터 재개"
+    }
+  ],
+  "knowledgeOptimization": {
+    "policyVersion": "0.4.0",
+    "applied": ["OPT-007"],
+    "recorded": [],
+    "skipped": ["현재 변경 경로와 겹치는 추가 Skill·Markdown 중복 개선 후보 없음"],
+    "measuredReduction": {
+      "metric": "manual embed shell rewrites after a shared UI-contract change",
+      "before": 5,
+      "after": 0,
+      "reduction": 1.0
+    }
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": "20260719-160000-create",
+    "tokens": {"baseline": null, "current": null, "accountingMethod": null},
+    "instructionReduction": null,
+    "overallReduction": null,
+    "proxies": [
+      {"metric": "candidate public tool entries", "before": 20, "after": 5, "reduction": 0.75},
+      {"metric": "manual embed shell rewrites after a shared UI-contract change", "before": 5, "after": 0, "reduction": 1.0},
+      {"metric": "manual per-tool AI-index build commands after create scaffolding", "before": 1, "after": 0, "reduction": 1.0}
+    ],
+    "note": "비교 가능한 실제 입·출력 토큰 수가 없어 전체 개발 토큰 감소율은 계산하지 않았습니다."
+  },
+  "reportHistory": []
+}

@@ -16,7 +16,7 @@ const run = (script, args = []) => {
 run('scaffold-tool-releases.mjs', [configPath]);
 run('build-tool-posts.mjs', slugs);
 run('build-tool-catalog.mjs');
-run('build-ai-index.mjs');
+run('build-ai-index.mjs', slugs);
 run('validate-tool-releases.mjs');
 run('validate-tool-modules.mjs');
 console.log(`Completed create config for ${slugs.length} tools.`);

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policyVersion": "0.4.0",
-  "updatedAt": "2026-07-23",
+  "updatedAt": "2026-07-24",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -142,6 +142,18 @@
       "evidence": [
         {"before":24,"after":0,"unit":"manual hub shell, module registry, and preserved anchor engine creations per eight-hub consolidation","reduction":1.0,"verifiedAt":"2026-07-23"},
         {"before":32,"after":0,"unit":"manual release manifest metadata synchronizations per thirty-two-tool consolidation","reduction":1.0,"verifiedAt":"2026-07-23"}
+      ]
+    },
+    {
+      "id": "OPT-007",
+      "status": "completed",
+      "triggerPaths": ["scripts/scaffold-tool-releases.mjs", "toolbox/automation/create-*.json", "embed/*/index.html"],
+      "problem": "A create configuration could generate the first embed shell, but applying a shared UI-contract change afterward required rewriting every generated embed by hand.",
+      "proposedChange": "Add a safe embed-only refresh mode that regenerates the five configured shells without overwriting definitions, releases, posts, or catalog metadata.",
+      "measure": "repeated manual edits",
+      "targetReduction": 0.5,
+      "evidence": [
+        {"before":5,"after":0,"unit":"manual embed shell rewrites for one five-tool create run after a shared mode-control change","reduction":1.0,"verifiedAt":"2026-07-24"}
       ]
     }
   ]

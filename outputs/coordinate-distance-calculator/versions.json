@@ -1,0 +1,19 @@
+{
+  "index": 56,
+  "tool": "coordinate-distance-calculator",
+  "title": "좌표·거리 계산기",
+  "description": "위도·경도 표기를 바꾸고 두 좌표의 대권거리, 방위각과 지리적 중간점을 계산합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-24",
+      "changeLevel": "minimum",
+      "summary": "좌표 표기 변환과 두 지점 거리·방향·중간점 계산을 통합한 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/coordinate-distance-calculator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

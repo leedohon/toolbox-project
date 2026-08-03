@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policyVersion": "0.4.0",
-  "updatedAt": "2026-07-23",
+  "updatedAt": "2026-08-03",
   "records": [
     {
       "runId": "20260719-030518-hard",
@@ -89,6 +89,108 @@
         }
       ],
       "note": "Comparable total development token counts were not exposed. Verified product-consolidation and generated-edit proxies are recorded separately, and no overall token reduction is claimed."
+    },
+    {
+      "runId": "20260724-004007-create",
+      "workflow": "create",
+      "measurementStatus": "proxy_only",
+      "baselineRunId": "20260719-160000-create",
+      "tokens": {
+        "baseline": null,
+        "current": null,
+        "accountingMethod": null
+      },
+      "instructionReduction": null,
+      "overallReduction": null,
+      "proxies": [
+        {
+          "metric": "candidate public tool entries",
+          "before": 20,
+          "after": 5,
+          "reduction": 0.75
+        },
+        {
+          "metric": "manual embed shell rewrites after a shared UI-contract change",
+          "before": 5,
+          "after": 0,
+          "reduction": 1.0
+        },
+        {
+          "metric": "manual per-tool AI-index build commands after create scaffolding",
+          "before": 1,
+          "after": 0,
+          "reduction": 1.0
+        }
+      ],
+      "note": "Comparable total input and output token counts were not exposed. Verified consolidation and generated-edit proxies are recorded separately, and no overall development-token reduction is claimed."
+    },
+    {
+      "runId": "20260725-monetization-readiness",
+      "workflow": "monetization-remediation",
+      "measurementStatus": "proxy_only",
+      "baselineRunId": null,
+      "tokens": {
+        "baseline": null,
+        "current": null,
+        "accountingMethod": null
+      },
+      "instructionReduction": null,
+      "overallReduction": null,
+      "proxies": [
+        {
+          "metric": "manual execution-page indexing metadata edits",
+          "before": 57,
+          "after": 0,
+          "reduction": 1.0
+        },
+        {
+          "metric": "manual active-post example and limitation block insertions",
+          "before": 38,
+          "after": 0,
+          "reduction": 1.0
+        },
+        {
+          "metric": "pending tools exposed in the public catalog",
+          "before": 5,
+          "after": 0,
+          "reduction": 1.0
+        },
+        {
+          "metric": "pending execution pages selected for deployment",
+          "before": 5,
+          "after": 0,
+          "reduction": 1.0
+        }
+      ],
+      "note": "Comparable total development token counts were not exposed. Only verified generated-edit and catalog-state proxies are recorded; no overall development-token reduction is claimed."
+    },
+    {
+      "runId": "20260803-public-consolidation-rollout",
+      "workflow": "hard-production-rollout",
+      "measurementStatus": "proxy_only",
+      "baselineRunId": null,
+      "tokens": {
+        "baseline": null,
+        "current": null,
+        "accountingMethod": null
+      },
+      "instructionReduction": null,
+      "overallReduction": null,
+      "proxies": [
+        {
+          "metric": "manual Blogger tool-post edit sessions",
+          "before": 51,
+          "after": 2,
+          "reduction": 0.9608
+        },
+        {
+          "metric": "manual public catalog inclusion decisions",
+          "before": 56,
+          "after": 1,
+          "reduction": 0.9821
+        }
+      ],
+      "note": "The environment did not expose comparable total input and output token counts. Only verified batch-publication and generated-catalog proxies are recorded; no overall development-token reduction is claimed."
     }
   ]
 }

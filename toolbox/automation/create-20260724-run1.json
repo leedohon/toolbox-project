@@ -1,0 +1,1431 @@
+{
+  "schemaVersion": 1,
+  "workflow": "create",
+  "runId": "20260724-run1",
+  "releaseDate": "2026-07-24",
+  "initialVersion": "0.0.1v",
+  "operations": {
+    "blogger": "publish",
+    "git": "commit-and-push-main",
+    "deployment": "verify-github-pages",
+    "shutdown": "none"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": null,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "candidate public tool entries",
+        "before": 20,
+        "after": 5,
+        "reduction": 0.75
+      }
+    ],
+    "note": "Comparable total development token counts are unavailable. The verified candidate-consolidation proxy is recorded separately, and no overall token reduction is claimed."
+  },
+  "tools": [
+    {
+      "index": 52,
+      "slug": "text-extractor-tool",
+      "title": "텍스트 정보 추출기",
+      "englishTitle": "Text Information Extractor",
+      "type": "converter",
+      "status": "published",
+      "version": "0.0.1v",
+      "runtimePreset": "text-extractor-tool",
+      "description": "긴 글에서 이메일, URL·도메인, 전화번호 또는 해시태그·멘션을 골라 중복 없이 정리합니다.",
+      "englishDescription": "Extract and deduplicate emails, URLs and domains, phone numbers, or hashtags and mentions from long text.",
+      "actionTitle": "필요한 정보 추출하기",
+      "actionTitleEn": "Extract information",
+      "features": [
+        "이메일 주소 추출",
+        "URL·도메인 추출",
+        "전화번호 추출",
+        "해시태그·멘션 추출"
+      ],
+      "featuresEn": [
+        "Email address extraction",
+        "URL and domain extraction",
+        "Phone number extraction",
+        "Hashtag and mention extraction"
+      ],
+      "inputs": [
+        {
+          "id": "mode",
+          "label": "추출 유형",
+          "type": "radio"
+        },
+        {
+          "id": "text",
+          "label": "원본 텍스트",
+          "type": "textarea"
+        }
+      ],
+      "ui": {
+        "runLabel": "정보 추출",
+        "runEn": "Extract",
+        "resultTitle": "추출 결과",
+        "resultTitleEn": "Extracted results",
+        "fields": [
+          {
+            "id": "mode",
+            "label": "추출 유형",
+            "enLabel": "Extraction type",
+            "type": "radio",
+            "options": [
+              {
+                "value": "email",
+                "label": "이메일 주소",
+                "en": "Email addresses"
+              },
+              {
+                "value": "url",
+                "label": "URL·도메인",
+                "en": "URLs and domains"
+              },
+              {
+                "value": "phone",
+                "label": "전화번호",
+                "en": "Phone numbers"
+              },
+              {
+                "value": "social",
+                "label": "해시태그·멘션",
+                "en": "Hashtags and mentions"
+              }
+            ]
+          },
+          {
+            "id": "text",
+            "label": "원본 텍스트",
+            "enLabel": "Source text",
+            "type": "textarea",
+            "value": "문의: hello@example.com\n사이트: https://example.com/news\n전화: 010-1234-5678\n태그: #툴박스 @openworld",
+            "placeholder": "정보를 찾을 글을 붙여 넣으세요.",
+            "enPlaceholder": "Paste the text you want to scan.",
+            "maxlength": 100000
+          }
+        ]
+      },
+      "steps": [
+        "찾을 정보 유형을 선택합니다.",
+        "원본 텍스트를 붙여 넣고 정보 추출을 실행합니다.",
+        "중복이 제거된 결과를 확인하고 복사합니다."
+      ],
+      "stepsEn": [
+        "Choose the type of information to find.",
+        "Paste the source text and run extraction.",
+        "Review and copy the deduplicated results."
+      ],
+      "details": [
+        "텍스트 정보 추출기는 긴 안내문, 메일 본문, 메모와 게시글에서 필요한 연락처나 링크만 빠르게 모읍니다. 이메일, URL·도메인, 전화번호, 해시태그·멘션 중 한 유형을 선택하면 원문을 바꾸지 않고 일치 결과를 별도 목록으로 정리합니다.",
+        "결과는 같은 값을 한 번만 남기고 읽기 쉬운 순서로 표시해 복사하거나 저장하기 좋게 만듭니다. 전화번호와 사용자 작성 문자열은 형식이 다양하므로 결과를 사용하기 전에 원문과 한 번 대조해야 하며, 모든 처리는 현재 브라우저 안에서만 수행됩니다."
+      ],
+      "detailsEn": [
+        "Text Information Extractor collects only the contacts or links you need from long notices, messages, notes, and posts. Choose emails, URLs and domains, phone numbers, or hashtags and mentions to create a separate result list without changing the source.",
+        "Duplicate values are removed and the output is ordered for easy copying. Phone and user-written formats vary, so compare results with the source before use; all processing stays in the current browser."
+      ],
+      "faq": [
+        {
+          "question": "어떤 정보를 추출할 수 있나요?",
+          "answer": "이메일 주소, URL·도메인, 전화번호, 해시태그·멘션 중 하나를 선택해 추출할 수 있습니다."
+        },
+        {
+          "question": "같은 값이 여러 번 나오면 어떻게 되나요?",
+          "answer": "대소문자와 형식을 정리한 뒤 같은 결과는 한 번만 표시합니다."
+        },
+        {
+          "question": "모든 나라의 전화번호를 정확히 찾나요?",
+          "answer": "대표적인 숫자·공백·하이픈 형식을 찾지만 국가별 모든 규칙을 보장하지 않으므로 원문과 대조하세요."
+        },
+        {
+          "question": "입력한 글이 서버로 전송되나요?",
+          "answer": "아니요. 추출과 정리는 현재 브라우저 안에서만 처리됩니다."
+        },
+        {
+          "question": "정규식을 알아야 하나요?",
+          "answer": "아니요. 유형만 선택하면 미리 준비된 규칙으로 결과를 찾습니다."
+        }
+      ],
+      "faqEn": [
+        {
+          "question": "What information can I extract?",
+          "answer": "You can choose emails, URLs and domains, phone numbers, or hashtags and mentions."
+        },
+        {
+          "question": "What happens to duplicate values?",
+          "answer": "Equivalent results are normalized and shown once."
+        },
+        {
+          "question": "Does it recognize every international phone format?",
+          "answer": "It finds common digit, space, and hyphen patterns, but you should verify results against the source."
+        },
+        {
+          "question": "Is my text sent to a server?",
+          "answer": "No. Extraction and cleanup run only in the current browser."
+        },
+        {
+          "question": "Do I need to know regular expressions?",
+          "answer": "No. Select a type and the tool applies a prepared extraction rule."
+        }
+      ],
+      "tags": [
+        "텍스트추출",
+        "이메일추출",
+        "URL추출",
+        "전화번호",
+        "해시태그"
+      ],
+      "keywords": [
+        "텍스트 정보 추출기",
+        "이메일 추출",
+        "URL 추출",
+        "도메인 추출",
+        "전화번호 추출",
+        "해시태그 추출",
+        "멘션 추출",
+        "text extractor",
+        "email extractor",
+        "URL extractor",
+        "domain extractor",
+        "phone number extractor",
+        "hashtag extractor",
+        "mention extractor",
+        "연락처 추출",
+        "링크 목록 만들기",
+        "텍스트 패턴 찾기",
+        "중복 제거",
+        "추출 결과 정렬",
+        "추출 목록 복사",
+        "브라우저 텍스트 도구",
+        "개인정보 찾기",
+        "문자열 분석",
+        "온라인 추출기"
+      ],
+      "summary": "네 가지 자주 쓰는 텍스트 정보 추출을 한 화면에 통합한 최초 버전입니다.",
+      "changes": [
+        "이메일·URL·전화번호·소셜 표기 추출 모드",
+        "중복 제거와 정렬된 결과",
+        "KOR / ENG·입력 검증·복사 대체 처리"
+      ],
+      "qa": []
+    },
+    {
+      "index": 53,
+      "slug": "web-meta-preview-builder",
+      "title": "웹 메타·공유 미리보기",
+      "englishTitle": "Web Meta & Share Preview",
+      "type": "template-generator",
+      "status": "published",
+      "version": "0.0.1v",
+      "runtimePreset": "web-meta-preview-builder",
+      "description": "웹페이지 제목과 설명, 주소와 이미지를 입력해 검색·공유 미리보기와 메타 태그를 함께 만듭니다.",
+      "englishDescription": "Create search and social previews plus meta tags from a page title, description, URL, image, and robots setting.",
+      "actionTitle": "메타 미리보기와 태그 만들기",
+      "actionTitleEn": "Build previews and meta tags",
+      "features": [
+        "검색 제목·설명 미리보기",
+        "Open Graph 태그 생성",
+        "Twitter/X 카드 태그 생성",
+        "canonical·robots 메타 생성"
+      ],
+      "featuresEn": [
+        "Search title and description preview",
+        "Open Graph tag generation",
+        "Twitter/X card tag generation",
+        "Canonical and robots meta generation"
+      ],
+      "inputs": [
+        {
+          "id": "title",
+          "label": "페이지 제목",
+          "type": "text"
+        },
+        {
+          "id": "description",
+          "label": "페이지 설명",
+          "type": "textarea"
+        },
+        {
+          "id": "url",
+          "label": "대표 주소",
+          "type": "text"
+        },
+        {
+          "id": "image",
+          "label": "공유 이미지 주소",
+          "type": "text"
+        },
+        {
+          "id": "robots",
+          "label": "검색 로봇 설정",
+          "type": "radio"
+        }
+      ],
+      "ui": {
+        "runLabel": "미리보기 만들기",
+        "runEn": "Build preview",
+        "resultTitle": "미리보기와 메타 태그",
+        "resultTitleEn": "Preview and meta tags",
+        "fields": [
+          {
+            "id": "title",
+            "label": "페이지 제목",
+            "enLabel": "Page title",
+            "type": "text",
+            "value": "한 번에 쓰는 웹 메타·공유 미리보기",
+            "placeholder": "검색과 공유 카드에 표시할 제목",
+            "enPlaceholder": "Title shown in search and share cards",
+            "maxlength": 200
+          },
+          {
+            "id": "description",
+            "label": "페이지 설명",
+            "enLabel": "Page description",
+            "type": "textarea",
+            "value": "검색 결과와 링크 공유 화면을 미리 보고 필요한 메타 태그를 한 번에 만듭니다.",
+            "placeholder": "페이지 핵심 내용을 자연스럽게 설명하세요.",
+            "enPlaceholder": "Describe the page clearly and naturally.",
+            "maxlength": 500
+          },
+          {
+            "id": "url",
+            "label": "대표 주소",
+            "enLabel": "Canonical URL",
+            "type": "text",
+            "value": "https://example.com/article",
+            "placeholder": "https://example.com/article",
+            "enPlaceholder": "https://example.com/article",
+            "maxlength": 2000
+          },
+          {
+            "id": "image",
+            "label": "공유 이미지 주소",
+            "enLabel": "Share image URL",
+            "type": "text",
+            "value": "https://example.com/share-image.jpg",
+            "placeholder": "https://example.com/share-image.jpg",
+            "enPlaceholder": "https://example.com/share-image.jpg",
+            "maxlength": 2000
+          },
+          {
+            "id": "robots",
+            "label": "검색 로봇 설정",
+            "enLabel": "Robots setting",
+            "type": "radio",
+            "options": [
+              {
+                "value": "index,follow",
+                "label": "색인 허용·링크 탐색 허용",
+                "en": "Index and follow"
+              },
+              {
+                "value": "noindex,follow",
+                "label": "색인 제외·링크 탐색 허용",
+                "en": "No index, follow"
+              },
+              {
+                "value": "index,nofollow",
+                "label": "색인 허용·링크 탐색 제외",
+                "en": "Index, no follow"
+              },
+              {
+                "value": "noindex,nofollow",
+                "label": "색인 제외·링크 탐색 제외",
+                "en": "No index, no follow"
+              }
+            ]
+          }
+        ]
+      },
+      "steps": [
+        "페이지 제목과 설명, 대표 주소와 공유 이미지 주소를 입력합니다.",
+        "검색 로봇 설정을 선택하고 미리보기를 만듭니다.",
+        "검색·공유 카드와 생성된 메타 태그를 확인해 복사합니다."
+      ],
+      "stepsEn": [
+        "Enter the page title, description, canonical URL, and share image URL.",
+        "Choose a robots setting and build the preview.",
+        "Review the search and share cards, then copy the generated tags."
+      ],
+      "details": [
+        "웹 메타·공유 미리보기는 한 번의 입력으로 검색 결과에 보일 제목·설명과 링크 공유 카드의 기본 모습을 확인합니다. 같은 값으로 Open Graph와 Twitter/X 카드 태그, canonical과 robots 메타를 만들어 반복 입력을 줄입니다.",
+        "미리보기는 실제 검색 엔진이나 소셜 서비스의 최종 표시를 보장하지 않는 작성 보조 화면입니다. 외부 주소를 직접 가져오지 않으며 입력한 문자열만 현재 브라우저에서 검증하고 HTML 특수문자를 안전하게 처리해 코드로 제공합니다."
+      ],
+      "detailsEn": [
+        "Web Meta & Share Preview uses one set of inputs to show an approximate search snippet and link-share card. It creates Open Graph, Twitter/X card, canonical, and robots tags from the same values.",
+        "The preview is an authoring aid and cannot guarantee how a search engine or social service will render a page. It does not fetch external URLs; entered strings are validated and safely escaped in the current browser."
+      ],
+      "faq": [
+        {
+          "question": "실제 검색 결과와 똑같이 보이나요?",
+          "answer": "아니요. 서비스가 제목과 설명을 다시 선택하거나 화면을 바꿀 수 있으므로 작성 전 길이와 내용을 점검하는 참고용입니다."
+        },
+        {
+          "question": "Open Graph와 Twitter/X 태그를 따로 입력해야 하나요?",
+          "answer": "아니요. 같은 제목·설명·주소·이미지를 사용해 두 묶음을 함께 생성합니다."
+        },
+        {
+          "question": "이미지 주소가 꼭 필요한가요?",
+          "answer": "필수는 아니지만 링크 공유 카드에 이미지를 표시하려면 공개적으로 접근 가능한 절대 주소를 사용하는 것이 좋습니다."
+        },
+        {
+          "question": "웹사이트 주소를 직접 검사하나요?",
+          "answer": "아니요. 외부 페이지를 불러오지 않고 사용자가 입력한 값으로 미리보기와 코드를 만듭니다."
+        },
+        {
+          "question": "noindex를 선택하면 바로 검색에서 사라지나요?",
+          "answer": "아니요. 생성한 태그를 실제 페이지에 적용해야 하며 검색 엔진의 재수집 시점에 따라 반영 시간이 달라집니다."
+        }
+      ],
+      "faqEn": [
+        {
+          "question": "Will it look exactly like a real search result?",
+          "answer": "No. Services can rewrite titles and descriptions or change their layout, so the preview is a writing aid."
+        },
+        {
+          "question": "Do I enter Open Graph and Twitter/X values separately?",
+          "answer": "No. Both tag sets are generated from the same title, description, URL, and image."
+        },
+        {
+          "question": "Is a share image URL required?",
+          "answer": "No, but a publicly reachable absolute image URL is recommended for image cards."
+        },
+        {
+          "question": "Does the tool inspect my live website?",
+          "answer": "No. It does not fetch external pages and builds previews from your inputs."
+        },
+        {
+          "question": "Does choosing noindex immediately remove a page from search?",
+          "answer": "No. You must apply the tag to the page, and search engines update it after recrawling."
+        }
+      ],
+      "tags": [
+        "메타태그",
+        "OpenGraph",
+        "검색미리보기",
+        "공유카드",
+        "SEO도구"
+      ],
+      "keywords": [
+        "웹 메타 태그 생성기",
+        "검색 미리보기",
+        "Open Graph 생성기",
+        "Twitter 카드 생성기",
+        "X 카드 메타 태그",
+        "canonical 태그",
+        "robots 메타 태그",
+        "meta tag generator",
+        "search snippet preview",
+        "Open Graph preview",
+        "Twitter card preview",
+        "social share preview",
+        "OG title",
+        "OG description",
+        "OG image",
+        "canonical URL",
+        "index follow",
+        "noindex nofollow",
+        "블로그 메타 태그",
+        "링크 공유 이미지",
+        "검색 제목 길이",
+        "메타 설명 길이",
+        "HTML 메타 코드",
+        "브라우저 SEO 도구"
+      ],
+      "summary": "검색·공유 미리보기와 필수 메타 태그 생성을 통합한 최초 버전입니다.",
+      "changes": [
+        "검색 결과와 링크 공유 카드 미리보기",
+        "Open Graph·Twitter/X·canonical·robots 코드 생성",
+        "KOR / ENG·입력 검증·안전한 코드 복사"
+      ],
+      "qa": []
+    },
+    {
+      "index": 54,
+      "slug": "loan-savings-calculator",
+      "title": "대출·저축 계산기",
+      "englishTitle": "Loan & Savings Calculator",
+      "type": "calculator",
+      "status": "published",
+      "version": "0.0.1v",
+      "runtimePreset": "loan-savings-calculator",
+      "description": "대출 상환액과 복리 성장, 월 적립식 예상액과 목표 금액에 필요한 납입액을 계산합니다.",
+      "englishDescription": "Estimate loan payments, compound growth, recurring savings, and the monthly deposit needed for a goal.",
+      "actionTitle": "대출과 저축 계획 계산하기",
+      "actionTitleEn": "Calculate a loan or savings plan",
+      "features": [
+        "대출 상환 방식 비교",
+        "일시금 복리 성장",
+        "월 적립식 저축 예상액",
+        "목표 금액 월납입액 역산"
+      ],
+      "featuresEn": [
+        "Loan repayment comparison",
+        "Lump-sum compound growth",
+        "Recurring savings projection",
+        "Required monthly goal deposit"
+      ],
+      "inputs": [
+        {
+          "id": "mode",
+          "label": "계산 유형",
+          "type": "radio"
+        },
+        {
+          "id": "loanAmount",
+          "label": "대출 원금",
+          "type": "number"
+        },
+        {
+          "id": "startAmount",
+          "label": "시작 금액",
+          "type": "number"
+        },
+        {
+          "id": "targetAmount",
+          "label": "목표 금액",
+          "type": "number"
+        },
+        {
+          "id": "monthlyDeposit",
+          "label": "월 납입액",
+          "type": "number"
+        },
+        {
+          "id": "annualRate",
+          "label": "연 이율",
+          "type": "number"
+        },
+        {
+          "id": "months",
+          "label": "기간",
+          "type": "number"
+        }
+      ],
+      "ui": {
+        "runLabel": "금액 계산",
+        "runEn": "Calculate",
+        "resultTitle": "계산 결과",
+        "resultTitleEn": "Calculation results",
+        "fields": [
+          {
+            "id": "mode",
+            "label": "계산 유형",
+            "enLabel": "Calculation type",
+            "type": "radio",
+            "options": [
+              {
+                "value": "loan",
+                "label": "대출 상환 비교",
+                "en": "Loan repayment"
+              },
+              {
+                "value": "lump",
+                "label": "일시금 복리",
+                "en": "Lump-sum growth"
+              },
+              {
+                "value": "monthly",
+                "label": "월 적립식 저축",
+                "en": "Recurring savings"
+              },
+              {
+                "value": "goal",
+                "label": "목표 금액 역산",
+                "en": "Savings goal"
+              }
+            ]
+          },
+          {
+            "id": "loanAmount",
+            "label": "대출 원금",
+            "enLabel": "Loan principal",
+            "type": "number",
+            "value": 300000000,
+            "min": 0.01,
+            "step": 10000,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "loan"
+              ]
+            }
+          },
+          {
+            "id": "startAmount",
+            "label": "시작 금액",
+            "enLabel": "Starting amount",
+            "type": "number",
+            "value": 10000000,
+            "min": 0,
+            "step": 10000,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "lump",
+                "monthly",
+                "goal"
+              ]
+            }
+          },
+          {
+            "id": "targetAmount",
+            "label": "목표 금액",
+            "enLabel": "Target amount",
+            "type": "number",
+            "value": 100000000,
+            "min": 0.01,
+            "step": 10000,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "goal"
+              ]
+            }
+          },
+          {
+            "id": "monthlyDeposit",
+            "label": "월 납입액",
+            "enLabel": "Monthly deposit",
+            "type": "number",
+            "value": 500000,
+            "min": 0,
+            "step": 1000,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "monthly"
+              ]
+            }
+          },
+          {
+            "id": "annualRate",
+            "label": "연 이율(%)",
+            "enLabel": "Annual rate (%)",
+            "type": "number",
+            "value": 4.5,
+            "min": 0,
+            "max": 100,
+            "step": 0.01,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "loan",
+                "lump",
+                "monthly",
+                "goal"
+              ]
+            }
+          },
+          {
+            "id": "months",
+            "label": "기간(개월)",
+            "enLabel": "Term (months)",
+            "type": "number",
+            "value": 360,
+            "min": 1,
+            "max": 1200,
+            "step": 1,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "loan",
+                "lump",
+                "monthly",
+                "goal"
+              ]
+            }
+          }
+        ]
+      },
+      "steps": [
+        "대출, 일시금, 월 적립식 또는 목표 금액 계산을 선택합니다.",
+        "선택한 모드에 표시되는 금액과 이율, 기간을 입력합니다.",
+        "월별 금액과 원금·이자·최종 금액을 확인합니다."
+      ],
+      "stepsEn": [
+        "Choose a loan, lump-sum, recurring savings, or savings-goal calculation.",
+        "Enter the amounts, annual rate, and term shown for that mode.",
+        "Review monthly values, principal, interest, and the final amount."
+      ],
+      "details": [
+        "대출·저축 계산기는 기간과 이율이 포함된 금액 계획을 한 화면에서 비교합니다. 대출 모드는 원리금균등과 원금균등 방식의 첫 달 납입액·총이자·총상환액을 보여 주고, 저축 모드는 일시금 또는 월 납입금이 복리로 성장하는 예상 금액을 계산합니다.",
+        "목표 금액 모드는 현재 금액과 기간·예상 이율을 기준으로 매달 필요한 납입액을 역산합니다. 세금, 수수료, 중도상환 조건과 실제 금융상품 규칙은 포함하지 않는 참고용 수학 계산이며 입력값은 현재 브라우저 밖으로 전송되지 않습니다."
+      ],
+      "detailsEn": [
+        "Loan & Savings Calculator compares money plans that include a term and rate. Loan mode shows first payments, total interest, and total repayment for equal-payment and equal-principal methods, while savings modes project compound growth.",
+        "Goal mode estimates the monthly deposit needed from a starting balance, term, and expected rate. Results are mathematical estimates that exclude taxes, fees, early repayment terms, and product-specific rules; inputs stay in the browser."
+      ],
+      "faq": [
+        {
+          "question": "원리금균등과 원금균등은 어떻게 다른가요?",
+          "answer": "원리금균등은 매달 납입액이 일정하고, 원금균등은 같은 원금을 갚아 초기 납입액이 크지만 점차 줄어듭니다."
+        },
+        {
+          "question": "월 적립금은 언제 납입한다고 계산하나요?",
+          "answer": "각 월 말에 납입하고 월 단위로 복리가 적용되는 것으로 계산합니다."
+        },
+        {
+          "question": "이율이 0%여도 계산되나요?",
+          "answer": "네. 이자가 없는 경우에는 원금과 납입액만으로 결과를 계산합니다."
+        },
+        {
+          "question": "실제 은행 금액과 같은가요?",
+          "answer": "아니요. 세금·수수료·일수 계산과 상품별 조건이 달라질 수 있으므로 참고용으로 사용하세요."
+        },
+        {
+          "question": "입력한 금융 정보가 저장되나요?",
+          "answer": "아니요. 모든 계산은 현재 브라우저 안에서만 수행됩니다."
+        }
+      ],
+      "faqEn": [
+        {
+          "question": "How do equal-payment and equal-principal loans differ?",
+          "answer": "Equal-payment loans keep the scheduled payment level, while equal-principal loans start higher and decline as the balance falls."
+        },
+        {
+          "question": "When are recurring deposits assumed to be made?",
+          "answer": "The estimate assumes deposits at the end of each month with monthly compounding."
+        },
+        {
+          "question": "Can I calculate with a 0% rate?",
+          "answer": "Yes. The result then uses only the principal and deposits."
+        },
+        {
+          "question": "Will this match a bank quote exactly?",
+          "answer": "No. Taxes, fees, day-count rules, and product terms can differ, so use it as an estimate."
+        },
+        {
+          "question": "Are my financial inputs stored?",
+          "answer": "No. All calculations run only in the current browser."
+        }
+      ],
+      "tags": [
+        "대출계산",
+        "저축계산",
+        "복리",
+        "월납입액",
+        "금융계산기"
+      ],
+      "keywords": [
+        "대출 저축 계산기",
+        "대출 상환 계산기",
+        "원리금균등 계산",
+        "원금균등 계산",
+        "대출 이자 계산",
+        "복리 계산기",
+        "적립식 저축 계산",
+        "목표 금액 계산",
+        "월 납입액 계산",
+        "loan calculator",
+        "savings calculator",
+        "compound interest calculator",
+        "monthly deposit calculator",
+        "savings goal calculator",
+        "equal payment loan",
+        "equal principal loan",
+        "총이자 계산",
+        "총상환액 계산",
+        "일시금 복리",
+        "월복리 계산",
+        "저축 예상액",
+        "재무 계획 계산",
+        "브라우저 금융 계산기",
+        "금리 기간 계산"
+      ],
+      "summary": "대출 상환과 세 가지 저축 계획 계산을 통합한 최초 버전입니다.",
+      "changes": [
+        "대출 두 상환 방식 비교",
+        "일시금·월 적립식·목표 금액 계산",
+        "KOR / ENG·조건부 입력·참고용 안내"
+      ],
+      "qa": []
+    },
+    {
+      "index": 55,
+      "slug": "ip-network-calculator",
+      "title": "IP·네트워크 주소 도구",
+      "englishTitle": "IP & Network Address Toolkit",
+      "type": "calculator",
+      "status": "published",
+      "version": "0.0.1v",
+      "runtimePreset": "ip-network-calculator",
+      "description": "IPv4 CIDR과 마스크, 주소 범위와 MAC 주소를 계산·검사하고 표준 형식으로 정리합니다.",
+      "englishDescription": "Calculate and validate IPv4 CIDR networks, masks, address ranges, and normalized MAC addresses.",
+      "actionTitle": "네트워크 주소 계산하고 정리하기",
+      "actionTitleEn": "Calculate and normalize network addresses",
+      "features": [
+        "IPv4 CIDR 서브넷 계산",
+        "프리픽스·마스크·와일드카드 변환",
+        "IP 범위 최소 CIDR 변환",
+        "MAC 주소 검사·표준화"
+      ],
+      "featuresEn": [
+        "IPv4 CIDR subnet calculation",
+        "Prefix, mask, and wildcard conversion",
+        "IP range to minimal CIDR conversion",
+        "MAC address validation and normalization"
+      ],
+      "inputs": [
+        {
+          "id": "mode",
+          "label": "작업 유형",
+          "type": "radio"
+        },
+        {
+          "id": "ipCidr",
+          "label": "IPv4/CIDR",
+          "type": "text"
+        },
+        {
+          "id": "prefix",
+          "label": "CIDR 프리픽스",
+          "type": "number"
+        },
+        {
+          "id": "startIp",
+          "label": "시작 IPv4",
+          "type": "text"
+        },
+        {
+          "id": "endIp",
+          "label": "끝 IPv4",
+          "type": "text"
+        },
+        {
+          "id": "mac",
+          "label": "MAC 주소",
+          "type": "text"
+        }
+      ],
+      "ui": {
+        "runLabel": "주소 계산",
+        "runEn": "Calculate",
+        "resultTitle": "네트워크 주소 결과",
+        "resultTitleEn": "Network address results",
+        "fields": [
+          {
+            "id": "mode",
+            "label": "작업 유형",
+            "enLabel": "Operation",
+            "type": "radio",
+            "options": [
+              {
+                "value": "cidr",
+                "label": "IPv4 CIDR 서브넷",
+                "en": "IPv4 CIDR subnet"
+              },
+              {
+                "value": "mask",
+                "label": "프리픽스·마스크 변환",
+                "en": "Prefix and mask"
+              },
+              {
+                "value": "range",
+                "label": "IP 범위를 CIDR로",
+                "en": "IP range to CIDR"
+              },
+              {
+                "value": "mac",
+                "label": "MAC 주소 정리",
+                "en": "Normalize MAC address"
+              }
+            ]
+          },
+          {
+            "id": "ipCidr",
+            "label": "IPv4/CIDR",
+            "enLabel": "IPv4/CIDR",
+            "type": "text",
+            "value": "192.168.10.25/24",
+            "placeholder": "예: 192.168.10.25/24",
+            "enPlaceholder": "Example: 192.168.10.25/24",
+            "maxlength": 32,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "cidr"
+              ]
+            }
+          },
+          {
+            "id": "prefix",
+            "label": "CIDR 프리픽스",
+            "enLabel": "CIDR prefix",
+            "type": "number",
+            "value": 24,
+            "min": 0,
+            "max": 32,
+            "step": 1,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "mask"
+              ]
+            }
+          },
+          {
+            "id": "startIp",
+            "label": "시작 IPv4",
+            "enLabel": "Start IPv4",
+            "type": "text",
+            "value": "192.168.10.0",
+            "placeholder": "예: 192.168.10.0",
+            "enPlaceholder": "Example: 192.168.10.0",
+            "maxlength": 15,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "range"
+              ]
+            }
+          },
+          {
+            "id": "endIp",
+            "label": "끝 IPv4",
+            "enLabel": "End IPv4",
+            "type": "text",
+            "value": "192.168.10.255",
+            "placeholder": "예: 192.168.10.255",
+            "enPlaceholder": "Example: 192.168.10.255",
+            "maxlength": 15,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "range"
+              ]
+            }
+          },
+          {
+            "id": "mac",
+            "label": "MAC 주소",
+            "enLabel": "MAC address",
+            "type": "text",
+            "value": "00-1A-2B-3C-4D-5E",
+            "placeholder": "예: 00-1A-2B-3C-4D-5E",
+            "enPlaceholder": "Example: 00-1A-2B-3C-4D-5E",
+            "maxlength": 32,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "mac"
+              ]
+            }
+          }
+        ]
+      },
+      "steps": [
+        "CIDR, 마스크, IP 범위 또는 MAC 주소 작업을 선택합니다.",
+        "선택한 모드에 표시되는 주소나 프리픽스를 입력합니다.",
+        "계산된 네트워크 범위와 표준 주소 형식을 확인합니다."
+      ],
+      "stepsEn": [
+        "Choose a CIDR, mask, IP-range, or MAC-address operation.",
+        "Enter the address or prefix shown for that mode.",
+        "Review the calculated network range and normalized address formats."
+      ],
+      "details": [
+        "IP·네트워크 주소 도구는 IPv4 주소와 CIDR 프리픽스를 이용해 네트워크 주소, 브로드캐스트 주소, 전체·사용 가능 주소 범위를 계산합니다. 프리픽스만 입력하면 서브넷 마스크와 와일드카드 마스크를 함께 확인할 수 있습니다.",
+        "연속된 시작·끝 IPv4 범위는 범위를 정확히 덮는 최소 CIDR 목록으로 나누며, MAC 주소는 콜론·하이픈·점 표기를 읽어 표준 형식으로 정리합니다. 실제 장비나 외부 네트워크에 접속하지 않고 입력 문자열만 현재 브라우저에서 처리합니다."
+      ],
+      "detailsEn": [
+        "IP & Network Address Toolkit calculates the network, broadcast, total, and usable address ranges from an IPv4 address and CIDR prefix. A prefix can also be converted to subnet and wildcard masks.",
+        "A continuous IPv4 start-to-end range is summarized as the smallest exact CIDR list, while MAC input is validated and normalized from common separators. The tool processes strings locally and never connects to network devices."
+      ],
+      "faq": [
+        {
+          "question": "IPv6도 지원하나요?",
+          "answer": "최초 버전은 IPv4 CIDR과 48비트 MAC 주소에 집중합니다."
+        },
+        {
+          "question": "/31과 /32의 사용 가능 주소는 어떻게 표시하나요?",
+          "answer": "주소 개수와 범위를 그대로 표시하고, 일반적인 네트워크·브로드캐스트 제외 규칙과 다른 특수 범위임을 함께 안내합니다."
+        },
+        {
+          "question": "IP 범위를 CIDR로 바꾸면 범위 밖 주소가 포함되나요?",
+          "answer": "아니요. 시작과 끝 주소 사이만 정확히 덮는 최소 CIDR 목록을 만듭니다."
+        },
+        {
+          "question": "MAC 주소로 제조사를 찾을 수 있나요?",
+          "answer": "아니요. 주소 형식 검사와 표준화만 제공하며 제조사 데이터베이스를 조회하지 않습니다."
+        },
+        {
+          "question": "실제 네트워크를 검사하나요?",
+          "answer": "아니요. 입력한 주소만 브라우저에서 계산하며 접속이나 스캔을 수행하지 않습니다."
+        }
+      ],
+      "faqEn": [
+        {
+          "question": "Does it support IPv6?",
+          "answer": "The initial version focuses on IPv4 CIDR and 48-bit MAC addresses."
+        },
+        {
+          "question": "How are usable addresses shown for /31 and /32?",
+          "answer": "The exact count and range are shown with a note that these special prefixes differ from the usual network-and-broadcast exclusion rule."
+        },
+        {
+          "question": "Will range conversion include addresses outside my range?",
+          "answer": "No. It creates the smallest CIDR list that covers exactly the entered start-to-end range."
+        },
+        {
+          "question": "Can it identify a MAC manufacturer?",
+          "answer": "No. It validates and normalizes the address without querying a vendor database."
+        },
+        {
+          "question": "Does it inspect my live network?",
+          "answer": "No. It only calculates entered addresses in the browser and performs no connections or scans."
+        }
+      ],
+      "tags": [
+        "IPv4",
+        "CIDR",
+        "서브넷",
+        "MAC주소",
+        "네트워크도구"
+      ],
+      "keywords": [
+        "IP 네트워크 계산기",
+        "IPv4 CIDR 계산기",
+        "서브넷 계산기",
+        "네트워크 주소 계산",
+        "브로드캐스트 주소",
+        "서브넷 마스크 변환",
+        "와일드카드 마스크",
+        "CIDR 프리픽스",
+        "IP 범위 CIDR 변환",
+        "MAC 주소 검사",
+        "MAC 주소 변환",
+        "IP calculator",
+        "IPv4 subnet calculator",
+        "CIDR calculator",
+        "subnet mask converter",
+        "wildcard mask calculator",
+        "IP range to CIDR",
+        "MAC address validator",
+        "MAC address formatter",
+        "사용 가능 호스트 수",
+        "네트워크 범위",
+        "CIDR 목록",
+        "브라우저 네트워크 도구",
+        "IPv4 주소 검사"
+      ],
+      "summary": "IPv4 CIDR·범위와 MAC 주소 계산·정리를 통합한 최초 버전입니다.",
+      "changes": [
+        "CIDR 서브넷과 마스크 계산",
+        "정확한 IP 범위 CIDR 분할과 MAC 표준화",
+        "KOR / ENG·조건부 입력·오류 안내"
+      ],
+      "qa": []
+    },
+    {
+      "index": 56,
+      "slug": "coordinate-distance-calculator",
+      "title": "좌표·거리 계산기",
+      "englishTitle": "Coordinate & Distance Calculator",
+      "type": "calculator",
+      "status": "published",
+      "version": "0.0.1v",
+      "runtimePreset": "coordinate-distance-calculator",
+      "description": "위도·경도 표기를 바꾸고 두 좌표의 대권거리, 방위각과 지리적 중간점을 계산합니다.",
+      "englishDescription": "Convert latitude and longitude formats and calculate great-circle distance, initial bearing, and geographic midpoint.",
+      "actionTitle": "좌표 변환하고 거리 계산하기",
+      "actionTitleEn": "Convert coordinates and calculate distance",
+      "features": [
+        "십진 좌표↔도·분·초 변환",
+        "두 좌표 간 대권거리",
+        "초기 방위각·나침반 방향",
+        "두 좌표의 지리적 중간점"
+      ],
+      "featuresEn": [
+        "Decimal and DMS coordinate conversion",
+        "Great-circle distance between two points",
+        "Initial bearing and compass direction",
+        "Geographic midpoint between two points"
+      ],
+      "inputs": [
+        {
+          "id": "mode",
+          "label": "작업 유형",
+          "type": "radio"
+        },
+        {
+          "id": "lat1",
+          "label": "출발 위도",
+          "type": "number"
+        },
+        {
+          "id": "lon1",
+          "label": "출발 경도",
+          "type": "number"
+        },
+        {
+          "id": "lat2",
+          "label": "도착 위도",
+          "type": "number"
+        },
+        {
+          "id": "lon2",
+          "label": "도착 경도",
+          "type": "number"
+        },
+        {
+          "id": "decimal",
+          "label": "십진 좌표",
+          "type": "number"
+        },
+        {
+          "id": "axis",
+          "label": "좌표 축",
+          "type": "radio"
+        },
+        {
+          "id": "degrees",
+          "label": "도",
+          "type": "number"
+        },
+        {
+          "id": "minutes",
+          "label": "분",
+          "type": "number"
+        },
+        {
+          "id": "seconds",
+          "label": "초",
+          "type": "number"
+        },
+        {
+          "id": "direction",
+          "label": "방향",
+          "type": "radio"
+        }
+      ],
+      "ui": {
+        "runLabel": "좌표 계산",
+        "runEn": "Calculate",
+        "resultTitle": "좌표·거리 결과",
+        "resultTitleEn": "Coordinate and distance results",
+        "fields": [
+          {
+            "id": "mode",
+            "label": "작업 유형",
+            "enLabel": "Operation",
+            "type": "radio",
+            "options": [
+              {
+                "value": "route",
+                "label": "두 좌표 거리·방향",
+                "en": "Distance and direction"
+              },
+              {
+                "value": "toDms",
+                "label": "십진 좌표를 도·분·초로",
+                "en": "Decimal to DMS"
+              },
+              {
+                "value": "fromDms",
+                "label": "도·분·초를 십진 좌표로",
+                "en": "DMS to decimal"
+              }
+            ]
+          },
+          {
+            "id": "lat1",
+            "label": "출발 위도",
+            "enLabel": "Start latitude",
+            "type": "number",
+            "value": 37.5665,
+            "min": -90,
+            "max": 90,
+            "step": 0.000001,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "route"
+              ]
+            }
+          },
+          {
+            "id": "lon1",
+            "label": "출발 경도",
+            "enLabel": "Start longitude",
+            "type": "number",
+            "value": 126.978,
+            "min": -180,
+            "max": 180,
+            "step": 0.000001,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "route"
+              ]
+            }
+          },
+          {
+            "id": "lat2",
+            "label": "도착 위도",
+            "enLabel": "End latitude",
+            "type": "number",
+            "value": 35.1796,
+            "min": -90,
+            "max": 90,
+            "step": 0.000001,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "route"
+              ]
+            }
+          },
+          {
+            "id": "lon2",
+            "label": "도착 경도",
+            "enLabel": "End longitude",
+            "type": "number",
+            "value": 129.0756,
+            "min": -180,
+            "max": 180,
+            "step": 0.000001,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "route"
+              ]
+            }
+          },
+          {
+            "id": "decimal",
+            "label": "십진 좌표",
+            "enLabel": "Decimal coordinate",
+            "type": "number",
+            "value": 37.5665,
+            "min": -180,
+            "max": 180,
+            "step": 0.000001,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "toDms"
+              ]
+            }
+          },
+          {
+            "id": "axis",
+            "label": "좌표 축",
+            "enLabel": "Coordinate axis",
+            "type": "radio",
+            "options": [
+              {
+                "value": "lat",
+                "label": "위도",
+                "en": "Latitude"
+              },
+              {
+                "value": "lon",
+                "label": "경도",
+                "en": "Longitude"
+              }
+            ],
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "toDms"
+              ]
+            }
+          },
+          {
+            "id": "degrees",
+            "label": "도",
+            "enLabel": "Degrees",
+            "type": "number",
+            "value": 37,
+            "min": 0,
+            "max": 180,
+            "step": 1,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "fromDms"
+              ]
+            }
+          },
+          {
+            "id": "minutes",
+            "label": "분",
+            "enLabel": "Minutes",
+            "type": "number",
+            "value": 33,
+            "min": 0,
+            "max": 59,
+            "step": 1,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "fromDms"
+              ]
+            }
+          },
+          {
+            "id": "seconds",
+            "label": "초",
+            "enLabel": "Seconds",
+            "type": "number",
+            "value": 59.4,
+            "min": 0,
+            "max": 59.999999,
+            "step": 0.000001,
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "fromDms"
+              ]
+            }
+          },
+          {
+            "id": "direction",
+            "label": "방향",
+            "enLabel": "Direction",
+            "type": "radio",
+            "options": [
+              {
+                "value": "N",
+                "label": "북위(N)",
+                "en": "North (N)"
+              },
+              {
+                "value": "S",
+                "label": "남위(S)",
+                "en": "South (S)"
+              },
+              {
+                "value": "E",
+                "label": "동경(E)",
+                "en": "East (E)"
+              },
+              {
+                "value": "W",
+                "label": "서경(W)",
+                "en": "West (W)"
+              }
+            ],
+            "showWhen": {
+              "field": "mode",
+              "values": [
+                "fromDms"
+              ]
+            }
+          }
+        ]
+      },
+      "steps": [
+        "두 좌표 계산 또는 좌표 표기 변환을 선택합니다.",
+        "선택한 모드에 표시되는 위도·경도 값을 입력합니다.",
+        "거리·방향·중간점 또는 변환된 좌표를 확인합니다."
+      ],
+      "stepsEn": [
+        "Choose a two-point calculation or coordinate-format conversion.",
+        "Enter the latitude and longitude values shown for the selected mode.",
+        "Review the distance, bearing, midpoint, or converted coordinate."
+      ],
+      "details": [
+        "좌표·거리 계산기는 십진수 위도·경도를 도·분·초 표기로 바꾸거나 반대로 변환합니다. 두 지점을 입력하면 지구 구면을 기준으로 대권거리와 출발점의 초기 방위각, 16방위 나침반 방향과 지리적 중간점을 함께 계산합니다.",
+        "거리 결과는 직선에 가까운 지표면 최단 경로의 근사값이며 도로·철도·항공 실제 이동 거리나 정밀 측량값이 아닙니다. 좌표 범위와 분·초 값을 검증하고 모든 계산은 현재 브라우저 안에서만 수행합니다."
+      ],
+      "detailsEn": [
+        "Coordinate & Distance Calculator converts decimal latitude and longitude to degrees, minutes, and seconds and back. For two points it calculates approximate great-circle distance, initial bearing, a 16-point compass direction, and the geographic midpoint.",
+        "The distance is an Earth-sphere approximation of the shortest surface path, not a road, rail, flight-route, or survey measurement. Coordinate ranges and DMS parts are validated, and all calculations run in the browser."
+      ],
+      "faq": [
+        {
+          "question": "거리 결과는 도로 이동 거리인가요?",
+          "answer": "아니요. 두 좌표 사이의 대권거리를 계산하므로 실제 도로 경로와 다릅니다."
+        },
+        {
+          "question": "음수 좌표는 어떤 방향인가요?",
+          "answer": "위도 음수는 남위, 경도 음수는 서경으로 변환합니다."
+        },
+        {
+          "question": "방위각은 어느 지점을 기준으로 하나요?",
+          "answer": "출발 좌표에서 도착 좌표를 향한 초기 방위각을 북쪽 0도 기준으로 표시합니다."
+        },
+        {
+          "question": "도·분·초에서 분과 초의 범위는 무엇인가요?",
+          "answer": "분과 초는 각각 0 이상 60 미만이어야 합니다."
+        },
+        {
+          "question": "좌표가 외부 지도 서비스로 전송되나요?",
+          "answer": "아니요. 모든 변환과 계산은 현재 브라우저 안에서만 수행됩니다."
+        }
+      ],
+      "faqEn": [
+        {
+          "question": "Is the distance a road-route distance?",
+          "answer": "No. It is a great-circle distance between coordinates and differs from real routes."
+        },
+        {
+          "question": "What directions do negative coordinates represent?",
+          "answer": "Negative latitude is south and negative longitude is west."
+        },
+        {
+          "question": "Which point is the bearing measured from?",
+          "answer": "It is the initial bearing from the start coordinate toward the end, measured clockwise from north."
+        },
+        {
+          "question": "What are the valid ranges for DMS minutes and seconds?",
+          "answer": "Minutes and seconds must each be at least 0 and less than 60."
+        },
+        {
+          "question": "Are coordinates sent to a map service?",
+          "answer": "No. All conversion and calculation runs only in the current browser."
+        }
+      ],
+      "tags": [
+        "좌표변환",
+        "거리계산",
+        "위도경도",
+        "방위각",
+        "DMS"
+      ],
+      "keywords": [
+        "좌표 거리 계산기",
+        "위도 경도 거리",
+        "좌표 변환기",
+        "십진 좌표 변환",
+        "도분초 변환",
+        "DMS 변환",
+        "대권거리 계산",
+        "두 지점 거리",
+        "방위각 계산",
+        "나침반 방향",
+        "지리적 중간점",
+        "coordinate calculator",
+        "latitude longitude distance",
+        "decimal to DMS",
+        "DMS to decimal",
+        "great circle distance",
+        "haversine calculator",
+        "bearing calculator",
+        "geographic midpoint",
+        "GPS 좌표 변환",
+        "위도 경도 변환",
+        "좌표 사이 거리",
+        "브라우저 지도 계산",
+        "좌표 방향 계산"
+      ],
+      "summary": "좌표 표기 변환과 두 지점 거리·방향·중간점 계산을 통합한 최초 버전입니다.",
+      "changes": [
+        "십진 좌표와 도·분·초 양방향 변환",
+        "대권거리·초기 방위각·중간점 계산",
+        "KOR / ENG·조건부 입력·범위 검증"
+      ],
+      "qa": []
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "web-meta-preview-builder",
+      "label": {
+        "ko": "웹 메타·공유 미리보기",
+        "en": "Web Meta & Share Preview"
+      },
+      "entry": "./tool.js",
+      "messageTool": "web-meta-preview-builder",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

@@ -5,7 +5,12 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputs = path.join(root, 'outputs');
 const requestedTools = process.argv.slice(2);
-const date = new Date().toISOString().slice(0, 10);
+const date = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Asia/Seoul',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+}).format(new Date());
 const relative = (value) => path.relative(root, value).replaceAll('\\', '/');
 const exists = async (value) => fs.access(value).then(() => true).catch(() => false);
 const writeJson = async (file, value) => fs.writeFile(file, `${JSON.stringify(value, null, 2)}\n`);

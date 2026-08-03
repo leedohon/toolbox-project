@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "coordinate-distance-calculator",
+      "label": {
+        "ko": "좌표·거리 계산기",
+        "en": "Coordinate & Distance Calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "coordinate-distance-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

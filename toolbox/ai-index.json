@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-23",
+  "updatedAt": "2026-08-03",
   "project": "toolbox",
   "keySources": {
     "content": "toolbox/post-content.json",
@@ -24,7 +24,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.5.5v",
+      "latestVersion": "0.5.6v",
       "paths": {
         "definition": "toolbox/tools/qr-barcode-generator.md",
         "post": "toolbox/posts/qr-barcode-generator.html",
@@ -40,7 +40,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.7.1v",
+      "latestVersion": "0.7.2v",
       "paths": {
         "definition": "toolbox/tools/json-tools.md",
         "post": "toolbox/posts/json-tools.html",
@@ -56,7 +56,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.2v",
+      "latestVersion": "1.0.3v",
       "paths": {
         "definition": "toolbox/tools/base64-tools.md",
         "post": "toolbox/posts/base64-tools.html",
@@ -136,7 +136,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.2.4v",
+      "latestVersion": "0.2.5v",
       "paths": {
         "definition": "toolbox/tools/image-mosaic-tool.md",
         "post": "toolbox/posts/image-mosaic-tool.html",
@@ -168,7 +168,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "2.0.2v",
+      "latestVersion": "2.0.3v",
       "paths": {
         "definition": "toolbox/tools/date-calculator.md",
         "post": "toolbox/posts/date-calculator.html",
@@ -184,7 +184,7 @@
       "category": "다용도 펀박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.1.0v",
+      "latestVersion": "0.1.1v",
       "paths": {
         "definition": "toolbox/tools/multipurpose-draw-game.md",
         "post": "toolbox/posts/multipurpose-draw-game.html",
@@ -200,7 +200,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.2v",
+      "latestVersion": "1.0.3v",
       "paths": {
         "definition": "toolbox/tools/password-generator.md",
         "post": "toolbox/posts/password-generator.html",
@@ -216,7 +216,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.2v",
+      "latestVersion": "1.0.3v",
       "paths": {
         "definition": "toolbox/tools/image-resizer-compressor.md",
         "post": "toolbox/posts/image-resizer-compressor.html",
@@ -232,7 +232,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.2v",
+      "latestVersion": "1.0.3v",
       "paths": {
         "definition": "toolbox/tools/color-converter-contrast.md",
         "post": "toolbox/posts/color-converter-contrast.html",
@@ -264,7 +264,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.2v",
+      "latestVersion": "1.0.3v",
       "paths": {
         "definition": "toolbox/tools/text-counter-cleaner.md",
         "post": "toolbox/posts/text-counter-cleaner.html",
@@ -280,7 +280,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.3v",
+      "latestVersion": "0.0.4v",
       "paths": {
         "definition": "toolbox/tools/text-diff-checker.md",
         "post": "toolbox/posts/text-diff-checker.html",
@@ -296,7 +296,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.2v",
+      "latestVersion": "1.0.3v",
       "paths": {
         "definition": "toolbox/tools/markdown-preview-converter.md",
         "post": "toolbox/posts/markdown-preview-converter.html",
@@ -312,7 +312,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/csv-table-converter.md",
         "post": "toolbox/posts/csv-table-converter.html",
@@ -360,7 +360,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/regex-tester.md",
         "post": "toolbox/posts/regex-tester.html",
@@ -392,7 +392,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/hash-generator.md",
         "post": "toolbox/posts/hash-generator.html",
@@ -488,7 +488,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/jwt-decoder.md",
         "post": "toolbox/posts/jwt-decoder.html",
@@ -552,7 +552,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.1v",
+      "latestVersion": "0.0.2v",
       "paths": {
         "definition": "toolbox/tools/xml-formatter-validator.md",
         "post": "toolbox/posts/xml-formatter-validator.html",
@@ -568,7 +568,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/url-parser-builder.md",
         "post": "toolbox/posts/url-parser-builder.html",
@@ -792,7 +792,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.0.2v",
+      "latestVersion": "1.0.3v",
       "paths": {
         "definition": "toolbox/tools/http-status-lookup.md",
         "post": "toolbox/posts/http-status-lookup.html",
@@ -831,6 +831,86 @@
         "manifest": "outputs/isbn-validator/versions.json",
         "embed": "embed/isbn-validator/index.html",
         "moduleRegistry": "embed/isbn-validator/modules.json"
+      }
+    },
+    {
+      "index": 52,
+      "tool": "text-extractor-tool",
+      "title": "텍스트 정보 추출기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/text-extractor-tool.md",
+        "post": "toolbox/posts/text-extractor-tool.html",
+        "manifest": "outputs/text-extractor-tool/versions.json",
+        "embed": "embed/text-extractor-tool/index.html",
+        "moduleRegistry": "embed/text-extractor-tool/modules.json"
+      }
+    },
+    {
+      "index": 53,
+      "tool": "web-meta-preview-builder",
+      "title": "웹 메타·공유 미리보기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/web-meta-preview-builder.md",
+        "post": "toolbox/posts/web-meta-preview-builder.html",
+        "manifest": "outputs/web-meta-preview-builder/versions.json",
+        "embed": "embed/web-meta-preview-builder/index.html",
+        "moduleRegistry": "embed/web-meta-preview-builder/modules.json"
+      }
+    },
+    {
+      "index": 54,
+      "tool": "loan-savings-calculator",
+      "title": "대출·저축 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/loan-savings-calculator.md",
+        "post": "toolbox/posts/loan-savings-calculator.html",
+        "manifest": "outputs/loan-savings-calculator/versions.json",
+        "embed": "embed/loan-savings-calculator/index.html",
+        "moduleRegistry": "embed/loan-savings-calculator/modules.json"
+      }
+    },
+    {
+      "index": 55,
+      "tool": "ip-network-calculator",
+      "title": "IP·네트워크 주소 도구",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/ip-network-calculator.md",
+        "post": "toolbox/posts/ip-network-calculator.html",
+        "manifest": "outputs/ip-network-calculator/versions.json",
+        "embed": "embed/ip-network-calculator/index.html",
+        "moduleRegistry": "embed/ip-network-calculator/modules.json"
+      }
+    },
+    {
+      "index": 56,
+      "tool": "coordinate-distance-calculator",
+      "title": "좌표·거리 계산기",
+      "category": "초간단 툴박스",
+      "status": "published",
+      "replacementTool": null,
+      "latestVersion": "0.0.1v",
+      "paths": {
+        "definition": "toolbox/tools/coordinate-distance-calculator.md",
+        "post": "toolbox/posts/coordinate-distance-calculator.html",
+        "manifest": "outputs/coordinate-distance-calculator/versions.json",
+        "embed": "embed/coordinate-distance-calculator/index.html",
+        "moduleRegistry": "embed/coordinate-distance-calculator/modules.json"
       }
     }
   ]

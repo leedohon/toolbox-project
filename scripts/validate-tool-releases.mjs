@@ -45,6 +45,33 @@ for (const tool of toolDirectories) {
   const faqMatch = latestHtml.match(/<!-- tb-faq:start -->([\s\S]*?)<!-- tb-faq:end -->/);
   const faqCount = faqMatch ? (faqMatch[1].match(/<details>/g) || []).length : 0;
   if (faqCount < 4) throw new Error(`${tool}: at least four user FAQs are required`);
+  if (manifest.status !== "retired" && manifest.postUrl) {
+    const workedExamplesMatch = latestHtml.match(
+      /<!-- tb-worked-examples:start -->([\s\S]*?)<!-- tb-worked-examples:end -->/,
+    );
+    if (!workedExamplesMatch) {
+      throw new Error(`${tool}: latest public post is missing the worked examples block`);
+    }
+    const workedExampleCount = (
+      workedExamplesMatch[1].match(/class="[^"]*\btb-example-card\b[^"]*"/g) || []
+    ).length;
+    if (workedExampleCount < 2) {
+      throw new Error(`${tool}: latest public post requires at least two worked examples`);
+    }
+
+    const resultGuideMatch = latestHtml.match(
+      /<!-- tb-result-guide:start -->([\s\S]*?)<!-- tb-result-guide:end -->/,
+    );
+    if (!resultGuideMatch) {
+      throw new Error(`${tool}: latest public post is missing the result guide block`);
+    }
+    const resultGuideItemCount = (
+      resultGuideMatch[1].match(/class="tb-result-guide-item"/g) || []
+    ).length;
+    if (resultGuideItemCount < 2) {
+      throw new Error(`${tool}: latest public post requires at least two result limitations`);
+    }
+  }
   if (/게시글을 다시 수정|업데이트 때 게시글/.test(latestHtml)) {
     throw new Error(`${tool}: operator-facing FAQ must not be published`);
   }

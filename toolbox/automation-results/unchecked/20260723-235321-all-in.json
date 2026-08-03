@@ -285,5 +285,10 @@
     "cancelled": false
   },
   "blocked": [],
-  "reportHistory": []
+  "reportHistory": [
+    {
+      "reportedAt": "2026-07-24T00:40:07+09:00",
+      "context": "추가 후보 통합 크리에이트 시작 전 미확인 기록 보고"
+    }
+  ]
 }

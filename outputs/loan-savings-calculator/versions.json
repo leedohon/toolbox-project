@@ -1,0 +1,19 @@
+{
+  "index": 54,
+  "tool": "loan-savings-calculator",
+  "title": "대출·저축 계산기",
+  "description": "대출 상환액과 복리 성장, 월 적립식 예상액과 목표 금액에 필요한 납입액을 계산합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-24",
+      "changeLevel": "minimum",
+      "summary": "대출 상환과 세 가지 저축 계획 계산을 통합한 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/loan-savings-calculator.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

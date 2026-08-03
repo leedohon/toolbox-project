@@ -1,0 +1,15 @@
+{
+  "tool": "text-extractor-tool",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-24",
+  "changeLevel": "minimum",
+  "changes": [
+    "이메일·URL·전화번호·소셜 표기 추출 모드",
+    "중복 제거와 정렬된 결과",
+    "KOR / ENG·입력 검증·복사 대체 처리"
+  ],
+  "qa": [
+    "이메일·URL·도메인·소셜 표기 추출과 중복 제거 확인",
+    "375px·1280px에서 가로 넘침 없음, KOR / ENG와 복사 확인"
+  ]
+}

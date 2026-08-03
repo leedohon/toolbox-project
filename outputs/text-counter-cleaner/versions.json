@@ -4,7 +4,7 @@
   "title": "텍스트 정리·생성 도구",
   "description": "글자 수·공백·목록·파일명·슬러그를 정리하고 테스트 문장을 생성합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
-  "latestVersion": "1.0.2v",
+  "latestVersion": "1.0.3v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -59,6 +59,15 @@
       "directory": "1.0.2v",
       "html": "1.0.2v/text-counter-cleaner.html",
       "patchNotes": "1.0.2v/patch-notes.json"
+    },
+    {
+      "version": "1.0.3v",
+      "releaseDate": "2026-07-25",
+      "changeLevel": "minimum",
+      "summary": "구체적인 활용 예시와 결과 해석·제한 사항을 보강했습니다.",
+      "directory": "1.0.3v",
+      "html": "1.0.3v/text-counter-cleaner.html",
+      "patchNotes": "1.0.3v/patch-notes.json"
     }
   ],
   "status": "published"

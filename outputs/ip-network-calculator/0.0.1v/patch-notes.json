@@ -1,0 +1,15 @@
+{
+  "tool": "ip-network-calculator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-24",
+  "changeLevel": "minimum",
+  "changes": [
+    "CIDR 서브넷과 마스크 계산",
+    "정확한 IP 범위 CIDR 분할과 MAC 표준화",
+    "KOR / ENG·조건부 입력·오류 안내"
+  ],
+  "qa": [
+    "CIDR·마스크·정확 범위 분할·MAC 형식과 잘못된 IP 오류 확인",
+    "10.0.0.1~10.0.0.6 최소 4개 CIDR, 375px·1280px 확인"
+  ]
+}

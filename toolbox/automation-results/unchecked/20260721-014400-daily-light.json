@@ -32,6 +32,7 @@
   "shutdown": {"requested":true,"scheduled":true,"input":"30분","scheduledFor":"2026-07-21T02:14:00+09:00","cancelled":false},
   "blocked": [],
   "reportHistory": [
-    {"reportedAt":"2026-07-23T23:20:39+09:00","context":"공개 도구 일괄 통합 작업 시작 전 미확인 기록 보고"}
+    {"reportedAt":"2026-07-23T23:20:39+09:00","context":"공개 도구 일괄 통합 작업 시작 전 미확인 기록 보고"},
+    {"reportedAt":"2026-07-24T00:40:07+09:00","context":"추가 후보 통합 크리에이트 시작 전 미확인 기록 보고"}
   ]
 }

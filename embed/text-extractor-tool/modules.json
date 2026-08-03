@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "text-extractor-tool",
+      "label": {
+        "ko": "텍스트 정보 추출기",
+        "en": "Text Information Extractor"
+      },
+      "entry": "./tool.js",
+      "messageTool": "text-extractor-tool",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

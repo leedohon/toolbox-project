@@ -1,0 +1,15 @@
+{
+  "tool": "coordinate-distance-calculator",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-24",
+  "changeLevel": "minimum",
+  "changes": [
+    "십진 좌표와 도·분·초 양방향 변환",
+    "대권거리·초기 방위각·중간점 계산",
+    "KOR / ENG·조건부 입력·범위 검증"
+  ],
+  "qa": [
+    "거리·방위·중간점과 DMS 양방향 변환, -180도 경계값 확인",
+    "잘못된 분 값 오류, 조건부 입력, 375px·1280px 확인"
+  ]
+}

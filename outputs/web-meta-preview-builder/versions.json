@@ -1,0 +1,19 @@
+{
+  "index": 53,
+  "tool": "web-meta-preview-builder",
+  "title": "웹 메타·공유 미리보기",
+  "description": "웹페이지 제목과 설명, 주소와 이미지를 입력해 검색·공유 미리보기와 메타 태그를 함께 만듭니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-24",
+      "changeLevel": "minimum",
+      "summary": "검색·공유 미리보기와 필수 메타 태그 생성을 통합한 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/web-meta-preview-builder.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

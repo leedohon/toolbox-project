@@ -1,0 +1,19 @@
+{
+  "index": 52,
+  "tool": "text-extractor-tool",
+  "title": "텍스트 정보 추출기",
+  "description": "긴 글에서 이메일, URL·도메인, 전화번호 또는 해시태그·멘션을 골라 중복 없이 정리합니다.",
+  "postUrl": "",
+  "latestVersion": "0.0.1v",
+  "versions": [
+    {
+      "version": "0.0.1v",
+      "releaseDate": "2026-07-24",
+      "changeLevel": "minimum",
+      "summary": "네 가지 자주 쓰는 텍스트 정보 추출을 한 화면에 통합한 최초 버전입니다.",
+      "directory": "0.0.1v",
+      "html": "0.0.1v/text-extractor-tool.html",
+      "patchNotes": "0.0.1v/patch-notes.json"
+    }
+  ]
+}

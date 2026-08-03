@@ -5,6 +5,7 @@
 - `toolbox/posts/{{tool-id}}.html`: Blogger HTML 보기에 복사할 최신 게시글 원본
 - `outputs/{{tool-id}}/{{version}}/{{tool-id}}.html`: 변경하지 않고 보존하는 버전별 게시글 HTML
 - `embed/{{tool-id}}/index.html`: GitHub Pages에서 제공하며 기능 업데이트 때 갱신하는 최신 실행 HTML
+- `toolbox/post-value-content.json`: 공개 도구별 활용 예시와 결과 제한 사항을 관리하는 단일 원본
 
 게시글에는 설명과 사용 방법, FAQ를 포함하고 실제 기능 영역은 아래 고정 주소의 iframe으로 불러온다.
 
@@ -39,6 +40,8 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
 
   <!-- tb-tool-details:start --><section class="tb-tool-details">{{generated-tool-details}}</section><!-- tb-tool-details:end -->
   <!-- tb-tags:start --><nav class="tb-tags" aria-label="관련 태그">{{generated-tool-tags}}</nav><!-- tb-tags:end -->
+  <!-- tb-worked-examples:start --><section class="tb-worked-examples"><h2>활용 예시</h2><div class="tb-worked-example-list"><article class="tb-example-card">{{generated-worked-example-1}}</article><article class="tb-example-card">{{generated-worked-example-2}}</article></div></section><!-- tb-worked-examples:end -->
+  <!-- tb-result-guide:start --><section class="tb-result-guide"><h2>결과 확인 전 알아두기</h2><ul><li class="tb-result-guide-item">{{generated-limitation-1}}</li><li class="tb-result-guide-item">{{generated-limitation-2}}</li></ul></section><!-- tb-result-guide:end -->
   <!-- tb-faq:start --><h2>자주 묻는 질문</h2>{{generated-user-faq}}{{generated-user-faq}}{{generated-user-faq}}{{generated-user-faq}}<!-- tb-faq:end -->
   <!-- tb-patch-notes:start --><details class="tb-patch-notes"><summary>패치노트</summary><div class="tb-patch-list">{{generated-cumulative-patch-notes}}</div></details><!-- tb-patch-notes:end -->
 </article>
@@ -54,13 +57,20 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
 </script>
 ```
 
+## 중앙 생성 마커 규칙
+
+- `tb-worked-examples`와 `tb-result-guide` 블록은 해시태그 뒤, FAQ 앞에 각각 한 번만 두며 이 순서를 유지한다.
+- `toolbox/post-value-content.json`의 각 공개 도구에는 `title`, `input`, `result`가 모두 채워진 활용 예시가 두 개 이상, 빈 값이 아닌 제한 사항이 두 개 이상 있어야 한다.
+- 두 블록의 내부 HTML은 `scripts/build-tool-post-content.mjs`가 생성한다. 게시글 원본이나 버전 HTML에서 마커 내부를 수작업으로 관리하지 않는다.
+- 생성기는 모든 사용자 입력 문자열을 HTML 이스케이프하며, `scripts/validate-tool-releases.mjs`는 공개 중인 활성 도구의 최신 HTML에서 마커와 최소 항목 수를 확인한다.
+
 ## 운영 절차
 
 1. 새 기능은 `embed/{{tool-id}}/index.html`에서 구현하고 모바일과 PC를 확인한다.
 2. 게시글 설명도 변경되면 다음 버전의 `outputs/` 폴더를 만들고 `toolbox/posts/{{tool-id}}.html`을 같은 내용으로 갱신한다.
 3. 게시글 iframe의 `src`는 버전과 관계없이 고정 주소를 유지한다.
 4. `patch-notes.json`과 `versions.json`을 함께 갱신한다.
-5. `toolbox/post-content.json`에 상세 설명과 FAQ를 작성하고 `node scripts/build-tool-posts.mjs {{tool-id}}`를 실행해 공통 게시글 영역을 생성한다.
+5. `toolbox/post-content.json`에 상세 설명과 FAQ를, `toolbox/post-value-content.json`에 활용 예시와 제한 사항을 작성하고 `node scripts/build-tool-posts.mjs {{tool-id}}`를 실행해 공통 게시글 영역을 생성한다.
 6. GitHub Pages의 배포 원본은 `main` 브랜치 루트로 설정한다.
 7. 기능 HTML은 `ResizeObserver`로 실제 높이를 감지하고 `{ source: 'toolbox-embed', tool: '{{tool-id}}', height }` 메시지를 부모로 전송한다. 실제 Blogger 화면의 높이 조절은 `assets/blogger/site.js` 전역 수신기가 담당하며 게시글 인라인 스크립트에 의존하지 않는다.
 8. 게시 또는 릴리스 요청이면 최신 버전 HTML을 Blogger 초안 또는 공개 글로 생성하고 반환된 URL을 확인한다.

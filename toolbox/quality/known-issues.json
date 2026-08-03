@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-19",
+  "updatedAt": "2026-07-25",
   "issues": [
     {
       "code": "DEFAULT_TEXT_INPUT_UNSTYLED",
@@ -18,9 +18,9 @@
       "summary": "한국 시간 자정 이후 생성한 릴리스가 UTC 기준 전날 날짜로 기록됨",
       "fingerprints": ["create-tool-release.mjs", "toISOString().slice(0, 10)", "releaseDate", "Asia/Seoul"],
       "rootCause": "릴리스 생성기가 프로젝트 기준 시간대 대신 UTC 날짜를 사용함",
-      "fixContract": ["릴리스 날짜는 Asia/Seoul 달력 날짜로 계산", "versions.json과 patch-notes.json의 날짜 일치 확인"],
-      "regressionChecks": ["한국 시간과 UTC 날짜가 다른 시각의 생성 결과 확인", "최신 manifest와 패치노트 releaseDate 일치 확인"],
-      "affectedPatterns": ["scripts/create-tool-release.mjs", "outputs/*/versions.json", "outputs/*/*v/patch-notes.json"]
+      "fixContract": ["릴리스와 생성 색인의 날짜는 Asia/Seoul 달력 날짜로 계산", "versions.json과 patch-notes.json의 날짜 일치 확인", "카탈로그와 AI 색인의 updatedAt도 같은 한국 날짜 사용"],
+      "regressionChecks": ["한국 시간과 UTC 날짜가 다른 시각의 생성 결과 확인", "최신 manifest와 패치노트 releaseDate 일치 확인", "outputs/tools.json과 루트·Toolbox·도구 AI 색인의 updatedAt 일치 확인"],
+      "affectedPatterns": ["scripts/create-tool-release.mjs", "scripts/build-tool-catalog.mjs", "scripts/build-ai-index.mjs", "outputs/*/versions.json", "outputs/*/*v/patch-notes.json", "outputs/tools.json", "ai-index.json", "toolbox/ai-index.json", "embed/*/ai-index.json"]
     },
     {
       "code": "IFRAME_HEIGHT_STALE",
@@ -71,6 +71,36 @@
       "fixContract": ["장문 텍스트 입력 영역이 둘 이상이면 모든 화면에서 위아래 한 열로 고정", "각 장문 입력은 전체 가용 폭과 충분한 세로 높이를 사용", "입력과 장문 미리보기를 함께 편집하는 화면도 세로 입력 동선을 우선 검토"],
       "regressionChecks": ["장문 입력 두 개의 left 위치가 같고 두 번째 top이 첫 번째 하단보다 큼", "모바일 375px와 데스크톱 1280px에서 각 장문 입력이 컨테이너 전체 폭 사용", "가로 문서 넘침과 입력 내부 이중 스크롤 없음"],
       "affectedPatterns": ["assets/longtext-tools.css", "embed/**/index.html", "toolbox/tools/*.md"]
+    },
+    {
+      "code": "ADS_NONCONTENT_SCOPE_LEAK",
+      "status": "guarded",
+      "summary": "광고가 활성 게시글 밖의 홈·검색·라벨·보관함·전환 안내·신뢰 페이지에서도 실행될 수 있음",
+      "fingerprints": ["AdSense", "auto ads", "showInlineAds", "data:adCode", "publisher content missing"],
+      "rootCause": "사이트 승인 전 광고 범위를 콘텐츠 품질과 페이지 유형에 따라 제한하는 단일 검사가 없었음",
+      "fixContract": ["승인 준비 중에는 테마 광고 위젯과 인라인 광고 렌더링 제거", "전환 안내 글에 toolbox-retired 라벨과 noindex 적용", "광고 재활성화 시 활성 게시글 화면만 명시적으로 허용"],
+      "regressionChecks": ["테마에 AdSense 위젯·data:adCode·includeAd 없음", "홈·검색·라벨·보관함·신뢰 페이지에서 광고 요청 없음", "전환 안내 글의 noindex,follow 확인"],
+      "affectedPatterns": ["toolbox/theme/*.xml", "assets/blogger/site.js", "scripts/blogger-*.mjs", "outputs/*/versions.json"]
+    },
+    {
+      "code": "PUBLIC_EXECUTION_INDEX_LEAK",
+      "status": "guarded",
+      "summary": "실행 전용 iframe과 내부 버전 보관 HTML이 검색 대상 또는 공개 Pages 산출물에 포함됨",
+      "fingerprints": ["GitHub Pages", "noindex,follow", "canonical", "deploy-pages", "outputs/*/*v"],
+      "rootCause": "저장소 루트 전체를 Pages 원본으로 배포하고 실행 문서의 검색 메타 정책을 별도로 관리하지 않았음",
+      "fixContract": ["모든 실행 문서에 noindex,follow 적용", "공개 도구는 대응 Blogger 글을 canonical로 지정", "Pages Actions 산출물은 postUrl이 있는 실행 자산과 공개 JSON만 포함"],
+      "regressionChecks": ["모든 embed와 루트 실행 문서에 robots 메타 1개", "미공개 도구에는 canonical 없음", "배포 산출물에 미공개 embed·내부 AI 색인·toolbox·버전 outputs·requests·quality 없음"],
+      "affectedPatterns": ["embed/**/index.html", "index.html", "scripts/*indexing*.mjs", "scripts/prepare-pages-artifact.mjs", ".github/workflows/deploy-pages.yml"]
+    },
+    {
+      "code": "PENDING_CATALOG_LEAK",
+      "status": "guarded",
+      "summary": "게시글 주소가 없는 준비 중 도구가 공개 검색 카탈로그에 노출됨",
+      "fingerprints": ["outputs/tools.json", "postUrl", "pendingPost", "build-tool-catalog"],
+      "rootCause": "카탈로그 생성기가 retired 상태만 제외하고 공개 URL이 없는 manifest를 그대로 포함했음",
+      "fixContract": ["postUrl이 없는 도구는 공개 카탈로그에서 제외", "공개 URL은 HTTPS만 허용", "준비 중 소스와 manifest는 삭제하지 않고 별도 상태로 보존"],
+      "regressionChecks": ["outputs/tools.json 항목 수가 공개 활성 manifest 수와 같음", "카탈로그에 빈 postUrl 없음", "준비 중 도구 파일은 남아 있지만 검색 결과에는 없음"],
+      "affectedPatterns": ["scripts/build-tool-catalog.mjs", "outputs/tools.json", "outputs/*/versions.json"]
     }
   ]
 }

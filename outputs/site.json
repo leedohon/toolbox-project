@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-08-03",
   "intro": {
     "eyebrow": "Openworld Blog",
     "title": "일상과 정보, 바로 쓰는 도구를 한곳에 담습니다.",
@@ -16,5 +16,22 @@
     "pendingPost": "게시글 준비 중",
     "empty": "검색어와 일치하는 도구가 없습니다.",
     "backToSearch": "← 도구 검색으로 돌아가기"
-  }
+  },
+  "legalLinks": [
+    {
+      "key": "contact",
+      "label": "문의",
+      "url": "https://bloggiedh.blogspot.com/p/blog-page.html"
+    },
+    {
+      "key": "about",
+      "label": "소개",
+      "url": "https://bloggiedh.blogspot.com/p/blog-page_03.html"
+    },
+    {
+      "key": "privacy",
+      "label": "개인정보 처리방침",
+      "url": "https://bloggiedh.blogspot.com/p/blog-page_183.html"
+    }
+  ]
 }

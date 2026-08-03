@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-24",
+  "tool": "ip-network-calculator",
+  "index": 55,
+  "title": "IP·네트워크 주소 도구",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/ip-network-calculator.md",
+    "post": "toolbox/posts/ip-network-calculator.html",
+    "manifest": "outputs/ip-network-calculator/versions.json",
+    "embed": "embed/ip-network-calculator/index.html",
+    "moduleRegistry": "embed/ip-network-calculator/modules.json"
+  },
+  "modules": [
+    {
+      "id": "ip-network-calculator",
+      "label": {
+        "ko": "IP·네트워크 주소 도구",
+        "en": "IP & Network Address Toolkit"
+      },
+      "entry": "./tool.js",
+      "messageTool": "ip-network-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

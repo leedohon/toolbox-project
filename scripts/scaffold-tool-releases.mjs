@@ -5,27 +5,78 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const configPath = process.argv[2];
 if (!configPath) throw new Error('Usage: node scripts/scaffold-tool-releases.mjs <config.json>');
+const refreshEmbeds = process.argv.includes('--refresh-embeds');
 const config = JSON.parse(await fs.readFile(path.resolve(root, configPath), 'utf8'));
+if (!Array.isArray(config.tools) || config.tools.length !== 5) throw new Error('Create config must contain exactly five tools.');
+if (config.tools.some((tool) => !tool || typeof tool !== 'object')) throw new Error('Every create config tool must be an object.');
+const slugs = config.tools.map((tool) => tool.slug);
+const indexes = config.tools.map((tool) => tool.index);
+if (slugs.some((slug) => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug || ''))) throw new Error('Every tool slug must use lowercase letters, numbers, and single hyphens.');
+if (new Set(slugs).size !== slugs.length) throw new Error('Create config tool slugs must be unique.');
+if (indexes.some((index) => !Number.isInteger(index) || index < 1)) throw new Error('Every tool index must be a positive integer.');
+if (new Set(indexes).size !== indexes.length) throw new Error('Create config tool indexes must be unique.');
+const exists = async (target) => fs.access(target).then(() => true).catch((error) => {
+  if (error.code === 'ENOENT') return false;
+  throw error;
+});
+if (!refreshEmbeds) {
+  for (const slug of slugs) {
+    const existingOutput = path.join(root, 'outputs', slug);
+    const existingDefinition = path.join(root, 'toolbox', 'tools', `${slug}.md`);
+    if (await exists(existingOutput) || await exists(existingDefinition)) {
+      throw new Error(`${slug}: existing output or tool definition cannot be overwritten by a create config.`);
+    }
+  }
+  const outputEntries = await fs.readdir(path.join(root, 'outputs'), { withFileTypes: true });
+  for (const entry of outputEntries) {
+    if (!entry.isDirectory()) continue;
+    const manifestPath = path.join(root, 'outputs', entry.name, 'versions.json');
+    const manifest = await fs.readFile(manifestPath, 'utf8').then(JSON.parse).catch((error) => {
+      if (error.code === 'ENOENT') return null;
+      throw error;
+    });
+    if (manifest && indexes.includes(manifest.index)) throw new Error(`Tool index ${manifest.index} is already assigned to ${manifest.tool || entry.name}.`);
+  }
+}
 const date = config.releaseDate || new Date().toISOString().slice(0, 10);
 const version = '0.0.1v';
 const escape = (value) => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 const write = async (file, value) => { await fs.mkdir(path.dirname(file), { recursive: true }); await fs.writeFile(file, value); };
 const renderUiField = (field) => {
   const label = `<label class="st-label" for="${escape(field.id)}" data-ko="${escape(field.label)}" data-en="${escape(field.enLabel || field.label)}">${escape(field.label)}</label>`;
-  if (field.type === 'textarea') return `<div class="st-field">${label}<textarea id="${escape(field.id)}" maxlength="${field.maxlength || 100000}" data-ko-placeholder="${escape(field.placeholder || '')}" data-en-placeholder="${escape(field.enPlaceholder || field.placeholder || '')}">${escape(field.value || '')}</textarea></div>`;
-  if (field.type === 'select') return `<div class="st-field">${label}<select id="${escape(field.id)}">${field.options.map((option) => `<option value="${escape(option.value)}">${escape(option.label)} / ${escape(option.en || option.label)}</option>`).join('')}</select></div>`;
+  const wrapper = ['class="st-field"'];
+  if (field.showWhen?.field && Array.isArray(field.showWhen.values)) {
+    wrapper.push(`data-show-field="${escape(field.showWhen.field)}"`, `data-show-values="${escape(field.showWhen.values.join(','))}"`);
+  }
+  const open = `<div ${wrapper.join(' ')}>`;
+  if (field.type === 'radio') {
+    const fieldset = wrapper.map((attribute) => attribute === 'class="st-field"' ? 'class="st-field st-mode"' : attribute);
+    const options = field.options.map((option, index) => `<label><input id="${escape(field.id)}-${index + 1}" type="radio" name="${escape(field.id)}" value="${escape(option.value)}"${index === 0 ? ' checked' : ''}><span data-ko="${escape(option.label)}" data-en="${escape(option.en || option.label)}">${escape(option.label)}</span></label>`).join('');
+    return `<fieldset ${fieldset.join(' ')}><legend class="st-label" data-ko="${escape(field.label)}" data-en="${escape(field.enLabel || field.label)}">${escape(field.label)}</legend><div class="st-mode-options">${options}</div></fieldset>`;
+  }
+  if (field.type === 'textarea') return `${open}${label}<textarea id="${escape(field.id)}" maxlength="${field.maxlength || 100000}" data-ko-placeholder="${escape(field.placeholder || '')}" data-en-placeholder="${escape(field.enPlaceholder || field.placeholder || '')}">${escape(field.value || '')}</textarea></div>`;
+  if (field.type === 'select') return `${open}${label}<select id="${escape(field.id)}">${field.options.map((option) => `<option value="${escape(option.value)}" data-ko="${escape(option.label)}" data-en="${escape(option.en || option.label)}">${escape(option.label)}</option>`).join('')}</select></div>`;
   const attributes = [`id="${escape(field.id)}"`, `type="${field.type === 'number' ? 'number' : 'text'}"`];
   for (const name of ['min', 'max', 'step']) if (field[name] !== undefined) attributes.push(`${name}="${escape(field[name])}"`);
   if (field.maxlength) attributes.push(`maxlength="${escape(field.maxlength)}"`);
   if (field.value !== undefined) attributes.push(`value="${escape(field.value)}"`);
   attributes.push(`data-ko-placeholder="${escape(field.placeholder || '')}"`, `data-en-placeholder="${escape(field.enPlaceholder || field.placeholder || '')}"`);
-  return `<div class="st-field">${label}<input ${attributes.join(' ')}></div>`;
+  return `${open}${label}<input ${attributes.join(' ')}></div>`;
 };
 const renderGeneratedEmbed = (tool) => `<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(tool.title)}</title>
 <link rel="stylesheet" href="../../assets/simple-tools.css?v=0.1.1"><link rel="stylesheet" href="../../assets/generated-tools.css?v=0.1.0"><link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0"><script src="../../assets/toolbox-i18n.js?v=0.3.0"></script><script src="../../assets/toolbox-ux.js?v=0.1.0"></script></head><body>
   <article class="simple-tool" aria-label="${escape(tool.title)}">${tool.ui.fields.map(renderUiField).join('')}<div class="st-actions"><button class="st-primary" id="sg-run" type="button" data-ko="${escape(tool.ui.runLabel || '실행')}" data-en="${escape(tool.ui.runEn || 'Run')}">${escape(tool.ui.runLabel || '실행')}</button><button class="st-secondary" id="sg-copy" type="button" data-ko="결과 복사" data-en="Copy result">결과 복사</button><button class="st-secondary" id="sg-reset" type="button" data-ko="초기화" data-en="Reset">초기화</button></div><p class="st-status" id="sg-status" aria-live="polite"></p><section class="st-result" id="sg-result" hidden><h2 data-ko="${escape(tool.ui.resultTitle || '결과')}" data-en="${escape(tool.ui.resultTitleEn || 'Result')}">${escape(tool.ui.resultTitle || '결과')}</h2><div id="sg-output"></div></section><textarea class="st-copy-fallback" id="sg-fallback" readonly hidden></textarea></article><script type="module" src="./tool.js?v=0.0.2"></script></body></html>
 `;
+if (refreshEmbeds) {
+  for (const tool of config.tools) {
+    if (!tool.runtimePreset || !tool.ui?.fields?.length) throw new Error(`${tool.slug}: runtimePreset and ui.fields are required to refresh an embed.`);
+    await write(path.join(root, 'embed', tool.slug, 'index.html'), renderGeneratedEmbed(tool));
+    await write(path.join(root, 'embed', tool.slug, 'tool.js'), `import {mountGeneratedTool} from '../../assets/generated-tool-runtime.js?v=0.2.0';\nmountGeneratedTool(${JSON.stringify({slug: tool.slug, preset: tool.runtimePreset, fields: tool.ui.fields.map((field) => field.id)}, null, 2)});\n`);
+  }
+  console.log(`Refreshed ${config.tools.length} generated tool embeds.`);
+  process.exit(0);
+}
 const postContentPath = path.join(root, 'toolbox/post-content.json');
 const postTagsPath = path.join(root, 'toolbox/post-tags.json');
 const postContent = JSON.parse(await fs.readFile(postContentPath, 'utf8'));
@@ -43,7 +94,7 @@ for (const tool of config.tools) {
   <!-- tb-tags:start --><nav class="tb-tags" aria-label="관련 태그"></nav><!-- tb-tags:end -->
   <!-- tb-faq:start --><h2>자주 묻는 질문</h2>${tool.faq.map((item) => `<details><summary>${escape(item.question)}</summary><p>${escape(item.answer)}</p></details>`).join('')}<!-- tb-faq:end -->
   <!-- tb-patch-notes:start --><!-- tb-patch-notes:end -->
-</article><script>(function(){var frame=document.getElementById('toolbox-${slug}-frame');window.addEventListener('message',function(event){if(event.origin!=='https://leedohon.github.io'||!event.data||event.data.source!=='toolbox-embed'||event.data.tool!=='${slug}')return;var height=Number(event.data.height);if(Number.isFinite(height)&&height>=320&&height<=3000)frame.style.height=Math.ceil(height)+'px';});}());</script>
+</article>
 `;
   const definition = `---
 title: ${tool.title}
@@ -78,7 +129,7 @@ ${rules.map((value) => `- ${value}`).join('\n')}
   await write(path.join(root, 'embed', slug, 'modules.json'), `${JSON.stringify({ schemaVersion: 1, modules: [{ id: slug, label: { ko: tool.title, en: tool.englishTitle || slug }, entry: './tool.js', messageTool: slug, capabilities: { resultCode: false, png: false, copyFallback: true, i18n: true, responsive: true, browserOnly: true } }] }, null, 2)}\n`);
   if (tool.runtimePreset && tool.ui?.fields?.length) {
     await write(path.join(root, 'embed', slug, 'index.html'), renderGeneratedEmbed(tool));
-    await write(path.join(root, 'embed', slug, 'tool.js'), `import {mountGeneratedTool} from '../../assets/generated-tool-runtime.js?v=0.1.1';\nmountGeneratedTool(${JSON.stringify({slug, preset: tool.runtimePreset, fields: tool.ui.fields.map((field) => field.id)}, null, 2)});\n`);
+    await write(path.join(root, 'embed', slug, 'tool.js'), `import {mountGeneratedTool} from '../../assets/generated-tool-runtime.js?v=0.2.0';\nmountGeneratedTool(${JSON.stringify({slug, preset: tool.runtimePreset, fields: tool.ui.fields.map((field) => field.id)}, null, 2)});\n`);
   }
   postContent[slug] = { detailTitle: `${tool.title} 상세 설명`, details: tool.details, faq: tool.faq };
   postTags.tools[slug] = tool.tags;

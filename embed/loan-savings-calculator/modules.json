@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "loan-savings-calculator",
+      "label": {
+        "ko": "대출·저축 계산기",
+        "en": "Loan & Savings Calculator"
+      },
+      "entry": "./tool.js",
+      "messageTool": "loan-savings-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

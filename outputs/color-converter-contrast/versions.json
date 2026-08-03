@@ -4,7 +4,7 @@
   "title": "CSS 디자인 도구",
   "description": "색상·대비·그라데이션·clamp·그림자·단위·모서리 CSS를 한곳에서 만들고 확인합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-  "latestVersion": "1.0.2v",
+  "latestVersion": "1.0.3v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -68,6 +68,15 @@
       "directory": "1.0.2v",
       "html": "1.0.2v/color-converter-contrast.html",
       "patchNotes": "1.0.2v/patch-notes.json"
+    },
+    {
+      "version": "1.0.3v",
+      "releaseDate": "2026-07-25",
+      "changeLevel": "minimum",
+      "summary": "구체적인 활용 예시와 결과 해석·제한 사항을 보강했습니다.",
+      "directory": "1.0.3v",
+      "html": "1.0.3v/color-converter-contrast.html",
+      "patchNotes": "1.0.3v/patch-notes.json"
     }
   ],
   "status": "published"

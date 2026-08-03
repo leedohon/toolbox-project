@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "ip-network-calculator",
+      "label": {
+        "ko": "IP·네트워크 주소 도구",
+        "en": "IP & Network Address Toolkit"
+      },
+      "entry": "./tool.js",
+      "messageTool": "ip-network-calculator",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ]
+}

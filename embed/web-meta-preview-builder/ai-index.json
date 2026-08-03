@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-24",
+  "tool": "web-meta-preview-builder",
+  "index": 53,
+  "title": "웹 메타·공유 미리보기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/web-meta-preview-builder.md",
+    "post": "toolbox/posts/web-meta-preview-builder.html",
+    "manifest": "outputs/web-meta-preview-builder/versions.json",
+    "embed": "embed/web-meta-preview-builder/index.html",
+    "moduleRegistry": "embed/web-meta-preview-builder/modules.json"
+  },
+  "modules": [
+    {
+      "id": "web-meta-preview-builder",
+      "label": {
+        "ko": "웹 메타·공유 미리보기",
+        "en": "Web Meta & Share Preview"
+      },
+      "entry": "./tool.js",
+      "messageTool": "web-meta-preview-builder",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

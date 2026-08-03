@@ -63,7 +63,9 @@ async function loadPublishedPosts() {
 const normalize = (value) => String(value || '').trim().replace(/\s+/g, ' ').toLocaleLowerCase('ko');
 const compact = (value) => normalize(value).match(/[\p{L}\p{N}]+/gu)?.join('') || '';
 const posts = await loadPublishedPosts();
-const toolNames = process.argv.slice(2);
+const apply = process.argv.includes('--apply');
+const toolNames = process.argv.slice(2).filter((argument) => !argument.startsWith('--'));
+if (!toolNames.length) throw new Error('Specify one or more tool identifiers. This command does not update every post implicitly.');
 const requestedTools = new Set(toolNames);
 if (requestedTools.size !== toolNames.length) throw new Error('Duplicate tool names are not allowed.');
 const entries = await fs.readdir(outputsDir, { withFileTypes: true });
@@ -87,7 +89,7 @@ for (const entry of entries) {
   if (!post.id || !post.url) throw new Error(`Published post identity is incomplete for ${versions.tool}.`);
   if (plannedPostIds.has(post.id)) throw new Error(`${versions.tool} and ${plannedPostIds.get(post.id)} resolve to the same Blogger post.`);
   const title = formatToolPostTitle(versions.title, versions.category);
-  const labels = await loadToolPostLabels(versions.tool);
+  const labels = await loadToolPostLabels(versions.tool, versions.status);
   const body = JSON.stringify({ ...post, title, content, labels });
   plannedPostIds.set(post.id, versions.tool);
   plans.push({ tool: versions.tool, post, title, body });
@@ -101,6 +103,17 @@ if (requestedTools.size) {
 if (!plans.length) throw new Error('No matching tool posts were prepared.');
 
 console.log(`Preflight passed for ${plans.length} Blogger post(s).`);
+if (!apply) {
+  console.log('Dry run only. Re-run the same targets with --apply to update Blogger.');
+  process.exit(0);
+}
+const backupDir = path.join(root, 'work', 'blogger-post-backups');
+await fs.mkdir(backupDir, { recursive: true });
+const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+await fs.writeFile(
+  path.join(backupDir, `tool-posts-${timestamp}.json`),
+  `${JSON.stringify({ createdAt: new Date().toISOString(), posts: plans.map((plan) => plan.post) }, null, 2)}\n`,
+);
 for (const plan of plans) {
   const { post, title, body } = plan;
   await request(`https://www.googleapis.com/blogger/v3/blogs/${encodeURIComponent(blog.id)}/posts/${encodeURIComponent(post.id)}`, {

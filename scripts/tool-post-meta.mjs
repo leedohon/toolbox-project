@@ -9,9 +9,9 @@ export function formatToolPostTitle(title, category = '초간단 툴박스') {
   return `[${String(category || '초간단 툴박스').trim()}] ${title}`;
 }
 
-export async function loadToolPostLabels(tool) {
+export async function loadToolPostLabels(tool, status = '') {
   const document = JSON.parse(await fs.readFile(tagsPath, 'utf8'));
-  const labels = [...(document.common || []), ...(document.tools?.[tool] || [])];
+  const labels = [...(document.common || []), ...(document.tools?.[tool] || []), ...(status === 'retired' ? ['toolbox-retired'] : [])];
   const unique = [...new Set(labels.map((label) => String(label).trim()).filter(Boolean))];
   if (unique.length < 4 || unique.length > 10) throw new Error(`${tool}: 4~10개의 게시글 라벨이 필요합니다.`);
   return unique;

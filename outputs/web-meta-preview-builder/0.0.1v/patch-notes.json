@@ -1,0 +1,15 @@
+{
+  "tool": "web-meta-preview-builder",
+  "version": "0.0.1v",
+  "releaseDate": "2026-07-24",
+  "changeLevel": "minimum",
+  "changes": [
+    "검색 결과와 링크 공유 카드 미리보기",
+    "Open Graph·Twitter/X·canonical·robots 코드 생성",
+    "KOR / ENG·입력 검증·안전한 코드 복사"
+  ],
+  "qa": [
+    "검색·기본·Open Graph·Twitter 메타 생성과 HTML 이스케이프 확인",
+    "잘못된 프로토콜 오류 복구, 375px·1280px 가로 넘침 없음"
+  ]
+}

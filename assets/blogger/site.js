@@ -3,7 +3,7 @@
 
   var script = document.currentScript;
   if (!script) return;
-  var themeRelease = '2026-07-15.1';
+  var themeRelease = '2026-07-25.1';
   var stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
   stylesheet.href = new URL('theme.css?v=' + themeRelease, script.src).toString();
@@ -47,6 +47,33 @@
     if (!postMount) return;
     var homeUrl = postMount.getAttribute('data-home-url') || '/';
     postMount.innerHTML = '<a class="ow-back-link" href="' + escapeHtml(homeUrl) + '#ow-tool-search" aria-label="' + escapeHtml(config.labels.backToSearch) + '">' + escapeHtml(config.labels.backToSearch) + '</a>';
+  }
+
+  function renderLegalNavigation(config) {
+    var links = Array.isArray(config.legalLinks) ? config.legalLinks.filter(function (item) {
+      return item && typeof item.label === 'string' && item.label.trim() && typeof item.url === 'string' && item.url.trim();
+    }) : [];
+    var footer = document.querySelector('.footer-outer .footer-inner');
+    if (!footer || !links.length || footer.querySelector('.ow-legal-nav')) return;
+    var navigation = document.createElement('nav');
+    navigation.className = 'ow-legal-nav';
+    navigation.setAttribute('aria-label', '사이트 안내');
+    navigation.innerHTML = links.map(function (item) {
+      return '<a href="' + escapeHtml(item.url) + '">' + escapeHtml(item.label) + '</a>';
+    }).join('');
+    footer.appendChild(navigation);
+  }
+
+  function markRetiredPost() {
+    if (!document.querySelector('.tb-retired-post')) return;
+    document.documentElement.classList.add('ow-is-retired');
+    var robots = document.querySelector('meta[name="robots"]');
+    if (!robots) {
+      robots = document.createElement('meta');
+      robots.name = 'robots';
+      document.head.appendChild(robots);
+    }
+    robots.content = 'noindex,follow';
   }
 
   function createInnerDiscoveryMount() {
@@ -158,6 +185,8 @@
 
   loadJson(siteUrl).then(function (config) {
     renderPostNavigation(config);
+    renderLegalNavigation(config);
+    markRetiredPost();
     if (!homeMount && !isInnerPage) return null;
     return loadJson(toolsUrl).then(function (tools) {
       if (homeMount) renderDiscovery(homeMount, config, tools);

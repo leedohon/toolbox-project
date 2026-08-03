@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-24",
+  "tool": "text-extractor-tool",
+  "index": 52,
+  "title": "텍스트 정보 추출기",
+  "category": "초간단 툴박스",
+  "status": "published",
+  "replacementTool": null,
+  "latestVersion": "0.0.1v",
+  "paths": {
+    "definition": "toolbox/tools/text-extractor-tool.md",
+    "post": "toolbox/posts/text-extractor-tool.html",
+    "manifest": "outputs/text-extractor-tool/versions.json",
+    "embed": "embed/text-extractor-tool/index.html",
+    "moduleRegistry": "embed/text-extractor-tool/modules.json"
+  },
+  "modules": [
+    {
+      "id": "text-extractor-tool",
+      "label": {
+        "ko": "텍스트 정보 추출기",
+        "en": "Text Information Extractor"
+      },
+      "entry": "./tool.js",
+      "messageTool": "text-extractor-tool",
+      "capabilities": {
+        "resultCode": false,
+        "png": false,
+        "copyFallback": true,
+        "i18n": true,
+        "responsive": true,
+        "browserOnly": true
+      }
+    }
+  ],
+  "compatibilityGuide": "toolbox/guides/tool-module-compatibility.md"
+}

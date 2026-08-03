@@ -664,7 +664,7 @@ body.mobile  {
 
   <body expr:class='&quot;loading&quot; + data:blog.mobileClass'>
   <b:section class='navbar' id='navbar' maxwidgets='1' name='Navbar' showaddelement='no'>
-    <b:widget id='Navbar1' locked='true' title='Navbar' type='Navbar'>
+    <b:widget id='Navbar1' locked='true' title='Navbar' type='Navbar' version='1'>
       <b:includable id='main'>&lt;script type=&quot;text/javascript&quot;&gt;
     function setAttributeOnload(object, attribute, val) {
       if(window.addEventListener) {
@@ -729,10 +729,10 @@ head.appendChild(script);
   </div>
 
   <b:if cond='data:view.isHomepage'>
-    <div class='ow-site-app' expr:data-home-url='data:blog.homepageUrl' id='ow-site-app'></div>
+    <div class='ow-site-app' expr:data-home-url='data:blog.homepageUrl' id='ow-site-app'/>
   <b:else/>
     <b:if cond='data:view.isSingleItem'>
-      <div class='ow-post-nav' expr:data-home-url='data:blog.homepageUrl' id='ow-post-nav'></div>
+      <div class='ow-post-nav' expr:data-home-url='data:blog.homepageUrl' id='ow-post-nav'/>
     </b:if>
   </b:if>
 
@@ -1005,7 +1005,10 @@ head.appendChild(script);
 
       <b:include data='top' name='status-message'/>
 
-      <b:loop values='data:posts' var='post'>
+      <b:loop values='data:blog.pageType == &quot;item&quot; ? data:posts : data:posts where (p => p.labels none (l => l.name == &quot;toolbox-retired&quot;))' var='post'>
+        <b:if cond='data:post.labels any (label => label.name == &quot;toolbox-retired&quot;)'>
+          <meta content='noindex,follow' name='robots'/>
+        </b:if>
         <b:if cond='data:post.isDateStart and not data:post.isFirstPost'>
           &lt;/div&gt;&lt;/div&gt;
         </b:if>
@@ -1022,13 +1025,6 @@ head.appendChild(script);
           <b:include data='post' name='post'/>
           <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
         </div>
-
-        <!-- Ad -->
-        <b:if cond='data:post.includeAd'>
-          <div class='inline-ad'>
-            <data:adCode/>
-          </div>
-        </b:if>
       </b:loop>
       <b:if cond='data:numPosts != 0'>
         &lt;/div&gt;&lt;/div&gt;
@@ -1274,11 +1270,14 @@ head.appendChild(script);
       <b:include data='top' name='status-message'/>
 
       <b:if cond='data:blog.pageType == &quot;index&quot;'>
-        <b:loop values='data:posts' var='post'>
+        <b:loop values='data:posts where (p => p.labels none (l => l.name == &quot;toolbox-retired&quot;))' var='post'>
           <b:include data='post' name='mobile-index-post'/>
         </b:loop>
       <b:else/>
         <b:loop values='data:posts' var='post'>
+          <b:if cond='data:post.labels any (label => label.name == &quot;toolbox-retired&quot;)'>
+            <meta content='noindex,follow' name='robots'/>
+          </b:if>
           <b:include data='post' name='mobile-post'/>
         </b:loop>
       </b:if>
@@ -1815,100 +1814,6 @@ head.appendChild(script);
   </div>
 </b:includable>
             </b:widget>
-            <b:widget id='FeaturedPost1' locked='false' title='' type='FeaturedPost'>
-              <b:widget-settings>
-                <b:widget-setting name='showSnippet'>true</b:widget-setting>
-                <b:widget-setting name='showPostTitle'>true</b:widget-setting>
-                <b:widget-setting name='showFirstImage'>true</b:widget-setting>
-                <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main'>
-  <!-- Only display title if it's non-empty -->
-  <b:if cond='data:title != &quot;&quot;'>
-    <h2 class='title'><data:title/></h2>
-  </b:if>
-  <b:include name='content'/>
-
-  <b:include name='quickedit'/>
-</b:includable>
-              <b:includable id='content'>
-  <div class='post-summary'>
-    <b:if cond='data:showPostTitle and data:postTitle != &quot;&quot;'>
-      <h3><a expr:href='data:postUrl'><data:postTitle/></a></h3>
-    </b:if>
-    <b:if cond='data:showSnippet and data:postSummary != &quot;&quot;'>
-      <p>
-        <data:postSummary/>
-      </p>
-    </b:if>
-    <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
-      <img class='image' expr:src='data:postFirstImage'/>
-    </b:if>
-  </div>
-
-  <style type='text/css'>
-    .image {
-      width: 100%;
-    }
-  </style>
-</b:includable>
-            </b:widget>
-            <b:widget id='AdSense1' locked='false' title='' type='AdSense'>
-              <b:includable id='main'>
-  <div class='widget-content'>
-    <data:adCode/>
-    <b:include name='quickedit'/>
-  </div>
-</b:includable>
-            </b:widget>
-            <b:widget id='PopularPosts1' locked='false' title='' type='PopularPosts'>
-              <b:widget-settings>
-                <b:widget-setting name='numItemsToShow'>2</b:widget-setting>
-                <b:widget-setting name='showThumbnails'>true</b:widget-setting>
-                <b:widget-setting name='showSnippets'>true</b:widget-setting>
-                <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main'>
-  <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
-  <div class='widget-content popular-posts'>
-    <ul>
-      <b:loop values='data:posts' var='post'>
-      <li>
-        <b:if cond='!data:showThumbnails'>
-          <b:if cond='!data:showSnippets'>
-            <!-- (1) No snippet/thumbnail -->
-            <a expr:href='data:post.href'><data:post.title/></a>
-          <b:else/>
-            <!-- (2) Show only snippets -->
-            <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
-            <div class='item-snippet'><data:post.snippet/></div>
-          </b:if>
-        <b:else/>
-          <!-- (3) Show only thumbnails or (4) Snippets and thumbnails. -->
-          <div expr:class='data:showSnippets ? &quot;item-content&quot; : &quot;item-thumbnail-only&quot;'>
-            <b:if cond='data:post.featuredImage.isResizable or data:post.thumbnail'>
-              <div class='item-thumbnail'>
-                <a expr:href='data:post.href' target='_blank'>
-                  <b:with value='data:post.featuredImage.isResizable                                  ? resizeImage(data:post.featuredImage, 72, &quot;1:1&quot;)                                  : data:post.thumbnail' var='image'>
-                    <img alt='' border='0' expr:src='data:image'/>
-                  </b:with>
-                </a>
-              </div>
-            </b:if>
-            <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
-            <b:if cond='data:showSnippets'>
-              <div class='item-snippet'><data:post.snippet/></div>
-            </b:if>
-          </div>
-          <div style='clear: both;'/>
-        </b:if>
-      </li>
-      </b:loop>
-    </ul>
-    <b:include name='quickedit'/>
-  </div>
-</b:includable>
-            </b:widget>
           </b:section>
         </div>
         </div>
@@ -2010,7 +1915,7 @@ head.appendChild(script);
         document.body.className = document.body.className.replace(&#39;loading&#39;, &#39;&#39;);
       }, 10);
   </script>
-  <script defer='defer' expr:src='data:skin.vars.openworld_loader_url' type='text/javascript'></script>
+  <script defer='defer' expr:src='data:skin.vars.openworld_loader_url' type='text/javascript'/>
 </body>
 
 <macro:includable id='sections' var='col'>
@@ -2295,16 +2200,7 @@ head.appendChild(script);
   <b:include name='reportAbuse'/>
 </b:includable>
   </b:widget>
-</b:section-contents><b:section-contents id='footer-2-1'>
-  <b:widget id='AdSense2' locked='false' title='' type='AdSense'>
-    <b:includable id='main'>
-  <div class='widget-content'>
-    <data:adCode/>
-    <b:include name='quickedit'/>
-  </div>
-</b:includable>
-  </b:widget>
-</b:section-contents><b:section-contents id='footer-2-2'>
+</b:section-contents><b:section-contents id='footer-2-1'/><b:section-contents id='footer-2-2'>
   <b:widget id='Translate1' locked='false' title='Translate' type='Translate'>
     <b:widget-settings>
       <b:widget-setting name='displayMode'>SIMPLE</b:widget-setting>

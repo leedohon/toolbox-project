@@ -6,6 +6,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const postsDir = path.join(root, 'toolbox', 'posts');
 const contentPath = path.join(root, 'toolbox', 'post-content.json');
 const valueContentPath = path.join(root, 'toolbox', 'post-value-content.json');
+const decisionGuidancePath = path.join(root, 'toolbox', 'post-decision-guidance.json');
 const tagsPath = path.join(root, 'toolbox', 'post-tags.json');
 const detailStart = '<!-- tb-tool-details:start -->';
 const detailEnd = '<!-- tb-tool-details:end -->';
@@ -26,11 +27,12 @@ const escapeHtml = (value) => String(value)
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#39;');
 
-function renderDetails(content) {
+function renderDetails(content, decisionGuidance) {
   if (!content.detailTitle || !Array.isArray(content.details) || content.details.length < 2) {
     throw new Error('A detail title and at least two detail paragraphs are required.');
   }
-  return `${detailStart}<section class="tb-tool-details"><h2>${escapeHtml(content.detailTitle)}</h2><div class="tb-detail-copy">${content.details.map((text) => `<p>${escapeHtml(text)}</p>`).join('')}</div></section>${detailEnd}`;
+  const paragraphs = [...content.details, ...(decisionGuidance ? [decisionGuidance] : [])];
+  return `${detailStart}<section class="tb-tool-details"><h2>${escapeHtml(content.detailTitle)}</h2><div class="tb-detail-copy">${paragraphs.map((text) => `<p>${escapeHtml(text)}</p>`).join('')}</div></section>${detailEnd}`;
 }
 
 function renderWorkedExamples(tool, valueContent) {
@@ -105,6 +107,7 @@ function injectGeneratedContent(html, details, tags, workedExamples, resultGuide
 export async function buildToolPostContent(toolNames = []) {
   const content = JSON.parse(await fs.readFile(contentPath, 'utf8'));
   const valueContent = JSON.parse(await fs.readFile(valueContentPath, 'utf8'));
+  const decisionGuidance = JSON.parse(await fs.readFile(decisionGuidancePath, 'utf8'));
   const tagsDocument = JSON.parse(await fs.readFile(tagsPath, 'utf8'));
   const tools = toolNames.length ? toolNames : (await Promise.all(Object.keys(content).map(async (tool) => {
     try {
@@ -132,7 +135,7 @@ export async function buildToolPostContent(toolNames = []) {
     const html = await fs.readFile(postPath, 'utf8');
     const updated = injectGeneratedContent(
       html,
-      renderDetails(content[tool]),
+      renderDetails(content[tool], decisionGuidance[tool]),
       renderTags(tool, tagsDocument),
       toolValueContent ? renderWorkedExamples(tool, toolValueContent) : '',
       toolValueContent ? renderResultGuide(tool, toolValueContent) : '',

@@ -294,8 +294,8 @@ for (const item of activePublished) {
       counts.resultGuideItems = countMatches(limits, /<li\b[^>]*>/gi);
     }
 
-    if (counts.detailParagraphs < 2) {
-      fail('activeContent', item.tool, `At least 2 detail paragraphs are required; found ${counts.detailParagraphs}`);
+    if (counts.detailParagraphs < 3) {
+      fail('activeContent', item.tool, `At least 3 detail paragraphs are required; found ${counts.detailParagraphs}`);
     }
     if (counts.faqItems < 4) {
       fail('activeContent', item.tool, `At least 4 FAQ items are required; found ${counts.faqItems}`);
@@ -312,7 +312,7 @@ for (const item of activePublished) {
 finishCheck('activeContent', {
   checked: contentResults.length,
   minimums: {
-    detailParagraphs: 2,
+    detailParagraphs: 3,
     faqItems: 4,
     workedExamples: 2,
     resultGuideItems: 2,

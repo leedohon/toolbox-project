@@ -4,7 +4,7 @@
   "title": "텍스트·파일 해시 생성기",
   "description": "텍스트나 파일을 선택해 SHA-256·SHA-384·SHA-512 해시값을 브라우저에서 계산합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html",
-  "latestVersion": "0.0.2v",
+  "latestVersion": "0.0.3v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -23,6 +23,15 @@
       "directory": "0.0.2v",
       "html": "0.0.2v/hash-generator.html",
       "patchNotes": "0.0.2v/patch-notes.json"
+    },
+    {
+      "version": "0.0.3v",
+      "releaseDate": "2026-08-04",
+      "changeLevel": "minimum",
+      "summary": "심사 후 콘텐츠 깊이 보강",
+      "directory": "0.0.3v",
+      "html": "0.0.3v/hash-generator.html",
+      "patchNotes": "0.0.3v/patch-notes.json"
     }
   ]
 }

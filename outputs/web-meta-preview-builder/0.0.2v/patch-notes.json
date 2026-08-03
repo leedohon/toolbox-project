@@ -1,0 +1,9 @@
+{
+  "tool": "web-meta-preview-builder",
+  "version": "0.0.2v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "도구 선택과 결과 검증에 필요한 고유 판단 안내를 추가"
+  ]
+}

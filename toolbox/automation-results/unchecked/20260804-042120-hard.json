@@ -81,11 +81,11 @@
   },
   "shutdown": {
     "requested": true,
-    "scheduled": false,
+    "scheduled": true,
     "input": "10분",
-    "scheduledFor": null,
+    "scheduledFor": "2026-08-04T04:38:55+09:00",
     "cancelled": false,
-    "note": "두 번째 독립 실행 완료 뒤에만 예약"
+    "note": "두 번째 독립 실행과 최종 배포 검증 완료 뒤 2026-08-04T04:28:55+09:00에 shutdown.exe /s /t 600 실행"
   },
   "blocked": [],
   "scopeExceptions": [],
@@ -131,6 +131,11 @@
       "at": "2026-08-04T04:26:32+09:00",
       "action": "completed",
       "note": "독립 커밋·푸시·Pages 배포·공개 기능 및 세로 화면 검증 증거를 모두 갖춰 완료 전환"
+    },
+    {
+      "at": "2026-08-04T04:28:55+09:00",
+      "action": "shutdown_scheduled",
+      "note": "사용자 요청에 따라 Windows 종료를 10분 뒤인 2026-08-04T04:38:55+09:00로 예약"
     }
   ]
 }

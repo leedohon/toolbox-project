@@ -1,12 +1,12 @@
 {
   "runId": "20260804-040148-hard",
   "workflow": "hard",
-  "status": "partial",
+  "status": "completed",
   "confirm": "N",
   "startedAt": "2026-08-04T03:42:00+09:00",
-  "completedAt": null,
+  "completedAt": "2026-08-04T04:06:30+09:00",
   "confirmedAt": null,
-  "summary": "1회차 진행 중: 개발·데이터 도구 6개의 실사용 기능과 세로 환경을 개선하고 Blogger 게시글 6개를 갱신했다. 독립 배포와 공개 화면 검증 전이므로 아직 완료로 세지 않는다.",
+  "summary": "1회차 완료: 개발·데이터 도구 6개에 기능 3건, 개별 개선 6건, 공통 수정 2건을 적용하고 Blogger·GitHub Pages 배포와 공개 데스크톱·세로 화면 검증까지 마쳤다.",
   "selectedTools": ["regex-tester", "hash-generator", "csv-table-converter", "xml-formatter-validator", "json-tools", "url-parser-builder"],
   "workCounts": {
     "improvements": 6,
@@ -30,14 +30,18 @@
     "JSON·XML·URL의 초기화·추가 뒤 자동 포커스 제거",
     "CSV·JSON·XML·URL의 빈 복사·저장 결과 근접 안내"
   ],
-  "knownIssueMatches": ["PORTRAIT_LONG_TEXT_SQUEEZE", "DEFAULT_TEXT_INPUT_UNSTYLED"],
+  "knownIssueMatches": ["PORTRAIT_LONG_TEXT_SQUEEZE", "DEFAULT_TEXT_INPUT_UNSTYLED", "BLOGGER_ADSENSE_METADATA_STALE"],
   "validation": [
     "339개 JSON·최신 릴리스 경로 통과",
     "75개 모듈·48개 레지스트리 통과",
     "대상 HTML 인라인 스크립트 구문 통과",
     "공개 도구 구조 22/22 통과",
     "수익화 로컬 감사 오류 0",
-    "toolbox-automation-workflow Skill 공식 검사 통과"
+    "toolbox-automation-workflow Skill 공식 검사 통과",
+    "Pages 30844033356·카탈로그 30844033446 성공",
+    "공개 기능 3건 실제 동작 확인과 375×812 가로 넘침·자동 포커스 없음",
+    "공개 URL 113/113 응답·콘텐츠 검사 통과",
+    "Blogger AdSense 메타데이터 경고는 남지만 실제 광고 슬롯은 없고 AdSense 제어 화면의 자동 광고는 꺼진 상태"
   ],
   "blogger": {
     "created": [],
@@ -45,8 +49,8 @@
     "skipped": [],
     "status": "completed"
   },
-  "git": {"branch": "main", "commit": null, "pushed": false},
-  "deployment": {"status": "pending", "urls": []},
+  "git": {"branch": "main", "commit": "02bf22f79df8c4eb8ea35da6959621b2bd708467", "pushed": true},
+  "deployment": {"status": "completed", "runId": 30844033356, "catalogRunId": 30844033446, "urls": ["https://leedohon.github.io/toolbox-project/", "https://bloggiedh.blogspot.com/"]},
   "shutdown": {"requested": true, "scheduled": false, "input": "10분", "scheduledFor": null, "cancelled": false, "note": "두 회차 완료 뒤에만 예약"},
   "blocked": [],
   "scopeExceptions": ["저가치 신규 페이지 대신 사용 맥락이 같은 3개 기능을 기존 공개 도구에 통합"],
@@ -68,5 +72,7 @@
     ],
     "note": "실제 비교 가능한 입력·출력 토큰 수가 없어 전체 개발 토큰 감소율은 확정하지 않음"
   },
-  "reportHistory": []
+  "reportHistory": [
+    {"at": "2026-08-04T04:06:30+09:00", "action": "completed", "note": "독립 커밋·푸시·Pages 배포·공개 화면 검증 증거가 모두 갖춰진 뒤 완료 전환"}
+  ]
 }

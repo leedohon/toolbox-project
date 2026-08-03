@@ -1,0 +1,10 @@
+{
+  "tool": "multipurpose-draw-game",
+  "version": "0.1.2v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "처음에는 선택한 게임만 불러와 불필요한 하위 게임 선로딩을 제거했습니다.",
+    "브라우저 저장소가 차단되어도 게임 선택과 전환이 계속 동작합니다."
+  ]
+}

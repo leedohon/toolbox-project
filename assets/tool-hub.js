@@ -12,6 +12,7 @@ const status = root.querySelector('[data-tool-hub-status]');
 const frames = new Map();
 const modulesByTool = new Map();
 const frameObservers = new WeakMap();
+const loadedFrames = new WeakSet();
 const storedModeKey = `${hubTool}-module`;
 const childFlag = 'toolbox-hub-child';
 const modulePattern = /^[a-z0-9-]+$/;
@@ -27,6 +28,30 @@ function setStatus(ko, en, error = false) {
   status.classList.toggle('is-error', error);
   if (error) status.setAttribute('role', 'alert');
   else status.removeAttribute('role');
+}
+
+function readStoredMode() {
+  try {
+    return localStorage.getItem(storedModeKey);
+  } catch (_) {
+    return '';
+  }
+}
+
+function storeMode(id) {
+  try {
+    localStorage.setItem(storedModeKey, id);
+  } catch (_) {
+    // Embedded and privacy-focused browsers can block storage. Mode switching must still work.
+  }
+}
+
+function announceModule(module, loading = false) {
+  stage.setAttribute('aria-busy', loading ? 'true' : 'false');
+  setStatus(
+    loading ? `${module.label.ko} 기능을 불러오는 중입니다.` : `${module.label.ko} 기능을 열었습니다.`,
+    loading ? `Loading ${module.label.en}.` : `${module.label.en} is open.`,
+  );
 }
 
 function assertRegistry(documentData) {
@@ -133,7 +158,7 @@ function selectedModuleId() {
   const passthrough = [...parameters.keys()].some((key) => !['module', childFlag, 'release'].includes(key));
   if (passthrough) return modules.find((module) => module.messageTool === hubTool).id;
 
-  const stored = localStorage.getItem(storedModeKey);
+  const stored = readStoredMode();
   return modules.some((module) => module.id === stored) ? stored : modules[0].id;
 }
 
@@ -227,8 +252,10 @@ function buildFrame(module, initialId) {
   frame.allow = 'clipboard-write';
   frame.hidden = module.id !== initialId;
   frame.addEventListener('load', () => {
+    loadedFrames.add(frame);
     forwardLanguage(frame);
     observeFrameHeight(frame);
+    if (module.id === activeId) announceModule(module, false);
   });
   frames.set(module.id, frame);
   modulesByTool.set(module.messageTool, module);
@@ -251,11 +278,8 @@ function activate(id, persist = true) {
   if (radio) radio.checked = true;
 
   const module = modules.find((item) => item.id === id);
-  setStatus(
-    `${module.label.ko} 기능을 열었습니다.`,
-    `${module.label.en} is open.`,
-  );
-  if (persist) localStorage.setItem(storedModeKey, id);
+  announceModule(module, !loadedFrames.has(frames.get(id)));
+  if (persist) storeMode(id);
 }
 
 addEventListener('message', (event) => {
@@ -276,12 +300,7 @@ addEventListener('toolbox-language-change', () => {
     syncFrameHeight(frame);
   }
   const module = modules.find((item) => item.id === activeId);
-  if (module) {
-    setStatus(
-      `${module.label.ko} 기능을 열었습니다.`,
-      `${module.label.en} is open.`,
-    );
-  }
+  if (module) announceModule(module, !loadedFrames.has(frames.get(activeId)));
 });
 
 setupEmbedHeight(hubTool, { content: true, rootSelector: '.tool-hub' });

@@ -31,6 +31,7 @@
     const storedModeKey = 'multipurpose-draw-game-mode';
     const frames = new Map();
     const modulesByTool = new Map();
+    const loadedFrames = new WeakSet();
     let modules = [];
     let activeId = '';
     const isEnglish = () => window.ToolboxI18n?.language === 'en';
@@ -40,15 +41,33 @@
       parent.postMessage({ source: 'toolbox-embed', tool: 'multipurpose-draw-game', height: Math.ceil(height) }, '*');
     }
 
+    function readStoredMode() {
+      try { return localStorage.getItem(storedModeKey); } catch (_) { return ''; }
+    }
+
+    function storeMode(id) {
+      try { localStorage.setItem(storedModeKey, id); } catch (_) {}
+    }
+
+    function announce(module, loading) {
+      stage.setAttribute('aria-busy', loading ? 'true' : 'false');
+      status.textContent = isEnglish()
+        ? (loading ? `Loading ${module.label.en}.` : `${module.label.en} is ready.`)
+        : (loading ? `${module.label.ko} 게임을 불러오는 중입니다.` : `${module.label.ko} 게임을 시작할 수 있습니다.`);
+    }
+
     function activate(id, persist = true) {
       if (!frames.has(id)) return;
       activeId = id;
-      for (const [moduleId, frame] of frames) frame.hidden = moduleId !== id;
+      for (const [moduleId, frame] of frames) {
+        frame.hidden = moduleId !== id;
+        if (moduleId === id && !frame.hasAttribute('src')) frame.src = frame.dataset.src;
+      }
       const input = modeRoot.querySelector(`input[value="${CSS.escape(id)}"]`);
       if (input) input.checked = true;
       const module = modules.find((item) => item.id === id);
-      status.textContent = module ? (isEnglish() ? module.label.en : module.label.ko) : '';
-      if (persist) localStorage.setItem(storedModeKey, id);
+      if (module) announce(module, !loadedFrames.has(frames.get(id)));
+      if (persist) storeMode(id);
       requestAnimationFrame(notifyHeight);
     }
 
@@ -61,14 +80,18 @@
 
       const frame = document.createElement('iframe');
       frame.className = 'funbox-frame';
-      frame.src = new URL(module.entry, registryUrl).toString();
+      frame.dataset.src = new URL(module.entry, registryUrl).toString();
       frame.title = `${module.label.ko} / ${module.label.en}`;
-      frame.loading = index === 0 ? 'eager' : 'lazy';
+      frame.loading = 'lazy';
       frame.scrolling = 'no';
       frame.referrerPolicy = 'strict-origin-when-cross-origin';
       frame.allow = 'clipboard-write';
       frame.hidden = index !== 0;
-      frame.addEventListener('load', notifyHeight);
+      frame.addEventListener('load', () => {
+        loadedFrames.add(frame);
+        if (module.id === activeId) announce(module, false);
+        notifyHeight();
+      });
       stage.append(frame);
       frames.set(module.id, frame);
       modulesByTool.set(module.messageTool, module);
@@ -91,9 +114,8 @@
       modules = Array.isArray(documentData.modules) ? documentData.modules : [];
       if (modules.length !== 4) throw new Error('사용할 게임 모듈을 확인해 주세요.');
       modules.forEach(buildModule);
-      const preferred = localStorage.getItem(storedModeKey);
+      const preferred = readStoredMode();
       activate(modules.some((item) => item.id === preferred) ? preferred : modules[0].id, false);
-      status.textContent = isEnglish() ? 'Choose a game to begin.' : '원하는 게임을 선택해 바로 시작하세요.';
     } catch (error) {
       status.textContent = error.message;
       status.setAttribute('role', 'alert');
@@ -101,7 +123,8 @@
 
     addEventListener('toolbox-language-change', () => {
       const module = modules.find((item) => item.id === activeId);
-      status.textContent = module ? (isEnglish() ? module.label.en : module.label.ko) : (isEnglish() ? 'Preparing game modules.' : '게임 모듈을 준비하고 있습니다.');
+      if (module) announce(module, !loadedFrames.has(frames.get(activeId)));
+      else status.textContent = isEnglish() ? 'Preparing game modules.' : '게임 모듈을 준비하고 있습니다.';
       for (const frame of frames.values()) { try { frame.contentWindow?.ToolboxI18n?.setLanguage(isEnglish() ? 'en' : 'ko'); } catch (_) {} }
       requestAnimationFrame(notifyHeight);
     });

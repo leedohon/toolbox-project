@@ -1,7 +1,37 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-25",
+  "updatedAt": "2026-08-03",
   "issues": [
+    {
+      "code": "FORM_NAME_METADATA_COLLISION",
+      "status": "guarded",
+      "summary": "name 값으로 입력을 찾을 때 같은 name을 가진 meta 태그까지 포함되어 라디오 선택값을 읽지 못함",
+      "fingerprints": ["getElementsByName", "meta name=robots", "radio value", "generated-tool-runtime"],
+      "rootCause": "HTML의 name 속성은 폼 요소 전용이 아닌데 공통 입력 수집기가 반환 노드를 폼 컨트롤로 제한하지 않음",
+      "fixContract": ["name 조회 결과를 input·select·textarea로 제한", "오류 전환 시 이전 수동 복사 결과도 숨김"],
+      "regressionChecks": ["meta name=robots와 radio name=robots가 함께 있어도 선택값 읽기", "초기 샘플 입력에서 메타 결과 즉시 생성"],
+      "affectedPatterns": ["assets/generated-tool-runtime.js", "embed/**/tool.js", "embed/**/index.html"]
+    },
+    {
+      "code": "HUB_STORAGE_ACCESS_BLOCKED",
+      "status": "guarded",
+      "summary": "브라우저가 localStorage 접근을 차단하면 통합 도구의 초기 선택 또는 모드 전환이 중단됨",
+      "fingerprints": ["tool-hub", "localStorage.getItem", "localStorage.setItem", "privacy mode", "storage blocked"],
+      "rootCause": "선택 기억은 보조 기능인데 저장소 예외를 처리하지 않아 핵심 기능 전환까지 같은 예외로 중단됨",
+      "fixContract": ["저장소 읽기·쓰기를 안전 함수로 감쌈", "저장에 실패해도 현재 세션의 모드 선택과 iframe 실행은 계속됨"],
+      "regressionChecks": ["localStorage getItem 예외 상태에서 첫 모듈이 열림", "setItem 예외 상태에서 다른 모듈로 전환 가능"],
+      "affectedPatterns": ["assets/tool-hub.js", "embed/*/index.html"]
+    },
+    {
+      "code": "HUB_PRELOAD_STATUS_MISMATCH",
+      "status": "guarded",
+      "summary": "통합 도구가 모든 하위 iframe을 미리 불러오거나 아직 로딩 중인 기능을 열린 상태로 안내함",
+      "fingerprints": ["iframe", "data-src", "aria-busy", "loading state", "module hub"],
+      "rootCause": "iframe 생성과 활성화를 분리하지 않았고 load 완료 여부를 상태 안내에 반영하지 않음",
+      "fixContract": ["최초 선택 모듈과 사용자가 연 모듈만 src를 설정", "로드 중 aria-busy와 준비 중 문구 표시", "load 이벤트 뒤 완료 문구로 전환"],
+      "regressionChecks": ["초기 화면에서 선택하지 않은 iframe에 src 없음", "전환 직후 aria-busy=true", "load 완료 뒤 aria-busy=false와 준비 완료 문구"],
+      "affectedPatterns": ["assets/tool-hub.js", "embed/multipurpose-draw-game/index.html"]
+    },
     {
       "code": "DEFAULT_TEXT_INPUT_UNSTYLED",
       "status": "guarded",

@@ -1,0 +1,10 @@
+{
+  "tool": "jwt-decoder",
+  "version": "0.0.3v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "JWT 입력 화면의 한글과 접근성 문구를 정비했습니다.",
+    "exp·nbf 값을 현지 시각과 남은 시간 또는 지난 시간으로 안내합니다."
+  ]
+}

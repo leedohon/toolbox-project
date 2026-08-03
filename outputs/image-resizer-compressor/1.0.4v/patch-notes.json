@@ -1,0 +1,10 @@
+{
+  "tool": "image-resizer-compressor",
+  "version": "1.0.4v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "브라우저 저장소가 차단되어도 기능 선택과 전환이 계속 동작합니다.",
+    "선택한 기능만 불러오고 준비 중·완료 상태를 정확히 안내합니다."
+  ]
+}

@@ -17,7 +17,7 @@
       <label class="mosaic-control" for="mosaic-strength"><span class="mosaic-control-head"><span>모자이크 강도</span><output id="mosaic-strength-value">18px</output></span><input id="mosaic-strength" type="range" min="6" max="50" step="2" value="18"></label>
     </div>
     <div class="mosaic-stage"><div class="mosaic-canvas-wrap"><canvas id="mosaic-canvas" aria-label="브러시로 칠하거나 사각형 범위를 드래그해 모자이크를 적용할 이미지"></canvas><canvas id="mosaic-overlay" aria-hidden="true"></canvas></div></div>
-    <div class="mosaic-actions"><button class="mosaic-secondary" id="mosaic-undo" type="button" disabled>한 단계 되돌리기</button><button class="mosaic-secondary" id="mosaic-reset" type="button">원본으로 초기화</button><button class="mosaic-primary" id="mosaic-download" type="button">PNG 저장</button></div>
+    <div class="mosaic-actions"><button class="mosaic-secondary" id="mosaic-undo" type="button" aria-keyshortcuts="Control+Z Meta+Z" disabled>한 단계 되돌리기</button><button class="mosaic-secondary" id="mosaic-reset" type="button">원본으로 초기화</button><button class="mosaic-primary" id="mosaic-download" type="button">PNG 저장</button></div>
   </section>
 </article><script type="module">
 const fileInput=document.querySelector('#mosaic-file');
@@ -71,6 +71,7 @@ function finishAction(){if(!drawing)return;drawing=false;let applied=false;if(cu
 canvas.addEventListener('pointerup',finishAction);canvas.addEventListener('pointercancel',finishAction);
 document.querySelectorAll('input[name="mosaic-mode"]').forEach(input=>input.addEventListener('change',()=>{brushControl.hidden=selectedMode()==='rectangle';clearOverlay();setStatus(selectedMode()==='rectangle'?'사각형 선택: 시작점에서 끝점까지 드래그하세요.':'브러시: 숨길 부분을 따라 드래그하세요.');sendHeight();}));
 undoButton.addEventListener('click',()=>{if(!history.length)return;history.pop();replay();setStatus(history.length?'한 단계를 되돌렸습니다.':'모든 모자이크를 되돌렸습니다.');});
+document.addEventListener('keydown',event=>{if(!(event.ctrlKey||event.metaKey)||event.altKey||event.shiftKey||event.key.toLowerCase()!=='z'||!history.length)return;event.preventDefault();history.pop();replay();clearOverlay();setStatus(history.length?'한 단계를 되돌렸습니다.':'모든 모자이크를 되돌렸습니다.');});
 document.querySelector('#mosaic-reset').addEventListener('click',()=>{if(!loaded)return;history=[];replay();clearOverlay();setStatus('원본 이미지로 초기화했습니다.');});
 document.querySelector('#mosaic-download').addEventListener('click',()=>{if(!loaded)return;canvas.toBlob(blob=>{if(!blob){setStatus('PNG 파일을 만들지 못했습니다.',true);return;}const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=fileName+'.png';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);setStatus('모자이크 이미지를 PNG로 저장했습니다.');},'image/png');});
 brush.addEventListener('input',updateControls);strength.addEventListener('input',updateControls);updateControls();sendHeight();

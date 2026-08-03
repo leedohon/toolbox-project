@@ -339,7 +339,7 @@ export function mountGeneratedTool({slug,preset,fields}){
     const byId=document.getElementById(key);
     if(byId&&['radio','checkbox'].includes(byId.type)&&byId.name)return[...document.getElementsByName(byId.name)];
     if(byId)return[byId];
-    return[...document.getElementsByName(key)];
+    return[...document.getElementsByName(key)].filter((element)=>/^(INPUT|SELECT|TEXTAREA)$/.test(element.tagName));
   };
   const controllerValue=(key)=>{
     const controls=controllerNodes(key);
@@ -373,7 +373,7 @@ export function mountGeneratedTool({slug,preset,fields}){
   const status=(ko,en,error=false)=>{const el=$('#sg-status');el.textContent=tr(ko,en);el.className=`st-status ${error?'is-error':'is-good'}`;};
   const values=()=>Object.fromEntries(fields.map(id=>[id,controllerValue(id)]));
   const render=()=>{const output=$('#sg-output');output.className='sg-results';output.replaceChildren(...result.map(item=>{const wrap=document.createElement('dl');wrap.className='sg-result-row';const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=tr(item.ko,item.en);dd.textContent=item.value;wrap.append(dt,dd);return wrap;}));};
-  const run=()=>{syncVisibility();try{result=operations[preset](values());render();$('#sg-result').hidden=false;$('#sg-fallback').hidden=true;status('결과를 만들었습니다.','Result created.');}catch(error){result=[];$('#sg-result').hidden=true;status(error.message,error.message,true);}};
+  const run=()=>{syncVisibility();try{result=operations[preset](values());render();$('#sg-result').hidden=false;$('#sg-fallback').hidden=true;status('결과를 만들었습니다.','Result created.');}catch(error){result=[];$('#sg-result').hidden=true;$('#sg-fallback').hidden=true;status(error.message,error.message,true);}};
   $('#sg-run').addEventListener('click',run);fields.forEach(id=>controllerNodes(id).forEach((control)=>control.addEventListener(control.tagName==='SELECT'||['radio','checkbox'].includes(control.type)?'change':'input',run)));
   $('#sg-copy').addEventListener('click',async()=>{if(!result.length)return status('먼저 결과를 만들어 주세요.','Create a result first.',true);const text=result.map(item=>`${tr(item.ko,item.en)}: ${item.value}`).join('\n');if(await copyText(text)){status('결과를 복사했습니다.','Result copied.');$('#sg-fallback').hidden=true;}else{$('#sg-fallback').value=text;$('#sg-fallback').hidden=false;status('직접 복사할 결과를 표시했습니다.','A manual copy field is shown.',true);}});
   $('#sg-reset').addEventListener('click',()=>{fields.forEach(id=>setControllerValue(id,initial[id]));syncVisibility();result=[];$('#sg-result').hidden=true;$('#sg-fallback').hidden=true;status('입력을 초기화했습니다.','Inputs reset.');});

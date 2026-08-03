@@ -4,7 +4,7 @@
   "title": "이미지 크기·압축·DPI 도구",
   "description": "이미지 크기·저장 품질을 바꾸거나 출력 크기에 맞는 DPI·PPI를 계산합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html",
-  "latestVersion": "1.0.3v",
+  "latestVersion": "1.0.4v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -77,6 +77,15 @@
       "directory": "1.0.3v",
       "html": "1.0.3v/image-resizer-compressor.html",
       "patchNotes": "1.0.3v/patch-notes.json"
+    },
+    {
+      "version": "1.0.4v",
+      "releaseDate": "2026-08-04",
+      "changeLevel": "minimum",
+      "summary": "통합 도구 전환 안정성과 로딩 안내를 개선했습니다.",
+      "directory": "1.0.4v",
+      "html": "1.0.4v/image-resizer-compressor.html",
+      "patchNotes": "1.0.4v/patch-notes.json"
     }
   ],
   "status": "published"

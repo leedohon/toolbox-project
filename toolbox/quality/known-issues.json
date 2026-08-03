@@ -3,6 +3,16 @@
   "updatedAt": "2026-08-03",
   "issues": [
     {
+      "code": "BLOGGER_ADSENSE_METADATA_STALE",
+      "status": "guarded",
+      "summary": "Blogger 관리 화면에서 자동 광고가 꺼져 있어도 공개 HTML의 adsenseAutoAds 메타데이터와 0x0 광고 초기화 프레임이 남을 수 있음",
+      "fingerprints": ["adsenseAutoAds", "adsenseHasAds", "adsbygoogle.js", "format=0x0"],
+      "rootCause": "연결된 AdSense 계정 메타데이터와 실제 자동 광고 제공 설정이 서로 다른 계층에서 관리됨",
+      "fixContract": ["Blogger 수익 화면에서 자동 광고 꺼짐을 확인", "공개 DOM에서 가시 광고와 명시적 광고 슬롯이 없는지 확인", "연결 계정 삭제는 별도 사용자 승인 없이는 실행하지 않음"],
+      "regressionChecks": ["명시적 adsbygoogle 슬롯이나 data-ad-slot이 있으면 공개 감사를 실패 처리", "메타데이터 플래그만 남으면 경고로 기록", "관리 화면 꺼짐과 공개 DOM의 가시 광고 0개를 함께 확인"],
+      "affectedPatterns": ["scripts/audit-monetization-readiness.mjs", "toolbox/theme/*.xml", "Blogger earnings settings"]
+    },
+    {
       "code": "FORM_NAME_METADATA_COLLISION",
       "status": "guarded",
       "summary": "name 값으로 입력을 찾을 때 같은 name을 가진 meta 태그까지 포함되어 라디오 선택값을 읽지 못함",

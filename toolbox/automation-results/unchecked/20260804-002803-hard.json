@@ -1,0 +1,79 @@
+{
+  "runId": "20260804-002803-hard",
+  "workflow": "hard",
+  "status": "completed",
+  "confirm": "N",
+  "startedAt": "2026-08-03T23:52:16+09:00",
+  "completedAt": "2026-08-04T00:28:03+09:00",
+  "confirmedAt": null,
+  "summary": "공개 도구 6개를 직접 개선하고 신규 도구 3개를 공개했으며, 공통 결함 3건과 AdSense 저가치 콘텐츠 대응을 반영해 공개 URL 113개 검사를 통과했다.",
+  "normalizedRequest": {
+    "workType": "hard",
+    "targets": [
+      "color-converter-contrast",
+      "jwt-decoder",
+      "multipurpose-draw-game",
+      "image-mosaic-tool",
+      "image-resizer-compressor",
+      "date-calculator"
+    ],
+    "versionLevel": "minimum",
+    "bloggerPublish": true,
+    "gitDeploy": true,
+    "shutdown": false
+  },
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {"status": "completed", "startedAt": "2026-08-03T23:52:16+09:00", "completedAt": "2026-08-03T23:54:00+09:00", "evidence": ["미확인 기록 8개 우선 보고", "공개 개선 대상 6개와 공개 후보 3개 선정"], "blockCode": null},
+      "implement": {"status": "completed", "startedAt": "2026-08-03T23:54:00+09:00", "completedAt": "2026-08-04T00:09:00+09:00", "evidence": ["11개 도구 최소 릴리스", "공통 결함 3건 수정", "신규 공개 도구 3개에 예시와 제한 안내 추가"], "blockCode": null},
+      "validate": {"status": "completed", "startedAt": "2026-08-04T00:09:00+09:00", "completedAt": "2026-08-04T00:18:00+09:00", "evidence": ["JSON 및 릴리스 경로 311개 통과", "모듈 75개와 레지스트리 48개 통과", "모바일·데스크톱 브라우저 검사 및 콘솔 오류 0개", "공개 URL 113개 통과"], "blockCode": null},
+      "publish": {"status": "completed", "startedAt": "2026-08-04T00:09:00+09:00", "completedAt": "2026-08-04T00:19:00+09:00", "evidence": ["Blogger 신규 글 3개 공개", "기존 글 11개 갱신", "전체 54개 공개·초안 0개 확인"], "blockCode": null},
+      "commit": {"status": "completed", "startedAt": "2026-08-04T00:19:00+09:00", "completedAt": "2026-08-04T00:20:00+09:00", "evidence": ["5421fe2fb0db01aa62e1d6a5273cee15d38ce32d"], "blockCode": null},
+      "deploy": {"status": "completed", "startedAt": "2026-08-04T00:20:00+09:00", "completedAt": "2026-08-04T00:22:00+09:00", "evidence": ["Pages run 30827057266 성공", "catalog run 30827055531 성공"], "blockCode": null},
+      "confirm": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": null}
+    }
+  },
+  "selectedTools": ["color-converter-contrast", "jwt-decoder", "multipurpose-draw-game", "image-mosaic-tool", "image-resizer-compressor", "date-calculator"],
+  "changes": [
+    {"tool": "jwt-decoder", "version": "0.0.3v", "result": "만료·활성 시각과 상대 시간을 표시하고 오류 상태를 정리"},
+    {"tool": "image-mosaic-tool", "version": "0.2.6v", "result": "Ctrl/Cmd+Z 되돌리기와 접근성 단축키 추가"},
+    {"tool": "multipurpose-draw-game", "version": "0.1.2v", "result": "선택 모듈만 지연 로드하고 정확한 로딩 상태 제공"},
+    {"tool": "shared-hubs", "version": "0.1.3", "result": "저장소 차단 복구, 지연 로딩, 상태 안내 보강"},
+    {"tool": "generated-runtime", "version": "0.2.1", "result": "메타데이터와 입력 name 충돌 방지 및 오류 상태 정리"}
+  ],
+  "newIdeas": ["text-extractor-tool 공개", "web-meta-preview-builder 공개", "ip-network-calculator 공개"],
+  "commonModules": ["저장소 접근 실패 안전 처리", "선택하지 않은 iframe 지연 로드", "폼 name 조회를 실제 입력 컨트롤로 제한"],
+  "validation": ["활성 도구 22개 콘텐츠 최소 기준 통과", "공개 URL 113개 통과·실패 0개", "공개 DOM의 가시 광고 0개와 명시적 광고 슬롯 0개 확인", "Blogger 수익 화면 자동 광고 꺼짐 확인"],
+  "blogger": {
+    "created": [
+      "https://bloggiedh.blogspot.com/2026/08/blog-post.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post_03.html",
+      "https://bloggiedh.blogspot.com/2026/08/ip.html"
+    ],
+    "updated": ["base64-tools", "color-converter-contrast", "date-calculator", "http-status-lookup", "image-resizer-compressor", "markdown-preview-converter", "password-generator", "text-counter-cleaner", "multipurpose-draw-game", "jwt-decoder", "image-mosaic-tool"],
+    "skipped": ["coordinate-distance-calculator", "loan-savings-calculator"],
+    "status": "completed"
+  },
+  "git": {"branch": "main", "commit": "5421fe2fb0db01aa62e1d6a5273cee15d38ce32d", "pushed": true},
+  "deployment": {"status": "completed", "urls": ["https://leedohon.github.io/toolbox-project/"], "runs": [30827057266, 30827055531]},
+  "adsense": {"reviewStatus": "in_progress", "autoAds": "off", "visibleAds": 0, "explicitAdSlots": 0, "metadataWarnings": 58, "resubmitted": false, "accountDisconnected": false},
+  "shutdown": {"requested": false, "scheduled": false, "input": "예약 종료 안 함", "scheduledFor": null, "cancelled": false},
+  "blocked": [],
+  "knowledgeOptimization": {"policyVersion": "0.4.0", "applied": [], "recorded": [], "skipped": ["현재 변경 경로와 일치하는 미처리 Skill·Markdown 최적화 후보 없음"], "measuredReduction": null},
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {"baseline": null, "current": null, "accountingMethod": null},
+    "instructionReduction": null,
+    "overallReduction": null,
+    "proxies": [
+      {"metric": "manual minimum-release record edits", "before": 11, "after": 1, "reduction": 0.9091},
+      {"metric": "manual public URL checks", "before": 113, "after": 1, "reduction": 0.9912},
+      {"metric": "manual active-content threshold reviews", "before": 22, "after": 1, "reduction": 0.9545},
+      {"metric": "unselected module iframe preloads in tested hubs", "before": 8, "after": 0, "reduction": 1.0}
+    ],
+    "note": "실제 비교 가능한 총 입출력 토큰 수가 없어 전체 개발 토큰 감소율은 확정하지 않았다. 자동 릴리스·공개 검사·콘텐츠 검사·지연 로딩 대체 지표만 기록했다."
+  },
+  "reportHistory": []
+}

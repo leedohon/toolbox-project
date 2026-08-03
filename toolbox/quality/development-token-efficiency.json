@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policyVersion": "0.4.0",
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-08-04",
   "records": [
     {
       "runId": "20260719-030518-hard",
@@ -203,6 +203,46 @@
         }
       ],
       "note": "The environment did not expose comparable total input and output token counts. Only verified batch-publication, generated-catalog, batch-QA-recording, and retry-automation proxies are recorded; no overall development-token reduction is claimed."
+    },
+    {
+      "runId": "20260804-002803-hard",
+      "workflow": "hard",
+      "measurementStatus": "proxy_only",
+      "baselineRunId": null,
+      "tokens": {
+        "baseline": null,
+        "current": null,
+        "accountingMethod": null
+      },
+      "instructionReduction": null,
+      "overallReduction": null,
+      "proxies": [
+        {
+          "metric": "manual minimum-release record edits",
+          "before": 11,
+          "after": 1,
+          "reduction": 0.9091
+        },
+        {
+          "metric": "manual public URL checks",
+          "before": 113,
+          "after": 1,
+          "reduction": 0.9912
+        },
+        {
+          "metric": "manual active-content threshold reviews",
+          "before": 22,
+          "after": 1,
+          "reduction": 0.9545
+        },
+        {
+          "metric": "unselected module iframe preloads in tested hubs",
+          "before": 8,
+          "after": 0,
+          "reduction": 1.0
+        }
+      ],
+      "note": "Comparable total input and output token counts were not exposed. Only verified release automation, public audit, content audit, and lazy-loading proxies are recorded; no overall development-token reduction is claimed."
     }
   ]
 }

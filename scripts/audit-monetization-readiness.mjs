@@ -550,6 +550,7 @@ if (publicMode) {
     failed: 0,
     contentChecked: 0,
     failures: [],
+    warnings: [],
   };
   const requests = new Map();
 
@@ -570,7 +571,8 @@ if (publicMode) {
   const githubRoot = 'https://leedohon.github.io/toolbox-project/';
   addPublicUrl('https://bloggiedh.blogspot.com/', 'blogger-home', 'Blogger home');
   addPublicUrl(githubRoot, 'github-root', 'GitHub Pages root');
-  for (const tool of embedEntries) {
+  const deployedTools = new Set([...activePublished, ...retired].map((item) => item.tool));
+  for (const tool of embedEntries.filter((item) => deployedTools.has(item))) {
     addPublicUrl(new URL(`embed/${encodeURIComponent(tool)}/`, githubRoot).toString(), 'embed', tool);
   }
   for (const item of [...activePublished, ...retired]) addPublicUrl(item.postUrl, 'blogger-post', item.tool);
@@ -639,8 +641,19 @@ if (publicMode) {
         const html = await response.text();
         publicCheck.contentChecked += 1;
         const contentProblems = [];
-        if (/['"]adsenseAutoAds['"]\s*:\s*true/i.test(html)) {
-          contentProblems.push('Blogger automatic ads are still enabled');
+        const bloggerAutoAdsFlag = /['"]adsenseAutoAds['"]\s*:\s*true/i.test(html);
+        const explicitAdSlots = [
+          ...html.matchAll(/<ins\b[^>]*class=(?:['"])[^'"]*\badsbygoogle\b[^'"]*(?:['"])/gi),
+          ...html.matchAll(/\bdata-ad-slot\s*=/gi),
+        ].length;
+        if (bloggerAutoAdsFlag && explicitAdSlots) {
+          contentProblems.push('Blogger automatic ads are enabled with explicit ad slots');
+        } else if (bloggerAutoAdsFlag) {
+          publicCheck.warnings.push({
+            url: request.url,
+            code: 'BLOGGER_ADSENSE_METADATA_STALE',
+            message: 'Blogger source reports adsenseAutoAds=true, but no explicit ad slot is present; verify the authoritative AdSense/Blogger control remains off.',
+          });
         }
         const forbiddenPublicWidgets = [...html.matchAll(/\bid=(?:['"])(AdSense\d+|FeaturedPost\d+|PopularPosts\d+)(?:['"])/gi)]
           .map((match) => match[1]);
@@ -701,6 +714,7 @@ if (publicMode) {
   }
 
   await Promise.all(Array.from({ length: Math.min(10, queue.length) }, () => worker()));
+  publicCheck.warningCount = publicCheck.warnings.length;
   finishCheck('publicHttp', publicCheck);
 } else {
   finishCheck('publicHttp', {

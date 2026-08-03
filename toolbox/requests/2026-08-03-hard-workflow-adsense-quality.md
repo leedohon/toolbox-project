@@ -45,3 +45,12 @@
 - Blogger 반영, Git 커밋·푸시, GitHub Pages 공개 확인까지 완료한다.
 - 결과는 `toolbox/automation-results/unchecked/`에 `confirm: N`으로 저장한다.
 - 실제 토큰 수가 제공되지 않으므로 개발 토큰 감소율은 `proxy_only`로 기록하고 확인 가능한 대체 지표만 남긴다.
+
+## 공개 반영 및 AdSense 확인 결과
+
+- 활성 공개 도구 22개 모두 상세 설명 2문단 이상, FAQ 4개 이상, 실제 사용 예시 2개 이상, 결과 해석·제한 안내 2개 이상을 충족했다.
+- `text-extractor-tool`, `web-meta-preview-builder`, `ip-network-calculator` 3개를 공개했고, 가치와 정확성 검토가 더 필요한 2개는 비공개 상태로 유지했다.
+- Blogger 수익 화면에서 자동 광고가 꺼져 있음을 다시 확인했다. 연결된 AdSense 계정은 삭제하지 않았고 재심사를 별도로 제출하지 않았다.
+- 공개 HTML에는 Blogger의 `adsenseAutoAds: true` 메타데이터와 광고 초기화 스크립트가 남지만, 공개 DOM의 명시적 광고 슬롯과 가시 광고는 0개였다. 감사기는 실제 광고 슬롯이 있으면 실패하고 메타데이터만 남으면 경고하도록 보강했다.
+- 공개 Blogger·GitHub Pages URL 113개를 다시 검사해 113개 통과, 실패 0개를 확인했다.
+- 예약 종료와 시스템 종료는 실행하지 않았다.

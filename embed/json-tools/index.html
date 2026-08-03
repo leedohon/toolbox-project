@@ -178,6 +178,7 @@
       </div>
     </fieldset>
     <p class="tb-status" id="json-status" aria-live="polite">JSON을 입력하면 실시간으로 검사합니다.</p>
+    <p class="tb-excel-meta" id="json-metrics" aria-live="polite">입력 0자 · 결과 0자</p>
     <label class="tb-file-drop" id="json-file-drop" for="json-file">JSON 파일을 선택하거나 이곳에 놓으세요 · 최대 5MB</label>
     <input class="tb-file-input" id="json-file" type="file" accept="application/json,.json">
     <div class="tb-editors">
@@ -227,6 +228,7 @@
       const excelTable = root.querySelector('#json-table');
       const excelEmpty = root.querySelector('#json-table-empty');
       const excelMeta = root.querySelector('#json-excel-meta');
+      const metrics = root.querySelector('#json-metrics');
       let latestResult = '';
       let latestTable = null;
       const mode = function () { return root.querySelector('input[name="json-mode"]:checked').value; };
@@ -308,6 +310,7 @@
       const maxJsonBytes = 5 * 1024 * 1024;
       const update = function () {
         const source = input.value;
+        metrics.textContent = '입력 ' + source.length.toLocaleString() + '자 · 결과 0자';
         if (new TextEncoder().encode(source).byteLength > maxJsonBytes) {
           latestResult = '';
           latestTable = null;
@@ -333,6 +336,7 @@
           latestTable = toTableData(parsed);
           output.textContent = latestResult;
           renderTable(latestTable);
+          metrics.textContent = '입력 ' + source.length.toLocaleString() + '자 · 결과 ' + latestResult.length.toLocaleString() + '자 · 표 ' + latestTable.rows.length.toLocaleString() + '행 × ' + latestTable.headers.length.toLocaleString() + '열';
           setStatus('valid', '유효한 JSON입니다. 결과가 자동으로 갱신되었습니다.');
         } catch (exception) {
           latestResult = '';
@@ -361,7 +365,7 @@
       ['dragleave', 'drop'].forEach(function (name) { fileDrop.addEventListener(name, function (event) { event.preventDefault(); fileDrop.classList.remove('is-over'); }); });
       fileDrop.addEventListener('drop', function (event) { loadFile(event.dataTransfer.files[0]); });
       input.addEventListener('scroll', function () { output.scrollTop = input.scrollTop; output.scrollLeft = input.scrollLeft; });
-      root.querySelector('#json-sample').addEventListener('click', function () { root.querySelector('#json-pretty').checked = true; input.value = JSON.stringify([{ name: 'Toolbox', category: 'Utility', users: 1200, active: true }, { name: 'Converter', category: 'Text', users: 860, active: true }, { name: 'Play Tools', category: 'Game', users: 540, active: false }], null, 2); update(); setStatus('valid', '예제 JSON을 불러왔습니다.'); window.ToolboxUX?.focus(input); });
+      root.querySelector('#json-sample').addEventListener('click', function () { root.querySelector('#json-pretty').checked = true; input.value = JSON.stringify([{ name: 'Toolbox', category: 'Utility', users: 1200, active: true }, { name: 'Converter', category: 'Text', users: 860, active: true }, { name: 'Play Tools', category: 'Game', users: 540, active: false }], null, 2); update(); setStatus('valid', '예제 JSON을 불러왔습니다.'); });
       root.querySelector('#json-copy').addEventListener('click', async function (event) {
         if (!latestResult) { error.textContent = '복사할 유효한 JSON 결과가 없습니다.'; return; }
         try {
@@ -406,7 +410,7 @@
         setTimeout(function () { URL.revokeObjectURL(url); }, 0);
       });
       root.querySelector('#json-clear').addEventListener('click', function () {
-        input.value = ''; latestResult = ''; latestTable = null; output.textContent = '유효한 JSON을 입력하면 결과가 여기에 표시됩니다.'; renderTable(null); error.textContent = ''; setStatus('', '입력과 결과를 비웠습니다.'); window.ToolboxUX?.focus(input);
+        input.value = ''; latestResult = ''; latestTable = null; output.textContent = '유효한 JSON을 입력하면 결과가 여기에 표시됩니다.'; renderTable(null); error.textContent = ''; metrics.textContent = '입력 0자 · 결과 0자'; setStatus('', '입력과 결과를 비웠습니다.');
       });
       update();
     }());

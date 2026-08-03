@@ -1,0 +1,10 @@
+{
+  "tool": "csv-table-converter",
+  "version": "0.1.0v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minor",
+  "changes": [
+    "CSV·TSV를 Markdown 표로 변환",
+    "빈 복사·저장과 큰 파일 오류 상태 개선"
+  ]
+}

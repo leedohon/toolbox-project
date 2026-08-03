@@ -10,23 +10,22 @@ function setStatus(ko, en, error = false) {
   $('#url-status').className = `st-status ${error ? 'is-error' : 'is-good'}`;
 }
 
-function addRow(name = '', value = '', focus = false) {
+function addRow(name = '', value = '') {
   const row = document.createElement('div');
   row.className = 'up-query-row';
-  row.innerHTML = `<span class="up-query-number"></span><input class="up-name" type="text" maxlength="1000"><input class="up-value" type="text" maxlength="10000"><button class="st-secondary up-delete" type="button"></button>`;
+  row.innerHTML = `<span class="up-query-number"></span><label class="up-cell up-name-cell"><span class="up-field-label"></span><input class="up-name" type="text" maxlength="1000"></label><label class="up-cell up-value-cell"><span class="up-field-label"></span><input class="up-value" type="text" maxlength="10000"></label><button class="st-secondary up-delete" type="button"></button>`;
   row.querySelector('.up-name').value = name;
   row.querySelector('.up-value').value = value;
   row.querySelectorAll('input').forEach((input) => {
     input.addEventListener('input', rebuild);
     input.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') { event.preventDefault(); addRow('', '', true); }
+      if (event.key === 'Enter') { event.preventDefault(); addRow(); }
     });
   });
   row.querySelector('.up-delete').addEventListener('click', () => { row.remove(); if (!$('#url-query-list').children.length) addRow(); numberRows(); rebuild(); });
   $('#url-query-list').append(row);
   numberRows();
   translateRows();
-  if (focus) window.ToolboxUX?.focus(row.querySelector('.up-name'));
 }
 
 function numberRows() {
@@ -41,6 +40,8 @@ function translateRows() {
     value.placeholder = tr(`항목 ${index + 1} 값`, `Parameter ${index + 1} value`);
     name.setAttribute('aria-label', name.placeholder);
     value.setAttribute('aria-label', value.placeholder);
+    row.querySelector('.up-name-cell .up-field-label').textContent = tr('이름', 'Name');
+    row.querySelector('.up-value-cell .up-field-label').textContent = tr('값', 'Value');
     row.querySelector('.up-delete').textContent = tr('삭제', 'Delete');
   });
 }
@@ -99,14 +100,14 @@ $('#url-parse').addEventListener('click', parse);
 $('#url-input').addEventListener('input', parse);
 $('#url-path').addEventListener('input', rebuild);
 $('#url-hash').addEventListener('input', rebuild);
-$('#url-add').addEventListener('click', () => { addRow('', '', true); rebuild(); });
+$('#url-add').addEventListener('click', () => { addRow(); rebuild(); });
 $('#url-copy').addEventListener('click', async () => {
   const value = $('#url-output').textContent;
   if (!value) return setStatus('복사할 완성 URL이 없습니다.', 'There is no rebuilt URL to copy.', true);
   if (await copyText(value)) setStatus('완성 URL을 복사했습니다.', 'Rebuilt URL copied.');
   else { $('#url-fallback').value = value; $('#url-fallback').hidden = false; setStatus('자동 복사가 차단되어 직접 복사할 주소를 표시했습니다.', 'Automatic copying was blocked. A manual copy field is shown.', true); }
 });
-$('#url-reset').addEventListener('click', () => { $('#url-input').value = sample; parse(); window.ToolboxUX?.focus($('#url-input')); });
+$('#url-reset').addEventListener('click', () => { $('#url-input').value = sample; parse(); });
 addEventListener('toolbox-language-change', () => { translateRows(); if (parsedUrl) { $('#url-port').value = parsedUrl.port || tr('기본 포트', 'Default port'); rebuild(); } });
 parse();
 setupEmbedHeight('url-parser-builder', {content: true});

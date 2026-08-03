@@ -1,0 +1,10 @@
+{
+  "tool": "hash-generator",
+  "version": "0.1.0v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minor",
+  "changes": [
+    "기대 해시의 형식과 일치 여부 검증",
+    "선택한 입력 원본과 파일 해제 동작 표시"
+  ]
+}

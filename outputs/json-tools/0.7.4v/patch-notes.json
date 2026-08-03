@@ -1,0 +1,10 @@
+{
+  "tool": "json-tools",
+  "version": "0.7.4v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "입력·결과 문자 수와 표 행·열 규모 표시",
+    "예제·초기화 뒤 자동 포커스 제거"
+  ]
+}

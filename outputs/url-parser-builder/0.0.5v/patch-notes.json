@@ -1,0 +1,10 @@
+{
+  "tool": "url-parser-builder",
+  "version": "0.0.5v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "번호·이름·값 라벨을 각 쿼리 행에 고정",
+    "항목 추가·초기화 뒤 자동 포커스 제거"
+  ]
+}

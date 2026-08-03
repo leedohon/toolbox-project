@@ -4,7 +4,7 @@
   "title": "URL 분석·쿼리 편집기",
   "description": "URL의 주소 구성요소와 쿼리 항목을 나누어 확인하고 수정한 주소를 다시 만듭니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/url_01194177481.html",
-  "latestVersion": "0.0.4v",
+  "latestVersion": "0.0.5v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -41,6 +41,15 @@
       "directory": "0.0.4v",
       "html": "0.0.4v/url-parser-builder.html",
       "patchNotes": "0.0.4v/patch-notes.json"
+    },
+    {
+      "version": "0.0.5v",
+      "releaseDate": "2026-08-04",
+      "changeLevel": "minimum",
+      "summary": "세로 화면 쿼리 입력 개선",
+      "directory": "0.0.5v",
+      "html": "0.0.5v/url-parser-builder.html",
+      "patchNotes": "0.0.5v/patch-notes.json"
     }
   ]
 }

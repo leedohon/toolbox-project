@@ -140,6 +140,11 @@ async function validate() {
         if (expectedConfirm === 'Y' && !value.confirmedAt) errors.push(`${name} is checked without confirmedAt.`);
         if (expectedConfirm === 'N' && value.confirmedAt) errors.push(`${name} is unchecked with confirmedAt.`);
         if (requiresDevelopmentEfficiency(value.knowledgeOptimization?.policyVersion) && !value.developmentTokenEfficiency) errors.push(`${name} uses token-tracking policy without developmentTokenEfficiency.`);
+        if (value.workflow === 'hard' && value.status === 'completed') {
+          if (!value.git?.commit) errors.push(`${name}: completed hard workflow requires its own commit.`);
+          if (value.git?.pushed !== true) errors.push(`${name}: completed hard workflow requires a successful push.`);
+          if (value.deployment?.status !== 'completed') errors.push(`${name}: completed hard workflow requires a completed public deployment.`);
+        }
         if (value.developmentTokenEfficiency) {
           const item = value.developmentTokenEfficiency;
           if (!measurementStatuses.has(item.measurementStatus)) errors.push(`${name} has invalid development token measurementStatus.`);

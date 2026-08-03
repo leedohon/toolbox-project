@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.4.0",
-  "updatedAt": "2026-07-24",
+  "policyVersion": "0.5.0",
+  "updatedAt": "2026-08-04",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -154,6 +154,18 @@
       "targetReduction": 0.5,
       "evidence": [
         {"before":5,"after":0,"unit":"manual embed shell rewrites for one five-tool create run after a shared mode-control change","reduction":1.0,"verifiedAt":"2026-07-24"}
+      ]
+    },
+    {
+      "id": "OPT-008",
+      "status": "completed",
+      "triggerPaths": ["C:/Users/leedo/.codex/skills/toolbox-automation-workflow/SKILL.md", "scripts/manage-automation-results.mjs", "toolbox/automation-results/*/*.json"],
+      "problem": "A single implementation, commit, and deployment could be split into several completed hard-workflow records, overstating completed runs and hiding missing evidence.",
+      "proposedChange": "Define one run as one independent evidence unit and reject completed hard records without their own commit, push, and completed deployment while still allowing new-or-merge work to be chosen adaptively.",
+      "measure": "invalid completed workflow records accepted by result validation",
+      "targetReduction": 1.0,
+      "evidence": [
+        {"before":2,"after":0,"unit":"superseded split records still accepted as completed hard workflows","reduction":1.0,"verifiedAt":"2026-08-04"}
       ]
     }
   ]

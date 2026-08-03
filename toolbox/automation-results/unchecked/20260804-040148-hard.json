@@ -1,0 +1,72 @@
+{
+  "runId": "20260804-040148-hard",
+  "workflow": "hard",
+  "status": "partial",
+  "confirm": "N",
+  "startedAt": "2026-08-04T03:42:00+09:00",
+  "completedAt": null,
+  "confirmedAt": null,
+  "summary": "1회차 진행 중: 개발·데이터 도구 6개의 실사용 기능과 세로 환경을 개선하고 Blogger 게시글 6개를 갱신했다. 독립 배포와 공개 화면 검증 전이므로 아직 완료로 세지 않는다.",
+  "selectedTools": ["regex-tester", "hash-generator", "csv-table-converter", "xml-formatter-validator", "json-tools", "url-parser-builder"],
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "정규식 g 플래그의 첫 일치·전체 일치 동작을 정확히 구분",
+    "해시 입력 원본과 파일 해제 상태를 명확히 표시",
+    "CSV 빈 복사·저장과 큰 파일 오류 상태 개선",
+    "XML 요소 수와 결과 문자 수 표시",
+    "JSON 입력·결과 문자 수와 표 행·열 규모 표시",
+    "URL 쿼리 행에 번호·이름·값 라벨을 고정"
+  ],
+  "newIdeas": [
+    "정규식 치환 결과 미리보기와 복사",
+    "기대 해시 형식·일치 여부 검증",
+    "CSV·TSV의 Markdown 표 변환"
+  ],
+  "commonModules": [
+    "JSON·XML·URL의 초기화·추가 뒤 자동 포커스 제거",
+    "CSV·JSON·XML·URL의 빈 복사·저장 결과 근접 안내"
+  ],
+  "knownIssueMatches": ["PORTRAIT_LONG_TEXT_SQUEEZE", "DEFAULT_TEXT_INPUT_UNSTYLED"],
+  "validation": [
+    "339개 JSON·최신 릴리스 경로 통과",
+    "75개 모듈·48개 레지스트리 통과",
+    "대상 HTML 인라인 스크립트 구문 통과",
+    "공개 도구 구조 22/22 통과",
+    "수익화 로컬 감사 오류 0",
+    "toolbox-automation-workflow Skill 공식 검사 통과"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": ["regex-tester", "hash-generator", "csv-table-converter", "xml-formatter-validator", "json-tools", "url-parser-builder"],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {"branch": "main", "commit": null, "pushed": false},
+  "deployment": {"status": "pending", "urls": []},
+  "shutdown": {"requested": true, "scheduled": false, "input": "10분", "scheduledFor": null, "cancelled": false, "note": "두 회차 완료 뒤에만 예약"},
+  "blocked": [],
+  "scopeExceptions": ["저가치 신규 페이지 대신 사용 맥락이 같은 3개 기능을 기존 공개 도구에 통합"],
+  "knowledgeOptimization": {
+    "policyVersion": "0.5.0",
+    "applied": ["OPT-008"],
+    "summary": "한 구현·커밋·배포를 여러 완료 회차로 나누지 못하도록 Skill과 결과 검증기를 강화",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {"baseline": null, "current": null, "accountingMethod": null},
+    "instructionReduction": null,
+    "overallReduction": null,
+    "proxies": [
+      {"metric": "superseded split records accepted as completed hard workflows", "before": 2, "after": 0, "reduction": 1.0},
+      {"metric": "manual Blogger update sessions for six changed posts", "before": 6, "after": 1, "reduction": 0.8333}
+    ],
+    "note": "실제 비교 가능한 입력·출력 토큰 수가 없어 전체 개발 토큰 감소율은 확정하지 않음"
+  },
+  "reportHistory": []
+}

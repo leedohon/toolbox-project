@@ -1,0 +1,10 @@
+{
+  "tool": "regex-tester",
+  "version": "0.1.0v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minor",
+  "changes": [
+    "정규식 치환 결과 미리보기 추가",
+    "g 플래그를 끄면 첫 일치만 찾고 치환하도록 수정"
+  ]
+}

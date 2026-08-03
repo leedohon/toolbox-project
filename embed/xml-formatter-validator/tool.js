@@ -40,7 +40,10 @@ function render() {
   }
   try {
     const mode = $('input[name="xml-mode"]:checked').value;
-    $('#xml-output').value = formatXml(source, mode === 'two' ? '  ' : mode === 'four' ? '    ' : '');
+    const parsed = parseXml(source);
+    const output = formatXml(source, mode === 'two' ? '  ' : mode === 'four' ? '    ' : '');
+    $('#xml-output').value = output;
+    $('#xml-summary').textContent = tr(`${parsed.getElementsByTagName('*').length.toLocaleString()}개 요소 · 결과 ${output.length.toLocaleString()}자`, `${parsed.getElementsByTagName('*').length.toLocaleString()} elements · ${output.length.toLocaleString()} output characters`);
     $('#xml-result').hidden = false;
     $('#xml-fallback').hidden = true;
     setStatus('올바른 XML입니다. 결과를 만들었습니다.', 'Valid XML. The result is ready.');
@@ -79,7 +82,6 @@ $('#xml-reset').addEventListener('click', () => {
   $('#xml-input').value = sample;
   document.querySelector('input[name="xml-mode"][value="two"]').checked = true;
   render();
-  window.ToolboxUX?.focus($('#xml-input'));
 });
 addEventListener('toolbox-language-change', render);
 render();

@@ -1,0 +1,10 @@
+{
+  "tool": "xml-formatter-validator",
+  "version": "0.0.4v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "요소 수와 결과 문자 수 표시",
+    "초기화 뒤 자동 포커스 제거"
+  ]
+}

@@ -1,12 +1,12 @@
 {
   "runId": "20260804-042120-hard",
   "workflow": "hard",
-  "status": "partial",
+  "status": "completed",
   "confirm": "N",
   "startedAt": "2026-08-04T04:07:00+09:00",
-  "completedAt": null,
+  "completedAt": "2026-08-04T04:26:32+09:00",
   "confirmedAt": null,
-  "summary": "2회차 진행 중: 콘텐츠·네트워크 도구 6개의 기능 개선과 Blogger 반영을 마쳤으며 독립 배포와 공개 화면 검증을 진행한다.",
+  "summary": "2회차 완료: 콘텐츠·네트워크 도구 6개에 통합 기능 3건, 개별 개선 6건, 공통 개선 2건을 적용하고 Blogger·GitHub Pages 배포와 공개 데스크톱·세로 화면 검증까지 마쳤다.",
   "selectedTools": [
     "jwt-decoder",
     "ip-network-calculator",
@@ -46,7 +46,11 @@
     "외부 모듈 구문 검사 통과",
     "릴리스·모듈·공개 인덱싱·공개 도구 감사 통과",
     "수익화 로컬 감사 오류 0",
-    "Blogger 공개 게시글 6개 갱신 완료"
+    "Blogger 공개 게시글 6개 갱신 완료",
+    "Pages 30845525821·카탈로그 30845525831 성공",
+    "공개 기능 6건 실제 동작과 375×812 세로 화면 가로 넘침 없음 확인",
+    "텍스트 비교의 두 긴 입력창이 세로 화면에서 같은 폭의 위·아래 한 열로 유지",
+    "배포 뒤 공개 URL 응답·콘텐츠·수익화 구조 전수 감사 통과"
   ],
   "blogger": {
     "created": [],
@@ -63,14 +67,17 @@
   },
   "git": {
     "branch": "main",
-    "commit": null,
-    "pushed": false
+    "commit": "db92e96b2b0fe2569464608a0f1f25d37a585cc7",
+    "pushed": true
   },
   "deployment": {
-    "status": "pending",
-    "runId": null,
-    "catalogRunId": null,
-    "urls": []
+    "status": "completed",
+    "runId": 30845525821,
+    "catalogRunId": 30845525831,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/",
+      "https://bloggiedh.blogspot.com/"
+    ]
   },
   "shutdown": {
     "requested": true,
@@ -119,6 +126,11 @@
       "at": "2026-08-04T04:21:20+09:00",
       "action": "partial",
       "note": "구현·검증·Blogger 반영 완료, 독립 Git 배포와 공개 화면 검증 대기"
+    },
+    {
+      "at": "2026-08-04T04:26:32+09:00",
+      "action": "completed",
+      "note": "독립 커밋·푸시·Pages 배포·공개 기능 및 세로 화면 검증 증거를 모두 갖춰 완료 전환"
     }
   ]
 }

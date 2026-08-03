@@ -48,6 +48,37 @@ function timeSummary(payload) {
   return lines.join(' · ') || tr('표시할 대표 시간 항목이 없습니다.', 'No standard time claims were found.');
 }
 
+function claimValue(value) {
+  if (value === undefined || value === null || value === '') return tr('없음', 'Not present');
+  if (Array.isArray(value)) return value.join(', ');
+  if (typeof value === 'object') return JSON.stringify(value);
+  return String(value);
+}
+
+function renderClaims(header, payload) {
+  const items = [
+    [tr('알고리즘', 'Algorithm'), claimValue(header.alg)],
+    [tr('발급자', 'Issuer'), claimValue(payload.iss)],
+    [tr('주체', 'Subject'), claimValue(payload.sub)],
+    [tr('대상', 'Audience'), claimValue(payload.aud)],
+    [tr('토큰 ID', 'Token ID'), claimValue(payload.jti)]
+  ];
+  $('#jwt-claims').replaceChildren(...items.map(([label, value]) => {
+    const item = document.createElement('div');
+    item.className = 'wf-stat';
+    const strong = document.createElement('strong');
+    const span = document.createElement('span');
+    strong.textContent = value;
+    span.textContent = label;
+    item.append(strong, span);
+    return item;
+  }));
+  const warnings = [tr('표시된 내용만으로 토큰을 신뢰하지 마세요. 서명은 검증하지 않았습니다.', 'Do not trust the token from decoded contents alone; the signature was not verified.')];
+  if (String(header.alg || '').toLowerCase() === 'none') warnings.unshift(tr('alg가 none인 토큰입니다.', 'This token uses alg none.'));
+  if (!Number.isFinite(payload.exp)) warnings.push(tr('만료 시각 exp가 없습니다.', 'No exp expiry claim is present.'));
+  $('#jwt-risk').textContent = warnings.join(' ');
+}
+
 function run() {
   try {
     const token = $('#jwt-input').value.trim();
@@ -60,12 +91,15 @@ function run() {
     payloadText = JSON.stringify(payload, null, 2);
     $('#jwt-header').value = JSON.stringify(header, null, 2);
     $('#jwt-payload').value = payloadText;
+    renderClaims(header, payload);
     $('#jwt-times').textContent = timeSummary(payload);
     $('#jwt-result').hidden = false;
     $('#jwt-fallback').hidden = true;
     status('내용을 열었습니다. 표시된 값과 별개로 서명은 검증하지 않았습니다.', 'Contents decoded. The signature was not verified.');
   } catch (error) {
     payloadText = '';
+    $('#jwt-claims').replaceChildren();
+    $('#jwt-risk').textContent = '';
     $('#jwt-result').hidden = true;
     $('#jwt-fallback').hidden = true;
     status(`JWT를 확인해 주세요: ${error.message}`, `Check the JWT: ${error.message}`, true);
@@ -76,6 +110,8 @@ $('#jwt-run').addEventListener('click', run);
 $('#jwt-input').addEventListener('input', () => {
   $('#jwt-result').hidden = true;
   $('#jwt-fallback').hidden = true;
+  $('#jwt-claims').replaceChildren();
+  $('#jwt-risk').textContent = '';
   payloadText = '';
 });
 $('#jwt-copy').addEventListener('click', async () => {

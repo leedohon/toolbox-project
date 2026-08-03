@@ -28,6 +28,8 @@ inputs:
 - Open Graph 태그 생성
 - Twitter/X 카드 태그 생성
 - canonical·robots 메타 생성
+- 제목·설명 길이의 권장 범위 판정
+- WebPage JSON-LD 구조화 데이터 생성
 
 ## 실행 규칙
 

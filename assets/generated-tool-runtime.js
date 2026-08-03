@@ -122,11 +122,14 @@ const operations={
     }
     if(mode==='phone')matches=(text.match(/\+?\d[\d ().-]{5,}\d/g)||[]).map((value)=>value.trim()).filter((value)=>{const digits=value.replace(/\D/g,'');return digits.length>=7&&digits.length<=15;});
     if(mode==='social')matches=[...text.matchAll(/(?:^|[^\p{L}\p{N}_])([#@][\p{L}\p{N}_]+)/gu)].map((match)=>match[1]);
+    const total=matches.length;
     const cleaned=uniqueSorted(matches);
     if(cleaned.length>2000)throw new Error(tr('추출 결과가 2,000개를 넘습니다. 입력 범위를 줄여 주세요.','More than 2,000 results were found. Narrow the input.'));
     return[
       row('추출 종류','Extraction type',tr(labels[mode][0],labels[mode][1])),
+      row('전체 일치 수','Total match count',total),
       row('고유 항목 수','Unique item count',cleaned.length),
+      row('제거된 중복 수','Duplicates removed',Math.max(0,total-cleaned.length)),
       row('중복 제거·정렬 결과','Deduplicated and sorted results',cleaned.length?cleaned.join('\n'):tr('일치하는 항목 없음','No matching items'))
     ];
   },
@@ -154,15 +157,25 @@ const operations={
       `<meta name="twitter:description" content="${htmlEscape(description)}">`,
       ...(image?[`<meta name="twitter:image" content="${htmlEscape(image)}">`]:[])
     ];
-    const lengthCheck=tr(
-      `제목 ${[...title].length}자 · 설명 ${[...description].length}자`,
-      `Title ${[...title].length} chars · description ${[...description].length} chars`
-    );
+    const titleLength=[...title].length,descriptionLength=[...description].length;
+    const titleGuide=titleLength>=30&&titleLength<=60?tr('권장 범위','recommended range'):titleLength<30?tr('조금 짧음','a little short'):tr('길어 잘릴 수 있음','may be truncated');
+    const descriptionGuide=descriptionLength>=80&&descriptionLength<=160?tr('권장 범위','recommended range'):descriptionLength<80?tr('조금 짧음','a little short'):tr('길어 잘릴 수 있음','may be truncated');
+    const lengthCheck=tr(`제목 ${titleLength}자 (${titleGuide}) · 설명 ${descriptionLength}자 (${descriptionGuide})`,`Title ${titleLength} chars (${titleGuide}) · description ${descriptionLength} chars (${descriptionGuide})`);
+    const structuredData={
+      '@context':'https://schema.org',
+      '@type':'WebPage',
+      name:title,
+      description,
+      url,
+      ...(image?{primaryImageOfPage:{'@type':'ImageObject',url:image}}:{})
+    };
+    const jsonLd=`<script type="application/ld+json">\n${JSON.stringify(structuredData,null,2).replaceAll('<','\\u003c')}\n<\/script>`;
     return[
       row('검색 결과 미리보기','Search result preview',`${title}\n${url}\n${description}`),
       row('길이 확인','Length check',lengthCheck),
       row('기본 메타 태그','Base meta tags',base.join('\n')),
       row('Open Graph·Twitter 태그','Open Graph and Twitter tags',social.join('\n')),
+      row('WebPage JSON-LD','WebPage JSON-LD',jsonLd),
       row('전체 HTML 조각','Full HTML snippet',[...base,...social].join('\n'))
     ];
   },
@@ -228,7 +241,7 @@ const operations={
   },
   'ip-network-calculator':(v)=>{
     const mode=String(v.mode??'').trim();
-    if(!['cidr','mask','range','mac'].includes(mode))throw new Error(tr('네트워크 계산 종류를 선택해 주세요.','Choose a network calculation type.'));
+    if(!['cidr','mask','range','mac','convert'].includes(mode))throw new Error(tr('네트워크 계산 종류를 선택해 주세요.','Choose a network calculation type.'));
     if(mode==='cidr'){
       const input=requiredText(v.ipCidr,'CIDR 주소','CIDR address',50);
       const match=/^([^/]+)\/(\d{1,2})$/.exec(input);
@@ -267,6 +280,20 @@ const operations={
         row('주소 수','Address count',formatted(end-start+1,0)),
         row('최소 CIDR 블록','Minimal CIDR blocks',blocks.join('\n')),
         row('CIDR 블록 수','CIDR block count',blocks.length)
+      ];
+    }
+    if(mode==='convert'){
+      const raw=requiredText(v.ipValue,'IPv4 또는 정수 값','IPv4 or integer value',50);
+      let address;
+      if(raw.includes('.'))address=ipv4Number(raw);
+      else if(/^0x[0-9a-f]{1,8}$/i.test(raw))address=Number.parseInt(raw.slice(2),16);
+      else address=strictNumber(raw,'IPv4 정수','IPv4 integer',{min:0,max:2**32-1,whole:true});
+      const binary=address.toString(2).padStart(32,'0');
+      return[
+        row('점 표기 IPv4','Dotted IPv4',ipv4Text(address)),
+        row('부호 없는 정수','Unsigned integer',String(address)),
+        row('16진수','Hexadecimal',`0x${address.toString(16).toUpperCase().padStart(8,'0')}`),
+        row('2진수','Binary',binary.match(/.{8}/g).join(' '))
       ];
     }
     const raw=requiredText(v.mac,'MAC 주소','MAC address',40);

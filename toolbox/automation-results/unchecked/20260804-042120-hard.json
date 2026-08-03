@@ -1,0 +1,124 @@
+{
+  "runId": "20260804-042120-hard",
+  "workflow": "hard",
+  "status": "partial",
+  "confirm": "N",
+  "startedAt": "2026-08-04T04:07:00+09:00",
+  "completedAt": null,
+  "confirmedAt": null,
+  "summary": "2회차 진행 중: 콘텐츠·네트워크 도구 6개의 기능 개선과 Blogger 반영을 마쳤으며 독립 배포와 공개 화면 검증을 진행한다.",
+  "selectedTools": [
+    "jwt-decoder",
+    "ip-network-calculator",
+    "web-meta-preview-builder",
+    "text-extractor-tool",
+    "text-diff-checker",
+    "image-mosaic-tool"
+  ],
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "JWT의 대표 클레임과 위험 신호를 한눈에 확인하도록 결과 요약을 추가",
+    "IP 도구의 다섯 작업 모드를 좁은 화면에 맞는 선택 상자로 정리",
+    "웹 메타 제목·설명 길이의 권장 범위를 결과 가까이 안내",
+    "텍스트 추출 결과에 전체·고유·중복 제거 개수를 표시",
+    "텍스트 비교에서 빈 결과 복사를 막고 중복 스타일 로드를 제거",
+    "이미지 모자이크의 편집 단계와 실행 가능 버튼 상태를 명확히 표시"
+  ],
+  "newIdeas": [
+    "IPv4 점 표기·정수·16진수·2진수 상호 변환",
+    "웹 페이지 메타 입력으로 WebPage JSON-LD 생성",
+    "텍스트 비교에서 변경된 줄만 복사"
+  ],
+  "commonModules": [
+    "여러 도구의 빈 결과 동작을 조용히 무시하지 않고 가까운 상태 문구로 안내",
+    "여러 결과 화면에 사용자가 판단할 수 있는 개수와 범위 정보를 함께 표시"
+  ],
+  "knownIssueMatches": [
+    "PORTRAIT_LONG_TEXT_SQUEEZE",
+    "DEFAULT_TEXT_INPUT_UNSTYLED",
+    "BLOGGER_ADSENSE_METADATA_STALE"
+  ],
+  "validation": [
+    "외부 모듈 구문 검사 통과",
+    "릴리스·모듈·공개 인덱싱·공개 도구 감사 통과",
+    "수익화 로컬 감사 오류 0",
+    "Blogger 공개 게시글 6개 갱신 완료"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "jwt-decoder",
+      "ip-network-calculator",
+      "web-meta-preview-builder",
+      "text-extractor-tool",
+      "text-diff-checker",
+      "image-mosaic-tool"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": null,
+    "pushed": false
+  },
+  "deployment": {
+    "status": "pending",
+    "runId": null,
+    "catalogRunId": null,
+    "urls": []
+  },
+  "shutdown": {
+    "requested": true,
+    "scheduled": false,
+    "input": "10분",
+    "scheduledFor": null,
+    "cancelled": false,
+    "note": "두 번째 독립 실행 완료 뒤에만 예약"
+  },
+  "blocked": [],
+  "scopeExceptions": [],
+  "knowledgeOptimization": {
+    "policyVersion": "0.6.0",
+    "applied": ["OPT-009"],
+    "summary": "하드 워크플로의 결과 증거 경계는 강화하되 기능 선택은 상황에 맞게 통합·조정할 수 있도록 Markdown 계획을 개선",
+    "skillValidation": "not_applicable"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": null,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "manual evidence-category count interpretations",
+        "before": 3,
+        "after": 0,
+        "reduction": 1.0
+      },
+      {
+        "metric": "manual Blogger update sessions for six changed posts",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      }
+    ],
+    "note": "비교 가능한 실제 입력·출력 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않는다. 확인 가능한 절차 대체지표만 기록한다."
+  },
+  "reportHistory": [
+    {
+      "at": "2026-08-04T04:21:20+09:00",
+      "action": "partial",
+      "note": "구현·검증·Blogger 반영 완료, 독립 Git 배포와 공개 화면 검증 대기"
+    }
+  ]
+}

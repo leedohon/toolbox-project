@@ -1,0 +1,10 @@
+{
+  "tool": "ip-network-calculator",
+  "version": "0.1.0v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minor",
+  "changes": [
+    "IPv4 점 표기·정수·16진수·2진수 상호 변환",
+    "5개 작업 유형을 셀렉트로 전환"
+  ]
+}

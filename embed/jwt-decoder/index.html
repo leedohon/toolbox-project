@@ -30,6 +30,8 @@
     <textarea class="st-copy-fallback" id="jwt-fallback" readonly hidden aria-label="직접 복사할 페이로드"></textarea>
     <section class="st-result" id="jwt-result" hidden>
       <h2 data-ko="디코딩 결과" data-en="Decoded contents">디코딩 결과</h2>
+      <div class="wf-stats" id="jwt-claims"></div>
+      <p class="st-result-detail" id="jwt-risk"></p>
       <div class="wf-grid">
         <div class="st-field"><label class="st-label" for="jwt-header">Header</label><textarea id="jwt-header" class="wf-output-text" readonly></textarea></div>
         <div class="st-field"><label class="st-label" for="jwt-payload">Payload</label><textarea id="jwt-payload" class="wf-output-text" readonly></textarea></div>
@@ -37,6 +39,6 @@
       <p class="st-result-detail" id="jwt-times"></p>
     </section>
   </article>
-  <script type="module" src="./tool.js?v=0.0.2"></script>
+  <script type="module" src="./tool.js?v=0.0.3"></script>
 </body>
 </html>

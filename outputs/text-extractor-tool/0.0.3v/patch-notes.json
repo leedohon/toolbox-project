@@ -1,0 +1,9 @@
+{
+  "tool": "text-extractor-tool",
+  "version": "0.0.3v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "전체 일치·고유 항목·제거된 중복 수 표시"
+  ]
+}

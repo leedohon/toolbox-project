@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.5.0",
+  "policyVersion": "0.6.0",
   "updatedAt": "2026-08-04",
   "scope": [
     "repository markdown instructions",
@@ -166,6 +166,18 @@
       "targetReduction": 1.0,
       "evidence": [
         {"before":2,"after":0,"unit":"superseded split records still accepted as completed hard workflows","reduction":1.0,"verifiedAt":"2026-08-04"}
+      ]
+    },
+    {
+      "id": "OPT-009",
+      "status": "completed",
+      "triggerPaths": ["AUTOMATED-WORKFLOW.md", "toolbox/automation/workflows/hard.json", "scripts/manage-automation-results.mjs"],
+      "problem": "The hard plan listed numeric quotas but did not define adaptable evidence boundaries, so idea-only items or one-target fixes could be counted while useful integrated capabilities were discouraged.",
+      "proposedChange": "Add a machine-readable evidence contract and validate count evidence without prescribing which features must be chosen.",
+      "measure": "manual interpretations needed to decide whether three hard page-work categories count",
+      "targetReduction": 0.6667,
+      "evidence": [
+        {"before":3,"after":0,"unit":"manual category-count interpretations per hard run","reduction":1.0,"verifiedAt":"2026-08-04"}
       ]
     }
   ]

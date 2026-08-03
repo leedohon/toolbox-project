@@ -1,0 +1,10 @@
+{
+  "tool": "jwt-decoder",
+  "version": "0.0.5v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "알고리즘·발급자·주체·대상·토큰 ID 요약",
+    "alg none·exp 누락과 서명 미검증 안내"
+  ]
+}

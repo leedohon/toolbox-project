@@ -1,0 +1,10 @@
+{
+  "tool": "text-diff-checker",
+  "version": "0.1.0v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minor",
+  "changes": [
+    "추가·삭제된 줄만 별도 복사",
+    "빈 변경 결과 복사 보호와 중복 CSS 제거"
+  ]
+}

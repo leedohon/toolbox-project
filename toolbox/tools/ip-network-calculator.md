@@ -7,7 +7,7 @@ status: published
 inputs:
   - id: mode
     label: 작업 유형
-    type: radio
+    type: select
   - id: ipCidr
     label: IPv4/CIDR
     type: text
@@ -31,6 +31,7 @@ inputs:
 - 프리픽스·마스크·와일드카드 변환
 - IP 범위 최소 CIDR 변환
 - MAC 주소 검사·표준화
+- IPv4와 부호 없는 정수·16진수·2진수 표현 변환
 
 ## 실행 규칙
 

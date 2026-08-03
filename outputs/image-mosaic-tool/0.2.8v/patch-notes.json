@@ -1,0 +1,10 @@
+{
+  "tool": "image-mosaic-tool",
+  "version": "0.2.8v",
+  "releaseDate": "2026-08-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "현재 편집 단계 수 표시",
+    "이미지 로드 전 초기화·저장 버튼 비활성화"
+  ]
+}

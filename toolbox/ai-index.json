@@ -136,7 +136,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.2.7v",
+      "latestVersion": "0.2.8v",
       "paths": {
         "definition": "toolbox/tools/image-mosaic-tool.md",
         "post": "toolbox/posts/image-mosaic-tool.html",
@@ -280,7 +280,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.5v",
+      "latestVersion": "0.1.0v",
       "paths": {
         "definition": "toolbox/tools/text-diff-checker.md",
         "post": "toolbox/posts/text-diff-checker.html",
@@ -488,7 +488,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.4v",
+      "latestVersion": "0.0.5v",
       "paths": {
         "definition": "toolbox/tools/jwt-decoder.md",
         "post": "toolbox/posts/jwt-decoder.html",
@@ -840,7 +840,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.0.3v",
       "paths": {
         "definition": "toolbox/tools/text-extractor-tool.md",
         "post": "toolbox/posts/text-extractor-tool.html",
@@ -856,7 +856,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.1.0v",
       "paths": {
         "definition": "toolbox/tools/web-meta-preview-builder.md",
         "post": "toolbox/posts/web-meta-preview-builder.html",
@@ -888,7 +888,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.0.2v",
+      "latestVersion": "0.1.0v",
       "paths": {
         "definition": "toolbox/tools/ip-network-calculator.md",
         "post": "toolbox/posts/ip-network-calculator.html",

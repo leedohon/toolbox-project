@@ -7,6 +7,7 @@ const resultsRoot = path.join(repositoryRoot, 'toolbox', 'automation-results');
 const checkedRoot = path.join(resultsRoot, 'checked');
 const uncheckedRoot = path.join(resultsRoot, 'unchecked');
 const efficiencyLog = path.join(repositoryRoot, 'toolbox', 'quality', 'development-token-efficiency.json');
+const hardPlanPath = path.join(repositoryRoot, 'toolbox', 'automation', 'workflows', 'hard.json');
 const measurementStatuses = new Set(['measured', 'proxy_only', 'unavailable']);
 
 function requiresDevelopmentEfficiency(policyVersion) {
@@ -14,6 +15,13 @@ function requiresDevelopmentEfficiency(policyVersion) {
   if (!match) return false;
   const [, major, minor] = match.map(Number);
   return major > 0 || minor >= 3;
+}
+
+function requiresAdaptiveHardEvidence(policyVersion) {
+  const match = /^(\d+)\.(\d+)\.(\d+)$/.exec(String(policyVersion || ''));
+  if (!match) return false;
+  const [, major, minor] = match.map(Number);
+  return major > 0 || minor >= 6;
 }
 
 async function ensureFolders() {
@@ -106,6 +114,7 @@ async function confirm(runId) {
 
 async function validate() {
   const errors = [];
+  const hardPlan = await readJson(hardPlanPath);
   let efficiency;
   try {
     efficiency = await readJson(efficiencyLog);
@@ -144,6 +153,15 @@ async function validate() {
           if (!value.git?.commit) errors.push(`${name}: completed hard workflow requires its own commit.`);
           if (value.git?.pushed !== true) errors.push(`${name}: completed hard workflow requires a successful push.`);
           if (value.deployment?.status !== 'completed') errors.push(`${name}: completed hard workflow requires a completed public deployment.`);
+          if (requiresAdaptiveHardEvidence(value.knowledgeOptimization?.policyVersion)) {
+            for (const key of ['improvements', 'newOrMerge', 'commonFixes']) {
+              if (!(value.workCounts?.[key] >= hardPlan.pageWork[key])) errors.push(`${name}: completed hard workflow needs ${key} evidence count of at least ${hardPlan.pageWork[key]}.`);
+            }
+            if ((value.selectedTools?.length ?? 0) < hardPlan.pageWork.improvements) errors.push(`${name}: improvement evidence must cover at least ${hardPlan.pageWork.improvements} selected tools.`);
+            if ((value.changes?.length ?? 0) < hardPlan.pageWork.improvements) errors.push(`${name}: improvement evidence list is shorter than the hard plan.`);
+            if ((value.newIdeas?.length ?? 0) < hardPlan.pageWork.newOrMerge) errors.push(`${name}: implemented new-or-merge evidence list is shorter than the hard plan.`);
+            if ((value.commonModules?.length ?? 0) < hardPlan.pageWork.commonFixes) errors.push(`${name}: common-fix evidence list is shorter than the hard plan.`);
+          }
         }
         if (value.developmentTokenEfficiency) {
           const item = value.developmentTokenEfficiency;

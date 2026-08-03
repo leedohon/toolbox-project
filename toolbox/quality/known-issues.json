@@ -77,9 +77,9 @@
       "status": "guarded",
       "summary": "광고가 활성 게시글 밖의 홈·검색·라벨·보관함·전환 안내·신뢰 페이지에서도 실행될 수 있음",
       "fingerprints": ["AdSense", "auto ads", "showInlineAds", "data:adCode", "publisher content missing"],
-      "rootCause": "사이트 승인 전 광고 범위를 콘텐츠 품질과 페이지 유형에 따라 제한하는 단일 검사가 없었음",
-      "fixContract": ["승인 준비 중에는 테마 광고 위젯과 인라인 광고 렌더링 제거", "전환 안내 글에 toolbox-retired 라벨과 noindex 적용", "광고 재활성화 시 활성 게시글 화면만 명시적으로 허용"],
-      "regressionChecks": ["테마에 AdSense 위젯·data:adCode·includeAd 없음", "홈·검색·라벨·보관함·신뢰 페이지에서 광고 요청 없음", "전환 안내 글의 noindex,follow 확인"],
+      "rootCause": "사이트 승인 전 광고 범위를 콘텐츠 품질과 페이지 유형에 따라 제한하는 단일 검사가 없었고, Blogger가 테마 업로드 뒤에도 기존 레이아웃 위젯 상태를 보존할 수 있었음",
+      "fixContract": ["승인 준비 중에는 AdSense 자동 광고를 끄고 테마 광고 위젯과 인라인 광고 렌더링 제거", "Blogger 레이아웃에 남은 AdSense·추천 글·인기 글 위젯 직접 제거", "전환 안내 글에 toolbox-retired 라벨과 noindex 적용", "광고 재활성화 시 활성 게시글 화면만 명시적으로 허용"],
+      "regressionChecks": ["테마에 AdSense 위젯·data:adCode·includeAd 없음", "공개 Blogger 소스에서 adsenseAutoAds가 true가 아니며 AdSense·FeaturedPost·PopularPosts 위젯 ID 없음", "홈·검색·라벨·보관함·신뢰 페이지에서 가시 광고 없음", "전환 안내 글의 noindex,follow 확인"],
       "affectedPatterns": ["toolbox/theme/*.xml", "assets/blogger/site.js", "scripts/blogger-*.mjs", "outputs/*/versions.json"]
     },
     {

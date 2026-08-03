@@ -38,13 +38,29 @@ const expiresAt = Number(token.created_at || 0) + Number(token.expires_in || 0) 
 if (!token.access_token || Date.now() >= expiresAt - 60_000) await refreshAccessToken();
 
 async function request(endpoint, options = {}) {
-  const response = await fetch(endpoint, {
-    ...options,
-    headers: { authorization: `Bearer ${token.access_token}`, 'content-type': 'application/json', ...options.headers },
-  });
-  const document = await response.json();
-  if (!response.ok) throw new Error(document.error?.message || `Blogger request failed: ${response.status}`);
-  return document;
+  const maximumAttempts = 3;
+  for (let attempt = 1; attempt <= maximumAttempts; attempt += 1) {
+    try {
+      const response = await fetch(endpoint, {
+        ...options,
+        headers: { authorization: `Bearer ${token.access_token}`, 'content-type': 'application/json', ...options.headers },
+      });
+      const document = await response.json();
+      if (!response.ok) {
+        const retryable = response.status === 429 || response.status >= 500;
+        if (retryable && attempt < maximumAttempts) {
+          await new Promise((resolve) => setTimeout(resolve, attempt * 1000));
+          continue;
+        }
+        throw new Error(document.error?.message || `Blogger request failed: ${response.status}`);
+      }
+      return document;
+    } catch (error) {
+      if (attempt === maximumAttempts) throw error;
+      await new Promise((resolve) => setTimeout(resolve, attempt * 1000));
+    }
+  }
+  throw new Error('Blogger request failed after retries.');
 }
 
 async function loadPublishedPosts() {

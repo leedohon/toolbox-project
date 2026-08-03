@@ -548,6 +548,7 @@ if (publicMode) {
     requested: 0,
     passed: 0,
     failed: 0,
+    contentChecked: 0,
     failures: [],
   };
   const requests = new Map();
@@ -567,6 +568,7 @@ if (publicMode) {
   }
 
   const githubRoot = 'https://leedohon.github.io/toolbox-project/';
+  addPublicUrl('https://bloggiedh.blogspot.com/', 'blogger-home', 'Blogger home');
   addPublicUrl(githubRoot, 'github-root', 'GitHub Pages root');
   for (const tool of embedEntries) {
     addPublicUrl(new URL(`embed/${encodeURIComponent(tool)}/`, githubRoot).toString(), 'embed', tool);
@@ -589,21 +591,36 @@ if (publicMode) {
   publicCheck.requested = queue.length;
   let nextIndex = 0;
 
+  async function fetchPublicPage(url) {
+    let lastError;
+    for (let attempt = 1; attempt <= 2; attempt += 1) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 20_000);
+      try {
+        return await fetch(url, {
+          method: 'GET',
+          redirect: 'follow',
+          signal: controller.signal,
+          headers: {
+            accept: 'text/html,application/json;q=0.8,*/*;q=0.5',
+            'user-agent': 'Toolbox-Monetization-Readiness-Audit/1.0',
+          },
+        });
+      } catch (error) {
+        lastError = error;
+        if (attempt < 2) await new Promise((resolve) => setTimeout(resolve, 750));
+      } finally {
+        clearTimeout(timeout);
+      }
+    }
+    throw lastError;
+  }
+
   async function inspectPublicUrl(request) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15_000);
     try {
-      const response = await fetch(request.url, {
-        method: 'GET',
-        redirect: 'follow',
-        signal: controller.signal,
-        headers: {
-          accept: 'text/html,application/json;q=0.8,*/*;q=0.5',
-          'user-agent': 'Toolbox-Monetization-Readiness-Audit/1.0',
-        },
-      });
-      await response.body?.cancel();
+      const response = await fetchPublicPage(request.url);
       if (!response.ok) {
+        await response.body?.cancel();
         const message = `HTTP ${response.status} ${response.statusText || ''}`.trim();
         fail('publicHttp', request.url, message, {
           category: 'http',
@@ -614,12 +631,56 @@ if (publicMode) {
         publicCheck.failed += 1;
         return;
       }
-      publicCheck.passed += 1;
+
+      const inspectContent = ['blogger-home', 'blogger-post', 'legal-page']
+        .some((kind) => request.kinds.has(kind));
+      let contentFailure = false;
+      if (inspectContent) {
+        const html = await response.text();
+        publicCheck.contentChecked += 1;
+        const contentProblems = [];
+        if (/['"]adsenseAutoAds['"]\s*:\s*true/i.test(html)) {
+          contentProblems.push('Blogger automatic ads are still enabled');
+        }
+        const forbiddenPublicWidgets = [...html.matchAll(/\bid=(?:['"])(AdSense\d+|FeaturedPost\d+|PopularPosts\d+)(?:['"])/gi)]
+          .map((match) => match[1]);
+        if (forbiddenPublicWidgets.length) {
+          contentProblems.push(`Forbidden Blogger widgets remain: ${[...new Set(forbiddenPublicWidgets)].join(', ')}`);
+        }
+
+        const retiredSubjects = [...request.subjects]
+          .filter((subject) => manifests.get(subject)?.status === 'retired');
+        if (retiredSubjects.length) {
+          if (!/class=(?:['"])[^'"]*\btb-retired-post\b[^'"]*(?:['"])/i.test(html)) {
+            contentProblems.push('Retired compatibility marker is missing');
+          }
+          if (!/<meta\b[^>]*name=(?:['"])robots(?:['"])[^>]*content=(?:['"])noindex\s*,\s*follow(?:['"])/i.test(html)
+            && !/<meta\b[^>]*content=(?:['"])noindex\s*,\s*follow(?:['"])[^>]*name=(?:['"])robots(?:['"])/i.test(html)) {
+            contentProblems.push('Retired post noindex,follow policy is missing');
+          }
+        }
+
+        if (contentProblems.length) {
+          contentFailure = true;
+          const message = contentProblems.join('; ');
+          fail('publicHttp', request.url, message, {
+            category: 'content',
+            kinds: [...request.kinds].sort(),
+            subjects: [...request.subjects].sort(),
+          });
+          publicCheck.failures.push({ url: request.url, category: 'content', message });
+        }
+      } else {
+        await response.body?.cancel();
+      }
+
+      if (contentFailure) publicCheck.failed += 1;
+      else publicCheck.passed += 1;
     } catch (error) {
       const cause = error?.cause?.code || error?.cause?.message || error?.message || String(error);
       const category = error?.name === 'AbortError' ? 'timeout' : 'network';
       const message = category === 'timeout'
-        ? 'Network timeout after 15000ms'
+        ? 'Network timeout after two 20000ms attempts'
         : `Network error: ${cause}`;
       fail('publicHttp', request.url, message, {
         category,
@@ -628,8 +689,6 @@ if (publicMode) {
       });
       publicCheck.failures.push({ url: request.url, category, message });
       publicCheck.failed += 1;
-    } finally {
-      clearTimeout(timeout);
     }
   }
 

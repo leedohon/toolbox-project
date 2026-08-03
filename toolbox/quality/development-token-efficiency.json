@@ -188,9 +188,21 @@
           "before": 56,
           "after": 1,
           "reduction": 0.9821
+        },
+        {
+          "metric": "manual latest-release QA record edits",
+          "before": 19,
+          "after": 1,
+          "reduction": 0.9474
+        },
+        {
+          "metric": "manual Blogger post retry decisions after transient network failure",
+          "before": 12,
+          "after": 0,
+          "reduction": 1.0
         }
       ],
-      "note": "The environment did not expose comparable total input and output token counts. Only verified batch-publication and generated-catalog proxies are recorded; no overall development-token reduction is claimed."
+      "note": "The environment did not expose comparable total input and output token counts. Only verified batch-publication, generated-catalog, batch-QA-recording, and retry-automation proxies are recorded; no overall development-token reduction is claimed."
     }
   ]
 }

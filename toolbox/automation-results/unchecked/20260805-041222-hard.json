@@ -1,12 +1,12 @@
 {
   "runId": "20260805-041222-hard",
   "workflow": "hard",
-  "status": "partial",
+  "status": "completed",
   "confirm": "N",
   "startedAt": "2026-08-05T03:58:00+09:00",
-  "completedAt": null,
+  "completedAt": "2026-08-05T04:19:25+09:00",
   "confirmedAt": null,
-  "summary": "6개 도구의 실사용 기능과 모바일 UX를 개선하고 기존 Blogger 글 6개를 갱신했다. Git 배포와 공개 화면 재검증을 진행 중이다.",
+  "summary": "하드 워크플로 1회 완료: 6개 공개 도구에 실사용 개선 6건, 통합 기능 3건, 공통 UX 수정 2건을 적용하고 Blogger·GitHub Pages 배포와 공개 데스크톱·모바일 재검증까지 마쳤다.",
   "selectedTools": [
     "base64-tools",
     "date-calculator",
@@ -46,11 +46,14 @@
     "6개 기능 실동작 검증 통과",
     "375×812 세로 화면에서 6개 도구 가로 넘침 없음",
     "초기 로드와 초기화 뒤 입력창 자동 포커스 없음",
-    "Blogger 기존 공개 글 6개 갱신 완료"
+    "Blogger 기존 공개 글 6개 갱신 완료",
+    "GitHub Pages 30942321961·도구 카탈로그 30942321649 성공",
+    "공개 도구 22개 응답 검사 통과 및 공개 URL 113개 수익화 구조 감사 오류 0",
+    "공개 기능 허브와 Blogger 글 6개를 데스크톱·375×812에서 재검증, 가로 넘침·콘솔 오류 없음"
   ],
   "blogger": {"created": [], "updated": ["base64-tools", "date-calculator", "color-converter-contrast", "text-counter-cleaner", "markdown-preview-converter", "http-status-lookup"], "skipped": [], "status": "completed"},
-  "git": {"branch": "main", "commit": null, "pushed": false},
-  "deployment": {"status": "pending", "runId": null, "catalogRunId": null, "urls": ["https://leedohon.github.io/toolbox-project/", "https://bloggiedh.blogspot.com/"]},
+  "git": {"branch": "main", "commit": "dda35ce63cb50c689bb2746681193d0f0d195b9f", "pushed": true},
+  "deployment": {"status": "completed", "runId": 30942321961, "catalogRunId": 30942321649, "urls": ["https://leedohon.github.io/toolbox-project/", "https://bloggiedh.blogspot.com/"]},
   "shutdown": {"requested": true, "scheduled": false, "input": "10분", "scheduledFor": null, "cancelled": false, "note": "전체 배포와 공개 검증이 성공한 뒤 예약한다."},
   "blocked": [],
   "scopeExceptions": [],
@@ -68,6 +71,7 @@
     "note": "비교 가능한 실제 입력·출력 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않았다. 확인 가능한 반복 작업 대체지표만 기록한다."
   },
   "reportHistory": [
-    {"at": "2026-08-05T04:12:22+09:00", "action": "partial", "note": "구현·로컬 검증·Blogger 반영 완료, Git 배포와 공개 화면 검증 대기"}
+    {"at": "2026-08-05T04:12:22+09:00", "action": "partial", "note": "구현·로컬 검증·Blogger 반영 완료, Git 배포와 공개 화면 검증 대기"},
+    {"at": "2026-08-05T04:19:25+09:00", "action": "completed", "note": "독립 구현 커밋·푸시·Pages 배포·공개 기능 및 Blogger 데스크톱·모바일 검증 증거를 갖춰 완료 전환"}
   ]
 }

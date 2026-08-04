@@ -5,5 +5,9 @@
   "changeLevel": "minimum",
   "changes": [
     "HTTP 상태 분류에 맞는 수정·재시도·리디렉션 안내"
+  ],
+  "designValidation": [
+    "공개 기능과 Blogger 게시글을 데스크톱·375×812 모바일에서 재검증",
+    "대응 지침 줄바꿈·가로 넘침·내부 중복 스크롤·콘솔 오류 없음"
   ]
 }

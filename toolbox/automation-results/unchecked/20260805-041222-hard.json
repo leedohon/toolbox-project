@@ -53,8 +53,8 @@
   ],
   "blogger": {"created": [], "updated": ["base64-tools", "date-calculator", "color-converter-contrast", "text-counter-cleaner", "markdown-preview-converter", "http-status-lookup"], "skipped": [], "status": "completed"},
   "git": {"branch": "main", "commit": "dda35ce63cb50c689bb2746681193d0f0d195b9f", "pushed": true},
-  "deployment": {"status": "completed", "runId": 30942321961, "catalogRunId": 30942321649, "urls": ["https://leedohon.github.io/toolbox-project/", "https://bloggiedh.blogspot.com/"]},
-  "shutdown": {"requested": true, "scheduled": false, "input": "10분", "scheduledFor": null, "cancelled": false, "note": "전체 배포와 공개 검증이 성공한 뒤 예약한다."},
+  "deployment": {"status": "completed", "runId": 30942321961, "catalogRunId": 30942321649, "finalEvidenceRunId": 30942830381, "urls": ["https://leedohon.github.io/toolbox-project/", "https://bloggiedh.blogspot.com/"]},
+  "shutdown": {"requested": true, "scheduled": true, "input": "10분", "scheduledFor": "2026-08-05T04:31:27+09:00", "cancelled": false, "note": "전체 구현·Blogger 반영·Git 배포·공개 검증 완료 후 2026-08-05T04:21:27+09:00에 shutdown.exe /s /t 600 실행"},
   "blocked": [],
   "scopeExceptions": [],
   "knowledgeOptimization": {"policyVersion": "0.7.0", "applied": ["OPT-010"], "summary": "미확인 완료기록을 파일별로 다시 열지 않고 한 번에 요약·증거화하는 report 명령과 절차를 추가했다. 기능 선택 규칙은 고정하지 않았다.", "skillValidation": "not_applicable"},
@@ -72,6 +72,7 @@
   },
   "reportHistory": [
     {"at": "2026-08-05T04:12:22+09:00", "action": "partial", "note": "구현·로컬 검증·Blogger 반영 완료, Git 배포와 공개 화면 검증 대기"},
-    {"at": "2026-08-05T04:19:25+09:00", "action": "completed", "note": "독립 구현 커밋·푸시·Pages 배포·공개 기능 및 Blogger 데스크톱·모바일 검증 증거를 갖춰 완료 전환"}
+    {"at": "2026-08-05T04:19:25+09:00", "action": "completed", "note": "독립 구현 커밋·푸시·Pages 배포·공개 기능 및 Blogger 데스크톱·모바일 검증 증거를 갖춰 완료 전환"},
+    {"at": "2026-08-05T04:21:27+09:00", "action": "shutdown_scheduled", "note": "사용자 요청에 따라 Windows 종료를 10분 뒤인 2026-08-05T04:31:27+09:00로 예약"}
   ]
 }

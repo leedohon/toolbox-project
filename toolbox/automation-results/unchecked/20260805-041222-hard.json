@@ -1,0 +1,73 @@
+{
+  "runId": "20260805-041222-hard",
+  "workflow": "hard",
+  "status": "partial",
+  "confirm": "N",
+  "startedAt": "2026-08-05T03:58:00+09:00",
+  "completedAt": null,
+  "confirmedAt": null,
+  "summary": "6개 도구의 실사용 기능과 모바일 UX를 개선하고 기존 Blogger 글 6개를 갱신했다. Git 배포와 공개 화면 재검증을 진행 중이다.",
+  "selectedTools": [
+    "base64-tools",
+    "date-calculator",
+    "color-converter-contrast",
+    "text-counter-cleaner",
+    "markdown-preview-converter",
+    "http-status-lookup"
+  ],
+  "workCounts": {"improvements": 6, "newOrMerge": 3, "commonFixes": 2},
+  "changes": [
+    "Base64와 Data URL 결과에 MIME 형식과 디코딩 바이트 정보를 표시",
+    "날짜 차이 계산에 주말을 제외한 평일 계산 옵션과 공휴일 범위 안내를 추가",
+    "색상 변환 결과에 바로 붙여 쓸 수 있는 CSS 변수와 샘플 코드를 추가",
+    "텍스트 도구에 문단 수와 예상 읽기 시간을 추가",
+    "마크다운 도구에 단어·제목·링크 통계와 빈 결과 저장·복사 방지를 추가",
+    "HTTP 상태 코드별 다음 대응 지침을 결과 가까이에 추가"
+  ],
+  "newIdeas": [
+    "Base64·Data URL 메타데이터 확인 기능을 기존 인코딩 허브에 통합",
+    "평일 전용 날짜 차이 기능을 기존 계산기 허브에 통합",
+    "접근 가능한 색상 CSS 변수 묶음을 기존 CSS 디자인 허브에 통합"
+  ],
+  "commonModules": [
+    "초기화 뒤 입력창을 강제로 다시 선택하지 않도록 모바일 안전 포커스 계약 적용",
+    "복사 대체 처리 뒤 숨은 입력란에 강제 포커스·선택하지 않도록 공통 UX 계약 적용"
+  ],
+  "knownIssueMatches": [
+    "IFRAME_HEIGHT_STALE",
+    "HIDDEN_GRID_OVERRIDE",
+    "SHARED_ASSET_CACHE_STALE",
+    "PORTRAIT_LONG_TEXT_SQUEEZE",
+    "RELEASE_DATE_UTC_DRIFT"
+  ],
+  "validation": [
+    "인라인 스크립트·릴리스·모듈·공개 인덱스 검증 통과",
+    "로컬 수익화 준비 감사 오류 0",
+    "6개 기능 실동작 검증 통과",
+    "375×812 세로 화면에서 6개 도구 가로 넘침 없음",
+    "초기 로드와 초기화 뒤 입력창 자동 포커스 없음",
+    "Blogger 기존 공개 글 6개 갱신 완료"
+  ],
+  "blogger": {"created": [], "updated": ["base64-tools", "date-calculator", "color-converter-contrast", "text-counter-cleaner", "markdown-preview-converter", "http-status-lookup"], "skipped": [], "status": "completed"},
+  "git": {"branch": "main", "commit": null, "pushed": false},
+  "deployment": {"status": "pending", "runId": null, "catalogRunId": null, "urls": ["https://leedohon.github.io/toolbox-project/", "https://bloggiedh.blogspot.com/"]},
+  "shutdown": {"requested": true, "scheduled": false, "input": "10분", "scheduledFor": null, "cancelled": false, "note": "전체 배포와 공개 검증이 성공한 뒤 예약한다."},
+  "blocked": [],
+  "scopeExceptions": [],
+  "knowledgeOptimization": {"policyVersion": "0.7.0", "applied": ["OPT-010"], "summary": "미확인 완료기록을 파일별로 다시 열지 않고 한 번에 요약·증거화하는 report 명령과 절차를 추가했다. 기능 선택 규칙은 고정하지 않았다.", "skillValidation": "not_applicable"},
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {"baseline": null, "current": null, "accountingMethod": null},
+    "instructionReduction": null,
+    "overallReduction": null,
+    "proxies": [
+      {"metric": "manual unchecked-result report-history edits", "before": 14, "after": 0, "reduction": 1.0},
+      {"metric": "manual Blogger update sessions for six changed posts", "before": 6, "after": 1, "reduction": 0.8333}
+    ],
+    "note": "비교 가능한 실제 입력·출력 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않았다. 확인 가능한 반복 작업 대체지표만 기록한다."
+  },
+  "reportHistory": [
+    {"at": "2026-08-05T04:12:22+09:00", "action": "partial", "note": "구현·로컬 검증·Blogger 반영 완료, Git 배포와 공개 화면 검증 대기"}
+  ]
+}

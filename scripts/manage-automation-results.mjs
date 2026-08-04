@@ -70,6 +70,37 @@ async function listUnchecked() {
   process.stdout.write(`${JSON.stringify(records, null, 2)}\n`);
 }
 
+function compactRecord(value) {
+  return {
+    runId: value.runId,
+    workflow: value.workflow,
+    status: value.status,
+    summary: value.summary,
+    bloggerStatus: value.blogger?.status ?? null,
+    pushed: value.git?.pushed ?? false,
+    deploymentStatus: value.deployment?.status ?? null,
+    blocked: value.blocked ?? []
+  };
+}
+
+async function reportUnchecked() {
+  const reportedAt = kstTimestamp();
+  const records = [];
+  for (const name of await jsonFiles(uncheckedRoot)) {
+    const file = path.join(uncheckedRoot, name);
+    const value = await readJson(file);
+    value.reportHistory = Array.isArray(value.reportHistory) ? value.reportHistory : [];
+    value.reportHistory.push({
+      at: reportedAt,
+      action: 'reported',
+      note: '새 자동 워크플로 시작 전 미확인 기록으로 요약 보고'
+    });
+    await writeFile(file, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+    records.push(compactRecord(value));
+  }
+  process.stdout.write(`${JSON.stringify({reportedAt, count: records.length, records}, null, 2)}\n`);
+}
+
 async function migrate() {
   const rootEntries = await readdir(resultsRoot, {withFileTypes: true});
   let moved = 0;
@@ -182,7 +213,8 @@ async function validate() {
 await ensureFolders();
 const [command = 'list', argument] = process.argv.slice(2);
 if (command === 'list') await listUnchecked();
+else if (command === 'report') await reportUnchecked();
 else if (command === 'migrate') await migrate();
 else if (command === 'confirm') await confirm(argument ?? '');
 else if (command === 'validate') await validate();
-else throw new Error('Usage: node scripts/manage-automation-results.mjs <list|migrate|confirm RUN_ID|validate>');
+else throw new Error('Usage: node scripts/manage-automation-results.mjs <list|report|migrate|confirm RUN_ID|validate>');

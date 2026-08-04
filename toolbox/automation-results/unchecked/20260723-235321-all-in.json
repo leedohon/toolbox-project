@@ -120,45 +120,185 @@
   ],
   "selectionBasis": "입력과 결과 구조가 겹치고 단독 공개 가치가 낮은 도구를 목적별 허브로 합치되 기존 기능과 주소는 그대로 유지했습니다.",
   "changes": [
-    {"target":"base64-tools","version":"1.0.2v","result":"인코딩·문자 변환 5개 모드 허브와 동적 높이 추적"},
-    {"target":"number-base-converter","version":"0.1.0v","result":"인코딩·문자 변환 도구의 진법 모드로 편입"},
-    {"target":"unicode-inspector","version":"0.1.0v","result":"인코딩·문자 변환 도구의 유니코드 분석 모드로 편입"},
-    {"target":"html-entity-converter","version":"0.1.0v","result":"인코딩·문자 변환 도구의 HTML 엔티티 모드로 편입"},
-    {"target":"roman-numeral-converter","version":"0.1.0v","result":"인코딩·문자 변환 도구의 로마 숫자 모드로 편입"},
-    {"target":"date-calculator","version":"2.0.2v","result":"다용도 계산 5개 모드 허브와 동적 높이 추적"},
-    {"target":"unix-timestamp-converter","version":"0.1.0v","result":"다용도 계산기의 Unix 시간 모드로 편입"},
-    {"target":"aspect-ratio-calculator","version":"0.1.0v","result":"다용도 계산기의 화면 비율 모드로 편입"},
-    {"target":"percentage-calculator","version":"0.1.0v","result":"다용도 계산기의 백분율 모드로 편입"},
-    {"target":"average-median-calculator","version":"0.1.0v","result":"다용도 계산기의 평균·중앙값 모드로 편입"},
-    {"target":"password-generator","version":"1.0.2v","result":"비밀번호·UUID 2개 모드 허브와 동적 높이 추적"},
-    {"target":"uuid-generator","version":"0.1.0v","result":"비밀번호·UUID 생성기의 UUID 모드로 편입"},
-    {"target":"image-resizer-compressor","version":"1.0.2v","result":"이미지 변환·DPI 2개 모드 허브와 동적 높이 추적"},
-    {"target":"dpi-ppi-calculator","version":"0.1.0v","result":"이미지 크기·압축·DPI 도구의 해상도 모드로 편입"},
-    {"target":"color-converter-contrast","version":"1.0.2v","result":"CSS 디자인 6개 모드 허브와 동적 높이 추적"},
-    {"target":"css-gradient-generator","version":"0.1.0v","result":"CSS 디자인 도구의 그라데이션 모드로 편입"},
-    {"target":"css-clamp-calculator","version":"0.1.0v","result":"CSS 디자인 도구의 clamp 모드로 편입"},
-    {"target":"css-box-shadow-generator","version":"0.1.0v","result":"CSS 디자인 도구의 그림자 모드로 편입"},
-    {"target":"css-unit-converter","version":"0.1.0v","result":"CSS 디자인 도구의 단위 변환 모드로 편입"},
-    {"target":"css-border-radius-generator","version":"0.1.0v","result":"CSS 디자인 도구의 모서리 모드로 편입"},
-    {"target":"text-counter-cleaner","version":"1.0.2v","result":"텍스트 정리·생성 5개 모드 허브와 동적 높이 추적"},
-    {"target":"filename-sanitizer","version":"0.1.0v","result":"텍스트 정리·생성 도구의 파일명 모드로 편입"},
-    {"target":"lorem-ipsum-generator","version":"0.1.0v","result":"텍스트 정리·생성 도구의 Lorem Ipsum 모드로 편입"},
-    {"target":"slug-generator","version":"0.1.0v","result":"텍스트 정리·생성 도구의 URL 슬러그 모드로 편입"},
-    {"target":"line-sort-deduplicator","version":"0.1.0v","result":"텍스트 정리·생성 도구의 줄 정리 모드로 편입"},
-    {"target":"markdown-preview-converter","version":"1.0.2v","result":"마크다운 작성 2개 모드 허브와 동적 높이 추적"},
-    {"target":"markdown-table-generator","version":"0.1.0v","result":"마크다운 작성 도구의 표 생성 모드로 편입"},
-    {"target":"http-status-lookup","version":"1.0.2v","result":"개발자 참조·검사 5개 모드 허브와 동적 높이 추적"},
-    {"target":"chmod-calculator","version":"0.1.0v","result":"개발자 참조·검사 도구의 chmod 모드로 편입"},
-    {"target":"cron-expression-explainer","version":"0.1.0v","result":"개발자 참조·검사 도구의 Cron 모드로 편입"},
-    {"target":"mime-type-lookup","version":"0.1.0v","result":"개발자 참조·검사 도구의 MIME 모드로 편입"},
-    {"target":"isbn-validator","version":"0.1.0v","result":"개발자 참조·검사 도구의 ISBN 모드로 편입"}
+    {
+      "target": "base64-tools",
+      "version": "1.0.2v",
+      "result": "인코딩·문자 변환 5개 모드 허브와 동적 높이 추적"
+    },
+    {
+      "target": "number-base-converter",
+      "version": "0.1.0v",
+      "result": "인코딩·문자 변환 도구의 진법 모드로 편입"
+    },
+    {
+      "target": "unicode-inspector",
+      "version": "0.1.0v",
+      "result": "인코딩·문자 변환 도구의 유니코드 분석 모드로 편입"
+    },
+    {
+      "target": "html-entity-converter",
+      "version": "0.1.0v",
+      "result": "인코딩·문자 변환 도구의 HTML 엔티티 모드로 편입"
+    },
+    {
+      "target": "roman-numeral-converter",
+      "version": "0.1.0v",
+      "result": "인코딩·문자 변환 도구의 로마 숫자 모드로 편입"
+    },
+    {
+      "target": "date-calculator",
+      "version": "2.0.2v",
+      "result": "다용도 계산 5개 모드 허브와 동적 높이 추적"
+    },
+    {
+      "target": "unix-timestamp-converter",
+      "version": "0.1.0v",
+      "result": "다용도 계산기의 Unix 시간 모드로 편입"
+    },
+    {
+      "target": "aspect-ratio-calculator",
+      "version": "0.1.0v",
+      "result": "다용도 계산기의 화면 비율 모드로 편입"
+    },
+    {
+      "target": "percentage-calculator",
+      "version": "0.1.0v",
+      "result": "다용도 계산기의 백분율 모드로 편입"
+    },
+    {
+      "target": "average-median-calculator",
+      "version": "0.1.0v",
+      "result": "다용도 계산기의 평균·중앙값 모드로 편입"
+    },
+    {
+      "target": "password-generator",
+      "version": "1.0.2v",
+      "result": "비밀번호·UUID 2개 모드 허브와 동적 높이 추적"
+    },
+    {
+      "target": "uuid-generator",
+      "version": "0.1.0v",
+      "result": "비밀번호·UUID 생성기의 UUID 모드로 편입"
+    },
+    {
+      "target": "image-resizer-compressor",
+      "version": "1.0.2v",
+      "result": "이미지 변환·DPI 2개 모드 허브와 동적 높이 추적"
+    },
+    {
+      "target": "dpi-ppi-calculator",
+      "version": "0.1.0v",
+      "result": "이미지 크기·압축·DPI 도구의 해상도 모드로 편입"
+    },
+    {
+      "target": "color-converter-contrast",
+      "version": "1.0.2v",
+      "result": "CSS 디자인 6개 모드 허브와 동적 높이 추적"
+    },
+    {
+      "target": "css-gradient-generator",
+      "version": "0.1.0v",
+      "result": "CSS 디자인 도구의 그라데이션 모드로 편입"
+    },
+    {
+      "target": "css-clamp-calculator",
+      "version": "0.1.0v",
+      "result": "CSS 디자인 도구의 clamp 모드로 편입"
+    },
+    {
+      "target": "css-box-shadow-generator",
+      "version": "0.1.0v",
+      "result": "CSS 디자인 도구의 그림자 모드로 편입"
+    },
+    {
+      "target": "css-unit-converter",
+      "version": "0.1.0v",
+      "result": "CSS 디자인 도구의 단위 변환 모드로 편입"
+    },
+    {
+      "target": "css-border-radius-generator",
+      "version": "0.1.0v",
+      "result": "CSS 디자인 도구의 모서리 모드로 편입"
+    },
+    {
+      "target": "text-counter-cleaner",
+      "version": "1.0.2v",
+      "result": "텍스트 정리·생성 5개 모드 허브와 동적 높이 추적"
+    },
+    {
+      "target": "filename-sanitizer",
+      "version": "0.1.0v",
+      "result": "텍스트 정리·생성 도구의 파일명 모드로 편입"
+    },
+    {
+      "target": "lorem-ipsum-generator",
+      "version": "0.1.0v",
+      "result": "텍스트 정리·생성 도구의 Lorem Ipsum 모드로 편입"
+    },
+    {
+      "target": "slug-generator",
+      "version": "0.1.0v",
+      "result": "텍스트 정리·생성 도구의 URL 슬러그 모드로 편입"
+    },
+    {
+      "target": "line-sort-deduplicator",
+      "version": "0.1.0v",
+      "result": "텍스트 정리·생성 도구의 줄 정리 모드로 편입"
+    },
+    {
+      "target": "markdown-preview-converter",
+      "version": "1.0.2v",
+      "result": "마크다운 작성 2개 모드 허브와 동적 높이 추적"
+    },
+    {
+      "target": "markdown-table-generator",
+      "version": "0.1.0v",
+      "result": "마크다운 작성 도구의 표 생성 모드로 편입"
+    },
+    {
+      "target": "http-status-lookup",
+      "version": "1.0.2v",
+      "result": "개발자 참조·검사 5개 모드 허브와 동적 높이 추적"
+    },
+    {
+      "target": "chmod-calculator",
+      "version": "0.1.0v",
+      "result": "개발자 참조·검사 도구의 chmod 모드로 편입"
+    },
+    {
+      "target": "cron-expression-explainer",
+      "version": "0.1.0v",
+      "result": "개발자 참조·검사 도구의 Cron 모드로 편입"
+    },
+    {
+      "target": "mime-type-lookup",
+      "version": "0.1.0v",
+      "result": "개발자 참조·검사 도구의 MIME 모드로 편입"
+    },
+    {
+      "target": "isbn-validator",
+      "version": "0.1.0v",
+      "result": "개발자 참조·검사 도구의 ISBN 모드로 편입"
+    }
   ],
   "newIdeas": [],
   "commonModules": [
-    {"target":"tool-hub-generator","result":"단일 설정에서 허브 셸·모듈 목록·기존 엔진 보존 파일 생성"},
-    {"target":"tool-hub-height-observer","result":"초기·지연 렌더·글꼴·DOM 변화까지 내부 프레임 높이 동기화"},
-    {"target":"blogger-publish-preflight","result":"32개 게시글 전체를 먼저 검증한 뒤 수정 요청 실행"},
-    {"target":"retired-post-builder","result":"대체 도구 링크와 일반 안내를 중앙 태그 원본에서 생성"}
+    {
+      "target": "tool-hub-generator",
+      "result": "단일 설정에서 허브 셸·모듈 목록·기존 엔진 보존 파일 생성"
+    },
+    {
+      "target": "tool-hub-height-observer",
+      "result": "초기·지연 렌더·글꼴·DOM 변화까지 내부 프레임 높이 동기화"
+    },
+    {
+      "target": "blogger-publish-preflight",
+      "result": "32개 게시글 전체를 먼저 검증한 뒤 수정 요청 실행"
+    },
+    {
+      "target": "retired-post-builder",
+      "result": "대체 도구 링크와 일반 안내를 중앙 태그 원본에서 생성"
+    }
   ],
   "knowledgeOptimization": {
     "policyVersion": "0.4.0",
@@ -171,7 +311,7 @@
       "before": 24,
       "after": 0,
       "unit": "manual hub shell, module registry, and preserved anchor engine creations per eight-hub consolidation",
-      "reduction": 1.0
+      "reduction": 1
     }
   },
   "developmentTokenEfficiency": {
@@ -195,13 +335,13 @@
         "metric": "manual hub runtime artifact creations",
         "before": 24,
         "after": 0,
-        "reduction": 1.0
+        "reduction": 1
       },
       {
         "metric": "manual release manifest metadata synchronizations",
         "before": 32,
         "after": 0,
-        "reduction": 1.0
+        "reduction": 1
       }
     ],
     "note": "Comparable total development token counts were not exposed. Verified product-consolidation and generated-edit proxies are recorded separately, and no overall token reduction is claimed."
@@ -293,6 +433,11 @@
     {
       "reportedAt": "2026-08-03T23:52:16+09:00",
       "context": "하드 워크플로 시작 전 미확인 기록 보고"
+    },
+    {
+      "at": "2026-08-05T03:59:20+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
     }
   ]
 }

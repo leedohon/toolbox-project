@@ -1,0 +1,9 @@
+{
+  "tool": "http-status-lookup",
+  "version": "1.0.6v",
+  "releaseDate": "2026-08-05",
+  "changeLevel": "minimum",
+  "changes": [
+    "HTTP 상태 분류에 맞는 수정·재시도·리디렉션 안내"
+  ]
+}

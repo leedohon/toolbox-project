@@ -7,7 +7,14 @@
   "completedAt": "2026-08-04T04:06:30+09:00",
   "confirmedAt": null,
   "summary": "1회차 완료: 개발·데이터 도구 6개에 기능 3건, 개별 개선 6건, 공통 수정 2건을 적용하고 Blogger·GitHub Pages 배포와 공개 데스크톱·세로 화면 검증까지 마쳤다.",
-  "selectedTools": ["regex-tester", "hash-generator", "csv-table-converter", "xml-formatter-validator", "json-tools", "url-parser-builder"],
+  "selectedTools": [
+    "regex-tester",
+    "hash-generator",
+    "csv-table-converter",
+    "xml-formatter-validator",
+    "json-tools",
+    "url-parser-builder"
+  ],
   "workCounts": {
     "improvements": 6,
     "newOrMerge": 3,
@@ -30,7 +37,11 @@
     "JSON·XML·URL의 초기화·추가 뒤 자동 포커스 제거",
     "CSV·JSON·XML·URL의 빈 복사·저장 결과 근접 안내"
   ],
-  "knownIssueMatches": ["PORTRAIT_LONG_TEXT_SQUEEZE", "DEFAULT_TEXT_INPUT_UNSTYLED", "BLOGGER_ADSENSE_METADATA_STALE"],
+  "knownIssueMatches": [
+    "PORTRAIT_LONG_TEXT_SQUEEZE",
+    "DEFAULT_TEXT_INPUT_UNSTYLED",
+    "BLOGGER_ADSENSE_METADATA_STALE"
+  ],
   "validation": [
     "339개 JSON·최신 릴리스 경로 통과",
     "75개 모듈·48개 레지스트리 통과",
@@ -45,34 +56,87 @@
   ],
   "blogger": {
     "created": [],
-    "updated": ["regex-tester", "hash-generator", "csv-table-converter", "xml-formatter-validator", "json-tools", "url-parser-builder"],
+    "updated": [
+      "regex-tester",
+      "hash-generator",
+      "csv-table-converter",
+      "xml-formatter-validator",
+      "json-tools",
+      "url-parser-builder"
+    ],
     "skipped": [],
     "status": "completed"
   },
-  "git": {"branch": "main", "commit": "02bf22f79df8c4eb8ea35da6959621b2bd708467", "pushed": true},
-  "deployment": {"status": "completed", "runId": 30844033356, "catalogRunId": 30844033446, "urls": ["https://leedohon.github.io/toolbox-project/", "https://bloggiedh.blogspot.com/"]},
-  "shutdown": {"requested": true, "scheduled": false, "input": "10분", "scheduledFor": null, "cancelled": false, "note": "두 회차 완료 뒤에만 예약"},
+  "git": {
+    "branch": "main",
+    "commit": "02bf22f79df8c4eb8ea35da6959621b2bd708467",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 30844033356,
+    "catalogRunId": 30844033446,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/",
+      "https://bloggiedh.blogspot.com/"
+    ]
+  },
+  "shutdown": {
+    "requested": true,
+    "scheduled": false,
+    "input": "10분",
+    "scheduledFor": null,
+    "cancelled": false,
+    "note": "두 회차 완료 뒤에만 예약"
+  },
   "blocked": [],
-  "scopeExceptions": ["저가치 신규 페이지 대신 사용 맥락이 같은 3개 기능을 기존 공개 도구에 통합"],
+  "scopeExceptions": [
+    "저가치 신규 페이지 대신 사용 맥락이 같은 3개 기능을 기존 공개 도구에 통합"
+  ],
   "knowledgeOptimization": {
     "policyVersion": "0.5.0",
-    "applied": ["OPT-008"],
+    "applied": [
+      "OPT-008"
+    ],
     "summary": "한 구현·커밋·배포를 여러 완료 회차로 나누지 못하도록 Skill과 결과 검증기를 강화",
     "skillValidation": "passed"
   },
   "developmentTokenEfficiency": {
     "measurementStatus": "proxy_only",
     "baselineRunId": null,
-    "tokens": {"baseline": null, "current": null, "accountingMethod": null},
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
     "instructionReduction": null,
     "overallReduction": null,
     "proxies": [
-      {"metric": "superseded split records accepted as completed hard workflows", "before": 2, "after": 0, "reduction": 1.0},
-      {"metric": "manual Blogger update sessions for six changed posts", "before": 6, "after": 1, "reduction": 0.8333}
+      {
+        "metric": "superseded split records accepted as completed hard workflows",
+        "before": 2,
+        "after": 0,
+        "reduction": 1
+      },
+      {
+        "metric": "manual Blogger update sessions for six changed posts",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      }
     ],
     "note": "실제 비교 가능한 입력·출력 토큰 수가 없어 전체 개발 토큰 감소율은 확정하지 않음"
   },
   "reportHistory": [
-    {"at": "2026-08-04T04:06:30+09:00", "action": "completed", "note": "독립 커밋·푸시·Pages 배포·공개 화면 검증 증거가 모두 갖춰진 뒤 완료 전환"}
+    {
+      "at": "2026-08-04T04:06:30+09:00",
+      "action": "completed",
+      "note": "독립 커밋·푸시·Pages 배포·공개 화면 검증 증거가 모두 갖춰진 뒤 완료 전환"
+    },
+    {
+      "at": "2026-08-05T03:59:20+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    }
   ]
 }

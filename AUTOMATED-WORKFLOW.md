@@ -158,7 +158,7 @@
 
 1. 이 저장소에서 새 작업을 시작할 때 `toolbox/automation-results/unchecked/*.json`만 확인한다. `checked/`는 다시 읽거나 보고하지 않는다.
 2. `unchecked/`의 모든 기록을 실행일, 워크플로, 상태, 주요 변경, 게시·Git·배포 상태와 차단 사항 중심으로 먼저 보고한다.
-3. 보고할 때 해당 JSON의 `reportHistory`에 보고 시각을 추가한다. 보고했다는 사실만으로 `confirm`을 변경하지 않는다.
+3. 보고할 때 `node scripts/manage-automation-results.mjs report`를 사용해 미확인 요약과 각 JSON의 `reportHistory`를 한 번에 기록한다. 보고했다는 사실만으로 `confirm`을 변경하지 않는다.
 4. 사용자가 해당 결과를 확인했다고 명시하면 `node scripts/manage-automation-results.mjs confirm <실행 ID>`를 실행한다. 이 명령은 해당 JSON의 `confirm`, `confirmedAt`, 확인 단계를 갱신한 뒤 파일을 `checked/`로 이동한다.
 5. 단순히 다음 요청을 보냈거나 대화를 계속했다는 이유로 확인을 추정하지 않는다. 여러 미확인 결과가 있을 때 확인 대상이 불명확하면 실행 ID를 짧게 확인한다.
 6. 새 결과는 항상 `unchecked/`에 만들고, 확인 전에는 이동하지 않는다. `checked/`로 이동한 결과는 이후 새 작업에서 다시 보고하지 않는다.

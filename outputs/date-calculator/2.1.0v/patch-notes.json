@@ -1,0 +1,10 @@
+{
+  "tool": "date-calculator",
+  "version": "2.1.0v",
+  "releaseDate": "2026-08-05",
+  "changeLevel": "minor",
+  "changes": [
+    "날짜 차이에서 주말 제외 평일 수 선택",
+    "초기화·복사 대체 뒤 모바일 자동 포커스 제거"
+  ]
+}

@@ -4,7 +4,7 @@
   "title": "개발자 빠른 참조·검사 도구",
   "description": "HTTP·MIME·Cron·chmod 정보를 찾고 ISBN 체크 숫자를 한곳에서 검사합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/http.html",
-  "latestVersion": "1.0.5v",
+  "latestVersion": "1.0.6v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -68,6 +68,15 @@
       "directory": "1.0.5v",
       "html": "1.0.5v/http-status-lookup.html",
       "patchNotes": "1.0.5v/patch-notes.json"
+    },
+    {
+      "version": "1.0.6v",
+      "releaseDate": "2026-08-05",
+      "changeLevel": "minimum",
+      "summary": "HTTP 상태별 다음 행동 안내를 추가했습니다.",
+      "directory": "1.0.6v",
+      "html": "1.0.6v/http-status-lookup.html",
+      "patchNotes": "1.0.6v/patch-notes.json"
     }
   ],
   "status": "published"

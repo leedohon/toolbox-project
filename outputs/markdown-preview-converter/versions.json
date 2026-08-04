@@ -4,7 +4,7 @@
   "title": "마크다운 작성 도구",
   "description": "마크다운 문서를 미리 보고 HTML로 변환하거나 표 문법을 빠르게 만듭니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/html.html",
-  "latestVersion": "1.0.5v",
+  "latestVersion": "1.0.6v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -86,6 +86,15 @@
       "directory": "1.0.5v",
       "html": "1.0.5v/markdown-preview-converter.html",
       "patchNotes": "1.0.5v/patch-notes.json"
+    },
+    {
+      "version": "1.0.6v",
+      "releaseDate": "2026-08-05",
+      "changeLevel": "minimum",
+      "summary": "마크다운 문서 구조 판단을 개선했습니다.",
+      "directory": "1.0.6v",
+      "html": "1.0.6v/markdown-preview-converter.html",
+      "patchNotes": "1.0.6v/patch-notes.json"
     }
   ],
   "status": "published"

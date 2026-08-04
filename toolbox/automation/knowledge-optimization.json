@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.6.0",
-  "updatedAt": "2026-08-04",
+  "policyVersion": "0.7.0",
+  "updatedAt": "2026-08-05",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -178,6 +178,18 @@
       "targetReduction": 0.6667,
       "evidence": [
         {"before":3,"after":0,"unit":"manual category-count interpretations per hard run","reduction":1.0,"verifiedAt":"2026-08-04"}
+      ]
+    },
+    {
+      "id": "OPT-010",
+      "status": "completed",
+      "triggerPaths": ["scripts/manage-automation-results.mjs", "toolbox/automation-results/unchecked/*.json", "AUTOMATED-WORKFLOW.md"],
+      "problem": "워크플로 시작 때 미확인 기록을 요약 보고한 뒤 각 JSON의 reportHistory를 개별 편집해야 했다.",
+      "proposedChange": "미확인 폴더만 읽어 요약을 출력하고 같은 시각의 보고 이력을 한 번에 기록하는 report 명령을 제공한다.",
+      "measure": "manual result JSON edits per startup report",
+      "targetReduction": 0.5,
+      "evidence": [
+        {"before":14,"after":0,"unit":"manual reportHistory JSON edits for the current unchecked records","reduction":1.0,"verifiedAt":"2026-08-05"}
       ]
     }
   ]

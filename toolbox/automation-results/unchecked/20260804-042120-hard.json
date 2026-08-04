@@ -91,7 +91,9 @@
   "scopeExceptions": [],
   "knowledgeOptimization": {
     "policyVersion": "0.6.0",
-    "applied": ["OPT-009"],
+    "applied": [
+      "OPT-009"
+    ],
     "summary": "하드 워크플로의 결과 증거 경계는 강화하되 기능 선택은 상황에 맞게 통합·조정할 수 있도록 Markdown 계획을 개선",
     "skillValidation": "not_applicable"
   },
@@ -110,7 +112,7 @@
         "metric": "manual evidence-category count interpretations",
         "before": 3,
         "after": 0,
-        "reduction": 1.0
+        "reduction": 1
       },
       {
         "metric": "manual Blogger update sessions for six changed posts",
@@ -136,6 +138,11 @@
       "at": "2026-08-04T04:28:55+09:00",
       "action": "shutdown_scheduled",
       "note": "사용자 요청에 따라 Windows 종료를 10분 뒤인 2026-08-04T04:38:55+09:00로 예약"
+    },
+    {
+      "at": "2026-08-05T03:59:20+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
     }
   ]
 }

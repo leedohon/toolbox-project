@@ -1,0 +1,10 @@
+{
+  "tool": "base64-tools",
+  "version": "1.1.0v",
+  "releaseDate": "2026-08-05",
+  "changeLevel": "minor",
+  "changes": [
+    "Base64·Data URL의 MIME 타입과 디코딩 바이트 크기 표시",
+    "초기화 뒤 모바일 자동 포커스 제거"
+  ]
+}

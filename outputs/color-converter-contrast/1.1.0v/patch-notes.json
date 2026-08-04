@@ -1,0 +1,10 @@
+{
+  "tool": "color-converter-contrast",
+  "version": "1.1.0v",
+  "releaseDate": "2026-08-05",
+  "changeLevel": "minor",
+  "changes": [
+    "선택 색상의 CSS 변수·적용 코드 생성",
+    "복사 대체 결과의 모바일 자동 포커스 제거"
+  ]
+}

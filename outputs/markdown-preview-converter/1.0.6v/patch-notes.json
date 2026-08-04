@@ -1,0 +1,10 @@
+{
+  "tool": "markdown-preview-converter",
+  "version": "1.0.6v",
+  "releaseDate": "2026-08-05",
+  "changeLevel": "minimum",
+  "changes": [
+    "단어·제목·링크 수 통계 추가",
+    "빈 HTML 복사·파일 저장 방지와 중복 스타일 제거"
+  ]
+}

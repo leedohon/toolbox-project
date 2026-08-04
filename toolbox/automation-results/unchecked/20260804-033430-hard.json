@@ -1,1 +1,102 @@
-{"runId":"20260804-033430-hard","workflow":"hard","status":"partial","confirm":"N","startedAt":"2026-08-04T03:34:30+09:00","completedAt":"2026-08-04T03:36:42+09:00","confirmedAt":null,"summary":"정정: 독립 커밋·배포가 없는 단일 배치의 마지막 구간으로, 별도 하드 워크플로 완료 횟수에 포함하지 않는다.","selectedTools":["csv-table-converter","regex-tester","hash-generator","jwt-decoder","xml-formatter-validator","url-parser-builder","http-status-lookup","text-extractor-tool","web-meta-preview-builder","ip-network-calculator"],"changes":["도구별 고유 판단 안내 10건","22개 공개 글 새 최소 릴리스 완료","Blogger 공개 글 22개 갱신"],"newIdeas":[],"commonModules":["post-decision-guidance","monetization content-depth audit"],"validation":["통합 배치의 최종 검사만 수행"],"blogger":{"created":[],"updated":["csv-table-converter","regex-tester","hash-generator","jwt-decoder","xml-formatter-validator","url-parser-builder","http-status-lookup","text-extractor-tool","web-meta-preview-builder","ip-network-calculator"],"skipped":[],"status":"superseded"},"git":{"branch":"main","commit":null,"pushed":false},"deployment":{"status":"superseded","urls":[]},"adsense":{"currentStatus":"review_in_progress","resubmittedByAgent":false},"shutdown":{"requested":true,"scheduled":false,"input":"10분","scheduledFor":null,"cancelled":true},"blocked":[],"supersededBy":"20260804-033010-hard","scopeExceptions":["독립 실행이 아니므로 완료 집계에서 제외"],"developmentTokenEfficiency":{"measurementStatus":"unavailable","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":null,"overallReduction":null,"proxies":[],"note":"독립 실행이 아닌 통합 배치 마지막 구간이라 별도 효율을 산정하지 않음"},"reportHistory":[{"at":"2026-08-04T03:41:00+09:00","action":"corrected","note":"하드 완료에서 제외하고 통합 기록을 연결"}]}
+{
+  "runId": "20260804-033430-hard",
+  "workflow": "hard",
+  "status": "partial",
+  "confirm": "N",
+  "startedAt": "2026-08-04T03:34:30+09:00",
+  "completedAt": "2026-08-04T03:36:42+09:00",
+  "confirmedAt": null,
+  "summary": "정정: 독립 커밋·배포가 없는 단일 배치의 마지막 구간으로, 별도 하드 워크플로 완료 횟수에 포함하지 않는다.",
+  "selectedTools": [
+    "csv-table-converter",
+    "regex-tester",
+    "hash-generator",
+    "jwt-decoder",
+    "xml-formatter-validator",
+    "url-parser-builder",
+    "http-status-lookup",
+    "text-extractor-tool",
+    "web-meta-preview-builder",
+    "ip-network-calculator"
+  ],
+  "changes": [
+    "도구별 고유 판단 안내 10건",
+    "22개 공개 글 새 최소 릴리스 완료",
+    "Blogger 공개 글 22개 갱신"
+  ],
+  "newIdeas": [],
+  "commonModules": [
+    "post-decision-guidance",
+    "monetization content-depth audit"
+  ],
+  "validation": [
+    "통합 배치의 최종 검사만 수행"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "csv-table-converter",
+      "regex-tester",
+      "hash-generator",
+      "jwt-decoder",
+      "xml-formatter-validator",
+      "url-parser-builder",
+      "http-status-lookup",
+      "text-extractor-tool",
+      "web-meta-preview-builder",
+      "ip-network-calculator"
+    ],
+    "skipped": [],
+    "status": "superseded"
+  },
+  "git": {
+    "branch": "main",
+    "commit": null,
+    "pushed": false
+  },
+  "deployment": {
+    "status": "superseded",
+    "urls": []
+  },
+  "adsense": {
+    "currentStatus": "review_in_progress",
+    "resubmittedByAgent": false
+  },
+  "shutdown": {
+    "requested": true,
+    "scheduled": false,
+    "input": "10분",
+    "scheduledFor": null,
+    "cancelled": true
+  },
+  "blocked": [],
+  "supersededBy": "20260804-033010-hard",
+  "scopeExceptions": [
+    "독립 실행이 아니므로 완료 집계에서 제외"
+  ],
+  "developmentTokenEfficiency": {
+    "measurementStatus": "unavailable",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": null,
+    "overallReduction": null,
+    "proxies": [],
+    "note": "독립 실행이 아닌 통합 배치 마지막 구간이라 별도 효율을 산정하지 않음"
+  },
+  "reportHistory": [
+    {
+      "at": "2026-08-04T03:41:00+09:00",
+      "action": "corrected",
+      "note": "하드 완료에서 제외하고 통합 기록을 연결"
+    },
+    {
+      "at": "2026-08-05T03:59:20+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    }
+  ]
+}

@@ -69,9 +69,27 @@
         ],
         "blockCode": "USER_CONFIRMATION_REQUIRED"
       },
-      "commit": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": null},
-      "deploy": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": null},
-      "confirm": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": "USER_CONFIRMATION_REQUIRED"}
+      "commit": {
+        "status": "pending",
+        "startedAt": null,
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "pending",
+        "startedAt": null,
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "pending",
+        "startedAt": null,
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": "USER_CONFIRMATION_REQUIRED"
+      }
     }
   },
   "selectedTools": [
@@ -82,11 +100,31 @@
     "coordinate-distance-calculator"
   ],
   "changes": [
-    {"tool": "text-extractor-tool", "version": "0.0.1v", "result": "이메일·URL/도메인·전화번호·해시태그/멘션 추출 통합"},
-    {"tool": "web-meta-preview-builder", "version": "0.0.1v", "result": "검색 미리보기·Open Graph·Twitter/X·canonical/robots 통합"},
-    {"tool": "loan-savings-calculator", "version": "0.0.1v", "result": "대출 비교·일시금·월 적립·목표 역산 통합"},
-    {"tool": "ip-network-calculator", "version": "0.0.1v", "result": "IPv4 CIDR·마스크·범위·MAC 통합"},
-    {"tool": "coordinate-distance-calculator", "version": "0.0.1v", "result": "DMS 변환·거리·방위·중간점 통합"}
+    {
+      "tool": "text-extractor-tool",
+      "version": "0.0.1v",
+      "result": "이메일·URL/도메인·전화번호·해시태그/멘션 추출 통합"
+    },
+    {
+      "tool": "web-meta-preview-builder",
+      "version": "0.0.1v",
+      "result": "검색 미리보기·Open Graph·Twitter/X·canonical/robots 통합"
+    },
+    {
+      "tool": "loan-savings-calculator",
+      "version": "0.0.1v",
+      "result": "대출 비교·일시금·월 적립·목표 역산 통합"
+    },
+    {
+      "tool": "ip-network-calculator",
+      "version": "0.0.1v",
+      "result": "IPv4 CIDR·마스크·범위·MAC 통합"
+    },
+    {
+      "tool": "coordinate-distance-calculator",
+      "version": "0.0.1v",
+      "result": "DMS 변환·거리·방위·중간점 통합"
+    }
   ],
   "newIdeas": [],
   "commonModules": [
@@ -114,9 +152,22 @@
     ],
     "status": "blocked"
   },
-  "git": {"branch": "main", "commit": null, "pushed": false},
-  "deployment": {"status": "pending", "urls": []},
-  "shutdown": {"requested": false, "scheduled": false, "input": "아니오", "scheduledFor": null, "cancelled": false},
+  "git": {
+    "branch": "main",
+    "commit": null,
+    "pushed": false
+  },
+  "deployment": {
+    "status": "pending",
+    "urls": []
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": "아니오",
+    "scheduledFor": null,
+    "cancelled": false
+  },
   "blocked": [
     {
       "code": "USER_CONFIRMATION_REQUIRED",
@@ -127,30 +178,61 @@
   ],
   "knowledgeOptimization": {
     "policyVersion": "0.4.0",
-    "applied": ["OPT-007"],
+    "applied": [
+      "OPT-007"
+    ],
     "recorded": [],
-    "skipped": ["현재 변경 경로와 겹치는 추가 Skill·Markdown 중복 개선 후보 없음"],
+    "skipped": [
+      "현재 변경 경로와 겹치는 추가 Skill·Markdown 중복 개선 후보 없음"
+    ],
     "measuredReduction": {
       "metric": "manual embed shell rewrites after a shared UI-contract change",
       "before": 5,
       "after": 0,
-      "reduction": 1.0
+      "reduction": 1
     }
   },
   "developmentTokenEfficiency": {
     "measurementStatus": "proxy_only",
     "baselineRunId": "20260719-160000-create",
-    "tokens": {"baseline": null, "current": null, "accountingMethod": null},
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
     "instructionReduction": null,
     "overallReduction": null,
     "proxies": [
-      {"metric": "candidate public tool entries", "before": 20, "after": 5, "reduction": 0.75},
-      {"metric": "manual embed shell rewrites after a shared UI-contract change", "before": 5, "after": 0, "reduction": 1.0},
-      {"metric": "manual per-tool AI-index build commands after create scaffolding", "before": 1, "after": 0, "reduction": 1.0}
+      {
+        "metric": "candidate public tool entries",
+        "before": 20,
+        "after": 5,
+        "reduction": 0.75
+      },
+      {
+        "metric": "manual embed shell rewrites after a shared UI-contract change",
+        "before": 5,
+        "after": 0,
+        "reduction": 1
+      },
+      {
+        "metric": "manual per-tool AI-index build commands after create scaffolding",
+        "before": 1,
+        "after": 0,
+        "reduction": 1
+      }
     ],
     "note": "비교 가능한 실제 입·출력 토큰 수가 없어 전체 개발 토큰 감소율은 계산하지 않았습니다."
   },
   "reportHistory": [
-    {"reportedAt":"2026-08-03T23:52:16+09:00","context":"하드 워크플로 시작 전 미확인 기록 보고"}
+    {
+      "reportedAt": "2026-08-03T23:52:16+09:00",
+      "context": "하드 워크플로 시작 전 미확인 기록 보고"
+    },
+    {
+      "at": "2026-08-05T03:59:20+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    }
   ]
 }

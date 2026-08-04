@@ -1,0 +1,10 @@
+{
+  "tool": "text-counter-cleaner",
+  "version": "1.0.6v",
+  "releaseDate": "2026-08-05",
+  "changeLevel": "minimum",
+  "changes": [
+    "문단 수와 예상 읽기 시간 표시",
+    "복사 대체 결과의 모바일 자동 포커스 제거"
+  ]
+}

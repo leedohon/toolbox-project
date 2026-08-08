@@ -7,6 +7,7 @@ mountGeneratedTool({
     "description",
     "url",
     "image",
+    "imageAlt",
     "robots"
   ]
 });

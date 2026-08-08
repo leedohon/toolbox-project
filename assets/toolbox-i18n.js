@@ -173,6 +173,8 @@
   }
 
   function applyElement(element) {
+    const explicitAria = element.getAttribute(`data-${language}-aria-label`);
+    if (explicitAria !== null) element.setAttribute('aria-label', explicitAria);
     for (const name of attributes) {
       if (!element.hasAttribute(name)) continue;
       const value = element.getAttribute(name);

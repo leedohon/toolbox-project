@@ -138,6 +138,9 @@ const operations={
     const description=requiredText(v.description,'페이지 설명','page description',500).replace(/\s+/g,' ');
     const url=httpUrl(v.url,'대표 URL','canonical URL');
     const image=httpUrl(v.image,'대표 이미지 URL','social image URL',true);
+    const imageAlt=String(v.imageAlt??'').trim().replace(/\s+/g,' ');
+    if(image&&!imageAlt)throw new Error(tr('공유 이미지의 대체 설명을 입력해 주세요.','Enter alt text for the share image.'));
+    if([...imageAlt].length>300)throw new Error(tr('공유 이미지 대체 설명은 300자 이하로 입력해 주세요.','Keep share image alt text within 300 characters.'));
     const robots=String(v.robots??'').toLowerCase().replace(/\s+/g,'');
     if(!['index,follow','noindex,follow','index,nofollow','noindex,nofollow'].includes(robots))throw new Error(tr('검색 로봇 설정을 목록에서 선택해 주세요.','Choose a search robot setting from the list.'));
     const base=[
@@ -151,11 +154,11 @@ const operations={
       `<meta property="og:title" content="${htmlEscape(title)}">`,
       `<meta property="og:description" content="${htmlEscape(description)}">`,
       `<meta property="og:url" content="${htmlEscape(url)}">`,
-      ...(image?[`<meta property="og:image" content="${htmlEscape(image)}">`]:[]),
+      ...(image?[`<meta property="og:image" content="${htmlEscape(image)}">`,`<meta property="og:image:alt" content="${htmlEscape(imageAlt)}">`]:[]),
       `<meta name="twitter:card" content="${image?'summary_large_image':'summary'}">`,
       `<meta name="twitter:title" content="${htmlEscape(title)}">`,
       `<meta name="twitter:description" content="${htmlEscape(description)}">`,
-      ...(image?[`<meta name="twitter:image" content="${htmlEscape(image)}">`]:[])
+      ...(image?[`<meta name="twitter:image" content="${htmlEscape(image)}">`,`<meta name="twitter:image:alt" content="${htmlEscape(imageAlt)}">`]:[])
     ];
     const titleLength=[...title].length,descriptionLength=[...description].length;
     const titleGuide=titleLength>=30&&titleLength<=60?tr('권장 범위','recommended range'):titleLength<30?tr('조금 짧음','a little short'):tr('길어 잘릴 수 있음','may be truncated');
@@ -167,7 +170,7 @@ const operations={
       name:title,
       description,
       url,
-      ...(image?{primaryImageOfPage:{'@type':'ImageObject',url:image}}:{})
+      ...(image?{primaryImageOfPage:{'@type':'ImageObject',url:image,caption:imageAlt}}:{})
     };
     const jsonLd=`<script type="application/ld+json">\n${JSON.stringify(structuredData,null,2).replaceAll('<','\\u003c')}\n<\/script>`;
     return[

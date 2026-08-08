@@ -4,7 +4,7 @@
   "title": "정규식 테스트 도구",
   "description": "정규식 패턴과 테스트 문장을 입력해 일치 항목과 위치를 브라우저에서 바로 확인합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_18.html",
-  "latestVersion": "0.1.0v",
+  "latestVersion": "0.2.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -41,6 +41,15 @@
       "directory": "0.1.0v",
       "html": "0.1.0v/regex-tester.html",
       "patchNotes": "0.1.0v/patch-notes.json"
+    },
+    {
+      "version": "0.2.0v",
+      "releaseDate": "2026-08-09",
+      "changeLevel": "minor",
+      "summary": "캡처 그룹 결과 표시 추가",
+      "directory": "0.2.0v",
+      "html": "0.2.0v/regex-tester.html",
+      "patchNotes": "0.2.0v/patch-notes.json"
     }
   ]
 }

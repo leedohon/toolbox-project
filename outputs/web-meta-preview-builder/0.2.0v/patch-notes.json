@@ -1,0 +1,17 @@
+{
+  "tool": "web-meta-preview-builder",
+  "version": "0.2.0v",
+  "releaseDate": "2026-08-09",
+  "changeLevel": "minor",
+  "changes": [
+    "공유 이미지 대체 설명으로 og:image:alt와 twitter:image:alt 태그를 생성합니다.",
+    "JSON-LD 이미지 설명에도 같은 대체 문구를 반영합니다.",
+    "KOR / ENG 선택에 맞춰 도구의 접근성 이름을 함께 전환합니다."
+  ],
+  "qa": [
+    "375×812 모바일 기능 조작 및 가로 넘침 없음",
+    "1280×900 데스크톱 기능 조작 및 장문 입력 한 열 확인",
+    "KOR/ENG 접근성 이름 동기화 확인",
+    "브라우저 콘솔 오류 0건"
+  ]
+}

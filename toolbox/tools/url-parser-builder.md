@@ -20,6 +20,7 @@ inputs:
 - 번호·이름·값 라벨이 있는 쿼리 입력 행
 - 중복 쿼리 키 보존
 - 완성 URL 복사
+- UTM source·medium·campaign 기본 항목 빠른 추가
 
 ## 실행 규칙
 

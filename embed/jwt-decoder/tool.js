@@ -2,7 +2,7 @@ import { copyText, setupEmbedHeight } from '../../assets/play-tools.js?v=0.3.2';
 
 const $ = (selector) => document.querySelector(selector);
 const tr = (ko, en) => window.ToolboxI18n?.language === 'en' ? en : ko;
-let payloadText = '';
+let headerText = '', payloadText = '';
 
 function status(ko, en, error = false) {
   const element = $('#jwt-status');
@@ -88,8 +88,9 @@ function run() {
     }
     const header = decode(parts[0]);
     const payload = decode(parts[1]);
+    headerText = JSON.stringify(header, null, 2);
     payloadText = JSON.stringify(payload, null, 2);
-    $('#jwt-header').value = JSON.stringify(header, null, 2);
+    $('#jwt-header').value = headerText;
     $('#jwt-payload').value = payloadText;
     renderClaims(header, payload);
     $('#jwt-times').textContent = timeSummary(payload);
@@ -97,6 +98,7 @@ function run() {
     $('#jwt-fallback').hidden = true;
     status('내용을 열었습니다. 표시된 값과 별개로 서명은 검증하지 않았습니다.', 'Contents decoded. The signature was not verified.');
   } catch (error) {
+    headerText = '';
     payloadText = '';
     $('#jwt-claims').replaceChildren();
     $('#jwt-risk').textContent = '';
@@ -113,6 +115,12 @@ $('#jwt-input').addEventListener('input', () => {
   $('#jwt-claims').replaceChildren();
   $('#jwt-risk').textContent = '';
   payloadText = '';
+  headerText = '';
+});
+$('#jwt-copy-header').addEventListener('click', async () => {
+  if (!headerText) return status('먼저 JWT 내용을 여세요.', 'Decode a JWT first.', true);
+  if (await copyText(headerText)) { $('#jwt-fallback').hidden = true; status('헤더 JSON을 복사했습니다.', 'Header JSON copied.'); }
+  else { $('#jwt-fallback').value = headerText; $('#jwt-fallback').hidden = false; status('아래 헤더 내용을 직접 복사해 주세요.', 'Copy the header text below manually.'); }
 });
 $('#jwt-copy').addEventListener('click', async () => {
   if (!payloadText) return status('먼저 JWT 내용을 여세요.', 'Decode a JWT first.', true);
@@ -130,6 +138,7 @@ $('#jwt-reset').addEventListener('click', () => {
   $('#jwt-result').hidden = true;
   $('#jwt-fallback').hidden = true;
   payloadText = '';
+  headerText = '';
   status('입력을 비웠습니다.', 'Input cleared.');
 });
 addEventListener('toolbox-language-change', () => {

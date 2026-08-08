@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="../../assets/simple-tools.css?v=0.1.1">
   <link rel="stylesheet" href="../../assets/workflow-tools.css?v=0.0.3">
   <link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
-  <script src="../../assets/toolbox-i18n.js?v=0.3.0"></script>
+  <script src="../../assets/toolbox-i18n.js?v=0.3.1"></script>
   <script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
 </head>
 <body>
-<article class="simple-tool" aria-label="정규식 테스트 도구">
+<article class="simple-tool" aria-label="정규식 테스트 도구" data-ko-aria-label="정규식 테스트 도구" data-en-aria-label="Regular expression tester">
   <div class="st-field">
     <label class="st-label" for="regex-pattern" data-ko="정규식 패턴" data-en="Regular expression pattern">정규식 패턴</label>
-    <input id="regex-pattern" type="text" maxlength="500" value="[가-힣]+" placeholder="예: [가-힣]+" spellcheck="false">
+    <input id="regex-pattern" type="text" maxlength="500" value="[가-힣]+" placeholder="예: [가-힣]+" data-ko-placeholder="예: [가-힣]+" data-en-placeholder="Example: [A-Za-z]+" spellcheck="false">
     <p class="st-help" data-ko="양쪽 슬래시 없이 패턴 내용만 입력하세요." data-en="Enter the pattern without surrounding slashes.">양쪽 슬래시 없이 패턴 내용만 입력하세요.</p>
   </div>
   <label class="st-check"><input id="regex-replace-enabled" type="checkbox"><span data-ko="치환 결과도 만들기" data-en="Build replacement preview">치환 결과도 만들기</span></label>
@@ -51,11 +51,11 @@
   <section class="st-result" id="regex-result" hidden>
     <h2 data-ko="일치 결과" data-en="Match results">일치 결과</h2>
     <p class="st-result-detail" id="regex-summary"></p>
-    <div class="wf-highlight" id="regex-highlight" aria-label="일치 부분이 강조된 텍스트"></div>
+    <div class="wf-highlight" id="regex-highlight" aria-label="일치 부분이 강조된 텍스트" data-ko-aria-label="일치 부분이 강조된 텍스트" data-en-aria-label="Text with matches highlighted"></div>
     <ol class="wf-match-list" id="regex-list"></ol>
     <div class="st-field" id="regex-replacement-result" hidden><label class="st-label" for="regex-replacement-output" data-ko="치환 결과" data-en="Replacement result">치환 결과</label><textarea id="regex-replacement-output" readonly spellcheck="false"></textarea><button class="st-secondary" id="regex-copy-replacement" type="button" data-ko="치환 결과 복사" data-en="Copy replacement result">치환 결과 복사</button></div>
   </section>
 </article>
-<script type="module" src="./tool.js?v=0.1.0"></script>
+<script type="module" src="./tool.js?v=0.2.0"></script>
 </body>
 </html>

@@ -47,6 +47,7 @@ function translateRows() {
 }
 
 function parse() {
+  $('#url-fallback').hidden = true;
   try {
     const url = new URL($('#url-input').value.trim());
     if (!['http:', 'https:'].includes(url.protocol)) throw new Error('protocol');
@@ -72,6 +73,7 @@ function parse() {
 
 function rebuild() {
   if (!parsedUrl) return;
+  $('#url-fallback').hidden = true;
   const rows = [...$('#url-query-list').children];
   let invalid = false;
   const params = new URLSearchParams();
@@ -101,6 +103,13 @@ $('#url-input').addEventListener('input', parse);
 $('#url-path').addEventListener('input', rebuild);
 $('#url-hash').addEventListener('input', rebuild);
 $('#url-add').addEventListener('click', () => { addRow(); rebuild(); });
+$('#url-add-utm').addEventListener('click', () => {
+  const existing = new Set([...$('#url-query-list').querySelectorAll('.up-name')].map((input) => input.value.trim().toLowerCase()));
+  let added = 0;
+  [['utm_source', ''], ['utm_medium', ''], ['utm_campaign', '']].forEach(([name, value]) => { if (!existing.has(name)) { addRow(name, value); added += 1; } });
+  rebuild();
+  setStatus(added ? `${added}개의 UTM 기본 항목을 추가했습니다.` : 'UTM 기본 항목이 이미 모두 있습니다.', added ? `Added ${added} missing UTM field${added === 1 ? '' : 's'}.` : 'All standard UTM fields are already present.');
+});
 $('#url-copy').addEventListener('click', async () => {
   const value = $('#url-output').textContent;
   if (!value) return setStatus('복사할 완성 URL이 없습니다.', 'There is no rebuilt URL to copy.', true);

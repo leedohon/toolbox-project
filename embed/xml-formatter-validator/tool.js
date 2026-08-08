@@ -33,6 +33,7 @@ function formatXml(source, indent) {
 
 function render() {
   const source = $('#xml-input').value.trim();
+  $('#xml-fallback').hidden = true;
   if (!source) {
     $('#xml-result').hidden = true;
     $('#xml-output').value = '';
@@ -43,7 +44,10 @@ function render() {
     const parsed = parseXml(source);
     const output = formatXml(source, mode === 'two' ? '  ' : mode === 'four' ? '    ' : '');
     $('#xml-output').value = output;
-    $('#xml-summary').textContent = tr(`${parsed.getElementsByTagName('*').length.toLocaleString()}개 요소 · 결과 ${output.length.toLocaleString()}자`, `${parsed.getElementsByTagName('*').length.toLocaleString()} elements · ${output.length.toLocaleString()} output characters`);
+    const elements = [...parsed.getElementsByTagName('*')];
+    const attributes = elements.reduce((total, element) => total + element.attributes.length, 0);
+    const rootName = parsed.documentElement.tagName;
+    $('#xml-summary').textContent = tr(`루트 ${rootName} · ${elements.length.toLocaleString()}개 요소 · ${attributes.toLocaleString()}개 속성 · 결과 ${output.length.toLocaleString()}자`, `Root ${rootName} · ${elements.length.toLocaleString()} element${elements.length === 1 ? '' : 's'} · ${attributes.toLocaleString()} attribute${attributes === 1 ? '' : 's'} · ${output.length.toLocaleString()} output characters`);
     $('#xml-result').hidden = false;
     $('#xml-fallback').hidden = true;
     setStatus('올바른 XML입니다. 결과를 만들었습니다.', 'Valid XML. The result is ready.');

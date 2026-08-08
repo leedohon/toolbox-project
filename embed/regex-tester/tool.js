@@ -10,13 +10,14 @@ function escapeHtml(value){return value.replace(/[&<>"']/g,character=>({'&':'&am
 
 function run(){
   const pattern=$('#regex-pattern').value,text=$('#regex-text').value,result=$('#regex-result'),list=$('#regex-list');
+  $('#regex-fallback').hidden=true;
   if(!pattern){result.hidden=true;copyValue='';setStatus('정규식 패턴을 입력해 주세요.','Enter a regular expression pattern.',true);return;}
   try{
     const selectedFlags=flags(),expression=new RegExp(pattern,selectedFlags),matches=[];
     let match;
-    while((match=expression.exec(text))&&matches.length<201){matches.push({value:match[0],index:match.index});if(!selectedFlags.includes('g'))break;if(match[0]==='')expression.lastIndex+=1;}
+    while((match=expression.exec(text))&&matches.length<201){matches.push({value:match[0],index:match.index,groups:match.slice(1),named:match.groups||{}});if(!selectedFlags.includes('g'))break;if(match[0]==='')expression.lastIndex+=1;}
     const limited=matches.length>200,visible=matches.slice(0,200);
-    list.replaceChildren(...visible.map((item,index)=>{const row=document.createElement('li');row.textContent=tr(`${index+1}. ${item.index}번 위치: ${item.value||'(빈 문자열)'}`,`${index+1}. Position ${item.index}: ${item.value||'(empty string)'}`);return row;}));
+    list.replaceChildren(...visible.map((item,index)=>{const row=document.createElement('li');const numbered=item.groups.map((value,groupIndex)=>`#${groupIndex+1}=${value??tr('(없음)','(unset)')}`),named=Object.entries(item.named).map(([name,value])=>`${name}=${value??tr('(없음)','(unset)')}`),captures=[...numbered,...named];row.textContent=tr(`${index+1}. ${item.index}번 위치: ${item.value||'(빈 문자열)'}`,`${index+1}. Position ${item.index}: ${item.value||'(empty string)'}`)+(captures.length?tr(` · 캡처 ${captures.join(', ')}`,` · Captures ${captures.join(', ')}`):'');return row;}));
     let cursor=0,highlight='';
     for(const item of visible){highlight+=escapeHtml(text.slice(cursor,item.index));highlight+=`<mark>${escapeHtml(item.value)||'&#8203;'}</mark>`;cursor=item.index+item.value.length;}
     highlight+=escapeHtml(text.slice(cursor));

@@ -514,7 +514,7 @@
       "title": "정규식 테스트 도구",
       "description": "정규식 패턴과 테스트 문장을 입력해 일치 항목과 위치를 브라우저에서 바로 확인합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_18.html",
-      "version": "0.1.0v",
+      "version": "0.2.0v",
       "keywords": [
         "정규식",
         "텍스트검사",
@@ -554,7 +554,7 @@
       "title": "텍스트·파일 해시 생성기",
       "description": "텍스트나 파일을 선택해 SHA-256·SHA-384·SHA-512 해시값을 브라우저에서 계산합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html",
-      "version": "0.1.0v",
+      "version": "0.2.0v",
       "keywords": [
         "해시",
         "SHA256",
@@ -593,7 +593,7 @@
       "title": "JWT 내용 확인기",
       "description": "JWT의 헤더와 페이로드를 서명 검증 없이 브라우저에서 읽기 좋게 확인합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/jwt.html",
-      "version": "0.0.5v",
+      "version": "0.1.0v",
       "keywords": [
         "JWT",
         "토큰디코더",
@@ -632,7 +632,7 @@
       "title": "XML 검사·정리 도구",
       "description": "XML 문법 오류를 확인하고 들여쓰기 정리·한 줄 압축 결과를 브라우저에서 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/xml.html",
-      "version": "0.0.4v",
+      "version": "0.1.0v",
       "keywords": [
         "XML",
         "XML포맷터",
@@ -671,7 +671,7 @@
       "title": "URL 분석·쿼리 편집기",
       "description": "URL의 주소 구성요소와 쿼리 항목을 나누어 확인하고 수정한 주소를 다시 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/url_01194177481.html",
-      "version": "0.0.5v",
+      "version": "0.1.0v",
       "keywords": [
         "URL",
         "쿼리스트링",
@@ -789,7 +789,7 @@
       "title": "웹 메타·공유 미리보기",
       "description": "웹페이지 제목과 설명, 주소와 이미지를 입력해 검색·공유 미리보기와 메타 태그를 함께 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/08/blog-post_03.html",
-      "version": "0.1.0v",
+      "version": "0.2.0v",
       "keywords": [
         "메타태그",
         "OpenGraph",

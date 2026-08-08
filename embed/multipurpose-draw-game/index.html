@@ -35,6 +35,8 @@
     let modules = [];
     let activeId = '';
     const isEnglish = () => window.ToolboxI18n?.language === 'en';
+    const syncModeLabel = () => modeRoot.setAttribute('aria-label', isEnglish() ? 'Game selection' : '뽑기게임 선택');
+    syncModeLabel();
 
     function notifyHeight() {
       const height = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
@@ -97,6 +99,22 @@
       modulesByTool.set(module.messageTool, module);
     }
 
+    modeRoot.addEventListener('keydown', (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
+      const inputs = [...modeRoot.querySelectorAll('input[type="radio"]')];
+      const current = inputs.indexOf(document.activeElement);
+      if (current < 0 || !inputs.length) return;
+      event.preventDefault();
+      let next = current;
+      if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = inputs.length - 1;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (current - 1 + inputs.length) % inputs.length;
+      else next = (current + 1) % inputs.length;
+      inputs[next].checked = true;
+      activate(inputs[next].value);
+      window.ToolboxUX?.focus(inputs[next]);
+    });
+
     addEventListener('message', (event) => {
       if (event.origin !== location.origin || !event.data || event.data.source !== 'toolbox-embed') return;
       const module = modulesByTool.get(event.data.tool);
@@ -122,6 +140,7 @@
     }
 
     addEventListener('toolbox-language-change', () => {
+      syncModeLabel();
       const module = modules.find((item) => item.id === activeId);
       if (module) announce(module, !loadedFrames.has(frames.get(activeId)));
       else status.textContent = isEnglish() ? 'Preparing game modules.' : '게임 모듈을 준비하고 있습니다.';

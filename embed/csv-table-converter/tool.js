@@ -74,6 +74,7 @@ function convert() {
   const selectedDelimiter = $('#csv-delimiter').value;
   const delimiter = selectedDelimiter === 'auto' ? detect(source) : selectedDelimiter === 'tab' ? '\t' : selectedDelimiter;
   rows = parse(source, delimiter);
+  if ($('#csv-empty-rows').checked) rows = rows.filter((row) => row.some((value) => String(value).trim() !== ''));
   if (!rows.length) throw new Error(tr('표시할 행이 없습니다.', 'There are no rows to display.'));
   const width = rows[0].length;
   const mismatched = [];
@@ -94,13 +95,14 @@ function convert() {
 }
 
 function update() {
+  $('#csv-fallback').hidden = true;
   try { convert(); }
   catch (error) { rows = []; result = ''; $('#csv-table').replaceChildren(); setStatus(error.message, error.message, true); }
 }
 
 let timer;
 $('#csv-input').addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(update, 180); });
-['#csv-delimiter', '#csv-output', '#csv-header'].forEach((selector) => $(selector).addEventListener('change', update));
+['#csv-delimiter', '#csv-output', '#csv-header', '#csv-empty-rows'].forEach((selector) => $(selector).addEventListener('change', update));
 $('#csv-file').addEventListener('change', async () => {
   const file = $('#csv-file').files[0];
   if (!file) return;
@@ -128,6 +130,7 @@ $('#csv-save').addEventListener('click', () => {
   link.click();
   setTimeout(() => URL.revokeObjectURL(link.href), 1000);
 });
-addEventListener('toolbox-language-change', update);
+addEventListener('toolbox-language-change',()=>{$('#csv-tool').setAttribute('aria-label',tr('CSV 표 보기·변환기','CSV table viewer and converter'));update();});
+$('#csv-tool').setAttribute('aria-label',tr('CSV 표 보기·변환기','CSV table viewer and converter'));
 update();
 setupEmbedHeight('csv-table-converter', {content: true});

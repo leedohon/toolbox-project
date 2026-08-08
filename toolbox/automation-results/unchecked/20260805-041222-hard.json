@@ -15,7 +15,11 @@
     "markdown-preview-converter",
     "http-status-lookup"
   ],
-  "workCounts": {"improvements": 6, "newOrMerge": 3, "commonFixes": 2},
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
   "changes": [
     "Base64와 Data URL 결과에 MIME 형식과 디코딩 바이트 정보를 표시",
     "날짜 차이 계산에 주말을 제외한 평일 계산 옵션과 공휴일 범위 안내를 추가",
@@ -51,28 +55,98 @@
     "공개 도구 22개 응답 검사 통과 및 공개 URL 113개 수익화 구조 감사 오류 0",
     "공개 기능 허브와 Blogger 글 6개를 데스크톱·375×812에서 재검증, 가로 넘침·콘솔 오류 없음"
   ],
-  "blogger": {"created": [], "updated": ["base64-tools", "date-calculator", "color-converter-contrast", "text-counter-cleaner", "markdown-preview-converter", "http-status-lookup"], "skipped": [], "status": "completed"},
-  "git": {"branch": "main", "commit": "dda35ce63cb50c689bb2746681193d0f0d195b9f", "pushed": true},
-  "deployment": {"status": "completed", "runId": 30942321961, "catalogRunId": 30942321649, "finalEvidenceRunId": 30942830381, "urls": ["https://leedohon.github.io/toolbox-project/", "https://bloggiedh.blogspot.com/"]},
-  "shutdown": {"requested": true, "scheduled": true, "input": "10분", "scheduledFor": "2026-08-05T04:31:27+09:00", "cancelled": false, "note": "전체 구현·Blogger 반영·Git 배포·공개 검증 완료 후 2026-08-05T04:21:27+09:00에 shutdown.exe /s /t 600 실행"},
+  "blogger": {
+    "created": [],
+    "updated": [
+      "base64-tools",
+      "date-calculator",
+      "color-converter-contrast",
+      "text-counter-cleaner",
+      "markdown-preview-converter",
+      "http-status-lookup"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "dda35ce63cb50c689bb2746681193d0f0d195b9f",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 30942321961,
+    "catalogRunId": 30942321649,
+    "finalEvidenceRunId": 30942830381,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/",
+      "https://bloggiedh.blogspot.com/"
+    ]
+  },
+  "shutdown": {
+    "requested": true,
+    "scheduled": true,
+    "input": "10분",
+    "scheduledFor": "2026-08-05T04:31:27+09:00",
+    "cancelled": false,
+    "note": "전체 구현·Blogger 반영·Git 배포·공개 검증 완료 후 2026-08-05T04:21:27+09:00에 shutdown.exe /s /t 600 실행"
+  },
   "blocked": [],
   "scopeExceptions": [],
-  "knowledgeOptimization": {"policyVersion": "0.7.0", "applied": ["OPT-010"], "summary": "미확인 완료기록을 파일별로 다시 열지 않고 한 번에 요약·증거화하는 report 명령과 절차를 추가했다. 기능 선택 규칙은 고정하지 않았다.", "skillValidation": "not_applicable"},
+  "knowledgeOptimization": {
+    "policyVersion": "0.7.0",
+    "applied": [
+      "OPT-010"
+    ],
+    "summary": "미확인 완료기록을 파일별로 다시 열지 않고 한 번에 요약·증거화하는 report 명령과 절차를 추가했다. 기능 선택 규칙은 고정하지 않았다.",
+    "skillValidation": "not_applicable"
+  },
   "developmentTokenEfficiency": {
     "measurementStatus": "proxy_only",
     "baselineRunId": null,
-    "tokens": {"baseline": null, "current": null, "accountingMethod": null},
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
     "instructionReduction": null,
     "overallReduction": null,
     "proxies": [
-      {"metric": "manual unchecked-result report-history edits", "before": 14, "after": 0, "reduction": 1.0},
-      {"metric": "manual Blogger update sessions for six changed posts", "before": 6, "after": 1, "reduction": 0.8333}
+      {
+        "metric": "manual unchecked-result report-history edits",
+        "before": 14,
+        "after": 0,
+        "reduction": 1
+      },
+      {
+        "metric": "manual Blogger update sessions for six changed posts",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      }
     ],
     "note": "비교 가능한 실제 입력·출력 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않았다. 확인 가능한 반복 작업 대체지표만 기록한다."
   },
   "reportHistory": [
-    {"at": "2026-08-05T04:12:22+09:00", "action": "partial", "note": "구현·로컬 검증·Blogger 반영 완료, Git 배포와 공개 화면 검증 대기"},
-    {"at": "2026-08-05T04:19:25+09:00", "action": "completed", "note": "독립 구현 커밋·푸시·Pages 배포·공개 기능 및 Blogger 데스크톱·모바일 검증 증거를 갖춰 완료 전환"},
-    {"at": "2026-08-05T04:21:27+09:00", "action": "shutdown_scheduled", "note": "사용자 요청에 따라 Windows 종료를 10분 뒤인 2026-08-05T04:31:27+09:00로 예약"}
+    {
+      "at": "2026-08-05T04:12:22+09:00",
+      "action": "partial",
+      "note": "구현·로컬 검증·Blogger 반영 완료, Git 배포와 공개 화면 검증 대기"
+    },
+    {
+      "at": "2026-08-05T04:19:25+09:00",
+      "action": "completed",
+      "note": "독립 구현 커밋·푸시·Pages 배포·공개 기능 및 Blogger 데스크톱·모바일 검증 증거를 갖춰 완료 전환"
+    },
+    {
+      "at": "2026-08-05T04:21:27+09:00",
+      "action": "shutdown_scheduled",
+      "note": "사용자 요청에 따라 Windows 종료를 10분 뒤인 2026-08-05T04:31:27+09:00로 예약"
+    },
+    {
+      "at": "2026-08-09T04:03:36+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    }
   ]
 }

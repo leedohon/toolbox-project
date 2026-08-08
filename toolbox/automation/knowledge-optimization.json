@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.7.0",
-  "updatedAt": "2026-08-05",
+  "policyVersion": "0.8.0",
+  "updatedAt": "2026-08-09",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -190,6 +190,18 @@
       "targetReduction": 0.5,
       "evidence": [
         {"before":14,"after":0,"unit":"manual reportHistory JSON edits for the current unchecked records","reduction":1.0,"verifiedAt":"2026-08-05"}
+      ]
+    },
+    {
+      "id": "OPT-011",
+      "status": "completed",
+      "triggerPaths": ["outputs/*/versions.json", "toolbox/tools/*.md", "scripts/workflow-target-snapshot.mjs", "AUTOMATED-WORKFLOW.md"],
+      "problem": "여러 하드 워크플로 후보를 고를 때 긴 버전 이력과 도구 정의 전체가 작업 문맥에 반복 유입됐다.",
+      "proposedChange": "선택에 필요한 최신 버전·공개 상태·경로·핵심 기능만 한 번에 출력하는 대상 스냅샷을 사용한다.",
+      "measure": "target manifest and definition characters emitted for selection",
+      "targetReduction": 0.5,
+      "evidence": [
+        {"before":12184,"after":3582,"unit":"target manifest and definition characters emitted for six-tool selection","reduction":0.706,"verifiedAt":"2026-08-09"}
       ]
     }
   ]

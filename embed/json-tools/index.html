@@ -114,6 +114,9 @@
       font: 14px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace;
       resize: vertical;
     }
+    #toolbox-json-tools input[type="text"] { width: 100%; min-height: 44px; padding: 10px 12px; color: var(--tb-ink); border: 1px solid #bdd5df; border-radius: 10px; background: #fff; font: 14px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    #toolbox-json-tools .tb-query { margin: 0 0 18px; padding: 14px; border: 1px solid var(--tb-line); border-radius: 12px; background: #f8fcfe; }
+    #toolbox-json-tools .tb-query-result { min-height: 48px; margin: 8px 0 0; padding: 10px 12px; overflow: auto; border-radius: 8px; background: #fff; white-space: pre-wrap; overflow-wrap: anywhere; }
     #toolbox-json-tools .tb-output { margin: 0; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; background: #f8fcfe; }
     #toolbox-json-tools .tb-excel { min-width: 0; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--tb-line); }
     #toolbox-json-tools .tb-excel-head { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 10px; }
@@ -178,9 +181,16 @@
       </div>
     </fieldset>
     <p class="tb-status" id="json-status" aria-live="polite">JSON을 입력하면 실시간으로 검사합니다.</p>
-    <p class="tb-excel-meta" id="json-metrics" aria-live="polite">입력 0자 · 결과 0자</p>
-    <label class="tb-file-drop" id="json-file-drop" for="json-file">JSON 파일을 선택하거나 이곳에 놓으세요 · 최대 5MB</label>
+    <p class="tb-excel-meta" id="json-metrics" aria-live="polite" data-ko="입력 0자 · 결과 0자" data-en="Input 0 characters · Result 0 characters">입력 0자 · 결과 0자</p>
+    <label class="tb-file-drop" id="json-file-drop" for="json-file" data-ko="JSON 파일을 선택하거나 이곳에 놓으세요 · 최대 5MB" data-en="Choose a JSON file or drop it here · up to 5MB">JSON 파일을 선택하거나 이곳에 놓으세요 · 최대 5MB</label>
     <input class="tb-file-input" id="json-file" type="file" accept="application/json,.json">
+    <section class="tb-query" aria-labelledby="json-pointer-label">
+      <label class="tb-label" id="json-pointer-label" for="json-pointer" data-ko="JSON Pointer로 값 찾기" data-en="Find a value with JSON Pointer">JSON Pointer로 값 찾기</label>
+      <input id="json-pointer" type="text" placeholder="예: /items/0/name" data-ko-placeholder="예: /items/0/name" data-en-placeholder="Example: /items/0/name" aria-describedby="json-pointer-help json-pointer-error">
+      <p class="tb-excel-meta" id="json-pointer-help" data-ko="빈칸은 전체 문서입니다. /로 시작하고 /는 ~1, ~는 ~0으로 씁니다." data-en="Leave blank for the whole document. Start with /; encode / as ~1 and ~ as ~0.">빈칸은 전체 문서입니다. /로 시작하고 /는 ~1, ~는 ~0으로 씁니다.</p>
+      <p class="tb-error" id="json-pointer-error" role="alert"></p>
+      <pre class="tb-query-result" id="json-pointer-result" aria-live="polite"></pre>
+    </section>
     <div class="tb-editors">
       <div class="tb-editor">
         <label class="tb-label" for="json-input">JSON 입력</label>
@@ -231,6 +241,9 @@
       const metrics = root.querySelector('#json-metrics');
       let latestResult = '';
       let latestTable = null;
+      let latestParsed = null;
+      let latestValid = false;
+      const tr = function (ko, en) { return window.ToolboxI18n && window.ToolboxI18n.language === 'en' ? en : ko; };
       const mode = function () { return root.querySelector('input[name="json-mode"]:checked').value; };
       const lineColumn = function (text, position) {
         const safePosition = Math.max(0, Math.min(Number.isFinite(position) ? position : text.length, text.length));
@@ -283,20 +296,37 @@
             const objects = value.map(function (item) { return flattenObject(item, '', {}); });
             const headers = [];
             objects.forEach(function (item) { Object.keys(item).forEach(function (key) { if (!headers.includes(key)) headers.push(key); }); });
-            return { headers: headers.length ? headers : ['값'], rows: objects.map(function (item) { return headers.map(function (key) { return item[key] === undefined ? '' : item[key]; }); }) };
+            return { headers: headers.length ? headers : [tr('값','Value')], rows: objects.map(function (item) { return headers.map(function (key) { return item[key] === undefined ? '' : item[key]; }); }) };
           }
-          return { headers: ['값'], rows: value.map(function (item) { return [cellValue(item)]; }) };
+          return { headers: [tr('값','Value')], rows: value.map(function (item) { return [cellValue(item)]; }) };
         }
         if (isPlainObject(value)) {
           const flattened = flattenObject(value, '', {});
-          return { headers: ['키', '값'], rows: Object.keys(flattened).map(function (key) { return [key, flattened[key]]; }) };
+          return { headers: [tr('키','Key'), tr('값','Value')], rows: Object.keys(flattened).map(function (key) { return [key, flattened[key]]; }) };
         }
-        return { headers: ['값'], rows: [[cellValue(value)]] };
+        return { headers: [tr('값','Value')], rows: [[cellValue(value)]] };
+      };
+      const pointerValue = function (value, pointer) {
+        if (pointer === '') return value;
+        if (!pointer.startsWith('/')) throw new Error(tr('JSON Pointer는 /로 시작해야 합니다.','JSON Pointer must start with /.'));
+        return pointer.slice(1).split('/').reduce(function (current, token) {
+          const key = token.replace(/~1/g, '/').replace(/~0/g, '~');
+          if (current === null || (typeof current !== 'object') || !(key in current)) throw new Error(tr(`경로에서 ${key} 값을 찾지 못했습니다.`,`Could not find ${key} in this path.`));
+          return current[key];
+        }, value);
+      };
+      const renderPointer = function () {
+        const result = root.querySelector('#json-pointer-result');
+        const pointerError = root.querySelector('#json-pointer-error');
+        pointerError.textContent = '';
+        if (!latestValid) { result.textContent = tr('유효한 JSON을 입력하면 경로 결과를 표시합니다.','Enter valid JSON to inspect a path.'); return; }
+        try { const found = pointerValue(latestParsed, root.querySelector('#json-pointer').value.trim()); result.textContent = typeof found === 'string' ? found : JSON.stringify(found, null, 2); }
+        catch (exception) { result.textContent = ''; pointerError.textContent = exception.message; }
       };
       const renderTable = function (tableData) {
         excelTable.replaceChildren();
         if (!tableData || !tableData.headers.length) {
-          excelTable.hidden = true; excelEmpty.hidden = false; excelMeta.textContent = '유효한 JSON을 입력하면 표를 만듭니다.'; return;
+          excelTable.hidden = true; excelEmpty.hidden = false; excelMeta.textContent = tr('유효한 JSON을 입력하면 표를 만듭니다.','Enter valid JSON to build a table.'); return;
         }
         const head = document.createElement('thead');
         const headRow = document.createElement('tr');
@@ -305,19 +335,24 @@
         const body = document.createElement('tbody');
         tableData.rows.slice(0, 100).forEach(function (row) { const tr = document.createElement('tr'); row.forEach(function (value) { const cell = document.createElement('td'); cell.textContent = value === null ? 'null' : String(value); tr.appendChild(cell); }); body.appendChild(tr); });
         excelTable.appendChild(body); excelEmpty.hidden = true; excelTable.hidden = false;
-        excelMeta.textContent = tableData.rows.length.toLocaleString() + '행 · ' + tableData.headers.length.toLocaleString() + '열' + (tableData.rows.length > 100 ? ' (미리보기 100행)' : '');
+        excelMeta.textContent = window.ToolboxI18n?.language === 'en'
+          ? tableData.rows.length.toLocaleString() + ' rows · ' + tableData.headers.length.toLocaleString() + ' columns' + (tableData.rows.length > 100 ? ' (preview: 100 rows)' : '')
+          : tableData.rows.length.toLocaleString() + '행 · ' + tableData.headers.length.toLocaleString() + '열' + (tableData.rows.length > 100 ? ' (미리보기 100행)' : '');
       };
       const maxJsonBytes = 5 * 1024 * 1024;
       const update = function () {
         const source = input.value;
-        metrics.textContent = '입력 ' + source.length.toLocaleString() + '자 · 결과 0자';
+        metrics.textContent = window.ToolboxI18n?.language === 'en' ? 'Input ' + source.length.toLocaleString() + ' characters · Result 0 characters' : '입력 ' + source.length.toLocaleString() + '자 · 결과 0자';
         if (new TextEncoder().encode(source).byteLength > maxJsonBytes) {
           latestResult = '';
           latestTable = null;
+          latestParsed = null;
+          latestValid = false;
           output.textContent = '입력 크기를 줄이면 결과가 여기에 표시됩니다.';
           renderTable(null);
           setStatus('invalid', 'JSON 입력은 5MB 이하로 줄여 주세요.');
           error.textContent = '직접 붙여넣는 JSON도 5MB 이하만 처리할 수 있습니다.';
+          renderPointer();
           return;
         }
         const text = source.trim();
@@ -325,31 +360,43 @@
         if (!text) {
           latestResult = '';
           latestTable = null;
+          latestParsed = null;
+          latestValid = false;
           output.textContent = '유효한 JSON을 입력하면 결과가 여기에 표시됩니다.';
           renderTable(null);
           setStatus('', 'JSON을 입력하면 실시간으로 검사합니다.');
+          renderPointer();
           return;
         }
         try {
           const parsed = JSON.parse(text);
+          latestParsed = parsed;
+          latestValid = true;
           latestResult = mode() === 'pretty' ? JSON.stringify(parsed, null, 2) : JSON.stringify(parsed);
           latestTable = toTableData(parsed);
           output.textContent = latestResult;
           renderTable(latestTable);
-          metrics.textContent = '입력 ' + source.length.toLocaleString() + '자 · 결과 ' + latestResult.length.toLocaleString() + '자 · 표 ' + latestTable.rows.length.toLocaleString() + '행 × ' + latestTable.headers.length.toLocaleString() + '열';
+          metrics.textContent = window.ToolboxI18n?.language === 'en'
+            ? 'Input ' + source.length.toLocaleString() + ' characters · Result ' + latestResult.length.toLocaleString() + ' characters · Table ' + latestTable.rows.length.toLocaleString() + ' rows × ' + latestTable.headers.length.toLocaleString() + ' columns'
+            : '입력 ' + source.length.toLocaleString() + '자 · 결과 ' + latestResult.length.toLocaleString() + '자 · 표 ' + latestTable.rows.length.toLocaleString() + '행 × ' + latestTable.headers.length.toLocaleString() + '열';
           setStatus('valid', '유효한 JSON입니다. 결과가 자동으로 갱신되었습니다.');
+          renderPointer();
         } catch (exception) {
           latestResult = '';
           latestTable = null;
+          latestParsed = null;
+          latestValid = false;
           renderTable(null);
           const details = errorDetails(text, exception);
           renderErrorPreview(text, details.position);
           setStatus('invalid', 'JSON 형식을 확인해 주세요.');
           error.textContent = details.message;
+          renderPointer();
         }
       };
       root.querySelectorAll('input[name="json-mode"]').forEach(function (element) { element.addEventListener('change', update); });
       input.addEventListener('input', update);
+      root.querySelector('#json-pointer').addEventListener('input', renderPointer);
       const fileInput = root.querySelector('#json-file');
       const fileDrop = root.querySelector('#json-file-drop');
       const loadFile = function (file) {
@@ -410,8 +457,9 @@
         setTimeout(function () { URL.revokeObjectURL(url); }, 0);
       });
       root.querySelector('#json-clear').addEventListener('click', function () {
-        input.value = ''; latestResult = ''; latestTable = null; output.textContent = '유효한 JSON을 입력하면 결과가 여기에 표시됩니다.'; renderTable(null); error.textContent = ''; metrics.textContent = '입력 0자 · 결과 0자'; setStatus('', '입력과 결과를 비웠습니다.');
+        input.value = ''; latestResult = ''; latestTable = null; latestParsed = null; latestValid = false; root.querySelector('#json-pointer').value = ''; output.textContent = tr('유효한 JSON을 입력하면 결과가 여기에 표시됩니다.','Enter valid JSON to display the result here.'); renderTable(null); renderPointer(); error.textContent = ''; metrics.textContent = tr('입력 0자 · 결과 0자','Input 0 characters · Result 0 characters'); setStatus('', tr('입력과 결과를 비웠습니다.','Cleared the input and result.'));
       });
+      addEventListener('toolbox-language-change', update);
       update();
     }());
   </script>

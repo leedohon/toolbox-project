@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.4.0v",
+  "latestVersion": "0.5.0v",
   "paths": {
     "definition": "toolbox/tools/web-meta-preview-builder.md",
     "post": "toolbox/posts/web-meta-preview-builder.html",

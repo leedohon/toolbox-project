@@ -104,6 +104,7 @@ function update() {
 let timer;
 $('#csv-input').addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(update, 180); });
 $('#csv-sample').addEventListener('click', () => { $('#csv-input').value = tr('상품,수량,매출\n노트,12,36000\n펜,25,25000','Product,Quantity,Sales\nNotebook,12,36000\nPen,25,25000'); $('#csv-output').value = 'json'; $('#csv-fallback').hidden = true; update(); });
+$('#tsv-sample').addEventListener('click', () => { $('#csv-input').value = tr('이름\t지역\t상태\n민수\t서울\t완료\n지영\t부산\t진행 중','Name\tRegion\tStatus\nMinsu\tSeoul\tDone\nJiyoung\tBusan\tIn progress'); $('#csv-delimiter').value = 'auto'; $('#csv-output').value = 'json'; $('#csv-fallback').hidden = true; update(); });
 ['#csv-delimiter', '#csv-output', '#csv-header', '#csv-empty-rows', '#csv-trim-cells'].forEach((selector) => $(selector).addEventListener('change', update));
 $('#csv-file').addEventListener('change', async () => {
   const file = $('#csv-file').files[0];

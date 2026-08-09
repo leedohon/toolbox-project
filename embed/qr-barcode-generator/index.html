@@ -111,6 +111,7 @@
     <div class="tb-field">
       <div class="tb-range-label"><label class="tb-label" for="tb-size">크기</label><output id="tb-size-value">280px</output></div>
       <input id="tb-size" type="range" min="180" max="420" step="10" value="280">
+      <div class="tb-actions"><button class="tb-secondary" id="tb-large-size" type="button" data-ko="고해상도 420px" data-en="High resolution 420px">고해상도 420px</button></div>
     </div>
     <fieldset class="tb-field">
       <legend>색상</legend>
@@ -189,6 +190,7 @@
       function updateType() { const qr = valueOf('tb-type') === 'qr'; $('#tb-style-field').hidden = !qr; $('#tb-level-field').hidden = !qr; $('#tb-barcode-text-field').hidden = qr; generate(); }
       content.addEventListener('input', generate);
       size.addEventListener('input', function () { $('#tb-size-value').textContent = size.value + 'px'; generate(); });
+      $('#tb-large-size').addEventListener('click', function () { size.value = '420'; $('#tb-size-value').textContent = '420px'; error.textContent = ''; generate(); });
       foreground.addEventListener('input', generate);
       background.addEventListener('input', generate);
       $('#tb-swap-colors').addEventListener('click', function () { const previous = foreground.value; foreground.value = background.value; background.value = previous; generate(); });

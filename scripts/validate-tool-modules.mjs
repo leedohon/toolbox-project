@@ -4,7 +4,23 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const embedRoot = path.join(root, 'embed');
-const entries = await fs.readdir(embedRoot, { withFileTypes: true });
+const args = process.argv.slice(2);
+let selectedTools = null;
+const fromRunIndex = args.indexOf('--from-run');
+if (fromRunIndex >= 0) {
+  const runId = args[fromRunIndex + 1];
+  if (!runId) throw new Error('Usage: node scripts/validate-tool-modules.mjs --from-run RUN_ID');
+  for (const bucket of ['unchecked', 'checked']) {
+    try {
+      const result = JSON.parse(await fs.readFile(path.join(root, 'toolbox', 'automation-results', bucket, `${runId}.json`), 'utf8'));
+      selectedTools = result.selectedTools || [];
+      break;
+    } catch (error) { if (error.code !== 'ENOENT') throw error; }
+  }
+  if (!selectedTools?.length) throw new Error(`Automation result or selectedTools not found: ${runId}`);
+}
+const entries = (await fs.readdir(embedRoot, { withFileTypes: true }))
+  .filter((entry) => !selectedTools || selectedTools.includes(entry.name));
 let registryCount = 0;
 let moduleCount = 0;
 
@@ -39,4 +55,3 @@ for (const entry of entries) {
 }
 
 console.log(`Validated ${moduleCount} modules in ${registryCount} registries.`);
-

@@ -22,6 +22,7 @@ outputs:
 ---
 
 # 기능
+- JSON Pointer로 찾은 결과를 별도로 복사
 
 - 실시간 JSON 유효성 검사
 - 잘못된 JSON의 줄·열 위치 안내

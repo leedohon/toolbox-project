@@ -54,6 +54,13 @@ $('#text-copy').addEventListener('click',async()=>{
   if(await copyText(value)){$('#text-fallback').hidden=true;status(tr('정리 결과를 복사했습니다.','Copied the cleaned text.'));}
   else{$('#text-fallback').value=value;$('#text-fallback').hidden=false;status(tr('자동 복사가 차단되었습니다. 아래 결과를 직접 선택해 복사해 주세요.','Automatic copying was blocked. Select the result below and copy it manually.'));}
 });
+$('#text-save').addEventListener('click',()=>{
+  const value=$('#text-output').value;
+  if(!value)return status(tr('먼저 텍스트를 정리해 주세요.','Clean the text first.'),true);
+  const url=URL.createObjectURL(new Blob([`${value}\n`],{type:'text/plain;charset=utf-8'}));
+  const link=document.createElement('a');link.href=url;link.download='toolbox-cleaned-text.txt';link.click();URL.revokeObjectURL(url);
+  $('#text-fallback').hidden=true;status(tr('정리 결과를 TXT로 저장했습니다.','Saved the cleaned text as a TXT file.'));
+});
 $('#text-reset').addEventListener('click',()=>{
   $('#text-input').value='';$('#text-output').value='';$('#text-fallback').hidden=true;count();status(tr('입력과 결과를 비웠습니다.','Cleared the input and result.'));
 });

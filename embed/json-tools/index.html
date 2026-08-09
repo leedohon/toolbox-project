@@ -191,6 +191,8 @@
       <p class="tb-excel-meta" id="json-pointer-help" data-ko="빈칸은 전체 문서입니다. /로 시작하고 /는 ~1, ~는 ~0으로 씁니다." data-en="Leave blank for the whole document. Start with /; encode / as ~1 and ~ as ~0.">빈칸은 전체 문서입니다. /로 시작하고 /는 ~1, ~는 ~0으로 씁니다.</p>
       <p class="tb-error" id="json-pointer-error" role="alert"></p>
       <pre class="tb-query-result" id="json-pointer-result" aria-live="polite"></pre>
+      <div class="tb-actions"><button class="tb-secondary" id="json-pointer-copy" type="button" data-ko="찾은 값 복사" data-en="Copy found value">찾은 값 복사</button></div>
+      <textarea id="json-pointer-fallback" aria-label="직접 복사할 JSON Pointer 결과" readonly hidden></textarea>
     </section>
     <div class="tb-editors">
       <div class="tb-editor">
@@ -405,6 +407,16 @@
       root.querySelector('#json-sort-keys').addEventListener('change', update);
       input.addEventListener('input', update);
       root.querySelector('#json-pointer').addEventListener('input', renderPointer);
+      root.querySelector('#json-pointer').addEventListener('input', function () { root.querySelector('#json-pointer-fallback').hidden = true; });
+      root.querySelector('#json-pointer-copy').addEventListener('click', async function () {
+        const value = root.querySelector('#json-pointer-result').textContent;
+        const pointerError = root.querySelector('#json-pointer-error');
+        const fallback = root.querySelector('#json-pointer-fallback');
+        if (!latestValid || !value) { pointerError.textContent = tr('먼저 유효한 JSON과 경로를 입력해 주세요.','Enter valid JSON and a path first.'); return; }
+        pointerError.textContent = '';
+        try { await navigator.clipboard.writeText(value); fallback.hidden = true; setStatus('valid', tr('찾은 값을 복사했습니다.','Copied the found value.')); }
+        catch (_) { fallback.value = value; fallback.hidden = false; setStatus('', tr('자동 복사가 차단되었습니다. 아래 값을 직접 선택해 복사해 주세요.','Automatic copying was blocked. Select the value below and copy it manually.')); }
+      });
       const fileInput = root.querySelector('#json-file');
       const fileDrop = root.querySelector('#json-file-drop');
       const loadFile = function (file) {

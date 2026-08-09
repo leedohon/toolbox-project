@@ -7,7 +7,7 @@
       "title": "QR · 바코드 생성기",
       "description": "KOR/ENG 화면에서 QR·바코드를 만들고 설정을 한 번에 초기화할 수 있습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
-      "version": "0.7.0v",
+      "version": "0.8.0v",
       "keywords": [
         "QR코드",
         "바코드",
@@ -45,7 +45,7 @@
       "title": "JSON 도구",
       "description": "예제 JSON을 바로 불러와 검사·정리하고 Excel·CSV 파일로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-      "version": "0.9.0v",
+      "version": "0.10.0v",
       "keywords": [
         "JSON",
         "JSON포맷터",
@@ -161,7 +161,7 @@
       "title": "다용도 계산기",
       "description": "일반·단위·날짜 계산과 Unix 시간, 화면 비율, 백분율, 평균·중앙값 계산을 한곳에서 처리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
-      "version": "2.2.0v",
+      "version": "2.3.0v",
       "keywords": [
         "다용도계산기",
         "단위변환",
@@ -240,7 +240,7 @@
       "title": "비밀번호·UUID 생성기",
       "description": "안전한 무작위 비밀번호와 UUID v4를 필요한 형식과 개수로 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
-      "version": "1.2.0v",
+      "version": "1.3.0v",
       "keywords": [
         "비밀번호생성기",
         "UUID",
@@ -319,7 +319,7 @@
       "title": "CSS 디자인 도구",
       "description": "색상·대비·그라데이션·clamp·그림자·단위·모서리 CSS를 한곳에서 만들고 확인합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-      "version": "1.2.0v",
+      "version": "1.3.0v",
       "keywords": [
         "CSS디자인",
         "색상변환",
@@ -359,7 +359,7 @@
       "title": "텍스트 정리·생성 도구",
       "description": "글자 수·공백·목록·파일명·슬러그를 정리하고 테스트 문장을 생성합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
-      "version": "1.1.0v",
+      "version": "1.2.0v",
       "keywords": [
         "글자수세기",
         "텍스트정리",

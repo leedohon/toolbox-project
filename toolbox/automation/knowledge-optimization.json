@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.12.0",
+  "policyVersion": "0.13.0",
   "updatedAt": "2026-08-09",
   "scope": [
     "repository markdown instructions",
@@ -263,6 +263,14 @@
       "evidence": [
         {"before":6,"after":1,"unit":"QA target arguments per six-tool hard run","reduction":0.8333,"verifiedAt":"2026-08-09"}
       ]
+    },
+    {
+      "id":"OPT-017","status":"completed",
+      "triggerPaths":["scripts/workflow-target-snapshot.mjs","toolbox/automation-results/*/*.json","AUTOMATED-WORKFLOW.md"],
+      "problem":"실행 기록에 이미 있는 대상 도구 여섯 개를 스냅샷 명령에 다시 입력한다.",
+      "proposedChange":"--from-run 옵션으로 selectedTools를 읽어 대상을 한 번만 관리한다.",
+      "measure":"target snapshot arguments per six-tool hard run","targetReduction":0.5,
+      "evidence":[{"before":6,"after":1,"unit":"target snapshot arguments per six-tool hard run","reduction":0.8333,"verifiedAt":"2026-08-09"}]
     }
   ]
 }

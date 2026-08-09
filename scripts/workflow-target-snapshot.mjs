@@ -3,10 +3,23 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const tools = process.argv.slice(2).filter((value) => /^[a-z0-9-]+$/.test(value));
+const args = process.argv.slice(2);
+const fromRunAt = args.indexOf('--from-run');
+let tools = args.filter((value, index) => /^[a-z0-9-]+$/.test(value) && !(fromRunAt >= 0 && index === fromRunAt + 1));
+if (fromRunAt >= 0) {
+  const runId = args[fromRunAt + 1];
+  if (!runId || runId.startsWith('--')) throw new Error('--from-run requires a workflow run ID.');
+  let runDocument = null;
+  for (const state of ['unchecked', 'checked']) {
+    const candidate = path.join(root, 'toolbox', 'automation-results', state, `${runId}.json`);
+    if (fs.existsSync(candidate)) { runDocument = JSON.parse(fs.readFileSync(candidate, 'utf8')); break; }
+  }
+  if (!runDocument?.selectedTools?.length) throw new Error(`Workflow result with selectedTools not found: ${runId}`);
+  tools = runDocument.selectedTools;
+}
 
 if (!tools.length) {
-  console.error('Usage: node scripts/workflow-target-snapshot.mjs <tool> [tool...]');
+  console.error('Usage: node scripts/workflow-target-snapshot.mjs [<tool...> | --from-run <run-id>]');
   process.exit(1);
 }
 
@@ -65,4 +78,3 @@ console.log(JSON.stringify({
     reduction: Number((1 - compact.length / inputCharacters).toFixed(4))
   }
 }, null, 2));
-

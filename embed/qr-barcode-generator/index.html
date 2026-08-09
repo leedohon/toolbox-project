@@ -115,7 +115,7 @@
     <fieldset class="tb-field">
       <legend>색상</legend>
       <div class="tb-colors"><div class="tb-color"><label for="tb-foreground">전경색</label><input id="tb-foreground" type="color" value="#111111"></div><div class="tb-color"><label for="tb-background">배경색</label><input id="tb-background" type="color" value="#ffffff"></div></div>
-      <div class="tb-actions"><button class="tb-secondary" id="tb-swap-colors" type="button" data-ko="전경색·배경색 바꾸기" data-en="Swap foreground and background">전경색·배경색 바꾸기</button></div>
+      <div class="tb-actions"><button class="tb-secondary" id="tb-swap-colors" type="button" data-ko="전경색·배경색 바꾸기" data-en="Swap foreground and background">전경색·배경색 바꾸기</button><button class="tb-secondary" id="tb-high-contrast" type="button" data-ko="검정·흰색 고대비" data-en="Black & white contrast">검정·흰색 고대비</button></div>
     </fieldset>
     <p class="tb-error" id="tb-error" role="alert"></p>
     <div class="tb-preview">
@@ -192,6 +192,7 @@
       foreground.addEventListener('input', generate);
       background.addEventListener('input', generate);
       $('#tb-swap-colors').addEventListener('click', function () { const previous = foreground.value; foreground.value = background.value; background.value = previous; generate(); });
+      $('#tb-high-contrast').addEventListener('click', function () { foreground.value = '#000000'; background.value = '#ffffff'; error.textContent = ''; generate(); });
       barcodeText.addEventListener('change', generate);
       root.querySelectorAll('input[name="tb-type"]').forEach(el => el.addEventListener('change', updateType));
       root.querySelectorAll('input[name="tb-style"]').forEach(el => el.addEventListener('change', generate));

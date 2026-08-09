@@ -4,7 +4,21 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputs = path.join(root, 'outputs');
-const requestedTools = process.argv.slice(2);
+const rawArgs = process.argv.slice(2);
+let requestedTools = rawArgs;
+const fromRunIndex = rawArgs.indexOf('--from-run');
+if (fromRunIndex >= 0) {
+  const runId = rawArgs[fromRunIndex + 1];
+  if (!runId) throw new Error('Usage: node scripts/build-ai-index.mjs --from-run RUN_ID');
+  let run = null;
+  for (const bucket of ['unchecked', 'checked']) {
+    try { run = JSON.parse(await fs.readFile(path.join(root, 'toolbox', 'automation-results', bucket, `${runId}.json`), 'utf8')); break; }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+  }
+  if (!run) throw new Error(`Automation result not found: ${runId}`);
+  requestedTools = Array.isArray(run.selectedTools) ? run.selectedTools : [];
+  if (!requestedTools.length) throw new Error(`No selectedTools in automation result: ${runId}`);
+}
 const date = new Intl.DateTimeFormat('en-CA', {
   timeZone: 'Asia/Seoul',
   year: 'numeric',

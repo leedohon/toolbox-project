@@ -58,6 +58,7 @@
 
     <div class="b64-actions st-actions">
       <button class="st-primary" type="button" id="b64-convert">Base64로 인코딩</button>
+      <button class="st-secondary" type="button" id="b64-example" data-ko="UTF-8 예제" data-en="UTF-8 example">UTF-8 예제</button>
       <button class="st-secondary" type="button" id="b64-normalize" data-ko="Base64 표준화" data-en="Normalize Base64">Base64 표준화</button>
       <button class="st-secondary" type="button" id="b64-swap">입력·결과 바꾸기</button>
       <button class="st-secondary" type="button" id="b64-copy">결과 복사</button>
@@ -260,6 +261,7 @@
   input.addEventListener('input', function () { output.value = ''; updateCounts(); updateDataMeta(''); message.className = 'st-status'; message.textContent = isEnglish() ? 'Input changed. Choose Convert to refresh the result.' : '입력이 바뀌었습니다. 변환 버튼을 눌러 주세요.'; });
   urlSafe.addEventListener('change', function () { if (format() === 'base64' && mode() === 'encode' && input.value) convertValue(); });
   convertButton.addEventListener('click', convertValue);
+  root.querySelector('#b64-example').addEventListener('click', function () { root.querySelector('#codec-format').value = 'base64'; root.querySelector('input[name="codec-mode"][value="encode"]').checked = true; input.value = isEnglish() ? 'Hello, Toolbox!' : '안녕하세요, 툴박스!'; syncControls(false); convertValue(); setMessage(isEnglish() ? 'Loaded and encoded a UTF-8 example.' : 'UTF-8 예제를 불러와 인코딩했습니다.'); });
   normalizeButton.addEventListener('click', function () {
     try { input.value = normalizeBase64(input.value); updateCounts(); updateDataMeta(input.value); setMessage(isEnglish() ? 'Normalized Base64 characters and padding.' : 'Base64 입력을 표준 문자와 패딩 형식으로 정리했습니다.'); }
     catch (error) { setMessage(isEnglish() ? 'Enter a valid Base64 value to normalize.' : (error.message || 'Base64 입력을 정리하지 못했습니다.'), true); }

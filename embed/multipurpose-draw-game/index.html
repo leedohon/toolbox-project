@@ -20,6 +20,7 @@
       <p class="funbox-help" data-ko="원하는 방식을 선택하세요. 모드를 바꿔도 각 게임의 입력과 결과가 유지됩니다." data-en="Choose a mode. Each game keeps its inputs and results when you switch.">원하는 방식을 선택하세요. 모드를 바꿔도 각 게임의 입력과 결과가 유지됩니다.</p>
       <fieldset class="funbox-modes" id="funbox-modes" aria-label="뽑기게임 선택"></fieldset>
       <button class="funbox-next" id="funbox-previous" type="button" data-ko="이전 게임 보기" data-en="Show previous game">이전 게임 보기</button>
+      <button class="funbox-next" id="funbox-random" type="button" data-ko="임의 게임 고르기" data-en="Pick a random game">임의 게임 고르기</button>
       <button class="funbox-next" id="funbox-next" type="button" data-ko="다음 게임 보기" data-en="Show next game">다음 게임 보기</button>
     </section>
     <p class="funbox-status" id="funbox-status" data-ko="게임 모듈을 준비하고 있습니다." data-en="Preparing game modules.">게임 모듈을 준비하고 있습니다.</p>
@@ -137,6 +138,13 @@
       if (!modules.length) return;
       const current = Math.max(0, modules.findIndex((item) => item.id === activeId));
       activate(modules[(current - 1 + modules.length) % modules.length].id);
+    });
+
+    document.querySelector('#funbox-random').addEventListener('click', () => {
+      if (!modules.length) return;
+      const candidates = modules.filter((item) => item.id !== activeId);
+      const pool = candidates.length ? candidates : modules;
+      activate(pool[Math.floor(Math.random() * pool.length)].id);
     });
 
     addEventListener('message', (event) => {

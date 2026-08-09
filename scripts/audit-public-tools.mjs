@@ -5,6 +5,21 @@ import {fileURLToPath} from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const writeReport = process.argv.includes('--write');
 const catalog = JSON.parse(await fs.readFile(path.join(root, 'outputs', 'tools.json'), 'utf8'));
+const args = process.argv.slice(2);
+let selectedTools = null;
+const fromRunIndex = args.indexOf('--from-run');
+if (fromRunIndex >= 0) {
+  const runId = args[fromRunIndex + 1];
+  if (!runId) throw new Error('Usage: node scripts/audit-public-tools.mjs --from-run RUN_ID');
+  for (const bucket of ['unchecked', 'checked']) {
+    try {
+      const result = JSON.parse(await fs.readFile(path.join(root, 'toolbox', 'automation-results', bucket, `${runId}.json`), 'utf8'));
+      selectedTools = new Set(result.selectedTools || []);
+      break;
+    } catch (error) { if (error.code !== 'ENOENT') throw error; }
+  }
+  if (!selectedTools?.size) throw new Error(`Automation result or selectedTools not found: ${runId}`);
+}
 const hubRuntime = await fs.readFile(path.join(root, 'assets', 'tool-hub.js'), 'utf8').catch((error) => {
   if (error.code === 'ENOENT') return '';
   throw error;
@@ -12,6 +27,7 @@ const hubRuntime = await fs.readFile(path.join(root, 'assets', 'tool-hub.js'), '
 const rows = [];
 
 for (const item of catalog.tools) {
+  if (selectedTools && !selectedTools.has(item.tool)) continue;
   const manifestPath = path.join(root, 'outputs', item.tool, 'versions.json');
   const embedPath = path.join(root, 'embed', item.tool, 'index.html');
   const toolScriptPath = path.join(root, 'embed', item.tool, 'tool.js');
@@ -56,7 +72,7 @@ const result = {
   rows
 };
 
-if (writeReport) {
+if (writeReport && !selectedTools) {
   const lines = [
     '# 2026-07-19 공개 모듈 전수조사',
     '',

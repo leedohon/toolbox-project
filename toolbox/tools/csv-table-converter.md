@@ -36,3 +36,7 @@ inputs:
 
 - 기능은 고정 주소 `embed/csv-table-converter/`와 독립 `tool.js` 모듈로 제공한다.
 - 공통 CSS, KOR / ENG, 모바일 포커스 방지, iframe 높이 동기화 인터페이스를 재사용한다.
+
+## 이번 개선
+
+- 유럽권 데이터에서 자주 쓰는 세미콜론 구분 예제를 제공한다.

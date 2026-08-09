@@ -195,3 +195,4 @@
 - 검색 색인 정책의 중간 적용은 `node scripts/apply-public-indexing-policy.mjs --from-run <실행 ID>`로 대상 실행 페이지만 처리하고, 배포 전 전체 적용·검사를 유지한다.
 - 배포가 끝난 하드 실행은 `node scripts/finalize-hard-result.mjs <실행 ID> <커밋> <Pages 실행 ID>`로 게시·Git·배포·단계 완료 근거를 한 번에 기록한다.
 - 검색 색인 중간 검증은 `node scripts/validate-public-indexing.mjs --from-run <실행 ID>`로 이번 실행 대상만 확인하고, 배포 전 전체 검증은 유지한다.
+- 공개 도구 중간 감사는 `node scripts/audit-public-tools.mjs --from-run <실행 ID>`로 이번 실행 대상만 확인하고, 배포 전 전체 감사는 유지한다.

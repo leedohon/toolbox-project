@@ -7,7 +7,7 @@
       "title": "QR · 바코드 생성기",
       "description": "KOR/ENG 화면에서 QR·바코드를 만들고 설정을 한 번에 초기화할 수 있습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
-      "version": "0.9.0v",
+      "version": "0.10.0v",
       "keywords": [
         "QR코드",
         "바코드",
@@ -45,7 +45,7 @@
       "title": "JSON 도구",
       "description": "예제 JSON을 바로 불러와 검사·정리하고 Excel·CSV 파일로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-      "version": "0.11.0v",
+      "version": "0.12.0v",
       "keywords": [
         "JSON",
         "JSON포맷터",
@@ -161,7 +161,7 @@
       "title": "다용도 계산기",
       "description": "일반·단위·날짜 계산과 Unix 시간, 화면 비율, 백분율, 평균·중앙값 계산을 한곳에서 처리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
-      "version": "2.4.0v",
+      "version": "2.5.0v",
       "keywords": [
         "다용도계산기",
         "단위변환",
@@ -201,7 +201,7 @@
       "title": "다용도 뽑기게임",
       "description": "사다리, 돌림판, 숫자뽑기와 편가르기를 한 화면에서 선택하고 결과를 공유합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_15.html",
-      "version": "0.5.0v",
+      "version": "0.6.0v",
       "keywords": [
         "다용도펀박스",
         "다용도뽑기게임",
@@ -319,7 +319,7 @@
       "title": "CSS 디자인 도구",
       "description": "색상·대비·그라데이션·clamp·그림자·단위·모서리 CSS를 한곳에서 만들고 확인합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-      "version": "1.3.0v",
+      "version": "1.4.0v",
       "keywords": [
         "CSS디자인",
         "색상변환",
@@ -476,7 +476,7 @@
       "title": "CSV 표 보기·변환기",
       "description": "CSV·TSV 텍스트를 표로 확인하고 JSON 또는 다른 구분자 형식으로 변환합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/csv.html",
-      "version": "0.5.0v",
+      "version": "0.6.0v",
       "keywords": [
         "CSV변환",
         "CSV뷰어",

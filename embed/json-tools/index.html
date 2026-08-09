@@ -208,6 +208,7 @@
     <div class="tb-actions">
       <button class="tb-secondary" id="json-sample" type="button">예제 JSON 불러오기</button>
       <button class="tb-secondary" id="json-api-sample" type="button" data-ko="API 응답 예제" data-en="API response example">API 응답 예제</button>
+      <button class="tb-secondary" id="json-settings-sample" type="button" data-ko="설정 객체 예제" data-en="Settings object example">설정 객체 예제</button>
       <button class="tb-primary" id="json-copy" type="button">결과 복사</button>
       <button class="tb-primary" id="json-download" type="button">JSON 파일 저장</button>
       <button class="tb-secondary" id="json-clear" type="button">전체 비우기</button>
@@ -435,6 +436,7 @@
       input.addEventListener('scroll', function () { output.scrollTop = input.scrollTop; output.scrollLeft = input.scrollLeft; });
       root.querySelector('#json-sample').addEventListener('click', function () { root.querySelector('#json-pretty').checked = true; input.value = JSON.stringify([{ name: 'Toolbox', category: 'Utility', users: 1200, active: true }, { name: 'Converter', category: 'Text', users: 860, active: true }, { name: 'Play Tools', category: 'Game', users: 540, active: false }], null, 2); update(); setStatus('valid', '예제 JSON을 불러왔습니다.'); });
       root.querySelector('#json-api-sample').addEventListener('click', function () { root.querySelector('#json-pretty').checked = true; input.value = JSON.stringify({ ok: true, data: { id: 42, title: 'Toolbox API', tags: ['web', 'utility'] }, meta: { page: 1, total: 1 } }, null, 2); root.querySelector('#json-copy-fallback').hidden = true; update(); setStatus('valid', tr('API 응답 예제를 불러왔습니다.','Loaded an API response example.')); });
+      root.querySelector('#json-settings-sample').addEventListener('click', function () { root.querySelector('#json-pretty').checked = true; input.value = JSON.stringify({ theme: 'light', language: 'ko', notifications: { email: true, push: false }, pageSize: 20 }, null, 2); root.querySelector('#json-copy-fallback').hidden = true; update(); setStatus('valid', tr('설정 객체 예제를 불러왔습니다.','Loaded a settings object example.')); });
       root.querySelector('#json-copy').addEventListener('click', async function (event) {
         if (!latestResult) { error.textContent = '복사할 유효한 JSON 결과가 없습니다.'; return; }
         try {

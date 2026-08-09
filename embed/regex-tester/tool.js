@@ -34,6 +34,7 @@ function run(){
 }
 
 $('#regex-run').addEventListener('click',run);
+document.querySelectorAll('.regex-preset').forEach(button=>button.addEventListener('click',()=>{$('#regex-pattern').value=button.dataset.pattern;$('#regex-text').value=button.dataset.text;$('#regex-fallback').hidden=true;run();}));
 $('#regex-pattern').addEventListener('input',run);
 $('#regex-text').addEventListener('input',run);
 document.querySelectorAll('[name="regex-flag"]').forEach(input=>input.addEventListener('change',run));

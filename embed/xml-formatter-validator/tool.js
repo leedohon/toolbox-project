@@ -72,6 +72,14 @@ $('#xml-copy').addEventListener('click', async () => {
     setStatus('자동 복사가 차단되어 직접 복사할 결과를 표시했습니다.', 'Automatic copying was blocked. A manual copy field is shown.', true);
   }
 });
+$('#xml-use-result').addEventListener('click', () => {
+  const value = $('#xml-output').value;
+  if (!value) return setStatus('입력으로 옮길 결과가 없습니다.', 'There is no result to move.', true);
+  $('#xml-input').value = value;
+  $('#xml-fallback').hidden = true;
+  render();
+  setStatus('정리한 XML을 입력으로 옮겼습니다.', 'Formatted XML moved to the input.');
+});
 $('#xml-save').addEventListener('click', () => {
   if (!$('#xml-output').value) return setStatus('저장할 결과가 없습니다.', 'There is no result to save.', true);
   const url = URL.createObjectURL(new Blob([$('#xml-output').value], {type: 'application/xml;charset=utf-8'}));

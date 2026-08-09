@@ -6,9 +6,22 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const separator = args.indexOf('--qa');
 const profileAt = args.indexOf('--profile');
-const splitAt = [separator, profileAt].filter((value) => value >= 1).sort((a, b) => a - b)[0];
-if (splitAt == null) throw new Error('Usage: node scripts/record-release-qa.mjs <tool...> (--qa <result...> | --profile responsive-standard)');
-const tools = args.slice(0, splitAt);
+const fromRunAt = args.indexOf('--from-run');
+const splitAt = [separator, profileAt, fromRunAt].filter((value) => value >= 0).sort((a, b) => a - b)[0];
+if (splitAt == null) throw new Error('Usage: node scripts/record-release-qa.mjs [<tool...> | --from-run <run-id>] (--qa <result...> | --profile responsive-standard)');
+let selectedTools = args.slice(0, splitAt);
+if (fromRunAt >= 0) {
+  const runId = args[fromRunAt + 1];
+  if (!runId || runId.startsWith('--')) throw new Error('--from-run requires a workflow run ID.');
+  let runDocument = null;
+  for (const state of ['unchecked', 'checked']) {
+    try { runDocument = JSON.parse(await fs.readFile(path.join(root, 'toolbox', 'automation-results', state, `${runId}.json`), 'utf8')); break; }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+  }
+  if (!runDocument?.selectedTools?.length) throw new Error(`Workflow result with selectedTools not found: ${runId}`);
+  selectedTools = runDocument.selectedTools;
+}
+if (!selectedTools.length) throw new Error('At least one tool or --from-run is required.');
 const profiles = {
   'responsive-standard': [
     '375×812 모바일 기능 조작 및 가로 넘침 없음',
@@ -22,7 +35,7 @@ if (profileName && !profiles[profileName]) throw new Error(`Unknown QA profile: 
 const qa = [...(profileName ? profiles[profileName] : []), ...(separator >= 0 ? args.slice(separator + 1).filter(Boolean) : [])];
 if (!qa.length) throw new Error('At least one QA result is required.');
 
-for (const tool of tools) {
+for (const tool of selectedTools) {
   const manifestPath = path.join(root, 'outputs', tool, 'versions.json');
   const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
   const release = manifest.versions.find((item) => item.version === manifest.latestVersion);

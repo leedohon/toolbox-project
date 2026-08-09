@@ -133,6 +133,12 @@ $('#jwt-copy').addEventListener('click', async () => {
     status('아래 내용을 직접 복사해 주세요.', 'Copy the text below manually.');
   }
 });
+$('#jwt-copy-all').addEventListener('click', async () => {
+  if (!headerText || !payloadText) return status('먼저 JWT 내용을 여세요.', 'Decode a JWT first.', true);
+  const combined = `Header\n${headerText}\n\nPayload\n${payloadText}`;
+  if (await copyText(combined)) { $('#jwt-fallback').hidden = true; status('헤더와 페이로드를 함께 복사했습니다.', 'Header and payload copied.'); }
+  else { $('#jwt-fallback').value = combined; $('#jwt-fallback').hidden = false; status('직접 복사할 전체 내용을 표시했습니다.', 'The full content is shown for manual copying.'); }
+});
 $('#jwt-reset').addEventListener('click', () => {
   $('#jwt-input').value = '';
   $('#jwt-result').hidden = true;

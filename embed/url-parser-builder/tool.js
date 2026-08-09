@@ -103,6 +103,14 @@ $('#url-input').addEventListener('input', parse);
 $('#url-path').addEventListener('input', rebuild);
 $('#url-hash').addEventListener('input', rebuild);
 $('#url-add').addEventListener('click', () => { addRow(); rebuild(); });
+$('#url-sort').addEventListener('click', () => {
+  const entries = [...$('#url-query-list').querySelectorAll('.up-query-row')].map((row, index) => ({name: row.querySelector('.up-name').value, value: row.querySelector('.up-value').value, index}));
+  entries.sort((left, right) => left.name.localeCompare(right.name, undefined, {sensitivity: 'base'}) || left.index - right.index);
+  $('#url-query-list').replaceChildren();
+  entries.forEach(({name, value}) => addRow(name, value));
+  rebuild();
+  setStatus('쿼리 항목을 이름순으로 정렬했습니다.', 'Query parameters sorted by name.');
+});
 $('#url-add-utm').addEventListener('click', () => {
   const existing = new Set([...$('#url-query-list').querySelectorAll('.up-name')].map((input) => input.value.trim().toLowerCase()));
   let added = 0;

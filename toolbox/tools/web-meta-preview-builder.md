@@ -34,6 +34,7 @@ inputs:
 - 제목·설명 길이의 권장 범위 판정
 - WebPage JSON-LD 구조화 데이터 생성
 - 공유 이미지 대체 설명과 og:image:alt·twitter:image:alt 생성
+- 공유 이미지 주소와 대체 설명을 한 번에 제외
 
 ## 실행 규칙
 

@@ -11,3 +11,8 @@ mountGeneratedTool({
     "robots"
   ]
 });
+document.querySelector('#meta-remove-image').addEventListener('click', () => {
+  document.querySelector('#image').value = '';
+  document.querySelector('#imageAlt').value = '';
+  document.querySelector('#sg-run').click();
+});

@@ -44,3 +44,7 @@ inputs:
 
 - 기능은 고정 주소 `embed/ip-network-calculator/`와 독립 `tool.js` 모듈로 제공한다.
 - 공통 CSS, KOR / ENG, 모바일 포커스 방지, iframe 높이 동기화 인터페이스를 재사용한다.
+
+## 이번 개선
+
+- 장비 간 작은 서브넷에 쓰는 /30 프리픽스를 빠르게 적용한다.

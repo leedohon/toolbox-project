@@ -58,3 +58,7 @@ inputs:
 
 - 기능은 고정 주소 `embed/coordinate-distance-calculator/`와 독립 `tool.js` 모듈로 제공한다.
 - 공통 CSS, KOR / ENG, 모바일 포커스 방지, iframe 높이 동기화 인터페이스를 재사용한다.
+
+## 이번 개선
+
+- 부산에서 도쿄까지의 좌표를 한 번에 불러와 거리와 방향을 계산한다.

@@ -1,12 +1,12 @@
 {
   "runId": "20260809-044010-hard",
   "workflow": "hard",
-  "status": "partial",
+  "status": "completed",
   "confirm": "N",
   "startedAt": "2026-08-09T04:40:10+09:00",
-  "completedAt": null,
+  "completedAt": "2026-08-09T13:46:28+09:00",
   "confirmedAt": null,
-  "summary": "1회차 진행 중: 구현·버전 생성·로컬 모바일·데스크톱 검증과 릴리스 기록을 완료하고 Blogger 반영을 진행 중",
+  "summary": "1회차 완료: 개발·웹 도구 6개에 개선 6건, 통합 기능 3건, 공통 수정 2건을 적용하고 Blogger·GitHub Pages 공개와 모바일·데스크톱 재검증까지 마침",
   "request": {
     "workType": "hard",
     "targets": [
@@ -82,12 +82,21 @@
   },
   "git": {
     "branch": "main",
-    "commit": null,
-    "pushed": false
+    "commit": "62deedc68ff5b721a44aaa8b3620859afa717735",
+    "pushed": true
   },
   "deployment": {
-    "status": "pending",
-    "urls": []
+    "status": "completed",
+    "runId": 31295116011,
+    "urls": [
+      "https://github.com/leedohon/toolbox-project/actions/runs/31295116011",
+      "https://leedohon.github.io/toolbox-project/embed/regex-tester/",
+      "https://leedohon.github.io/toolbox-project/embed/hash-generator/",
+      "https://leedohon.github.io/toolbox-project/embed/xml-formatter-validator/",
+      "https://leedohon.github.io/toolbox-project/embed/url-parser-builder/",
+      "https://leedohon.github.io/toolbox-project/embed/jwt-decoder/",
+      "https://leedohon.github.io/toolbox-project/embed/web-meta-preview-builder/"
+    ]
   },
   "shutdown": {
     "requested": false,
@@ -101,7 +110,7 @@
     "저가치 신규 페이지 대신 기존 공개 도구의 사용 맥락 안에 기능 3건을 통합"
   ],
   "runState": {
-    "current": "commit",
+    "current": "confirm",
     "stages": {
       "select": {
         "status": "completed",
@@ -149,17 +158,26 @@
         "blockCode": null
       },
       "commit": {
-        "status": "in_progress",
+        "status": "completed",
         "startedAt": "2026-08-09T05:49:45+09:00",
-        "completedAt": null,
-        "evidence": [],
+        "completedAt": "2026-08-09T13:40:00+09:00",
+        "evidence": [
+          "독립 구현 커밋 62deedc68ff5b721a44aaa8b3620859afa717735",
+          "origin/main 푸시 완료"
+        ],
         "blockCode": null
       },
       "deploy": {
-        "status": "pending",
-        "startedAt": null,
-        "completedAt": null,
-        "evidence": [],
+        "status": "completed",
+        "startedAt": "2026-08-09T13:40:00+09:00",
+        "completedAt": "2026-08-09T13:46:28+09:00",
+        "evidence": [
+          "Pages 실행 31295116011 성공",
+          "공개 Pages 6개 모바일·데스크톱 가로 넘침 0",
+          "정규식 캡처·세 해시 동시 계산·JWT 헤더 복사·이미지 alt 메타 공개 동작 확인",
+          "Blogger 6개 공개 글의 최신 iframe 연결·가로 넘침 없음",
+          "공개 브라우저 콘솔 오류 0건"
+        ],
         "blockCode": null
       },
       "confirm": {
@@ -220,6 +238,16 @@
       "at": "2026-08-09T05:46:54+09:00",
       "action": "reported",
       "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-08-09T13:40:00+09:00",
+      "action": "resumed",
+      "note": "사용자 승인 뒤 origin/main 푸시와 공개 배포 단계 재개"
+    },
+    {
+      "at": "2026-08-09T13:46:28+09:00",
+      "action": "completed",
+      "note": "독립 배포와 공개 모바일·데스크톱 검증 완료"
     }
   ]
 }

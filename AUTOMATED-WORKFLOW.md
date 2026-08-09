@@ -190,3 +190,4 @@
 - 게시글 본문 생성도 `node scripts/build-tool-posts.mjs --from-run <실행 ID>`로 같은 대상 목록을 재사용한다.
 - 도구별 AI 색인은 `node scripts/build-ai-index.mjs --from-run <실행 ID>`로 같은 대상 목록만 갱신한다.
 - 게시글 인라인 스크립트 검사는 `node scripts/validate-inline-scripts.mjs --from-run <실행 ID>`로 같은 대상 목록을 재사용한다.
+- 대상 릴리스 검사는 `node scripts/validate-tool-releases.mjs --from-run <실행 ID>`로 이번 실행의 최신 경로만 먼저 확인하고, 배포 전 전체 검사도 유지한다.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.15.0",
+  "policyVersion": "0.16.0",
   "updatedAt": "2026-08-09",
   "scope": [
     "repository markdown instructions",
@@ -287,6 +287,14 @@
       "proposedChange":"--from-run 옵션으로 selectedTools에서 게시글 경로를 만든다.",
       "measure":"inline validation path arguments per six-tool hard run","targetReduction":0.5,
       "evidence":[{"before":6,"after":1,"unit":"inline validation path arguments per six-tool hard run","reduction":0.8333,"verifiedAt":"2026-08-09"}]
+    },
+    {
+      "id":"OPT-020","status":"completed",
+      "triggerPaths":["scripts/validate-tool-releases.mjs","toolbox/automation-results/*/*.json","AUTOMATED-WORKFLOW.md"],
+      "problem":"작업 중간의 릴리스 검사도 매번 전체 출력 폴더를 순회한다.",
+      "proposedChange":"--from-run으로 이번 실행 도구의 최신 릴리스와 JSON만 우선 검사한다.",
+      "measure":"release validation tool directories per six-tool hard run","targetReduction":0.5,
+      "evidence":[{"before":56,"after":6,"unit":"release validation tool directories per six-tool hard run","reduction":0.8929,"verifiedAt":"2026-08-09"}]
     }
   ]
 }

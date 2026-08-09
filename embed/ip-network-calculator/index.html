@@ -23,12 +23,12 @@
   <div class="st-field" data-show-field="mode" data-show-values="range"><label class="st-label" for="endIp" data-ko="끝 IPv4" data-en="End IPv4">끝 IPv4</label><input id="endIp" type="text" maxlength="15" value="192.168.10.255" data-ko-placeholder="예: 192.168.10.255" data-en-placeholder="Example: 192.168.10.255"></div>
   <div class="st-field" data-show-field="mode" data-show-values="mac"><label class="st-label" for="mac" data-ko="MAC 주소" data-en="MAC address">MAC 주소</label><input id="mac" type="text" maxlength="32" value="00-1A-2B-3C-4D-5E" data-ko-placeholder="예: 00-1A-2B-3C-4D-5E" data-en-placeholder="Example: 00-1A-2B-3C-4D-5E"></div>
   <div class="st-field" data-show-field="mode" data-show-values="convert"><label class="st-label" for="ipValue" data-ko="IPv4·정수·16진수" data-en="IPv4, integer, or hexadecimal">IPv4·정수·16진수</label><input id="ipValue" type="text" maxlength="50" value="192.168.10.25" data-ko-placeholder="예: 192.168.10.25, 3232238105, 0xC0A80A19" data-en-placeholder="Example: 192.168.10.25, 3232238105, 0xC0A80A19"><p class="st-help" data-ko="점 표기 IPv4, 0~4294967295 정수 또는 0x 16진수를 입력하세요." data-en="Enter dotted IPv4, an integer from 0 to 4294967295, or 0x hexadecimal.">점 표기 IPv4, 0~4294967295 정수 또는 0x 16진수를 입력하세요.</p></div>
-  <div class="st-actions" aria-label="대표 프리픽스"><button class="st-secondary ip-prefix" type="button" data-prefix="24">/24</button><button class="st-secondary ip-prefix" type="button" data-prefix="26">/26</button><button class="st-secondary ip-prefix" type="button" data-prefix="32">/32</button></div>
+  <div class="st-actions" aria-label="대표 프리픽스"><button class="st-secondary ip-prefix" type="button" data-prefix="16">/16</button><button class="st-secondary ip-prefix" type="button" data-prefix="24">/24</button><button class="st-secondary ip-prefix" type="button" data-prefix="26">/26</button><button class="st-secondary ip-prefix" type="button" data-prefix="32">/32</button></div>
   <div class="st-actions"><button class="st-primary" id="sg-run" type="button" data-ko="주소 계산" data-en="Calculate">주소 계산</button><button class="st-secondary" id="sg-copy" type="button" data-ko="결과 복사" data-en="Copy result">결과 복사</button><button class="st-secondary" id="sg-reset" type="button" data-ko="초기화" data-en="Reset">초기화</button></div>
   <p class="st-status" id="sg-status" aria-live="polite"></p>
   <section class="st-result" id="sg-result" hidden><h2 data-ko="네트워크 주소 결과" data-en="Network address results">네트워크 주소 결과</h2><div id="sg-output"></div></section>
   <textarea class="st-copy-fallback" id="sg-fallback" readonly hidden></textarea>
 </article>
-<script type="module" src="./tool.js?v=0.1.1"></script>
+<script type="module" src="./tool.js?v=0.1.2"></script>
 </body>
 </html>

@@ -35,6 +35,7 @@ inputs:
 - WebPage JSON-LD 구조화 데이터 생성
 - 공유 이미지 대체 설명과 og:image:alt·twitter:image:alt 생성
 - 공유 이미지 주소와 대체 설명을 한 번에 제외
+- 제목·설명·주소가 포함된 도구 페이지 메타 예제
 
 ## 실행 규칙
 

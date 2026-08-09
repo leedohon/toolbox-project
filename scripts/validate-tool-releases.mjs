@@ -3,6 +3,18 @@ import { join } from "node:path";
 
 const outputRoot = "outputs";
 const jsonFiles = [];
+const args = process.argv.slice(2);
+let selectedTools = null;
+const fromRunIndex = args.indexOf('--from-run');
+if (fromRunIndex >= 0) {
+  const runId = args[fromRunIndex + 1];
+  if (!runId) throw new Error('Usage: node scripts/validate-tool-releases.mjs --from-run RUN_ID');
+  for (const bucket of ['unchecked', 'checked']) {
+    const resultPath = join('toolbox', 'automation-results', bucket, `${runId}.json`);
+    if (existsSync(resultPath)) { selectedTools = JSON.parse(readFileSync(resultPath, 'utf8')).selectedTools || []; break; }
+  }
+  if (!selectedTools?.length) throw new Error(`Automation result or selectedTools not found: ${runId}`);
+}
 
 function collectJson(directory) {
   for (const entry of readdirSync(directory, { withFileTypes: true })) {
@@ -12,12 +24,12 @@ function collectJson(directory) {
   }
 }
 
-collectJson(outputRoot);
+(selectedTools || [outputRoot]).forEach((value) => collectJson(selectedTools ? join(outputRoot, value) : value));
 for (const filePath of jsonFiles) {
   JSON.parse(readFileSync(filePath, "utf8"));
 }
 
-const toolDirectories = readdirSync(outputRoot, { withFileTypes: true })
+const toolDirectories = selectedTools || readdirSync(outputRoot, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name);
 

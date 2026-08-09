@@ -92,7 +92,7 @@
     "pushed": true
   },
   "deployment": {
-    "status": "success",
+    "status": "completed",
     "runId": 31302521110,
     "urls": [
       "https://leedohon.github.io/toolbox-project/embed/qr-barcode-generator/",

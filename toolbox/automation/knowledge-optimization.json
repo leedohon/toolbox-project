@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.8.1",
+  "policyVersion": "0.9.0",
   "updatedAt": "2026-08-09",
   "scope": [
     "repository markdown instructions",
@@ -214,6 +214,18 @@
       "targetReduction": 0.5,
       "evidence": [
         {"before":6,"after":1,"unit":"post build command invocations per six-tool hard run","reduction":0.8333,"verifiedAt":"2026-08-09"}
+      ]
+    },
+    {
+      "id": "OPT-013",
+      "status": "completed",
+      "triggerPaths": ["scripts/record-release-qa.mjs", "outputs/*/*v/patch-notes.json", "AUTOMATED-WORKFLOW.md"],
+      "problem": "여러 릴리스에 같은 모바일·데스크톱·다국어·콘솔 QA 문구 네 개를 매번 반복 입력했다.",
+      "proposedChange": "반복되는 네 항목을 responsive-standard 프로필 하나로 기록한다.",
+      "measure": "QA result arguments per multi-tool hard run",
+      "targetReduction": 0.5,
+      "evidence": [
+        {"before":4,"after":1,"unit":"QA result arguments per six-tool hard run","reduction":0.75,"verifiedAt":"2026-08-09"}
       ]
     }
   ]

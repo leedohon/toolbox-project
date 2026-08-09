@@ -35,6 +35,7 @@ inputs:
 - Base64·Data URL 결과의 MIME 타입과 디코딩 바이트 크기 확인
 - 결과 복사와 디코딩 파일 다운로드
 - URL-safe Base64 인코딩과 자동 디코딩
+- URL-safe·패딩 누락 입력을 표준 Base64 형식으로 정규화
 
 # 인터페이스
 

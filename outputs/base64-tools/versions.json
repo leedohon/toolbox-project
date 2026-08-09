@@ -4,7 +4,7 @@
   "title": "인코딩·문자 변환 도구",
   "description": "Base64·URL·HTML 엔티티·진법·유니코드·로마 숫자 변환과 분석을 한곳에서 처리합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/base64.html",
-  "latestVersion": "1.1.0v",
+  "latestVersion": "1.2.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -212,6 +212,15 @@
       "directory": "1.1.0v",
       "html": "1.1.0v/base64-tools.html",
       "patchNotes": "1.1.0v/patch-notes.json"
+    },
+    {
+      "version": "1.2.0v",
+      "releaseDate": "2026-08-09",
+      "changeLevel": "minor",
+      "summary": "Base64 표준화와 상태 정리",
+      "directory": "1.2.0v",
+      "html": "1.2.0v/base64-tools.html",
+      "patchNotes": "1.2.0v/patch-notes.json"
     }
   ],
   "status": "published"

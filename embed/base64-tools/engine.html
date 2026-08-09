@@ -11,7 +11,7 @@
 <script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
 </head>
 <body>
-<section id="b64-tools" class="simple-tool" aria-label="텍스트 인코더·디코더">
+<section id="b64-tools" class="simple-tool" aria-label="텍스트 인코더·디코더" data-ko-aria-label="텍스트 인코더·디코더" data-en-aria-label="Text encoder and decoder">
   <main class="b64-main">
     <div class="st-field b64-format-field">
       <label class="st-label" for="codec-format">변환 형식</label>
@@ -58,6 +58,7 @@
 
     <div class="b64-actions st-actions">
       <button class="st-primary" type="button" id="b64-convert">Base64로 인코딩</button>
+      <button class="st-secondary" type="button" id="b64-normalize" data-ko="Base64 표준화" data-en="Normalize Base64">Base64 표준화</button>
       <button class="st-secondary" type="button" id="b64-swap">입력·결과 바꾸기</button>
       <button class="st-secondary" type="button" id="b64-copy">결과 복사</button>
       <button class="st-secondary" type="button" id="b64-clear">초기화</button>
@@ -96,9 +97,11 @@
   var dataMeta = root.querySelector('#b64-data-meta');
   var dataMetaValue = root.querySelector('#b64-data-meta-value');
   var urlSafe = root.querySelector('#b64-url-safe');
+  var normalizeButton = root.querySelector('#b64-normalize');
   var format = function () { return root.querySelector('#codec-format').value; };
   var mode = function () { return root.querySelector('input[name="codec-mode"]:checked').value; };
   var scope = function () { return root.querySelector('input[name="url-scope"]:checked').value; };
+  var isEnglish = function () { return window.ToolboxI18n && window.ToolboxI18n.language === 'en'; };
 
   function setMessage(text, isError) {
     message.textContent = text;
@@ -132,6 +135,13 @@
     return bytes;
   }
   function toUrlSafe(value) { return value.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, ''); }
+  function normalizeBase64(value) {
+    var prefix = (/^data:[^,]*,/i.exec(value) || [])[0] || '';
+    var normalized = value.replace(/^data:[^,]*,/i, '').replace(/\s/g, '').replace(/-/g, '+').replace(/_/g, '/').replace(/=+$/g, '');
+    if (!normalized || !/^[A-Za-z0-9+/]+$/.test(normalized) || normalized.length % 4 === 1) throw new Error('유효한 Base64 형식이 아닙니다.');
+    while (normalized.length % 4) normalized += '=';
+    return prefix + normalized;
+  }
   function bytesToHex(bytes) { return Array.from(bytes, function (byte) { return byte.toString(16).toUpperCase().padStart(2, '0'); }).join(' '); }
   function hexToBytes(value) {
     var compact = value.trim().replace(/(?:0x|\\x)/gi, '').replace(/[\s,:-]+/g, '');
@@ -199,6 +209,7 @@
     var encoding = mode() === 'encode';
     root.querySelector('#url-scope-panel').hidden = !isUrl;
     root.querySelector('#url-safe-panel').hidden = !isBase64;
+    normalizeButton.hidden = !isBase64 || encoding;
     root.querySelector('#base64-file-tools').hidden = !isBase64;
     root.querySelector('#b64-drop').hidden = !isBase64;
     root.querySelector('#codec-encode-label').textContent = formatName() + ' 인코딩';
@@ -246,9 +257,13 @@
   root.querySelector('#codec-format').addEventListener('change', function () { syncControls(true); });
   root.querySelectorAll('input[name="codec-mode"]').forEach(function (control) { control.addEventListener('change', function () { syncControls(true); }); });
   root.querySelectorAll('input[name="url-scope"]').forEach(function (control) { control.addEventListener('change', function () { if (input.value) convertValue(); }); });
-  input.addEventListener('input', updateCounts);
+  input.addEventListener('input', function () { output.value = ''; updateCounts(); updateDataMeta(''); message.className = 'st-status'; message.textContent = isEnglish() ? 'Input changed. Choose Convert to refresh the result.' : '입력이 바뀌었습니다. 변환 버튼을 눌러 주세요.'; });
   urlSafe.addEventListener('change', function () { if (format() === 'base64' && mode() === 'encode' && input.value) convertValue(); });
   convertButton.addEventListener('click', convertValue);
+  normalizeButton.addEventListener('click', function () {
+    try { input.value = normalizeBase64(input.value); updateCounts(); updateDataMeta(input.value); setMessage(isEnglish() ? 'Normalized Base64 characters and padding.' : 'Base64 입력을 표준 문자와 패딩 형식으로 정리했습니다.'); }
+    catch (error) { setMessage(isEnglish() ? 'Enter a valid Base64 value to normalize.' : (error.message || 'Base64 입력을 정리하지 못했습니다.'), true); }
+  });
   root.querySelector('#b64-swap').addEventListener('click', function () {
     if (!output.value) return setMessage('바꿀 변환 결과가 없습니다.', true);
     var nextInput = output.value;

@@ -5,9 +5,21 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const separator = args.indexOf('--qa');
-if (separator < 1) throw new Error('Usage: node scripts/record-release-qa.mjs <tool...> --qa <result...>');
-const tools = args.slice(0, separator);
-const qa = args.slice(separator + 1).filter(Boolean);
+const profileAt = args.indexOf('--profile');
+const splitAt = [separator, profileAt].filter((value) => value >= 1).sort((a, b) => a - b)[0];
+if (splitAt == null) throw new Error('Usage: node scripts/record-release-qa.mjs <tool...> (--qa <result...> | --profile responsive-standard)');
+const tools = args.slice(0, splitAt);
+const profiles = {
+  'responsive-standard': [
+    '375×812 모바일 기능 조작 및 가로 넘침 없음',
+    '1280×900 데스크톱 기능 조작 및 가로 넘침 없음',
+    'KOR/ENG 접근성 이름 동기화 확인',
+    '브라우저 콘솔 오류 0건',
+  ],
+};
+const profileName = profileAt >= 0 ? args[profileAt + 1] : null;
+if (profileName && !profiles[profileName]) throw new Error(`Unknown QA profile: ${profileName}`);
+const qa = [...(profileName ? profiles[profileName] : []), ...(separator >= 0 ? args.slice(separator + 1).filter(Boolean) : [])];
 if (!qa.length) throw new Error('At least one QA result is required.');
 
 for (const tool of tools) {

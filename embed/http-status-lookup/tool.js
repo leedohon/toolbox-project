@@ -16,5 +16,6 @@ function guidance(code){
 function updateGuidance(){const result=document.querySelector('#sg-result'),target=document.querySelector('#http-guidance'),code=Number(document.querySelector('#code').value);target.textContent=result.hidden?'':guidance(code);}
 document.querySelector('#sg-run').addEventListener('click',()=>queueMicrotask(updateGuidance));
 document.querySelector('#sg-reset').addEventListener('click',()=>queueMicrotask(updateGuidance));
+document.querySelectorAll('.http-preset').forEach(button=>button.addEventListener('click',()=>{document.querySelector('#code').value=button.dataset.code;document.querySelector('#sg-run').click();queueMicrotask(updateGuidance);}));
 addEventListener('toolbox-language-change',updateGuidance);
 queueMicrotask(updateGuidance);

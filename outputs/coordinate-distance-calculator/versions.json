@@ -3,8 +3,8 @@
   "tool": "coordinate-distance-calculator",
   "title": "좌표·거리 계산기",
   "description": "위도·경도 표기를 바꾸고 두 좌표의 대권거리, 방위각과 지리적 중간점을 계산합니다.",
-  "postUrl": "",
-  "latestVersion": "0.0.1v",
+  "postUrl": "https://bloggiedh.blogspot.com/2026/08/blog-post_08.html",
+  "latestVersion": "0.1.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -14,6 +14,15 @@
       "directory": "0.0.1v",
       "html": "0.0.1v/coordinate-distance-calculator.html",
       "patchNotes": "0.0.1v/patch-notes.json"
+    },
+    {
+      "version": "0.1.0v",
+      "releaseDate": "2026-08-09",
+      "changeLevel": "minor",
+      "summary": "출발·도착 좌표 교환",
+      "directory": "0.1.0v",
+      "html": "0.1.0v/coordinate-distance-calculator.html",
+      "patchNotes": "0.1.0v/patch-notes.json"
     }
   ]
 }

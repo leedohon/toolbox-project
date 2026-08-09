@@ -82,7 +82,7 @@ const posts = await loadPublishedPosts();
 const apply = process.argv.includes('--apply');
 const argumentsList = process.argv.slice(2);
 const fromRunIndex = argumentsList.indexOf('--from-run');
-let toolNames = argumentsList.filter((argument, index) => !argument.startsWith('--') && index !== fromRunIndex + 1);
+let toolNames = argumentsList.filter((argument, index) => !argument.startsWith('--') && !(fromRunIndex >= 0 && index === fromRunIndex + 1));
 if (fromRunIndex >= 0) {
   const runId = argumentsList[fromRunIndex + 1];
   if (!runId || runId.startsWith('--')) throw new Error('--from-run requires a workflow run ID.');

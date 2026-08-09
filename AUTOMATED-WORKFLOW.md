@@ -187,3 +187,4 @@
 
 - 여러 도구를 처리한 실행은 `node scripts/blogger-update-tool-posts.mjs --from-run <실행 ID>`로 사전 검사하고, 같은 명령에 `--apply`를 더해 갱신한다.
 - 도구 식별자를 다시 나열하지 않고 실행 결과의 `selectedTools`를 단일 원본으로 사용한다.
+- 게시글 본문 생성도 `node scripts/build-tool-posts.mjs --from-run <실행 ID>`로 같은 대상 목록을 재사용한다.

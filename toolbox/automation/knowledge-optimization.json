@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.10.0",
+  "policyVersion": "0.11.0",
   "updatedAt": "2026-08-09",
   "scope": [
     "repository markdown instructions",
@@ -238,6 +238,18 @@
       "targetReduction": 0.5,
       "evidence": [
         {"before":6,"after":1,"unit":"Blogger target arguments per six-tool hard run","reduction":0.8333,"verifiedAt":"2026-08-09"}
+      ]
+    },
+    {
+      "id": "OPT-015",
+      "status": "completed",
+      "triggerPaths": ["scripts/build-tool-posts.mjs", "toolbox/automation-results/*/*.json", "AUTOMATED-WORKFLOW.md"],
+      "problem": "게시글 일괄 빌드 때 실행 기록에 이미 있는 도구 식별자 여섯 개를 다시 입력했다.",
+      "proposedChange": "--from-run 옵션으로 selectedTools를 읽어 대상 목록을 한 번만 관리한다.",
+      "measure": "post build target arguments per six-tool hard run",
+      "targetReduction": 0.5,
+      "evidence": [
+        {"before":6,"after":1,"unit":"post build target arguments per six-tool hard run","reduction":0.8333,"verifiedAt":"2026-08-09"}
       ]
     }
   ]

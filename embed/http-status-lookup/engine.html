@@ -13,11 +13,12 @@
 <body>
 <article class="simple-tool" aria-label="HTTP 상태 코드 찾기">
   <div class="st-field"><label class="st-label" for="code" data-ko="HTTP 상태 코드" data-en="HTTP status code">HTTP 상태 코드</label><input id="code" type="number" min="100" max="599" step="1" value="404"></div>
+  <div class="st-actions" aria-label="대표 상태 코드"><button class="st-secondary http-preset" type="button" data-code="200">200</button><button class="st-secondary http-preset" type="button" data-code="404">404</button><button class="st-secondary http-preset" type="button" data-code="429">429</button><button class="st-secondary http-preset" type="button" data-code="500">500</button></div>
   <div class="st-actions"><button class="st-primary" id="sg-run" type="button" data-ko="상태 코드 찾기" data-en="Look up status">상태 코드 찾기</button><button class="st-secondary" id="sg-copy" type="button" data-ko="결과 복사" data-en="Copy result">결과 복사</button><button class="st-secondary" id="sg-reset" type="button" data-ko="초기화" data-en="Reset">초기화</button></div>
   <p class="st-status" id="sg-status" aria-live="polite"></p>
   <section class="st-result" id="sg-result" hidden><h2 data-ko="HTTP 상태 결과" data-en="HTTP status result">HTTP 상태 결과</h2><div id="sg-output"></div><p class="st-result-detail" id="http-guidance"></p></section>
   <textarea class="st-copy-fallback" id="sg-fallback" readonly hidden></textarea>
 </article>
-<script type="module" src="./tool.js?v=0.0.3"></script>
+<script type="module" src="./tool.js?v=0.0.4"></script>
 </body>
 </html>

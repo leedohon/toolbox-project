@@ -80,8 +80,22 @@ const normalize = (value) => String(value || '').trim().replace(/\s+/g, ' ').toL
 const compact = (value) => normalize(value).match(/[\p{L}\p{N}]+/gu)?.join('') || '';
 const posts = await loadPublishedPosts();
 const apply = process.argv.includes('--apply');
-const toolNames = process.argv.slice(2).filter((argument) => !argument.startsWith('--'));
-if (!toolNames.length) throw new Error('Specify one or more tool identifiers. This command does not update every post implicitly.');
+const argumentsList = process.argv.slice(2);
+const fromRunIndex = argumentsList.indexOf('--from-run');
+let toolNames = argumentsList.filter((argument, index) => !argument.startsWith('--') && index !== fromRunIndex + 1);
+if (fromRunIndex >= 0) {
+  const runId = argumentsList[fromRunIndex + 1];
+  if (!runId || runId.startsWith('--')) throw new Error('--from-run requires a workflow run ID.');
+  let runDocument = null;
+  for (const state of ['unchecked', 'checked']) {
+    try { runDocument = JSON.parse(await fs.readFile(path.join(root, 'toolbox', 'automation-results', state, `${runId}.json`), 'utf8')); break; }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+  }
+  if (!runDocument) throw new Error(`Workflow result not found: ${runId}`);
+  if (!Array.isArray(runDocument.selectedTools) || !runDocument.selectedTools.length) throw new Error(`Workflow result has no selectedTools: ${runId}`);
+  toolNames = runDocument.selectedTools;
+}
+if (!toolNames.length) throw new Error('Specify one or more tool identifiers or use --from-run RUN_ID. This command does not update every post implicitly.');
 const requestedTools = new Set(toolNames);
 if (requestedTools.size !== toolNames.length) throw new Error('Duplicate tool names are not allowed.');
 const entries = await fs.readdir(outputsDir, { withFileTypes: true });

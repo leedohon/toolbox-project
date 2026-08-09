@@ -74,6 +74,7 @@ function convert() {
   const selectedDelimiter = $('#csv-delimiter').value;
   const delimiter = selectedDelimiter === 'auto' ? detect(source) : selectedDelimiter === 'tab' ? '\t' : selectedDelimiter;
   rows = parse(source, delimiter);
+  if ($('#csv-trim-cells').checked) rows = rows.map((row) => row.map((value) => value.trim()));
   if ($('#csv-empty-rows').checked) rows = rows.filter((row) => row.some((value) => String(value).trim() !== ''));
   if (!rows.length) throw new Error(tr('표시할 행이 없습니다.', 'There are no rows to display.'));
   const width = rows[0].length;
@@ -102,7 +103,7 @@ function update() {
 
 let timer;
 $('#csv-input').addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(update, 180); });
-['#csv-delimiter', '#csv-output', '#csv-header', '#csv-empty-rows'].forEach((selector) => $(selector).addEventListener('change', update));
+['#csv-delimiter', '#csv-output', '#csv-header', '#csv-empty-rows', '#csv-trim-cells'].forEach((selector) => $(selector).addEventListener('change', update));
 $('#csv-file').addEventListener('change', async () => {
   const file = $('#csv-file').files[0];
   if (!file) return;

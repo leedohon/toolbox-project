@@ -51,6 +51,16 @@
       try { localStorage.setItem(storedModeKey, id); } catch (_) {}
     }
 
+    function readUrlMode() {
+      return new URL(location.href).searchParams.get('mode') || '';
+    }
+
+    function storeUrlMode(id) {
+      const url = new URL(location.href);
+      url.searchParams.set('mode', id);
+      history.replaceState(null, '', url);
+    }
+
     function announce(module, loading) {
       stage.setAttribute('aria-busy', loading ? 'true' : 'false');
       status.textContent = isEnglish()
@@ -69,7 +79,7 @@
       if (input) input.checked = true;
       const module = modules.find((item) => item.id === id);
       if (module) announce(module, !loadedFrames.has(frames.get(id)));
-      if (persist) storeMode(id);
+      if (persist) { storeMode(id); storeUrlMode(id); }
       requestAnimationFrame(notifyHeight);
     }
 
@@ -132,7 +142,7 @@
       modules = Array.isArray(documentData.modules) ? documentData.modules : [];
       if (modules.length !== 4) throw new Error('사용할 게임 모듈을 확인해 주세요.');
       modules.forEach(buildModule);
-      const preferred = readStoredMode();
+      const preferred = readUrlMode() || readStoredMode();
       activate(modules.some((item) => item.id === preferred) ? preferred : modules[0].id, false);
     } catch (error) {
       status.textContent = error.message;

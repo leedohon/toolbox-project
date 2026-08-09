@@ -7,7 +7,7 @@
       "title": "QR · 바코드 생성기",
       "description": "KOR/ENG 화면에서 QR·바코드를 만들고 설정을 한 번에 초기화할 수 있습니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
-      "version": "0.6.0v",
+      "version": "0.7.0v",
       "keywords": [
         "QR코드",
         "바코드",
@@ -45,7 +45,7 @@
       "title": "JSON 도구",
       "description": "예제 JSON을 바로 불러와 검사·정리하고 Excel·CSV 파일로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-      "version": "0.8.0v",
+      "version": "0.9.0v",
       "keywords": [
         "JSON",
         "JSON포맷터",
@@ -201,7 +201,7 @@
       "title": "다용도 뽑기게임",
       "description": "사다리, 돌림판, 숫자뽑기와 편가르기를 한 화면에서 선택하고 결과를 공유합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_15.html",
-      "version": "0.2.0v",
+      "version": "0.3.0v",
       "keywords": [
         "다용도펀박스",
         "다용도뽑기게임",
@@ -240,7 +240,7 @@
       "title": "비밀번호·UUID 생성기",
       "description": "안전한 무작위 비밀번호와 UUID v4를 필요한 형식과 개수로 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
-      "version": "1.1.0v",
+      "version": "1.2.0v",
       "keywords": [
         "비밀번호생성기",
         "UUID",
@@ -279,7 +279,7 @@
       "title": "이미지 크기·압축·DPI 도구",
       "description": "이미지 크기·저장 품질을 바꾸거나 출력 크기에 맞는 DPI·PPI를 계산합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html",
-      "version": "1.1.0v",
+      "version": "1.2.0v",
       "keywords": [
         "이미지압축",
         "이미지리사이즈",
@@ -476,7 +476,7 @@
       "title": "CSV 표 보기·변환기",
       "description": "CSV·TSV 텍스트를 표로 확인하고 JSON 또는 다른 구분자 형식으로 변환합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/csv.html",
-      "version": "0.2.0v",
+      "version": "0.3.0v",
       "keywords": [
         "CSV변환",
         "CSV뷰어",

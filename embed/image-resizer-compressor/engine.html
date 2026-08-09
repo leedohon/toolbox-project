@@ -14,7 +14,7 @@
 <article class="simple-tool" aria-label="이미지 크기·용량 변환기">
   <div class="wf-drop" id="img-drop"><input id="img-file" type="file" accept="image/png,image/jpeg,image/webp" hidden><strong>이미지를 여기에 놓으세요</strong><button class="st-secondary" id="img-choose" type="button" data-ko="이미지 선택" data-en="Choose image">이미지 선택</button><span class="st-help">PNG, JPEG, WebP · 최대 20MB · 브라우저 안에서 처리</span></div>
   <section id="img-settings" hidden>
-    <div class="st-field"><label class="st-label" for="img-scale" data-ko="원본 대비 크기" data-en="Size relative to original">원본 대비 크기</label><select id="img-scale"><option value="100">100%</option><option value="75">75%</option><option value="50">50%</option><option value="25">25%</option><option value="custom" data-ko="직접 입력" data-en="Custom">직접 입력</option></select></div>
+    <div class="st-field"><label class="st-label" for="img-scale" data-ko="원본 대비 크기" data-en="Size relative to original">원본 대비 크기</label><select id="img-scale"><option value="100">100%</option><option value="75">75%</option><option value="50">50%</option><option value="25">25%</option><option value="long-1920" data-ko="긴 변 1920px" data-en="Long edge 1920px">긴 변 1920px</option><option value="long-1280" data-ko="긴 변 1280px" data-en="Long edge 1280px">긴 변 1280px</option><option value="custom" data-ko="직접 입력" data-en="Custom">직접 입력</option></select></div>
     <div class="wf-grid"><div class="st-field"><label class="st-label" for="img-width">가로 크기 (px)</label><input id="img-width" type="number" min="1" max="8000"></div><div class="st-field"><label class="st-label" for="img-height">세로 크기 (px)</label><input id="img-height" type="number" min="1" max="8000"></div></div>
     <label class="st-check"><input id="img-ratio" type="checkbox" checked><span>원본 비율 유지</span></label>
     <div class="wf-grid"><div class="st-field"><label class="st-label" for="img-type">저장 형식</label><select id="img-type"><option value="image/jpeg">JPEG</option><option value="image/webp">WebP</option><option value="image/png">PNG</option></select></div><div class="st-field" id="img-quality-wrap"><label class="st-label" for="img-quality">이미지 품질 <span id="img-quality-value">82%</span></label><input id="img-quality" type="range" min="20" max="100" value="82"></div></div>
@@ -24,6 +24,6 @@
   <div class="wf-stats" id="img-stats" hidden><div class="wf-stat"><span>원본</span><strong id="img-original-stat"></strong></div><div class="wf-stat"><span>변환 결과</span><strong id="img-output-stat"></strong></div><div class="wf-stat"><span>용량 변화</span><strong id="img-saving-stat"></strong></div></div>
   <div class="wf-preview" id="img-preview" hidden><img id="img-preview-image" alt="변환 이미지 미리보기"></div>
 </article>
-<script type="module" src="./tool.js?v=0.0.4"></script>
+<script type="module" src="./tool.js?v=0.0.5"></script>
 </body>
 </html>

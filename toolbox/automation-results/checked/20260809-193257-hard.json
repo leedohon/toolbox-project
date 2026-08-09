@@ -1,0 +1,219 @@
+{
+  "runId": "20260809-193257-hard",
+  "workflow": "hard",
+  "status": "completed",
+  "confirm": "Y",
+  "startedAt": "2026-08-09T19:32:57+09:00",
+  "completedAt": "2026-08-09T19:40:22+09:00",
+  "confirmedAt": "2026-08-09T19:40:37+09:00",
+  "summary": "핵심 공개 도구 6개의 자주 쓰는 프리셋 개선",
+  "request": {
+    "workType": "hard",
+    "targets": [
+      "qr-barcode-generator",
+      "json-tools",
+      "date-calculator",
+      "multipurpose-draw-game",
+      "csv-table-converter",
+      "color-converter-contrast"
+    ],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
+  },
+  "selectedTools": [
+    "qr-barcode-generator",
+    "json-tools",
+    "date-calculator",
+    "multipurpose-draw-game",
+    "csv-table-converter",
+    "color-converter-contrast"
+  ],
+  "selectionBasis": "핵심 공개 도구 순환",
+  "releases": {
+    "qr-barcode-generator": "0.10.0v",
+    "json-tools": "0.12.0v",
+    "date-calculator": "2.5.0v",
+    "multipurpose-draw-game": "0.6.0v",
+    "csv-table-converter": "0.6.0v",
+    "color-converter-contrast": "1.4.0v"
+  },
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "QR 300px",
+    "설정 JSON",
+    "90일 날짜",
+    "임의 게임",
+    "세미콜론 CSV",
+    "다크 화면 색상"
+  ],
+  "newIdeas": [
+    "설정 JSON",
+    "임의 게임",
+    "다크 화면 색상"
+  ],
+  "commonModules": [
+    "KOR/ENG 프리셋",
+    "프리셋 즉시 결과 갱신"
+  ],
+  "knownIssueMatches": [
+    "SHARED_ASSET_CACHE_STALE",
+    "MOBILE_HORIZONTAL_OVERFLOW",
+    "IFRAME_HEIGHT_STALE"
+  ],
+  "validation": [
+    "대상 공개 구조 6개 통과",
+    "대상 릴리스 102 JSON 검증",
+    "대상 모듈 16개 검증",
+    "모바일 프리셋 동작·가로 넘침 0",
+    "데스크톱 가로 넘침 0",
+    "공개 배포 대상 확인"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
+      "https://bloggiedh.blogspot.com/2026/07/json.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_15.html",
+      "https://bloggiedh.blogspot.com/2026/07/csv.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "7141299d6760d91b5ed08988aa95c42bc710b2e5",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 31308866093,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/qr-barcode-generator/",
+      "https://leedohon.github.io/toolbox-project/embed/json-tools/",
+      "https://leedohon.github.io/toolbox-project/embed/date-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/multipurpose-draw-game/",
+      "https://leedohon.github.io/toolbox-project/embed/csv-table-converter/",
+      "https://leedohon.github.io/toolbox-project/embed/color-converter-contrast/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "scopeExceptions": [],
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:32:57+09:00",
+        "completedAt": "2026-08-09T19:40:22+09:00",
+        "evidence": [
+          "select 완료"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:32:57+09:00",
+        "completedAt": "2026-08-09T19:40:22+09:00",
+        "evidence": [
+          "implement 완료"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:32:57+09:00",
+        "completedAt": "2026-08-09T19:40:22+09:00",
+        "evidence": [
+          "validate 완료"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:32:57+09:00",
+        "completedAt": "2026-08-09T19:40:22+09:00",
+        "evidence": [
+          "publish 완료"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:32:57+09:00",
+        "completedAt": "2026-08-09T19:40:22+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:32:57+09:00",
+        "completedAt": "2026-08-09T19:40:22+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:40:37+09:00",
+        "completedAt": "2026-08-09T19:40:37+09:00",
+        "evidence": [
+          "사용자 확인 완료"
+        ],
+        "blockCode": null
+      }
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.21.0",
+    "applied": [
+      "OPT-025"
+    ],
+    "summary": "중간 공개 구조 감사를 24개에서 실행 대상 6개로 축소",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": 0.75,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "public tools inspected during targeted audit",
+        "before": 24,
+        "after": 6,
+        "reduction": 0.75
+      }
+    ],
+    "note": "실제 토큰 수가 없어 전체 감소율은 미확정"
+  },
+  "reportHistory": [
+    {
+      "at": "2026-08-09T19:32:57+09:00",
+      "action": "started",
+      "note": "추가 4회차 독립 기록 생성"
+    }
+  ]
+}

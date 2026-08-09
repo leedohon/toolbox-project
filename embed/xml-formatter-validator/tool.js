@@ -3,6 +3,7 @@ import {copyText, setupEmbedHeight} from '../../assets/play-tools.js?v=0.3.2';
 const $ = (selector) => document.querySelector(selector);
 const tr = (ko, en) => window.ToolboxI18n?.language === 'en' ? en : ko;
 const sample = '<?xml version="1.0" encoding="UTF-8"?>\n<tools>\n  <tool id="1">Toolbox</tool>\n</tools>';
+const rssSample = '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Toolbox Feed</title><link>https://example.com</link><item><title>New tool</title></item></channel></rss>';
 
 function setStatus(ko, en, error = false) {
   $('#xml-status').textContent = tr(ko, en);
@@ -59,6 +60,7 @@ function render() {
 }
 
 $('#xml-run').addEventListener('click', render);
+$('#xml-rss-sample').addEventListener('click', () => { $('#xml-input').value = rssSample; $('#xml-fallback').hidden = true; render(); });
 $('#xml-input').addEventListener('input', render);
 document.querySelectorAll('input[name="xml-mode"]').forEach((control) => control.addEventListener('change', render));
 $('#xml-copy').addEventListener('click', async () => {

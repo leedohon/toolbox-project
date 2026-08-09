@@ -99,6 +99,7 @@ function rebuild() {
 }
 
 $('#url-parse').addEventListener('click', parse);
+$('#url-blog-sample').addEventListener('click', () => { $('#url-input').value = 'https://blog.example.com/posts/toolbox?utm_source=newsletter&utm_medium=email&tag=web#guide'; $('#url-fallback').hidden = true; parse(); });
 $('#url-input').addEventListener('input', parse);
 $('#url-path').addEventListener('input', rebuild);
 $('#url-hash').addEventListener('input', rebuild);

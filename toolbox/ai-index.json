@@ -312,7 +312,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.3.0v",
+      "latestVersion": "0.4.0v",
       "paths": {
         "definition": "toolbox/tools/csv-table-converter.md",
         "post": "toolbox/posts/csv-table-converter.html",
@@ -360,7 +360,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.3.0v",
+      "latestVersion": "0.4.0v",
       "paths": {
         "definition": "toolbox/tools/regex-tester.md",
         "post": "toolbox/posts/regex-tester.html",
@@ -392,7 +392,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.3.0v",
+      "latestVersion": "0.4.0v",
       "paths": {
         "definition": "toolbox/tools/hash-generator.md",
         "post": "toolbox/posts/hash-generator.html",
@@ -488,7 +488,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.2.0v",
+      "latestVersion": "0.3.0v",
       "paths": {
         "definition": "toolbox/tools/jwt-decoder.md",
         "post": "toolbox/posts/jwt-decoder.html",
@@ -552,7 +552,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.2.0v",
+      "latestVersion": "0.3.0v",
       "paths": {
         "definition": "toolbox/tools/xml-formatter-validator.md",
         "post": "toolbox/posts/xml-formatter-validator.html",
@@ -568,7 +568,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.2.0v",
+      "latestVersion": "0.3.0v",
       "paths": {
         "definition": "toolbox/tools/url-parser-builder.md",
         "post": "toolbox/posts/url-parser-builder.html",

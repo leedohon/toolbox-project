@@ -103,6 +103,7 @@ function update() {
 
 let timer;
 $('#csv-input').addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(update, 180); });
+$('#csv-sample').addEventListener('click', () => { $('#csv-input').value = tr('상품,수량,매출\n노트,12,36000\n펜,25,25000','Product,Quantity,Sales\nNotebook,12,36000\nPen,25,25000'); $('#csv-output').value = 'json'; $('#csv-fallback').hidden = true; update(); });
 ['#csv-delimiter', '#csv-output', '#csv-header', '#csv-empty-rows', '#csv-trim-cells'].forEach((selector) => $(selector).addEventListener('change', update));
 $('#csv-file').addEventListener('change', async () => {
   const file = $('#csv-file').files[0];

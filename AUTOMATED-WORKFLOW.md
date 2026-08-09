@@ -189,3 +189,4 @@
 - 도구 식별자를 다시 나열하지 않고 실행 결과의 `selectedTools`를 단일 원본으로 사용한다.
 - 게시글 본문 생성도 `node scripts/build-tool-posts.mjs --from-run <실행 ID>`로 같은 대상 목록을 재사용한다.
 - 도구별 AI 색인은 `node scripts/build-ai-index.mjs --from-run <실행 ID>`로 같은 대상 목록만 갱신한다.
+- 게시글 인라인 스크립트 검사는 `node scripts/validate-inline-scripts.mjs --from-run <실행 ID>`로 같은 대상 목록을 재사용한다.

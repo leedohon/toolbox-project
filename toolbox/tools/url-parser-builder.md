@@ -22,6 +22,7 @@ inputs:
 - 완성 URL 복사
 - UTM source·medium·campaign 기본 항목 빠른 추가
 - 중복 키 순서를 유지하는 쿼리 이름순 정렬
+- UTM과 중복 태그가 포함된 블로그 주소 예제
 
 ## 실행 규칙
 

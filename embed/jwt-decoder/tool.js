@@ -109,6 +109,7 @@ function run() {
 }
 
 $('#jwt-run').addEventListener('click', run);
+$('#jwt-sample').addEventListener('click', () => { $('#jwt-input').value = 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJ0b29sYm94LXVzZXIiLCJpc3MiOiJ0b29sYm94LWV4YW1wbGUiLCJpYXQiOjE3MDAwMDAwMDB9.demo'; $('#jwt-fallback').hidden = true; run(); });
 $('#jwt-input').addEventListener('input', () => {
   $('#jwt-result').hidden = true;
   $('#jwt-fallback').hidden = true;

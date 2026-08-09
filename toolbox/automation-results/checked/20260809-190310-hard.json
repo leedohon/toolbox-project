@@ -1,0 +1,219 @@
+{
+  "runId": "20260809-190310-hard",
+  "workflow": "hard",
+  "status": "completed",
+  "confirm": "Y",
+  "startedAt": "2026-08-09T19:03:10+09:00",
+  "completedAt": "2026-08-09T19:17:15+09:00",
+  "confirmedAt": "2026-08-09T19:17:31+09:00",
+  "summary": "개발·데이터 도구 6개의 실사용 예제 개선",
+  "request": {
+    "workType": "hard",
+    "targets": [
+      "markdown-preview-converter",
+      "regex-tester",
+      "hash-generator",
+      "jwt-decoder",
+      "xml-formatter-validator",
+      "url-parser-builder"
+    ],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
+  },
+  "selectedTools": [
+    "markdown-preview-converter",
+    "regex-tester",
+    "hash-generator",
+    "jwt-decoder",
+    "xml-formatter-validator",
+    "url-parser-builder"
+  ],
+  "selectionBasis": "개발·데이터 도구 순환",
+  "releases": {
+    "markdown-preview-converter": "1.3.0v",
+    "regex-tester": "0.5.0v",
+    "hash-generator": "0.5.0v",
+    "jwt-decoder": "0.4.0v",
+    "xml-formatter-validator": "0.4.0v",
+    "url-parser-builder": "0.4.0v"
+  },
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "회의록 마크다운",
+    "한국 전화번호 정규식",
+    "JSON 해시",
+    "만료 JWT",
+    "네임스페이스 XML",
+    "API URL"
+  ],
+  "newIdeas": [
+    "회의록 마크다운",
+    "만료 JWT",
+    "API URL"
+  ],
+  "commonModules": [
+    "KOR/ENG 예제 버튼",
+    "예제 적용 시 복사 대체 영역 정리"
+  ],
+  "knownIssueMatches": [
+    "SHARED_ASSET_CACHE_STALE",
+    "IFRAME_HEIGHT_STALE",
+    "DEFAULT_TEXT_INPUT_UNSTYLED"
+  ],
+  "validation": [
+    "대상 릴리스 61 JSON 검증",
+    "대상 모듈 7개 검증",
+    "게시글 인라인 스크립트 6개 검증",
+    "모바일 375×812 기능·가로 넘침 0",
+    "데스크톱 1280×900 가로 넘침 0",
+    "공개 배포 대상 확인"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/html.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_18.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html",
+      "https://bloggiedh.blogspot.com/2026/07/jwt.html",
+      "https://bloggiedh.blogspot.com/2026/07/xml.html",
+      "https://bloggiedh.blogspot.com/2026/07/url_01194177481.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "8bcfdd7b64e6e9ff5555b65df7b1d85ccdeee7e9",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 31307918422,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/markdown-preview-converter/",
+      "https://leedohon.github.io/toolbox-project/embed/regex-tester/",
+      "https://leedohon.github.io/toolbox-project/embed/hash-generator/",
+      "https://leedohon.github.io/toolbox-project/embed/jwt-decoder/",
+      "https://leedohon.github.io/toolbox-project/embed/xml-formatter-validator/",
+      "https://leedohon.github.io/toolbox-project/embed/url-parser-builder/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "scopeExceptions": [],
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:03:10+09:00",
+        "completedAt": "2026-08-09T19:17:15+09:00",
+        "evidence": [
+          "select 완료"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:03:10+09:00",
+        "completedAt": "2026-08-09T19:17:15+09:00",
+        "evidence": [
+          "implement 완료"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:03:10+09:00",
+        "completedAt": "2026-08-09T19:17:15+09:00",
+        "evidence": [
+          "validate 완료"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:03:10+09:00",
+        "completedAt": "2026-08-09T19:17:15+09:00",
+        "evidence": [
+          "publish 완료"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:03:10+09:00",
+        "completedAt": "2026-08-09T19:17:15+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:03:10+09:00",
+        "completedAt": "2026-08-09T19:17:15+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:17:31+09:00",
+        "completedAt": "2026-08-09T19:17:31+09:00",
+        "evidence": [
+          "사용자 확인 완료"
+        ],
+        "blockCode": null
+      }
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.19.0",
+    "applied": [
+      "OPT-023"
+    ],
+    "summary": "완료 기록 반복 편집을 12개 필드에서 3개 인수로 축소",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": 0.75,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "workflow completion fields edited manually",
+        "before": 12,
+        "after": 3,
+        "reduction": 0.75
+      }
+    ],
+    "note": "실제 토큰 수가 없어 전체 감소율은 미확정"
+  },
+  "reportHistory": [
+    {
+      "at": "2026-08-09T19:03:10+09:00",
+      "action": "started",
+      "note": "추가 2회차 독립 기록 생성"
+    }
+  ]
+}

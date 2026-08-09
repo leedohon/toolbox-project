@@ -48,6 +48,7 @@ $('#text-input').addEventListener('input',()=>{
   count();
 });
 $('#text-clean').addEventListener('click',clean);
+const spacingSample=document.createElement('button');spacingSample.className='st-secondary';spacingSample.id='text-space-sample';spacingSample.type='button';spacingSample.dataset.ko='공백 정리 예제';spacingSample.dataset.en='Spacing cleanup example';spacingSample.textContent=tr('공백 정리 예제','Spacing cleanup example');$('#text-clean').before(spacingSample);spacingSample.addEventListener('click',()=>{$('#text-input').value=tr('  회의   자료를   확인해 주세요.\n\n\n다음  일정은  금요일입니다.  ','  Review   the meeting   notes.\n\n\nThe next  meeting is Friday.  ');$('#clean-trim').checked=true;$('#clean-spaces').checked=true;$('#clean-lines').checked=true;$('#clean-breaks').checked=false;$('#text-fallback').hidden=true;count();clean();});
 $('#text-copy').addEventListener('click',async()=>{
   const value=$('#text-output').value;
   if(!value)return status(tr('먼저 텍스트를 정리해 주세요.','Clean the text first.'),true);

@@ -192,3 +192,4 @@
 - 게시글 인라인 스크립트 검사는 `node scripts/validate-inline-scripts.mjs --from-run <실행 ID>`로 같은 대상 목록을 재사용한다.
 - 대상 릴리스 검사는 `node scripts/validate-tool-releases.mjs --from-run <실행 ID>`로 이번 실행의 최신 경로만 먼저 확인하고, 배포 전 전체 검사도 유지한다.
 - 대상 모듈 검사는 `node scripts/validate-tool-modules.mjs --from-run <실행 ID>`로 이번 실행에 속한 레지스트리만 먼저 확인하고, 배포 전 전체 검사도 유지한다.
+- 검색 색인 정책의 중간 적용은 `node scripts/apply-public-indexing-policy.mjs --from-run <실행 ID>`로 대상 실행 페이지만 처리하고, 배포 전 전체 적용·검사를 유지한다.

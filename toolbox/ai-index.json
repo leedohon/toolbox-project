@@ -56,7 +56,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.3.0v",
+      "latestVersion": "1.4.0v",
       "paths": {
         "definition": "toolbox/tools/base64-tools.md",
         "post": "toolbox/posts/base64-tools.html",
@@ -136,7 +136,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.4.0v",
+      "latestVersion": "0.5.0v",
       "paths": {
         "definition": "toolbox/tools/image-mosaic-tool.md",
         "post": "toolbox/posts/image-mosaic-tool.html",
@@ -200,7 +200,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.3.0v",
+      "latestVersion": "1.4.0v",
       "paths": {
         "definition": "toolbox/tools/password-generator.md",
         "post": "toolbox/posts/password-generator.html",
@@ -216,7 +216,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.3.0v",
+      "latestVersion": "1.4.0v",
       "paths": {
         "definition": "toolbox/tools/image-resizer-compressor.md",
         "post": "toolbox/posts/image-resizer-compressor.html",
@@ -264,7 +264,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.2.0v",
+      "latestVersion": "1.3.0v",
       "paths": {
         "definition": "toolbox/tools/text-counter-cleaner.md",
         "post": "toolbox/posts/text-counter-cleaner.html",
@@ -280,7 +280,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.3.0v",
+      "latestVersion": "0.4.0v",
       "paths": {
         "definition": "toolbox/tools/text-diff-checker.md",
         "post": "toolbox/posts/text-diff-checker.html",

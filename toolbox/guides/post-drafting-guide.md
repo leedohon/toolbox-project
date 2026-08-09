@@ -81,4 +81,5 @@ node scripts/serve-local.mjs
 - 공통 상단 검색은 Blogger 검색 결과 목록의 DOM과 링크 동작을 대체하지 않는다. 전역 푸터는 중복 검색·프로필·보관함·태그·번역 위젯을 숨기고 출처 표기만 컴팩트하게 유지한다.
 - `assets/blogger/theme.css`를 바꾸면 `assets/blogger/site.js`의 `themeRelease`도 함께 올려 Blogger의 이전 CSS 캐시가 남지 않게 한다.
 - iframe 높이는 게시글 인라인 스크립트가 아니라 전역 `assets/blogger/site.js`가 조절한다. 새 도구는 실제 최대 모바일 높이를 고려한 fallback 높이도 함께 둔다.
+- 입력량에 따라 반복 결과가 길어지는 도구는 `wf-long-output`으로 결과 영역 높이를 제한하고 `tabindex="0"`, `role="region"`, 제목 연결을 제공한다. 3,000·5,600·6,000px 경계와 초과 메시지가 버려지지 않는지, 내용 축소 뒤 iframe 높이가 다시 줄어드는지 모바일·데스크톱에서 확인한다.
 - Blogger 수정, 카탈로그, 커밋·푸시와 공개 배포 검증을 완료했다.

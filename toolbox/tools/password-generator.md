@@ -38,3 +38,7 @@ inputs:
 
 - 기능은 고정 주소 `embed/password-generator/`와 독립 `tool.js` 모듈로 제공한다.
 - 공통 CSS, KOR / ENG, 모바일 포커스 방지, iframe 높이 동기화 인터페이스를 재사용한다.
+
+## 이번 개선
+
+- 20자 비밀번호 5개를 한 번에 생성하는 묶음 프리셋을 제공한다.

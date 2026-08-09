@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.5.0v",
+  "latestVersion": "0.6.0v",
   "paths": {
     "definition": "toolbox/tools/image-mosaic-tool.md",
     "post": "toolbox/posts/image-mosaic-tool.html",

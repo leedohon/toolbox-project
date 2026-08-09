@@ -35,3 +35,7 @@ inputs:
 
 - 기능은 고정 주소 `embed/text-counter-cleaner/`와 독립 `tool.js` 모듈로 제공한다.
 - 공통 CSS, KOR / ENG, 모바일 포커스 방지, iframe 높이 동기화 인터페이스를 재사용한다.
+
+## 이번 개선
+
+- 잦은 줄바꿈과 빈 줄을 정리하는 문단 예제를 제공한다.

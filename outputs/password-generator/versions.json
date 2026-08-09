@@ -4,7 +4,7 @@
   "title": "비밀번호·UUID 생성기",
   "description": "안전한 무작위 비밀번호와 UUID v4를 필요한 형식과 개수로 만듭니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
-  "latestVersion": "1.4.0v",
+  "latestVersion": "1.5.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -131,6 +131,15 @@
       "directory": "1.4.0v",
       "html": "1.4.0v/password-generator.html",
       "patchNotes": "1.4.0v/patch-notes.json"
+    },
+    {
+      "version": "1.5.0v",
+      "releaseDate": "2026-08-09",
+      "changeLevel": "minor",
+      "summary": "비밀번호 5개 묶음 프리셋을 추가했습니다.",
+      "directory": "1.5.0v",
+      "html": "1.5.0v/password-generator.html",
+      "patchNotes": "1.5.0v/patch-notes.json"
     }
   ],
   "status": "published"

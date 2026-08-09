@@ -196,3 +196,4 @@
 - 배포가 끝난 하드 실행은 `node scripts/finalize-hard-result.mjs <실행 ID> <커밋> <Pages 실행 ID>`로 게시·Git·배포·단계 완료 근거를 한 번에 기록한다.
 - 검색 색인 중간 검증은 `node scripts/validate-public-indexing.mjs --from-run <실행 ID>`로 이번 실행 대상만 확인하고, 배포 전 전체 검증은 유지한다.
 - 공개 도구 중간 감사는 `node scripts/audit-public-tools.mjs --from-run <실행 ID>`로 이번 실행 대상만 확인하고, 배포 전 전체 감사는 유지한다.
+- Blogger 주소 동기화는 `node scripts/blogger-sync-post-urls.mjs --from-run <실행 ID>`로 이번 실행 대상만 대조하고 카탈로그를 갱신한다.

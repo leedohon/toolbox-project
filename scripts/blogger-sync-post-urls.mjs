@@ -9,6 +9,21 @@ const outputsDir = path.join(root, 'outputs');
 const credentialsPath = path.join(secretDir, 'credentials.json');
 const tokenPath = path.join(secretDir, 'token.json');
 const blogPath = path.join(secretDir, 'blog.json');
+const args = process.argv.slice(2);
+let selectedTools = null;
+const fromRunIndex = args.indexOf('--from-run');
+if (fromRunIndex >= 0) {
+  const runId = args[fromRunIndex + 1];
+  if (!runId) throw new Error('Usage: node scripts/blogger-sync-post-urls.mjs --from-run RUN_ID');
+  for (const bucket of ['unchecked', 'checked']) {
+    try {
+      const result = JSON.parse(await fs.readFile(path.join(root, 'toolbox', 'automation-results', bucket, `${runId}.json`), 'utf8'));
+      selectedTools = new Set(result.selectedTools || []);
+      break;
+    } catch (error) { if (error.code !== 'ENOENT') throw error; }
+  }
+  if (!selectedTools?.size) throw new Error(`Automation result or selectedTools not found: ${runId}`);
+}
 
 const credentialsDocument = JSON.parse(await fs.readFile(credentialsPath, 'utf8'));
 const credentials = credentialsDocument.installed || credentialsDocument.web;
@@ -80,6 +95,7 @@ let updated = 0;
 const unmatched = [];
 for (const entry of entries) {
   if (!entry.isDirectory()) continue;
+  if (selectedTools && !selectedTools.has(entry.name)) continue;
   const versionsPath = path.join(outputsDir, entry.name, 'versions.json');
   let versions;
   try {

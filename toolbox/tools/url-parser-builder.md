@@ -35,3 +35,7 @@ inputs:
 
 - 기능은 고정 주소 `embed/url-parser-builder/`와 독립 `tool.js` 모듈로 제공한다.
 - 공통 CSS, KOR / ENG, 모바일 포커스 방지, iframe 높이 동기화 인터페이스를 재사용한다.
+
+## 이번 개선
+
+- 경로와 여러 쿼리가 포함된 API URL 예제를 한 번에 불러온다.

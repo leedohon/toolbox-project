@@ -7,7 +7,7 @@
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.3.0v",
+  "latestVersion": "0.4.0v",
   "paths": {
     "definition": "toolbox/tools/xml-formatter-validator.md",
     "post": "toolbox/posts/xml-formatter-validator.html",

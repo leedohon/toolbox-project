@@ -100,6 +100,7 @@ function rebuild() {
 
 $('#url-parse').addEventListener('click', parse);
 $('#url-blog-sample').addEventListener('click', () => { $('#url-input').value = 'https://blog.example.com/posts/toolbox?utm_source=newsletter&utm_medium=email&tag=web#guide'; $('#url-fallback').hidden = true; parse(); });
+const apiSample=document.createElement('button');apiSample.className='st-secondary';apiSample.id='url-api-sample';apiSample.type='button';apiSample.dataset.ko='API 주소 예제';apiSample.dataset.en='API URL example';apiSample.textContent=tr('API 주소 예제','API URL example');$('#url-blog-sample').after(apiSample);apiSample.addEventListener('click',()=>{$('#url-input').value='https://api.example.com/v1/tools?limit=20&page=2&sort=updated#results';$('#url-fallback').hidden=true;parse();});
 $('#url-input').addEventListener('input', parse);
 $('#url-path').addEventListener('input', rebuild);
 $('#url-hash').addEventListener('input', rebuild);

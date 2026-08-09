@@ -110,6 +110,7 @@ function run() {
 
 $('#jwt-run').addEventListener('click', run);
 $('#jwt-sample').addEventListener('click', () => { $('#jwt-input').value = 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJ0b29sYm94LXVzZXIiLCJpc3MiOiJ0b29sYm94LWV4YW1wbGUiLCJpYXQiOjE3MDAwMDAwMDB9.demo'; $('#jwt-fallback').hidden = true; run(); });
+const expiredSample=document.createElement('button');expiredSample.className='st-secondary';expiredSample.id='jwt-expired-sample';expiredSample.type='button';expiredSample.dataset.ko='만료 토큰 예제';expiredSample.dataset.en='Expired token example';expiredSample.textContent=tr('만료 토큰 예제','Expired token example');$('#jwt-sample').after(expiredSample);expiredSample.addEventListener('click',()=>{$('#jwt-input').value='eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJvbGQtdXNlciIsImV4cCI6MTYwMDAwMDAwMH0.demo';$('#jwt-fallback').hidden=true;run();});
 $('#jwt-input').addEventListener('input', () => {
   $('#jwt-result').hidden = true;
   $('#jwt-fallback').hidden = true;

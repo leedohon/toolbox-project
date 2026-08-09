@@ -35,6 +35,7 @@ function run(){
 
 $('#regex-run').addEventListener('click',run);
 document.querySelectorAll('.regex-preset').forEach(button=>button.addEventListener('click',()=>{$('#regex-pattern').value=button.dataset.pattern;$('#regex-text').value=button.dataset.text;$('#regex-fallback').hidden=true;run();}));
+const phonePreset=document.createElement('button');phonePreset.className='st-secondary regex-preset';phonePreset.id='regex-phone-preset';phonePreset.type='button';phonePreset.dataset.ko='전화번호 예제';phonePreset.dataset.en='Phone example';phonePreset.textContent=tr('전화번호 예제','Phone example');document.querySelector('.st-actions[aria-label]').append(phonePreset);phonePreset.addEventListener('click',()=>{$('#regex-pattern').value='01[016789]-?\\d{3,4}-?\\d{4}';$('#regex-text').value='문의 010-1234-5678, 예비 011-234-5678';$('#regex-fallback').hidden=true;run();});
 $('#regex-pattern').addEventListener('input',run);
 $('#regex-text').addEventListener('input',run);
 document.querySelectorAll('[name="regex-flag"]').forEach(input=>input.addEventListener('change',run));

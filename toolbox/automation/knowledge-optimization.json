@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.18.0",
+  "policyVersion": "0.19.0",
   "updatedAt": "2026-08-09",
   "scope": [
     "repository markdown instructions",
@@ -311,6 +311,14 @@
       "proposedChange":"--from-run으로 이번 실행의 대상 페이지에만 먼저 정책을 적용한다.",
       "measure":"execution pages processed by indexing policy per hard run","targetReduction":0.5,
       "evidence":[{"before":57,"after":6,"unit":"execution pages per six-tool hard run","reduction":0.8947,"verifiedAt":"2026-08-09"}]
+    },
+    {
+      "id":"OPT-023","status":"completed",
+      "triggerPaths":["scripts/finalize-hard-result.mjs","toolbox/automation-results/unchecked/*.json","AUTOMATED-WORKFLOW.md"],
+      "problem":"배포 뒤 완료 기록의 게시·커밋·배포·단계 상태를 여러 필드에 반복 입력한다.",
+      "proposedChange":"실행 ID, 커밋, Pages 실행 ID 세 인수로 완료 상태와 공개 주소를 일괄 기록한다.",
+      "measure":"workflow completion fields edited manually","targetReduction":0.5,
+      "evidence":[{"before":12,"after":3,"unit":"completion fields or arguments per hard run","reduction":0.75,"verifiedAt":"2026-08-09"}]
     }
   ]
 }

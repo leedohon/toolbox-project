@@ -61,6 +61,7 @@ function render() {
 
 $('#xml-run').addEventListener('click', render);
 $('#xml-rss-sample').addEventListener('click', () => { $('#xml-input').value = rssSample; $('#xml-fallback').hidden = true; render(); });
+const namespaceSample=document.createElement('button');namespaceSample.className='st-secondary';namespaceSample.id='xml-namespace-sample';namespaceSample.type='button';namespaceSample.dataset.ko='네임스페이스 예제';namespaceSample.dataset.en='Namespace example';namespaceSample.textContent=tr('네임스페이스 예제','Namespace example');$('#xml-rss-sample').after(namespaceSample);namespaceSample.addEventListener('click',()=>{$('#xml-input').value='<?xml version="1.0"?><catalog xmlns:tb="https://example.com/toolbox"><tb:tool id="1">JSON</tb:tool></catalog>';$('#xml-fallback').hidden=true;render();});
 $('#xml-input').addEventListener('input', render);
 document.querySelectorAll('input[name="xml-mode"]').forEach((control) => control.addEventListener('change', render));
 $('#xml-copy').addEventListener('click', async () => {

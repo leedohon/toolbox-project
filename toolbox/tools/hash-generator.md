@@ -34,3 +34,7 @@ inputs:
 
 - 기능은 고정 주소 `embed/hash-generator/`와 독립 `tool.js` 모듈로 제공한다.
 - 공통 CSS, KOR / ENG, 모바일 포커스 방지, iframe 높이 동기화 인터페이스를 재사용한다.
+
+## 이번 개선
+
+- 실제 확인 작업에 가까운 JSON 설정 예제를 즉시 해시할 수 있다.

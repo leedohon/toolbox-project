@@ -1,0 +1,219 @@
+{
+  "runId": "20260809-191851-hard",
+  "workflow": "hard",
+  "status": "completed",
+  "confirm": "Y",
+  "startedAt": "2026-08-09T19:18:51+09:00",
+  "completedAt": "2026-08-09T19:28:11+09:00",
+  "confirmedAt": "2026-08-09T19:28:26+09:00",
+  "summary": "조회·계산 도구 6개의 실사용 프리셋 개선",
+  "request": {
+    "workType": "hard",
+    "targets": [
+      "http-status-lookup",
+      "text-extractor-tool",
+      "web-meta-preview-builder",
+      "loan-savings-calculator",
+      "ip-network-calculator",
+      "coordinate-distance-calculator"
+    ],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
+  },
+  "selectedTools": [
+    "http-status-lookup",
+    "text-extractor-tool",
+    "web-meta-preview-builder",
+    "loan-savings-calculator",
+    "ip-network-calculator",
+    "coordinate-distance-calculator"
+  ],
+  "selectionBasis": "조회·계산 도구 순환",
+  "releases": {
+    "http-status-lookup": "1.3.0v",
+    "text-extractor-tool": "0.3.0v",
+    "web-meta-preview-builder": "0.6.0v",
+    "loan-savings-calculator": "0.3.0v",
+    "ip-network-calculator": "0.4.0v",
+    "coordinate-distance-calculator": "0.3.0v"
+  },
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "301 상태 코드",
+    "URL 추출 예제",
+    "상품 메타 예제",
+    "36개월 기간",
+    "/30 네트워크",
+    "부산·도쿄 거리"
+  ],
+  "newIdeas": [
+    "URL 추출 예제",
+    "상품 메타 예제",
+    "부산·도쿄 거리"
+  ],
+  "commonModules": [
+    "KOR/ENG 프리셋",
+    "프리셋 즉시 계산"
+  ],
+  "knownIssueMatches": [
+    "SHARED_ASSET_CACHE_STALE",
+    "MOBILE_HORIZONTAL_OVERFLOW",
+    "DEFAULT_TEXT_INPUT_UNSTYLED"
+  ],
+  "validation": [
+    "대상 색인 6개 검증",
+    "대상 릴리스 45 JSON 검증",
+    "대상 모듈 10개 검증",
+    "모바일 프리셋 동작·가로 넘침 0",
+    "데스크톱 가로 넘침 0",
+    "공개 배포 대상 확인"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/http.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post_03.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post_578.html",
+      "https://bloggiedh.blogspot.com/2026/08/ip.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post_08.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "17bccefcff22c56533a6e2ce19173091adc81266",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 31308365551,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/http-status-lookup/",
+      "https://leedohon.github.io/toolbox-project/embed/text-extractor-tool/",
+      "https://leedohon.github.io/toolbox-project/embed/web-meta-preview-builder/",
+      "https://leedohon.github.io/toolbox-project/embed/loan-savings-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/ip-network-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/coordinate-distance-calculator/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "scopeExceptions": [],
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:18:51+09:00",
+        "completedAt": "2026-08-09T19:28:11+09:00",
+        "evidence": [
+          "select 완료"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:18:51+09:00",
+        "completedAt": "2026-08-09T19:28:11+09:00",
+        "evidence": [
+          "implement 완료"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:18:51+09:00",
+        "completedAt": "2026-08-09T19:28:11+09:00",
+        "evidence": [
+          "validate 완료"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:18:51+09:00",
+        "completedAt": "2026-08-09T19:28:11+09:00",
+        "evidence": [
+          "publish 완료"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:18:51+09:00",
+        "completedAt": "2026-08-09T19:28:11+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:18:51+09:00",
+        "completedAt": "2026-08-09T19:28:11+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "completed",
+        "startedAt": "2026-08-09T19:28:26+09:00",
+        "completedAt": "2026-08-09T19:28:26+09:00",
+        "evidence": [
+          "사용자 확인 완료"
+        ],
+        "blockCode": null
+      }
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.20.0",
+    "applied": [
+      "OPT-024"
+    ],
+    "summary": "중간 색인 검증을 57개에서 실행 대상 6개로 축소",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": 0.8947,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "execution pages checked during targeted indexing validation",
+        "before": 57,
+        "after": 6,
+        "reduction": 0.8947
+      }
+    ],
+    "note": "실제 토큰 수가 없어 전체 감소율은 미확정"
+  },
+  "reportHistory": [
+    {
+      "at": "2026-08-09T19:18:51+09:00",
+      "action": "started",
+      "note": "추가 3회차 독립 기록 생성"
+    }
+  ]
+}

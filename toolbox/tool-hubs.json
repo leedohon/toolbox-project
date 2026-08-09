@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "assetVersion": "0.1.3",
+  "assetVersion": "0.1.4",
   "hubs": [
     {
       "tool": "base64-tools",

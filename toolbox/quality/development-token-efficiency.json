@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policyVersion": "0.4.0",
-  "updatedAt": "2026-08-04",
+  "updatedAt": "2026-08-09",
   "records": [
     {
       "runId": "20260719-030518-hard",
@@ -265,6 +265,7 @@
     {"runId":"20260809-190310-hard","workflow":"hard","measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.75,"overallReduction":null,"proxies":[{"metric":"workflow completion fields edited manually","before":12,"after":3,"reduction":0.75}],"note":"Comparable total token counts were unavailable; no overall development-token reduction is claimed."},
     {"runId":"20260809-191851-hard","workflow":"hard","measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.8947,"overallReduction":null,"proxies":[{"metric":"execution pages checked during targeted indexing validation","before":57,"after":6,"reduction":0.8947}],"note":"Comparable total token counts were unavailable; no overall development-token reduction is claimed."},
     {"runId":"20260809-193257-hard","workflow":"hard","measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.75,"overallReduction":null,"proxies":[{"metric":"public tools inspected during targeted audit","before":24,"after":6,"reduction":0.75}],"note":"Comparable total token counts were unavailable; no overall development-token reduction is claimed."},
-    {"runId":"20260809-194457-hard","workflow":"hard","measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.8929,"overallReduction":null,"proxies":[{"metric":"tool manifests inspected during Blogger URL synchronization","before":56,"after":6,"reduction":0.8929}],"note":"Comparable total token counts were unavailable; no overall development-token reduction is claimed."}
+    {"runId":"20260809-194457-hard","workflow":"hard","measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.8929,"overallReduction":null,"proxies":[{"metric":"tool manifests inspected during Blogger URL synchronization","before":56,"after":6,"reduction":0.8929}],"note":"Comparable total token counts were unavailable; no overall development-token reduction is claimed."},
+    {"runId":"20260809-long-output-height","workflow":"targeted-regression-fix","measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":null,"overallReduction":null,"proxies":[{"metric":"shared asset cache references updated manually","before":24,"after":3,"reduction":0.875},{"metric":"public tools covered by one structural regression audit","before":24,"after":1,"reduction":0.9583}],"note":"Comparable total input and output token counts were unavailable. Only verified cache-bump and batch-audit proxies are recorded; no overall development-token reduction is claimed."}
   ]
 }

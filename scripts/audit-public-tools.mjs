@@ -24,6 +24,10 @@ const hubRuntime = await fs.readFile(path.join(root, 'assets', 'tool-hub.js'), '
   if (error.code === 'ENOENT') return '';
   throw error;
 });
+const bloggerRuntime = await fs.readFile(path.join(root, 'assets', 'blogger', 'site.js'), 'utf8');
+const postTemplate = await fs.readFile(path.join(root, 'toolbox', 'templates', 'blogger-inline-tool-template.md'), 'utf8');
+const heightContractSource = `${hubRuntime}\n${bloggerRuntime}\n${postTemplate}`;
+const boundedLongOutputTools = new Set(['text-diff-checker', 'markdown-preview-converter', 'csv-table-converter']);
 const rows = [];
 
 for (const item of catalog.tools) {
@@ -31,6 +35,7 @@ for (const item of catalog.tools) {
   const manifestPath = path.join(root, 'outputs', item.tool, 'versions.json');
   const embedPath = path.join(root, 'embed', item.tool, 'index.html');
   const toolScriptPath = path.join(root, 'embed', item.tool, 'tool.js');
+  const enginePath = path.join(root, 'embed', item.tool, 'engine.html');
   const modulesPath = path.join(root, 'embed', item.tool, 'modules.json');
   const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
   const html = await fs.readFile(embedPath, 'utf8');
@@ -38,7 +43,11 @@ for (const item of catalog.tools) {
     if (error.code === 'ENOENT') return '';
     throw error;
   });
-  const runtimeSource = `${html}\n${toolScript}`;
+  const engineHtml = await fs.readFile(enginePath, 'utf8').catch((error) => {
+    if (error.code === 'ENOENT') return '';
+    throw error;
+  });
+  const runtimeSource = `${html}\n${engineHtml}\n${toolScript}`;
   const modules = await fs.readFile(modulesPath, 'utf8').then(JSON.parse).catch((error) => {
     if (error.code === 'ENOENT') return null;
     throw error;
@@ -53,6 +62,8 @@ for (const item of catalog.tools) {
     safeUx: html.includes('toolbox-ux.js') && !/\bautofocus\b/i.test(html),
     heightSync: /setupEmbedHeight|mountGeneratedTool|source\s*:\s*["']toolbox-embed["']|location\.replace/.test(runtimeSource)
       || (html.includes('tool-hub.js') && /setupEmbedHeight/.test(hubRuntime)),
+    heightCapContract: !/height\s*<=\s*3000|Math\.min\(5600|height\s*>\s*(?:5600|6000)\)\s*return/.test(heightContractSource),
+    boundedLongOutput: !boundedLongOutputTools.has(item.tool) || runtimeSource.includes('wf-long-output'),
     hiddenGuard: !/\[hidden\][^{]*\{[^}]*display\s*:\s*(?:grid|flex)(?![^}]*!important)/i.test(html),
     moduleContract: modules
       ? Array.isArray(modules.modules) && modules.modules.length > 0 && modules.modules.every((module) => module.entry && module.capabilities?.i18n)

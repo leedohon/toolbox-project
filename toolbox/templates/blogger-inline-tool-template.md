@@ -51,7 +51,9 @@ https://leedohon.github.io/toolbox-project/embed/{{tool-id}}/
     window.addEventListener('message', function (event) {
       if (event.origin !== 'https://leedohon.github.io' || !event.data || event.data.source !== 'toolbox-embed' || event.data.tool !== '{{tool-id}}') return;
       var height = Number(event.data.height);
-      if (Number.isFinite(height) && height >= 320 && height <= 3000) frame.style.height = Math.ceil(height) + 'px';
+      if (!Number.isFinite(height) || height <= 0) return;
+      frame.style.height = Math.min(6000, Math.max(320, Math.ceil(height))) + 'px';
+      frame.scrolling = height > 6000 ? 'auto' : 'no';
     });
   }());
 </script>

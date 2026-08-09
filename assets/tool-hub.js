@@ -16,6 +16,8 @@ const loadedFrames = new WeakSet();
 const storedModeKey = `${hubTool}-module`;
 const childFlag = 'toolbox-hub-child';
 const modulePattern = /^[a-z0-9-]+$/;
+const embedHeightMin = 320;
+const embedHeightMax = 6000;
 let modules = [];
 let activeId = '';
 let hubMeta = null;
@@ -182,13 +184,20 @@ function forwardLanguage(frame) {
   }
 }
 
+function applyFrameHeight(frame, value) {
+  const measuredHeight = Number(value);
+  if (!Number.isFinite(measuredHeight) || measuredHeight <= 0) return;
+  const height = Math.min(embedHeightMax, Math.max(embedHeightMin, Math.ceil(measuredHeight)));
+  const nextHeight = `${height}px`;
+  if (frame.style.height !== nextHeight) frame.style.height = nextHeight;
+  frame.scrolling = measuredHeight > embedHeightMax ? 'auto' : 'no';
+}
+
 function syncFrameHeight(frame) {
   try {
     const body = frame.contentDocument?.body;
     if (!body) return;
-    const height = Math.min(5600, Math.max(320, Math.ceil(body.scrollHeight)));
-    const nextHeight = `${height}px`;
-    if (frame.style.height !== nextHeight) frame.style.height = nextHeight;
+    applyFrameHeight(frame, body.scrollHeight);
   } catch (_) {
     // Registry validation keeps current modules same-origin; tolerate a frame closing during navigation.
   }
@@ -288,9 +297,7 @@ addEventListener('message', (event) => {
   const frame = module && frames.get(module.id);
   if (!frame || event.source !== frame.contentWindow) return;
 
-  const height = Number(event.data.height);
-  if (!Number.isFinite(height) || height < 320 || height > 5600) return;
-  frame.style.height = `${Math.ceil(height)}px`;
+  applyFrameHeight(frame, event.data.height);
 });
 
 addEventListener('toolbox-language-change', () => {

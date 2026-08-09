@@ -73,6 +73,16 @@
       "affectedPatterns": ["assets/play-tools.js", "embed/**/index.html", "embed/**/tool.js", "toolbox/posts/*.html"]
     },
     {
+      "code": "IFRAME_HEIGHT_CAP_MISMATCH",
+      "status": "guarded",
+      "summary": "장문 결과가 계층별 높이 상한을 넘으면 상위 iframe이 마지막 높이에 멈추거나 콘텐츠가 잘림",
+      "fingerprints": ["height > 5600", "height <= 3000", "height > 6000", "tool-hub", "long output", "large text"],
+      "rootCause": "내부 도구·통합 허브·Blogger 수신기의 상한이 서로 다르고 초과 메시지를 보정하지 않고 버림",
+      "fixContract": ["계층별 최소·최대 높이를 320~6000으로 통일", "초과 높이는 버리지 않고 상한으로 반영", "상한 초과 시 iframe 스크롤 허용", "길게 반복되는 결과는 접근 가능한 제한 높이 영역으로 제공"],
+      "regressionChecks": ["3000·5600·6000 경계와 초과 높이 메시지 반영", "대량 텍스트 결과 영역의 최대 높이와 세로 스크롤 확인", "내용 축소 뒤 iframe 높이 감소", "375px·1280px에서 가로 넘침과 결과 접근성 확인"],
+      "affectedPatterns": ["assets/tool-hub.js", "assets/blogger/site.js", "assets/workflow-tools.css", "embed/**/index.html", "toolbox/posts/*.html", "toolbox/templates/*.md"]
+    },
+    {
       "code": "HIDDEN_GRID_OVERRIDE",
       "status": "guarded",
       "summary": "hidden 속성이 display:grid 규칙에 덮여 초기 상태의 빈 결과·미리보기 영역이 표시됨",
@@ -127,10 +137,10 @@
       "status": "guarded",
       "summary": "실행 전용 iframe과 내부 버전 보관 HTML이 검색 대상 또는 공개 Pages 산출물에 포함됨",
       "fingerprints": ["GitHub Pages", "noindex,follow", "canonical", "deploy-pages", "outputs/*/*v"],
-      "rootCause": "저장소 루트 전체를 Pages 원본으로 배포하고 실행 문서의 검색 메타 정책을 별도로 관리하지 않았음",
-      "fixContract": ["모든 실행 문서에 noindex,follow 적용", "공개 도구는 대응 Blogger 글을 canonical로 지정", "Pages Actions 산출물은 postUrl이 있는 실행 자산과 공개 JSON만 포함"],
-      "regressionChecks": ["모든 embed와 루트 실행 문서에 robots 메타 1개", "미공개 도구에는 canonical 없음", "배포 산출물에 미공개 embed·내부 AI 색인·toolbox·버전 outputs·requests·quality 없음"],
-      "affectedPatterns": ["embed/**/index.html", "index.html", "scripts/*indexing*.mjs", "scripts/prepare-pages-artifact.mjs", ".github/workflows/deploy-pages.yml"]
+      "rootCause": "저장소 루트 전체를 Pages 원본으로 배포하고 실행 문서의 검색 메타 정책을 별도로 관리했으며 허브 재생성기가 적용된 메타 블록을 덮어쓸 수 있었음",
+      "fixContract": ["모든 실행 문서에 noindex,follow 적용", "공개 도구는 대응 Blogger 글을 canonical로 지정", "허브 생성 결과에도 같은 검색 메타를 직접 포함", "Pages Actions 산출물은 postUrl이 있는 실행 자산과 공개 JSON만 포함"],
+      "regressionChecks": ["모든 embed와 루트 실행 문서에 robots 메타 1개", "허브 생성 뒤 indexing 정책 적용 변경 파일 0개 및 build-tool-hubs --check 통과", "미공개 도구에는 canonical 없음", "배포 산출물에 미공개 embed·내부 AI 색인·toolbox·버전 outputs·requests·quality 없음"],
+      "affectedPatterns": ["embed/**/index.html", "index.html", "scripts/build-tool-hubs.mjs", "scripts/*indexing*.mjs", "scripts/prepare-pages-artifact.mjs", ".github/workflows/deploy-pages.yml"]
     },
     {
       "code": "PENDING_CATALOG_LEAK",

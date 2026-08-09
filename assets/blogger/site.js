@@ -21,11 +21,15 @@
     if (event.origin !== 'https://leedohon.github.io' || !event.data || event.data.source !== 'toolbox-embed') return;
     var tool = String(event.data.tool || '');
     var height = Number(event.data.height);
-    if (!/^[a-z0-9-]+$/.test(tool) || !Number.isFinite(height) || height < 320 || height > 6000) return;
+    if (!/^[a-z0-9-]+$/.test(tool) || !Number.isFinite(height) || height <= 0) return;
+    var appliedHeight = Math.min(6000, Math.max(320, Math.ceil(height)));
     document.querySelectorAll('iframe[src]').forEach(function (frame) {
       try {
         var source = new URL(frame.src, location.href);
-        if (source.origin === event.origin && source.pathname.replace(/\/+$/, '') === '/toolbox-project/embed/' + tool) frame.style.height = Math.ceil(height) + 'px';
+        if (source.origin === event.origin && source.pathname.replace(/\/+$/, '') === '/toolbox-project/embed/' + tool) {
+          frame.style.height = appliedHeight + 'px';
+          frame.scrolling = height > 6000 ? 'auto' : 'no';
+        }
       } catch (_) {}
     });
   });

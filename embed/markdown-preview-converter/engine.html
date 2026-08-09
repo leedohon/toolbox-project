@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>마크다운 미리보기·HTML 변환기</title>
   <link rel="stylesheet" href="../../assets/simple-tools.css?v=0.1.1">
-  <link rel="stylesheet" href="../../assets/workflow-tools.css?v=0.0.3">
+  <link rel="stylesheet" href="../../assets/workflow-tools.css?v=0.0.5">
   <link rel="stylesheet" href="../../assets/longtext-tools.css?v=0.1.0">
   <link rel="stylesheet" href="../../assets/toolbox-i18n.css?v=0.1.0">
   <script src="../../assets/toolbox-i18n.js?v=0.3.1"></script>
@@ -24,12 +24,12 @@
 > 입력한 글은 브라우저 안에서만 처리됩니다.</textarea></div>
     <div class="wf-stats" aria-label="문서 구조 통계"><div class="wf-stat"><span data-ko="단어" data-en="Words">단어</span><strong id="md-words">0</strong></div><div class="wf-stat"><span data-ko="제목" data-en="Headings">제목</span><strong id="md-headings">0</strong></div><div class="wf-stat"><span data-ko="링크" data-en="Links">링크</span><strong id="md-links">0</strong></div></div>
     <section class="st-result"><h2 data-ko="문서 목차" data-en="Document outline">문서 목차</h2><ol id="md-outline"></ol></section>
-    <div class="st-field"><span class="st-label" data-ko="실시간 미리보기" data-en="Live preview">실시간 미리보기</span><div class="wf-scroll wf-doc-preview" id="md-preview"></div></div>
+    <div class="st-field"><span class="st-label" id="md-preview-title" data-ko="실시간 미리보기" data-en="Live preview">실시간 미리보기</span><div class="wf-scroll wf-doc-preview wf-long-output" id="md-preview" tabindex="0" role="region" aria-labelledby="md-preview-title"></div></div>
   </div>
   <div class="st-actions"><button class="st-secondary" id="md-readme-template" type="button" data-ko="README 예제" data-en="README example">README 예제</button><button class="st-primary" id="md-copy" type="button" data-ko="HTML 복사" data-en="Copy HTML">HTML 복사</button><button class="st-secondary" id="md-outline-copy" type="button" data-ko="목차 복사" data-en="Copy outline">목차 복사</button><button class="st-secondary" id="md-save" type="button" data-ko="HTML 파일 저장" data-en="Save HTML file">HTML 파일 저장</button></div>
   <p class="st-status" id="md-status" aria-live="polite"></p>
   <textarea class="st-copy-fallback" id="md-fallback" readonly hidden></textarea>
-  <section class="st-result"><h2 data-ko="변환된 HTML" data-en="Converted HTML">변환된 HTML</h2><code class="wf-result-code" id="md-code"></code></section>
+  <section class="st-result"><h2 id="md-code-title" data-ko="변환된 HTML" data-en="Converted HTML">변환된 HTML</h2><code class="wf-result-code wf-long-output" id="md-code" tabindex="0" role="region" aria-labelledby="md-code-title"></code></section>
 </article>
 <script type="module" src="./tool.js?v=0.1.5"></script>
 </body>

@@ -60,10 +60,14 @@ async function readCapabilities(tool) {
   return { ...defaultCapabilities, ...module.capabilities };
 }
 
-function renderIndex(hub, assetVersion) {
+function renderIndex(hub, assetVersion, canonicalUrl) {
   return `<!doctype html>
 <html lang="ko">
 <head>
+  <!-- toolbox-indexing:start -->
+  <meta name="robots" content="noindex,follow">
+  ${canonicalUrl ? `<link rel="canonical" href="${escapeHtml(canonicalUrl)}">` : ''}
+  <!-- toolbox-indexing:end -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escapeHtml(hub.title.ko)}</title>
@@ -132,6 +136,7 @@ for (const hub of config.hubs) {
     const engine = await fs.readFile(enginePath, 'utf8');
     if (/tool-hub\.js|data-tool-hub/.test(engine)) throw new Error(`${hub.tool}: engine.html contains a recursive hub shell`);
   }
+  const hubManifest = await readManifest(hub.tool);
 
   const modules = [];
   const localIds = new Set();
@@ -175,7 +180,7 @@ for (const hub of config.hubs) {
     modules,
   };
   await writeGenerated(path.join(embedDirectory, 'modules.json'), `${JSON.stringify(registry, null, 2)}\n`);
-  await writeGenerated(indexPath, renderIndex(hub, config.assetVersion));
+  await writeGenerated(indexPath, renderIndex(hub, config.assetVersion, hubManifest.postUrl || ''));
 }
 
 console.log(`${checkOnly ? 'Checked' : 'Built'} ${config.hubs.length} tool hubs with ${moduleCount} modules.`);

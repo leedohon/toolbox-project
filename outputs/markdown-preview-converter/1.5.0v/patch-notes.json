@@ -1,0 +1,9 @@
+{
+  "tool": "markdown-preview-converter",
+  "version": "1.5.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "문서 예상 읽기 시간 표시"
+  ]
+}

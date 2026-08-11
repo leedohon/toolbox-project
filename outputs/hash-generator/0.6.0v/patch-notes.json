@@ -1,0 +1,9 @@
+{
+  "tool": "hash-generator",
+  "version": "0.6.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "앞뒤 공백 제거 후 해시 계산 추가"
+  ]
+}

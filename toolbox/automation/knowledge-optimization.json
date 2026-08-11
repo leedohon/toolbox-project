@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.24.0",
+  "policyVersion": "0.25.0",
   "updatedAt": "2026-08-12",
   "scope": [
     "repository markdown instructions",
@@ -359,6 +359,14 @@
       "proposedChange":"--all-public, 반복 가능한 --exclude-from-run, --limit 옵션으로 공개 카탈로그에서 이전 실행 대상을 제외하고 다음 회차 스냅샷을 만든다.",
       "measure":"manual target identifiers per repeated hard-run selection","targetReduction":0.5,
       "evidence":[{"before":6,"after":0,"unit":"manual target identifiers per repeated six-tool selection","reduction":1.0,"verifiedAt":"2026-08-12"}]
+    },
+    {
+      "id":"OPT-029","status":"completed",
+      "triggerPaths":["embed/*/tool.js","scripts/validate-es-module-syntax.mjs","toolbox/automation-results/*/*.json"],
+      "problem":"브라우저 ES 모듈에 일반 node --check를 사용하면 import 구문을 오류로 오인해 다른 검사 방식으로 재실행해야 했다.",
+      "proposedChange":"--from-run으로 대상 tool.js를 모으고 --input-type=module 문법 검사를 한 번에 실행한다.",
+      "measure":"syntax-check command invocations after an ES module false failure","targetReduction":0.5,
+      "evidence":[{"before":2,"after":1,"unit":"syntax-check command invocations per multi-tool hard run","reduction":0.5,"verifiedAt":"2026-08-12"}]
     }
   ]
 }

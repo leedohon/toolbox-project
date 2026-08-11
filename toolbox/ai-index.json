@@ -232,7 +232,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.4.0v",
+      "latestVersion": "1.5.0v",
       "paths": {
         "definition": "toolbox/tools/color-converter-contrast.md",
         "post": "toolbox/posts/color-converter-contrast.html",
@@ -280,7 +280,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.4.1v",
+      "latestVersion": "0.5.0v",
       "paths": {
         "definition": "toolbox/tools/text-diff-checker.md",
         "post": "toolbox/posts/text-diff-checker.html",
@@ -296,7 +296,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.4.1v",
+      "latestVersion": "1.5.0v",
       "paths": {
         "definition": "toolbox/tools/markdown-preview-converter.md",
         "post": "toolbox/posts/markdown-preview-converter.html",
@@ -312,7 +312,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.6.1v",
+      "latestVersion": "0.7.0v",
       "paths": {
         "definition": "toolbox/tools/csv-table-converter.md",
         "post": "toolbox/posts/csv-table-converter.html",
@@ -360,7 +360,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.5.0v",
+      "latestVersion": "0.6.0v",
       "paths": {
         "definition": "toolbox/tools/regex-tester.md",
         "post": "toolbox/posts/regex-tester.html",
@@ -392,7 +392,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.5.0v",
+      "latestVersion": "0.6.0v",
       "paths": {
         "definition": "toolbox/tools/hash-generator.md",
         "post": "toolbox/posts/hash-generator.html",

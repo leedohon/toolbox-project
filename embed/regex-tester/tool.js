@@ -3,6 +3,7 @@ import {copyText,setupEmbedHeight} from '../../assets/play-tools.js?v=0.3.2';
 const $=selector=>document.querySelector(selector);
 const tr=(ko,en)=>window.ToolboxI18n?.language==='en'?en:ko;
 let copyValue='',replacementValue='';
+const splitButton=document.createElement('button');splitButton.className='st-secondary';splitButton.id='regex-split';splitButton.type='button';splitButton.dataset.ko='패턴으로 나누기';splitButton.dataset.en='Split by pattern';splitButton.textContent=tr('패턴으로 나누기','Split by pattern');$('#regex-run').after(splitButton);const splitResult=document.createElement('section');splitResult.className='st-result';splitResult.id='regex-split-result';splitResult.hidden=true;splitResult.innerHTML='<h2 data-ko="나누기 결과" data-en="Split result">나누기 결과</h2><textarea class="wf-output-text wf-long-output" id="regex-split-output" readonly spellcheck="false" tabindex="0" role="region" data-ko-aria-label="정규식 나누기 결과" data-en-aria-label="Regular expression split result"></textarea>';$('#regex-result').after(splitResult);
 
 function flags(){return [...document.querySelectorAll('[name="regex-flag"]:checked')].map(input=>input.value).join('');}
 function setStatus(ko,en,error=false){const status=$('#regex-status');status.textContent=tr(ko,en);status.className=`st-status ${error?'is-error':'is-good'}`;}
@@ -34,6 +35,7 @@ function run(){
 }
 
 $('#regex-run').addEventListener('click',run);
+splitButton.addEventListener('click',()=>{const pattern=$('#regex-pattern').value;if(!pattern)return setStatus('정규식 패턴을 입력해 주세요.','Enter a regular expression pattern.',true);try{const parts=$('#regex-text').value.split(new RegExp(pattern,flags().replace('g','')));$('#regex-split-output').value=parts.map((part,index)=>`${index+1}. ${part}`).join('\n');splitResult.hidden=false;setStatus(`${parts.length}개 부분으로 나눴습니다.`,`Split into ${parts.length} parts.`);}catch(error){splitResult.hidden=true;setStatus(`패턴을 확인해 주세요: ${error.message}`,`Check the pattern: ${error.message}`,true);}});
 document.querySelectorAll('.regex-preset').forEach(button=>button.addEventListener('click',()=>{$('#regex-pattern').value=button.dataset.pattern;$('#regex-text').value=button.dataset.text;$('#regex-fallback').hidden=true;run();}));
 const phonePreset=document.createElement('button');phonePreset.className='st-secondary regex-preset';phonePreset.id='regex-phone-preset';phonePreset.type='button';phonePreset.dataset.ko='전화번호 예제';phonePreset.dataset.en='Phone example';phonePreset.textContent=tr('전화번호 예제','Phone example');document.querySelector('.st-actions[aria-label]').append(phonePreset);phonePreset.addEventListener('click',()=>{$('#regex-pattern').value='01[016789]-?\\d{3,4}-?\\d{4}';$('#regex-text').value='문의 010-1234-5678, 예비 011-234-5678';$('#regex-fallback').hidden=true;run();});
 $('#regex-pattern').addEventListener('input',run);

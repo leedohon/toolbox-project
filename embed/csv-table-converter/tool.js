@@ -4,6 +4,7 @@ const $ = (selector) => document.querySelector(selector);
 const tr = (ko, en) => window.ToolboxI18n?.language === 'en' ? en : ko;
 let rows = [];
 let result = '';
+const transposeButton=document.createElement('button');transposeButton.className='st-secondary';transposeButton.id='csv-transpose';transposeButton.type='button';transposeButton.dataset.ko='행·열 바꾸기';transposeButton.dataset.en='Transpose rows & columns';transposeButton.textContent=tr('행·열 바꾸기','Transpose rows & columns');$('#csv-copy').before(transposeButton);
 
 function setStatus(ko, en, error = false) {
   $('#csv-status').textContent = tr(ko, en);
@@ -106,6 +107,7 @@ $('#csv-input').addEventListener('input', () => { clearTimeout(timer); timer = s
 $('#csv-sample').addEventListener('click', () => { $('#csv-input').value = tr('상품,수량,매출\n노트,12,36000\n펜,25,25000','Product,Quantity,Sales\nNotebook,12,36000\nPen,25,25000'); $('#csv-output').value = 'json'; $('#csv-fallback').hidden = true; update(); });
 $('#csv-semicolon-sample').addEventListener('click', () => { $('#csv-input').value = tr('상품;수량;상태\n노트;12;판매 중\n펜;25;품절','Product;Quantity;Status\nNotebook;12;Available\nPen;25;Sold out'); $('#csv-delimiter').value = 'semicolon'; $('#csv-output').value = 'json'; $('#csv-fallback').hidden = true; update(); });
 $('#tsv-sample').addEventListener('click', () => { $('#csv-input').value = tr('이름\t지역\t상태\n민수\t서울\t완료\n지영\t부산\t진행 중','Name\tRegion\tStatus\nMinsu\tSeoul\tDone\nJiyoung\tBusan\tIn progress'); $('#csv-delimiter').value = 'auto'; $('#csv-output').value = 'json'; $('#csv-fallback').hidden = true; update(); });
+transposeButton.addEventListener('click',()=>{try{convert();const width=rows[0].length,transposed=Array.from({length:width},(_,column)=>rows.map(row=>row[column]??'')),selected=$('#csv-delimiter').value,delimiter=selected==='auto'?detect($('#csv-input').value):selected==='tab'?'\t':selected;$('#csv-input').value=transposed.map(row=>row.map(value=>quote(value,delimiter)).join(delimiter)).join('\n');update();setStatus('행과 열을 서로 바꿨습니다.','Rows and columns transposed.');}catch(error){setStatus(error.message,error.message,true);}});
 ['#csv-delimiter', '#csv-output', '#csv-header', '#csv-empty-rows', '#csv-trim-cells'].forEach((selector) => $(selector).addEventListener('change', update));
 $('#csv-file').addEventListener('change', async () => {
   const file = $('#csv-file').files[0];

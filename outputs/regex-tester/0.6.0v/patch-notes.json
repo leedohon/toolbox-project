@@ -1,0 +1,9 @@
+{
+  "tool": "regex-tester",
+  "version": "0.6.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "정규식 기준 텍스트 분할 추가"
+  ]
+}

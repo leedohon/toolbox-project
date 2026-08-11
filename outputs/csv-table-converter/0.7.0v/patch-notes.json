@@ -1,0 +1,9 @@
+{
+  "tool": "csv-table-converter",
+  "version": "0.7.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "CSV 행·열 전환 추가"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "tool": "text-diff-checker",
+  "version": "0.5.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "변경 결과 TXT 저장 추가"
+  ]
+}

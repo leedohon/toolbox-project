@@ -18,12 +18,13 @@
     <div class="wf-grid"><div class="st-field"><label class="st-label" for="img-width">가로 크기 (px)</label><input id="img-width" type="number" min="1" max="8000"></div><div class="st-field"><label class="st-label" for="img-height">세로 크기 (px)</label><input id="img-height" type="number" min="1" max="8000"></div></div>
     <label class="st-check"><input id="img-ratio" type="checkbox" checked><span>원본 비율 유지</span></label>
     <div class="wf-grid"><div class="st-field"><label class="st-label" for="img-type">저장 형식</label><select id="img-type"><option value="image/jpeg">JPEG</option><option value="image/webp">WebP</option><option value="image/png">PNG</option></select></div><div class="st-field" id="img-quality-wrap"><label class="st-label" for="img-quality">이미지 품질 <span id="img-quality-value">82%</span></label><input id="img-quality" type="range" min="20" max="100" value="82"></div></div>
+    <div class="st-field"><label class="st-label" for="img-filename" data-ko="저장 파일명" data-en="Download filename">저장 파일명</label><input id="img-filename" type="text" maxlength="120" value="toolbox-image" aria-describedby="img-filename-help"><span class="st-help" id="img-filename-help" data-ko="확장자는 선택한 형식에 맞게 자동으로 붙습니다." data-en="The extension follows the selected format automatically.">확장자는 선택한 형식에 맞게 자동으로 붙습니다.</span></div>
     <div class="st-actions"><button class="st-secondary" id="img-web-preset" type="button" data-ko="웹용 권장 설정" data-en="Web preset">웹용 권장 설정</button><button class="st-primary" id="img-process" type="button">크기·용량 변환</button><button class="st-secondary" id="img-download" type="button" disabled>이미지 저장</button><button class="st-secondary" id="img-reset" type="button">초기화</button></div>
   </section>
   <p class="st-status" id="img-status" aria-live="polite">이미지를 선택하면 크기와 저장 형식을 설정할 수 있습니다.</p>
   <div class="wf-stats" id="img-stats" hidden><div class="wf-stat"><span>원본</span><strong id="img-original-stat"></strong></div><div class="wf-stat"><span>변환 결과</span><strong id="img-output-stat"></strong></div><div class="wf-stat"><span>용량 변화</span><strong id="img-saving-stat"></strong></div></div>
   <div class="wf-preview" id="img-preview" hidden><img id="img-preview-image" alt="변환 이미지 미리보기"></div>
 </article>
-<script type="module" src="./tool.js?v=0.0.8"></script>
+<script type="module" src="./tool.js?v=0.0.9"></script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+{
+  "tool": "json-tools",
+  "version": "0.13.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "JSON Lines를 배열 JSON으로 합치는 기능 추가",
+    "장문 결과 영역 접근성 보강"
+  ]
+}

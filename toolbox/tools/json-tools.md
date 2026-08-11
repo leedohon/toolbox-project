@@ -22,6 +22,7 @@ outputs:
 ---
 
 # 기능
+- 한 줄에 JSON 값 하나씩 있는 JSON Lines 입력을 배열 JSON으로 합치기
 - 중첩 데이터가 포함된 API 응답 예제를 즉시 불러오기
 
 - JSON Pointer로 찾은 결과를 별도로 복사

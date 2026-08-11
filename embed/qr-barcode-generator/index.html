@@ -80,6 +80,7 @@
       <label class="tb-label" for="tb-content" data-ko="텍스트 또는 URL" data-en="Text or URL">텍스트 또는 URL</label>
       <textarea id="tb-content" maxlength="1000" placeholder="예: https://bloggiedh.blogspot.com/">https://bloggiedh.blogspot.com/</textarea>
       <p class="tb-meta" id="tb-content-meta" aria-live="polite"></p>
+      <div class="tb-actions"><button class="tb-secondary" id="tb-wifi-sample" type="button" data-ko="Wi-Fi QR 예제" data-en="Wi-Fi QR example">Wi-Fi QR 예제</button></div>
     </div>
     <fieldset class="tb-field">
       <legend>생성 유형</legend>
@@ -119,7 +120,7 @@
       <div class="tb-actions"><button class="tb-secondary" id="tb-swap-colors" type="button" data-ko="전경색·배경색 바꾸기" data-en="Swap foreground and background">전경색·배경색 바꾸기</button><button class="tb-secondary" id="tb-high-contrast" type="button" data-ko="검정·흰색 고대비" data-en="Black & white contrast">검정·흰색 고대비</button></div>
     </fieldset>
     <p class="tb-error" id="tb-error" role="alert"></p>
-    <div class="tb-preview">
+    <div class="tb-preview" role="region" tabindex="0" aria-label="생성 결과" data-ko-aria-label="생성 결과" data-en-aria-label="Generated result">
       <canvas id="tb-canvas" aria-label="생성된 QR 코드"></canvas>
       <svg id="tb-barcode-svg" aria-label="생성된 바코드" style="display:none"></svg>
     </div>
@@ -192,6 +193,7 @@
       size.addEventListener('input', function () { $('#tb-size-value').textContent = size.value + 'px'; generate(); });
       $('#tb-screen-size').addEventListener('click', function () { size.value = '300'; $('#tb-size-value').textContent = '300px'; error.textContent = ''; generate(); });
       $('#tb-large-size').addEventListener('click', function () { size.value = '420'; $('#tb-size-value').textContent = '420px'; error.textContent = ''; generate(); });
+      $('#tb-wifi-sample').addEventListener('click', function () { content.value = 'WIFI:T:WPA;S:Toolbox-WiFi;P:change-me;;'; $('#tb-qr').checked = true; $('#tb-level-q').checked = true; updateType(); error.textContent = tr('네트워크 이름과 비밀번호를 실제 값으로 바꿔 사용하세요.','Replace the network name and password with your real values.'); });
       foreground.addEventListener('input', generate);
       background.addEventListener('input', generate);
       $('#tb-swap-colors').addEventListener('click', function () { const previous = foreground.value; foreground.value = background.value; background.value = previous; generate(); });

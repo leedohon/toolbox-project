@@ -1,0 +1,10 @@
+{
+  "tool": "multipurpose-draw-game",
+  "version": "0.7.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "현재 게임 링크 복사 기능 추가",
+    "높이 상한 초과 처리 보강"
+  ]
+}

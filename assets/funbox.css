@@ -21,6 +21,8 @@ body { padding:clamp(6px,1.8vw,16px); overflow-x:hidden; background:#fff; font-f
 .funbox-next { width:100%; min-height:44px; margin-top:12px; border:1px solid #b9d4e0; border-radius:10px; color:#174454; background:#fff; font-weight:800; cursor:pointer; }
 .funbox-next:hover { border-color:var(--fun-sky); }
 .funbox-next:focus-visible { outline:3px solid #a8e3fb; outline-offset:2px; }
+.funbox-link { width:100%; min-height:44px; margin-top:10px; padding:9px 12px; border:1px solid #b9d4e0; border-radius:10px; color:var(--fun-ink); background:#fff; font:inherit; }
+.funbox-link[hidden] { display:none!important; }
 @media (max-width:640px) {
   .funbox-modes { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .funbox-option span { min-height:50px; }

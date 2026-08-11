@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.23.0",
-  "updatedAt": "2026-08-11",
+  "policyVersion": "0.24.0",
+  "updatedAt": "2026-08-12",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -351,6 +351,14 @@
       "proposedChange":"카탈로그 오류에 태그 수, 검색어 수, 합산 고유 수를 함께 표시해 바로 조정할 수 있게 한다.",
       "measure":"diagnostic commands after a keyword-count build failure","targetReduction":0.5,
       "evidence":[{"before":2,"after":0,"unit":"additional diagnostic commands per keyword-count failure","reduction":1.0,"verifiedAt":"2026-08-11"}]
+    },
+    {
+      "id":"OPT-028","status":"completed",
+      "triggerPaths":["scripts/workflow-target-snapshot.mjs","outputs/tools.json","toolbox/automation-results/*/*.json"],
+      "problem":"연속 하드 회차마다 이미 처리한 실행을 제외한 공개 도구 식별자 여섯 개를 수동으로 다시 나열했다.",
+      "proposedChange":"--all-public, 반복 가능한 --exclude-from-run, --limit 옵션으로 공개 카탈로그에서 이전 실행 대상을 제외하고 다음 회차 스냅샷을 만든다.",
+      "measure":"manual target identifiers per repeated hard-run selection","targetReduction":0.5,
+      "evidence":[{"before":6,"after":0,"unit":"manual target identifiers per repeated six-tool selection","reduction":1.0,"verifiedAt":"2026-08-12"}]
     }
   ]
 }

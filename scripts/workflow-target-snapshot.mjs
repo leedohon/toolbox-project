@@ -5,7 +5,14 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const fromRunAt = args.indexOf('--from-run');
-let tools = args.filter((value, index) => /^[a-z0-9-]+$/.test(value) && !(fromRunAt >= 0 && index === fromRunAt + 1));
+const limitAt = args.indexOf('--limit');
+const excludedRunIds = args.flatMap((value, index) => value === '--exclude-from-run' && args[index + 1] ? [args[index + 1]] : []);
+const optionValues = new Set([fromRunAt >= 0 ? args[fromRunAt + 1] : '', limitAt >= 0 ? args[limitAt + 1] : '', ...excludedRunIds]);
+let tools = args.filter((value) => /^[a-z0-9-]+$/.test(value) && !value.startsWith('--') && !optionValues.has(value));
+if (args.includes('--all-public')) {
+  const catalog = JSON.parse(fs.readFileSync(path.join(root, 'outputs', 'tools.json'), 'utf8'));
+  tools = (catalog.tools || []).map((item) => item.tool);
+}
 if (fromRunAt >= 0) {
   const runId = args[fromRunAt + 1];
   if (!runId || runId.startsWith('--')) throw new Error('--from-run requires a workflow run ID.');
@@ -18,8 +25,25 @@ if (fromRunAt >= 0) {
   tools = runDocument.selectedTools;
 }
 
+for (const runId of excludedRunIds) {
+  let runDocument = null;
+  for (const state of ['unchecked', 'checked']) {
+    const candidate = path.join(root, 'toolbox', 'automation-results', state, `${runId}.json`);
+    if (fs.existsSync(candidate)) { runDocument = JSON.parse(fs.readFileSync(candidate, 'utf8')); break; }
+  }
+  if (!runDocument?.selectedTools?.length) throw new Error(`Workflow result with selectedTools not found: ${runId}`);
+  const excluded = new Set(runDocument.selectedTools);
+  tools = tools.filter((tool) => !excluded.has(tool));
+}
+
+if (limitAt >= 0) {
+  const limit = Number(args[limitAt + 1]);
+  if (!Number.isInteger(limit) || limit < 1) throw new Error('--limit requires a positive integer.');
+  tools = tools.slice(0, limit);
+}
+
 if (!tools.length) {
-  console.error('Usage: node scripts/workflow-target-snapshot.mjs [<tool...> | --from-run <run-id>]');
+  console.error('Usage: node scripts/workflow-target-snapshot.mjs [<tool...> | --from-run <run-id> | --all-public [--exclude-from-run <run-id>...] [--limit <count>]]');
   process.exit(1);
 }
 

@@ -1,0 +1,10 @@
+{
+  "tool": "qr-barcode-generator",
+  "version": "0.11.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "Wi-Fi 접속 QR 예제 추가",
+    "조작 문구와 결과 접근성 보강"
+  ]
+}

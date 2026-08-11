@@ -1,0 +1,10 @@
+{
+  "tool": "image-resizer-compressor",
+  "version": "1.6.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "변환 이미지 저장 파일명 직접 지정",
+    "다국어 입력 문구 보강"
+  ]
+}

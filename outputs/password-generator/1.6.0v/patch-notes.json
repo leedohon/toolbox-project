@@ -1,0 +1,10 @@
+{
+  "tool": "password-generator",
+  "version": "1.6.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "단어 조합 비밀번호 생성 기능 추가",
+    "결과 접근성과 다국어 문구 보강"
+  ]
+}

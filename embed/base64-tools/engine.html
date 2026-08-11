@@ -8,6 +8,7 @@
 <script src="../../assets/toolbox-i18n.js?v=0.3.1"></script>
 <link rel="stylesheet" href="../../assets/simple-tools.css?v=0.1.1">
 <link rel="stylesheet" href="../../assets/base64-tools.css?v=0.2.0">
+<link rel="stylesheet" href="../../assets/workflow-tools.css?v=0.0.5">
 <script src="../../assets/toolbox-ux.js?v=0.1.0"></script>
 </head>
 <body>
@@ -51,7 +52,7 @@
       </div>
       <div class="b64-panel">
         <label class="st-label" for="b64-output" id="b64-output-label">Base64 결과</label>
-        <textarea id="b64-output" placeholder="변환 결과가 여기에 표시됩니다." readonly spellcheck="false"></textarea>
+        <textarea class="wf-long-output" id="b64-output" role="region" tabindex="0" aria-label="변환 결과" data-ko-aria-label="변환 결과" data-en-aria-label="Conversion result" placeholder="변환 결과가 여기에 표시됩니다." readonly spellcheck="false"></textarea>
         <div class="b64-meta"><span>결과</span><span id="b64-output-count">0자</span></div>
       </div>
     </div>
@@ -62,6 +63,7 @@
       <button class="st-secondary" type="button" id="b64-url-example" data-ko="URL 예제" data-en="URL example">URL 예제</button>
       <button class="st-secondary" type="button" id="b64-url-safe-example" data-ko="URL-safe 예제" data-en="URL-safe example">URL-safe 예제</button>
       <button class="st-secondary" type="button" id="b64-normalize" data-ko="Base64 표준화" data-en="Normalize Base64">Base64 표준화</button>
+      <button class="st-secondary" type="button" id="b64-strip-space" data-ko="Base64 공백 제거" data-en="Remove Base64 whitespace">Base64 공백 제거</button>
       <button class="st-secondary" type="button" id="b64-swap">입력·결과 바꾸기</button>
       <button class="st-secondary" type="button" id="b64-copy">결과 복사</button>
       <button class="st-secondary" type="button" id="b64-clear">초기화</button>
@@ -269,6 +271,13 @@
   normalizeButton.addEventListener('click', function () {
     try { input.value = normalizeBase64(input.value); updateCounts(); updateDataMeta(input.value); setMessage(isEnglish() ? 'Normalized Base64 characters and padding.' : 'Base64 입력을 표준 문자와 패딩 형식으로 정리했습니다.'); }
     catch (error) { setMessage(isEnglish() ? 'Enter a valid Base64 value to normalize.' : (error.message || 'Base64 입력을 정리하지 못했습니다.'), true); }
+  });
+  root.querySelector('#b64-strip-space').addEventListener('click', function () {
+    if (format() !== 'base64') { setMessage(isEnglish() ? 'Choose Base64 format first.' : '먼저 Base64 형식을 선택해 주세요.', true); return; }
+    var before = input.value.length;
+    input.value = input.value.replace(/\s+/g, '');
+    updateCounts();
+    setMessage(isEnglish() ? `Removed ${before - input.value.length} whitespace characters.` : `공백과 줄바꿈 ${before - input.value.length}자를 제거했습니다.`);
   });
   root.querySelector('#b64-swap').addEventListener('click', function () {
     if (!output.value) return setMessage('바꿀 변환 결과가 없습니다.', true);

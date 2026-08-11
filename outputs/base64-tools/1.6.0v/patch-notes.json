@@ -1,0 +1,10 @@
+{
+  "tool": "base64-tools",
+  "version": "1.6.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "Base64 공백과 줄바꿈 정리 기능 추가",
+    "장문 결과 영역 접근성 보강"
+  ]
+}

@@ -3,6 +3,7 @@ import { copyText, setupEmbedHeight } from '../../assets/play-tools.js?v=0.3.2';
 const $ = (selector) => document.querySelector(selector);
 const tr = (ko, en) => window.ToolboxI18n?.language === 'en' ? en : ko;
 let headerText = '', payloadText = '';
+const saveJson=document.createElement('button');saveJson.className='st-secondary';saveJson.id='jwt-save-json';saveJson.type='button';saveJson.dataset.ko='해독 JSON 저장';saveJson.dataset.en='Save decoded JSON';saveJson.textContent=tr('해독 JSON 저장','Save decoded JSON');$('#jwt-copy-all').after(saveJson);saveJson.addEventListener('click',()=>{if(!headerText||!payloadText)return status('먼저 JWT 내용을 여세요.','Decode a JWT first.',true);const content=JSON.stringify({header:JSON.parse(headerText),payload:JSON.parse(payloadText)},null,2),url=URL.createObjectURL(new Blob([content],{type:'application/json;charset=utf-8'})),link=document.createElement('a');link.href=url;link.download='decoded-jwt.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status('해독 결과를 JSON 파일로 저장했습니다.','Decoded contents saved as JSON.');});$('#jwt-header').classList.add('wf-long-output');$('#jwt-payload').classList.add('wf-long-output');
 
 function status(ko, en, error = false) {
   const element = $('#jwt-status');

@@ -40,6 +40,7 @@ const resetButton=document.querySelector('#mosaic-reset');
 const downloadButton=document.querySelector('#mosaic-download');
 const editStatus=document.querySelector('#mosaic-edits');
 const previewButton=document.querySelector('#mosaic-preview');
+const outputNameField=document.createElement('label');outputNameField.className='mosaic-field';outputNameField.innerHTML='<span data-ko="저장 파일명" data-en="Download filename">저장 파일명</span><input id="mosaic-output-name" type="text" maxlength="80" value="mosaic-image" data-ko-aria-label="저장 파일명" data-en-aria-label="Download filename">';downloadButton.parentElement.before(outputNameField);const outputName=outputNameField.querySelector('input');
 const source=document.createElement('canvas');
 const sourceContext=source.getContext('2d');
 const sample=document.createElement('canvas');
@@ -87,6 +88,6 @@ undoButton.addEventListener('click',undo);redoButton.addEventListener('click',re
 previewButton.addEventListener('click',()=>{if(!loaded)return;previewing=!previewing;previewButton.setAttribute('aria-pressed',String(previewing));clearOverlay();if(previewing)renderOriginal();else replay();updateHistoryState();setStatus(previewing?tr('원본 이미지를 표시합니다. 편집본은 그대로 보존됩니다.','Showing the original. Your edits are preserved.'):tr('편집한 이미지를 다시 표시합니다.','Showing the edited image again.'));});
 document.addEventListener('keydown',event=>{if(!(event.ctrlKey||event.metaKey)||event.altKey||event.key.toLowerCase()!=='z')return;if(event.shiftKey){if(!redoHistory.length)return;event.preventDefault();redo();}else{if(!history.length)return;event.preventDefault();undo();}});
 resetButton.addEventListener('click',()=>{history=[];redoHistory=[];previewing=false;previewButton.setAttribute('aria-pressed','false');replay();clearOverlay();setStatus(tr('원본 이미지로 초기화했습니다.','Reset to the original image.'));});
-downloadButton.addEventListener('click',()=>{canvas.toBlob(blob=>{if(!blob){setStatus(tr('PNG 파일을 만들지 못했습니다.','Could not create the PNG file.'),true);return;}const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=fileName+'.png';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);setStatus(tr('모자이크 이미지를 PNG로 저장했습니다.','Saved the mosaic image as PNG.'));},'image/png');});
+downloadButton.addEventListener('click',()=>{canvas.toBlob(blob=>{if(!blob){setStatus(tr('PNG 파일을 만들지 못했습니다.','Could not create the PNG file.'),true);return;}const safeName=(outputName.value.trim()||fileName).replace(/[\\/:*?"<>|]+/g,'-').replace(/[. ]+$/g,'').slice(0,80)||'mosaic-image';const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=safeName+'.png';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);setStatus(tr(`${safeName}.png로 저장했습니다.`,`Saved as ${safeName}.png.`));},'image/png');});
 brush.addEventListener('input',updateControls);strength.addEventListener('input',updateControls);addEventListener('toolbox-language-change',updateHistoryState);updateControls();updateHistoryState();sendHeight();
 </script></body></html>

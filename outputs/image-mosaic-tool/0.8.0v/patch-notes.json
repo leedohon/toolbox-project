@@ -1,0 +1,9 @@
+{
+  "tool": "image-mosaic-tool",
+  "version": "0.8.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "모자이크 PNG 저장 이름을 직접 지정"
+  ]
+}

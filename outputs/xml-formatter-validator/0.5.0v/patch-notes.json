@@ -1,0 +1,9 @@
+{
+  "tool": "xml-formatter-validator",
+  "version": "0.5.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "한 줄 압축 결과를 즉시 만들기"
+  ]
+}

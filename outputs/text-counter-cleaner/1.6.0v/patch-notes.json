@@ -1,0 +1,9 @@
+{
+  "tool": "text-counter-cleaner",
+  "version": "1.6.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "자주 나온 단어 상위 5개 복사 추가"
+  ]
+}

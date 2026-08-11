@@ -1,0 +1,9 @@
+{
+  "tool": "jwt-decoder",
+  "version": "0.5.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "헤더와 페이로드 JSON 파일 저장 추가"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "tool": "url-parser-builder",
+  "version": "0.5.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "UTM 등 추적 쿼리 일괄 제거 추가"
+  ]
+}

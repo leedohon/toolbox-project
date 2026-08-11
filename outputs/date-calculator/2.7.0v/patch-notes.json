@@ -1,0 +1,9 @@
+{
+  "tool": "date-calculator",
+  "version": "2.7.0v",
+  "releaseDate": "2026-08-12",
+  "changeLevel": "minor",
+  "changes": [
+    "오늘부터 10평일 계산 예제 추가"
+  ]
+}

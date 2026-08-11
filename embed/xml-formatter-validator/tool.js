@@ -4,6 +4,7 @@ const $ = (selector) => document.querySelector(selector);
 const tr = (ko, en) => window.ToolboxI18n?.language === 'en' ? en : ko;
 const sample = '<?xml version="1.0" encoding="UTF-8"?>\n<tools>\n  <tool id="1">Toolbox</tool>\n</tools>';
 const rssSample = '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Toolbox Feed</title><link>https://example.com</link><item><title>New tool</title></item></channel></rss>';
+const minifyNow=document.createElement('button');minifyNow.className='st-secondary';minifyNow.id='xml-minify-now';minifyNow.type='button';minifyNow.dataset.ko='한 줄로 바로 압축';minifyNow.dataset.en='Minify now';minifyNow.textContent=tr('한 줄로 바로 압축','Minify now');$('#xml-run').before(minifyNow);minifyNow.addEventListener('click',()=>{document.querySelector('input[name="xml-mode"][value="minify"]').checked=true;render();});$('#xml-output').classList.add('wf-long-output');$('#xml-output').tabIndex=0;$('#xml-output').setAttribute('role','region');
 
 function setStatus(ko, en, error = false) {
   $('#xml-status').textContent = tr(ko, en);

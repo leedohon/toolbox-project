@@ -6,7 +6,7 @@
   "startedAt": "2026-08-12T04:08:30+09:00",
   "completedAt": "2026-08-12T04:25:30+09:00",
   "confirmedAt": null,
-  "summary": "하드 워크플로 3회 중 2회차 콘텐츠·개발 도구 개선을 진행 중입니다.",
+  "summary": "2회차 완료: 콘텐츠·개발 도구 6개 개선과 Blogger·GitHub Pages 공개 검증을 마쳤습니다.",
   "request": {
     "workType": "hard",
     "targets": [
@@ -215,6 +215,11 @@
       "at": "2026-08-12T04:38:00+09:00",
       "action": "implemented",
       "note": "기능 6건·통합 후보 3건·공통 개선 2건 및 OPT-029 적용"
+    },
+    {
+      "at": "2026-08-12T04:26:00+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
     }
   ]
 }

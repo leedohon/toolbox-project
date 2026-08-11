@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.25.0",
+  "policyVersion": "0.26.0",
   "updatedAt": "2026-08-12",
   "scope": [
     "repository markdown instructions",
@@ -367,6 +367,14 @@
       "proposedChange":"--from-run으로 대상 tool.js를 모으고 --input-type=module 문법 검사를 한 번에 실행한다.",
       "measure":"syntax-check command invocations after an ES module false failure","targetReduction":0.5,
       "evidence":[{"before":2,"after":1,"unit":"syntax-check command invocations per multi-tool hard run","reduction":0.5,"verifiedAt":"2026-08-12"}]
+    },
+    {
+      "id":"OPT-030","status":"completed",
+      "triggerPaths":["embed/*/modules.json","outputs/*/versions.json","scripts/sync-hub-release-entries.mjs"],
+      "problem":"허브 도구의 새 버전을 만든 뒤 modules.json의 release 쿼리를 대상마다 수동으로 갱신했다.",
+      "proposedChange":"--from-run으로 선택된 허브의 자체 모듈 주소를 latestVersion과 자동 동기화한다.",
+      "measure":"manual hub release-entry edits per multi-tool hard run","targetReduction":0.5,
+      "evidence":[{"before":2,"after":0,"unit":"manual hub release-entry edits in the third six-tool hard run","reduction":1.0,"verifiedAt":"2026-08-12"}]
     }
   ]
 }

@@ -4,6 +4,7 @@ const $ = (selector) => document.querySelector(selector);
 const tr = (ko, en) => window.ToolboxI18n?.language === 'en' ? en : ko;
 const sample = 'https://example.com/tools?lang=ko&tag=web&tag=utility#guide';
 let parsedUrl = null;
+const removeTracking=document.createElement('button');removeTracking.className='st-secondary';removeTracking.id='url-remove-tracking';removeTracking.type='button';removeTracking.dataset.ko='추적 항목 제거';removeTracking.dataset.en='Remove tracking parameters';removeTracking.textContent=tr('추적 항목 제거','Remove tracking parameters');$('#url-sort').after(removeTracking);removeTracking.addEventListener('click',()=>{const tracking=/^(utm_(source|medium|campaign|term|content|id)|gclid|fbclid|msclkid|dclid|mc_(cid|eid))$/i;let removed=0;[...$('#url-query-list').querySelectorAll('.up-query-row')].forEach(row=>{if(tracking.test(row.querySelector('.up-name').value.trim())){row.remove();removed+=1;}});if(!$('#url-query-list').children.length)addRow();numberRows();rebuild();setStatus(removed?`${removed}개의 추적 항목을 제거했습니다.`:'제거할 추적 항목이 없습니다.',removed?`Removed ${removed} tracking parameter${removed===1?'':'s'}.`:'No tracking parameters were found.');});
 
 function setStatus(ko, en, error = false) {
   $('#url-status').textContent = tr(ko, en);

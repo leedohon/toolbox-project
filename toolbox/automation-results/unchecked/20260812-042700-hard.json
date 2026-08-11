@@ -1,15 +1,220 @@
 {
-  "runId":"20260812-042700-hard","workflow":"hard","status":"partial","confirm":"N","startedAt":"2026-08-12T04:27:00+09:00","completedAt":null,"confirmedAt":null,
-  "summary":"하드 워크플로 3회 중 3회차 실용 도구 개선을 진행 중입니다.",
-  "request":{"workType":"hard","targets":["image-mosaic-tool","date-calculator","text-counter-cleaner","jwt-decoder","xml-formatter-validator","url-parser-builder"],"versionLevel":"minor","blogger":"update-existing","gitDeployment":"independent","shutdown":"none"},
-  "selectedTools":["image-mosaic-tool","date-calculator","text-counter-cleaner","jwt-decoder","xml-formatter-validator","url-parser-builder"],
-  "selectionBasis":"공개 카탈로그에서 앞선 두 회차 12개를 자동 제외하고 다음 6개를 선정",
-  "workCounts":{"improvements":6,"newOrMerge":3,"commonFixes":2},"changes":["모자이크 PNG 파일명 지정","10평일 날짜 예제","단어 빈도 복사","JWT 해독 JSON 저장","XML 즉시 한 줄 압축","URL 추적 쿼리 제거","장문 결과 접근성 및 KOR/ENG 동적 제어 보강"],"newIdeas":["JWT 해독 JSON 저장","URL 추적 쿼리 제거","빈도 결과 구조화 복사"],"commonModules":["wf-long-output 접근 가능한 결과 영역","KOR / ENG 동적 버튼 사전"],
-  "knownIssueMatches":["PORTRAIT_LONG_TEXT_SQUEEZE","IFRAME_HEIGHT_CAP_MISMATCH","SHARED_ASSET_CACHE_STALE"],"validation":[],
-  "blogger":{"created":[],"updated":[],"skipped":[],"status":"pending"},"git":{"branch":"main","commit":null,"pushed":false},"deployment":{"status":"pending","urls":[]},
-  "shutdown":{"requested":false,"scheduled":false,"input":null,"scheduledFor":null,"cancelled":false},"blocked":[],"scopeExceptions":["신규 저가치 페이지 없이 기존 도구에 실용 기능 3건 이상 통합"],
-  "runState":{"current":"implement","stages":{"select":{"status":"completed","startedAt":"2026-08-12T04:26:00+09:00","completedAt":"2026-08-12T04:27:00+09:00","evidence":["미확인 기록 20건 보고","이전 2회차 자동 제외","대상 스냅샷 지침 문자 84.48% 절감"],"blockCode":null},"implement":{"status":"in_progress","startedAt":"2026-08-12T04:27:00+09:00","completedAt":null,"evidence":[],"blockCode":null},"validate":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"publish":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"commit":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"deploy":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null}}},
-  "knowledgeOptimization":{"policyVersion":"0.26.0","applied":["OPT-030"],"summary":"허브 자체 모듈의 최신 release 주소를 실행 기록에서 자동 동기화하도록 개선했습니다.","skillValidation":"passed"},
-  "developmentTokenEfficiency":{"measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.8448,"overallReduction":null,"proxies":[{"metric":"target manifest and definition characters emitted for selection","before":28739,"after":4461,"reduction":0.8448},{"metric":"manual target identifiers per repeated six-tool selection","before":6,"after":0,"reduction":1.0}],"note":"전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."},
-  "reportHistory":[{"at":"2026-08-12T04:27:00+09:00","action":"started","note":"하드 워크플로 3회 중 독립 3회차 시작"},{"at":"2026-08-12T04:45:00+09:00","action":"implemented","note":"기능 6건·통합 후보 3건·공통 개선 2건 및 OPT-030 적용"}]
+  "runId": "20260812-042700-hard",
+  "workflow": "hard",
+  "status": "completed",
+  "confirm": "N",
+  "startedAt": "2026-08-12T04:27:00+09:00",
+  "completedAt": "2026-08-12T04:33:08+09:00",
+  "confirmedAt": null,
+  "summary": "3회차 완료: 실용 도구 6개 개선과 Blogger·GitHub Pages 공개 검증을 마쳤습니다.",
+  "request": {
+    "workType": "hard",
+    "targets": [
+      "image-mosaic-tool",
+      "date-calculator",
+      "text-counter-cleaner",
+      "jwt-decoder",
+      "xml-formatter-validator",
+      "url-parser-builder"
+    ],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
+  },
+  "selectedTools": [
+    "image-mosaic-tool",
+    "date-calculator",
+    "text-counter-cleaner",
+    "jwt-decoder",
+    "xml-formatter-validator",
+    "url-parser-builder"
+  ],
+  "selectionBasis": "공개 카탈로그에서 앞선 두 회차 12개를 자동 제외하고 다음 6개를 선정",
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "모자이크 PNG 파일명 지정",
+    "10평일 날짜 예제",
+    "단어 빈도 복사",
+    "JWT 해독 JSON 저장",
+    "XML 즉시 한 줄 압축",
+    "URL 추적 쿼리 제거",
+    "장문 결과 접근성 및 KOR/ENG 동적 제어 보강"
+  ],
+  "newIdeas": [
+    "JWT 해독 JSON 저장",
+    "URL 추적 쿼리 제거",
+    "빈도 결과 구조화 복사"
+  ],
+  "commonModules": [
+    "wf-long-output 접근 가능한 결과 영역",
+    "KOR / ENG 동적 버튼 사전"
+  ],
+  "knownIssueMatches": [
+    "PORTRAIT_LONG_TEXT_SQUEEZE",
+    "IFRAME_HEIGHT_CAP_MISMATCH",
+    "SHARED_ASSET_CACHE_STALE"
+  ],
+  "validation": [
+    "공개 배포 대상 확인"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
+      "https://bloggiedh.blogspot.com/2026/07/jwt.html",
+      "https://bloggiedh.blogspot.com/2026/07/xml.html",
+      "https://bloggiedh.blogspot.com/2026/07/url_01194177481.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "77ffcf23c9485628727079e461bd81f60e30a2d9",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 31528326839,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/image-mosaic-tool/",
+      "https://leedohon.github.io/toolbox-project/embed/date-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/text-counter-cleaner/",
+      "https://leedohon.github.io/toolbox-project/embed/jwt-decoder/",
+      "https://leedohon.github.io/toolbox-project/embed/xml-formatter-validator/",
+      "https://leedohon.github.io/toolbox-project/embed/url-parser-builder/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "scopeExceptions": [
+    "신규 저가치 페이지 없이 기존 도구에 실용 기능 3건 이상 통합"
+  ],
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-08-12T04:26:00+09:00",
+        "completedAt": "2026-08-12T04:27:00+09:00",
+        "evidence": [
+          "미확인 기록 20건 보고",
+          "이전 2회차 자동 제외",
+          "대상 스냅샷 지침 문자 84.48% 절감"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-08-12T04:27:00+09:00",
+        "completedAt": "2026-08-12T04:33:08+09:00",
+        "evidence": [
+          "implement 완료"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-08-12T04:27:00+09:00",
+        "completedAt": "2026-08-12T04:33:08+09:00",
+        "evidence": [
+          "validate 완료"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-08-12T04:27:00+09:00",
+        "completedAt": "2026-08-12T04:33:08+09:00",
+        "evidence": [
+          "publish 완료"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-08-12T04:27:00+09:00",
+        "completedAt": "2026-08-12T04:33:08+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-08-12T04:27:00+09:00",
+        "completedAt": "2026-08-12T04:33:08+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "in_progress",
+        "startedAt": "2026-08-12T04:33:08+09:00",
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      }
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.26.0",
+    "applied": [
+      "OPT-030"
+    ],
+    "summary": "허브 자체 모듈의 최신 release 주소를 실행 기록에서 자동 동기화하도록 개선했습니다.",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": 0.8448,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "target manifest and definition characters emitted for selection",
+        "before": 28739,
+        "after": 4461,
+        "reduction": 0.8448
+      },
+      {
+        "metric": "manual target identifiers per repeated six-tool selection",
+        "before": 6,
+        "after": 0,
+        "reduction": 1
+      }
+    ],
+    "note": "전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
+  },
+  "reportHistory": [
+    {
+      "at": "2026-08-12T04:27:00+09:00",
+      "action": "started",
+      "note": "하드 워크플로 3회 중 독립 3회차 시작"
+    },
+    {
+      "at": "2026-08-12T04:45:00+09:00",
+      "action": "implemented",
+      "note": "기능 6건·통합 후보 3건·공통 개선 2건 및 OPT-030 적용"
+    }
+  ]
 }

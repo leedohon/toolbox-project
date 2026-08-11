@@ -19,7 +19,7 @@
         "ko": "HTTP 상태",
         "en": "HTTP status"
       },
-      "entry": "./engine.html?release=1.3.0v",
+      "entry": "./engine.html?release=1.4.0v",
       "messageTool": "http-status-lookup",
       "capabilities": {
         "resultCode": false,

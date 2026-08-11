@@ -1,8 +1,8 @@
-import {mountGeneratedTool} from '../../assets/generated-tool-runtime.js?v=0.2.2';
+import {mountGeneratedTool} from '../../assets/generated-tool-runtime.js?v=0.2.3';
 mountGeneratedTool({
   slug:'http-status-lookup',
   preset:'http-status-lookup',
-  fields:['code']
+  fields:['mode','code','query']
 });
 const tr=(ko,en)=>window.ToolboxI18n?.language==='en'?en:ko;
 function guidance(code){
@@ -13,9 +13,9 @@ function guidance(code){
   if(code>=300)return tr('Location 헤더와 캐시 정책을 확인하고 리디렉션 반복이 없는지 점검하세요.','Check the Location header and cache policy, and make sure redirects do not loop.');
   return tr('요청이 처리됐습니다. 응답 본문과 캐시 헤더가 의도한 결과인지 함께 확인하세요.','The request was handled. Also verify that the response body and cache headers match the intended result.');
 }
-function updateGuidance(){const result=document.querySelector('#sg-result'),target=document.querySelector('#http-guidance'),code=Number(document.querySelector('#code').value);target.textContent=result.hidden?'':guidance(code);}
+function updateGuidance(){const result=document.querySelector('#sg-result'),target=document.querySelector('#http-guidance'),mode=document.querySelector('input[name="mode"]:checked')?.value,code=Number(document.querySelector('#code').value);target.textContent=result.hidden||mode==='search'?'':guidance(code);}
 document.querySelector('#sg-run').addEventListener('click',()=>queueMicrotask(updateGuidance));
 document.querySelector('#sg-reset').addEventListener('click',()=>queueMicrotask(updateGuidance));
-document.querySelectorAll('.http-preset').forEach(button=>button.addEventListener('click',()=>{document.querySelector('#code').value=button.dataset.code;document.querySelector('#sg-run').click();queueMicrotask(updateGuidance);}));
+document.querySelectorAll('.http-preset').forEach(button=>button.addEventListener('click',()=>{document.querySelector('input[name="mode"][value="code"]').checked=true;document.querySelector('input[name="mode"][value="code"]').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#code').value=button.dataset.code;document.querySelector('#sg-run').click();queueMicrotask(updateGuidance);}));
 addEventListener('toolbox-language-change',updateGuidance);
 queueMicrotask(updateGuidance);

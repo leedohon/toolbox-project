@@ -12,13 +12,15 @@
 </head>
 <body>
 <article class="simple-tool" aria-label="HTTP 상태 코드 찾기">
-  <div class="st-field"><label class="st-label" for="code" data-ko="HTTP 상태 코드" data-en="HTTP status code">HTTP 상태 코드</label><input id="code" type="number" min="100" max="599" step="1" value="404"></div>
+  <fieldset class="st-field st-mode"><legend class="st-label" data-ko="찾는 방식" data-en="Lookup mode">찾는 방식</legend><div class="st-mode-options"><label><input type="radio" name="mode" value="code" checked><span data-ko="코드로 찾기" data-en="By code">코드로 찾기</span></label><label><input type="radio" name="mode" value="search"><span data-ko="이름·의미로 검색" data-en="Search name or meaning">이름·의미로 검색</span></label></div></fieldset>
+  <div class="st-field" data-show-field="mode" data-show-values="code"><label class="st-label" for="code" data-ko="HTTP 상태 코드" data-en="HTTP status code">HTTP 상태 코드</label><input id="code" type="number" min="100" max="599" step="1" value="404"></div>
+  <div class="st-field" data-show-field="mode" data-show-values="search"><label class="st-label" for="query" data-ko="상태 이름·의미" data-en="Status name or meaning">상태 이름·의미</label><input id="query" type="search" maxlength="50" value="server" data-ko-placeholder="예: 인증, server, redirect" data-en-placeholder="Example: auth, server, redirect"></div>
   <div class="st-actions" aria-label="대표 상태 코드"><button class="st-secondary http-preset" type="button" data-code="200">200</button><button class="st-secondary http-preset" type="button" data-code="204">204</button><button class="st-secondary http-preset" id="http-301-preset" type="button" data-code="301">301</button><button class="st-secondary http-preset" type="button" data-code="404">404</button><button class="st-secondary http-preset" type="button" data-code="429">429</button><button class="st-secondary http-preset" type="button" data-code="500">500</button></div>
   <div class="st-actions"><button class="st-primary" id="sg-run" type="button" data-ko="상태 코드 찾기" data-en="Look up status">상태 코드 찾기</button><button class="st-secondary" id="sg-copy" type="button" data-ko="결과 복사" data-en="Copy result">결과 복사</button><button class="st-secondary" id="sg-reset" type="button" data-ko="초기화" data-en="Reset">초기화</button></div>
   <p class="st-status" id="sg-status" aria-live="polite"></p>
-  <section class="st-result" id="sg-result" hidden><h2 data-ko="HTTP 상태 결과" data-en="HTTP status result">HTTP 상태 결과</h2><div id="sg-output"></div><p class="st-result-detail" id="http-guidance"></p></section>
+  <section class="st-result" id="sg-result" role="region" tabindex="0" aria-labelledby="http-result-title" hidden><h2 id="http-result-title" data-ko="HTTP 상태 결과" data-en="HTTP status result">HTTP 상태 결과</h2><div id="sg-output"></div><p class="st-result-detail" id="http-guidance"></p></section>
   <textarea class="st-copy-fallback" id="sg-fallback" readonly hidden></textarea>
 </article>
-<script type="module" src="./tool.js?v=0.0.6"></script>
+<script type="module" src="./tool.js?v=0.1.0"></script>
 </body>
 </html>

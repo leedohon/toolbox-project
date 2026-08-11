@@ -98,7 +98,16 @@ const operations={
   'markdown-table-generator':(v)=>{const headers=v.headers.split(',').map(x=>x.trim()).filter(Boolean);if(!headers.length)throw new Error(tr('쉼표로 구분한 머리글을 입력해 주세요.','Enter comma-separated headers.'));const escapeCell=x=>x.trim().replaceAll('|','\\|');const rows=v.rows.split(/\r?\n/).filter(x=>x.trim()).map(line=>line.split(',').map(escapeCell));const width=headers.length;const normalize=cells=>Array.from({length:width},(_,i)=>cells[i]||'');const output=[`| ${normalize(headers).map(escapeCell).join(' | ')} |`,`| ${headers.map(()=> '---').join(' | ')} |`,...rows.map(cells=>`| ${normalize(cells).join(' | ')} |`)].join('\n');return[row('마크다운 표','Markdown table',output),row('크기','Size',`${rows.length} × ${width}`)];},
   'chmod-calculator':(v)=>{const digits=[v.owner,v.group,v.other].map(Number),numeric=digits.join(''),symbolic=digits.map(chmodSymbols).join('');return[row('숫자 권한','Numeric mode',numeric),row('기호 권한','Symbolic mode',symbolic),row('명령 예시','Command example',`chmod ${numeric} filename`)];},
   'cron-expression-explainer':(v)=>{const parts=v.expression.trim().split(/\s+/);if(parts.length!==5)throw new Error(tr('분·시·일·월·요일의 5개 항목을 입력해 주세요.','Enter five fields: minute, hour, day, month, weekday.'));const labels=[['분','minute'],['시','hour'],['일','day'],['월','month'],['요일','weekday']];return parts.map((part,i)=>row(labels[i][0],labels[i][1],cronPart(part,labels[i][0],labels[i][1])));},
-  'http-status-lookup':(v)=>{const code=integer(v.code,tr('상태 코드','status code')),found=statusMap[code];if(!found)throw new Error(tr('지원 목록에 없는 상태 코드입니다.','That status code is not in the lookup list.'));const group=Math.floor(code/100);return[row('상태','Status',`${code} ${found[1]}`),row('한글 의미','Korean meaning',found[0]),row('분류','Class',group===2?'Success':group===3?'Redirection':group===4?'Client error':'Server error')];},
+  'http-status-lookup':(v)=>{
+    const mode=String(v.mode||'code');
+    if(mode==='search'){
+      const query=requiredText(v.query,'검색어','search term',50).toLocaleLowerCase();
+      const matches=Object.entries(statusMap).filter(([code,[ko,en]])=>`${code} ${ko} ${en}`.toLocaleLowerCase().includes(query));
+      if(!matches.length)throw new Error(tr('일치하는 상태 코드를 찾지 못했습니다.','No matching status codes were found.'));
+      return matches.map(([code,[ko,en]])=>row(`${code} ${ko}`,`${code} ${en}`,tr(ko,en)));
+    }
+    const code=integer(v.code,tr('상태 코드','status code')),found=statusMap[code];if(!found)throw new Error(tr('지원 목록에 없는 상태 코드입니다.','That status code is not in the lookup list.'));const group=Math.floor(code/100);return[row('상태','Status',`${code} ${found[1]}`),row('한글 의미','Korean meaning',found[0]),row('분류','Class',group===2?'Success':group===3?'Redirection':group===4?'Client error':'Server error')];
+  },
   'mime-type-lookup':(v)=>{const ext=v.extension.trim().toLowerCase().replace(/^.*\./,'');const mime=mimeMap[ext];if(!mime)throw new Error(tr('지원 목록에 없는 확장자입니다.','That extension is not in the lookup list.'));return[row('확장자','Extension',`.${ext}`),row('MIME 타입','MIME type',mime),row('Content-Type 예시','Content-Type example',`Content-Type: ${mime}`)];},
   'isbn-validator':(v)=>{const clean=v.isbn.toUpperCase().replace(/[^0-9X]/g,'');if(![10,13].includes(clean.length))throw new Error(tr('ISBN-10 또는 ISBN-13을 입력해 주세요.','Enter an ISBN-10 or ISBN-13.'));return[row('정리된 ISBN','Normalized ISBN',clean),row('형식','Format',`ISBN-${clean.length}`),row('검증 결과','Validation result',isbnCheck(clean)?tr('체크 숫자가 올바릅니다.','The check digit is valid.'):tr('체크 숫자가 올바르지 않습니다.','The check digit is invalid.'))];},
   'text-extractor-tool':(v)=>{
@@ -107,7 +116,8 @@ const operations={
       email:['이메일 주소','Email addresses'],
       url:['웹 주소','Web URLs'],
       phone:['전화번호 후보','Phone number candidates'],
-      social:['해시태그·계정 태그','Hashtags and account tags']
+      social:['해시태그·계정 태그','Hashtags and account tags'],
+      ipv4:['IPv4 주소','IPv4 addresses']
     };
     if(!labels[mode])throw new Error(tr('추출 종류를 선택해 주세요.','Choose an extraction type.'));
     const text=requiredText(v.text,'원본 텍스트','source text',100000);
@@ -122,6 +132,7 @@ const operations={
     }
     if(mode==='phone')matches=(text.match(/\+?\d[\d ().-]{5,}\d/g)||[]).map((value)=>value.trim()).filter((value)=>{const digits=value.replace(/\D/g,'');return digits.length>=7&&digits.length<=15;});
     if(mode==='social')matches=[...text.matchAll(/(?:^|[^\p{L}\p{N}_])([#@][\p{L}\p{N}_]+)/gu)].map((match)=>match[1]);
+    if(mode==='ipv4')matches=[...text.matchAll(/(?:^|[^\d.])((?:\d{1,3}\.){3}\d{1,3})(?![\d.])/g)].map((match)=>match[1]).filter((value)=>value.split('.').every((part)=>Number(part)<=255));
     const total=matches.length;
     const cleaned=uniqueSorted(matches);
     if(cleaned.length>2000)throw new Error(tr('추출 결과가 2,000개를 넘습니다. 입력 범위를 줄여 주세요.','More than 2,000 results were found. Narrow the input.'));
@@ -244,7 +255,7 @@ const operations={
   },
   'ip-network-calculator':(v)=>{
     const mode=String(v.mode??'').trim();
-    if(!['cidr','mask','range','mac','convert'].includes(mode))throw new Error(tr('네트워크 계산 종류를 선택해 주세요.','Choose a network calculation type.'));
+    if(!['cidr','mask','range','mac','convert','contains'].includes(mode))throw new Error(tr('네트워크 계산 종류를 선택해 주세요.','Choose a network calculation type.'));
     if(mode==='cidr'){
       const input=requiredText(v.ipCidr,'CIDR 주소','CIDR address',50);
       const match=/^([^/]+)\/(\d{1,2})$/.exec(input);
@@ -283,6 +294,18 @@ const operations={
         row('주소 수','Address count',formatted(end-start+1,0)),
         row('최소 CIDR 블록','Minimal CIDR blocks',blocks.join('\n')),
         row('CIDR 블록 수','CIDR block count',blocks.length)
+      ];
+    }
+    if(mode==='contains'){
+      const input=requiredText(v.ipCidr,'CIDR 주소','CIDR address',50);
+      const match=/^([^/]+)\/(\d{1,2})$/.exec(input);
+      if(!match)throw new Error(tr('192.168.1.0/24처럼 네트워크와 접두사를 함께 입력해 주세요.','Enter a network and prefix such as 192.168.1.0/24.'));
+      const address=ipv4Number(match[1]),prefix=cidrPrefix(match[2]),size=2**(32-prefix),network=Math.floor(address/size)*size,broadcast=network+size-1,target=ipv4Number(v.targetIp,'확인할 IP 주소','IP address to check'),included=target>=network&&target<=broadcast;
+      return[
+        row('정리된 네트워크','Normalized network',`${ipv4Text(network)}/${prefix}`),
+        row('확인할 주소','Address checked',ipv4Text(target)),
+        row('포함 여부','Membership',included?tr('포함됩니다.','Included.'):tr('포함되지 않습니다.','Not included.')),
+        row('네트워크 범위','Network range',`${ipv4Text(network)} – ${ipv4Text(broadcast)}`)
       ];
     }
     if(mode==='convert'){

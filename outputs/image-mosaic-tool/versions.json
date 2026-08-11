@@ -4,7 +4,7 @@
   "title": "이미지 모자이크 도구",
   "description": "KOR/ENG 화면에서 브러시로 칠하거나 사각형으로 선택해 모자이크 처리하고 PNG로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
-  "latestVersion": "0.6.0v",
+  "latestVersion": "0.7.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -140,6 +140,15 @@
       "directory": "0.6.0v",
       "html": "0.6.0v/image-mosaic-tool.html",
       "patchNotes": "0.6.0v/patch-notes.json"
+    },
+    {
+      "version": "0.7.0v",
+      "releaseDate": "2026-08-11",
+      "changeLevel": "minor",
+      "summary": "원본·편집본 즉시 비교",
+      "directory": "0.7.0v",
+      "html": "0.7.0v/image-mosaic-tool.html",
+      "patchNotes": "0.7.0v/patch-notes.json"
     }
   ]
 }

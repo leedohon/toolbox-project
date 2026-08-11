@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-09",
+  "updatedAt": "2026-08-11",
   "tool": "ip-network-calculator",
   "index": 55,
   "title": "IP·네트워크 주소 도구",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.4.0v",
+  "latestVersion": "0.5.0v",
   "paths": {
     "definition": "toolbox/tools/ip-network-calculator.md",
     "post": "toolbox/posts/ip-network-calculator.html",

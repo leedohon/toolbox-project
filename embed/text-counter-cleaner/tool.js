@@ -17,6 +17,7 @@ function count(){
   $('#count-paragraphs').textContent=paragraphs.toLocaleString();
   $('#count-reading').textContent=words?tr(`${Math.max(1,Math.ceil(words/250)).toLocaleString()}분`,`${Math.max(1,Math.ceil(words/250)).toLocaleString()} min`):tr('0분','0 min');
   $('#count-bytes').textContent=size(new TextEncoder().encode(text).length);
+  $('#text-capacity').textContent=`${[...text].length.toLocaleString()} / 100,000`;
   const frequencies=new Map();
   tokens.forEach(token=>frequencies.set(token,(frequencies.get(token)||0)+1));
   const top=[...frequencies].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,5);
@@ -31,13 +32,15 @@ function status(message,error=false){
 function clean(){
   let text=$('#text-input').value;
   if(!text)return status(tr('정리할 텍스트를 입력해 주세요.','Enter text to clean.'),true);
+  const before=[...text].length;
   text=text.replace(/\r\n?/g,'\n');
   if($('#clean-trim').checked)text=text.split('\n').map(line=>line.trim()).join('\n');
   if($('#clean-spaces').checked)text=text.replace(/[\t ]{2,}/g,' ');
   if($('#clean-lines').checked)text=text.replace(/\n{3,}/g,'\n\n');
   if($('#clean-breaks').checked)text=text.replace(/\s*\n+\s*/g,' ');
   $('#text-output').value=text;
-  status(tr('텍스트를 정리했습니다. 원본은 그대로 유지됩니다.','Text cleaned. The original remains unchanged.'));
+  const after=[...text].length,removed=before-after;
+  status(tr(`텍스트를 정리했습니다. ${before.toLocaleString()}자 → ${after.toLocaleString()}자 (${removed>=0?`${removed.toLocaleString()}자 감소`:`${Math.abs(removed).toLocaleString()}자 증가`})`,`Text cleaned. ${before.toLocaleString()} → ${after.toLocaleString()} characters (${removed>=0?`${removed.toLocaleString()} removed`:`${Math.abs(removed).toLocaleString()} added`}).`));
 }
 
 $('#text-input').addEventListener('input',()=>{

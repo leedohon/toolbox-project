@@ -23,8 +23,10 @@ export async function buildToolCatalog() {
     try {
       const versions = JSON.parse(await fs.readFile(versionsPath, 'utf8'));
       if (versions.status === 'retired' || !versions.postUrl) continue;
-      const keywords = [...new Set([...(tagsDocument.tools?.[versions.tool] || []), ...(tagsDocument.keywords?.[versions.tool] || [])])];
-      if (keywords.length < 20 || keywords.length > 30) throw new Error(`${versions.tool}: 20~30개의 검색 키워드가 필요합니다.`);
+      const labels = tagsDocument.tools?.[versions.tool] || [];
+      const discovery = tagsDocument.keywords?.[versions.tool] || [];
+      const keywords = [...new Set([...labels, ...discovery])];
+      if (keywords.length < 20 || keywords.length > 30) throw new Error(`${versions.tool}: 태그 ${labels.length}개 + 검색어 ${discovery.length}개의 합산 고유 검색어가 ${keywords.length}개입니다. 20~30개로 조정하세요.`);
       tools.push({
         index: versions.index,
         tool: versions.tool,

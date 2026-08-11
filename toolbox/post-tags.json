@@ -336,10 +336,9 @@
     "http-status-lookup": [
       "개발자도구",
       "HTTP상태코드",
+      "상태코드검색",
       "MIME타입",
-      "chmod",
-      "Cron",
-      "ISBN검사"
+      "chmod"
     ],
     "mime-type-lookup": [
       "MIME타입",
@@ -359,8 +358,8 @@
       "텍스트추출",
       "이메일추출",
       "URL추출",
-      "전화번호",
-      "해시태그"
+      "해시태그",
+      "IPv4추출"
     ],
     "web-meta-preview-builder": [
       "메타태그",
@@ -380,7 +379,7 @@
       "IPv4",
       "CIDR",
       "서브넷",
-      "MAC주소",
+      "IP포함검사",
       "네트워크도구"
     ],
     "coordinate-distance-calculator": [
@@ -1597,6 +1596,7 @@
     "http-status-lookup": [
       "개발자 빠른 참조",
       "HTTP 상태 코드",
+      "HTTP 상태 이름 검색",
       "404 뜻",
       "500 오류",
       "401 403 차이",
@@ -1667,6 +1667,7 @@
     "text-extractor-tool": [
       "텍스트 정보 추출기",
       "이메일 추출",
+      "IPv4 주소 추출",
       "URL 추출",
       "도메인 추출",
       "전화번호 추출",
@@ -1745,6 +1746,7 @@
     "ip-network-calculator": [
       "IP 네트워크 계산기",
       "IPv4 CIDR 계산기",
+      "CIDR IP 포함 여부",
       "서브넷 계산기",
       "네트워크 주소 계산",
       "브로드캐스트 주소",

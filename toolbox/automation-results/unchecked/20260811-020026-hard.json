@@ -1,0 +1,143 @@
+{
+  "runId": "20260811-020026-hard",
+  "workflow": "hard",
+  "status": "partial",
+  "confirm": "N",
+  "startedAt": "2026-08-11T02:00:26+09:00",
+  "completedAt": null,
+  "confirmedAt": null,
+  "summary": "최근 순환에서 덜 다룬 공개 도구 6개의 하드 워크플로를 진행 중입니다.",
+  "request": {
+    "workType": "hard",
+    "targets": [
+      "text-extractor-tool",
+      "ip-network-calculator",
+      "http-status-lookup",
+      "text-counter-cleaner",
+      "image-mosaic-tool",
+      "date-calculator"
+    ],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
+  },
+  "selectedTools": [
+    "text-extractor-tool",
+    "ip-network-calculator",
+    "http-status-lookup",
+    "text-counter-cleaner",
+    "image-mosaic-tool",
+    "date-calculator"
+  ],
+  "selectionBasis": "최근 완료된 두 하드 회차와 장문 높이 수정 대상을 피하면서 마지막 순환 시점이 오래된 공개 도구 6개를 선정",
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "텍스트 정보 추출기의 IPv4 추출과 예제 오류 수정",
+    "IP·네트워크 주소 도구의 CIDR 포함 여부 검사",
+    "개발자 빠른 참조 도구의 HTTP 상태 이름·의미 검색",
+    "텍스트 정리 도구의 정리 전후 글자 수 변화량",
+    "이미지 모자이크 도구의 원본·편집본 비교",
+    "다용도 계산기의 시작일·종료일 교환"
+  ],
+  "newIdeas": [
+    "IPv4 주소 추출 통합",
+    "CIDR IP 포함 여부 검사 통합",
+    "HTTP 상태 이름·의미 검색 통합"
+  ],
+  "commonModules": [
+    "장문 텍스트 도구 2개의 최대 100,000자 입력량 피드백",
+    "텍스트 정리·이미지 모자이크·날짜 작업의 KOR / ENG 조작 문구 동기화"
+  ],
+  "knownIssueMatches": [
+    "IFRAME_HEIGHT_CAP_MISMATCH",
+    "PORTRAIT_LONG_TEXT_SQUEEZE",
+    "SHARED_ASSET_CACHE_STALE"
+  ],
+  "validation": [
+    "대상 최신 릴리스 JSON·경로 84개 통과",
+    "대상 모듈 17개·레지스트리 5개 통과",
+    "게시글 스크립트와 실행 페이지 색인 정책 통과",
+    "대상 공개 구조 감사 6/6 통과",
+    "전체 검증과 공개 모바일·데스크톱 조작 검증은 배포 단계에서 진행"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/08/blog-post.html",
+      "https://bloggiedh.blogspot.com/2026/08/ip.html",
+      "https://bloggiedh.blogspot.com/2026/07/http.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": null,
+    "pushed": false
+  },
+  "deployment": {
+    "status": "pending",
+    "urls": []
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "scopeExceptions": [
+    "저가치 신규 페이지 대신 기존 공개 도구 안에 실용 기능을 통합"
+  ],
+  "runState": {
+    "current": "commit",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-08-11T01:58:06+09:00",
+        "completedAt": "2026-08-11T02:00:26+09:00",
+        "evidence": [
+          "미확인 기록 17건 보고",
+          "압축 대상 스냅샷으로 공개 도구 6개 선정"
+        ],
+        "blockCode": null
+      },
+      "implement": {"status": "completed", "startedAt": "2026-08-11T02:00:26+09:00", "completedAt": "2026-08-12T03:17:55+09:00", "evidence": ["개선 6건", "통합 기능 3건", "공통 수정 2건", "minor 릴리스 6개 생성"], "blockCode": null},
+      "validate": {"status": "completed", "startedAt": "2026-08-12T03:17:55+09:00", "completedAt": "2026-08-12T03:20:51+09:00", "evidence": ["84개 대상 JSON·최신 릴리스 경로 통과", "17개 대상 모듈 통과", "대상 게시글 스크립트·색인·공개 구조 6/6 통과", "인앱 브라우저의 localhost 차단으로 공개 Pages에서 최종 조작 검증 예정"], "blockCode": null},
+      "publish": {"status": "completed", "startedAt": "2026-08-12T03:19:30+09:00", "completedAt": "2026-08-12T03:20:51+09:00", "evidence": ["Blogger 사전 대조 6개 통과", "기존 LIVE 게시글 6개 갱신", "공개 URL 및 카탈로그 재동기화"], "blockCode": null},
+      "commit": {"status": "in_progress", "startedAt": "2026-08-12T03:20:51+09:00", "completedAt": null, "evidence": [], "blockCode": null},
+      "deploy": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": null},
+      "confirm": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": null}
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.22.0",
+    "applied": ["OPT-027"],
+    "summary": "카탈로그 검색어 개수 오류가 태그·검색어·합산 고유 개수를 즉시 보여 주게 개선했습니다.",
+    "skillValidation": "completed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {"baseline": null, "current": null, "accountingMethod": null},
+    "instructionReduction": 0.8314,
+    "overallReduction": null,
+    "proxies": [
+      {"metric": "target manifest and definition characters emitted for selection", "before": 23631, "after": 3984, "reduction": 0.8314},
+      {"metric": "additional diagnostic commands after a keyword-count failure", "before": 2, "after": 0, "reduction": 1.0}
+    ],
+    "note": "비교 가능한 전체 입출력 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
+  },
+  "reportHistory": [
+    {"at": "2026-08-11T02:00:26+09:00", "action": "started", "note": "독립 하드 워크플로 실행 기록 생성"}
+  ]
+}

@@ -16,8 +16,9 @@
 </head>
 <body>
 <article class="simple-tool" aria-label="IP·네트워크 주소 도구">
-  <div class="st-field"><label class="st-label" for="mode" data-ko="작업 유형" data-en="Operation">작업 유형</label><select id="mode"><option value="cidr" data-ko="IPv4 CIDR 서브넷" data-en="IPv4 CIDR subnet">IPv4 CIDR 서브넷</option><option value="mask" data-ko="프리픽스·마스크 변환" data-en="Prefix and mask">프리픽스·마스크 변환</option><option value="range" data-ko="IP 범위를 CIDR로" data-en="IP range to CIDR">IP 범위를 CIDR로</option><option value="mac" data-ko="MAC 주소 정리" data-en="Normalize MAC address">MAC 주소 정리</option><option value="convert" data-ko="IPv4 표현 변환" data-en="IPv4 representation conversion">IPv4 표현 변환</option></select></div>
-  <div class="st-field" data-show-field="mode" data-show-values="cidr"><label class="st-label" for="ipCidr">IPv4/CIDR</label><input id="ipCidr" type="text" maxlength="32" value="192.168.10.25/24" data-ko-placeholder="예: 192.168.10.25/24" data-en-placeholder="Example: 192.168.10.25/24"></div>
+  <div class="st-field"><label class="st-label" for="mode" data-ko="작업 유형" data-en="Operation">작업 유형</label><select id="mode"><option value="cidr" data-ko="IPv4 CIDR 서브넷" data-en="IPv4 CIDR subnet">IPv4 CIDR 서브넷</option><option value="mask" data-ko="프리픽스·마스크 변환" data-en="Prefix and mask">프리픽스·마스크 변환</option><option value="range" data-ko="IP 범위를 CIDR로" data-en="IP range to CIDR">IP 범위를 CIDR로</option><option value="contains" data-ko="CIDR에 IP 포함 여부" data-en="Check IP in CIDR">CIDR에 IP 포함 여부</option><option value="mac" data-ko="MAC 주소 정리" data-en="Normalize MAC address">MAC 주소 정리</option><option value="convert" data-ko="IPv4 표현 변환" data-en="IPv4 representation conversion">IPv4 표현 변환</option></select></div>
+  <div class="st-field" data-show-field="mode" data-show-values="cidr contains"><label class="st-label" for="ipCidr">IPv4/CIDR</label><input id="ipCidr" type="text" maxlength="32" value="192.168.10.25/24" data-ko-placeholder="예: 192.168.10.25/24" data-en-placeholder="Example: 192.168.10.25/24"></div>
+  <div class="st-field" data-show-field="mode" data-show-values="contains"><label class="st-label" for="targetIp" data-ko="확인할 IPv4" data-en="IPv4 to check">확인할 IPv4</label><input id="targetIp" type="text" maxlength="15" value="192.168.10.100" data-ko-placeholder="예: 192.168.10.100" data-en-placeholder="Example: 192.168.10.100"></div>
   <div class="st-field" data-show-field="mode" data-show-values="mask"><label class="st-label" for="prefix" data-ko="CIDR 프리픽스" data-en="CIDR prefix">CIDR 프리픽스</label><input id="prefix" type="number" min="0" max="32" step="1" value="24"></div>
   <div class="st-field" data-show-field="mode" data-show-values="range"><label class="st-label" for="startIp" data-ko="시작 IPv4" data-en="Start IPv4">시작 IPv4</label><input id="startIp" type="text" maxlength="15" value="192.168.10.0" data-ko-placeholder="예: 192.168.10.0" data-en-placeholder="Example: 192.168.10.0"></div>
   <div class="st-field" data-show-field="mode" data-show-values="range"><label class="st-label" for="endIp" data-ko="끝 IPv4" data-en="End IPv4">끝 IPv4</label><input id="endIp" type="text" maxlength="15" value="192.168.10.255" data-ko-placeholder="예: 192.168.10.255" data-en-placeholder="Example: 192.168.10.255"></div>
@@ -26,9 +27,9 @@
   <div class="st-actions" aria-label="대표 프리픽스"><button class="st-secondary ip-prefix" type="button" data-prefix="16">/16</button><button class="st-secondary ip-prefix" type="button" data-prefix="24">/24</button><button class="st-secondary ip-prefix" type="button" data-prefix="26">/26</button><button class="st-secondary ip-prefix" id="ip-30-preset" type="button" data-prefix="30">/30</button><button class="st-secondary ip-prefix" type="button" data-prefix="32">/32</button></div>
   <div class="st-actions"><button class="st-primary" id="sg-run" type="button" data-ko="주소 계산" data-en="Calculate">주소 계산</button><button class="st-secondary" id="sg-copy" type="button" data-ko="결과 복사" data-en="Copy result">결과 복사</button><button class="st-secondary" id="sg-reset" type="button" data-ko="초기화" data-en="Reset">초기화</button></div>
   <p class="st-status" id="sg-status" aria-live="polite"></p>
-  <section class="st-result" id="sg-result" hidden><h2 data-ko="네트워크 주소 결과" data-en="Network address results">네트워크 주소 결과</h2><div id="sg-output"></div></section>
+  <section class="st-result" id="sg-result" role="region" tabindex="0" aria-labelledby="ip-result-title" hidden><h2 id="ip-result-title" data-ko="네트워크 주소 결과" data-en="Network address results">네트워크 주소 결과</h2><div id="sg-output"></div></section>
   <textarea class="st-copy-fallback" id="sg-fallback" readonly hidden></textarea>
 </article>
-<script type="module" src="./tool.js?v=0.1.4"></script>
+<script type="module" src="./tool.js?v=0.2.0"></script>
 </body>
 </html>

@@ -6,9 +6,15 @@ description: HTTP·MIME·Cron·chmod 정보를 찾고 ISBN 체크 숫자를 한�
 status: published
 modules: [http-status-lookup, chmod-calculator, cron-expression-explainer, mime-type-lookup, isbn-validator]
 inputs:
+  - id: mode
+    label: 찾는 방식
+    type: radio
   - id: code
     label: HTTP 상태 코드
     type: number
+  - id: query
+    label: 상태 이름·의미
+    type: text
 ---
 
 ## 기능
@@ -20,6 +26,7 @@ inputs:
 - 상태 코드별 일반적인 후속 행동과 재시도 판단 안내
 - 200·404·429·500 대표 상태 코드 빠른 조회
 - 본문 없는 성공 응답을 확인하는 204 빠른 조회
+- 코드 번호를 몰라도 영문 이름·한글 의미로 검색
 
 ## 실행 규칙
 
@@ -33,4 +40,4 @@ inputs:
 
 ## 이번 개선
 
-- 영구 이동 점검에 자주 쓰는 301 상태 코드를 빠르게 조회한다.
+- `server`, `인증`, `redirect` 같은 단어로 지원 상태 코드를 한 번에 찾는다.

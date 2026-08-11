@@ -1,12 +1,12 @@
 {
   "runId": "20260811-020026-hard",
   "workflow": "hard",
-  "status": "partial",
+  "status": "completed",
   "confirm": "N",
   "startedAt": "2026-08-11T02:00:26+09:00",
-  "completedAt": null,
+  "completedAt": "2026-08-12T03:30:35+09:00",
   "confirmedAt": null,
-  "summary": "최근 순환에서 덜 다룬 공개 도구 6개의 하드 워크플로를 진행 중입니다.",
+  "summary": "공개 도구 6개의 실용 기능 개선, Blogger 갱신, GitHub Pages 배포와 공개 반응형 검증을 완료했습니다.",
   "request": {
     "workType": "hard",
     "targets": [
@@ -63,7 +63,11 @@
     "대상 모듈 17개·레지스트리 5개 통과",
     "게시글 스크립트와 실행 페이지 색인 정책 통과",
     "대상 공개 구조 감사 6/6 통과",
-    "전체 검증과 공개 모바일·데스크톱 조작 검증은 배포 단계에서 진행"
+    "전체 릴리스 456개 JSON·최신 경로와 전체 모듈 75개·레지스트리 48개 통과",
+    "375×812 모바일에서 6개 기능 조작·가로 넘침·KOR/ENG 문구 확인",
+    "1280×900 데스크톱에서 6개 도구 가로 넘침 없음",
+    "공개 화면 브라우저 콘솔 오류 0건",
+    "GitHub Pages 배포 31522398616 성공"
   ],
   "blogger": {
     "created": [],
@@ -80,12 +84,20 @@
   },
   "git": {
     "branch": "main",
-    "commit": null,
-    "pushed": false
+    "commit": "6e605e85217601c3e2ea3b303669adedd4d77ffe",
+    "pushed": true
   },
   "deployment": {
-    "status": "pending",
-    "urls": []
+    "status": "completed",
+    "runId": 31522398616,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/text-extractor-tool/",
+      "https://leedohon.github.io/toolbox-project/embed/ip-network-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/http-status-lookup/",
+      "https://leedohon.github.io/toolbox-project/embed/text-counter-cleaner/",
+      "https://leedohon.github.io/toolbox-project/embed/image-mosaic-tool/",
+      "https://leedohon.github.io/toolbox-project/embed/date-calculator/"
+    ]
   },
   "shutdown": {
     "requested": false,
@@ -99,7 +111,7 @@
     "저가치 신규 페이지 대신 기존 공개 도구 안에 실용 기능을 통합"
   ],
   "runState": {
-    "current": "commit",
+    "current": "confirm",
     "stages": {
       "select": {
         "status": "completed",
@@ -111,33 +123,115 @@
         ],
         "blockCode": null
       },
-      "implement": {"status": "completed", "startedAt": "2026-08-11T02:00:26+09:00", "completedAt": "2026-08-12T03:17:55+09:00", "evidence": ["개선 6건", "통합 기능 3건", "공통 수정 2건", "minor 릴리스 6개 생성"], "blockCode": null},
-      "validate": {"status": "completed", "startedAt": "2026-08-12T03:17:55+09:00", "completedAt": "2026-08-12T03:20:51+09:00", "evidence": ["84개 대상 JSON·최신 릴리스 경로 통과", "17개 대상 모듈 통과", "대상 게시글 스크립트·색인·공개 구조 6/6 통과", "인앱 브라우저의 localhost 차단으로 공개 Pages에서 최종 조작 검증 예정"], "blockCode": null},
-      "publish": {"status": "completed", "startedAt": "2026-08-12T03:19:30+09:00", "completedAt": "2026-08-12T03:20:51+09:00", "evidence": ["Blogger 사전 대조 6개 통과", "기존 LIVE 게시글 6개 갱신", "공개 URL 및 카탈로그 재동기화"], "blockCode": null},
-      "commit": {"status": "in_progress", "startedAt": "2026-08-12T03:20:51+09:00", "completedAt": null, "evidence": [], "blockCode": null},
-      "deploy": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": null},
-      "confirm": {"status": "pending", "startedAt": null, "completedAt": null, "evidence": [], "blockCode": null}
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-08-11T02:00:26+09:00",
+        "completedAt": "2026-08-12T03:17:55+09:00",
+        "evidence": [
+          "개선 6건",
+          "통합 기능 3건",
+          "공통 수정 2건",
+          "minor 릴리스 6개 생성"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-08-12T03:17:55+09:00",
+        "completedAt": "2026-08-12T03:20:51+09:00",
+        "evidence": [
+          "84개 대상 JSON·최신 릴리스 경로 통과",
+          "17개 대상 모듈 통과",
+          "대상 게시글 스크립트·색인·공개 구조 6/6 통과",
+          "공개 Pages 모바일 375×812 기능 조작·가로 넘침·언어 문구 통과",
+          "공개 Pages 데스크톱 1280×900 가로 넘침 없음",
+          "공개 화면 브라우저 콘솔 오류 0건"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-08-12T03:19:30+09:00",
+        "completedAt": "2026-08-12T03:20:51+09:00",
+        "evidence": [
+          "Blogger 사전 대조 6개 통과",
+          "기존 LIVE 게시글 6개 갱신",
+          "공개 URL 및 카탈로그 재동기화"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-08-12T03:20:51+09:00",
+        "completedAt": "2026-08-12T03:30:35+09:00",
+        "evidence": [
+          "구현 커밋 6e605e85217601c3e2ea3b303669adedd4d77ffe를 main에 푸시"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-08-11T02:00:26+09:00",
+        "completedAt": "2026-08-12T03:30:35+09:00",
+        "evidence": [
+          "GitHub Pages 실행 31522398616 성공",
+          "대상 공개 URL 6개 응답 및 실화면 검증 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "in_progress",
+        "startedAt": "2026-08-12T03:30:35+09:00",
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      }
     }
   },
   "knowledgeOptimization": {
-    "policyVersion": "0.22.0",
-    "applied": ["OPT-027"],
+    "policyVersion": "0.23.0",
+    "applied": [
+      "OPT-027"
+    ],
     "summary": "카탈로그 검색어 개수 오류가 태그·검색어·합산 고유 개수를 즉시 보여 주게 개선했습니다.",
-    "skillValidation": "completed"
+    "skillValidation": "passed"
   },
   "developmentTokenEfficiency": {
     "measurementStatus": "proxy_only",
     "baselineRunId": null,
-    "tokens": {"baseline": null, "current": null, "accountingMethod": null},
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
     "instructionReduction": 0.8314,
     "overallReduction": null,
     "proxies": [
-      {"metric": "target manifest and definition characters emitted for selection", "before": 23631, "after": 3984, "reduction": 0.8314},
-      {"metric": "additional diagnostic commands after a keyword-count failure", "before": 2, "after": 0, "reduction": 1.0}
+      {
+        "metric": "target manifest and definition characters emitted for selection",
+        "before": 23631,
+        "after": 3984,
+        "reduction": 0.8314
+      },
+      {
+        "metric": "additional diagnostic commands after a keyword-count failure",
+        "before": 2,
+        "after": 0,
+        "reduction": 1
+      }
     ],
     "note": "비교 가능한 전체 입출력 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
   },
   "reportHistory": [
-    {"at": "2026-08-11T02:00:26+09:00", "action": "started", "note": "독립 하드 워크플로 실행 기록 생성"}
+    {
+      "at": "2026-08-11T02:00:26+09:00",
+      "action": "started",
+      "note": "독립 하드 워크플로 실행 기록 생성"
+    },
+    {
+      "at": "2026-08-12T03:30:35+09:00",
+      "action": "completed",
+      "note": "기능 개선, Blogger 갱신, Git 푸시, Pages 배포와 공개 반응형 검증 완료"
+    }
   ]
 }

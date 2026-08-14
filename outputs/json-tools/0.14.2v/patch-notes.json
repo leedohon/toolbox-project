@@ -1,0 +1,9 @@
+{
+  "tool": "json-tools",
+  "version": "0.14.2v",
+  "releaseDate": "2026-08-14",
+  "changeLevel": "minimum",
+  "changes": [
+    "경로가 비어 전체 문서를 보여줄 때도 JSON Pointer 미리보기를 접근 가능한 내부 스크롤 영역에 제한했습니다."
+  ]
+}

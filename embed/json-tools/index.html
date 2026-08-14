@@ -191,7 +191,7 @@
       <input id="json-pointer" type="text" placeholder="예: /items/0/name" data-ko-placeholder="예: /items/0/name" data-en-placeholder="Example: /items/0/name" aria-describedby="json-pointer-help json-pointer-error">
       <p class="tb-excel-meta" id="json-pointer-help" data-ko="빈칸은 전체 문서입니다. /로 시작하고 /는 ~1, ~는 ~0으로 씁니다." data-en="Leave blank for the whole document. Start with /; encode / as ~1 and ~ as ~0.">빈칸은 전체 문서입니다. /로 시작하고 /는 ~1, ~는 ~0으로 씁니다.</p>
       <p class="tb-error" id="json-pointer-error" role="alert"></p>
-      <pre class="tb-query-result" id="json-pointer-result" aria-live="polite"></pre>
+      <pre class="tb-query-result wf-long-output" id="json-pointer-result" role="region" tabindex="0" aria-label="JSON Pointer 조회 결과" data-ko-aria-label="JSON Pointer 조회 결과" data-en-aria-label="JSON Pointer result" aria-live="polite"></pre>
       <div class="tb-actions"><button class="tb-secondary" id="json-pointer-copy" type="button" data-ko="찾은 값 복사" data-en="Copy found value">찾은 값 복사</button><button class="tb-secondary" id="json-paths-copy" type="button" data-ko="모든 값 경로 복사" data-en="Copy all value paths">모든 값 경로 복사</button></div>
       <textarea class="wf-long-output" id="json-pointer-fallback" role="region" tabindex="0" aria-label="직접 복사할 JSON Pointer 결과" readonly hidden></textarea>
     </section>

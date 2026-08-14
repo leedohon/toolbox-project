@@ -1,0 +1,9 @@
+{
+  "tool": "multipurpose-draw-game",
+  "version": "0.8.1v",
+  "releaseDate": "2026-08-14",
+  "changeLevel": "minimum",
+  "changes": [
+    "팝업 호출 대신 직접 새 탭 링크를 사용해 선택한 게임을 안정적으로 열도록 했습니다."
+  ]
+}

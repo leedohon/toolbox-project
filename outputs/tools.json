@@ -45,7 +45,7 @@
       "title": "JSON 도구",
       "description": "예제 JSON을 바로 불러와 검사·정리하고 Excel·CSV 파일로 저장합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-      "version": "0.14.0v",
+      "version": "0.14.1v",
       "keywords": [
         "JSON",
         "JSON포맷터",

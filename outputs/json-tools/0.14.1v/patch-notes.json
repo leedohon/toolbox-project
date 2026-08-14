@@ -1,0 +1,9 @@
+{
+  "tool": "json-tools",
+  "version": "0.14.1v",
+  "releaseDate": "2026-08-14",
+  "changeLevel": "minimum",
+  "changes": [
+    "대량 JSON 결과를 접근 가능한 내부 스크롤 영역에 표시해 페이지가 결과 길이만큼 늘어나지 않도록 했습니다."
+  ]
+}

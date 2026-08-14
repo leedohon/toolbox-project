@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-09",
+  "updatedAt": "2026-08-14",
   "tool": "coordinate-distance-calculator",
   "index": 56,
   "title": "좌표·거리 계산기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.3.0v",
+  "latestVersion": "0.4.0v",
   "paths": {
     "definition": "toolbox/tools/coordinate-distance-calculator.md",
     "post": "toolbox/posts/coordinate-distance-calculator.html",

@@ -1,4 +1,5 @@
 import {mountGeneratedTool} from '../../assets/generated-tool-runtime.js?v=0.2.2';
+import {copyText} from '../../assets/play-tools.js?v=0.3.2';
 mountGeneratedTool({
   "slug": "web-meta-preview-builder",
   "preset": "web-meta-preview-builder",
@@ -19,3 +20,14 @@ document.querySelector('#meta-remove-image').addEventListener('click', () => {
   document.querySelector('#imageAlt').value = '';
   document.querySelector('#sg-run').click();
 });
+const tr=(ko,en)=>window.ToolboxI18n?.language==='en'?en:ko;
+const syncInjectedLabels=()=>document.querySelectorAll('#meta-sample,#meta-article-sample,#meta-product-sample').forEach(button=>{button.textContent=tr(button.dataset.ko,button.dataset.en);});
+document.querySelector('#meta-copy-social').addEventListener('click',async()=>{
+  const result=document.querySelector('#sg-result'),status=document.querySelector('#sg-status'),fallback=document.querySelector('#sg-fallback');
+  const row=[...document.querySelectorAll('#sg-output .sg-result-row')].find(item=>item.querySelector('dt')?.textContent.includes(window.ToolboxI18n?.language==='en'?'Open Graph':'Open Graph'));
+  const value=row?.querySelector('dd')?.textContent.trim();
+  if(result.hidden||!value){status.textContent=tr('먼저 메타 미리보기를 만들어 주세요.','Build a meta preview first.');status.className='st-status is-error';return;}
+  if(await copyText(value)){fallback.hidden=true;status.textContent=tr('Open Graph와 Twitter/X 태그를 복사했습니다.','Open Graph and Twitter/X tags copied.');status.className='st-status is-good';}
+  else{fallback.value=value;fallback.hidden=false;status.textContent=tr('직접 복사할 소셜 태그를 표시했습니다.','Social tags are shown for manual copying.');status.className='st-status is-error';}
+});
+addEventListener('toolbox-language-change',syncInjectedLabels);syncInjectedLabels();

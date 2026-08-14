@@ -4,7 +4,7 @@
   "title": "텍스트 정보 추출기",
   "description": "긴 글에서 이메일, URL·도메인, 전화번호 또는 해시태그·멘션을 골라 중복 없이 정리합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/08/blog-post.html",
-  "latestVersion": "0.4.0v",
+  "latestVersion": "0.5.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -68,6 +68,15 @@
       "directory": "0.4.0v",
       "html": "0.4.0v/text-extractor-tool.html",
       "patchNotes": "0.4.0v/patch-notes.json"
+    },
+    {
+      "version": "0.5.0v",
+      "releaseDate": "2026-08-14",
+      "changeLevel": "minor",
+      "summary": "추출 결과 CSV 저장",
+      "directory": "0.5.0v",
+      "html": "0.5.0v/text-extractor-tool.html",
+      "patchNotes": "0.5.0v/patch-notes.json"
     }
   ]
 }

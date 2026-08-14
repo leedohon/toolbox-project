@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.26.0",
-  "updatedAt": "2026-08-12",
+  "policyVersion": "0.27.0",
+  "updatedAt": "2026-08-14",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -375,6 +375,14 @@
       "proposedChange":"--from-run으로 선택된 허브의 자체 모듈 주소를 latestVersion과 자동 동기화한다.",
       "measure":"manual hub release-entry edits per multi-tool hard run","targetReduction":0.5,
       "evidence":[{"before":2,"after":0,"unit":"manual hub release-entry edits in the third six-tool hard run","reduction":1.0,"verifiedAt":"2026-08-12"}]
+    },
+    {
+      "id":"OPT-031","status":"completed",
+      "triggerPaths":["scripts/create-tool-release.mjs","scripts/create-tool-releases-from-run.mjs","toolbox/automation-results/*/*.json"],
+      "problem":"여러 도구의 새 릴리스를 만들 때 실행 기록에 이미 정한 등급·요약·변경 내용을 도구별 명령에 여섯 번 반복 입력했다.",
+      "proposedChange":"실행 기록의 releasePlans와 selectedTools를 읽어 전체 릴리스를 사전 점검한 뒤 한 명령에서 생성한다.",
+      "measure":"release creation command invocations per six-tool hard run","targetReduction":0.5,
+      "evidence":[{"before":6,"after":1,"unit":"release creation command invocations per six-tool hard run","reduction":0.8333,"verifiedAt":"2026-08-14"}]
     }
   ]
 }

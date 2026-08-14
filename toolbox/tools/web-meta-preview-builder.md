@@ -38,6 +38,7 @@ inputs:
 - 공유 이미지 대체 설명과 og:image:alt·twitter:image:alt 생성
 - 공유 이미지 주소와 대체 설명을 한 번에 제외
 - 제목·설명·주소가 포함된 도구 페이지 메타 예제
+- Open Graph와 Twitter/X 태그만 골라 복사
 
 ## 실행 규칙
 

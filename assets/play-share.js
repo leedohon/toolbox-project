@@ -1,5 +1,12 @@
 const PREFIX = 'TB1-';
 const MAX_CODE_LENGTH = 20000;
+const MAX_SHARE_URL_LENGTH = 1900;
+const SHARE_MODES = {
+  'ladder-game': 'ladder',
+  'wheel-spinner': 'wheel',
+  'number-picker': 'number',
+  'team-divider': 'team',
+};
 
 function bytesToBase64Url(bytes) {
   let binary = '';
@@ -38,14 +45,54 @@ export function decodeResultCode(code, expectedTool) {
   }
 }
 
+async function copyValue(value, input) {
+  input.value = value;
+  try {
+    await navigator.clipboard.writeText(value);
+    return true;
+  } catch (_) {
+    input.hidden = false;
+    window.ToolboxUX?.focusAndSelect(input);
+    try { return document.execCommand('copy'); } catch (_) { return false; }
+  }
+}
+
 export async function copyResultCode(code, input) {
   input.value = code;
-  try {
-    await navigator.clipboard.writeText(code);
-  } catch (error) {
-    window.ToolboxUX?.focusAndSelect(input);
-    document.execCommand('copy');
-  }
+  return copyValue(code, input);
+}
+
+export function readResultCodeFromUrl() {
+  const queryCode = new URLSearchParams(location.search).get('result');
+  if (queryCode) return queryCode;
+  if (!location.hash) return '';
+  return new URLSearchParams(location.hash.slice(1)).get('tb-result') || '';
+}
+
+export async function copyResultLink(tool, code, fallbackInput) {
+  const mode = SHARE_MODES[tool];
+  if (!mode) throw new Error('이 도구에서는 결과 링크를 만들 수 없습니다.');
+  const canonical = document.querySelector('link[rel="canonical"]')?.href;
+  const url = new URL(canonical || location.href, location.href);
+  if (url.protocol !== 'https:') throw new Error('안전한 공유 주소를 확인해 주세요.');
+  url.search = '';
+  url.hash = new URLSearchParams({ 'tb-mode': mode, 'tb-result': code }).toString();
+  const link = url.toString();
+  if (link.length > MAX_SHARE_URL_LENGTH) throw new Error('결과 링크가 메신저에서 보내기에는 너무 깁니다. 결과 코드나 PNG 저장을 이용해 주세요.');
+  const copied = await copyValue(link, fallbackInput);
+  fallbackInput.hidden = copied;
+  return { copied, link };
+}
+
+export function notifyResultRestored(tool, resultElement) {
+  if (parent === window || !resultElement) return;
+  requestAnimationFrame(() => {
+    parent.postMessage({
+      source: 'toolbox-result',
+      tool,
+      offset: Math.max(0, Math.ceil(resultElement.offsetTop)),
+    }, location.origin);
+  });
 }
 
 function wrappedLines(context, value, maxWidth) {

@@ -67,6 +67,15 @@
       history.replaceState(null, '', url);
     }
 
+    function moduleUrl(module, initialId) {
+      const url = new URL(module.entry, registryUrl);
+      if (module.id === initialId) {
+        const resultCode = new URL(location.href).searchParams.get('result');
+        if (resultCode) url.searchParams.set('result', resultCode);
+      }
+      return url;
+    }
+
     function announce(module, loading) {
       stage.setAttribute('aria-busy', loading ? 'true' : 'false');
       status.textContent = isEnglish()
@@ -90,7 +99,7 @@
       requestAnimationFrame(notifyHeight);
     }
 
-    function buildModule(module, index) {
+    function buildModule(module, index, initialId) {
       const option = document.createElement('label');
       option.className = 'funbox-option';
       option.innerHTML = `<input type="radio" name="funbox-mode" value="${module.id}"${index === 0 ? ' checked' : ''}><span data-ko="${module.label.ko}" data-en="${module.label.en}">${isEnglish()?module.label.en:module.label.ko}</span>`;
@@ -99,7 +108,7 @@
 
       const frame = document.createElement('iframe');
       frame.className = 'funbox-frame';
-      frame.dataset.src = new URL(module.entry, registryUrl).toString();
+      frame.dataset.src = moduleUrl(module, initialId).toString();
       frame.title = `${module.label.ko} / ${module.label.en}`;
       frame.loading = 'lazy';
       frame.scrolling = 'no';
@@ -165,11 +174,19 @@
     });
 
     addEventListener('message', (event) => {
-      if (event.origin !== location.origin || !event.data || event.data.source !== 'toolbox-embed') return;
+      if (event.origin !== location.origin || !event.data) return;
       const module = modulesByTool.get(event.data.tool);
       const frame = module && frames.get(module.id);
+      if (!frame || event.source !== frame.contentWindow) return;
+      if (event.data.source === 'toolbox-result') {
+        const offset = Number(event.data.offset);
+        if (!Number.isFinite(offset) || offset < 0 || offset > 6000) return;
+        parent.postMessage({ source: 'toolbox-embed', tool: 'multipurpose-draw-game', action: 'result-restored', offset: Math.min(6000, Math.ceil(frame.offsetTop + offset)) }, '*');
+        return;
+      }
+      if (event.data.source !== 'toolbox-embed') return;
       const height = Number(event.data.height);
-      if (!frame || !Number.isFinite(height) || height < 260) return;
+      if (!Number.isFinite(height) || height < 260) return;
       const capped = Math.min(6000, Math.ceil(height));
       frame.style.height = `${capped}px`;
       frame.scrolling = height > 6000 ? 'yes' : 'no';
@@ -182,9 +199,10 @@
       const documentData = await response.json();
       modules = Array.isArray(documentData.modules) ? documentData.modules : [];
       if (modules.length !== 4) throw new Error('사용할 게임 모듈을 확인해 주세요.');
-      modules.forEach(buildModule);
       const preferred = readUrlMode() || readStoredMode();
-      activate(modules.some((item) => item.id === preferred) ? preferred : modules[0].id, false);
+      const initialId = modules.some((item) => item.id === preferred) ? preferred : modules[0].id;
+      modules.forEach((module, index) => buildModule(module, index, initialId));
+      activate(initialId, false);
     } catch (error) {
       status.textContent = error.message;
       status.setAttribute('role', 'alert');

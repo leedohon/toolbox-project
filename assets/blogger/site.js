@@ -17,22 +17,62 @@
   if (postMount) document.documentElement.classList.add('ow-is-post');
   if (isInnerPage) document.documentElement.classList.add('ow-is-inner');
 
+  function findEmbedFrame(event, tool) {
+    var matched = null;
+    document.querySelectorAll('iframe[src]').forEach(function (frame) {
+      if (matched || frame.contentWindow !== event.source) return;
+      try {
+        var source = new URL(frame.src, location.href);
+        if (source.origin === event.origin && source.pathname.replace(/\/+$/, '') === '/toolbox-project/embed/' + tool) matched = frame;
+      } catch (_) {}
+    });
+    return matched;
+  }
+
   window.addEventListener('message', function (event) {
     if (event.origin !== 'https://leedohon.github.io' || !event.data || event.data.source !== 'toolbox-embed') return;
     var tool = String(event.data.tool || '');
+    if (!/^[a-z0-9-]+$/.test(tool)) return;
+    var frame = findEmbedFrame(event, tool);
+    if (!frame) return;
+    if (event.data.action === 'result-restored') {
+      var offset = Number(event.data.offset);
+      if (!Number.isFinite(offset) || offset < 0 || offset > 6000) return;
+      window.requestAnimationFrame(function () {
+        var top = window.scrollY + frame.getBoundingClientRect().top + offset - 24;
+        window.scrollTo({ top: Math.max(0, top), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      });
+      return;
+    }
     var height = Number(event.data.height);
-    if (!/^[a-z0-9-]+$/.test(tool) || !Number.isFinite(height) || height <= 0) return;
+    if (!Number.isFinite(height) || height <= 0) return;
     var appliedHeight = Math.min(6000, Math.max(320, Math.ceil(height)));
+    frame.style.height = appliedHeight + 'px';
+    frame.scrolling = height > 6000 ? 'auto' : 'no';
+  });
+
+  function applySharedResultLink() {
+    if (!window.location.hash) return;
+    var parameters = new URLSearchParams(window.location.hash.slice(1));
+    var mode = parameters.get('tb-mode') || '';
+    var result = parameters.get('tb-result') || '';
+    if (!/^(ladder|wheel|number|team)$/.test(mode) || !/^TB1-[A-Za-z0-9_-]+$/.test(result) || result.length > 20000) return;
     document.querySelectorAll('iframe[src]').forEach(function (frame) {
       try {
         var source = new URL(frame.src, location.href);
-        if (source.origin === event.origin && source.pathname.replace(/\/+$/, '') === '/toolbox-project/embed/' + tool) {
-          frame.style.height = appliedHeight + 'px';
-          frame.scrolling = height > 6000 ? 'auto' : 'no';
+        if (source.origin !== 'https://leedohon.github.io' || source.pathname.replace(/\/+$/, '') !== '/toolbox-project/embed/multipurpose-draw-game') return;
+        source.searchParams.set('mode', mode);
+        source.searchParams.set('result', result);
+        if (frame.src !== source.toString()) {
+          frame.loading = 'eager';
+          frame.src = source.toString();
         }
       } catch (_) {}
     });
-  });
+  }
+
+  applySharedResultLink();
+  window.addEventListener('hashchange', applySharedResultLink);
 
   function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, function (character) {

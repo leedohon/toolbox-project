@@ -11,8 +11,10 @@ http.createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
     const relative = pathname === '/' ? '/index.html' : pathname;
-    const target = path.resolve(root, `.${relative}`);
+    let target = path.resolve(root, `.${relative}`);
     if (!target.startsWith(root)) throw new Error('Invalid path');
+    const stats = await fs.stat(target);
+    if (stats.isDirectory()) target = path.join(target, 'index.html');
     const data = await fs.readFile(target);
     response.writeHead(200, { 'content-type': types[path.extname(target)] || 'application/octet-stream', 'cache-control': 'no-store' });
     response.end(data);

@@ -1,0 +1,21 @@
+{
+  "tool": "multipurpose-draw-game",
+  "version": "0.9.0v",
+  "releaseDate": "2026-08-14",
+  "changeLevel": "minor",
+  "changes": [
+    "Discord 등 메신저에 보낼 Blogger 결과 링크 복사 기능을 추가했습니다.",
+    "공유 링크를 열면 해당 게임 모드와 검증된 결과를 자동 복원합니다.",
+    "긴 링크·손상 코드·클립보드 차단 상황에 안전한 대체 안내를 제공합니다."
+  ],
+  "qa": [
+    "사다리·돌림판·숫자뽑기·편가르기 공유 코드가 URL 전달 후 같은 모드와 결과로 자동 복원됨",
+    "다른 게임 코드와 손상된 TB1 코드를 안전하게 거부함",
+    "1,900자 초과 메신저 링크에 결과 코드·PNG 대체 안내를 표시함",
+    "375×812 모바일에서 가로 넘침과 자동 포커스 없이 결과 링크 버튼·자동 복원 확인",
+    "1280×900 데스크톱에서 가로 넘침 없이 결과 자동 복원 확인",
+    "긴 편가르기 결과는 iframe 6000px 및 scrolling=yes로 보정되고 숫자뽑기 전환 뒤 1107px로 감소함",
+    "HUB_STORAGE_ACCESS_BLOCKED·HUB_PRELOAD_STATUS_MISMATCH·IFRAME_HEIGHT_STALE·IFRAME_HEIGHT_CAP_MISMATCH·SHARED_ASSET_CACHE_STALE 회귀 계약 확인",
+    "KOR/ENG에서 결과 링크 버튼·도움말·자동 복원 상태가 선택 언어로 표시됨"
+  ]
+}

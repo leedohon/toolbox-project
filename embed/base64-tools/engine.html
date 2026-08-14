@@ -64,6 +64,7 @@
       <button class="st-secondary" type="button" id="b64-url-safe-example" data-ko="URL-safe 예제" data-en="URL-safe example">URL-safe 예제</button>
       <button class="st-secondary" type="button" id="b64-normalize" data-ko="Base64 표준화" data-en="Normalize Base64">Base64 표준화</button>
       <button class="st-secondary" type="button" id="b64-strip-space" data-ko="Base64 공백 제거" data-en="Remove Base64 whitespace">Base64 공백 제거</button>
+      <button class="st-secondary" type="button" id="b64-extract-data-url" data-ko="Data URL 내용 추출" data-en="Extract Data URL">Data URL 내용 추출</button>
       <button class="st-secondary" type="button" id="b64-swap">입력·결과 바꾸기</button>
       <button class="st-secondary" type="button" id="b64-copy">결과 복사</button>
       <button class="st-secondary" type="button" id="b64-clear">초기화</button>
@@ -278,6 +279,16 @@
     input.value = input.value.replace(/\s+/g, '');
     updateCounts();
     setMessage(isEnglish() ? `Removed ${before - input.value.length} whitespace characters.` : `공백과 줄바꿈 ${before - input.value.length}자를 제거했습니다.`);
+  });
+  root.querySelector('#b64-extract-data-url').addEventListener('click', function () {
+    var match = /^data:([^;,]+)?(?:;charset=[^;,]+)?;base64,([\s\S]+)$/i.exec(input.value.trim());
+    if (!match) { setMessage(isEnglish() ? 'Enter a Base64 Data URL first.' : '먼저 Base64 Data URL을 입력해 주세요.', true); return; }
+    root.querySelector('#codec-format').value = 'base64';
+    root.querySelector('input[name="codec-mode"][value="decode"]').checked = true;
+    input.value = match[2].replace(/\s+/g, '');
+    syncControls(false);
+    convertValue();
+    setMessage(isEnglish() ? `Extracted and decoded the Data URL (${match[1] || 'unknown type'}).` : `Data URL 내용을 분리해 디코딩했습니다 (${match[1] || '형식 미상'}).`);
   });
   root.querySelector('#b64-swap').addEventListener('click', function () {
     if (!output.value) return setMessage('바꿀 변환 결과가 없습니다.', true);

@@ -23,6 +23,7 @@
       <button class="funbox-next" id="funbox-random" type="button" data-ko="임의 게임 고르기" data-en="Pick a random game">임의 게임 고르기</button>
       <button class="funbox-next" id="funbox-next" type="button" data-ko="다음 게임 보기" data-en="Show next game">다음 게임 보기</button>
       <button class="funbox-next" id="funbox-copy-link" type="button" data-ko="현재 게임 링크 복사" data-en="Copy current game link">현재 게임 링크 복사</button>
+      <button class="funbox-next" id="funbox-open-game" type="button" data-ko="현재 게임만 열기" data-en="Open current game only">현재 게임만 열기</button>
       <input class="funbox-link" id="funbox-link-fallback" type="text" readonly hidden aria-label="직접 복사할 게임 링크" data-ko-aria-label="직접 복사할 게임 링크" data-en-aria-label="Game link to copy manually">
     </section>
     <p class="funbox-status" id="funbox-status" data-ko="게임 모듈을 준비하고 있습니다." data-en="Preparing game modules.">게임 모듈을 준비하고 있습니다.</p>
@@ -161,6 +162,13 @@
       if (copied) { document.querySelector('#funbox-link-fallback').hidden = true; status.textContent = isEnglish() ? 'Copied the current game link.' : '현재 게임 링크를 복사했습니다.'; }
       else { const fallback = document.querySelector('#funbox-link-fallback'); fallback.value = link; fallback.hidden = false; status.textContent = isEnglish() ? 'Copy the link shown below manually.' : '아래 링크를 직접 선택해 복사해 주세요.'; }
       requestAnimationFrame(notifyHeight);
+    });
+
+    document.querySelector('#funbox-open-game').addEventListener('click', () => {
+      const module = modules.find((item) => item.id === activeId);
+      if (!module) return;
+      window.open(new URL(module.entry, registryUrl), '_blank', 'noopener');
+      status.textContent = isEnglish() ? `Opened ${module.label.en} in a new tab.` : `${module.label.ko} 게임을 새 탭에서 열었습니다.`;
     });
 
     addEventListener('message', (event) => {

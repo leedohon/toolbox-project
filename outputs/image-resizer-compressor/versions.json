@@ -4,7 +4,7 @@
   "title": "이미지 크기·압축·DPI 도구",
   "description": "이미지 크기·저장 품질을 바꾸거나 출력 크기에 맞는 DPI·PPI를 계산합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html",
-  "latestVersion": "1.6.0v",
+  "latestVersion": "1.7.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -149,6 +149,15 @@
       "directory": "1.6.0v",
       "html": "1.6.0v/image-resizer-compressor.html",
       "patchNotes": "1.6.0v/patch-notes.json"
+    },
+    {
+      "version": "1.7.0v",
+      "releaseDate": "2026-08-14",
+      "changeLevel": "minor",
+      "summary": "클립보드 이미지 붙여넣기",
+      "directory": "1.7.0v",
+      "html": "1.7.0v/image-resizer-compressor.html",
+      "patchNotes": "1.7.0v/patch-notes.json"
     }
   ],
   "status": "published"

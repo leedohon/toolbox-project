@@ -1,0 +1,9 @@
+{
+  "tool": "password-generator",
+  "version": "1.7.0v",
+  "releaseDate": "2026-08-14",
+  "changeLevel": "minor",
+  "changes": [
+    "생성한 비밀번호 묶음을 UTF-8 텍스트 파일로 저장할 수 있게 했습니다."
+  ]
+}

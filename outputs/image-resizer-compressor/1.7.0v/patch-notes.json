@@ -1,0 +1,9 @@
+{
+  "tool": "image-resizer-compressor",
+  "version": "1.7.0v",
+  "releaseDate": "2026-08-14",
+  "changeLevel": "minor",
+  "changes": [
+    "복사한 이미지를 버튼 또는 붙여넣기 동작으로 바로 불러올 수 있게 했습니다."
+  ]
+}

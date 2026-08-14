@@ -1,0 +1,9 @@
+{
+  "tool": "json-tools",
+  "version": "0.14.0v",
+  "releaseDate": "2026-08-14",
+  "changeLevel": "minor",
+  "changes": [
+    "중첩 JSON의 모든 값 경로를 JSON Pointer 형식으로 만들어 복사할 수 있게 했습니다."
+  ]
+}

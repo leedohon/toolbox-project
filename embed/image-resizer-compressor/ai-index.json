@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-12",
+  "updatedAt": "2026-08-14",
   "tool": "image-resizer-compressor",
   "index": 13,
   "title": "이미지 크기·압축·DPI 도구",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "1.6.0v",
+  "latestVersion": "1.7.0v",
   "paths": {
     "definition": "toolbox/tools/image-resizer-compressor.md",
     "post": "toolbox/posts/image-resizer-compressor.html",
@@ -22,7 +22,7 @@
         "ko": "크기·용량 변환",
         "en": "Resize & compress"
       },
-      "entry": "./engine.html?release=1.6.0v",
+      "entry": "./engine.html?release=1.7.0v",
       "messageTool": "image-resizer-compressor",
       "capabilities": {
         "resultCode": false,

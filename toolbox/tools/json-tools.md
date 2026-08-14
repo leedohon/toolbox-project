@@ -22,6 +22,7 @@ outputs:
 ---
 
 # 기능
+- 중첩 JSON의 모든 값 경로를 JSON Pointer 형식으로 복사
 - 한 줄에 JSON 값 하나씩 있는 JSON Lines 입력을 배열 JSON으로 합치기
 - 중첩 데이터가 포함된 API 응답 예제를 즉시 불러오기
 

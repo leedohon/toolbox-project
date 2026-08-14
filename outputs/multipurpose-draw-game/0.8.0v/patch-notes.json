@@ -1,0 +1,9 @@
+{
+  "tool": "multipurpose-draw-game",
+  "version": "0.8.0v",
+  "releaseDate": "2026-08-14",
+  "changeLevel": "minor",
+  "changes": [
+    "선택한 게임 모듈만 새 화면에서 바로 열 수 있게 했습니다."
+  ]
+}

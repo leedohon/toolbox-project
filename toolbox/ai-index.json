@@ -24,7 +24,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.11.0v",
+      "latestVersion": "0.12.0v",
       "paths": {
         "definition": "toolbox/tools/qr-barcode-generator.md",
         "post": "toolbox/posts/qr-barcode-generator.html",
@@ -40,7 +40,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.13.0v",
+      "latestVersion": "0.14.0v",
       "paths": {
         "definition": "toolbox/tools/json-tools.md",
         "post": "toolbox/posts/json-tools.html",
@@ -56,7 +56,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.6.0v",
+      "latestVersion": "1.7.0v",
       "paths": {
         "definition": "toolbox/tools/base64-tools.md",
         "post": "toolbox/posts/base64-tools.html",
@@ -184,7 +184,7 @@
       "category": "다용도 펀박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.7.0v",
+      "latestVersion": "0.8.0v",
       "paths": {
         "definition": "toolbox/tools/multipurpose-draw-game.md",
         "post": "toolbox/posts/multipurpose-draw-game.html",
@@ -200,7 +200,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.6.0v",
+      "latestVersion": "1.7.0v",
       "paths": {
         "definition": "toolbox/tools/password-generator.md",
         "post": "toolbox/posts/password-generator.html",
@@ -216,7 +216,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.6.0v",
+      "latestVersion": "1.7.0v",
       "paths": {
         "definition": "toolbox/tools/image-resizer-compressor.md",
         "post": "toolbox/posts/image-resizer-compressor.html",

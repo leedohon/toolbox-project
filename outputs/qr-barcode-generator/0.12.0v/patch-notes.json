@@ -1,0 +1,9 @@
+{
+  "tool": "qr-barcode-generator",
+  "version": "0.12.0v",
+  "releaseDate": "2026-08-14",
+  "changeLevel": "minor",
+  "changes": [
+    "이름·전화·이메일을 바꿔 바로 쓸 수 있는 vCard 연락처 QR 예제를 추가했습니다."
+  ]
+}

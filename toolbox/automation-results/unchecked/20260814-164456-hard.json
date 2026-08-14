@@ -1,0 +1,55 @@
+{
+  "runId": "20260814-164456-hard",
+  "workflow": "hard",
+  "status": "partial",
+  "confirm": "N",
+  "startedAt": "2026-08-14T16:44:56+09:00",
+  "completedAt": null,
+  "confirmedAt": null,
+  "summary": "공개 도구 6개 하드 워크플로를 진행 중입니다.",
+  "request": {
+    "workType": "hard",
+    "targets": ["qr-barcode-generator", "json-tools", "base64-tools", "multipurpose-draw-game", "password-generator", "image-resizer-compressor"],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
+  },
+  "selectedTools": ["qr-barcode-generator", "json-tools", "base64-tools", "multipurpose-draw-game", "password-generator", "image-resizer-compressor"],
+  "selectionBasis": "공개 카탈로그에서 최근 세 하드 회차 대상을 제외하고 다음 6개를 자동 선정",
+  "releasePlans": {
+    "qr-barcode-generator": {"level":"minor","summary":"연락처 QR 예제","changes":["이름·전화·이메일을 바꿔 바로 쓸 수 있는 vCard 연락처 QR 예제를 추가했습니다."]},
+    "json-tools": {"level":"minor","summary":"JSON 경로 목록 복사","changes":["중첩 JSON의 모든 값 경로를 JSON Pointer 형식으로 만들어 복사할 수 있게 했습니다."]},
+    "base64-tools": {"level":"minor","summary":"Data URL 내용 추출","changes":["Data URL에서 MIME 정보와 Base64 내용을 분리해 바로 디코딩할 수 있게 했습니다."]},
+    "multipurpose-draw-game": {"level":"minor","summary":"현재 게임 단독 열기","changes":["선택한 게임 모듈만 새 화면에서 바로 열 수 있게 했습니다."]},
+    "password-generator": {"level":"minor","summary":"비밀번호 묶음 파일 저장","changes":["생성한 비밀번호 묶음을 UTF-8 텍스트 파일로 저장할 수 있게 했습니다."]},
+    "image-resizer-compressor": {"level":"minor","summary":"클립보드 이미지 붙여넣기","changes":["복사한 이미지를 버튼 또는 붙여넣기 동작으로 바로 불러올 수 있게 했습니다."]}
+  },
+  "workCounts": {"improvements":6,"newOrMerge":3,"commonFixes":2},
+  "changes": ["vCard 연락처 QR 예제","JSON Pointer 값 경로 목록 복사","Data URL MIME·Base64 분리 디코딩","현재 뽑기게임 단독 열기","비밀번호 묶음 UTF-8 파일 저장","클립보드 이미지 붙여넣기","장문 직접 복사 영역 접근성 보강","동적 KOR / ENG 버튼 동기화"],
+  "newIdeas": ["JSON Pointer 값 경로 목록","Data URL 내용 추출","클립보드 이미지 붙여넣기"],
+  "commonModules": ["장문 직접 복사 영역 내부 스크롤·키보드 접근","동적 생성 버튼 KOR / ENG 즉시 동기화"],
+  "knownIssueMatches": ["IFRAME_HEIGHT_STALE", "IFRAME_HEIGHT_CAP_MISMATCH", "HIDDEN_GRID_OVERRIDE", "SHARED_ASSET_CACHE_STALE"],
+  "validation": ["대상 릴리스 6개와 모듈 레지스트리 4개 검사 통과","대상 ES 모듈 문법·공개 색인·구조 감사 통과","로컬 주소는 앱 브라우저 정책으로 차단되어 공개 HTTPS 배포 뒤 실제 조작 검증 예정"],
+  "blogger": {"created":[],"updated":["https://bloggiedh.blogspot.com/2026/07/blog-post.html","https://bloggiedh.blogspot.com/2026/07/json.html","https://bloggiedh.blogspot.com/2026/07/base64.html","https://bloggiedh.blogspot.com/2026/07/blog-post_15.html","https://bloggiedh.blogspot.com/2026/07/blog-post_103.html","https://bloggiedh.blogspot.com/2026/07/blog-post_106.html"],"skipped":[],"status":"completed"},
+  "git": {"branch":"main","commit":null,"pushed":false},
+  "deployment": {"status":"pending","urls":[]},
+  "shutdown": {"requested":false,"scheduled":false,"input":null,"scheduledFor":null,"cancelled":false},
+  "blocked": [],
+  "scopeExceptions": ["저가치 신규 페이지 없이 기존 공개 도구에 실용 기능을 통합"],
+  "runState": {
+    "current":"commit",
+    "stages": {
+      "select":{"status":"completed","startedAt":"2026-08-14T16:43:20+09:00","completedAt":"2026-08-14T16:44:56+09:00","evidence":["미확인 기록 22건 보고","최근 세 회차 대상 자동 제외","대상 스냅샷 지침 문자 88.07% 절감"],"blockCode":null},
+      "implement":{"status":"completed","startedAt":"2026-08-14T16:44:56+09:00","completedAt":"2026-08-14T16:54:00+09:00","evidence":["기능 6건·통합 기능 3건·공통 수정 2건 반영"],"blockCode":null},
+      "validate":{"status":"completed","startedAt":"2026-08-14T16:54:00+09:00","completedAt":"2026-08-14T16:57:00+09:00","evidence":["릴리스·모듈·문법·색인·공개 구조 검사 통과","공개 배포 뒤 실제 브라우저 조작 검증 예정"],"blockCode":null},
+      "publish":{"status":"completed","startedAt":"2026-08-14T16:57:00+09:00","completedAt":"2026-08-14T16:58:00+09:00","evidence":["Blogger 기존 LIVE 게시글 6개 갱신"],"blockCode":null},
+      "commit":{"status":"in_progress","startedAt":"2026-08-14T16:58:00+09:00","completedAt":null,"evidence":[],"blockCode":null},
+      "deploy":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},
+      "confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null}
+    }
+  },
+  "knowledgeOptimization": {"policyVersion":"0.27.0","applied":[],"summary":"현재 변경 경로와 겹치는 대기 항목 없음","skillValidation":"passed"},
+  "developmentTokenEfficiency": {"measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.8807,"overallReduction":null,"proxies":[{"metric":"target manifest and definition characters emitted for selection","before":42027,"after":5014,"reduction":0.8807}],"note":"전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."},
+  "reportHistory": [{"at":"2026-08-14T16:44:56+09:00","action":"started","note":"하드 워크플로 시작"},{"at":"2026-08-14T16:54:00+09:00","action":"implemented","note":"기능 6건·통합 기능 3건·공통 수정 2건 반영"},{"at":"2026-08-14T16:57:00+09:00","action":"validated","note":"릴리스·모듈·문법·색인·공개 구조 검사 통과"},{"at":"2026-08-14T16:58:00+09:00","action":"published","note":"Blogger 기존 LIVE 게시글 6개 갱신"}]
+}

@@ -1,0 +1,9 @@
+{
+  "tool": "base64-tools",
+  "version": "1.7.0v",
+  "releaseDate": "2026-08-14",
+  "changeLevel": "minor",
+  "changes": [
+    "Data URL에서 MIME 정보와 Base64 내용을 분리해 바로 디코딩할 수 있게 했습니다."
+  ]
+}

@@ -191,8 +191,8 @@
       <p class="tb-excel-meta" id="json-pointer-help" data-ko="빈칸은 전체 문서입니다. /로 시작하고 /는 ~1, ~는 ~0으로 씁니다." data-en="Leave blank for the whole document. Start with /; encode / as ~1 and ~ as ~0.">빈칸은 전체 문서입니다. /로 시작하고 /는 ~1, ~는 ~0으로 씁니다.</p>
       <p class="tb-error" id="json-pointer-error" role="alert"></p>
       <pre class="tb-query-result" id="json-pointer-result" aria-live="polite"></pre>
-      <div class="tb-actions"><button class="tb-secondary" id="json-pointer-copy" type="button" data-ko="찾은 값 복사" data-en="Copy found value">찾은 값 복사</button></div>
-      <textarea id="json-pointer-fallback" aria-label="직접 복사할 JSON Pointer 결과" readonly hidden></textarea>
+      <div class="tb-actions"><button class="tb-secondary" id="json-pointer-copy" type="button" data-ko="찾은 값 복사" data-en="Copy found value">찾은 값 복사</button><button class="tb-secondary" id="json-paths-copy" type="button" data-ko="모든 값 경로 복사" data-en="Copy all value paths">모든 값 경로 복사</button></div>
+      <textarea class="wf-long-output" id="json-pointer-fallback" role="region" tabindex="0" aria-label="직접 복사할 JSON Pointer 결과" readonly hidden></textarea>
     </section>
     <div class="tb-editors">
       <div class="tb-editor">
@@ -321,6 +321,18 @@
           return current[key];
         }, value);
       };
+      const pointerPaths = function (value) {
+        const paths = [];
+        const walk = function (current, path) {
+          if (current !== null && typeof current === 'object') {
+            const keys = Object.keys(current);
+            if (keys.length) { keys.forEach(function (key) { walk(current[key], path + '/' + key.replace(/~/g, '~0').replace(/\//g, '~1')); }); return; }
+          }
+          paths.push(path || '/');
+        };
+        walk(value, '');
+        return paths;
+      };
       const renderPointer = function () {
         const result = root.querySelector('#json-pointer-result');
         const pointerError = root.querySelector('#json-pointer-error');
@@ -419,6 +431,15 @@
         pointerError.textContent = '';
         try { await navigator.clipboard.writeText(value); fallback.hidden = true; setStatus('valid', tr('찾은 값을 복사했습니다.','Copied the found value.')); }
         catch (_) { fallback.value = value; fallback.hidden = false; setStatus('', tr('자동 복사가 차단되었습니다. 아래 값을 직접 선택해 복사해 주세요.','Automatic copying was blocked. Select the value below and copy it manually.')); }
+      });
+      root.querySelector('#json-paths-copy').addEventListener('click', async function () {
+        const pointerError = root.querySelector('#json-pointer-error');
+        const fallback = root.querySelector('#json-pointer-fallback');
+        if (!latestValid) { pointerError.textContent = tr('먼저 유효한 JSON을 입력해 주세요.','Enter valid JSON first.'); return; }
+        const value = pointerPaths(latestParsed).join('\n');
+        pointerError.textContent = '';
+        try { await navigator.clipboard.writeText(value); fallback.hidden = true; setStatus('valid', tr('모든 값 경로를 복사했습니다.','Copied all value paths.')); }
+        catch (_) { fallback.value = value; fallback.hidden = false; setStatus('', tr('자동 복사가 차단되었습니다. 아래 경로를 직접 복사해 주세요.','Automatic copying was blocked. Copy the paths shown below manually.')); }
       });
       const fileInput = root.querySelector('#json-file');
       const fileDrop = root.querySelector('#json-file-drop');

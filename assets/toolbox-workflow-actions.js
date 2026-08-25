@@ -66,6 +66,22 @@
     });
   });
 
+  const saveTargets = (script.dataset.saveTargets || '').split(';').map((entry) => entry.trim()).filter(Boolean);
+  saveTargets.forEach((entry) => {
+    const [selector, koLabel, enLabel, filename = 'toolbox-input.txt'] = entry.split('|');
+    const target = document.querySelector(selector);
+    if (!target) return;
+    makeButton(`${koLabel} 저장`, `Save ${enLabel}`, () => {
+      const blob = new Blob([target.value], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 0);
+    });
+  });
+
   if (actions.children.length) {
     const anchor = root.querySelector('.st-status, .st-result');
     if (anchor) anchor.before(actions);
@@ -75,10 +91,11 @@
   if (primary) {
     primary.setAttribute('aria-keyshortcuts', 'Control+Enter Meta+Enter');
     const help = document.createElement('p');
-    help.className = 'st-help';
+    help.className = root.matches('.mosaic-tool') ? 'mosaic-status' : 'st-help';
     help.dataset.workflowShortcut = '';
     help.textContent = tr('Ctrl/⌘ + Enter로 주요 동작을 실행할 수 있습니다.', 'Press Ctrl/⌘ + Enter to run the primary action.');
-    actions.after(help);
+    if (actions.isConnected) actions.after(help);
+    else (primary.closest('.st-actions, .mosaic-actions') || primary).after(help);
     addEventListener('keydown', (event) => {
       if (event.key !== 'Enter' || (!event.ctrlKey && !event.metaKey) || event.isComposing) return;
       event.preventDefault();

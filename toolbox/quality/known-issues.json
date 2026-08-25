@@ -3,6 +3,15 @@
   "updatedAt": "2026-08-03",
   "issues": [
     {
+      "code":"MOSAIC_PRESET_ROW_OVERFLOW","status":"guarded",
+      "summary":"모자이크 빠른 설정 버튼이 영문 전환된 모바일 화면에서 한 줄 flex 폭을 넘어 가로 스크롤을 만듦",
+      "fingerprints":["mosaic-sample","preset buttons","English labels","mobile overflow"],
+      "rootCause":"여러 100% 폭 버튼을 줄바꿈 없는 가로 flex 컨테이너에 배치함",
+      "fixContract":["빠른 설정 행은 줄바꿈을 허용","640px 이하에서는 버튼을 한 열로 배치","KOR/ENG 두 언어에서 문서 가로 넘침 0px 유지"],
+      "regressionChecks":["375px KOR/ENG에서 각 빠른 설정 버튼이 컨테이너 안에 있음","1280px에서 빠른 설정 버튼이 자연스럽게 줄바꿈됨","샘플 이미지 로드 뒤 편집기와 단축키 안내가 표시됨"],
+      "affectedPatterns":["assets/mosaic-tool.css","embed/image-mosaic-tool/index.html"]
+    },
+    {
       "code": "BLOGGER_ADSENSE_METADATA_STALE",
       "status": "guarded",
       "summary": "Blogger 관리 화면에서 자동 광고가 꺼져 있어도 공개 HTML의 adsenseAutoAds 메타데이터와 0x0 광고 초기화 프레임이 남을 수 있음",

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-12",
+  "updatedAt": "2026-08-26",
   "tool": "xml-formatter-validator",
   "index": 34,
   "title": "XML 검사·정리 도구",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.5.0v",
+  "latestVersion": "0.6.0v",
   "paths": {
     "definition": "toolbox/tools/xml-formatter-validator.md",
     "post": "toolbox/posts/xml-formatter-validator.html",

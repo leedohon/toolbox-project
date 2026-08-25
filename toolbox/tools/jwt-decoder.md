@@ -11,6 +11,7 @@ inputs:
 ---
 
 ## 기능
+- JWT 텍스트 파일 불러오기·저장과 Ctrl/⌘+Enter 내용 열기
 
 - Base64URL 디코딩
 - 헤더·페이로드 JSON

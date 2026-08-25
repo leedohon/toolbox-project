@@ -12,7 +12,7 @@ body { margin: 0; padding: clamp(6px, 1.8vw, 16px); background: #fff; overflow-x
 .mosaic-drop strong { display: block; margin-bottom: 6px; color: var(--mosaic-ink); font-size: 1.05rem; }
 .mosaic-drop-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; margin-top: 14px; padding: 0 18px; color: #fff; background: var(--mosaic-sky); border-radius: .5rem; font-weight: 800; }
 .mosaic-file { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
-.mosaic-sample { display: flex; justify-content: center; margin-top: 10px; }
+.mosaic-sample { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
 .mosaic-status { min-height: 28px; margin: 14px 0 0; padding: 7px 11px; color: var(--mosaic-muted); background: #f4f8fa; border-radius: 10px; font-size: .9rem; font-weight: 700; }
 .mosaic-status.is-error { color: var(--mosaic-bad); background: #fff0f0; }
 .mosaic-status.is-good { color: var(--mosaic-good); background: #e8f8f1; }
@@ -44,5 +44,5 @@ body { margin: 0; padding: clamp(6px, 1.8vw, 16px); background: #fff; overflow-x
 .mosaic-secondary { color: #111; background: #fff; border-color: #b9c7cd !important; }
 .mosaic-tool button:disabled { opacity: .48; cursor: not-allowed; }
 .mosaic-tool input:focus-visible, .mosaic-tool button:focus-visible, .mosaic-drop:focus-visible { outline: 3px solid #a8e3fb; outline-offset: 2px; }
-@media (max-width: 640px) { .mosaic-tool { padding: 14px; } .mosaic-controls { grid-template-columns: 1fr; } .mosaic-actions button { flex: 1 1 130px; } .mosaic-sample button { width: 100%; } .mosaic-drop { min-height: 145px; padding: 18px; } .mosaic-stage { padding: 5px; } }
+@media (max-width: 640px) { .mosaic-tool { padding: 14px; } .mosaic-controls { grid-template-columns: 1fr; } .mosaic-actions button { flex: 1 1 130px; } .mosaic-sample { flex-direction: column; } .mosaic-sample button { width: 100%; } .mosaic-drop { min-height: 145px; padding: 18px; } .mosaic-stage { padding: 5px; } }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { transition-duration: .01ms !important; } }

@@ -4,7 +4,7 @@
   "title": "JWT 내용 확인기",
   "description": "JWT의 헤더와 페이로드를 서명 검증 없이 브라우저에서 읽기 좋게 확인합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/jwt.html",
-  "latestVersion": "0.5.0v",
+  "latestVersion": "0.6.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -95,6 +95,15 @@
       "directory": "0.5.0v",
       "html": "0.5.0v/jwt-decoder.html",
       "patchNotes": "0.5.0v/patch-notes.json"
+    },
+    {
+      "version": "0.6.0v",
+      "releaseDate": "2026-08-26",
+      "changeLevel": "minor",
+      "summary": "JWT 파일 입출력",
+      "directory": "0.6.0v",
+      "html": "0.6.0v/jwt-decoder.html",
+      "patchNotes": "0.6.0v/patch-notes.json"
     }
   ]
 }

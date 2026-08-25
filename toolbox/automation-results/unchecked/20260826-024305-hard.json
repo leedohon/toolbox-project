@@ -1,30 +1,278 @@
 {
   "runId": "20260826-024305-hard",
   "workflow": "hard",
-  "status": "partial",
+  "status": "completed",
   "confirm": "N",
   "startedAt": "2026-08-26T02:43:05+09:00",
-  "completedAt": null,
+  "completedAt": "2026-08-26T03:00:08+09:00",
   "confirmedAt": null,
   "summary": "1회차 완료: 공개 도구 6개에 키보드 실행·안전 초기화·텍스트 파일 불러오기를 적용하고 Blogger 공개 갱신과 반응형 검증을 마쳤습니다.",
-  "request": {"workType":"hard","targets":["color-converter-contrast","text-diff-checker","markdown-preview-converter","csv-table-converter","regex-tester","hash-generator"],"versionLevel":"minor","blogger":"update-existing","gitDeployment":"independent","shutdown":"none"},
-  "selectedTools": ["color-converter-contrast","text-diff-checker","markdown-preview-converter","csv-table-converter","regex-tester","hash-generator"],
+  "request": {
+    "workType": "hard",
+    "targets": [
+      "color-converter-contrast",
+      "text-diff-checker",
+      "markdown-preview-converter",
+      "csv-table-converter",
+      "regex-tester",
+      "hash-generator"
+    ],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
+  },
+  "selectedTools": [
+    "color-converter-contrast",
+    "text-diff-checker",
+    "markdown-preview-converter",
+    "csv-table-converter",
+    "regex-tester",
+    "hash-generator"
+  ],
   "selectionBasis": "최근 세 하드 회차 대상 18개를 제외하고 남은 공개 도구 6개를 자동 선정",
   "releasePlans": {
-    "color-converter-contrast":{"level":"minor","summary":"키보드 복사와 입력 초기화","changes":["Ctrl/⌘+Enter로 변환값·CSS를 복사하고 현재 색상 입력을 안전하게 초기화할 수 있게 했습니다."]},
-    "text-diff-checker":{"level":"minor","summary":"원문·수정문 파일 불러오기","changes":["원문과 수정문을 각각 1MB 이하 텍스트 파일에서 불러오고 Ctrl/⌘+Enter로 비교할 수 있게 했습니다."]},
-    "markdown-preview-converter":{"level":"minor","summary":"마크다운 파일 불러오기","changes":["1MB 이하 마크다운·텍스트 파일을 불러오고 Ctrl/⌘+Enter로 HTML을 복사할 수 있게 했습니다."]},
-    "csv-table-converter":{"level":"minor","summary":"키보드 변환과 입력 초기화","changes":["Ctrl/⌘+Enter로 변환 결과를 복사하고 입력·옵션을 한 번에 초기화할 수 있게 했습니다."]},
-    "regex-tester":{"level":"minor","summary":"테스트 문장 파일 불러오기","changes":["1MB 이하 텍스트 파일을 테스트 문장으로 불러오고 Ctrl/⌘+Enter로 정규식을 실행할 수 있게 했습니다."]},
-    "hash-generator":{"level":"minor","summary":"키보드 해시 계산","changes":["Ctrl/⌘+Enter로 선택한 알고리즘의 해시 계산을 바로 실행할 수 있게 했습니다."]}
+    "color-converter-contrast": {
+      "level": "minor",
+      "summary": "키보드 복사와 입력 초기화",
+      "changes": [
+        "Ctrl/⌘+Enter로 변환값·CSS를 복사하고 현재 색상 입력을 안전하게 초기화할 수 있게 했습니다."
+      ]
+    },
+    "text-diff-checker": {
+      "level": "minor",
+      "summary": "원문·수정문 파일 불러오기",
+      "changes": [
+        "원문과 수정문을 각각 1MB 이하 텍스트 파일에서 불러오고 Ctrl/⌘+Enter로 비교할 수 있게 했습니다."
+      ]
+    },
+    "markdown-preview-converter": {
+      "level": "minor",
+      "summary": "마크다운 파일 불러오기",
+      "changes": [
+        "1MB 이하 마크다운·텍스트 파일을 불러오고 Ctrl/⌘+Enter로 HTML을 복사할 수 있게 했습니다."
+      ]
+    },
+    "csv-table-converter": {
+      "level": "minor",
+      "summary": "키보드 변환과 입력 초기화",
+      "changes": [
+        "Ctrl/⌘+Enter로 변환 결과를 복사하고 입력·옵션을 한 번에 초기화할 수 있게 했습니다."
+      ]
+    },
+    "regex-tester": {
+      "level": "minor",
+      "summary": "테스트 문장 파일 불러오기",
+      "changes": [
+        "1MB 이하 텍스트 파일을 테스트 문장으로 불러오고 Ctrl/⌘+Enter로 정규식을 실행할 수 있게 했습니다."
+      ]
+    },
+    "hash-generator": {
+      "level": "minor",
+      "summary": "키보드 해시 계산",
+      "changes": [
+        "Ctrl/⌘+Enter로 선택한 알고리즘의 해시 계산을 바로 실행할 수 있게 했습니다."
+      ]
+    }
   },
-  "workCounts":{"improvements":6,"newOrMerge":3,"commonFixes":2},
-  "changes":["CSS 변환값 키보드 복사·입력 초기화","원문·수정문 파일 불러오기","마크다운 파일 불러오기","CSV 키보드 변환·입력 초기화","정규식 테스트 문장 파일 불러오기","키보드 해시 계산"],"newIdeas":["원문·수정문 개별 파일 불러오기","마크다운 파일 불러오기","정규식 테스트 문장 파일 불러오기"],"commonModules":["Ctrl/⌘+Enter 주요 동작과 aria-keyshortcuts","모바일 무포커스 초기화·파일 불러오기와 KOR/ENG 동기화"],"knownIssueMatches":["PORTRAIT_LONG_TEXT_SQUEEZE","IFRAME_HEIGHT_STALE","IFRAME_HEIGHT_CAP_MISMATCH","SHARED_ASSET_CACHE_STALE"],"validation":["대상 릴리스 84개 JSON·최신 경로, 모듈 12개, ES 모듈 6개, 인라인 스크립트 6개 검사 통과","375×812와 1280×900에서 여섯 도구 가로 넘침 0px, 단축키 접근성 속성 확인","텍스트 비교 입력 두 개가 모바일·데스크톱 모두 같은 left 위치와 위/아래 순서를 유지","브라우저 조작 재검사 중 연결 시간 초과 2회가 있었으나 최초 전체 레이아웃·콘솔 검사 결과는 정상"],
-  "blogger":{"created":[],"updated":["https://bloggiedh.blogspot.com/2026/07/blog-post_554.html","https://bloggiedh.blogspot.com/2026/07/blog-post_912.html","https://bloggiedh.blogspot.com/2026/07/html.html","https://bloggiedh.blogspot.com/2026/07/csv.html","https://bloggiedh.blogspot.com/2026/07/blog-post_18.html","https://bloggiedh.blogspot.com/2026/07/blog-post_950.html"],"skipped":[],"status":"completed"},
-  "git":{"branch":"main","commit":null,"pushed":false},"deployment":{"status":"pending","urls":[]},
-  "shutdown":{"requested":false,"scheduled":false,"input":null,"scheduledFor":null,"cancelled":false},"blocked":[],"scopeExceptions":["저가치 신규 페이지 대신 기존 공개 도구에 실사용 기능을 통합"],
-  "runState":{"current":"commit","stages":{"select":{"status":"completed","startedAt":"2026-08-26T02:41:14+09:00","completedAt":"2026-08-26T02:43:05+09:00","evidence":["미확인 기록 23건 보고","최근 세 회차 대상 자동 제외","대상 스냅샷 지침 문자 83.61% 절감"],"blockCode":null},"implement":{"status":"completed","startedAt":"2026-08-26T02:43:05+09:00","completedAt":"2026-08-26T02:48:00+09:00","evidence":["개선 6건·통합 기능 3건·공통 수정 2건 반영"],"blockCode":null},"validate":{"status":"completed","startedAt":"2026-08-26T02:48:00+09:00","completedAt":"2026-08-26T02:52:00+09:00","evidence":["대상 릴리스·모듈·문법·색인·반응형 검사 통과"],"blockCode":null},"publish":{"status":"completed","startedAt":"2026-08-26T02:52:00+09:00","completedAt":"2026-08-26T02:53:03+09:00","evidence":["Blogger 기존 LIVE 게시글 6개 갱신"],"blockCode":null},"commit":{"status":"in_progress","startedAt":"2026-08-26T02:53:03+09:00","completedAt":null,"evidence":[],"blockCode":null},"deploy":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null}}},
-  "knowledgeOptimization":{"policyVersion":"0.28.0","applied":["OPT-032"],"summary":"여섯 도구의 키보드·초기화·파일 불러오기 구현을 선언형 공통 자산 하나로 축약","skillValidation":"passed"},
-  "developmentTokenEfficiency":{"measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.8361,"overallReduction":null,"proxies":[{"metric":"target manifest and definition characters emitted for selection","before":26603,"after":4359,"reduction":0.8361},{"metric":"per-tool keyboard, reset and file-import implementations","before":6,"after":1,"reduction":0.8333}],"note":"전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."},
-  "reportHistory":[{"at":"2026-08-26T02:43:05+09:00","action":"started","note":"하드 워크플로 1회차 시작"},{"at":"2026-08-26T02:48:00+09:00","action":"implemented","note":"개선 6건·통합 기능 3건·공통 수정 2건 반영"},{"at":"2026-08-26T02:52:00+09:00","action":"validated","note":"대상 검사와 모바일·데스크톱 레이아웃 검증 통과"},{"at":"2026-08-26T02:53:03+09:00","action":"published","note":"Blogger 기존 LIVE 게시글 6개 갱신"}]
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "CSS 변환값 키보드 복사·입력 초기화",
+    "원문·수정문 파일 불러오기",
+    "마크다운 파일 불러오기",
+    "CSV 키보드 변환·입력 초기화",
+    "정규식 테스트 문장 파일 불러오기",
+    "키보드 해시 계산"
+  ],
+  "newIdeas": [
+    "원문·수정문 개별 파일 불러오기",
+    "마크다운 파일 불러오기",
+    "정규식 테스트 문장 파일 불러오기"
+  ],
+  "commonModules": [
+    "Ctrl/⌘+Enter 주요 동작과 aria-keyshortcuts",
+    "모바일 무포커스 초기화·파일 불러오기와 KOR/ENG 동기화"
+  ],
+  "knownIssueMatches": [
+    "PORTRAIT_LONG_TEXT_SQUEEZE",
+    "IFRAME_HEIGHT_STALE",
+    "IFRAME_HEIGHT_CAP_MISMATCH",
+    "SHARED_ASSET_CACHE_STALE"
+  ],
+  "validation": [
+    "대상 릴리스 84개 JSON·최신 경로, 모듈 12개, ES 모듈 6개, 인라인 스크립트 6개 검사 통과",
+    "375×812와 1280×900에서 여섯 도구 가로 넘침 0px, 단축키 접근성 속성 확인",
+    "텍스트 비교 입력 두 개가 모바일·데스크톱 모두 같은 left 위치와 위/아래 순서를 유지",
+    "브라우저 조작 재검사 중 연결 시간 초과 2회가 있었으나 최초 전체 레이아웃·콘솔 검사 결과는 정상",
+    "공개 배포 대상 확인"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_912.html",
+      "https://bloggiedh.blogspot.com/2026/07/html.html",
+      "https://bloggiedh.blogspot.com/2026/07/csv.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_18.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "962b7c8a07c4031e04266a4b4af02bb2cfe3bf94",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 32880681014,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/color-converter-contrast/",
+      "https://leedohon.github.io/toolbox-project/embed/text-diff-checker/",
+      "https://leedohon.github.io/toolbox-project/embed/markdown-preview-converter/",
+      "https://leedohon.github.io/toolbox-project/embed/csv-table-converter/",
+      "https://leedohon.github.io/toolbox-project/embed/regex-tester/",
+      "https://leedohon.github.io/toolbox-project/embed/hash-generator/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "scopeExceptions": [
+    "저가치 신규 페이지 대신 기존 공개 도구에 실사용 기능을 통합"
+  ],
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-08-26T02:41:14+09:00",
+        "completedAt": "2026-08-26T02:43:05+09:00",
+        "evidence": [
+          "미확인 기록 23건 보고",
+          "최근 세 회차 대상 자동 제외",
+          "대상 스냅샷 지침 문자 83.61% 절감"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-08-26T02:43:05+09:00",
+        "completedAt": "2026-08-26T02:48:00+09:00",
+        "evidence": [
+          "개선 6건·통합 기능 3건·공통 수정 2건 반영"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-08-26T02:48:00+09:00",
+        "completedAt": "2026-08-26T02:52:00+09:00",
+        "evidence": [
+          "대상 릴리스·모듈·문법·색인·반응형 검사 통과"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-08-26T02:52:00+09:00",
+        "completedAt": "2026-08-26T02:53:03+09:00",
+        "evidence": [
+          "Blogger 기존 LIVE 게시글 6개 갱신"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-08-26T02:53:03+09:00",
+        "completedAt": "2026-08-26T03:00:08+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-08-26T02:43:05+09:00",
+        "completedAt": "2026-08-26T03:00:08+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "in_progress",
+        "startedAt": "2026-08-26T03:00:08+09:00",
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      }
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.28.0",
+    "applied": [
+      "OPT-032"
+    ],
+    "summary": "여섯 도구의 키보드·초기화·파일 불러오기 구현을 선언형 공통 자산 하나로 축약",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": 0.8361,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "target manifest and definition characters emitted for selection",
+        "before": 26603,
+        "after": 4359,
+        "reduction": 0.8361
+      },
+      {
+        "metric": "per-tool keyboard, reset and file-import implementations",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      }
+    ],
+    "note": "전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
+  },
+  "reportHistory": [
+    {
+      "at": "2026-08-26T02:43:05+09:00",
+      "action": "started",
+      "note": "하드 워크플로 1회차 시작"
+    },
+    {
+      "at": "2026-08-26T02:48:00+09:00",
+      "action": "implemented",
+      "note": "개선 6건·통합 기능 3건·공통 수정 2건 반영"
+    },
+    {
+      "at": "2026-08-26T02:52:00+09:00",
+      "action": "validated",
+      "note": "대상 검사와 모바일·데스크톱 레이아웃 검증 통과"
+    },
+    {
+      "at": "2026-08-26T02:53:03+09:00",
+      "action": "published",
+      "note": "Blogger 기존 LIVE 게시글 6개 갱신"
+    }
+  ]
 }

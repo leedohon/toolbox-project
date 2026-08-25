@@ -1,22 +1,279 @@
 {
-  "runId":"20260826-030515-hard","workflow":"hard","status":"partial","confirm":"N","startedAt":"2026-08-26T03:05:15+09:00","completedAt":null,"confirmedAt":null,
-  "summary":"3회차 완료: 공개 도구 6개에 키보드 실행·원문 불러오기·결과 파일 저장과 가까운 파일 오류 안내를 적용했습니다.",
-  "request":{"workType":"hard","targets":["http-status-lookup","text-extractor-tool","web-meta-preview-builder","loan-savings-calculator","ip-network-calculator","coordinate-distance-calculator"],"versionLevel":"minor","blogger":"update-existing","gitDeployment":"independent","shutdown":"none"},
-  "selectedTools":["http-status-lookup","text-extractor-tool","web-meta-preview-builder","loan-savings-calculator","ip-network-calculator","coordinate-distance-calculator"],
-  "selectionBasis":"앞선 두 회차와 직전 하드 회차 대상을 제외한 공개 도구 6개 자동 선정",
-  "releasePlans":{
-    "http-status-lookup":{"level":"minor","summary":"키보드 상태 조회","changes":["Ctrl/⌘+Enter로 현재 HTTP 상태 조회를 실행하고 단축키를 화면에 안내합니다."]},
-    "text-extractor-tool":{"level":"minor","summary":"추출 원문 파일 불러오기","changes":["1MB 이하 텍스트 파일을 추출 원문으로 불러오고 Ctrl/⌘+Enter로 정보를 추출할 수 있게 했습니다."]},
-    "web-meta-preview-builder":{"level":"minor","summary":"메타 결과 파일 저장","changes":["생성한 검색·공유 미리보기와 메타 태그 결과를 UTF-8 텍스트 파일로 저장할 수 있게 했습니다.","Ctrl/⌘+Enter로 미리보기를 만듭니다."]},
-    "loan-savings-calculator":{"level":"minor","summary":"키보드 금액 계산","changes":["Ctrl/⌘+Enter로 선택한 유형의 금액 계산을 실행하고 단축키를 화면에 안내합니다."]},
-    "ip-network-calculator":{"level":"minor","summary":"네트워크 결과 파일 저장","changes":["계산한 IP·네트워크 결과를 UTF-8 텍스트 파일로 저장할 수 있게 했습니다.","Ctrl/⌘+Enter로 주소 계산을 실행합니다."]},
-    "coordinate-distance-calculator":{"level":"minor","summary":"좌표 결과 파일 저장","changes":["계산한 좌표·거리 결과를 UTF-8 텍스트 파일로 저장할 수 있게 했습니다.","Ctrl/⌘+Enter로 좌표 계산을 실행합니다."]}
+  "runId": "20260826-030515-hard",
+  "workflow": "hard",
+  "status": "completed",
+  "confirm": "N",
+  "startedAt": "2026-08-26T03:05:15+09:00",
+  "completedAt": "2026-08-26T03:12:17+09:00",
+  "confirmedAt": null,
+  "summary": "3회차 완료: 공개 도구 6개에 키보드 실행·원문 불러오기·결과 파일 저장과 가까운 파일 오류 안내를 적용했습니다.",
+  "request": {
+    "workType": "hard",
+    "targets": [
+      "http-status-lookup",
+      "text-extractor-tool",
+      "web-meta-preview-builder",
+      "loan-savings-calculator",
+      "ip-network-calculator",
+      "coordinate-distance-calculator"
+    ],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
   },
-  "workCounts":{"improvements":6,"newOrMerge":3,"commonFixes":2},"changes":["HTTP 상태 키보드 조회","텍스트 추출 원문 파일 불러오기","웹 메타 결과 TXT 저장","대출·저축 키보드 계산","IP·네트워크 결과 TXT 저장","좌표·거리 결과 TXT 저장"],"newIdeas":["웹 메타 결과 파일 저장","IP·네트워크 결과 파일 저장","좌표·거리 결과 파일 저장"],"commonModules":["파일 불러오기·저장 성공과 오류의 가까운 인라인 안내","빈 결과 저장 차단과 18개 참조의 공통 자산 캐시 일괄 갱신"],"knownIssueMatches":["IFRAME_HEIGHT_STALE","IFRAME_HEIGHT_CAP_MISMATCH","SHARED_ASSET_CACHE_STALE"],"validation":["대상 릴리스 60개 JSON·최신 경로, 모듈 10개, ES 모듈 6개, 게시글 인라인 스크립트 검사 통과","375×812와 1280×900에서 여섯 도구 가로 넘침 0px, 단축키 안내와 상태 영역 확인","웹 메타 2,528자·네트워크 224자·좌표 100자 결과 생성 뒤 각각 파일 저장 성공 문구 확인","브라우저 콘솔 경고·오류 0건"],
-  "blogger":{"created":[],"updated":["https://bloggiedh.blogspot.com/2026/07/http.html","https://bloggiedh.blogspot.com/2026/08/blog-post.html","https://bloggiedh.blogspot.com/2026/08/blog-post_03.html","https://bloggiedh.blogspot.com/2026/08/blog-post_578.html","https://bloggiedh.blogspot.com/2026/08/ip.html","https://bloggiedh.blogspot.com/2026/08/blog-post_08.html"],"skipped":[],"status":"completed"},"git":{"branch":"main","commit":null,"pushed":false},"deployment":{"status":"pending","urls":[]},
-  "shutdown":{"requested":false,"scheduled":false,"input":null,"scheduledFor":null,"cancelled":false},"blocked":[],"scopeExceptions":["저가치 신규 페이지 대신 기존 공개 도구에 실사용 기능을 통합"],
-  "runState":{"current":"commit","stages":{"select":{"status":"completed","startedAt":"2026-08-26T03:04:27+09:00","completedAt":"2026-08-26T03:05:15+09:00","evidence":["앞선 두 회차와 직전 회차 대상 제외","대상 스냅샷 지침 문자 78.76% 절감"],"blockCode":null},"implement":{"status":"completed","startedAt":"2026-08-26T03:05:15+09:00","completedAt":"2026-08-26T03:07:00+09:00","evidence":["개선 6건·통합 기능 3건·공통 수정 2건 반영"],"blockCode":null},"validate":{"status":"completed","startedAt":"2026-08-26T03:07:00+09:00","completedAt":"2026-08-26T03:09:00+09:00","evidence":["대상 검사·모바일·데스크톱·파일 저장 조작 통과"],"blockCode":null},"publish":{"status":"completed","startedAt":"2026-08-26T03:09:00+09:00","completedAt":"2026-08-26T03:09:57+09:00","evidence":["Blogger 기존 LIVE 게시글 6개 갱신"],"blockCode":null},"commit":{"status":"in_progress","startedAt":"2026-08-26T03:09:57+09:00","completedAt":null,"evidence":[],"blockCode":null},"deploy":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null}}},
-  "knowledgeOptimization":{"policyVersion":"0.30.0","applied":["OPT-034"],"summary":"파일 입출력 오류·성공 안내를 공통 인라인 상태 처리로 통합","skillValidation":"passed"},
-  "developmentTokenEfficiency":{"measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.7876,"overallReduction":null,"proxies":[{"metric":"target manifest and definition characters emitted for selection","before":20604,"after":4377,"reduction":0.7876},{"metric":"per-tool file status and empty-save implementations","before":6,"after":1,"reduction":0.8333}],"note":"전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."},
-  "reportHistory":[{"at":"2026-08-26T03:05:15+09:00","action":"started","note":"하드 워크플로 3회차 시작"},{"at":"2026-08-26T03:07:00+09:00","action":"implemented","note":"개선 6건·통합 기능 3건·공통 수정 2건 반영"},{"at":"2026-08-26T03:09:00+09:00","action":"validated","note":"대상 검사·모바일·데스크톱·파일 저장 조작 통과"},{"at":"2026-08-26T03:09:57+09:00","action":"published","note":"Blogger 기존 LIVE 게시글 6개 갱신"}]
+  "selectedTools": [
+    "http-status-lookup",
+    "text-extractor-tool",
+    "web-meta-preview-builder",
+    "loan-savings-calculator",
+    "ip-network-calculator",
+    "coordinate-distance-calculator"
+  ],
+  "selectionBasis": "앞선 두 회차와 직전 하드 회차 대상을 제외한 공개 도구 6개 자동 선정",
+  "releasePlans": {
+    "http-status-lookup": {
+      "level": "minor",
+      "summary": "키보드 상태 조회",
+      "changes": [
+        "Ctrl/⌘+Enter로 현재 HTTP 상태 조회를 실행하고 단축키를 화면에 안내합니다."
+      ]
+    },
+    "text-extractor-tool": {
+      "level": "minor",
+      "summary": "추출 원문 파일 불러오기",
+      "changes": [
+        "1MB 이하 텍스트 파일을 추출 원문으로 불러오고 Ctrl/⌘+Enter로 정보를 추출할 수 있게 했습니다."
+      ]
+    },
+    "web-meta-preview-builder": {
+      "level": "minor",
+      "summary": "메타 결과 파일 저장",
+      "changes": [
+        "생성한 검색·공유 미리보기와 메타 태그 결과를 UTF-8 텍스트 파일로 저장할 수 있게 했습니다.",
+        "Ctrl/⌘+Enter로 미리보기를 만듭니다."
+      ]
+    },
+    "loan-savings-calculator": {
+      "level": "minor",
+      "summary": "키보드 금액 계산",
+      "changes": [
+        "Ctrl/⌘+Enter로 선택한 유형의 금액 계산을 실행하고 단축키를 화면에 안내합니다."
+      ]
+    },
+    "ip-network-calculator": {
+      "level": "minor",
+      "summary": "네트워크 결과 파일 저장",
+      "changes": [
+        "계산한 IP·네트워크 결과를 UTF-8 텍스트 파일로 저장할 수 있게 했습니다.",
+        "Ctrl/⌘+Enter로 주소 계산을 실행합니다."
+      ]
+    },
+    "coordinate-distance-calculator": {
+      "level": "minor",
+      "summary": "좌표 결과 파일 저장",
+      "changes": [
+        "계산한 좌표·거리 결과를 UTF-8 텍스트 파일로 저장할 수 있게 했습니다.",
+        "Ctrl/⌘+Enter로 좌표 계산을 실행합니다."
+      ]
+    }
+  },
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "HTTP 상태 키보드 조회",
+    "텍스트 추출 원문 파일 불러오기",
+    "웹 메타 결과 TXT 저장",
+    "대출·저축 키보드 계산",
+    "IP·네트워크 결과 TXT 저장",
+    "좌표·거리 결과 TXT 저장"
+  ],
+  "newIdeas": [
+    "웹 메타 결과 파일 저장",
+    "IP·네트워크 결과 파일 저장",
+    "좌표·거리 결과 파일 저장"
+  ],
+  "commonModules": [
+    "파일 불러오기·저장 성공과 오류의 가까운 인라인 안내",
+    "빈 결과 저장 차단과 18개 참조의 공통 자산 캐시 일괄 갱신"
+  ],
+  "knownIssueMatches": [
+    "IFRAME_HEIGHT_STALE",
+    "IFRAME_HEIGHT_CAP_MISMATCH",
+    "SHARED_ASSET_CACHE_STALE"
+  ],
+  "validation": [
+    "대상 릴리스 60개 JSON·최신 경로, 모듈 10개, ES 모듈 6개, 게시글 인라인 스크립트 검사 통과",
+    "375×812와 1280×900에서 여섯 도구 가로 넘침 0px, 단축키 안내와 상태 영역 확인",
+    "웹 메타 2,528자·네트워크 224자·좌표 100자 결과 생성 뒤 각각 파일 저장 성공 문구 확인",
+    "브라우저 콘솔 경고·오류 0건",
+    "공개 배포 대상 확인"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/http.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post_03.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post_578.html",
+      "https://bloggiedh.blogspot.com/2026/08/ip.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post_08.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "bfa701f674a1c410c65d5fa4fe5815f40f838b54",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 32882270964,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/http-status-lookup/",
+      "https://leedohon.github.io/toolbox-project/embed/text-extractor-tool/",
+      "https://leedohon.github.io/toolbox-project/embed/web-meta-preview-builder/",
+      "https://leedohon.github.io/toolbox-project/embed/loan-savings-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/ip-network-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/coordinate-distance-calculator/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "scopeExceptions": [
+    "저가치 신규 페이지 대신 기존 공개 도구에 실사용 기능을 통합"
+  ],
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-08-26T03:04:27+09:00",
+        "completedAt": "2026-08-26T03:05:15+09:00",
+        "evidence": [
+          "앞선 두 회차와 직전 회차 대상 제외",
+          "대상 스냅샷 지침 문자 78.76% 절감"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-08-26T03:05:15+09:00",
+        "completedAt": "2026-08-26T03:07:00+09:00",
+        "evidence": [
+          "개선 6건·통합 기능 3건·공통 수정 2건 반영"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-08-26T03:07:00+09:00",
+        "completedAt": "2026-08-26T03:09:00+09:00",
+        "evidence": [
+          "대상 검사·모바일·데스크톱·파일 저장 조작 통과"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-08-26T03:09:00+09:00",
+        "completedAt": "2026-08-26T03:09:57+09:00",
+        "evidence": [
+          "Blogger 기존 LIVE 게시글 6개 갱신"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-08-26T03:09:57+09:00",
+        "completedAt": "2026-08-26T03:12:17+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-08-26T03:05:15+09:00",
+        "completedAt": "2026-08-26T03:12:17+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "in_progress",
+        "startedAt": "2026-08-26T03:12:17+09:00",
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      }
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.30.0",
+    "applied": [
+      "OPT-034"
+    ],
+    "summary": "파일 입출력 오류·성공 안내를 공통 인라인 상태 처리로 통합",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": 0.7876,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "target manifest and definition characters emitted for selection",
+        "before": 20604,
+        "after": 4377,
+        "reduction": 0.7876
+      },
+      {
+        "metric": "per-tool file status and empty-save implementations",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      }
+    ],
+    "note": "전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
+  },
+  "reportHistory": [
+    {
+      "at": "2026-08-26T03:05:15+09:00",
+      "action": "started",
+      "note": "하드 워크플로 3회차 시작"
+    },
+    {
+      "at": "2026-08-26T03:07:00+09:00",
+      "action": "implemented",
+      "note": "개선 6건·통합 기능 3건·공통 수정 2건 반영"
+    },
+    {
+      "at": "2026-08-26T03:09:00+09:00",
+      "action": "validated",
+      "note": "대상 검사·모바일·데스크톱·파일 저장 조작 통과"
+    },
+    {
+      "at": "2026-08-26T03:09:57+09:00",
+      "action": "published",
+      "note": "Blogger 기존 LIVE 게시글 6개 갱신"
+    }
+  ]
 }

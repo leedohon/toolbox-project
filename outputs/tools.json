@@ -710,7 +710,7 @@
       "title": "개발자 빠른 참조·검사 도구",
       "description": "HTTP·MIME·Cron·chmod 정보를 찾고 ISBN 체크 숫자를 한곳에서 검사합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/07/http.html",
-      "version": "1.5.0v",
+      "version": "1.6.0v",
       "keywords": [
         "개발자도구",
         "HTTP상태코드",
@@ -750,7 +750,7 @@
       "title": "텍스트 정보 추출기",
       "description": "긴 글에서 이메일, URL·도메인, 전화번호 또는 해시태그·멘션을 골라 중복 없이 정리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/08/blog-post.html",
-      "version": "0.5.0v",
+      "version": "0.6.0v",
       "keywords": [
         "텍스트추출",
         "이메일추출",
@@ -790,7 +790,7 @@
       "title": "웹 메타·공유 미리보기",
       "description": "웹페이지 제목과 설명, 주소와 이미지를 입력해 검색·공유 미리보기와 메타 태그를 함께 만듭니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/08/blog-post_03.html",
-      "version": "0.7.0v",
+      "version": "0.8.0v",
       "keywords": [
         "메타태그",
         "OpenGraph",
@@ -829,7 +829,7 @@
       "title": "대출·저축 계산기",
       "description": "대출 상환액과 복리 성장, 월 적립식 예상액과 목표 금액에 필요한 납입액을 계산합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/08/blog-post_578.html",
-      "version": "0.4.0v",
+      "version": "0.5.0v",
       "keywords": [
         "대출계산",
         "저축계산",
@@ -868,7 +868,7 @@
       "title": "IP·네트워크 주소 도구",
       "description": "IPv4 CIDR과 마스크, 주소 범위와 MAC 주소를 계산·검사하고 표준 형식으로 정리합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/08/ip.html",
-      "version": "0.6.0v",
+      "version": "0.7.0v",
       "keywords": [
         "IPv4",
         "CIDR",
@@ -908,7 +908,7 @@
       "title": "좌표·거리 계산기",
       "description": "위도·경도 표기를 바꾸고 두 좌표의 대권거리, 방위각과 지리적 중간점을 계산합니다.",
       "postUrl": "https://bloggiedh.blogspot.com/2026/08/blog-post_08.html",
-      "version": "0.4.0v",
+      "version": "0.5.0v",
       "keywords": [
         "좌표변환",
         "거리계산",

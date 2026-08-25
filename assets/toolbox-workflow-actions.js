@@ -6,6 +6,12 @@
   if (!script || !root || root.querySelector('[data-workflow-actions]')) return;
 
   const tr = (ko, en) => (document.documentElement.lang === 'en' ? en : ko);
+  const statusTarget = document.querySelector(script.dataset.statusTarget || '.st-status, .mosaic-status');
+  const setStatus = (ko, en, isError = false) => {
+    if (!statusTarget) return;
+    statusTarget.textContent = tr(ko, en);
+    statusTarget.classList.toggle('is-error', isError);
+  };
   const primary = document.querySelector(script.dataset.primary || '.st-primary');
   const controls = [...root.querySelectorAll('input:not([type="file"]), textarea:not([readonly]), select')];
   const initial = controls.map((control) => ({ control, value: control.value, checked: control.checked }));
@@ -54,13 +60,15 @@
       picker.addEventListener('change', async () => {
         const file = picker.files?.[0];
         if (!file) return;
-        if (file.size > 1024 * 1024) {
-          alert(tr('1MB 이하의 텍스트 파일을 선택해 주세요.', 'Choose a text file no larger than 1 MB.'));
-          return;
+        if (file.size > 1024 * 1024) return setStatus('1MB 이하의 텍스트 파일을 선택해 주세요.', 'Choose a text file no larger than 1 MB.', true);
+        try {
+          target.value = await file.text();
+          emit(target);
+          setStatus(`${koLabel} 파일을 불러왔습니다.`, `Imported the ${enLabel} file.`);
+          window.ToolboxUX?.focus(target);
+        } catch {
+          setStatus('텍스트 파일을 읽지 못했습니다. 다른 파일을 선택해 주세요.', 'Could not read the text file. Choose another file.', true);
         }
-        target.value = await file.text();
-        emit(target);
-        window.ToolboxUX?.focus(target);
       }, { once: true });
       picker.click();
     });
@@ -72,13 +80,16 @@
     const target = document.querySelector(selector);
     if (!target) return;
     makeButton(`${koLabel} 저장`, `Save ${enLabel}`, () => {
-      const blob = new Blob([target.value], { type: 'text/plain;charset=utf-8' });
+      const content = 'value' in target ? target.value : target.innerText;
+      if (!content?.trim()) return setStatus('저장할 내용이 없습니다. 먼저 결과를 만들어 주세요.', 'There is nothing to save. Create a result first.', true);
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
       link.download = filename;
       link.click();
       setTimeout(() => URL.revokeObjectURL(url), 0);
+      setStatus(`${filename} 파일을 저장했습니다.`, `Saved ${filename}.`);
     });
   });
 

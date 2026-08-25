@@ -4,7 +4,7 @@
   "title": "대출·저축 계산기",
   "description": "대출 상환액과 복리 성장, 월 적립식 예상액과 목표 금액에 필요한 납입액을 계산합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/08/blog-post_578.html",
-  "latestVersion": "0.4.0v",
+  "latestVersion": "0.5.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -50,6 +50,15 @@
       "directory": "0.4.0v",
       "html": "0.4.0v/loan-savings-calculator.html",
       "patchNotes": "0.4.0v/patch-notes.json"
+    },
+    {
+      "version": "0.5.0v",
+      "releaseDate": "2026-08-26",
+      "changeLevel": "minor",
+      "summary": "키보드 금액 계산",
+      "directory": "0.5.0v",
+      "html": "0.5.0v/loan-savings-calculator.html",
+      "patchNotes": "0.5.0v/patch-notes.json"
     }
   ]
 }

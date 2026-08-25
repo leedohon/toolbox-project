@@ -792,7 +792,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.5.0v",
+      "latestVersion": "1.6.0v",
       "paths": {
         "definition": "toolbox/tools/http-status-lookup.md",
         "post": "toolbox/posts/http-status-lookup.html",
@@ -840,7 +840,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.5.0v",
+      "latestVersion": "0.6.0v",
       "paths": {
         "definition": "toolbox/tools/text-extractor-tool.md",
         "post": "toolbox/posts/text-extractor-tool.html",
@@ -856,7 +856,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.7.0v",
+      "latestVersion": "0.8.0v",
       "paths": {
         "definition": "toolbox/tools/web-meta-preview-builder.md",
         "post": "toolbox/posts/web-meta-preview-builder.html",
@@ -872,7 +872,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.4.0v",
+      "latestVersion": "0.5.0v",
       "paths": {
         "definition": "toolbox/tools/loan-savings-calculator.md",
         "post": "toolbox/posts/loan-savings-calculator.html",
@@ -888,7 +888,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.6.0v",
+      "latestVersion": "0.7.0v",
       "paths": {
         "definition": "toolbox/tools/ip-network-calculator.md",
         "post": "toolbox/posts/ip-network-calculator.html",
@@ -904,7 +904,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.4.0v",
+      "latestVersion": "0.5.0v",
       "paths": {
         "definition": "toolbox/tools/coordinate-distance-calculator.md",
         "post": "toolbox/posts/coordinate-distance-calculator.html",

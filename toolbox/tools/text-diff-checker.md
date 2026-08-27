@@ -39,3 +39,6 @@ inputs:
 
 - 기능은 고정 주소 `embed/text-diff-checker/`와 독립 `tool.js` 모듈로 제공한다.
 - 공통 CSS, KOR / ENG, 모바일 포커스 방지, iframe 높이 동기화 인터페이스를 재사용한다.
+## 2026-08-28 원문 보존
+
+- 원문과 수정문을 각각 UTF-8 TXT로 저장하고 `Alt + R`로 초기화한다.

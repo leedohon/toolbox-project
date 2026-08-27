@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-26",
+  "updatedAt": "2026-08-28",
   "tool": "hash-generator",
   "index": 24,
   "title": "텍스트·파일 해시 생성기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.7.0v",
+  "latestVersion": "0.8.0v",
   "paths": {
     "definition": "toolbox/tools/hash-generator.md",
     "post": "toolbox/posts/hash-generator.html",

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-26",
+  "updatedAt": "2026-08-28",
   "tool": "regex-tester",
   "index": 22,
   "title": "정규식 테스트 도구",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.7.0v",
+  "latestVersion": "0.8.0v",
   "paths": {
     "definition": "toolbox/tools/regex-tester.md",
     "post": "toolbox/posts/regex-tester.html",

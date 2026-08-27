@@ -35,9 +35,9 @@
     return button;
   }
 
-  const hasReset = root.querySelector('[id$="-reset"], [data-reset-action]');
-  if (!hasReset && script.dataset.reset !== 'false') {
-    makeButton('입력 초기화', 'Reset inputs', () => {
+  let resetButton = root.querySelector('[id$="-reset"], [data-reset-action]');
+  if (!resetButton && script.dataset.reset !== 'false') {
+    resetButton = makeButton('입력 초기화', 'Reset inputs', () => {
       initial.forEach(({ control, value, checked }) => {
         if (control.type === 'checkbox' || control.type === 'radio') control.checked = checked;
         else control.value = value;
@@ -45,6 +45,15 @@
       });
       root.querySelectorAll('input[type="file"]').forEach((input) => { input.value = ''; });
       window.ToolboxUX?.focus(controls[0]);
+    });
+  }
+
+  if (resetButton && script.dataset.resetShortcut === 'true') {
+    resetButton.setAttribute('aria-keyshortcuts', 'Alt+R');
+    addEventListener('keydown', (event) => {
+      if (event.key.toLowerCase() !== 'r' || !event.altKey || event.ctrlKey || event.metaKey || event.isComposing) return;
+      event.preventDefault();
+      resetButton.click();
     });
   }
 
@@ -104,7 +113,9 @@
     const help = document.createElement('p');
     help.className = script.dataset.helpClass || (root.matches('.mosaic-tool') ? 'mosaic-status' : 'st-help');
     help.dataset.workflowShortcut = '';
-    help.textContent = tr('Ctrl/⌘ + Enter로 주요 동작을 실행할 수 있습니다.', 'Press Ctrl/⌘ + Enter to run the primary action.');
+    help.textContent = script.dataset.resetShortcut === 'true'
+      ? tr('Ctrl/⌘ + Enter로 실행하고 Alt + R로 입력을 초기화합니다.', 'Press Ctrl/⌘ + Enter to run and Alt + R to reset inputs.')
+      : tr('Ctrl/⌘ + Enter로 주요 동작을 실행할 수 있습니다.', 'Press Ctrl/⌘ + Enter to run the primary action.');
     if (actions.isConnected) actions.after(help);
     else (primary.closest('.st-actions, .mosaic-actions') || primary).after(help);
     addEventListener('keydown', (event) => {
@@ -117,6 +128,8 @@
   addEventListener('toolbox-language-change', () => {
     actions.querySelectorAll('[data-ko][data-en]').forEach((element) => { element.textContent = tr(element.dataset.ko, element.dataset.en); });
     const help = root.querySelector('[data-workflow-shortcut]');
-    if (help) help.textContent = tr('Ctrl/⌘ + Enter로 주요 동작을 실행할 수 있습니다.', 'Press Ctrl/⌘ + Enter to run the primary action.');
+    if (help) help.textContent = script.dataset.resetShortcut === 'true'
+      ? tr('Ctrl/⌘ + Enter로 실행하고 Alt + R로 입력을 초기화합니다.', 'Press Ctrl/⌘ + Enter to run and Alt + R to reset inputs.')
+      : tr('Ctrl/⌘ + Enter로 주요 동작을 실행할 수 있습니다.', 'Press Ctrl/⌘ + Enter to run the primary action.');
   });
 }());

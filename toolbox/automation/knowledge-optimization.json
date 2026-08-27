@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.31.0",
+  "policyVersion": "0.32.0",
   "updatedAt": "2026-08-28",
   "scope": [
     "repository markdown instructions",
@@ -70,6 +70,13 @@
     "evidence"
   ],
   "backlog": [
+    {
+      "id":"OPT-036","status":"completed","triggerPaths":["assets/toolbox-workflow-actions.js","embed/**/index.html","embed/**/engine.html"],
+      "problem":"기존 초기화 버튼과 자동 생성 초기화 버튼에 키보드 단축키와 다국어 안내를 도구마다 반복 연결해야 했다.",
+      "proposedChange":"data-reset-shortcut 선언 하나로 Alt+R, aria-keyshortcuts, KOR/ENG 안내와 기존 버튼 재사용을 공통 자산이 처리한다.",
+      "measure":"per-tool reset shortcut implementations","targetReduction":0.5,
+      "evidence":[{"before":6,"after":1,"unit":"implementations across six tools","reduction":0.8333,"verifiedAt":"2026-08-28"}]
+    },
     {
       "id":"OPT-035","status":"completed","triggerPaths":["assets/tool-hub.js","embed/*/index.html","embed/*/modules.json"],
       "problem":"통합 도구마다 현재 기능 URL 동기화, 이전·다음 키보드 전환과 다국어 안내를 개별 구현해야 했다.",

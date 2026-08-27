@@ -2,7 +2,7 @@
   'use strict';
 
   const script = document.currentScript;
-  const root = document.querySelector('.simple-tool, .play-tool, .mosaic-tool');
+  const root = document.querySelector(script?.dataset.root || '.simple-tool, .play-tool, .mosaic-tool, .tb-tool');
   if (!script || !root || root.querySelector('[data-workflow-actions]')) return;
 
   const tr = (ko, en) => (document.documentElement.lang === 'en' ? en : ko);
@@ -16,7 +16,7 @@
   const controls = [...root.querySelectorAll('input:not([type="file"]), textarea:not([readonly]), select')];
   const initial = controls.map((control) => ({ control, value: control.value, checked: control.checked }));
   const actions = document.createElement('div');
-  actions.className = 'st-actions';
+  actions.className = script.dataset.actionsClass || 'st-actions';
   actions.dataset.workflowActions = '';
 
   function emit(control) {
@@ -26,7 +26,7 @@
   function makeButton(ko, en, action) {
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'st-secondary';
+    button.className = script.dataset.secondaryClass || 'st-secondary';
     button.dataset.ko = ko;
     button.dataset.en = en;
     button.textContent = tr(ko, en);
@@ -94,7 +94,7 @@
   });
 
   if (actions.children.length) {
-    const anchor = root.querySelector('.st-status, .st-result');
+    const anchor = root.querySelector(script.dataset.actionAnchor || '.st-status, .st-result, .tb-error');
     if (anchor) anchor.before(actions);
     else root.append(actions);
   }
@@ -102,7 +102,7 @@
   if (primary) {
     primary.setAttribute('aria-keyshortcuts', 'Control+Enter Meta+Enter');
     const help = document.createElement('p');
-    help.className = root.matches('.mosaic-tool') ? 'mosaic-status' : 'st-help';
+    help.className = script.dataset.helpClass || (root.matches('.mosaic-tool') ? 'mosaic-status' : 'st-help');
     help.dataset.workflowShortcut = '';
     help.textContent = tr('Ctrl/⌘ + Enter로 주요 동작을 실행할 수 있습니다.', 'Press Ctrl/⌘ + Enter to run the primary action.');
     if (actions.isConnected) actions.after(help);

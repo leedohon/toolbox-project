@@ -58,7 +58,7 @@
     #toolbox-qr-post .tb-meta { margin: 6px 0 0; color: var(--tb-muted); font-size: .88rem; }
     #toolbox-qr-post details { margin: 10px 0; padding: 14px 16px; border: 1px solid var(--tb-line); border-radius: 10px; }
     #toolbox-qr-post summary { cursor: pointer; font-weight: 700; }
-    @media (max-width: 600px) { #toolbox-qr-post h1 { font-size: 1.65rem; } #toolbox-qr-post .tb-tool { padding: 14px; } #toolbox-qr-post .tb-colors { grid-template-columns: 1fr; } #toolbox-qr-post button { flex: 1; } }
+    @media (max-width: 600px) { #toolbox-qr-post h1 { font-size: 1.65rem; } #toolbox-qr-post .tb-tool { padding: 14px; } #toolbox-qr-post .tb-colors { grid-template-columns: 1fr; } #toolbox-qr-post .tb-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } #toolbox-qr-post .tb-choice { min-width: 0; } #toolbox-qr-post .tb-choice label { width: 100%; min-width: 0; padding-inline: 8px; box-sizing: border-box; overflow-wrap: anywhere; } #toolbox-qr-post .tb-actions { display: grid; grid-template-columns: minmax(0, 1fr); } #toolbox-qr-post button { width: 100%; min-width: 0; padding-inline: 10px; box-sizing: border-box; overflow-wrap: anywhere; } }
   </style>
 
   <h1>QR · 바코드 생성기</h1>
@@ -209,6 +209,7 @@
       generate();
     }());
   </script>
+  <script src="../../assets/toolbox-workflow-actions.js?v=0.4.0" data-root="#toolbox-qr-post .tb-tool" data-primary="#tb-download" data-status-target="#tb-error" data-file-targets="#tb-content|원문|source" data-save-targets="#tb-content|원문|source|toolbox-qr-source.txt" data-actions-class="tb-actions" data-secondary-class="tb-secondary" data-action-anchor="#tb-error" data-help-class="tb-meta"></script>
   <script>
     (function () {
       var scheduled = false;

@@ -21,6 +21,7 @@ const embedHeightMax = 6000;
 let modules = [];
 let activeId = '';
 let hubMeta = null;
+let shortcutHelp = null;
 
 const isEnglish = () => window.ToolboxI18n?.language === 'en';
 const translated = (value) => isEnglish() ? value.en : value.ko;
@@ -123,6 +124,7 @@ function renderControls() {
     }
     select.addEventListener('change', () => activate(select.value));
     control.append(label, select);
+    renderShortcutHelp();
     return;
   }
 
@@ -150,6 +152,23 @@ function renderControls() {
   }
   fieldset.append(legend, options);
   control.append(fieldset);
+  renderShortcutHelp();
+}
+
+function renderShortcutHelp() {
+  shortcutHelp = document.createElement('p');
+  shortcutHelp.className = 'tool-hub__help';
+  shortcutHelp.dataset.moduleShortcut = '';
+  shortcutHelp.textContent = isEnglish()
+    ? 'Press Alt + Shift + Left/Right Arrow to switch tools.'
+    : 'Alt + Shift + 좌우 방향키로 이전·다음 기능을 열 수 있습니다.';
+  control.append(shortcutHelp);
+}
+
+function syncModuleUrl(id) {
+  const url = new URL(location.href);
+  url.searchParams.set('module', id);
+  history.replaceState(null, '', url);
 }
 
 function selectedModuleId() {
@@ -288,8 +307,20 @@ function activate(id, persist = true) {
 
   const module = modules.find((item) => item.id === id);
   announceModule(module, !loadedFrames.has(frames.get(id)));
-  if (persist) storeMode(id);
+  if (persist) {
+    storeMode(id);
+    syncModuleUrl(id);
+  }
 }
+
+addEventListener('keydown', (event) => {
+  if (!event.altKey || !event.shiftKey || !['ArrowLeft', 'ArrowRight'].includes(event.key) || event.isComposing || !modules.length) return;
+  if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLSelectElement || event.target?.isContentEditable) return;
+  event.preventDefault();
+  const current = Math.max(0, modules.findIndex((module) => module.id === activeId));
+  const direction = event.key === 'ArrowLeft' ? -1 : 1;
+  activate(modules[(current + direction + modules.length) % modules.length].id);
+});
 
 addEventListener('message', (event) => {
   if (event.origin !== location.origin || event.data?.source !== 'toolbox-embed') return;
@@ -302,6 +333,9 @@ addEventListener('message', (event) => {
 
 addEventListener('toolbox-language-change', () => {
   updateHubLanguage();
+  if (shortcutHelp) shortcutHelp.textContent = isEnglish()
+    ? 'Press Alt + Shift + Left/Right Arrow to switch tools.'
+    : 'Alt + Shift + 좌우 방향키로 이전·다음 기능을 열 수 있습니다.';
   for (const frame of frames.values()) {
     forwardLanguage(frame);
     syncFrameHeight(frame);

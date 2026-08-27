@@ -1,0 +1,15 @@
+{
+  "tool": "multipurpose-draw-game",
+  "version": "0.10.0v",
+  "releaseDate": "2026-08-28",
+  "changeLevel": "minor",
+  "changes": [
+    "Alt+Shift+좌우 방향키로 이전·다음 게임을 열고 단축키를 화면에 안내합니다."
+  ],
+  "qa": [
+    "375px 고정 iframe 모바일 레이아웃과 동작 경계 확인",
+    "1280x900 데스크톱 레이아웃 확인",
+    "공통 허브 URL·키보드 전환 문법과 버전 참조 확인",
+    "모바일 버튼 최소 폭 회귀 수정 후 재검증"
+  ]
+}

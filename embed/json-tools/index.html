@@ -154,7 +154,11 @@
     @media (max-width: 640px) {
       #toolbox-json-tools h1 { font-size: 1.65rem; }
       #toolbox-json-tools textarea { min-height: 220px; }
-      #toolbox-json-tools .tb-actions button { flex: 1 1 130px; }
+      #toolbox-json-tools .tb-actions { display: grid; grid-template-columns: minmax(0, 1fr); }
+      #toolbox-json-tools .tb-actions button { width: 100%; min-width: 0; padding-inline: 10px; overflow-wrap: anywhere; }
+      #toolbox-json-tools .tb-choices { display: grid; grid-template-columns: minmax(0, 1fr); }
+      #toolbox-json-tools .tb-choice { min-width: 0; }
+      #toolbox-json-tools .tb-choice label { width: 100%; min-width: 0; padding-inline: 8px; overflow-wrap: anywhere; }
       #toolbox-json-tools .tb-tool { padding: 14px; }
     }
   </style>
@@ -516,6 +520,7 @@
       update();
     }());
   </script>
+  <script src="../../assets/toolbox-workflow-actions.js?v=0.4.0" data-root="#toolbox-json-tools .tb-tool" data-primary="#json-download" data-status-target="#json-status" data-save-targets="#json-input|원문|source|toolbox-json-source.txt" data-actions-class="tb-actions" data-secondary-class="tb-secondary" data-action-anchor="#json-error" data-help-class="tb-excel-meta"></script>
   <script>
     (function () {
       var scheduled = false;

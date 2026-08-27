@@ -160,6 +160,16 @@
       "fixContract": ["postUrl이 없는 도구는 공개 카탈로그에서 제외", "공개 URL은 HTTPS만 허용", "준비 중 소스와 manifest는 삭제하지 않고 별도 상태로 보존"],
       "regressionChecks": ["outputs/tools.json 항목 수가 공개 활성 manifest 수와 같음", "카탈로그에 빈 postUrl 없음", "준비 중 도구 파일은 남아 있지만 검색 결과에는 없음"],
       "affectedPatterns": ["scripts/build-tool-catalog.mjs", "outputs/tools.json", "outputs/*/versions.json"]
+    },
+    {
+      "code": "PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW",
+      "status": "guarded",
+      "summary": "긴 버튼 문구와 고정 최소 폭이 모바일 작업 카드 너비를 넘어 오른쪽 동작이 잘림",
+      "fingerprints": ["375px", "flex-wrap", "min-width", "button", "tb-choice", "horizontal overflow"],
+      "rootCause": "줄바꿈 컨테이너 안의 버튼과 라디오 라벨이 내용 기반 최소 폭을 유지해 축소되지 않았음",
+      "fixContract": ["모바일 버튼은 flex-basis와 min-width:0을 함께 사용", "선택 라벨은 가용 폭에서 줄바꿈 허용", "본문 overflow-x:hidden으로 결함을 가리지 않고 동작 전체가 화면 안에 보여야 함"],
+      "regressionChecks": ["375px에서 첫 줄과 마지막 줄의 모든 버튼 경계가 보임", "긴 KOR/ENG 버튼 문구가 카드 안에서 줄바꿈됨", "1280px에서 불필요한 한 열 강제 없이 자연스럽게 배치됨"],
+      "affectedPatterns": ["embed/**/index.html", "assets/simple-tools.css", "assets/play-tools.css"]
     }
   ]
 }

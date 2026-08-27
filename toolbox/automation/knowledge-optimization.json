@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.30.0",
-  "updatedAt": "2026-08-26",
+  "policyVersion": "0.31.0",
+  "updatedAt": "2026-08-28",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -70,6 +70,13 @@
     "evidence"
   ],
   "backlog": [
+    {
+      "id":"OPT-035","status":"completed","triggerPaths":["assets/tool-hub.js","embed/*/index.html","embed/*/modules.json"],
+      "problem":"통합 도구마다 현재 기능 URL 동기화, 이전·다음 키보드 전환과 다국어 안내를 개별 구현해야 했다.",
+      "proposedChange":"공통 허브 자산 한 곳에서 module URL, Alt+Shift+방향키 전환, 입력 중 오작동 방지와 안내를 처리한다.",
+      "measure":"per-hub module navigation implementations","targetReduction":0.5,
+      "evidence":[{"before":3,"after":1,"unit":"implementations across three registry-driven hubs","reduction":0.6667,"verifiedAt":"2026-08-28"}]
+    },
     {
       "id":"OPT-034","status":"completed","triggerPaths":["assets/toolbox-workflow-actions.js","embed/**/index.html","embed/**/engine.html"],
       "problem":"파일 불러오기·저장 성공, 크기 초과와 빈 결과 오류를 도구마다 팝업 또는 별도 상태 코드로 반복 처리한다.",

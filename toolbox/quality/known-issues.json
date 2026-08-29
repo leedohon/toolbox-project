@@ -1,7 +1,16 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-08-30",
   "issues": [
+    {
+      "code":"LANGUAGE_SWITCH_HISTORY_STALL","status":"guarded",
+      "summary":"KOR/ENG 전환 때 현재 주소를 다시 쓰면 브라우저 제어와 임베드 상호작용이 지연될 수 있음",
+      "fingerprints":["Alt+L","lang query","history.replaceState","language switch timeout"],
+      "rootCause":"화면 언어 상태 변경과 공유 주소 상태 변경을 같은 이벤트에서 강제로 결합함",
+      "fixContract":["lang 쿼리는 최초 언어 선택에만 사용","버튼·Alt+L 전환은 저장 상태와 DOM만 갱신","언어 전환 때 탐색 기록을 변경하지 않음"],
+      "regressionChecks":["lang=en 직접 열기에서 ENG 초기 상태 확인","Alt+L 뒤 KOR 전환과 즉시 입력 가능 확인","전환 전후 URL과 브라우저 탐색 상태가 불필요하게 바뀌지 않음"],
+      "affectedPatterns":["assets/toolbox-i18n.js","embed/**/*.html"]
+    },
     {
       "code":"MOSAIC_PRESET_ROW_OVERFLOW","status":"guarded",
       "summary":"모자이크 빠른 설정 버튼이 영문 전환된 모바일 화면에서 한 줄 flex 폭을 넘어 가로 스크롤을 만듦",

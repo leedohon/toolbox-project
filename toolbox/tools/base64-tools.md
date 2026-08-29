@@ -27,6 +27,7 @@ inputs:
 ---
 
 # 기능
+- `Alt+L` 언어 전환·`lang` 직접 열기와 `Ctrl/⌘+Shift+C` 현재 변환 결과 복사
 - Base64 Data URL의 MIME 정보와 내용을 분리해 즉시 디코딩
 - 이메일이나 문서에서 붙여 넣은 Base64 입력의 공백과 줄바꿈 제거
 - URL 문자열을 즉시 Base64로 변환하는 예제

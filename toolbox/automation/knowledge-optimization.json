@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.33.0",
+  "policyVersion": "0.34.0",
   "updatedAt": "2026-08-30",
   "scope": [
     "repository markdown instructions",
@@ -70,6 +70,13 @@
     "evidence"
   ],
   "backlog": [
+    {
+      "id":"OPT-039","status":"completed","triggerPaths":["assets/toolbox-i18n.js","embed/**/index.html","embed/**/engine.html"],
+      "problem":"언어를 주소로 직접 열거나 키보드로 전환하는 동선을 도구마다 별도 쿼리 해석과 이벤트로 구현해야 했다.",
+      "proposedChange":"공통 i18n 자산이 lang=ko|en 초기 상태, 저장 상태 동기화와 Alt+L 전환을 한 번에 처리한다.",
+      "measure":"per-tool language activation implementations","targetReduction":0.5,
+      "evidence":[{"before":6,"after":1,"unit":"implementations across six selected tools","reduction":0.8333,"verifiedAt":"2026-08-30"}]
+    },
     {
       "id":"OPT-038","status":"completed","triggerPaths":["assets/toolbox-workflow-actions.js","embed/**/index.html","embed/**/engine.html"],
       "problem":"대표 예제 적용과 현재 결과 복사 키보드 동선을 도구마다 개별 이벤트와 다국어 안내로 반복 구현해야 했다.",

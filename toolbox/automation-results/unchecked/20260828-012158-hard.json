@@ -1,10 +1,10 @@
 {
   "runId": "20260828-012158-hard",
   "workflow": "hard",
-  "status": "partial",
+  "status": "completed",
   "confirm": "N",
   "startedAt": "2026-08-28T01:21:58+09:00",
-  "completedAt": null,
+  "completedAt": "2026-08-29T22:54:58+09:00",
   "confirmedAt": null,
   "summary": "3회차 구현·검증·Blogger 갱신 완료: 공개 도구 6개의 초기화와 파일 저장 키보드 동선을 통합했으며 Git·Pages 배포를 진행합니다.",
   "request": {
@@ -109,29 +109,38 @@
     "모바일 375px·데스크톱 1280px 가로 넘침과 초기 자동 포커스 없음 확인",
     "6개 도구 Alt+R 초기화와 3개 파일 도구 Ctrl/⌘+Shift+S 저장 동작 확인",
     "KOR/ENG 공통 단축키 안내와 복합 aria-keyshortcuts 확인",
-    "전체 릴리스 526개 JSON·모듈 75개·공개 실행 페이지 57개·공개 도구 24개 검증"
+    "전체 릴리스 526개 JSON·모듈 75개·공개 실행 페이지 57개·공개 도구 24개 검증",
+    "공개 배포 대상 확인"
   ],
   "blogger": {
     "created": [],
     "updated": [
-      "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
       "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
-      "https://bloggiedh.blogspot.com/2026/07/jwt.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
       "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
-      "https://bloggiedh.blogspot.com/2026/07/url_01194177481.html",
-      "https://bloggiedh.blogspot.com/2026/07/xml.html"
+      "https://bloggiedh.blogspot.com/2026/07/jwt.html",
+      "https://bloggiedh.blogspot.com/2026/07/xml.html",
+      "https://bloggiedh.blogspot.com/2026/07/url_01194177481.html"
     ],
     "skipped": [],
     "status": "completed"
   },
   "git": {
     "branch": "main",
-    "commit": null,
-    "pushed": false
+    "commit": "e40287a028ae4d5fd0aaca4bfe943872b8a95736",
+    "pushed": true
   },
   "deployment": {
-    "status": "pending",
-    "urls": []
+    "status": "completed",
+    "runId": 33256157699,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/image-mosaic-tool/",
+      "https://leedohon.github.io/toolbox-project/embed/date-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/text-counter-cleaner/",
+      "https://leedohon.github.io/toolbox-project/embed/jwt-decoder/",
+      "https://leedohon.github.io/toolbox-project/embed/xml-formatter-validator/",
+      "https://leedohon.github.io/toolbox-project/embed/url-parser-builder/"
+    ]
   },
   "shutdown": {
     "requested": false,
@@ -145,7 +154,7 @@
     "신규 페이지 대신 기존 공개 도구의 키보드 작업 흐름을 강화"
   ],
   "runState": {
-    "current": "commit",
+    "current": "confirm",
     "stages": {
       "select": {
         "status": "completed",
@@ -187,22 +196,26 @@
         "blockCode": null
       },
       "commit": {
-        "status": "in_progress",
+        "status": "completed",
         "startedAt": "2026-08-29T22:50:57+09:00",
-        "completedAt": null,
-        "evidence": [],
+        "completedAt": "2026-08-29T22:54:58+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
         "blockCode": null
       },
       "deploy": {
-        "status": "pending",
-        "startedAt": null,
-        "completedAt": null,
-        "evidence": [],
+        "status": "completed",
+        "startedAt": "2026-08-28T01:21:58+09:00",
+        "completedAt": "2026-08-29T22:54:58+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
         "blockCode": null
       },
       "confirm": {
-        "status": "pending",
-        "startedAt": null,
+        "status": "in_progress",
+        "startedAt": "2026-08-29T22:54:58+09:00",
         "completedAt": null,
         "evidence": [],
         "blockCode": null
@@ -215,7 +228,7 @@
       "OPT-037"
     ],
     "summary": "표준 파일 저장 단축키와 안내를 선언형 공통 자산에서 처리",
-    "skillValidation": "pending"
+    "skillValidation": "passed"
   },
   "developmentTokenEfficiency": {
     "measurementStatus": "proxy_only",

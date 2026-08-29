@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policyVersion": "0.33.0",
-  "updatedAt": "2026-08-28",
+  "updatedAt": "2026-08-30",
   "scope": [
     "repository markdown instructions",
     "toolbox skills",
@@ -70,6 +70,13 @@
     "evidence"
   ],
   "backlog": [
+    {
+      "id":"OPT-038","status":"completed","triggerPaths":["assets/toolbox-workflow-actions.js","embed/**/index.html","embed/**/engine.html"],
+      "problem":"대표 예제 적용과 현재 결과 복사 키보드 동선을 도구마다 개별 이벤트와 다국어 안내로 반복 구현해야 했다.",
+      "proposedChange":"data-sample-shortcut과 data-copy-shortcut 선언으로 Alt+S, Ctrl/⌘+Shift+C, aria-keyshortcuts와 KOR/ENG 안내를 공통 자산이 처리한다.",
+      "measure":"per-tool sample and copy shortcut implementations","targetReduction":0.5,
+      "evidence":[{"before":6,"after":1,"unit":"implementations across six tools","reduction":0.8333,"verifiedAt":"2026-08-30"}]
+    },
     {
       "id":"OPT-037","status":"completed","triggerPaths":["assets/toolbox-workflow-actions.js","embed/**/index.html","embed/**/engine.html"],
       "problem":"파일 저장 단축키와 실행·초기화·저장 안내 조합을 도구마다 따로 구현해야 했다.",

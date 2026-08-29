@@ -30,6 +30,7 @@ inputs:
 
 ## 기능
 - 네트워크 결과 TXT 저장과 Ctrl/⌘+Enter 주소 계산
+- Ctrl/⌘+Shift+C로 현재 네트워크 결과 복사
 
 - IPv4 CIDR 서브넷 계산
 - 프리픽스·마스크·와일드카드 변환

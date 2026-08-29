@@ -1,0 +1,93 @@
+{
+  "runId": "20260830-042724-hard",
+  "workflow": "hard",
+  "status": "partial",
+  "confirm": "N",
+  "startedAt": "2026-08-30T04:27:24+09:00",
+  "completedAt": null,
+  "confirmedAt": null,
+  "summary": "공개 도구 6개의 예제 적용과 결과 복사 키보드 동선을 공통화합니다.",
+  "request": {
+    "workType": "hard",
+    "targets": ["http-status-lookup", "text-extractor-tool", "web-meta-preview-builder", "loan-savings-calculator", "ip-network-calculator", "coordinate-distance-calculator"],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
+  },
+  "usageGate": {
+    "status": "unavailable",
+    "remainingPercent": null,
+    "minimumRemainingPercent": 20,
+    "checkedOnce": true,
+    "warning": "Codex account authentication was required; the remaining allowance was not estimated and the workflow continued under the current rule."
+  },
+  "selectedTools": ["http-status-lookup", "text-extractor-tool", "web-meta-preview-builder", "loan-savings-calculator", "ip-network-calculator", "coordinate-distance-calculator"],
+  "selectionBasis": "최근 3개 하드 회차 대상을 제외한 공개 도구 6개 자동 순환 선정",
+  "releasePlans": {
+    "http-status-lookup": {"level":"minor","summary":"대표 HTTP 예제 단축키","changes":["Alt+S로 HTTP 200 대표 예제를 즉시 적용합니다."]},
+    "text-extractor-tool": {"level":"minor","summary":"추출 결과 복사 단축키","changes":["Ctrl/⌘+Shift+C로 현재 추출 결과를 복사합니다."]},
+    "web-meta-preview-builder": {"level":"minor","summary":"메타 결과 복사 단축키","changes":["Ctrl/⌘+Shift+C로 현재 메타 태그 결과를 복사합니다."]},
+    "loan-savings-calculator": {"level":"minor","summary":"10년 예제 단축키","changes":["Alt+S로 10년 대표 기간 예제를 적용합니다."]},
+    "ip-network-calculator": {"level":"minor","summary":"네트워크 결과 복사 단축키","changes":["Ctrl/⌘+Shift+C로 현재 네트워크 결과를 복사합니다."]},
+    "coordinate-distance-calculator": {"level":"minor","summary":"서울·제주 예제 단축키","changes":["Alt+S로 서울·제주 대표 좌표 예제를 적용합니다."]}
+  },
+  "workCounts": {"improvements":6,"newOrMerge":3,"commonFixes":2},
+  "changes": [
+    "HTTP 200 대표 예제 키보드 적용",
+    "텍스트 추출 결과 키보드 복사",
+    "웹 메타 결과 키보드 복사",
+    "대출·저축 10년 예제 키보드 적용",
+    "IP·네트워크 결과 키보드 복사",
+    "서울·제주 좌표 예제 키보드 적용"
+  ],
+  "newIdeas": ["텍스트 추출 결과 복사 단축키", "웹 메타 결과 복사 단축키", "IP·네트워크 결과 복사 단축키"],
+  "commonModules": ["3개 도구 Alt+S 대표 예제 계약", "3개 도구 Ctrl/⌘+Shift+C 결과 복사 계약"],
+  "knownIssueMatches": ["MOBILE_AUTOFOCUS", "PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW", "SHARED_ASSET_CACHE_STALE"],
+  "validation": [
+    "공통 워크플로 자산 JavaScript 구문 검사 통과",
+    "전체 532개 릴리스 JSON·최신 경로 검사 통과",
+    "전체 75개 모듈과 48개 레지스트리 검사 통과",
+    "전체 57개 실행 페이지 공개 인덱싱 정책 검사 통과",
+    "공개 도구 24개 감사 통과",
+    "모바일 375px·데스크톱 1280px에서 6개 대상의 가로 넘침·자동 초점·콘솔 오류 없음",
+    "Alt+S 예제 3건의 실제 입력값 변경과 결과 복사 단축키 3건의 공통 버튼 연결 확인"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/http.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post_03.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post_578.html",
+      "https://bloggiedh.blogspot.com/2026/08/ip.html",
+      "https://bloggiedh.blogspot.com/2026/08/blog-post_08.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {"branch":"main","commit":null,"pushed":false},
+  "deployment": {"status":"pending","urls":[]},
+  "shutdown": {"requested":false,"scheduled":false,"input":null,"scheduledFor":null,"cancelled":false},
+  "blocked": [],
+  "scopeExceptions": ["신규 페이지 대신 기존 공개 도구에 실사용 복사 기능 3건을 통합"],
+  "runState": {
+    "current":"commit",
+    "stages": {
+      "select":{"status":"completed","startedAt":"2026-08-30T04:27:24+09:00","completedAt":"2026-08-30T04:29:00+09:00","evidence":["최근 3회 대상 제외 자동 순환", "대상 스냅샷 지침 문자 79.52% 절감"],"blockCode":null},
+      "implement":{"status":"completed","startedAt":"2026-08-30T04:29:00+09:00","completedAt":"2026-08-30T04:34:00+09:00","evidence":["공통 자산 v0.5.0에 선언형 예제·복사 단축키 계약 추가", "6개 도구 minor 릴리스와 게시글·도구 정의 갱신", "공통 수정 2건을 각각 3개 대상에 실제 적용"],"blockCode":null},
+      "validate":{"status":"completed","startedAt":"2026-08-30T04:34:00+09:00","completedAt":"2026-08-30T04:37:00+09:00","evidence":["영향 기반·전체 정적 검사 모두 통과", "375px·1280px 실제 브라우저 QA 통과", "예제 단축키 입력값 변경 확인"],"blockCode":null},
+      "publish":{"status":"completed","startedAt":"2026-08-30T04:37:00+09:00","completedAt":"2026-08-30T04:38:00+09:00","evidence":["Blogger 사전 점검 6건 통과", "LIVE 게시글 6건 업데이트", "게시글 URL 동기화와 대상 릴리스 재검사 통과"],"blockCode":null},
+      "commit":{"status":"in_progress","startedAt":"2026-08-30T04:38:00+09:00","completedAt":null,"evidence":[],"blockCode":null},
+      "deploy":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},
+      "confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null}
+    }
+  },
+  "knowledgeOptimization": {"policyVersion":"0.33.0","applied":["OPT-038"],"summary":"예제·복사 단축키를 선언형 공통 자산에서 처리","skillValidation":"completed"},
+  "developmentTokenEfficiency": {
+    "measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.7952,"overallReduction":null,
+    "proxies":[{"metric":"target manifest and definition characters emitted for selection","before":22401,"after":4587,"reduction":0.7952},{"metric":"per-tool sample and copy shortcut implementations","before":6,"after":1,"reduction":0.8333}],
+    "note":"전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
+  },
+  "reportHistory": [{"at":"2026-08-30T04:27:24+09:00","action":"started","note":"사용량 확인 불가 경고 후 하드 워크플로 시작"}]
+}

@@ -19,6 +19,12 @@
   actions.className = script.dataset.actionsClass || 'st-actions';
   actions.dataset.workflowActions = '';
 
+  function addShortcut(element, value) {
+    if (!element) return;
+    const shortcuts = new Set(`${element.getAttribute('aria-keyshortcuts') || ''} ${value}`.trim().split(/\s+/).filter(Boolean));
+    element.setAttribute('aria-keyshortcuts', [...shortcuts].join(' '));
+  }
+
   function emit(control) {
     control.dispatchEvent(new Event(control.type === 'checkbox' || control.type === 'radio' || control.tagName === 'SELECT' ? 'change' : 'input', { bubbles: true }));
   }
@@ -61,11 +67,41 @@
     ? root.querySelector(script.dataset.saveShortcut)
     : null;
   if (saveShortcutButton) {
-    saveShortcutButton.setAttribute('aria-keyshortcuts', 'Control+Shift+S Meta+Shift+S');
+    addShortcut(saveShortcutButton, 'Control+Shift+S Meta+Shift+S');
     addEventListener('keydown', (event) => {
       if (event.key.toLowerCase() !== 's' || (!event.ctrlKey && !event.metaKey) || !event.shiftKey || event.altKey || event.isComposing) return;
       event.preventDefault();
       saveShortcutButton.click();
+    });
+  }
+
+  const copyShortcutButton = script.dataset.copyShortcut
+    ? root.querySelector(script.dataset.copyShortcut)
+    : null;
+  if (copyShortcutButton) {
+    addShortcut(copyShortcutButton, 'Control+Shift+C Meta+Shift+C');
+    addEventListener('keydown', (event) => {
+      if (event.key.toLowerCase() !== 'c' || (!event.ctrlKey && !event.metaKey) || !event.shiftKey || event.altKey || event.isComposing) return;
+      event.preventDefault();
+      copyShortcutButton.click();
+    });
+  }
+
+  const sampleShortcutSelector = script.dataset.sampleShortcut;
+  const bindSampleShortcut = () => {
+    const button = sampleShortcutSelector ? root.querySelector(sampleShortcutSelector) : null;
+    addShortcut(button, 'Alt+S');
+    return button;
+  };
+  if (sampleShortcutSelector) {
+    bindSampleShortcut();
+    addEventListener('DOMContentLoaded', bindSampleShortcut, { once: true });
+    addEventListener('keydown', (event) => {
+      if (event.key.toLowerCase() !== 's' || !event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.isComposing) return;
+      const button = bindSampleShortcut();
+      if (!button) return;
+      event.preventDefault();
+      button.click();
     });
   }
 
@@ -125,6 +161,8 @@
     if (primary) shortcuts.push(tr('Ctrl/⌘ + Enter로 주요 동작 실행', 'Ctrl/⌘ + Enter to run the primary action'));
     if (resetButton && script.dataset.resetShortcut === 'true') shortcuts.push(tr('Alt + R로 입력 초기화', 'Alt + R to reset inputs'));
     if (saveShortcutButton) shortcuts.push(tr('Ctrl/⌘ + Shift + S로 파일 저장', 'Ctrl/⌘ + Shift + S to save the file'));
+    if (copyShortcutButton) shortcuts.push(tr('Ctrl/⌘ + Shift + C로 결과 복사', 'Ctrl/⌘ + Shift + C to copy the result'));
+    if (sampleShortcutSelector) shortcuts.push(tr('Alt + S로 대표 예제 적용', 'Alt + S to apply the sample'));
     return `${shortcuts.join(tr(', ', ', '))}.`;
   };
 

@@ -19,6 +19,7 @@ inputs:
 
 ## 기능
 - Ctrl/⌘+Enter 상태 조회와 화면 단축키 안내
+- Alt+S로 HTTP 200 대표 예제 적용
 
 - 2xx·3xx·4xx·5xx
 - 영문 상태 이름

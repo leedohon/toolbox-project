@@ -57,6 +57,18 @@
     });
   }
 
+  const saveShortcutButton = script.dataset.saveShortcut
+    ? root.querySelector(script.dataset.saveShortcut)
+    : null;
+  if (saveShortcutButton) {
+    saveShortcutButton.setAttribute('aria-keyshortcuts', 'Control+Shift+S Meta+Shift+S');
+    addEventListener('keydown', (event) => {
+      if (event.key.toLowerCase() !== 's' || (!event.ctrlKey && !event.metaKey) || !event.shiftKey || event.altKey || event.isComposing) return;
+      event.preventDefault();
+      saveShortcutButton.click();
+    });
+  }
+
   const importTargets = (script.dataset.fileTargets || '').split(';').map((entry) => entry.trim()).filter(Boolean);
   importTargets.forEach((entry) => {
     const [selector, koLabel, enLabel] = entry.split('|');
@@ -108,14 +120,23 @@
     else root.append(actions);
   }
 
+  const shortcutText = () => {
+    const shortcuts = [];
+    if (primary) shortcuts.push(tr('Ctrl/⌘ + Enter로 주요 동작 실행', 'Ctrl/⌘ + Enter to run the primary action'));
+    if (resetButton && script.dataset.resetShortcut === 'true') shortcuts.push(tr('Alt + R로 입력 초기화', 'Alt + R to reset inputs'));
+    if (saveShortcutButton) shortcuts.push(tr('Ctrl/⌘ + Shift + S로 파일 저장', 'Ctrl/⌘ + Shift + S to save the file'));
+    return `${shortcuts.join(tr(', ', ', '))}.`;
+  };
+
   if (primary) {
-    primary.setAttribute('aria-keyshortcuts', 'Control+Enter Meta+Enter');
+    const primaryShortcuts = saveShortcutButton === primary
+      ? 'Control+Enter Meta+Enter Control+Shift+S Meta+Shift+S'
+      : 'Control+Enter Meta+Enter';
+    primary.setAttribute('aria-keyshortcuts', primaryShortcuts);
     const help = document.createElement('p');
     help.className = script.dataset.helpClass || (root.matches('.mosaic-tool') ? 'mosaic-status' : 'st-help');
     help.dataset.workflowShortcut = '';
-    help.textContent = script.dataset.resetShortcut === 'true'
-      ? tr('Ctrl/⌘ + Enter로 실행하고 Alt + R로 입력을 초기화합니다.', 'Press Ctrl/⌘ + Enter to run and Alt + R to reset inputs.')
-      : tr('Ctrl/⌘ + Enter로 주요 동작을 실행할 수 있습니다.', 'Press Ctrl/⌘ + Enter to run the primary action.');
+    help.textContent = shortcutText();
     if (actions.isConnected) actions.after(help);
     else (primary.closest('.st-actions, .mosaic-actions') || primary).after(help);
     addEventListener('keydown', (event) => {
@@ -128,8 +149,6 @@
   addEventListener('toolbox-language-change', () => {
     actions.querySelectorAll('[data-ko][data-en]').forEach((element) => { element.textContent = tr(element.dataset.ko, element.dataset.en); });
     const help = root.querySelector('[data-workflow-shortcut]');
-    if (help) help.textContent = script.dataset.resetShortcut === 'true'
-      ? tr('Ctrl/⌘ + Enter로 실행하고 Alt + R로 입력을 초기화합니다.', 'Press Ctrl/⌘ + Enter to run and Alt + R to reset inputs.')
-      : tr('Ctrl/⌘ + Enter로 주요 동작을 실행할 수 있습니다.', 'Press Ctrl/⌘ + Enter to run the primary action.');
+    if (help) help.textContent = shortcutText();
   });
 }());

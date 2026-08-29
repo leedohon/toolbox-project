@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-26",
+  "updatedAt": "2026-08-29",
   "tool": "image-mosaic-tool",
   "index": 8,
   "title": "이미지 모자이크 도구",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.9.0v",
+  "latestVersion": "0.10.0v",
   "paths": {
     "definition": "toolbox/tools/image-mosaic-tool.md",
     "post": "toolbox/posts/image-mosaic-tool.html",

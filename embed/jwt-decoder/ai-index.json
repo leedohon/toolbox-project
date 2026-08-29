@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-26",
+  "updatedAt": "2026-08-29",
   "tool": "jwt-decoder",
   "index": 30,
   "title": "JWT 내용 확인기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.6.0v",
+  "latestVersion": "0.7.0v",
   "paths": {
     "definition": "toolbox/tools/jwt-decoder.md",
     "post": "toolbox/posts/jwt-decoder.html",

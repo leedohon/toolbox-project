@@ -4,7 +4,7 @@
   "title": "XML 검사·정리 도구",
   "description": "XML 문법 오류를 확인하고 들여쓰기 정리·한 줄 압축 결과를 브라우저에서 만듭니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/xml.html",
-  "latestVersion": "0.6.0v",
+  "latestVersion": "0.7.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -95,6 +95,15 @@
       "directory": "0.6.0v",
       "html": "0.6.0v/xml-formatter-validator.html",
       "patchNotes": "0.6.0v/patch-notes.json"
+    },
+    {
+      "version": "0.7.0v",
+      "releaseDate": "2026-08-28",
+      "changeLevel": "minor",
+      "summary": "XML 초기화와 결과 저장 단축키",
+      "directory": "0.7.0v",
+      "html": "0.7.0v/xml-formatter-validator.html",
+      "patchNotes": "0.7.0v/patch-notes.json"
     }
   ]
 }

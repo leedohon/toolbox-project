@@ -7,7 +7,7 @@
   "category": "다용도 펀박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.11.0v",
+  "latestVersion": "0.12.0v",
   "paths": {
     "definition": "toolbox/tools/multipurpose-draw-game.md",
     "post": "toolbox/posts/multipurpose-draw-game.html",

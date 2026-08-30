@@ -67,7 +67,7 @@
       <button class="st-secondary" type="button" id="b64-extract-data-url" data-ko="Data URL 내용 추출" data-en="Extract Data URL">Data URL 내용 추출</button>
       <button class="st-secondary" type="button" id="b64-swap">입력·결과 바꾸기</button>
       <button class="st-secondary" type="button" id="b64-copy">결과 복사</button>
-      <button class="st-secondary" type="button" id="b64-clear">초기화</button>
+      <button class="st-secondary" type="button" id="b64-clear" data-reset-action>초기화</button>
     </div>
 
     <div id="base64-file-tools">
@@ -341,6 +341,6 @@
   reportHeight();
 }());
 </script>
-<script src="../../assets/toolbox-workflow-actions.js?v=0.6.0" data-root="#b64-tools" data-primary="#b64-convert" data-status-target="#b64-message" data-copy-shortcut="#b64-copy" data-reset="false"></script>
+<script src="../../assets/toolbox-workflow-actions.js?v=0.6.0" data-root="#b64-tools" data-primary="#b64-convert" data-status-target="#b64-message" data-copy-shortcut="#b64-copy" data-result-target="#b64-output" data-reset-shortcut="true"></script>
 </body>
 </html>

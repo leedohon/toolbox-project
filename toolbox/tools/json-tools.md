@@ -22,6 +22,7 @@ outputs:
 ---
 
 # 기능
+- JSON 처리 결과로 바로 이동하는 버튼과 Alt+G, Alt+R 초기화
 - `Alt+L` 언어 전환·`lang` 직접 열기와 `Ctrl/⌘+Shift+C` JSON 결과 복사
 - 중첩 JSON의 모든 값 경로를 JSON Pointer 형식으로 복사
 - 한 줄에 JSON 값 하나씩 있는 JSON Lines 입력을 배열 JSON으로 합치기

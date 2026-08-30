@@ -4,7 +4,7 @@
   "title": "JSON 도구",
   "description": "예제 JSON을 바로 불러와 검사·정리하고 Excel·CSV 파일로 저장합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/07/json.html",
-  "latestVersion": "0.16.0v",
+  "latestVersion": "0.17.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -257,6 +257,15 @@
       "directory": "0.16.0v",
       "html": "0.16.0v/json-tools.html",
       "patchNotes": "0.16.0v/patch-notes.json"
+    },
+    {
+      "version": "0.17.0v",
+      "releaseDate": "2026-08-30",
+      "changeLevel": "minor",
+      "summary": "JSON 결과 이동과 안전 초기화",
+      "directory": "0.17.0v",
+      "html": "0.17.0v/json-tools.html",
+      "patchNotes": "0.17.0v/patch-notes.json"
     }
   ]
 }

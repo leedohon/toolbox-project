@@ -45,6 +45,7 @@
   <div class="st-actions">
     <button class="st-primary" id="regex-run" type="button" data-ko="일치 항목 찾기" data-en="Find matches">일치 항목 찾기</button>
     <button class="st-secondary" id="regex-copy" type="button" data-ko="결과 복사" data-en="Copy results">결과 복사</button>
+    <button class="st-secondary" id="regex-copy-json" type="button" data-ko="JSON 결과 복사" data-en="Copy JSON results">JSON 결과 복사</button>
     <button class="st-secondary" id="regex-reset" type="button" data-ko="초기화" data-en="Reset">초기화</button>
   </div>
   <p class="st-status" id="regex-status" role="status" aria-live="polite"></p>
@@ -57,7 +58,7 @@
     <div class="st-field" id="regex-replacement-result" hidden><label class="st-label" for="regex-replacement-output" data-ko="치환 결과" data-en="Replacement result">치환 결과</label><textarea id="regex-replacement-output" readonly spellcheck="false"></textarea><button class="st-secondary" id="regex-copy-replacement" type="button" data-ko="치환 결과 복사" data-en="Copy replacement result">치환 결과 복사</button></div>
   </section>
 </article>
-<script type="module" src="./tool.js?v=0.2.4"></script>
-<script src="../../assets/toolbox-workflow-actions.js?v=0.5.0" data-primary="#regex-run" data-reset-shortcut="true" data-file-targets="#regex-text|테스트 문장|test text" data-save-targets="#regex-text|테스트 문장|test text|toolbox-regex-test.txt"></script>
+<script type="module" src="./tool.js?v=0.2.5"></script>
+<script src="../../assets/toolbox-workflow-actions.js?v=0.6.0" data-primary="#regex-run" data-reset-shortcut="true" data-copy-shortcut="#regex-copy-json" data-result-target="#regex-result" data-file-targets="#regex-text|테스트 문장|test text" data-save-targets="#regex-text|테스트 문장|test text|toolbox-regex-test.txt"></script>
 </body>
 </html>

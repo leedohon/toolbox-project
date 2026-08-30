@@ -3,6 +3,15 @@
   "updatedAt": "2026-08-30",
   "issues": [
     {
+      "code":"SELECT_PRESET_VALUE_MISMATCH","status":"guarded",
+      "summary":"예제 버튼이 select에 존재하지 않는 값을 설정해 구분자·모드 선택이 빈 상태가 되고 결과가 잘못 해석됨",
+      "fingerprints":["preset","select.value","delimiter","empty selected option"],
+      "rootCause":"예제 이벤트의 내부 값과 option value 계약을 함께 검증하지 않고 서로 다른 식별자를 사용함",
+      "fixContract":["예제 이벤트는 실제 option value를 사용","예제 적용 뒤 select.value가 비어 있지 않은지 확인","예제 입력의 행·열 결과를 함께 검증"],
+      "regressionChecks":["세미콜론 예제 뒤 구분자 값이 ;로 선택됨","예제 표가 3행 3열로 해석됨","KOR/ENG 전환 뒤에도 선택값과 결과 유지"],
+      "affectedPatterns":["embed/**/index.html","embed/**/tool.js"]
+    },
+    {
       "code":"LANGUAGE_SWITCH_HISTORY_STALL","status":"guarded",
       "summary":"KOR/ENG 전환 때 현재 주소를 다시 쓰면 브라우저 제어와 임베드 상호작용이 지연될 수 있음",
       "fingerprints":["Alt+L","lang query","history.replaceState","language switch timeout"],

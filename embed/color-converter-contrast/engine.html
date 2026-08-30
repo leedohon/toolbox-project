@@ -16,15 +16,15 @@
     <div class="st-field"><label class="st-label" for="color-fg-text">글자색</label><div class="wf-color-row"><input id="color-fg" type="color" value="#16232c" aria-label="글자색 선택"><input id="color-fg-text" type="text" value="#16232c" maxlength="7" aria-describedby="color-status"></div></div>
     <div class="st-field"><label class="st-label" for="color-bg-text">배경색</label><div class="wf-color-row"><input id="color-bg" type="color" value="#eefaff" aria-label="배경색 선택"><input id="color-bg-text" type="text" value="#eefaff" maxlength="7" aria-describedby="color-status"></div></div>
   </div>
-  <div class="st-actions"><button class="st-secondary" id="color-swap" type="button">색상 서로 바꾸기</button><button class="st-secondary" id="color-recommend" type="button" data-ko="고대비 글자색 적용" data-en="Apply high-contrast text">고대비 글자색 적용</button><button class="st-secondary" id="color-dark-preset" type="button" data-ko="다크 화면 예제" data-en="Dark surface example">다크 화면 예제</button><button class="st-secondary" id="color-aaa-preset" type="button" data-ko="AAA 검정·흰색" data-en="AAA black & white">AAA 검정·흰색</button><button class="st-secondary" id="color-copy" type="button" data-ko="변환값·CSS 복사" data-en="Copy values & CSS">변환값·CSS 복사</button></div>
+  <div class="st-actions"><button class="st-secondary" id="color-swap" type="button">색상 서로 바꾸기</button><button class="st-secondary" id="color-recommend" type="button" data-ko="고대비 글자색 적용" data-en="Apply high-contrast text">고대비 글자색 적용</button><button class="st-secondary" id="color-dark-preset" type="button" data-ko="다크 화면 예제" data-en="Dark surface example">다크 화면 예제</button><button class="st-secondary" id="color-aaa-preset" type="button" data-ko="AAA 검정·흰색" data-en="AAA black & white">AAA 검정·흰색</button><button class="st-secondary" id="color-copy" type="button" data-ko="변환값·CSS 복사" data-en="Copy values & CSS">변환값·CSS 복사</button><button class="st-secondary" id="color-save-css" type="button" data-ko="CSS 파일 저장" data-en="Save CSS file">CSS 파일 저장</button></div>
   <p class="st-status" id="color-status" aria-live="polite">3자리 또는 6자리 HEX 색상을 입력할 수 있습니다.</p>
   <section class="wf-color-preview" id="color-preview">읽기 쉬운 색상인가요?<br>Readable colors?</section>
   <section class="st-result"><h2>대비 검사 결과</h2><p class="st-result-value" id="color-ratio"></p><div class="wf-badges" id="color-badges"></div><p class="st-result-detail wf-code" id="color-values"></p></section>
   <section class="st-result"><h2 data-ko="즉시 사용 CSS" data-en="Ready-to-use CSS">즉시 사용 CSS</h2><code class="wf-result-code" id="color-css"></code></section>
   <textarea class="st-copy-fallback" id="color-fallback" aria-label="직접 복사할 결과" readonly hidden></textarea>
 </article>
-<script type="module" src="./tool.js?v=0.1.5"></script>
+<script type="module" src="./tool.js?v=0.1.6"></script>
 <script>document.querySelector('#color-dark-preset').addEventListener('click',()=>{document.querySelector('#color-fg').value='#f8fafc';document.querySelector('#color-fg-text').value='#f8fafc';document.querySelector('#color-bg').value='#0f172a';document.querySelector('#color-bg-text').value='#0f172a';document.querySelector('#color-fg').dispatchEvent(new Event('input',{bubbles:true}));document.querySelector('#color-bg').dispatchEvent(new Event('input',{bubbles:true}));});</script>
-<script src="../../assets/toolbox-workflow-actions.js?v=0.5.0" data-primary="#color-copy" data-reset-shortcut="true"></script>
+<script src="../../assets/toolbox-workflow-actions.js?v=0.6.0" data-primary="#color-copy" data-reset-shortcut="true" data-save-shortcut="#color-save-css" data-result-target="#color-css"></script>
 </body>
 </html>

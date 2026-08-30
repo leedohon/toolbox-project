@@ -63,27 +63,47 @@
     });
   }
 
-  const saveShortcutButton = script.dataset.saveShortcut
-    ? root.querySelector(script.dataset.saveShortcut)
-    : null;
-  if (saveShortcutButton) {
-    addShortcut(saveShortcutButton, 'Control+Shift+S Meta+Shift+S');
+  const saveShortcutSelector = script.dataset.saveShortcut;
+  const bindSaveShortcut = () => {
+    const button = saveShortcutSelector ? root.querySelector(saveShortcutSelector) : null;
+    addShortcut(button, 'Control+Shift+S Meta+Shift+S');
+    return button;
+  };
+  let saveShortcutButton = bindSaveShortcut();
+  if (saveShortcutSelector) addEventListener('DOMContentLoaded', () => {
+    saveShortcutButton = bindSaveShortcut();
+    const help = root.querySelector('[data-workflow-shortcut]');
+    if (help) help.textContent = shortcutText();
+  }, { once: true });
+  if (saveShortcutSelector) {
     addEventListener('keydown', (event) => {
       if (event.key.toLowerCase() !== 's' || (!event.ctrlKey && !event.metaKey) || !event.shiftKey || event.altKey || event.isComposing) return;
+      const button = bindSaveShortcut();
+      if (!button) return;
       event.preventDefault();
-      saveShortcutButton.click();
+      button.click();
     });
   }
 
-  const copyShortcutButton = script.dataset.copyShortcut
-    ? root.querySelector(script.dataset.copyShortcut)
-    : null;
-  if (copyShortcutButton) {
-    addShortcut(copyShortcutButton, 'Control+Shift+C Meta+Shift+C');
+  const copyShortcutSelector = script.dataset.copyShortcut;
+  const bindCopyShortcut = () => {
+    const button = copyShortcutSelector ? root.querySelector(copyShortcutSelector) : null;
+    addShortcut(button, 'Control+Shift+C Meta+Shift+C');
+    return button;
+  };
+  let copyShortcutButton = bindCopyShortcut();
+  if (copyShortcutSelector) addEventListener('DOMContentLoaded', () => {
+    copyShortcutButton = bindCopyShortcut();
+    const help = root.querySelector('[data-workflow-shortcut]');
+    if (help) help.textContent = shortcutText();
+  }, { once: true });
+  if (copyShortcutSelector) {
     addEventListener('keydown', (event) => {
       if (event.key.toLowerCase() !== 'c' || (!event.ctrlKey && !event.metaKey) || !event.shiftKey || event.altKey || event.isComposing) return;
+      const button = bindCopyShortcut();
+      if (!button) return;
       event.preventDefault();
-      copyShortcutButton.click();
+      button.click();
     });
   }
 
@@ -102,6 +122,27 @@
       if (!button) return;
       event.preventDefault();
       button.click();
+    });
+  }
+
+  const resultTargetSelector = script.dataset.resultTarget;
+  const resultTarget = resultTargetSelector ? root.querySelector(resultTargetSelector) : null;
+  let resultButton = null;
+  if (resultTarget) {
+    if (!resultTarget.hasAttribute('tabindex')) resultTarget.tabIndex = -1;
+    resultButton = makeButton('결과로 이동', 'Go to result', () => {
+      if (resultTarget.hidden || resultTarget.closest('[hidden]')) {
+        setStatus('먼저 결과를 만들어 주세요.', 'Create a result first.', true);
+        return;
+      }
+      resultTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      window.ToolboxUX?.focus(resultTarget, { preventScroll: true });
+    });
+    addShortcut(resultButton, 'Alt+G');
+    addEventListener('keydown', (event) => {
+      if (event.key.toLowerCase() !== 'g' || !event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.isComposing) return;
+      event.preventDefault();
+      resultButton.click();
     });
   }
 
@@ -163,6 +204,7 @@
     if (saveShortcutButton) shortcuts.push(tr('Ctrl/⌘ + Shift + S로 파일 저장', 'Ctrl/⌘ + Shift + S to save the file'));
     if (copyShortcutButton) shortcuts.push(tr('Ctrl/⌘ + Shift + C로 결과 복사', 'Ctrl/⌘ + Shift + C to copy the result'));
     if (sampleShortcutSelector) shortcuts.push(tr('Alt + S로 대표 예제 적용', 'Alt + S to apply the sample'));
+    if (resultButton) shortcuts.push(tr('Alt + G로 결과로 이동', 'Alt + G to go to the result'));
     return `${shortcuts.join(tr(', ', ', '))}.`;
   };
 

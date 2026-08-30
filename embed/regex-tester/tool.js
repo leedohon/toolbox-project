@@ -2,8 +2,8 @@ import {copyText,setupEmbedHeight} from '../../assets/play-tools.js?v=0.3.2';
 
 const $=selector=>document.querySelector(selector);
 const tr=(ko,en)=>window.ToolboxI18n?.language==='en'?en:ko;
-let copyValue='',replacementValue='';
-const splitButton=document.createElement('button');splitButton.className='st-secondary';splitButton.id='regex-split';splitButton.type='button';splitButton.dataset.ko='패턴으로 나누기';splitButton.dataset.en='Split by pattern';splitButton.textContent=tr('패턴으로 나누기','Split by pattern');$('#regex-run').after(splitButton);const splitResult=document.createElement('section');splitResult.className='st-result';splitResult.id='regex-split-result';splitResult.hidden=true;splitResult.innerHTML='<h2 data-ko="나누기 결과" data-en="Split result">나누기 결과</h2><textarea class="wf-output-text wf-long-output" id="regex-split-output" readonly spellcheck="false" tabindex="0" role="region" data-ko-aria-label="정규식 나누기 결과" data-en-aria-label="Regular expression split result"></textarea>';$('#regex-result').after(splitResult);
+let copyValue='',replacementValue='',matchJson='';
+const splitButton=document.createElement('button');splitButton.className='st-secondary';splitButton.id='regex-split';splitButton.type='button';splitButton.dataset.ko='패턴으로 나누기';splitButton.dataset.en='Split by pattern';splitButton.textContent=tr('패턴으로 나누기','Split by pattern');$('#regex-run').after(splitButton);const splitResult=document.createElement('section');splitResult.className='st-result';splitResult.id='regex-split-result';splitResult.hidden=true;splitResult.innerHTML='<h2 data-ko="나누기 결과" data-en="Split result">나누기 결과</h2><textarea class="wf-output-text wf-long-output" id="regex-split-output" readonly spellcheck="false" tabindex="0" role="region" data-ko-aria-label="정규식 나누기 결과" data-en-aria-label="Regular expression split result"></textarea>';$('#regex-result').after(splitResult);$('#regex-copy-json').addEventListener('click',async()=>{if(!matchJson)return setStatus('복사할 JSON 일치 결과가 없습니다.','There are no JSON match results to copy.',true);if(await copyText(matchJson)){setStatus('JSON 일치 결과를 복사했습니다.','JSON match results copied.');$('#regex-fallback').hidden=true;}else{$('#regex-fallback').value=matchJson;$('#regex-fallback').hidden=false;setStatus('직접 복사할 JSON 결과를 표시했습니다.','JSON results are shown for manual copying.',true);}});
 
 function flags(){return [...document.querySelectorAll('[name="regex-flag"]:checked')].map(input=>input.value).join('');}
 function setStatus(ko,en,error=false){const status=$('#regex-status');status.textContent=tr(ko,en);status.className=`st-status ${error?'is-error':'is-good'}`;}
@@ -12,12 +12,12 @@ function escapeHtml(value){return value.replace(/[&<>"']/g,character=>({'&':'&am
 function run(){
   const pattern=$('#regex-pattern').value,text=$('#regex-text').value,result=$('#regex-result'),list=$('#regex-list');
   $('#regex-fallback').hidden=true;
-  if(!pattern){result.hidden=true;copyValue='';setStatus('정규식 패턴을 입력해 주세요.','Enter a regular expression pattern.',true);return;}
+  if(!pattern){result.hidden=true;copyValue='';matchJson='';setStatus('정규식 패턴을 입력해 주세요.','Enter a regular expression pattern.',true);return;}
   try{
     const selectedFlags=flags(),expression=new RegExp(pattern,selectedFlags),matches=[];
     let match;
     while((match=expression.exec(text))&&matches.length<201){matches.push({value:match[0],index:match.index,groups:match.slice(1),named:match.groups||{}});if(!selectedFlags.includes('g'))break;if(match[0]==='')expression.lastIndex+=1;}
-    const limited=matches.length>200,visible=matches.slice(0,200);
+    const limited=matches.length>200,visible=matches.slice(0,200);matchJson=JSON.stringify(visible.map(item=>({index:item.index,value:item.value,groups:item.groups,named:item.named})),null,2);
     list.replaceChildren(...visible.map((item,index)=>{const row=document.createElement('li');const numbered=item.groups.map((value,groupIndex)=>`#${groupIndex+1}=${value??tr('(없음)','(unset)')}`),named=Object.entries(item.named).map(([name,value])=>`${name}=${value??tr('(없음)','(unset)')}`),captures=[...numbered,...named];row.textContent=tr(`${index+1}. ${item.index}번 위치: ${item.value||'(빈 문자열)'}`,`${index+1}. Position ${item.index}: ${item.value||'(empty string)'}`)+(captures.length?tr(` · 캡처 ${captures.join(', ')}`,` · Captures ${captures.join(', ')}`):'');return row;}));
     let cursor=0,highlight='';
     for(const item of visible){highlight+=escapeHtml(text.slice(cursor,item.index));highlight+=`<mark>${escapeHtml(item.value)||'&#8203;'}</mark>`;cursor=item.index+item.value.length;}
@@ -31,7 +31,7 @@ function run(){
     $('#regex-replacement-result').hidden=!replaceEnabled;
     result.hidden=false;
     setStatus(visible.length?'일치 항목을 찾았습니다.':'일치하는 항목이 없습니다.',visible.length?'Matches found.':'No matches found.');
-  }catch(error){result.hidden=true;copyValue='';replacementValue='';setStatus(`패턴을 확인해 주세요: ${error.message}`,`Check the pattern: ${error.message}`,true);}
+  }catch(error){result.hidden=true;copyValue='';replacementValue='';matchJson='';setStatus(`패턴을 확인해 주세요: ${error.message}`,`Check the pattern: ${error.message}`,true);}
 }
 
 $('#regex-run').addEventListener('click',run);

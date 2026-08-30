@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "0.34.0",
+  "policyVersion": "0.35.0",
   "updatedAt": "2026-08-30",
   "scope": [
     "repository markdown instructions",
@@ -70,6 +70,13 @@
     "evidence"
   ],
   "backlog": [
+    {
+      "id":"OPT-040","status":"completed","triggerPaths":["assets/toolbox-workflow-actions.js","embed/**/index.html","embed/**/engine.html"],
+      "problem":"키보드와 버튼으로 긴 실행 화면의 결과 영역을 찾는 동선을 도구마다 반복 구현해야 했다.",
+      "proposedChange":"data-result-target 선언 하나로 결과 이동 버튼, Alt+G, 안전한 데스크톱 포커스와 모바일 스크롤을 공통 처리한다.",
+      "measure":"per-tool result navigation implementations","targetReduction":0.5,
+      "evidence":[{"before":6,"after":1,"unit":"implementations across six selected tools","reduction":0.8333,"verifiedAt":"2026-08-30"}]
+    },
     {
       "id":"OPT-039","status":"completed","triggerPaths":["assets/toolbox-i18n.js","embed/**/index.html","embed/**/engine.html"],
       "problem":"언어를 주소로 직접 열거나 키보드로 전환하는 동선을 도구마다 별도 쿼리 해석과 이벤트로 구현해야 했다.",

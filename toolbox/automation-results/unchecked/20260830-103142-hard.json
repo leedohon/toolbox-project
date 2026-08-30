@@ -1,15 +1,22 @@
 {
   "runId": "20260830-103142-hard",
   "workflow": "hard",
-  "status": "partial",
+  "status": "completed",
   "confirm": "N",
   "startedAt": "2026-08-30T10:31:42+09:00",
-  "completedAt": null,
+  "completedAt": "2026-08-30T13:34:32+09:00",
   "confirmedAt": null,
   "summary": "공개 도구 6개의 결과 탐색과 실사용 내보내기 동선을 개선하고 Blogger 공개 글 반영까지 완료했습니다.",
   "request": {
     "workType": "hard",
-    "targets": ["color-converter-contrast", "text-diff-checker", "markdown-preview-converter", "csv-table-converter", "regex-tester", "hash-generator"],
+    "targets": [
+      "color-converter-contrast",
+      "text-diff-checker",
+      "markdown-preview-converter",
+      "csv-table-converter",
+      "regex-tester",
+      "hash-generator"
+    ],
     "versionLevel": "minor",
     "blogger": "update-existing",
     "gitDeployment": "independent",
@@ -23,21 +30,93 @@
     "warning": "Codex 계정 인증이 필요해 사용량을 확인하지 못했습니다. 잔여 비율을 추정하지 않고 현재 규칙에 따라 진행했습니다.",
     "rule": "unavailable은 경고 후 진행하고, 확인된 20% 미만만 건너뛴다"
   },
-  "selectedTools": ["color-converter-contrast", "text-diff-checker", "markdown-preview-converter", "csv-table-converter", "regex-tester", "hash-generator"],
+  "selectedTools": [
+    "color-converter-contrast",
+    "text-diff-checker",
+    "markdown-preview-converter",
+    "csv-table-converter",
+    "regex-tester",
+    "hash-generator"
+  ],
   "selectionBasis": "최근 3개 하드 회차 대상을 제외한 공개 도구 6개 자동 순환 선정",
   "releasePlans": {
-    "color-converter-contrast": {"level":"minor","summary":"CSS 파일 저장과 결과 이동","changes":["현재 색상 조합을 CSS 파일로 저장합니다.","결과 영역으로 바로 이동할 수 있습니다."]},
-    "text-diff-checker": {"level":"minor","summary":"비교 요약 복사와 결과 이동","changes":["추가·삭제·일치율 요약을 별도로 복사합니다.","결과 영역으로 바로 이동할 수 있습니다."]},
-    "markdown-preview-converter": {"level":"minor","summary":"목차 파일 저장과 결과 이동","changes":["문서 목차를 TXT 파일로 저장합니다.","변환 결과 영역으로 바로 이동할 수 있습니다."]},
-    "csv-table-converter": {"level":"minor","summary":"열 이름 복사와 예제 수정","changes":["현재 열 이름을 한 줄로 복사합니다.","세미콜론 예제가 올바른 구분자를 선택합니다.","표 결과로 바로 이동할 수 있습니다."]},
-    "regex-tester": {"level":"minor","summary":"JSON 일치 결과와 결과 이동","changes":["위치와 캡처 그룹을 포함한 JSON 결과를 복사합니다.","일치 결과 영역으로 바로 이동할 수 있습니다."]},
-    "hash-generator": {"level":"minor","summary":"SRI 복사와 결과 이동","changes":["단일 알고리즘 해시를 SRI 형식으로 복사합니다.","해시 결과 영역으로 바로 이동할 수 있습니다."]}
+    "color-converter-contrast": {
+      "level": "minor",
+      "summary": "CSS 파일 저장과 결과 이동",
+      "changes": [
+        "현재 색상 조합을 CSS 파일로 저장합니다.",
+        "결과 영역으로 바로 이동할 수 있습니다."
+      ]
+    },
+    "text-diff-checker": {
+      "level": "minor",
+      "summary": "비교 요약 복사와 결과 이동",
+      "changes": [
+        "추가·삭제·일치율 요약을 별도로 복사합니다.",
+        "결과 영역으로 바로 이동할 수 있습니다."
+      ]
+    },
+    "markdown-preview-converter": {
+      "level": "minor",
+      "summary": "목차 파일 저장과 결과 이동",
+      "changes": [
+        "문서 목차를 TXT 파일로 저장합니다.",
+        "변환 결과 영역으로 바로 이동할 수 있습니다."
+      ]
+    },
+    "csv-table-converter": {
+      "level": "minor",
+      "summary": "열 이름 복사와 예제 수정",
+      "changes": [
+        "현재 열 이름을 한 줄로 복사합니다.",
+        "세미콜론 예제가 올바른 구분자를 선택합니다.",
+        "표 결과로 바로 이동할 수 있습니다."
+      ]
+    },
+    "regex-tester": {
+      "level": "minor",
+      "summary": "JSON 일치 결과와 결과 이동",
+      "changes": [
+        "위치와 캡처 그룹을 포함한 JSON 결과를 복사합니다.",
+        "일치 결과 영역으로 바로 이동할 수 있습니다."
+      ]
+    },
+    "hash-generator": {
+      "level": "minor",
+      "summary": "SRI 복사와 결과 이동",
+      "changes": [
+        "단일 알고리즘 해시를 SRI 형식으로 복사합니다.",
+        "해시 결과 영역으로 바로 이동할 수 있습니다."
+      ]
+    }
   },
-  "workCounts": {"improvements":6,"newOrMerge":3,"commonFixes":2},
-  "changes": ["CSS 파일 저장", "비교 요약 복사", "목차 TXT 저장", "열 이름 복사와 세미콜론 예제 수정", "정규식 JSON 결과 복사", "해시 SRI 복사"],
-  "newIdeas": ["CSS 파일 저장 통합", "정규식 JSON 결과 통합", "해시 SRI 복사 통합"],
-  "commonModules": ["6개 도구 공통 결과 이동 버튼과 Alt+G", "6개 도구 공통 복사·저장 키보드 계약"],
-  "knownIssueMatches": ["PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW", "SHARED_ASSET_CACHE_STALE", "SELECT_PRESET_VALUE_MISMATCH"],
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "CSS 파일 저장",
+    "비교 요약 복사",
+    "목차 TXT 저장",
+    "열 이름 복사와 세미콜론 예제 수정",
+    "정규식 JSON 결과 복사",
+    "해시 SRI 복사"
+  ],
+  "newIdeas": [
+    "CSS 파일 저장 통합",
+    "정규식 JSON 결과 통합",
+    "해시 SRI 복사 통합"
+  ],
+  "commonModules": [
+    "6개 도구 공통 결과 이동 버튼과 Alt+G",
+    "6개 도구 공통 복사·저장 키보드 계약"
+  ],
+  "knownIssueMatches": [
+    "PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW",
+    "SHARED_ASSET_CACHE_STALE",
+    "SELECT_PRESET_VALUE_MISMATCH"
+  ],
   "validation": [
     "공유 워크플로 자산 JavaScript 구문 검사 통과",
     "릴리스 JSON 544개와 최신 경로 검증 통과",
@@ -47,47 +126,173 @@
     "자동화 결과 JSON 52개 검증 통과",
     "toolbox-workflow-actions.js v0.5.0 잔존 참조 없음",
     "모바일 375px과 데스크톱 1280px에서 6개 대상의 가로 넘침·버튼 경계·KOR/ENG·결과 이동·복사/저장 동작 확인",
-    "CSV 세미콜론 예제가 구분자 ;와 3행 3열 표를 유지함을 확인"
+    "CSV 세미콜론 예제가 구분자 ;와 3행 3열 표를 유지함을 확인",
+    "공개 배포 대상 확인"
   ],
   "blogger": {
     "created": [],
     "updated": [
       "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-      "https://bloggiedh.blogspot.com/2026/07/csv.html",
-      "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_912.html",
       "https://bloggiedh.blogspot.com/2026/07/html.html",
+      "https://bloggiedh.blogspot.com/2026/07/csv.html",
       "https://bloggiedh.blogspot.com/2026/07/blog-post_18.html",
-      "https://bloggiedh.blogspot.com/2026/07/blog-post_912.html"
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html"
     ],
     "skipped": [],
     "status": "completed"
   },
-  "git": {"branch":"main","commit":null,"pushed":false},
-  "deployment": {"status":"pending","urls":[]},
-  "shutdown": {"requested":false,"scheduled":false,"input":null,"scheduledFor":null,"cancelled":false},
+  "git": {
+    "branch": "main",
+    "commit": "41a05e9d41fbe7cd1acdb331c805c1ba8c7dc7cb",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 33292755571,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/color-converter-contrast/",
+      "https://leedohon.github.io/toolbox-project/embed/text-diff-checker/",
+      "https://leedohon.github.io/toolbox-project/embed/markdown-preview-converter/",
+      "https://leedohon.github.io/toolbox-project/embed/csv-table-converter/",
+      "https://leedohon.github.io/toolbox-project/embed/regex-tester/",
+      "https://leedohon.github.io/toolbox-project/embed/hash-generator/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
   "blocked": [],
-  "scopeExceptions": ["신규 페이지 대신 기존 공개 도구에 독립 검증 가능한 실사용 기능 3건을 통합"],
+  "scopeExceptions": [
+    "신규 페이지 대신 기존 공개 도구에 독립 검증 가능한 실사용 기능 3건을 통합"
+  ],
   "runState": {
-    "current":"commit",
+    "current": "confirm",
     "stages": {
-      "select":{"status":"completed","startedAt":"2026-08-30T10:31:42+09:00","completedAt":"2026-08-30T10:33:00+09:00","evidence":["최근 하드 대상 제외 자동 순환", "대상 스냅샷 지침 문자 84.93% 절감"],"blockCode":null},
-      "implement":{"status":"completed","startedAt":"2026-08-30T10:33:00+09:00","completedAt":"2026-08-30T13:25:00+09:00","evidence":["6개 사용자 체감 개선", "독립 검증 가능한 기존 페이지 통합 기능 3건", "6개 대상에 적용된 공통 수정 2건", "6개 minor 릴리스 생성"],"blockCode":null},
-      "validate":{"status":"completed","startedAt":"2026-08-30T13:25:00+09:00","completedAt":"2026-08-30T13:31:00+09:00","evidence":["정적·릴리스·모듈·검색·공개 감사 모두 통과", "375px·1280px 실제 브라우저 QA 통과", "회귀 계약 3건 확인"],"blockCode":null},
-      "publish":{"status":"completed","startedAt":"2026-08-30T13:31:00+09:00","completedAt":"2026-08-30T13:32:00+09:00","evidence":["Blogger 사전 점검 6건 통과", "LIVE 게시글 6건 갱신", "게시글 URL 및 카탈로그 동기화"],"blockCode":null},
-      "commit":{"status":"in_progress","startedAt":"2026-08-30T13:32:00+09:00","completedAt":null,"evidence":[],"blockCode":null},
-      "deploy":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},
-      "confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null}
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-08-30T10:31:42+09:00",
+        "completedAt": "2026-08-30T10:33:00+09:00",
+        "evidence": [
+          "최근 하드 대상 제외 자동 순환",
+          "대상 스냅샷 지침 문자 84.93% 절감"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-08-30T10:33:00+09:00",
+        "completedAt": "2026-08-30T13:25:00+09:00",
+        "evidence": [
+          "6개 사용자 체감 개선",
+          "독립 검증 가능한 기존 페이지 통합 기능 3건",
+          "6개 대상에 적용된 공통 수정 2건",
+          "6개 minor 릴리스 생성"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-08-30T13:25:00+09:00",
+        "completedAt": "2026-08-30T13:31:00+09:00",
+        "evidence": [
+          "정적·릴리스·모듈·검색·공개 감사 모두 통과",
+          "375px·1280px 실제 브라우저 QA 통과",
+          "회귀 계약 3건 확인"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-08-30T13:31:00+09:00",
+        "completedAt": "2026-08-30T13:32:00+09:00",
+        "evidence": [
+          "Blogger 사전 점검 6건 통과",
+          "LIVE 게시글 6건 갱신",
+          "게시글 URL 및 카탈로그 동기화"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-08-30T13:32:00+09:00",
+        "completedAt": "2026-08-30T13:34:32+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-08-30T10:31:42+09:00",
+        "completedAt": "2026-08-30T13:34:32+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "in_progress",
+        "startedAt": "2026-08-30T13:34:32+09:00",
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      }
     }
   },
-  "knowledgeOptimization": {"policyVersion":"0.35.0","applied":["OPT-040"],"summary":"결과 이동 UI와 Alt+G를 공통 선언 한 곳에서 처리","skillValidation":"passed"},
+  "knowledgeOptimization": {
+    "policyVersion": "0.35.0",
+    "applied": [
+      "OPT-040"
+    ],
+    "summary": "결과 이동 UI와 Alt+G를 공통 선언 한 곳에서 처리",
+    "skillValidation": "passed"
+  },
   "developmentTokenEfficiency": {
-    "measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.8493,"overallReduction":null,
-    "proxies":[{"metric":"target manifest and definition characters emitted for selection","before":30318,"after":4569,"reduction":0.8493},{"metric":"per-tool result navigation implementations","before":6,"after":1,"reduction":0.8333}],
-    "note":"전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": 0.8493,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "target manifest and definition characters emitted for selection",
+        "before": 30318,
+        "after": 4569,
+        "reduction": 0.8493
+      },
+      {
+        "metric": "per-tool result navigation implementations",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      }
+    ],
+    "note": "전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
   },
   "reportHistory": [
-    {"at":"2026-08-30T10:31:42+09:00","action":"started","note":"사용량 unavailable 경고 후 현재 규칙에 따라 하드 워크플로 시작"},
-    {"at":"2026-08-30T13:28:55+09:00","action":"resumed","note":"이번 회차도 사용량 unavailable·remainingPercent null이어서 재시도나 추정 없이 경고 후 최초 미완료 validate 단계부터 재개"},
-    {"at":"2026-08-30T13:32:00+09:00","action":"published","note":"검증 통과 후 Blogger LIVE 게시글 6건 갱신"}
+    {
+      "at": "2026-08-30T10:31:42+09:00",
+      "action": "started",
+      "note": "사용량 unavailable 경고 후 현재 규칙에 따라 하드 워크플로 시작"
+    },
+    {
+      "at": "2026-08-30T13:28:55+09:00",
+      "action": "resumed",
+      "note": "이번 회차도 사용량 unavailable·remainingPercent null이어서 재시도나 추정 없이 경고 후 최초 미완료 validate 단계부터 재개"
+    },
+    {
+      "at": "2026-08-30T13:32:00+09:00",
+      "action": "published",
+      "note": "검증 통과 후 Blogger LIVE 게시글 6건 갱신"
+    }
   ]
 }

@@ -1,26 +1,294 @@
 {
-  "runId":"20260830-223237-hard","workflow":"hard","status":"partial","confirm":"N","startedAt":"2026-08-30T22:32:37+09:00","completedAt":null,"confirmedAt":null,
-  "summary":"공개 도구 6개의 결과·실행 영역 탐색과 안전 초기화 키보드 동선을 개선합니다.",
-  "request":{"workType":"hard","targets":["qr-barcode-generator","json-tools","base64-tools","multipurpose-draw-game","password-generator","image-resizer-compressor"],"versionLevel":"minor","blogger":"update-existing","gitDeployment":"independent","shutdown":"none"},
-  "usageGate":{"status":"unavailable","remainingPercent":null,"minimumRemainingPercent":20,"checkedOnce":true,"warning":"Codex 계정 인증이 필요해 사용량을 확인하지 못했습니다. 잔여 비율을 추정하지 않고 현재 규칙에 따라 진행했습니다.","rule":"unavailable은 경고 후 진행하고, 확인된 20% 미만만 건너뛴다"},
-  "selectedTools":["qr-barcode-generator","json-tools","base64-tools","multipurpose-draw-game","password-generator","image-resizer-compressor"],
-  "selectionBasis":"최근 3개 하드 회차 대상을 제외한 공개 도구 6개 자동 순환 선정",
-  "releasePlans":{
-    "qr-barcode-generator":{"level":"minor","summary":"생성 결과 이동과 안전 초기화","changes":["생성 결과로 바로 이동하는 버튼과 Alt+G를 제공합니다.","Alt+R로 기본값 초기화를 실행합니다."]},
-    "json-tools":{"level":"minor","summary":"JSON 결과 이동과 안전 초기화","changes":["JSON 처리 결과로 바로 이동하는 버튼과 Alt+G를 제공합니다.","Alt+R로 전체 비우기를 실행합니다."]},
-    "base64-tools":{"level":"minor","summary":"변환 결과 이동과 안전 초기화","changes":["변환 결과로 바로 이동하는 버튼과 Alt+G를 제공합니다.","Alt+R로 입력과 결과를 초기화합니다."]},
-    "multipurpose-draw-game":{"level":"minor","summary":"현재 게임 실행 영역 이동","changes":["현재 게임 실행 영역으로 바로 이동하는 버튼과 Alt+G를 제공합니다.","게임 허브에서 결과 탐색 상태를 가까이 안내합니다."]},
-    "password-generator":{"level":"minor","summary":"비밀번호 생성 결과 이동","changes":["생성 결과로 바로 이동하는 버튼과 Alt+G를 제공합니다.","허브에서 현재 생성 도구 영역으로 안전하게 이동합니다."]},
-    "image-resizer-compressor":{"level":"minor","summary":"이미지 미리보기 이동과 안전 초기화","changes":["변환 미리보기로 바로 이동하는 버튼과 Alt+G를 제공합니다.","Alt+R로 이미지 작업을 초기화합니다."]}
+  "runId": "20260830-223237-hard",
+  "workflow": "hard",
+  "status": "completed",
+  "confirm": "N",
+  "startedAt": "2026-08-30T22:32:37+09:00",
+  "completedAt": "2026-08-30T22:50:06+09:00",
+  "confirmedAt": null,
+  "summary": "공개 도구 6개의 결과·실행 영역 탐색과 안전 초기화 키보드 동선을 개선합니다.",
+  "request": {
+    "workType": "hard",
+    "targets": [
+      "qr-barcode-generator",
+      "json-tools",
+      "base64-tools",
+      "multipurpose-draw-game",
+      "password-generator",
+      "image-resizer-compressor"
+    ],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
   },
-  "workCounts":{"improvements":6,"newOrMerge":3,"commonFixes":2},
-  "changes":["QR 생성 결과 이동","JSON 처리 결과 이동","인코딩 변환 결과 이동","게임 실행 영역 이동","비밀번호 생성 결과 이동","이미지 변환 미리보기 이동"],
-  "newIdeas":["QR 시각 결과 탐색 통합","뽑기게임 허브 실행 영역 탐색 통합","이미지 미리보기 탐색 통합"],
-  "commonModules":["6개 도구 공통 결과 이동 버튼과 Alt+G","4개 도구 공통 Alt+R 안전 초기화"],
-  "validation":["6개 대상 인라인 스크립트 구문 통과","ES 모듈 2개 구문 통과","릴리스 JSON 562개와 최신 경로 일치","모듈 75개·레지스트리 48개 일치","공개 실행 페이지 57개 색인 정책 통과","대상 공개 페이지 6/6 감사 통과","자동화 결과 55개 구조 검증 통과","375px·1280px에서 대상 도구 및 게시글 가로 넘침 없음","6개 도구 결과 이동 Alt+G 동작 확인","QR·JSON·Base64 안전 초기화 Alt+R 동작 확인","장문 JSON 결과 내부 스크롤 및 입력 축소 뒤 높이 감소 확인"],"knownIssueMatches":["HUB_PRELOAD_STATUS_MISMATCH","IFRAME_HEIGHT_STALE","IFRAME_HEIGHT_CAP_MISMATCH","PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW"],"blogger":{"created":[],"updated":[{"tool":"qr-barcode-generator","url":"https://bloggiedh.blogspot.com/2026/07/blog-post.html","state":"LIVE"},{"tool":"json-tools","url":"https://bloggiedh.blogspot.com/2026/07/json.html","state":"LIVE"},{"tool":"base64-tools","url":"https://bloggiedh.blogspot.com/2026/07/base64.html","state":"LIVE"},{"tool":"multipurpose-draw-game","url":"https://bloggiedh.blogspot.com/2026/07/blog-post_15.html","state":"LIVE"},{"tool":"password-generator","url":"https://bloggiedh.blogspot.com/2026/07/blog-post_103.html","state":"LIVE"},{"tool":"image-resizer-compressor","url":"https://bloggiedh.blogspot.com/2026/07/blog-post_106.html","state":"LIVE"}],"skipped":[],"status":"completed"},"git":{"branch":"main","commit":null,"pushed":false},"deployment":{"status":"pending","urls":[]},
-  "shutdown":{"requested":false,"scheduled":false,"input":null,"scheduledFor":null,"cancelled":false},"blocked":[],"scopeExceptions":["신규 페이지 대신 기존 공개 도구에 독립 검증 가능한 결과 탐색 기능 3건을 통합"],
-  "runState":{"current":"commit","stages":{"select":{"status":"completed","startedAt":"2026-08-30T22:32:37+09:00","completedAt":"2026-08-30T22:33:00+09:00","evidence":["최근 하드 대상 제외 자동 순환","대상 스냅샷 지침 문자 88.91% 절감"],"blockCode":null},"implement":{"status":"completed","startedAt":"2026-08-30T22:33:00+09:00","completedAt":"2026-08-30T22:41:00+09:00","evidence":["6개 도구 결과 탐색 개선","3개 기존 공개 페이지에 독립 기능 통합","6개 대상 공통 Alt+G 및 4개 대상 공통 Alt+R 적용","6개 minor 릴리스 생성"],"blockCode":null},"validate":{"status":"completed","startedAt":"2026-08-30T22:41:00+09:00","completedAt":"2026-08-30T22:45:38+09:00","evidence":["정적 검증 전체 통과","375px·1280px 브라우저 QA 통과","장문 출력 축소 회귀 통과"],"blockCode":null},"publish":{"status":"completed","startedAt":"2026-08-30T22:45:38+09:00","completedAt":"2026-08-30T22:48:30+09:00","evidence":["Blogger 사전 점검 6개 통과","기존 LIVE 게시글 6개 업데이트","삭제·휴지통·초안 전환 없음"],"blockCode":null},"commit":{"status":"in_progress","startedAt":"2026-08-30T22:48:30+09:00","completedAt":null,"evidence":[],"blockCode":null},"deploy":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null}}},
-  "knowledgeOptimization":{"policyVersion":"0.35.0","applied":[],"summary":"현재 변경과 겹치는 대기 최적화가 없어 기존 공통 선언을 재사용","skillValidation":"passed"},
-  "developmentTokenEfficiency":{"measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.8891,"overallReduction":null,"proxies":[{"metric":"target manifest and definition characters emitted for selection","before":49219,"after":5456,"reduction":0.8891},{"metric":"per-tool result navigation implementations","before":6,"after":1,"reduction":0.8333},{"metric":"per-tool reset shortcut implementations","before":4,"after":1,"reduction":0.75}],"note":"전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."},
-  "reportHistory":[{"at":"2026-08-30T22:32:37+09:00","action":"started","note":"사용량 unavailable 경고 후 현재 규칙에 따라 하드 워크플로 시작"}]
+  "usageGate": {
+    "status": "unavailable",
+    "remainingPercent": null,
+    "minimumRemainingPercent": 20,
+    "checkedOnce": true,
+    "warning": "Codex 계정 인증이 필요해 사용량을 확인하지 못했습니다. 잔여 비율을 추정하지 않고 현재 규칙에 따라 진행했습니다.",
+    "rule": "unavailable은 경고 후 진행하고, 확인된 20% 미만만 건너뛴다"
+  },
+  "selectedTools": [
+    "qr-barcode-generator",
+    "json-tools",
+    "base64-tools",
+    "multipurpose-draw-game",
+    "password-generator",
+    "image-resizer-compressor"
+  ],
+  "selectionBasis": "최근 3개 하드 회차 대상을 제외한 공개 도구 6개 자동 순환 선정",
+  "releasePlans": {
+    "qr-barcode-generator": {
+      "level": "minor",
+      "summary": "생성 결과 이동과 안전 초기화",
+      "changes": [
+        "생성 결과로 바로 이동하는 버튼과 Alt+G를 제공합니다.",
+        "Alt+R로 기본값 초기화를 실행합니다."
+      ]
+    },
+    "json-tools": {
+      "level": "minor",
+      "summary": "JSON 결과 이동과 안전 초기화",
+      "changes": [
+        "JSON 처리 결과로 바로 이동하는 버튼과 Alt+G를 제공합니다.",
+        "Alt+R로 전체 비우기를 실행합니다."
+      ]
+    },
+    "base64-tools": {
+      "level": "minor",
+      "summary": "변환 결과 이동과 안전 초기화",
+      "changes": [
+        "변환 결과로 바로 이동하는 버튼과 Alt+G를 제공합니다.",
+        "Alt+R로 입력과 결과를 초기화합니다."
+      ]
+    },
+    "multipurpose-draw-game": {
+      "level": "minor",
+      "summary": "현재 게임 실행 영역 이동",
+      "changes": [
+        "현재 게임 실행 영역으로 바로 이동하는 버튼과 Alt+G를 제공합니다.",
+        "게임 허브에서 결과 탐색 상태를 가까이 안내합니다."
+      ]
+    },
+    "password-generator": {
+      "level": "minor",
+      "summary": "비밀번호 생성 결과 이동",
+      "changes": [
+        "생성 결과로 바로 이동하는 버튼과 Alt+G를 제공합니다.",
+        "허브에서 현재 생성 도구 영역으로 안전하게 이동합니다."
+      ]
+    },
+    "image-resizer-compressor": {
+      "level": "minor",
+      "summary": "이미지 미리보기 이동과 안전 초기화",
+      "changes": [
+        "변환 미리보기로 바로 이동하는 버튼과 Alt+G를 제공합니다.",
+        "Alt+R로 이미지 작업을 초기화합니다."
+      ]
+    }
+  },
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "QR 생성 결과 이동",
+    "JSON 처리 결과 이동",
+    "인코딩 변환 결과 이동",
+    "게임 실행 영역 이동",
+    "비밀번호 생성 결과 이동",
+    "이미지 변환 미리보기 이동"
+  ],
+  "newIdeas": [
+    "QR 시각 결과 탐색 통합",
+    "뽑기게임 허브 실행 영역 탐색 통합",
+    "이미지 미리보기 탐색 통합"
+  ],
+  "commonModules": [
+    "6개 도구 공통 결과 이동 버튼과 Alt+G",
+    "4개 도구 공통 Alt+R 안전 초기화"
+  ],
+  "validation": [
+    "6개 대상 인라인 스크립트 구문 통과",
+    "ES 모듈 2개 구문 통과",
+    "릴리스 JSON 562개와 최신 경로 일치",
+    "모듈 75개·레지스트리 48개 일치",
+    "공개 실행 페이지 57개 색인 정책 통과",
+    "대상 공개 페이지 6/6 감사 통과",
+    "자동화 결과 55개 구조 검증 통과",
+    "375px·1280px에서 대상 도구 및 게시글 가로 넘침 없음",
+    "6개 도구 결과 이동 Alt+G 동작 확인",
+    "QR·JSON·Base64 안전 초기화 Alt+R 동작 확인",
+    "장문 JSON 결과 내부 스크롤 및 입력 축소 뒤 높이 감소 확인",
+    "공개 배포 대상 확인"
+  ],
+  "knownIssueMatches": [
+    "HUB_PRELOAD_STATUS_MISMATCH",
+    "IFRAME_HEIGHT_STALE",
+    "IFRAME_HEIGHT_CAP_MISMATCH",
+    "PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
+      "https://bloggiedh.blogspot.com/2026/07/json.html",
+      "https://bloggiedh.blogspot.com/2026/07/base64.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_15.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "541fdb20a97117519a4831c18b20a31108fff7fa",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 33315185313,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/qr-barcode-generator/",
+      "https://leedohon.github.io/toolbox-project/embed/json-tools/",
+      "https://leedohon.github.io/toolbox-project/embed/base64-tools/",
+      "https://leedohon.github.io/toolbox-project/embed/multipurpose-draw-game/",
+      "https://leedohon.github.io/toolbox-project/embed/password-generator/",
+      "https://leedohon.github.io/toolbox-project/embed/image-resizer-compressor/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "scopeExceptions": [
+    "신규 페이지 대신 기존 공개 도구에 독립 검증 가능한 결과 탐색 기능 3건을 통합"
+  ],
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-08-30T22:32:37+09:00",
+        "completedAt": "2026-08-30T22:33:00+09:00",
+        "evidence": [
+          "최근 하드 대상 제외 자동 순환",
+          "대상 스냅샷 지침 문자 88.91% 절감"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-08-30T22:33:00+09:00",
+        "completedAt": "2026-08-30T22:41:00+09:00",
+        "evidence": [
+          "6개 도구 결과 탐색 개선",
+          "3개 기존 공개 페이지에 독립 기능 통합",
+          "6개 대상 공통 Alt+G 및 4개 대상 공통 Alt+R 적용",
+          "6개 minor 릴리스 생성"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-08-30T22:41:00+09:00",
+        "completedAt": "2026-08-30T22:45:38+09:00",
+        "evidence": [
+          "정적 검증 전체 통과",
+          "375px·1280px 브라우저 QA 통과",
+          "장문 출력 축소 회귀 통과"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-08-30T22:45:38+09:00",
+        "completedAt": "2026-08-30T22:48:30+09:00",
+        "evidence": [
+          "Blogger 사전 점검 6개 통과",
+          "기존 LIVE 게시글 6개 업데이트",
+          "삭제·휴지통·초안 전환 없음"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-08-30T22:48:30+09:00",
+        "completedAt": "2026-08-30T22:50:06+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-08-30T22:32:37+09:00",
+        "completedAt": "2026-08-30T22:50:06+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "in_progress",
+        "startedAt": "2026-08-30T22:50:06+09:00",
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      }
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.35.0",
+    "applied": [],
+    "summary": "현재 변경과 겹치는 대기 최적화가 없어 기존 공통 선언을 재사용",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": 0.8891,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "target manifest and definition characters emitted for selection",
+        "before": 49219,
+        "after": 5456,
+        "reduction": 0.8891
+      },
+      {
+        "metric": "per-tool result navigation implementations",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      },
+      {
+        "metric": "per-tool reset shortcut implementations",
+        "before": 4,
+        "after": 1,
+        "reduction": 0.75
+      }
+    ],
+    "note": "전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
+  },
+  "reportHistory": [
+    {
+      "at": "2026-08-30T22:32:37+09:00",
+      "action": "started",
+      "note": "사용량 unavailable 경고 후 현재 규칙에 따라 하드 워크플로 시작"
+    }
+  ]
 }

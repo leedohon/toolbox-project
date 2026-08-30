@@ -27,7 +27,7 @@
       <button class="st-secondary" id="jwt-copy" type="button" data-ko="페이로드 복사" data-en="Copy payload">페이로드 복사</button>
       <button class="st-secondary" id="jwt-reset" type="button" data-ko="초기화" data-en="Reset">초기화</button>
     </div>
-    <div class="st-actions"><button class="st-secondary" id="jwt-copy-all" type="button" data-ko="헤더·페이로드 함께 복사" data-en="Copy header and payload">헤더·페이로드 함께 복사</button></div>
+    <div class="st-actions"><button class="st-secondary" id="jwt-copy-all" type="button" data-ko="헤더·페이로드 함께 복사" data-en="Copy header and payload">헤더·페이로드 함께 복사</button><button class="st-secondary" id="jwt-copy-summary" type="button" data-ko="대표 요약 복사" data-en="Copy claim summary">대표 요약 복사</button></div>
     <p class="st-status" id="jwt-status" aria-live="polite"></p>
     <textarea class="st-copy-fallback" id="jwt-fallback" readonly hidden aria-label="직접 복사할 페이로드"></textarea>
     <section class="st-result" id="jwt-result" hidden>
@@ -41,7 +41,7 @@
       <p class="st-result-detail" id="jwt-times"></p>
     </section>
   </article>
-  <script type="module" src="./tool.js?v=0.1.5"></script>
-  <script src="../../assets/toolbox-workflow-actions.js?v=0.6.0" data-primary="#jwt-run" data-reset-shortcut="true" data-file-targets="#jwt-input|JWT|JWT" data-save-targets="#jwt-input|JWT TXT|JWT TXT|token.txt"></script>
+  <script type="module" src="./tool.js?v=0.1.6"></script>
+  <script src="../../assets/toolbox-workflow-actions.js?v=0.6.0" data-primary="#jwt-run" data-reset-shortcut="true" data-copy-shortcut="#jwt-copy-summary" data-save-shortcut="#jwt-save-json" data-result-target="#jwt-result" data-file-targets="#jwt-input|JWT|JWT" data-save-targets="#jwt-input|JWT TXT|JWT TXT|token.txt"></script>
 </body>
 </html>

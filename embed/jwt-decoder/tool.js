@@ -2,7 +2,7 @@ import { copyText, setupEmbedHeight } from '../../assets/play-tools.js?v=0.3.2';
 
 const $ = (selector) => document.querySelector(selector);
 const tr = (ko, en) => window.ToolboxI18n?.language === 'en' ? en : ko;
-let headerText = '', payloadText = '';
+let headerText = '', payloadText = '', summaryText = '';
 const saveJson=document.createElement('button');saveJson.className='st-secondary';saveJson.id='jwt-save-json';saveJson.type='button';saveJson.dataset.ko='해독 JSON 저장';saveJson.dataset.en='Save decoded JSON';saveJson.textContent=tr('해독 JSON 저장','Save decoded JSON');$('#jwt-copy-all').after(saveJson);saveJson.addEventListener('click',()=>{if(!headerText||!payloadText)return status('먼저 JWT 내용을 여세요.','Decode a JWT first.',true);const content=JSON.stringify({header:JSON.parse(headerText),payload:JSON.parse(payloadText)},null,2),url=URL.createObjectURL(new Blob([content],{type:'application/json;charset=utf-8'})),link=document.createElement('a');link.href=url;link.download='decoded-jwt.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status('해독 결과를 JSON 파일로 저장했습니다.','Decoded contents saved as JSON.');});$('#jwt-header').classList.add('wf-long-output');$('#jwt-payload').classList.add('wf-long-output');
 
 function status(ko, en, error = false) {
@@ -95,12 +95,14 @@ function run() {
     $('#jwt-payload').value = payloadText;
     renderClaims(header, payload);
     $('#jwt-times').textContent = timeSummary(payload);
+    summaryText=[...$('#jwt-claims').querySelectorAll('.wf-stat')].map(item=>`${item.querySelector('span').textContent}: ${item.querySelector('strong').textContent}`).join('\n')+`\n${$('#jwt-times').textContent}\n${$('#jwt-risk').textContent}`;
     $('#jwt-result').hidden = false;
     $('#jwt-fallback').hidden = true;
     status('내용을 열었습니다. 표시된 값과 별개로 서명은 검증하지 않았습니다.', 'Contents decoded. The signature was not verified.');
   } catch (error) {
     headerText = '';
     payloadText = '';
+    summaryText = '';
     $('#jwt-claims').replaceChildren();
     $('#jwt-risk').textContent = '';
     $('#jwt-result').hidden = true;
@@ -142,12 +144,14 @@ $('#jwt-copy-all').addEventListener('click', async () => {
   if (await copyText(combined)) { $('#jwt-fallback').hidden = true; status('헤더와 페이로드를 함께 복사했습니다.', 'Header and payload copied.'); }
   else { $('#jwt-fallback').value = combined; $('#jwt-fallback').hidden = false; status('직접 복사할 전체 내용을 표시했습니다.', 'The full content is shown for manual copying.'); }
 });
+$('#jwt-copy-summary').addEventListener('click',async()=>{if(!summaryText)return status('먼저 JWT 내용을 여세요.','Decode a JWT first.',true);if(await copyText(summaryText)){$('#jwt-fallback').hidden=true;status('대표 클레임 요약을 복사했습니다.','Claim summary copied.');}else{$('#jwt-fallback').value=summaryText;$('#jwt-fallback').hidden=false;status('직접 복사할 대표 요약을 표시했습니다.','The claim summary is shown for manual copying.');}});
 $('#jwt-reset').addEventListener('click', () => {
   $('#jwt-input').value = '';
   $('#jwt-result').hidden = true;
   $('#jwt-fallback').hidden = true;
   payloadText = '';
   headerText = '';
+  summaryText = '';
   status('입력을 비웠습니다.', 'Input cleared.');
 });
 addEventListener('toolbox-language-change', () => {

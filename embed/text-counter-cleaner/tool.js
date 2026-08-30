@@ -3,7 +3,7 @@ import {copyText,setupEmbedHeight} from '../../assets/play-tools.js?v=0.3.2';
 const $=selector=>document.querySelector(selector);
 const tr=(ko,en)=>window.ToolboxI18n?.language==='en'?en:ko;
 const size=value=>value<1024?`${value} B`:value<1048576?`${(value/1024).toFixed(1)} KB`:`${(value/1048576).toFixed(2)} MB`;
-let frequencyText='';const frequencyCopy=document.createElement('button');frequencyCopy.className='st-secondary';frequencyCopy.id='text-frequency-copy';frequencyCopy.type='button';frequencyCopy.dataset.ko='빈도 결과 복사';frequencyCopy.dataset.en='Copy word frequencies';frequencyCopy.textContent=tr('빈도 결과 복사','Copy word frequencies');$('#text-frequency').append(frequencyCopy);frequencyCopy.addEventListener('click',async()=>{if(!frequencyText)return status(tr('복사할 단어 빈도가 없습니다.','There are no word frequencies to copy.'),true);if(await copyText(frequencyText))status(tr('단어 빈도를 복사했습니다.','Word frequencies copied.'));else{$('#text-fallback').value=frequencyText;$('#text-fallback').hidden=false;status(tr('직접 복사할 단어 빈도를 표시했습니다.','Word frequencies are shown for manual copying.'));}});
+let frequencyText='',frequencyRows=[];const frequencyCopy=document.createElement('button');frequencyCopy.className='st-secondary';frequencyCopy.id='text-frequency-copy';frequencyCopy.type='button';frequencyCopy.dataset.ko='빈도 결과 복사';frequencyCopy.dataset.en='Copy word frequencies';frequencyCopy.textContent=tr('빈도 결과 복사','Copy word frequencies');$('#text-frequency').append(frequencyCopy);frequencyCopy.addEventListener('click',async()=>{if(!frequencyText)return status(tr('복사할 단어 빈도가 없습니다.','There are no word frequencies to copy.'),true);if(await copyText(frequencyText))status(tr('단어 빈도를 복사했습니다.','Word frequencies copied.'));else{$('#text-fallback').value=frequencyText;$('#text-fallback').hidden=false;status(tr('직접 복사할 단어 빈도를 표시했습니다.','Word frequencies are shown for manual copying.'));}});
 
 function count(){
   const text=$('#text-input').value;
@@ -22,7 +22,7 @@ function count(){
   const frequencies=new Map();
   tokens.forEach(token=>frequencies.set(token,(frequencies.get(token)||0)+1));
   const top=[...frequencies].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,5);
-  frequencyText=top.map(([word,frequency])=>`${word}\t${frequency}`).join('\n');$('#text-frequency-value').textContent=top.length?top.map(([word,frequency])=>`${word} × ${frequency}`).join(' · '):tr('입력하면 상위 5개를 표시합니다.','Enter text to see the top five words.');
+  frequencyRows=top;frequencyText=top.map(([word,frequency])=>`${word}\t${frequency}`).join('\n');$('#text-frequency-value').textContent=top.length?top.map(([word,frequency])=>`${word} × ${frequency}`).join(' · '):tr('입력하면 상위 5개를 표시합니다.','Enter text to see the top five words.');
 }
 
 function status(message,error=false){
@@ -67,6 +67,7 @@ $('#text-save').addEventListener('click',()=>{
   const link=document.createElement('a');link.href=url;link.download='toolbox-cleaned-text.txt';link.click();URL.revokeObjectURL(url);
   $('#text-fallback').hidden=true;status(tr('정리 결과를 TXT로 저장했습니다.','Saved the cleaned text as a TXT file.'));
 });
+$('#text-frequency-save').addEventListener('click',()=>{if(!frequencyRows.length)return status(tr('저장할 단어 빈도가 없습니다.','There are no word frequencies to save.'),true);const escape=value=>`"${String(value).replaceAll('"','""')}"`,csv=`${tr('단어,빈도','word,frequency')}\n${frequencyRows.map(([word,frequency])=>`${escape(word)},${frequency}`).join('\n')}\n`,url=URL.createObjectURL(new Blob([`\ufeff${csv}`],{type:'text/csv;charset=utf-8'})),link=document.createElement('a');link.href=url;link.download='toolbox-word-frequencies.csv';link.click();setTimeout(()=>URL.revokeObjectURL(url),0);status(tr('단어 빈도를 CSV로 저장했습니다.','Saved word frequencies as CSV.'));});
 $('#text-reset').addEventListener('click',()=>{
   $('#text-input').value='';$('#text-output').value='';$('#text-fallback').hidden=true;count();status(tr('입력과 결과를 비웠습니다.','Cleared the input and result.'));
 });

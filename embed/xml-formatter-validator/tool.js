@@ -4,6 +4,7 @@ const $ = (selector) => document.querySelector(selector);
 const tr = (ko, en) => window.ToolboxI18n?.language === 'en' ? en : ko;
 const sample = '<?xml version="1.0" encoding="UTF-8"?>\n<tools>\n  <tool id="1">Toolbox</tool>\n</tools>';
 const rssSample = '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Toolbox Feed</title><link>https://example.com</link><item><title>New tool</title></item></channel></rss>';
+let elementPaths='';
 const minifyNow=document.createElement('button');minifyNow.className='st-secondary';minifyNow.id='xml-minify-now';minifyNow.type='button';minifyNow.dataset.ko='한 줄로 바로 압축';minifyNow.dataset.en='Minify now';minifyNow.textContent=tr('한 줄로 바로 압축','Minify now');$('#xml-run').before(minifyNow);minifyNow.addEventListener('click',()=>{document.querySelector('input[name="xml-mode"][value="minify"]').checked=true;render();});$('#xml-output').classList.add('wf-long-output');$('#xml-output').tabIndex=0;$('#xml-output').setAttribute('role','region');
 
 function setStatus(ko, en, error = false) {
@@ -33,6 +34,8 @@ function formatXml(source, indent) {
   }).join('\n');
 }
 
+function elementPath(element){const parts=[];let current=element;while(current?.nodeType===Node.ELEMENT_NODE){const siblings=[...(current.parentElement?.children||[])].filter(item=>item.tagName===current.tagName),index=siblings.indexOf(current)+1;parts.unshift(`${current.tagName}${siblings.length>1?`[${index}]`:''}`);current=current.parentElement;}return`/${parts.join('/')}`;}
+
 function render() {
   const source = $('#xml-input').value.trim();
   $('#xml-fallback').hidden = true;
@@ -47,6 +50,7 @@ function render() {
     const output = formatXml(source, mode === 'two' ? '  ' : mode === 'four' ? '    ' : '');
     $('#xml-output').value = output;
     const elements = [...parsed.getElementsByTagName('*')];
+    elementPaths=elements.slice(0,5000).map(elementPath).join('\n');if(elements.length>5000)elementPaths+=tr(`\n… ${elements.length-5000}개 경로 생략`,`\n… ${elements.length-5000} paths omitted`);
     const attributes = elements.reduce((total, element) => total + element.attributes.length, 0);
     const rootName = parsed.documentElement.tagName;
     $('#xml-summary').textContent = tr(`루트 ${rootName} · ${elements.length.toLocaleString()}개 요소 · ${attributes.toLocaleString()}개 속성 · 결과 ${output.length.toLocaleString()}자`, `Root ${rootName} · ${elements.length.toLocaleString()} element${elements.length === 1 ? '' : 's'} · ${attributes.toLocaleString()} attribute${attributes === 1 ? '' : 's'} · ${output.length.toLocaleString()} output characters`);
@@ -56,6 +60,7 @@ function render() {
   } catch (error) {
     $('#xml-result').hidden = true;
     $('#xml-output').value = '';
+    elementPaths = '';
     setStatus(`XML 오류: ${error.message}`, `XML error: ${error.message}`, true);
   }
 }
@@ -76,6 +81,7 @@ $('#xml-copy').addEventListener('click', async () => {
     setStatus('자동 복사가 차단되어 직접 복사할 결과를 표시했습니다.', 'Automatic copying was blocked. A manual copy field is shown.', true);
   }
 });
+$('#xml-copy-paths').addEventListener('click',async()=>{if(!elementPaths)return setStatus('복사할 요소 경로가 없습니다.','There are no element paths to copy.',true);if(await copyText(elementPaths)){$('#xml-fallback').hidden=true;setStatus('XML 요소 경로를 복사했습니다.','XML element paths copied.');}else{$('#xml-fallback').value=elementPaths;$('#xml-fallback').hidden=false;setStatus('직접 복사할 요소 경로를 표시했습니다.','Element paths are shown for manual copying.');}});
 $('#xml-use-result').addEventListener('click', () => {
   const value = $('#xml-output').value;
   if (!value) return setStatus('입력으로 옮길 결과가 없습니다.', 'There is no result to move.', true);

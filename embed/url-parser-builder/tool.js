@@ -127,6 +127,7 @@ $('#url-copy').addEventListener('click', async () => {
   if (await copyText(value)) setStatus('완성 URL을 복사했습니다.', 'Rebuilt URL copied.');
   else { $('#url-fallback').value = value; $('#url-fallback').hidden = false; setStatus('자동 복사가 차단되어 직접 복사할 주소를 표시했습니다.', 'Automatic copying was blocked. A manual copy field is shown.', true); }
 });
+$('#url-copy-json').addEventListener('click',async()=>{if(!parsedUrl||!$('#url-output').textContent)return setStatus('복사할 쿼리 결과가 없습니다.','There are no query results to copy.',true);const rows=[...$('#url-query-list').querySelectorAll('.up-query-row')],entries=[];for(const row of rows){const name=row.querySelector('.up-name').value.trim();if(!name)return setStatus('이름이 비어 있는 쿼리 행을 채우거나 삭제해 주세요.','Fill or delete the query row with an empty name.',true);entries.push({name,value:row.querySelector('.up-value').value});}const json=JSON.stringify(entries,null,2);if(await copyText(json)){$('#url-fallback').hidden=true;setStatus('쿼리 항목 JSON을 복사했습니다.','Query parameter JSON copied.');}else{$('#url-fallback').value=json;$('#url-fallback').hidden=false;setStatus('직접 복사할 쿼리 JSON을 표시했습니다.','Query JSON is shown for manual copying.');}});
 $('#url-reset').addEventListener('click', () => { $('#url-input').value = sample; parse(); });
 addEventListener('toolbox-language-change', () => { translateRows(); if (parsedUrl) { $('#url-port').value = parsedUrl.port || tr('기본 포트', 'Default port'); rebuild(); } });
 parse();

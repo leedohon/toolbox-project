@@ -23,12 +23,12 @@
   <p class="st-status" id="url-status" aria-live="polite"></p>
   <section class="st-result" id="url-editor" hidden><h2 data-ko="주소 구성요소" data-en="URL components">주소 구성요소</h2><div class="up-components"><div class="st-field"><label class="st-label" for="url-protocol" data-ko="프로토콜" data-en="Protocol">프로토콜</label><input id="url-protocol" type="text" readonly></div><div class="st-field"><label class="st-label" for="url-host" data-ko="호스트" data-en="Host">호스트</label><input id="url-host" type="text" readonly></div><div class="st-field"><label class="st-label" for="url-port" data-ko="포트" data-en="Port">포트</label><input id="url-port" type="text" readonly></div><div class="st-field"><label class="st-label" for="url-path" data-ko="경로" data-en="Path">경로</label><input id="url-path" type="text"></div><div class="st-field"><label class="st-label" for="url-hash" data-ko="해시" data-en="Hash">해시</label><input id="url-hash" type="text"></div></div>
     <h2 data-ko="쿼리 항목" data-en="Query parameters">쿼리 항목</h2><p class="st-help" data-ko="이름과 값을 같은 행에서 편집합니다. 빈 이름은 가까운 행에 표시됩니다." data-en="Edit each name and value in one row. Empty names are marked in place.">이름과 값을 같은 행에서 편집합니다. 빈 이름은 가까운 행에 표시됩니다.</p><div class="up-query-list" id="url-query-list"></div><div class="st-actions"><button class="st-secondary" id="url-add" type="button" data-ko="+ 쿼리 항목 추가" data-en="+ Add query parameter">+ 쿼리 항목 추가</button><button class="st-secondary" id="url-add-utm" type="button" data-ko="UTM 기본 3종 추가" data-en="Add three UTM fields">UTM 기본 3종 추가</button></div>
-    <h2 data-ko="완성 URL" data-en="Rebuilt URL">완성 URL</h2><code class="wf-result-code" id="url-output"></code><div class="st-actions"><button class="st-primary" id="url-copy" type="button" data-ko="완성 URL 복사" data-en="Copy rebuilt URL">완성 URL 복사</button></div>
+    <h2 data-ko="완성 URL" data-en="Rebuilt URL">완성 URL</h2><code class="wf-result-code" id="url-output"></code><div class="st-actions"><button class="st-primary" id="url-copy" type="button" data-ko="완성 URL 복사" data-en="Copy rebuilt URL">완성 URL 복사</button><button class="st-secondary" id="url-copy-json" type="button" data-ko="쿼리 JSON 복사" data-en="Copy query JSON">쿼리 JSON 복사</button></div>
     <div class="st-actions"><button class="st-secondary" id="url-sort" type="button" data-ko="쿼리 이름순 정렬" data-en="Sort query by name">쿼리 이름순 정렬</button></div>
   </section>
   <textarea class="st-copy-fallback" id="url-fallback" readonly hidden></textarea>
 </article>
-<script type="module" src="./tool.js?v=0.1.5"></script>
-<script src="../../assets/toolbox-workflow-actions.js?v=0.6.0" data-primary="#url-parse" data-reset-shortcut="true"></script>
+<script type="module" src="./tool.js?v=0.1.6"></script>
+<script src="../../assets/toolbox-workflow-actions.js?v=0.6.0" data-primary="#url-parse" data-reset-shortcut="true" data-copy-shortcut="#url-copy-json" data-result-target="#url-editor"></script>
 </body>
 </html>

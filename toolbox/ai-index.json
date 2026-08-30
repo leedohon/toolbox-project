@@ -136,7 +136,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.10.0v",
+      "latestVersion": "0.11.0v",
       "paths": {
         "definition": "toolbox/tools/image-mosaic-tool.md",
         "post": "toolbox/posts/image-mosaic-tool.html",
@@ -168,7 +168,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "2.9.0v",
+      "latestVersion": "2.10.0v",
       "paths": {
         "definition": "toolbox/tools/date-calculator.md",
         "post": "toolbox/posts/date-calculator.html",
@@ -264,7 +264,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.8.0v",
+      "latestVersion": "1.9.0v",
       "paths": {
         "definition": "toolbox/tools/text-counter-cleaner.md",
         "post": "toolbox/posts/text-counter-cleaner.html",
@@ -488,7 +488,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.7.0v",
+      "latestVersion": "0.8.0v",
       "paths": {
         "definition": "toolbox/tools/jwt-decoder.md",
         "post": "toolbox/posts/jwt-decoder.html",
@@ -552,7 +552,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.7.0v",
+      "latestVersion": "0.8.0v",
       "paths": {
         "definition": "toolbox/tools/xml-formatter-validator.md",
         "post": "toolbox/posts/xml-formatter-validator.html",
@@ -568,7 +568,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "0.7.0v",
+      "latestVersion": "0.8.0v",
       "paths": {
         "definition": "toolbox/tools/url-parser-builder.md",
         "post": "toolbox/posts/url-parser-builder.html",

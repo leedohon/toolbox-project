@@ -2,10 +2,10 @@
   "runId": "20260831-013236-hard",
   "workflow": "hard",
   "status": "completed",
-  "confirm": "N",
+  "confirm": "Y",
   "startedAt": "2026-08-31T01:32:36+09:00",
   "completedAt": "2026-09-02T21:07:07+09:00",
-  "confirmedAt": "2026-09-02T21:07:24+09:00",
+  "confirmedAt": "2026-09-02T21:08:26+09:00",
   "summary": "공개 도구 6개에 긴 결과 뒤 입력·설정으로 돌아가는 공통 동선을 추가합니다.",
   "request": {
     "workType": "hard",
@@ -249,12 +249,13 @@
       },
       "confirm": {
         "status": "completed",
-        "startedAt": "2026-09-02T21:07:07+09:00",
-        "completedAt": "2026-09-02T21:07:24+09:00",
+        "startedAt": "2026-09-02T21:08:26+09:00",
+        "completedAt": "2026-09-02T21:08:26+09:00",
         "evidence": [
           "GitHub Pages 실행 33628060229 성공",
           "공개 iframe 6개 HTTP 200 및 공통 복귀 자산 0.7.0 확인",
-          "Blogger LIVE 게시글 6개 HTTP 200 및 새 버전 표기 확인"
+          "Blogger LIVE 게시글 6개 HTTP 200 및 새 버전 표기 확인",
+          "사용자 확인 완료"
         ],
         "blockCode": null
       }

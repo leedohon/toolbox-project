@@ -19,7 +19,7 @@
         "ko": "일반·단위·날짜",
         "en": "General, unit & date"
       },
-      "entry": "./engine.html?release=2.10.0v",
+      "entry": "./engine.html?release=2.11.0v",
       "messageTool": "date-calculator",
       "capabilities": {
         "resultCode": false,

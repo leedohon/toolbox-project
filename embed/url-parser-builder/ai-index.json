@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-30",
+  "updatedAt": "2026-09-03",
   "tool": "url-parser-builder",
   "index": 35,
   "title": "URL 분석·쿼리 편집기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.8.0v",
+  "latestVersion": "0.9.0v",
   "paths": {
     "definition": "toolbox/tools/url-parser-builder.md",
     "post": "toolbox/posts/url-parser-builder.html",

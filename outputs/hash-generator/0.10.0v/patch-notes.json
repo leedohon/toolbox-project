@@ -1,0 +1,9 @@
+{
+  "tool": "hash-generator",
+  "version": "0.10.0v",
+  "releaseDate": "2026-08-31",
+  "changeLevel": "minor",
+  "changes": [
+    "해시 결과에서 텍스트 입력으로 돌아가는 버튼과 Alt+U를 제공합니다."
+  ]
+}

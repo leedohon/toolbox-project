@@ -1,0 +1,381 @@
+{
+  "runId": "20260831-013236-hard",
+  "workflow": "hard",
+  "status": "partial",
+  "confirm": "N",
+  "startedAt": "2026-08-31T01:32:36+09:00",
+  "completedAt": null,
+  "confirmedAt": null,
+  "summary": "공개 도구 6개에 긴 결과 뒤 입력·설정으로 돌아가는 공통 동선을 추가합니다.",
+  "request": {
+    "workType": "hard",
+    "targets": [
+      "color-converter-contrast",
+      "text-diff-checker",
+      "markdown-preview-converter",
+      "csv-table-converter",
+      "regex-tester",
+      "hash-generator"
+    ],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
+  },
+  "usageGate": {
+    "status": "unavailable",
+    "remainingPercent": null,
+    "minimumRemainingPercent": 20,
+    "checkedOnce": true,
+    "checkedAt": "2026-09-02T18:20:29+09:00",
+    "warning": "Codex app-server 응답 시간 초과로 사용량을 확인하지 못했습니다. 잔여 비율을 추정하지 않고 현재 규칙에 따라 진행했습니다.",
+    "rule": "unavailable은 경고 후 진행하고, 확인된 20% 미만만 건너뛴다"
+  },
+  "selectedTools": [
+    "color-converter-contrast",
+    "text-diff-checker",
+    "markdown-preview-converter",
+    "csv-table-converter",
+    "regex-tester",
+    "hash-generator"
+  ],
+  "selectionBasis": "최근 3개 하드 회차 대상을 제외한 공개 도구 6개 자동 순환 선정",
+  "releasePlans": {
+    "color-converter-contrast": {
+      "level": "minor",
+      "summary": "CSS 도구 선택 복귀 동선",
+      "changes": [
+        "긴 결과 뒤 도구 선택으로 돌아가는 버튼과 Alt+U를 제공합니다."
+      ]
+    },
+    "text-diff-checker": {
+      "level": "minor",
+      "summary": "원본 입력 복귀 동선",
+      "changes": [
+        "비교 결과에서 원본 입력으로 돌아가는 버튼과 Alt+U를 제공합니다."
+      ]
+    },
+    "markdown-preview-converter": {
+      "level": "minor",
+      "summary": "작성 도구 선택 복귀 동선",
+      "changes": [
+        "긴 미리보기 뒤 작성 도구 선택으로 돌아가는 버튼과 Alt+U를 제공합니다."
+      ]
+    },
+    "csv-table-converter": {
+      "level": "minor",
+      "summary": "CSV 입력 복귀 동선",
+      "changes": [
+        "긴 표 미리보기에서 CSV 입력으로 돌아가는 버튼과 Alt+U를 제공합니다."
+      ]
+    },
+    "regex-tester": {
+      "level": "minor",
+      "summary": "정규식 입력 복귀 동선",
+      "changes": [
+        "일치 결과에서 패턴 입력으로 돌아가는 버튼과 Alt+U를 제공합니다."
+      ]
+    },
+    "hash-generator": {
+      "level": "minor",
+      "summary": "해시 입력 복귀 동선",
+      "changes": [
+        "해시 결과에서 텍스트 입력으로 돌아가는 버튼과 Alt+U를 제공합니다."
+      ]
+    }
+  },
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "CSS 도구 선택 복귀",
+    "텍스트 비교 원본 복귀",
+    "마크다운 작성 도구 복귀",
+    "CSV 입력 복귀",
+    "정규식 패턴 복귀",
+    "해시 텍스트 복귀"
+  ],
+  "newIdeas": [
+    "CSS 허브 선택 복귀 통합",
+    "마크다운 허브 선택 복귀 통합",
+    "텍스트 비교 원본 복귀 통합"
+  ],
+  "commonModules": [
+    "6개 도구 공통 입력·설정 복귀 버튼",
+    "6개 도구 공통 Alt+U 키보드 복귀"
+  ],
+  "validation": [
+    "공통 동작 JavaScript 구문 통과",
+    "6개 대상 인라인 스크립트 구문 통과",
+    "ES 모듈 6개 구문 통과",
+    "대상 릴리스 JSON 102개와 최신 경로 일치",
+    "모듈 12개·레지스트리 6개 일치",
+    "대상 공개 실행 페이지 6개 색인 정책 통과",
+    "대상 공개 페이지 6/6 구조 감사 통과",
+    "공통 자산 0.6.0 잔여 참조 없음",
+    "Git diff 공백 오류 없음",
+    "375px 직접 도구 4개에서 Alt+U 버튼·0.7.0 캐시 키·가로 넘침 없음 확인",
+    "375px 버튼 실행 뒤 모바일 자동 포커스 없음 확인",
+    "2026-09-02 재개 시 업데이트된 내장 브라우저 연결은 성공했으나 loopback 미리보기 탐색이 ERR_BLOCKED_BY_CLIENT로 차단됨",
+    "Chrome·Edge는 설치되어 있으나 ChatGPT 브라우저 확장과 네이티브 연결 구성이 없어 대체 화면 QA 불가 확인"
+    ,"2026-09-02 대상 게시글·카탈로그·AI 색인 재빌드 통과"
+    ,"2026-09-02 스크립트·ES 모듈·릴리스 102개 JSON·모듈 12개·색인·공개 구조 6/6 재검증 통과"
+  ],
+  "knownIssueMatches": [
+    "SHARED_ASSET_CACHE_STALE",
+    "PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW",
+    "IFRAME_HEIGHT_STALE",
+    "IFRAME_HEIGHT_CAP_MISMATCH"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
+      "https://bloggiedh.blogspot.com/2026/07/csv.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html",
+      "https://bloggiedh.blogspot.com/2026/07/html.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_18.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_912.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": null,
+    "pushed": false
+  },
+  "deployment": {
+    "status": "pending",
+    "urls": []
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "scopeExceptions": [
+    "신규 페이지 대신 기존 공개 페이지에 독립 검증 가능한 입력 복귀 기능 3건을 통합",
+    "내장 브라우저 loopback 차단과 외부 브라우저 연결 구성 누락으로 허브 2개·1280px 화면 QA는 완료하지 못했으며, 사용자의 명시적 적용·커밋·푸시 지시에 따라 정적 재검증과 기존 375px 직접 도구 증거로 릴리스를 진행"
+  ],
+  "runState": {
+    "current": "commit",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-08-31T01:32:36+09:00",
+        "completedAt": "2026-08-31T01:33:00+09:00",
+        "evidence": [
+          "최근 하드 대상 제외 자동 순환",
+          "대상 스냅샷 지침 문자 85.09% 절감"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-08-31T01:33:00+09:00",
+        "completedAt": "2026-08-31T01:39:00+09:00",
+        "evidence": [
+          "6개 도구 입력·설정 복귀 개선",
+          "3개 공개 페이지에 독립 검증 가능한 복귀 기능 통합",
+          "6개 대상 공통 복귀 버튼과 Alt+U 적용",
+          "공통 자산 캐시 키 25개 소비자 0.7.0 갱신",
+          "6개 minor 릴리스 생성"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-08-31T01:39:00+09:00",
+        "completedAt": "2026-09-02T18:35:00+09:00",
+        "evidence": [
+          "정적·릴리스·모듈·색인·공개 구조 검증 통과",
+          "내장 브라우저 로컬 탐색 시간 초과 3회",
+          "외부 Chrome 연결 불가",
+          "재개 회차에서 375px 직접 도구 4개 복귀 버튼·캐시·가로 넘침 확인",
+          "허브와 1280px 탐색 시간 초과 재발",
+          "2026-09-02 업데이트된 내장 브라우저 연결 성공 후 loopback 탐색 ERR_BLOCKED_BY_CLIENT 차단",
+          "저장소 내부망 노출 대안은 안전상 사용하지 않고 임시 파일 제거",
+          "2026-09-02 03:18 KST Chrome·Edge 설치 확인, ChatGPT 브라우저 확장 미설치와 네이티브 호스트 누락 확인",
+          "2026-09-02 06:18 KST 재점검에서도 Chrome·Edge 확장과 네이티브 호스트가 계속 누락됨",
+          "2026-09-02 09:20 KST 재점검에서도 동일한 브라우저 연결 구성 누락이 계속됨",
+          "2026-09-02 12:21 KST 재점검에서도 Chrome·Edge 확장과 네이티브 호스트 누락이 계속됨",
+          "2026-09-02 15:23 KST 재점검에서도 Chrome·Edge 확장과 네이티브 호스트 누락이 계속됨",
+          "2026-09-02 18:22 KST 재점검에서도 Chrome·Edge 확장과 네이티브 호스트 누락이 계속됨"
+        ],
+        "blockCode": null
+      },
+    "publish": {
+      "status": "completed",
+      "startedAt": "2026-09-02T18:35:00+09:00",
+      "completedAt": "2026-09-02T21:04:33+09:00",
+      "evidence": [
+        "Blogger LIVE 게시글 6개 업데이트 완료",
+        "게시글 URL 동기화와 카탈로그 재생성 완료"
+      ],
+      "blockCode": null
+    },
+    "commit": {
+      "status": "in_progress",
+      "startedAt": "2026-09-02T21:04:33+09:00",
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "pending",
+        "startedAt": null,
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "pending",
+        "startedAt": null,
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      }
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.35.0",
+    "applied": [],
+    "summary": "현재 변경과 겹치는 대기 최적화가 없어 기존 공통 선언을 재사용",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": 0.8509,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "target manifest and definition characters emitted for selection",
+        "before": 32130,
+        "after": 4791,
+        "reduction": 0.8509
+      },
+      {
+        "metric": "per-tool input return button implementations",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      },
+      {
+        "metric": "per-tool Alt+U shortcut implementations",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      }
+    ],
+    "note": "전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
+  },
+  "reportHistory": [
+    {
+      "at": "2026-08-31T01:32:36+09:00",
+      "action": "started",
+      "note": "사용량 unavailable 경고 후 현재 규칙에 따라 하드 워크플로 시작"
+    },
+    {
+      "at": "2026-08-31T01:43:26+09:00",
+      "action": "paused",
+      "note": "필수 브라우저 QA 연결 실패로 validate 단계에서 재개 대기"
+    },
+    {
+      "at": "2026-09-01T20:54:47+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-09-01T21:02:00+09:00",
+      "action": "paused",
+      "note": "375px 직접 도구 일부 QA 완료, 허브·1280px 브라우저 시간 초과로 validate 재개 대기"
+    },
+    {
+      "at": "2026-09-02T00:18:51+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-09-02T00:22:00+09:00",
+      "action": "paused",
+      "note": "사용량 unavailable 경고 후 validate를 재개했으나 내장 브라우저의 loopback 접근 차단으로 허브·1280px 필수 QA를 완료하지 못함"
+    },
+    {
+      "at": "2026-09-02T03:18:35+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-09-02T03:22:00+09:00",
+      "action": "paused",
+      "note": "사용량 51% 확인 후 validate를 재개했으나 내장 loopback 차단과 외부 브라우저 연결 구성 누락으로 필수 QA를 완료하지 못함"
+    },
+    {
+      "at": "2026-09-02T06:17:56+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-09-02T06:19:00+09:00",
+      "action": "blocked",
+      "note": "사용량 30% 확인 후 브라우저 연결 복구 여부를 재점검했으나 동일한 확장·네이티브 호스트 누락이 반복돼 validate 단계를 차단 상태로 보존"
+    },
+    {
+      "at": "2026-09-02T09:19:37+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-09-02T09:20:00+09:00",
+      "action": "blocked",
+      "note": "사용량 87% 확인 후 복구 여부를 점검했으나 Chrome·Edge 확장과 네이티브 호스트 누락이 계속되어 validate 차단 유지"
+    },
+    {
+      "at": "2026-09-02T12:20:27+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-09-02T12:21:00+09:00",
+      "action": "blocked",
+      "note": "사용량 unavailable 경고 후 복구 여부를 점검했으나 브라우저 연결 구성 누락이 계속되어 validate 차단 유지"
+    },
+    {
+      "at": "2026-09-02T15:22:13+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-09-02T15:23:00+09:00",
+      "action": "blocked",
+      "note": "사용량 unavailable 경고 후 브라우저 복구 여부를 점검했으나 연결 구성 누락이 계속되어 validate 차단 유지"
+    },
+    {
+      "at": "2026-09-02T18:22:10+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-09-02T18:23:00+09:00",
+      "action": "blocked",
+      "note": "사용량 unavailable 경고 후 브라우저 복구 여부를 점검했으나 연결 구성 누락이 계속되어 validate 차단 유지"
+    },
+    {
+      "at": "2026-09-02T18:35:00+09:00",
+      "action": "resumed",
+      "note": "사용자가 매회 Blogger 적용·커밋·푸시를 명시해 정적 재검증 통과와 기존 375px 증거를 기준으로 publish 단계 재개; 미완료 화면 QA는 scopeExceptions에 보존"
+    }
+  ]
+}

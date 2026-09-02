@@ -125,6 +125,31 @@
     });
   }
 
+  const startTargetSelector = script.dataset.startTarget;
+  const startTarget = startTargetSelector ? root.querySelector(startTargetSelector) : null;
+  let startButton = null;
+  if (startTarget) {
+    if (!startTarget.matches('input, textarea, select, button, a[href], [tabindex]')) startTarget.tabIndex = -1;
+    startButton = makeButton(
+      script.dataset.startKo || '입력으로 이동',
+      script.dataset.startEn || 'Go to input',
+      () => {
+        if (startTarget.hidden || startTarget.closest('[hidden]')) {
+          setStatus('현재 입력 영역을 열 수 없습니다.', 'The input area is not available right now.', true);
+          return;
+        }
+        startTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        window.ToolboxUX?.focus(startTarget, { preventScroll: true });
+      }
+    );
+    addShortcut(startButton, 'Alt+U');
+    addEventListener('keydown', (event) => {
+      if (event.key.toLowerCase() !== 'u' || !event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.isComposing) return;
+      event.preventDefault();
+      startButton.click();
+    });
+  }
+
   const resultTargetSelector = script.dataset.resultTarget;
   const resultTarget = resultTargetSelector ? root.querySelector(resultTargetSelector) : null;
   let resultButton = null;
@@ -204,6 +229,7 @@
     if (saveShortcutButton) shortcuts.push(tr('Ctrl/⌘ + Shift + S로 파일 저장', 'Ctrl/⌘ + Shift + S to save the file'));
     if (copyShortcutButton) shortcuts.push(tr('Ctrl/⌘ + Shift + C로 결과 복사', 'Ctrl/⌘ + Shift + C to copy the result'));
     if (sampleShortcutSelector) shortcuts.push(tr('Alt + S로 대표 예제 적용', 'Alt + S to apply the sample'));
+    if (startButton) shortcuts.push(tr('Alt + U로 입력으로 이동', 'Alt + U to go to the input'));
     if (resultButton) shortcuts.push(tr('Alt + G로 결과로 이동', 'Alt + G to go to the result'));
     return `${shortcuts.join(tr(', ', ', '))}.`;
   };

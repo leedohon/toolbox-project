@@ -114,6 +114,6 @@ $('#date-quarter-preset').addEventListener('click',()=>{document.querySelector('
 $('#calculator-reset').addEventListener('click',reset);addEventListener('toolbox-language-change',()=>calculate());
 reset();if(new URLSearchParams(location.search).get('mode')==='data'){document.querySelector('input[name="calculator-type"][value="unit"]').checked=true;$('#unit-category').value='data';fillUnits();syncType();}setupEmbedHeight('date-calculator',{content:true});
 </script>
-<script src="../../assets/toolbox-workflow-actions.js?v=0.6.0" data-primary="#calculator-copy" data-reset-shortcut="true" data-copy-shortcut="#calculator-copy" data-save-shortcut="#calculator-save" data-result-target="#calculator-result"></script>
+<script src="../../assets/toolbox-workflow-actions.js?v=0.7.0" data-primary="#calculator-copy" data-reset-shortcut="true" data-copy-shortcut="#calculator-copy" data-save-shortcut="#calculator-save" data-result-target="#calculator-result"></script>
 </body>
 </html>

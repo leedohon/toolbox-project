@@ -1,0 +1,9 @@
+{
+  "tool": "text-diff-checker",
+  "version": "0.9.0v",
+  "releaseDate": "2026-08-31",
+  "changeLevel": "minor",
+  "changes": [
+    "비교 결과에서 원본 입력으로 돌아가는 버튼과 Alt+U를 제공합니다."
+  ]
+}

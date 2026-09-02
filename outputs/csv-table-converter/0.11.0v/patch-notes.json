@@ -1,0 +1,9 @@
+{
+  "tool": "csv-table-converter",
+  "version": "0.11.0v",
+  "releaseDate": "2026-08-31",
+  "changeLevel": "minor",
+  "changes": [
+    "긴 표 미리보기에서 CSV 입력으로 돌아가는 버튼과 Alt+U를 제공합니다."
+  ]
+}

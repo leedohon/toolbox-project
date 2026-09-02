@@ -1,0 +1,9 @@
+{
+  "tool": "color-converter-contrast",
+  "version": "1.9.0v",
+  "releaseDate": "2026-08-31",
+  "changeLevel": "minor",
+  "changes": [
+    "긴 결과 뒤 도구 선택으로 돌아가는 버튼과 Alt+U를 제공합니다."
+  ]
+}

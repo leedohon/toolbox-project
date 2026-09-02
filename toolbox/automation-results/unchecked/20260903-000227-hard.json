@@ -1,15 +1,22 @@
 {
   "runId": "20260903-000227-hard",
   "workflow": "hard",
-  "status": "partial",
+  "status": "completed",
   "confirm": "N",
   "startedAt": "2026-09-03T00:02:27+09:00",
-  "completedAt": null,
+  "completedAt": "2026-09-03T03:18:34+09:00",
   "confirmedAt": null,
   "summary": "공개 도구 6개의 입력 복귀와 대표 예제 실행 동선을 공통화하고 실사용 편집 기능 3건을 추가합니다.",
   "request": {
     "workType": "hard",
-    "targets": ["date-calculator", "image-mosaic-tool", "jwt-decoder", "text-counter-cleaner", "url-parser-builder", "xml-formatter-validator"],
+    "targets": [
+      "date-calculator",
+      "image-mosaic-tool",
+      "jwt-decoder",
+      "text-counter-cleaner",
+      "url-parser-builder",
+      "xml-formatter-validator"
+    ],
     "versionLevel": "minor",
     "blogger": "update-existing",
     "gitDeployment": "independent",
@@ -23,20 +30,87 @@
     "warning": "Codex 계정 인증이 필요해 사용량을 확인하지 못했습니다. 잔여 비율을 추정하지 않고 현재 규칙에 따라 진행했습니다.",
     "rule": "unavailable은 경고 후 진행하고, 확인된 20% 미만만 건너뛴다"
   },
-  "selectedTools": ["date-calculator", "image-mosaic-tool", "jwt-decoder", "text-counter-cleaner", "url-parser-builder", "xml-formatter-validator"],
+  "selectedTools": [
+    "date-calculator",
+    "image-mosaic-tool",
+    "jwt-decoder",
+    "text-counter-cleaner",
+    "url-parser-builder",
+    "xml-formatter-validator"
+  ],
   "selectionBasis": "최근 완료 배치와 겹치지 않는 다음 공개 도구 6개 순환 선정",
   "releasePlans": {
-    "date-calculator": {"level":"minor","summary":"계산 입력 복귀와 7일 프리셋 단축키","changes":["입력으로 이동 버튼과 Alt+U를 제공합니다.","Alt+S로 오늘부터 7일 프리셋을 적용합니다."]},
-    "image-mosaic-tool": {"level":"minor","summary":"이미지 입력 복귀와 샘플 단축키","changes":["이미지 선택 영역으로 이동하는 버튼과 Alt+U를 제공합니다.","Alt+S로 샘플 이미지를 불러옵니다."]},
-    "jwt-decoder": {"level":"minor","summary":"JWT 입력 복귀와 시간 요약 복사","changes":["입력 이동과 안전 예제 Alt+S를 제공합니다.","iat·nbf·exp 시간 요약을 별도로 복사합니다."]},
-    "text-counter-cleaner": {"level":"minor","summary":"정리 결과 재사용과 예제 단축키","changes":["입력 이동과 공백 정리 예제 Alt+S를 제공합니다.","정리 결과를 입력으로 옮겨 반복 정리합니다."]},
-    "url-parser-builder": {"level":"minor","summary":"URL 입력 복귀와 쿼리 전체 비우기","changes":["입력 이동과 블로그 URL 예제 Alt+S를 제공합니다.","쿼리 항목을 한 번에 비웁니다."]},
-    "xml-formatter-validator": {"level":"minor","summary":"XML 입력 복귀와 예제 단축키","changes":["입력 이동과 RSS 예제 Alt+S를 제공합니다.","결과·입력 왕복 동선을 유지합니다."]}
+    "date-calculator": {
+      "level": "minor",
+      "summary": "계산 입력 복귀와 7일 프리셋 단축키",
+      "changes": [
+        "입력으로 이동 버튼과 Alt+U를 제공합니다.",
+        "Alt+S로 오늘부터 7일 프리셋을 적용합니다."
+      ]
+    },
+    "image-mosaic-tool": {
+      "level": "minor",
+      "summary": "이미지 입력 복귀와 샘플 단축키",
+      "changes": [
+        "이미지 선택 영역으로 이동하는 버튼과 Alt+U를 제공합니다.",
+        "Alt+S로 샘플 이미지를 불러옵니다."
+      ]
+    },
+    "jwt-decoder": {
+      "level": "minor",
+      "summary": "JWT 입력 복귀와 시간 요약 복사",
+      "changes": [
+        "입력 이동과 안전 예제 Alt+S를 제공합니다.",
+        "iat·nbf·exp 시간 요약을 별도로 복사합니다."
+      ]
+    },
+    "text-counter-cleaner": {
+      "level": "minor",
+      "summary": "정리 결과 재사용과 예제 단축키",
+      "changes": [
+        "입력 이동과 공백 정리 예제 Alt+S를 제공합니다.",
+        "정리 결과를 입력으로 옮겨 반복 정리합니다."
+      ]
+    },
+    "url-parser-builder": {
+      "level": "minor",
+      "summary": "URL 입력 복귀와 쿼리 전체 비우기",
+      "changes": [
+        "입력 이동과 블로그 URL 예제 Alt+S를 제공합니다.",
+        "쿼리 항목을 한 번에 비웁니다."
+      ]
+    },
+    "xml-formatter-validator": {
+      "level": "minor",
+      "summary": "XML 입력 복귀와 예제 단축키",
+      "changes": [
+        "입력 이동과 RSS 예제 Alt+S를 제공합니다.",
+        "결과·입력 왕복 동선을 유지합니다."
+      ]
+    }
   },
-  "workCounts": {"improvements":6,"newOrMerge":3,"commonFixes":2},
-  "changes": ["계산기 입력·프리셋 동선", "모자이크 입력·샘플 동선", "JWT 시간 요약 복사", "텍스트 정리 결과 재사용", "URL 쿼리 전체 비우기", "XML 입력·예제 동선"],
-  "newIdeas": ["JWT 시간 클레임 요약 복사", "텍스트 정리 결과 반복 재사용", "URL 쿼리 전체 비우기"],
-  "commonModules": ["6개 도구 공통 입력 이동 버튼과 Alt+U", "6개 도구 공통 대표 예제 Alt+S"],
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "계산기 입력·프리셋 동선",
+    "모자이크 입력·샘플 동선",
+    "JWT 시간 요약 복사",
+    "텍스트 정리 결과 재사용",
+    "URL 쿼리 전체 비우기",
+    "XML 입력·예제 동선"
+  ],
+  "newIdeas": [
+    "JWT 시간 클레임 요약 복사",
+    "텍스트 정리 결과 반복 재사용",
+    "URL 쿼리 전체 비우기"
+  ],
+  "commonModules": [
+    "6개 도구 공통 입력 이동 버튼과 Alt+U",
+    "6개 도구 공통 대표 예제 Alt+S"
+  ],
   "validation": [
     "대상 인라인 스크립트 6개 구문 통과",
     "ES 모듈 4개 구문 통과",
@@ -46,25 +120,171 @@
     "대상 공개 페이지 6/6 감사 통과",
     "1280px에서 6개 도구 가로 넘침 없음과 신규 기능 3건 동작 확인",
     "375px에서 6개 도구 버튼 경계·줄바꿈·가로 넘침 없음",
-    "Alt+S 예제 적용과 Alt+U 입력 복귀 실제 동작 확인"
+    "Alt+S 예제 적용과 Alt+U 입력 복귀 실제 동작 확인",
+    "공개 배포 대상 확인"
   ],
-  "knownIssueMatches": ["SHARED_ASSET_CACHE_STALE", "PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW", "IFRAME_HEIGHT_STALE", "IFRAME_HEIGHT_CAP_MISMATCH"],
-  "blogger": {"created":[],"updated":["https://bloggiedh.blogspot.com/2026/07/blog-post_704.html","https://bloggiedh.blogspot.com/2026/07/blog-post_88.html","https://bloggiedh.blogspot.com/2026/07/jwt.html","https://bloggiedh.blogspot.com/2026/07/blog-post_735.html","https://bloggiedh.blogspot.com/2026/07/url_01194177481.html","https://bloggiedh.blogspot.com/2026/07/xml.html"],"skipped":[],"status":"completed"},
-  "git": {"branch":"main","commit":null,"pushed":false},
-  "deployment": {"status":"pending","urls":[]},
-  "shutdown": {"requested":false,"scheduled":false,"input":null,"scheduledFor":null,"cancelled":false},
+  "knownIssueMatches": [
+    "SHARED_ASSET_CACHE_STALE",
+    "PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW",
+    "IFRAME_HEIGHT_STALE",
+    "IFRAME_HEIGHT_CAP_MISMATCH"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_704.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_88.html",
+      "https://bloggiedh.blogspot.com/2026/07/jwt.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_735.html",
+      "https://bloggiedh.blogspot.com/2026/07/url_01194177481.html",
+      "https://bloggiedh.blogspot.com/2026/07/xml.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "b72f7538aa34611f90f7eb2df4aba2dbd74becee",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 33666278824,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/date-calculator/",
+      "https://leedohon.github.io/toolbox-project/embed/image-mosaic-tool/",
+      "https://leedohon.github.io/toolbox-project/embed/jwt-decoder/",
+      "https://leedohon.github.io/toolbox-project/embed/text-counter-cleaner/",
+      "https://leedohon.github.io/toolbox-project/embed/url-parser-builder/",
+      "https://leedohon.github.io/toolbox-project/embed/xml-formatter-validator/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
   "blocked": [],
-  "scopeExceptions": ["신규 페이지 대신 기존 공개 도구에 독립 검증 가능한 실사용 기능 3건을 통합"],
-  "runState": {"current":"commit","stages":{
-    "select":{"status":"completed","startedAt":"2026-09-03T00:02:27+09:00","completedAt":"2026-09-03T00:04:00+09:00","evidence":["미확인 결과 35건 보고","최근 완료 배치와 겹치지 않는 공개 도구 순환"],"blockCode":null},
-    "implement":{"status":"completed","startedAt":"2026-09-03T00:04:00+09:00","completedAt":"2026-09-03T00:09:00+09:00","evidence":["6개 도구 입력 복귀·예제 단축키 적용","JWT·텍스트·URL 실사용 기능 3건 통합","6개 minor 릴리스 생성"],"blockCode":null},
-    "validate":{"status":"completed","startedAt":"2026-09-03T00:09:00+09:00","completedAt":"2026-09-03T00:13:05+09:00","evidence":["정적·릴리스·모듈·색인 검사 통과","375px·1280px 직접 브라우저 QA 통과","신규 기능 3건과 Alt+S·Alt+U 동작 확인"],"blockCode":null},
-    "publish":{"status":"completed","startedAt":"2026-09-03T00:13:05+09:00","completedAt":"2026-09-03T03:15:54+09:00","evidence":["Blogger 사전 점검 6개 통과","기존 LIVE 게시글 6개 업데이트","삭제·휴지통·초안 전환 없음"],"blockCode":null},
-    "commit":{"status":"in_progress","startedAt":"2026-09-03T03:15:54+09:00","completedAt":null,"evidence":[],"blockCode":null},
-    "deploy":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},
-    "confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null}
-  }},
-  "knowledgeOptimization": {"policyVersion":"0.35.0","applied":[],"summary":"현재 변경과 겹치는 대기 최적화가 없어 기존 공통 선언을 재사용","skillValidation":"passed"},
-  "developmentTokenEfficiency": {"measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":null,"overallReduction":null,"proxies":[{"metric":"per-tool input return declarations","before":6,"after":1,"reduction":0.8333},{"metric":"per-tool sample shortcut declarations","before":6,"after":1,"reduction":0.8333}],"note":"전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."},
-  "reportHistory": [{"at":"2026-09-03T00:02:27+09:00","action":"started","note":"사용량 unavailable 경고 후 현재 규칙에 따라 하드 워크플로 시작"},{"at":"2026-09-03T03:14:25+09:00","action":"resumed","note":"새 예약 신호의 사용량도 unavailable이어서 경고 후 기존 publish 단계부터 재개"}]
+  "scopeExceptions": [
+    "신규 페이지 대신 기존 공개 도구에 독립 검증 가능한 실사용 기능 3건을 통합"
+  ],
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-09-03T00:02:27+09:00",
+        "completedAt": "2026-09-03T00:04:00+09:00",
+        "evidence": [
+          "미확인 결과 35건 보고",
+          "최근 완료 배치와 겹치지 않는 공개 도구 순환"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-09-03T00:04:00+09:00",
+        "completedAt": "2026-09-03T00:09:00+09:00",
+        "evidence": [
+          "6개 도구 입력 복귀·예제 단축키 적용",
+          "JWT·텍스트·URL 실사용 기능 3건 통합",
+          "6개 minor 릴리스 생성"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-09-03T00:09:00+09:00",
+        "completedAt": "2026-09-03T00:13:05+09:00",
+        "evidence": [
+          "정적·릴리스·모듈·색인 검사 통과",
+          "375px·1280px 직접 브라우저 QA 통과",
+          "신규 기능 3건과 Alt+S·Alt+U 동작 확인"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-09-03T00:13:05+09:00",
+        "completedAt": "2026-09-03T03:15:54+09:00",
+        "evidence": [
+          "Blogger 사전 점검 6개 통과",
+          "기존 LIVE 게시글 6개 업데이트",
+          "삭제·휴지통·초안 전환 없음"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-09-03T03:15:54+09:00",
+        "completedAt": "2026-09-03T03:18:34+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-09-03T00:02:27+09:00",
+        "completedAt": "2026-09-03T03:18:34+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "in_progress",
+        "startedAt": "2026-09-03T03:18:34+09:00",
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      }
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.35.0",
+    "applied": [],
+    "summary": "현재 변경과 겹치는 대기 최적화가 없어 기존 공통 선언을 재사용",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": null,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "per-tool input return declarations",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      },
+      {
+        "metric": "per-tool sample shortcut declarations",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      }
+    ],
+    "note": "전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
+  },
+  "reportHistory": [
+    {
+      "at": "2026-09-03T00:02:27+09:00",
+      "action": "started",
+      "note": "사용량 unavailable 경고 후 현재 규칙에 따라 하드 워크플로 시작"
+    },
+    {
+      "at": "2026-09-03T03:14:25+09:00",
+      "action": "resumed",
+      "note": "새 예약 신호의 사용량도 unavailable이어서 경고 후 기존 publish 단계부터 재개"
+    }
+  ]
 }

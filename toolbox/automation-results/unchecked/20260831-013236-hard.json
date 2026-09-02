@@ -1,11 +1,11 @@
 {
   "runId": "20260831-013236-hard",
   "workflow": "hard",
-  "status": "partial",
+  "status": "completed",
   "confirm": "N",
   "startedAt": "2026-08-31T01:32:36+09:00",
-  "completedAt": null,
-  "confirmedAt": null,
+  "completedAt": "2026-09-02T21:07:07+09:00",
+  "confirmedAt": "2026-09-02T21:07:24+09:00",
   "summary": "공개 도구 6개에 긴 결과 뒤 입력·설정으로 돌아가는 공통 동선을 추가합니다.",
   "request": {
     "workType": "hard",
@@ -119,9 +119,10 @@
     "375px 직접 도구 4개에서 Alt+U 버튼·0.7.0 캐시 키·가로 넘침 없음 확인",
     "375px 버튼 실행 뒤 모바일 자동 포커스 없음 확인",
     "2026-09-02 재개 시 업데이트된 내장 브라우저 연결은 성공했으나 loopback 미리보기 탐색이 ERR_BLOCKED_BY_CLIENT로 차단됨",
-    "Chrome·Edge는 설치되어 있으나 ChatGPT 브라우저 확장과 네이티브 연결 구성이 없어 대체 화면 QA 불가 확인"
-    ,"2026-09-02 대상 게시글·카탈로그·AI 색인 재빌드 통과"
-    ,"2026-09-02 스크립트·ES 모듈·릴리스 102개 JSON·모듈 12개·색인·공개 구조 6/6 재검증 통과"
+    "Chrome·Edge는 설치되어 있으나 ChatGPT 브라우저 확장과 네이티브 연결 구성이 없어 대체 화면 QA 불가 확인",
+    "2026-09-02 대상 게시글·카탈로그·AI 색인 재빌드 통과",
+    "2026-09-02 스크립트·ES 모듈·릴리스 102개 JSON·모듈 12개·색인·공개 구조 6/6 재검증 통과",
+    "공개 배포 대상 확인"
   ],
   "knownIssueMatches": [
     "SHARED_ASSET_CACHE_STALE",
@@ -133,23 +134,31 @@
     "created": [],
     "updated": [
       "https://bloggiedh.blogspot.com/2026/07/blog-post_554.html",
-      "https://bloggiedh.blogspot.com/2026/07/csv.html",
-      "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_912.html",
       "https://bloggiedh.blogspot.com/2026/07/html.html",
+      "https://bloggiedh.blogspot.com/2026/07/csv.html",
       "https://bloggiedh.blogspot.com/2026/07/blog-post_18.html",
-      "https://bloggiedh.blogspot.com/2026/07/blog-post_912.html"
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_950.html"
     ],
     "skipped": [],
     "status": "completed"
   },
   "git": {
     "branch": "main",
-    "commit": null,
-    "pushed": false
+    "commit": "dd7ed3697ceb19932812407bbab7edcc1644f218",
+    "pushed": true
   },
   "deployment": {
-    "status": "pending",
-    "urls": []
+    "status": "completed",
+    "runId": 33628060229,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/color-converter-contrast/",
+      "https://leedohon.github.io/toolbox-project/embed/text-diff-checker/",
+      "https://leedohon.github.io/toolbox-project/embed/markdown-preview-converter/",
+      "https://leedohon.github.io/toolbox-project/embed/csv-table-converter/",
+      "https://leedohon.github.io/toolbox-project/embed/regex-tester/",
+      "https://leedohon.github.io/toolbox-project/embed/hash-generator/"
+    ]
   },
   "shutdown": {
     "requested": false,
@@ -164,7 +173,7 @@
     "내장 브라우저 loopback 차단과 외부 브라우저 연결 구성 누락으로 허브 2개·1280px 화면 QA는 완료하지 못했으며, 사용자의 명시적 적용·커밋·푸시 지시에 따라 정적 재검증과 기존 375px 직접 도구 증거로 릴리스를 진행"
   ],
   "runState": {
-    "current": "commit",
+    "current": "confirm",
     "stages": {
       "select": {
         "status": "completed",
@@ -210,35 +219,43 @@
         ],
         "blockCode": null
       },
-    "publish": {
-      "status": "completed",
-      "startedAt": "2026-09-02T18:35:00+09:00",
-      "completedAt": "2026-09-02T21:04:33+09:00",
-      "evidence": [
-        "Blogger LIVE 게시글 6개 업데이트 완료",
-        "게시글 URL 동기화와 카탈로그 재생성 완료"
-      ],
-      "blockCode": null
-    },
-    "commit": {
-      "status": "in_progress",
-      "startedAt": "2026-09-02T21:04:33+09:00",
-        "completedAt": null,
-        "evidence": [],
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-09-02T18:35:00+09:00",
+        "completedAt": "2026-09-02T21:04:33+09:00",
+        "evidence": [
+          "Blogger LIVE 게시글 6개 업데이트 완료",
+          "게시글 URL 동기화와 카탈로그 재생성 완료"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-09-02T21:04:33+09:00",
+        "completedAt": "2026-09-02T21:07:07+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
         "blockCode": null
       },
       "deploy": {
-        "status": "pending",
-        "startedAt": null,
-        "completedAt": null,
-        "evidence": [],
+        "status": "completed",
+        "startedAt": "2026-08-31T01:32:36+09:00",
+        "completedAt": "2026-09-02T21:07:07+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
         "blockCode": null
       },
       "confirm": {
-        "status": "pending",
-        "startedAt": null,
-        "completedAt": null,
-        "evidence": [],
+        "status": "completed",
+        "startedAt": "2026-09-02T21:07:07+09:00",
+        "completedAt": "2026-09-02T21:07:24+09:00",
+        "evidence": [
+          "GitHub Pages 실행 33628060229 성공",
+          "공개 iframe 6개 HTTP 200 및 공통 복귀 자산 0.7.0 확인",
+          "Blogger LIVE 게시글 6개 HTTP 200 및 새 버전 표기 확인"
+        ],
         "blockCode": null
       }
     }

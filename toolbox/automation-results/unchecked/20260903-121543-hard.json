@@ -173,12 +173,12 @@
       "code": "VALIDATION_FAILED",
       "stage": "validate",
       "retryable": true,
-      "next": "일반 Chrome 또는 Edge의 1280px 화면에서 Base64·비밀번호·이미지 도구의 가로 넘침과 Alt+S·Alt+U 동작을 확인한 뒤 validate 단계부터 재개"
+      "next": "일반 Chrome 또는 Edge에서 Base64·비밀번호·이미지 도구를 1280px로 열어 가로 넘침 0px와 Alt+S·Alt+U 동작을 확인해 통과 여부를 전달하거나, 해당 브라우저 탭을 Codex에 연결한 뒤 validate 단계부터 재개"
     }
   ],
   "scopeExceptions": [
     "신규 페이지 대신 기존 공개 페이지에 독립 검증 가능한 대표 예제 기능 3건을 통합",
-    "1280px QA는 QR·JSON·게임 표본을 통과했으나 Base64 엔진에서 키 입력 직후 loopback 인앱 브라우저 탭이 크래시했고, 공개 Pages 주소에서도 첫 클릭과 화면 캡처가 시간 초과됨; 375px 직접 검증 및 정적·릴리스 검사는 통과했으며, 남은 1280px Base64·비밀번호·이미지 조작 QA를 최초 미완료 항목으로 보존"
+    "1280px QA는 QR·JSON·게임 표본을 통과했으나 Base64 엔진에서 키 입력 직후 loopback 인앱 브라우저 탭이 크래시했고, 공개 Pages 주소에서도 첫 클릭과 화면 캡처가 시간 초과됨; 2026-09-04 재개 시 일반 Chrome·Edge 연결 없이 인앱 브라우저만 확인되어 자동 우회 불가; 375px 직접 검증 및 정적·릴리스 검사는 통과했으며, 남은 1280px Base64·비밀번호·이미지 조작 QA를 최초 미완료 항목으로 보존"
   ],
   "runState": {
     "current": "validate",
@@ -306,6 +306,16 @@
       "at": "2026-09-03T18:19:12+09:00",
       "action": "resumed",
       "note": "사용량 unavailable 경고 후 공개 Pages 주소에서 1280px Base64 QA를 재개했으나 첫 상호작용과 화면 캡처가 시간 초과되어 validate 단계를 미완료로 유지"
+    },
+    {
+      "at": "2026-09-04T03:19:46+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-09-04T03:20:10+09:00",
+      "action": "blocked",
+      "note": "사용량 unavailable 경고 후 validate 재개. 브라우저 인벤토리에 인앱 브라우저만 있고 일반 Chrome·Edge 연결이 없어 반복 실패 경로 외의 1280px QA 수단이 없음"
     }
   ]
 }

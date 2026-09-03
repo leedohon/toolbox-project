@@ -1,0 +1,10 @@
+{
+  "tool": "base64-tools",
+  "version": "1.11.0v",
+  "releaseDate": "2026-09-03",
+  "changeLevel": "minor",
+  "changes": [
+    "Alt+U로 원문 입력으로 돌아갑니다.",
+    "Alt+S로 URL Base64 예제를 변환합니다."
+  ]
+}

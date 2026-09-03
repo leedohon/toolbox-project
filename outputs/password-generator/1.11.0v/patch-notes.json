@@ -1,0 +1,10 @@
+{
+  "tool": "password-generator",
+  "version": "1.11.0v",
+  "releaseDate": "2026-09-03",
+  "changeLevel": "minor",
+  "changes": [
+    "Alt+U로 길이 입력으로 돌아갑니다.",
+    "Alt+S로 웹사이트용 안전 설정을 적용합니다."
+  ]
+}

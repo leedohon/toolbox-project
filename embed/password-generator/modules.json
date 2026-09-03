@@ -19,7 +19,7 @@
         "ko": "비밀번호",
         "en": "Passwords"
       },
-      "entry": "./engine.html?release=1.10.0v",
+      "entry": "./engine.html?release=1.11.0v",
       "messageTool": "password-generator",
       "capabilities": {
         "resultCode": false,

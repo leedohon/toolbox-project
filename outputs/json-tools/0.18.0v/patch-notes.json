@@ -1,0 +1,10 @@
+{
+  "tool": "json-tools",
+  "version": "0.18.0v",
+  "releaseDate": "2026-09-03",
+  "changeLevel": "minor",
+  "changes": [
+    "Alt+U로 JSON 입력으로 돌아갑니다.",
+    "Alt+S로 API 응답 예제를 적용합니다."
+  ]
+}

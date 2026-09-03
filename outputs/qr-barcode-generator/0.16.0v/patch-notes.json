@@ -1,0 +1,10 @@
+{
+  "tool": "qr-barcode-generator",
+  "version": "0.16.0v",
+  "releaseDate": "2026-09-03",
+  "changeLevel": "minor",
+  "changes": [
+    "Alt+U로 내용 입력으로 돌아갑니다.",
+    "Alt+S로 Wi-Fi QR 예제를 적용합니다."
+  ]
+}

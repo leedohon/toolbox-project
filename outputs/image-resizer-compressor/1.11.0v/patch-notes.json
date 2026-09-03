@@ -1,0 +1,10 @@
+{
+  "tool": "image-resizer-compressor",
+  "version": "1.11.0v",
+  "releaseDate": "2026-09-03",
+  "changeLevel": "minor",
+  "changes": [
+    "Alt+U로 이미지 선택 버튼으로 돌아갑니다.",
+    "Alt+S로 웹용 권장 설정을 적용합니다."
+  ]
+}

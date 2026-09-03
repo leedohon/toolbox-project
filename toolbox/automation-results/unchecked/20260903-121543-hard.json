@@ -6,7 +6,7 @@
   "startedAt": "2026-09-03T12:15:43+09:00",
   "completedAt": "2026-09-03T12:25:42+09:00",
   "confirmedAt": null,
-  "summary": "핵심 공개 도구 6개의 개선·Blogger·Pages 배포와 정적·릴리스 검사, 기존 375px 직접 검증을 완료했습니다. 1280px 로컬 브라우저 QA는 QR·JSON·게임 표본만 통과했고 Base64 엔진에서 인앱 브라우저 탭이 크래시해 전수를 완료하지 못했습니다.",
+  "summary": "핵심 공개 도구 6개의 개선·Blogger·Pages 배포와 정적·릴리스 검사, 기존 375px 직접 검증을 완료했습니다. 1280px QA는 QR·JSON·게임 표본만 통과했고, Base64 엔진은 loopback과 공개 Pages 양쪽에서 인앱 브라우저 제어가 멈춰 전수를 완료하지 못했습니다.",
   "request": {
     "workType": "hard",
     "targets": [
@@ -168,13 +168,20 @@
     "scheduledFor": null,
     "cancelled": false
   },
-  "blocked": [],
+  "blocked": [
+    {
+      "code": "VALIDATION_FAILED",
+      "stage": "validate",
+      "retryable": true,
+      "next": "일반 Chrome 또는 Edge의 1280px 화면에서 Base64·비밀번호·이미지 도구의 가로 넘침과 Alt+S·Alt+U 동작을 확인한 뒤 validate 단계부터 재개"
+    }
+  ],
   "scopeExceptions": [
     "신규 페이지 대신 기존 공개 페이지에 독립 검증 가능한 대표 예제 기능 3건을 통합",
-    "1280px 로컬 브라우저 QA는 QR·JSON·게임 표본을 통과했으나 Base64 엔진에서 키 입력 직후 인앱 브라우저 탭이 크래시했고 새 탭 재시도도 크래시 화면으로 전환됨; 375px 직접 검증 및 정적·릴리스 검사는 통과했으며, 남은 1280px Base64·비밀번호·이미지 조작 QA를 최초 미완료 항목으로 보존"
+    "1280px QA는 QR·JSON·게임 표본을 통과했으나 Base64 엔진에서 키 입력 직후 loopback 인앱 브라우저 탭이 크래시했고, 공개 Pages 주소에서도 첫 클릭과 화면 캡처가 시간 초과됨; 375px 직접 검증 및 정적·릴리스 검사는 통과했으며, 남은 1280px Base64·비밀번호·이미지 조작 QA를 최초 미완료 항목으로 보존"
   ],
   "runState": {
-    "current": "confirm",
+    "current": "validate",
     "stages": {
       "select": {
         "status": "completed",
@@ -196,13 +203,15 @@
         "blockCode": null
       },
       "validate": {
-        "status": "completed",
+        "status": "in_progress",
         "startedAt": "2026-09-03T12:15:43+09:00",
-        "completedAt": "2026-09-03T12:25:42+09:00",
+        "completedAt": null,
         "evidence": [
-          "validate 완료"
+          "정적·릴리스 검사와 375px 직접 검증 통과",
+          "1280px QR·JSON·게임 표본 통과",
+          "Base64 엔진은 loopback과 공개 Pages에서 인앱 브라우저 제어 시간 초과"
         ],
-        "blockCode": null
+        "blockCode": "VALIDATION_FAILED"
       },
       "publish": {
         "status": "completed",
@@ -287,6 +296,16 @@
       "at": "2026-09-03T15:19:28+09:00",
       "action": "resumed",
       "note": "사용량 unavailable 경고 후 검증부터 재개. 1280px QR·JSON 재검증은 통과했으나 Base64 엔진에서 인앱 브라우저 탭이 크래시해 부분 상태를 유지"
+    },
+    {
+      "at": "2026-09-03T18:17:36+09:00",
+      "action": "reported",
+      "note": "새 자동 워크플로 시작 전 미확인 기록으로 요약 보고"
+    },
+    {
+      "at": "2026-09-03T18:19:12+09:00",
+      "action": "resumed",
+      "note": "사용량 unavailable 경고 후 공개 Pages 주소에서 1280px Base64 QA를 재개했으나 첫 상호작용과 화면 캡처가 시간 초과되어 validate 단계를 미완료로 유지"
     }
   ]
 }

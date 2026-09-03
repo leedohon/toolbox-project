@@ -1,28 +1,280 @@
 {
-  "runId":"20260903-121543-hard","workflow":"hard","status":"partial","confirm":"N","startedAt":"2026-09-03T12:15:43+09:00","completedAt":null,"confirmedAt":null,
-  "summary":"핵심 공개 도구 6개의 입력 복귀와 대표 작업 키보드 동선을 공통화합니다.",
-  "request":{"workType":"hard","targets":["qr-barcode-generator","json-tools","base64-tools","multipurpose-draw-game","password-generator","image-resizer-compressor"],"versionLevel":"minor","blogger":"update-existing","gitDeployment":"independent","shutdown":"none"},
-  "usageGate":{"status":"unavailable","remainingPercent":null,"minimumRemainingPercent":20,"checkedOnce":true,"warning":"Codex 계정 인증이 필요해 사용량을 확인하지 못했습니다. 잔여 비율을 추정하지 않고 현재 규칙에 따라 진행했습니다.","rule":"unavailable은 경고 후 진행하고, 확인된 20% 미만만 건너뛴다"},
-  "selectedTools":["qr-barcode-generator","json-tools","base64-tools","multipurpose-draw-game","password-generator","image-resizer-compressor"],
-  "selectionBasis":"직전 두 하드 회차를 제외한 공개 도구 순환 선정",
-  "releasePlans":{
-    "qr-barcode-generator":{"level":"minor","summary":"QR 입력 복귀와 Wi-Fi 예제 단축키","changes":["Alt+U로 내용 입력으로 돌아갑니다.","Alt+S로 Wi-Fi QR 예제를 적용합니다."]},
-    "json-tools":{"level":"minor","summary":"JSON 입력 복귀와 API 예제 단축키","changes":["Alt+U로 JSON 입력으로 돌아갑니다.","Alt+S로 API 응답 예제를 적용합니다."]},
-    "base64-tools":{"level":"minor","summary":"Base64 입력 복귀와 URL 예제 단축키","changes":["Alt+U로 원문 입력으로 돌아갑니다.","Alt+S로 URL Base64 예제를 변환합니다."]},
-    "multipurpose-draw-game":{"level":"minor","summary":"게임 선택 복귀 키보드 동선","changes":["Alt+U로 게임 선택 영역으로 돌아갑니다.","모바일에서는 자동 포커스 없이 선택 영역만 안내합니다."]},
-    "password-generator":{"level":"minor","summary":"비밀번호 길이 복귀와 안전 설정 단축키","changes":["Alt+U로 길이 입력으로 돌아갑니다.","Alt+S로 웹사이트용 안전 설정을 적용합니다."]},
-    "image-resizer-compressor":{"level":"minor","summary":"이미지 선택 복귀와 웹용 설정 단축키","changes":["Alt+U로 이미지 선택 버튼으로 돌아갑니다.","Alt+S로 웹용 권장 설정을 적용합니다."]}
+  "runId": "20260903-121543-hard",
+  "workflow": "hard",
+  "status": "partial",
+  "confirm": "N",
+  "startedAt": "2026-09-03T12:15:43+09:00",
+  "completedAt": "2026-09-03T12:25:42+09:00",
+  "confirmedAt": null,
+  "summary": "핵심 공개 도구 6개의 개선·Blogger·Pages 배포를 완료했으며 브라우저 제어 시간 초과로 반응형 전수 QA만 부분 완료했습니다.",
+  "request": {
+    "workType": "hard",
+    "targets": [
+      "qr-barcode-generator",
+      "json-tools",
+      "base64-tools",
+      "multipurpose-draw-game",
+      "password-generator",
+      "image-resizer-compressor"
+    ],
+    "versionLevel": "minor",
+    "blogger": "update-existing",
+    "gitDeployment": "independent",
+    "shutdown": "none"
   },
-  "workCounts":{"improvements":6,"newOrMerge":3,"commonFixes":2},
-  "changes":["Wi-Fi QR 키보드 동선","API JSON 키보드 동선","URL Base64 키보드 동선","게임 선택 복귀","비밀번호 안전 설정 동선","이미지 웹 설정 동선"],
-  "newIdeas":["Wi-Fi QR 대표 예제 Alt+S","API JSON 대표 예제 Alt+S","URL Base64 대표 예제 Alt+S"],
-  "commonModules":["6개 도구 공통 입력 복귀 Alt+U","예제가 있는 5개 도구 공통 대표 작업 Alt+S"],
-  "validation":["대상 게시글 인라인 스크립트 6개 통과","ES 모듈 2개 구문 통과","대상 릴리스 JSON 155개와 최신 경로 일치","대상 모듈 13개·레지스트리 4개 일치","대상 공개 실행 페이지 6개 색인 정책 통과","대상 공개 페이지 6/6 감사 통과","1280px QR·JSON·게임 가로 넘침 0px와 입력 복귀 확인","Base64 엔진에서 입력·예제 단축키 안내 렌더링 확인"],
-  "knownIssueMatches":["PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW","IFRAME_HEIGHT_STALE","IFRAME_HEIGHT_CAP_MISMATCH","HUB_PRELOAD_STATUS_MISMATCH","SHARED_ASSET_CACHE_STALE"],
-  "blogger":{"created":[],"updated":["https://bloggiedh.blogspot.com/2026/07/base64.html","https://bloggiedh.blogspot.com/2026/07/blog-post_106.html","https://bloggiedh.blogspot.com/2026/07/json.html","https://bloggiedh.blogspot.com/2026/07/blog-post_15.html","https://bloggiedh.blogspot.com/2026/07/blog-post_103.html","https://bloggiedh.blogspot.com/2026/07/blog-post.html"],"skipped":[],"status":"completed"},"git":{"branch":"main","commit":null,"pushed":false},"deployment":{"status":"pending","urls":[]},
-  "shutdown":{"requested":false,"scheduled":false,"input":null,"scheduledFor":null,"cancelled":false},"blocked":[],"scopeExceptions":["신규 페이지 대신 기존 공개 페이지에 독립 검증 가능한 대표 예제 기능 3건을 통합","로컬 브라우저 제어가 허브 엔진 전환 중 반복 시간 초과되어 나머지 3개 도구의 1280px 조작 및 6개 도구 375px 전수 QA는 수행하지 못함; 정적·릴리스 검사와 확인된 1280px 표본 결과만 기록"],
-  "runState":{"current":"implement","stages":{"select":{"status":"completed","startedAt":"2026-09-03T12:15:43+09:00","completedAt":"2026-09-03T12:17:00+09:00","evidence":["미확인 결과 37건 보고","직전 두 회차 제외 공개 도구 순환"],"blockCode":null},"implement":{"status":"in_progress","startedAt":"2026-09-03T12:17:00+09:00","completedAt":null,"evidence":[],"blockCode":null},"validate":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"publish":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"commit":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"deploy":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null}}},
-  "knowledgeOptimization":{"policyVersion":"0.35.0","applied":[],"summary":"현재 변경과 겹치는 대기 최적화가 없어 기존 공통 선언 재사용","skillValidation":"passed"},
-  "developmentTokenEfficiency":{"measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":0.8934,"overallReduction":null,"proxies":[{"metric":"target manifest and definition characters emitted for selection","before":51065,"after":5443,"reduction":0.8934},{"metric":"per-tool input return declarations","before":6,"after":1,"reduction":0.8333}],"note":"전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."},
-  "reportHistory":[{"at":"2026-09-03T12:15:43+09:00","action":"started","note":"사용량 unavailable 경고 후 현재 규칙에 따라 하드 워크플로 시작"}]
+  "usageGate": {
+    "status": "unavailable",
+    "remainingPercent": null,
+    "minimumRemainingPercent": 20,
+    "checkedOnce": true,
+    "warning": "Codex 계정 인증이 필요해 사용량을 확인하지 못했습니다. 잔여 비율을 추정하지 않고 현재 규칙에 따라 진행했습니다.",
+    "rule": "unavailable은 경고 후 진행하고, 확인된 20% 미만만 건너뛴다"
+  },
+  "selectedTools": [
+    "qr-barcode-generator",
+    "json-tools",
+    "base64-tools",
+    "multipurpose-draw-game",
+    "password-generator",
+    "image-resizer-compressor"
+  ],
+  "selectionBasis": "직전 두 하드 회차를 제외한 공개 도구 순환 선정",
+  "releasePlans": {
+    "qr-barcode-generator": {
+      "level": "minor",
+      "summary": "QR 입력 복귀와 Wi-Fi 예제 단축키",
+      "changes": [
+        "Alt+U로 내용 입력으로 돌아갑니다.",
+        "Alt+S로 Wi-Fi QR 예제를 적용합니다."
+      ]
+    },
+    "json-tools": {
+      "level": "minor",
+      "summary": "JSON 입력 복귀와 API 예제 단축키",
+      "changes": [
+        "Alt+U로 JSON 입력으로 돌아갑니다.",
+        "Alt+S로 API 응답 예제를 적용합니다."
+      ]
+    },
+    "base64-tools": {
+      "level": "minor",
+      "summary": "Base64 입력 복귀와 URL 예제 단축키",
+      "changes": [
+        "Alt+U로 원문 입력으로 돌아갑니다.",
+        "Alt+S로 URL Base64 예제를 변환합니다."
+      ]
+    },
+    "multipurpose-draw-game": {
+      "level": "minor",
+      "summary": "게임 선택 복귀 키보드 동선",
+      "changes": [
+        "Alt+U로 게임 선택 영역으로 돌아갑니다.",
+        "모바일에서는 자동 포커스 없이 선택 영역만 안내합니다."
+      ]
+    },
+    "password-generator": {
+      "level": "minor",
+      "summary": "비밀번호 길이 복귀와 안전 설정 단축키",
+      "changes": [
+        "Alt+U로 길이 입력으로 돌아갑니다.",
+        "Alt+S로 웹사이트용 안전 설정을 적용합니다."
+      ]
+    },
+    "image-resizer-compressor": {
+      "level": "minor",
+      "summary": "이미지 선택 복귀와 웹용 설정 단축키",
+      "changes": [
+        "Alt+U로 이미지 선택 버튼으로 돌아갑니다.",
+        "Alt+S로 웹용 권장 설정을 적용합니다."
+      ]
+    }
+  },
+  "workCounts": {
+    "improvements": 6,
+    "newOrMerge": 3,
+    "commonFixes": 2
+  },
+  "changes": [
+    "Wi-Fi QR 키보드 동선",
+    "API JSON 키보드 동선",
+    "URL Base64 키보드 동선",
+    "게임 선택 복귀",
+    "비밀번호 안전 설정 동선",
+    "이미지 웹 설정 동선"
+  ],
+  "newIdeas": [
+    "Wi-Fi QR 대표 예제 Alt+S",
+    "API JSON 대표 예제 Alt+S",
+    "URL Base64 대표 예제 Alt+S"
+  ],
+  "commonModules": [
+    "6개 도구 공통 입력 복귀 Alt+U",
+    "예제가 있는 5개 도구 공통 대표 작업 Alt+S"
+  ],
+  "validation": [
+    "대상 게시글 인라인 스크립트 6개 통과",
+    "ES 모듈 2개 구문 통과",
+    "대상 릴리스 JSON 155개와 최신 경로 일치",
+    "대상 모듈 13개·레지스트리 4개 일치",
+    "대상 공개 실행 페이지 6개 색인 정책 통과",
+    "대상 공개 페이지 6/6 감사 통과",
+    "1280px QR·JSON·게임 가로 넘침 0px와 입력 복귀 확인",
+    "Base64 엔진에서 입력·예제 단축키 안내 렌더링 확인",
+    "공개 Pages와 Blogger 6개 모두 HTTP 200 및 새 버전 확인"
+  ],
+  "knownIssueMatches": [
+    "PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW",
+    "IFRAME_HEIGHT_STALE",
+    "IFRAME_HEIGHT_CAP_MISMATCH",
+    "HUB_PRELOAD_STATUS_MISMATCH",
+    "SHARED_ASSET_CACHE_STALE"
+  ],
+  "blogger": {
+    "created": [],
+    "updated": [
+      "https://bloggiedh.blogspot.com/2026/07/blog-post.html",
+      "https://bloggiedh.blogspot.com/2026/07/json.html",
+      "https://bloggiedh.blogspot.com/2026/07/base64.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_15.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_103.html",
+      "https://bloggiedh.blogspot.com/2026/07/blog-post_106.html"
+    ],
+    "skipped": [],
+    "status": "completed"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "23adb9a08340e1416c68ee3264bb73501f749263",
+    "pushed": true
+  },
+  "deployment": {
+    "status": "completed",
+    "runId": 33711262291,
+    "urls": [
+      "https://leedohon.github.io/toolbox-project/embed/qr-barcode-generator/",
+      "https://leedohon.github.io/toolbox-project/embed/json-tools/",
+      "https://leedohon.github.io/toolbox-project/embed/base64-tools/",
+      "https://leedohon.github.io/toolbox-project/embed/multipurpose-draw-game/",
+      "https://leedohon.github.io/toolbox-project/embed/password-generator/",
+      "https://leedohon.github.io/toolbox-project/embed/image-resizer-compressor/"
+    ]
+  },
+  "shutdown": {
+    "requested": false,
+    "scheduled": false,
+    "input": null,
+    "scheduledFor": null,
+    "cancelled": false
+  },
+  "blocked": [],
+  "scopeExceptions": [
+    "신규 페이지 대신 기존 공개 페이지에 독립 검증 가능한 대표 예제 기능 3건을 통합",
+    "로컬 브라우저 제어가 허브 엔진 전환 중 반복 시간 초과되어 나머지 3개 도구의 1280px 조작 및 6개 도구 375px 전수 QA는 수행하지 못함; 정적·릴리스 검사와 확인된 1280px 표본 결과만 기록"
+  ],
+  "runState": {
+    "current": "confirm",
+    "stages": {
+      "select": {
+        "status": "completed",
+        "startedAt": "2026-09-03T12:15:43+09:00",
+        "completedAt": "2026-09-03T12:17:00+09:00",
+        "evidence": [
+          "미확인 결과 37건 보고",
+          "직전 두 회차 제외 공개 도구 순환"
+        ],
+        "blockCode": null
+      },
+      "implement": {
+        "status": "completed",
+        "startedAt": "2026-09-03T12:17:00+09:00",
+        "completedAt": "2026-09-03T12:25:42+09:00",
+        "evidence": [
+          "implement 완료"
+        ],
+        "blockCode": null
+      },
+      "validate": {
+        "status": "completed",
+        "startedAt": "2026-09-03T12:15:43+09:00",
+        "completedAt": "2026-09-03T12:25:42+09:00",
+        "evidence": [
+          "validate 완료"
+        ],
+        "blockCode": null
+      },
+      "publish": {
+        "status": "completed",
+        "startedAt": "2026-09-03T12:15:43+09:00",
+        "completedAt": "2026-09-03T12:25:42+09:00",
+        "evidence": [
+          "publish 완료"
+        ],
+        "blockCode": null
+      },
+      "commit": {
+        "status": "completed",
+        "startedAt": "2026-09-03T12:15:43+09:00",
+        "completedAt": "2026-09-03T12:25:42+09:00",
+        "evidence": [
+          "commit 완료"
+        ],
+        "blockCode": null
+      },
+      "deploy": {
+        "status": "completed",
+        "startedAt": "2026-09-03T12:15:43+09:00",
+        "completedAt": "2026-09-03T12:25:42+09:00",
+        "evidence": [
+          "deploy 완료"
+        ],
+        "blockCode": null
+      },
+      "confirm": {
+        "status": "in_progress",
+        "startedAt": "2026-09-03T12:25:42+09:00",
+        "completedAt": null,
+        "evidence": [],
+        "blockCode": null
+      }
+    }
+  },
+  "knowledgeOptimization": {
+    "policyVersion": "0.35.0",
+    "applied": [],
+    "summary": "현재 변경과 겹치는 대기 최적화가 없어 기존 공통 선언 재사용",
+    "skillValidation": "passed"
+  },
+  "developmentTokenEfficiency": {
+    "measurementStatus": "proxy_only",
+    "baselineRunId": null,
+    "tokens": {
+      "baseline": null,
+      "current": null,
+      "accountingMethod": null
+    },
+    "instructionReduction": 0.8934,
+    "overallReduction": null,
+    "proxies": [
+      {
+        "metric": "target manifest and definition characters emitted for selection",
+        "before": 51065,
+        "after": 5443,
+        "reduction": 0.8934
+      },
+      {
+        "metric": "per-tool input return declarations",
+        "before": 6,
+        "after": 1,
+        "reduction": 0.8333
+      }
+    ],
+    "note": "전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
+  },
+  "reportHistory": [
+    {
+      "at": "2026-09-03T12:15:43+09:00",
+      "action": "started",
+      "note": "사용량 unavailable 경고 후 현재 규칙에 따라 하드 워크플로 시작"
+    }
+  ]
 }

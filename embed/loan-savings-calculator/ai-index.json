@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-30",
+  "updatedAt": "2026-09-03",
   "tool": "loan-savings-calculator",
   "index": 54,
   "title": "대출·저축 계산기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.7.0v",
+  "latestVersion": "0.8.0v",
   "paths": {
     "definition": "toolbox/tools/loan-savings-calculator.md",
     "post": "toolbox/posts/loan-savings-calculator.html",

@@ -4,7 +4,7 @@
   "title": "IP·네트워크 주소 도구",
   "description": "IPv4 CIDR과 마스크, 주소 범위와 MAC 주소를 계산·검사하고 표준 형식으로 정리합니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/08/ip.html",
-  "latestVersion": "0.9.0v",
+  "latestVersion": "0.10.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -104,6 +104,15 @@
       "directory": "0.9.0v",
       "html": "0.9.0v/ip-network-calculator.html",
       "patchNotes": "0.9.0v/patch-notes.json"
+    },
+    {
+      "version": "0.10.0v",
+      "releaseDate": "2026-09-03",
+      "changeLevel": "minor",
+      "summary": "IP 입력 복귀와 사설망 예제 단축키",
+      "directory": "0.10.0v",
+      "html": "0.10.0v/ip-network-calculator.html",
+      "patchNotes": "0.10.0v/patch-notes.json"
     }
   ]
 }

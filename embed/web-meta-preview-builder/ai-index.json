@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-30",
+  "updatedAt": "2026-09-03",
   "tool": "web-meta-preview-builder",
   "index": 53,
   "title": "웹 메타·공유 미리보기",
   "category": "초간단 툴박스",
   "status": "published",
   "replacementTool": null,
-  "latestVersion": "0.10.0v",
+  "latestVersion": "0.11.0v",
   "paths": {
     "definition": "toolbox/tools/web-meta-preview-builder.md",
     "post": "toolbox/posts/web-meta-preview-builder.html",

@@ -1,0 +1,29 @@
+{
+  "runId":"20260903-091531-hard","workflow":"hard","status":"partial","confirm":"N","startedAt":"2026-09-03T09:15:31+09:00","completedAt":null,"confirmedAt":null,
+  "summary":"공개 도구 6개의 입력 복귀와 대표 예제 실행 단축키를 공통화합니다.",
+  "request":{"workType":"hard","targets":["coordinate-distance-calculator","http-status-lookup","ip-network-calculator","loan-savings-calculator","text-extractor-tool","web-meta-preview-builder"],"versionLevel":"minor","blogger":"update-existing","gitDeployment":"independent","shutdown":"none"},
+  "usageGate":{"status":"unavailable","remainingPercent":null,"minimumRemainingPercent":20,"checkedOnce":true,"warning":"Codex 계정 인증이 필요해 사용량을 확인하지 못했습니다. 잔여 비율을 추정하지 않고 현재 규칙에 따라 진행했습니다.","rule":"unavailable은 경고 후 진행하고, 확인된 20% 미만만 건너뛴다"},
+  "selectedTools":["coordinate-distance-calculator","http-status-lookup","ip-network-calculator","loan-savings-calculator","text-extractor-tool","web-meta-preview-builder"],
+  "selectionBasis":"최근 완료 회차와 겹치지 않는 다음 공개 도구 6개 순환 선정",
+  "releasePlans":{
+    "coordinate-distance-calculator":{"level":"minor","summary":"좌표 입력 복귀와 서울·제주 예제 단축키","changes":["Alt+U로 첫 좌표 입력으로 돌아갑니다.","Alt+S로 서울·제주 예제를 계산합니다."]},
+    "http-status-lookup":{"level":"minor","summary":"HTTP 입력 복귀와 200 예제 단축키","changes":["Alt+U로 상태 코드 입력으로 돌아갑니다.","Alt+S로 HTTP 200 예제를 조회합니다."]},
+    "ip-network-calculator":{"level":"minor","summary":"IP 입력 복귀와 사설망 예제 단축키","changes":["Alt+U로 IP/CIDR 입력으로 돌아갑니다.","Alt+S로 사설 IPv4 /24 예제를 계산합니다."]},
+    "loan-savings-calculator":{"level":"minor","summary":"금액 입력 복귀와 10년 예제 단축키","changes":["Alt+U로 대출 원금 입력으로 돌아갑니다.","Alt+S로 10년 기간 예제를 계산합니다."]},
+    "text-extractor-tool":{"level":"minor","summary":"원문 입력 복귀와 연락처 예제 단축키","changes":["Alt+U로 원문 입력으로 돌아갑니다.","Alt+S로 연락처 추출 예제를 실행합니다."]},
+    "web-meta-preview-builder":{"level":"minor","summary":"제목 입력 복귀와 도구 페이지 예제 단축키","changes":["Alt+U로 제목 입력으로 돌아갑니다.","Alt+S로 도구 페이지 메타 예제를 만듭니다."]}
+  },
+  "workCounts":{"improvements":6,"newOrMerge":3,"commonFixes":2},
+  "changes":["좌표 입력·예제 동선","HTTP 입력·200 예제 동선","IP 입력·사설망 예제 동선","대출 입력·10년 예제 동선","텍스트 입력·연락처 예제 동선","메타 입력·도구 페이지 예제 동선"],
+  "newIdeas":["HTTP 200 대표 조회 단축키","사설 IPv4 /24 대표 계산 단축키","대출 10년 대표 계산 단축키"],
+  "commonModules":["6개 도구 공통 입력 복귀 Alt+U","6개 도구 공통 대표 예제 Alt+S"],
+  "validation":["대상 게시글 인라인 스크립트 6개 통과","ES 모듈 6개 구문 통과","대상 릴리스 JSON 78개와 최신 경로 일치","대상 모듈 10개·레지스트리 6개 일치","대상 공개 실행 페이지 6개 색인 정책 통과","대상 공개 페이지 6/6 감사 통과","1280px 6개 도구 가로 넘침 0px와 Alt+S·Alt+U 동작 확인","375px 6개 도구 가로 넘침 0px와 안전 포커스 정책 확인"],
+  "knownIssueMatches":["PORTRAIT_ACTION_MIN_WIDTH_OVERFLOW","IFRAME_HEIGHT_STALE","IFRAME_HEIGHT_CAP_MISMATCH","SHARED_ASSET_CACHE_STALE"],
+  "blogger":{"created":[],"updated":["https://bloggiedh.blogspot.com/2026/08/blog-post_08.html","https://bloggiedh.blogspot.com/2026/07/http.html","https://bloggiedh.blogspot.com/2026/08/ip.html","https://bloggiedh.blogspot.com/2026/08/blog-post_578.html","https://bloggiedh.blogspot.com/2026/08/blog-post.html","https://bloggiedh.blogspot.com/2026/08/blog-post_03.html"],"skipped":[],"status":"completed"},"git":{"branch":"main","commit":null,"pushed":false},"deployment":{"status":"pending","urls":[]},
+  "shutdown":{"requested":false,"scheduled":false,"input":null,"scheduledFor":null,"cancelled":false},"blocked":[],
+  "scopeExceptions":["신규 페이지 대신 기존 공개 페이지에 독립 검증 가능한 대표 예제 기능 3건을 통합","전체 허브 생성 검사는 기존 base64-tools 생성본 불일치로 실패했으나 이번 대상 6개의 릴리스·모듈·색인 검사는 통과"],
+  "runState":{"current":"implement","stages":{"select":{"status":"completed","startedAt":"2026-09-03T09:15:31+09:00","completedAt":"2026-09-03T09:17:00+09:00","evidence":["미확인 결과 36건 보고","최근 완료 배치 제외 순환 선정"],"blockCode":null},"implement":{"status":"in_progress","startedAt":"2026-09-03T09:17:00+09:00","completedAt":null,"evidence":[],"blockCode":null},"validate":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"publish":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"commit":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"deploy":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null},"confirm":{"status":"pending","startedAt":null,"completedAt":null,"evidence":[],"blockCode":null}}},
+  "knowledgeOptimization":{"policyVersion":"0.35.0","applied":[],"summary":"현재 변경과 겹치는 대기 최적화가 없어 기존 공통 선언을 재사용","skillValidation":"passed"},
+  "developmentTokenEfficiency":{"measurementStatus":"proxy_only","baselineRunId":null,"tokens":{"baseline":null,"current":null,"accountingMethod":null},"instructionReduction":null,"overallReduction":null,"proxies":[{"metric":"per-tool input return declarations","before":6,"after":1,"reduction":0.8333},{"metric":"per-tool sample shortcut declarations","before":6,"after":1,"reduction":0.8333}],"note":"전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."},
+  "reportHistory":[{"at":"2026-09-03T09:15:31+09:00","action":"started","note":"사용량 unavailable 경고 후 현재 규칙에 따라 하드 워크플로 시작"}]
+}

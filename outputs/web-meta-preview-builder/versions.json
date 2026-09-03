@@ -4,7 +4,7 @@
   "title": "웹 메타·공유 미리보기",
   "description": "웹페이지 제목과 설명, 주소와 이미지를 입력해 검색·공유 미리보기와 메타 태그를 함께 만듭니다.",
   "postUrl": "https://bloggiedh.blogspot.com/2026/08/blog-post_03.html",
-  "latestVersion": "0.10.0v",
+  "latestVersion": "0.11.0v",
   "versions": [
     {
       "version": "0.0.1v",
@@ -113,6 +113,15 @@
       "directory": "0.10.0v",
       "html": "0.10.0v/web-meta-preview-builder.html",
       "patchNotes": "0.10.0v/patch-notes.json"
+    },
+    {
+      "version": "0.11.0v",
+      "releaseDate": "2026-09-03",
+      "changeLevel": "minor",
+      "summary": "제목 입력 복귀와 도구 페이지 예제 단축키",
+      "directory": "0.11.0v",
+      "html": "0.11.0v/web-meta-preview-builder.html",
+      "patchNotes": "0.11.0v/patch-notes.json"
     }
   ]
 }

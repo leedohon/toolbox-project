@@ -1,0 +1,9 @@
+{
+  "tool": "image-resizer-compressor",
+  "version": "1.11.2v",
+  "releaseDate": "2026-09-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "Blogger 내부 이미지 엔진이 최신 1.11.2v 캐시 키를 사용하도록 동기화했습니다."
+  ]
+}

@@ -130,6 +130,8 @@
     "이미지 도구 1.11.1v에서 Alt+S를 샘플 이미지에 연결하고 정적·릴리스·모듈·색인 검사 통과",
     "공개 1.11.1v 1280px에서 이미지 Alt+S 샘플 1800×1200 로드, Alt+U 이미지 선택 복귀, 가로 넘침 0px 통과",
     "공개 Base64 엔진 1280px 가로 넘침 0px 확인 후 실제 Alt+S 키 입력에서 인앱 브라우저 제어 시간 초과 재현",
+    "Blogger 공개 글의 1.11.1v 패치노트는 확인됐으나 이미지 자식 iframe 캐시 키가 release=1.11.0v로 남은 것을 발견",
+    "이미지 도구 1.11.2v 생성, 허브 모듈 캐시 키 동기화, 릴리스·모듈·인라인·색인 검사와 Blogger LIVE 갱신 통과",
     "공개 Pages와 Blogger 6개 모두 HTTP 200 및 새 버전 확인"
   ],
   "knownIssueMatches": [
@@ -293,6 +295,12 @@
         "before": 1,
         "after": 0,
         "reduction": 1.0
+      },
+      {
+        "metric": "stale hub release cache keys",
+        "before": 1,
+        "after": 0,
+        "reduction": 1.0
       }
     ],
     "note": "전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
@@ -357,6 +365,11 @@
       "at": "2026-09-04T21:23:47+09:00",
       "action": "blocked",
       "note": "사용량 unavailable 경고 후 공개 Base64 엔진을 1280px에서 재검증. 가로 넘침은 0px였으나 실제 Alt+S 키 입력도 인앱 브라우저 제어 시간 초과가 발생했고 연결된 일반 Chrome·Edge가 없어 외부 브라우저 확인 대기 유지"
+    },
+    {
+      "at": "2026-09-04T21:40:00+09:00",
+      "action": "fixed",
+      "note": "사용자 확인 요청으로 Blogger 공개 글을 직접 점검해 1.11.1v 패치노트 반영은 확인했으나 자식 iframe의 release=1.11.0v 캐시 키 누락을 발견. 1.11.2v를 만들고 modules.json을 동기화한 뒤 기존 Blogger LIVE 글을 다시 갱신함"
     }
   ]
 }

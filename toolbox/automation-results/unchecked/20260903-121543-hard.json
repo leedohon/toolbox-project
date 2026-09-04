@@ -128,6 +128,7 @@
     "1280px 비밀번호 도구 가로 넘침 0px와 Alt+S·Alt+U 동작 통과",
     "1280px 이미지 도구 가로 넘침 0px 확인 후 Alt+S가 입력 의존 프리셋을 잘못 실행하는 결함을 발견",
     "이미지 도구 1.11.1v에서 Alt+S를 샘플 이미지에 연결하고 정적·릴리스·모듈·색인 검사 통과",
+    "공개 1.11.1v 1280px에서 이미지 Alt+S 샘플 1800×1200 로드, Alt+U 이미지 선택 복귀, 가로 넘침 0px 통과",
     "공개 Pages와 Blogger 6개 모두 HTTP 200 및 새 버전 확인"
   ],
   "knownIssueMatches": [
@@ -152,12 +153,12 @@
   },
   "git": {
     "branch": "main",
-    "commit": "23adb9a08340e1416c68ee3264bb73501f749263",
+    "commit": "97aa9e34597aff43d66e54ddeb95bee1b163f2f7",
     "pushed": true
   },
   "deployment": {
     "status": "completed",
-    "runId": 33711262291,
+    "runId": 33858851807,
     "urls": [
       "https://leedohon.github.io/toolbox-project/embed/qr-barcode-generator/",
       "https://leedohon.github.io/toolbox-project/embed/json-tools/",
@@ -179,7 +180,7 @@
       "code": "VALIDATION_FAILED",
       "stage": "validate",
       "retryable": true,
-      "next": "1.11.1v 배포 뒤 이미지 Alt+S·Alt+U를 공개 1280px에서 재검증하고, Base64의 첫 상호작용 시간 초과가 없는 일반 Chrome 또는 Edge에서 Alt+S·Alt+U를 확인"
+      "next": "Base64의 첫 상호작용 시간 초과가 없는 일반 Chrome 또는 Edge에서 공개 엔진을 1280px로 열어 Alt+S·Alt+U를 확인"
     }
   ],
   "scopeExceptions": [
@@ -216,7 +217,7 @@
           "정적·릴리스 검사와 375px 직접 검증 통과",
           "1280px QR·JSON·게임 표본 통과",
           "1280px 비밀번호 가로 넘침과 Alt+S·Alt+U 통과",
-          "1280px 이미지 가로 넘침 통과, Alt+S 대상 오류를 1.11.1v로 수정",
+          "공개 1.11.1v 1280px 이미지 가로 넘침과 Alt+S·Alt+U 통과",
           "Base64 엔진은 loopback과 공개 Pages에서 인앱 브라우저 제어 시간 초과"
         ],
         "blockCode": "VALIDATION_FAILED"
@@ -345,6 +346,11 @@
       "at": "2026-09-04T18:23:09+09:00",
       "action": "fixed",
       "note": "사용량 unavailable 경고 후 1280px 비밀번호·이미지 QA를 재개. 비밀번호는 통과했고 이미지 Alt+S 대상 불일치를 발견해 1.11.1v로 수정하고 Blogger LIVE 글을 갱신함; Base64 인앱 브라우저 첫 클릭 시간 초과는 유지"
+    },
+    {
+      "at": "2026-09-04T18:33:00+09:00",
+      "action": "deployed",
+      "note": "커밋 97aa9e3을 main에 푸시하고 Pages 실행 33858851807 성공 확인. 공개 1.11.1v에서 이미지 Alt+S 샘플 로드, Alt+U 입력 복귀, 1280px 가로 넘침 0px를 검증함"
     }
   ]
 }

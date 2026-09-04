@@ -82,10 +82,11 @@
     },
     "image-resizer-compressor": {
       "level": "minor",
-      "summary": "이미지 선택 복귀와 웹용 설정 단축키",
+      "summary": "이미지 선택 복귀와 대표 샘플 단축키",
       "changes": [
         "Alt+U로 이미지 선택 버튼으로 돌아갑니다.",
-        "Alt+S로 웹용 권장 설정을 적용합니다."
+        "Alt+S로 샘플 이미지를 불러옵니다.",
+        "1280px QA에서 발견한 초기 상태 단축키 대상 오류를 1.11.1v로 수정했습니다."
       ]
     }
   },
@@ -100,7 +101,7 @@
     "URL Base64 키보드 동선",
     "게임 선택 복귀",
     "비밀번호 안전 설정 동선",
-    "이미지 웹 설정 동선"
+    "이미지 샘플 예제 동선"
   ],
   "newIdeas": [
     "Wi-Fi QR 대표 예제 Alt+S",
@@ -124,6 +125,9 @@
     "Base64 엔진에서 입력·예제 단축키 안내 렌더링 확인",
     "Base64 높이 관찰 콜백의 동일 높이 재전송 방지 가설을 임시 검증했으나 첫 클릭 시간 초과가 동일해 원인에서 제외하고 변경을 되돌림",
     "Base64 공통 단축키 스크립트와 전용 높이 관찰 블록을 모두 임시 비활성화한 최소 페이지에서도 첫 클릭 시간 초과가 동일해 두 스크립트를 원인에서 제외하고 원본 복원",
+    "1280px 비밀번호 도구 가로 넘침 0px와 Alt+S·Alt+U 동작 통과",
+    "1280px 이미지 도구 가로 넘침 0px 확인 후 Alt+S가 입력 의존 프리셋을 잘못 실행하는 결함을 발견",
+    "이미지 도구 1.11.1v에서 Alt+S를 샘플 이미지에 연결하고 정적·릴리스·모듈·색인 검사 통과",
     "공개 Pages와 Blogger 6개 모두 HTTP 200 및 새 버전 확인"
   ],
   "knownIssueMatches": [
@@ -175,7 +179,7 @@
       "code": "VALIDATION_FAILED",
       "stage": "validate",
       "retryable": true,
-      "next": "일반 Chrome 또는 Edge에서 Base64·비밀번호·이미지 도구를 1280px로 열어 가로 넘침 0px와 Alt+S·Alt+U 동작을 확인해 통과 여부를 전달하거나, 해당 브라우저 탭을 Codex에 연결한 뒤 validate 단계부터 재개"
+      "next": "1.11.1v 배포 뒤 이미지 Alt+S·Alt+U를 공개 1280px에서 재검증하고, Base64의 첫 상호작용 시간 초과가 없는 일반 Chrome 또는 Edge에서 Alt+S·Alt+U를 확인"
     }
   ],
   "scopeExceptions": [
@@ -211,6 +215,8 @@
         "evidence": [
           "정적·릴리스 검사와 375px 직접 검증 통과",
           "1280px QR·JSON·게임 표본 통과",
+          "1280px 비밀번호 가로 넘침과 Alt+S·Alt+U 통과",
+          "1280px 이미지 가로 넘침 통과, Alt+S 대상 오류를 1.11.1v로 수정",
           "Base64 엔진은 loopback과 공개 Pages에서 인앱 브라우저 제어 시간 초과"
         ],
         "blockCode": "VALIDATION_FAILED"
@@ -279,6 +285,12 @@
         "before": 6,
         "after": 1,
         "reduction": 0.8333
+      },
+      {
+        "metric": "misbound sample shortcut targets",
+        "before": 1,
+        "after": 0,
+        "reduction": 1.0
       }
     ],
     "note": "전체 토큰 수가 제공되지 않아 전체 개발 토큰 감소율은 확정하지 않습니다."
@@ -328,6 +340,11 @@
       "at": "2026-09-04T12:25:33+09:00",
       "action": "diagnosed",
       "note": "사용량 unavailable 경고 후 공통 단축키 스크립트와 전용 높이 관찰 블록을 함께 비활성화한 최소 Base64 페이지에서도 첫 클릭 시간 초과가 재현됨; 두 경로를 원인에서 제외하고 원본 복원, 외부 브라우저 검증 대기 유지"
+    },
+    {
+      "at": "2026-09-04T18:23:09+09:00",
+      "action": "fixed",
+      "note": "사용량 unavailable 경고 후 1280px 비밀번호·이미지 QA를 재개. 비밀번호는 통과했고 이미지 Alt+S 대상 불일치를 발견해 1.11.1v로 수정하고 Blogger LIVE 글을 갱신함; Base64 인앱 브라우저 첫 클릭 시간 초과는 유지"
     }
   ]
 }

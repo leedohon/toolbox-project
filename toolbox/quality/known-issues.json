@@ -188,6 +188,16 @@
       "fixContract": ["모바일 버튼은 flex-basis와 min-width:0을 함께 사용", "선택 라벨은 가용 폭에서 줄바꿈 허용", "본문 overflow-x:hidden으로 결함을 가리지 않고 동작 전체가 화면 안에 보여야 함"],
       "regressionChecks": ["375px에서 첫 줄과 마지막 줄의 모든 버튼 경계가 보임", "긴 KOR/ENG 버튼 문구가 카드 안에서 줄바꿈됨", "1280px에서 불필요한 한 열 강제 없이 자연스럽게 배치됨"],
       "affectedPatterns": ["embed/**/index.html", "assets/simple-tools.css", "assets/play-tools.css"]
+    },
+    {
+      "code": "SAMPLE_SHORTCUT_PRECONDITION_MISMATCH",
+      "status": "guarded",
+      "summary": "Alt+S 대표 예제 단축키가 초기 입력을 만드는 대신 입력이 필요한 프리셋을 실행해 오류를 표시함",
+      "fingerprints": ["data-sample-shortcut", "Alt+S", "sample", "preset", "Choose an image first"],
+      "rootCause": "대표 예제 단축키 대상을 초기 상태에서 실행할 수 없는 후속 설정 버튼으로 연결함",
+      "fixContract": ["Alt+S 대상은 빈 초기 상태에서 완결된 대표 입력을 생성", "입력 의존 프리셋은 대표 예제 대상에서 제외", "도움말과 실제 대상 동작 일치"],
+      "regressionChecks": ["빈 초기 상태에서 Alt+S 실행 후 오류 없음", "대표 입력과 후속 설정 UI 표시", "Alt+U가 최초 입력 요소로 복귀"],
+      "affectedPatterns": ["assets/toolbox-workflow-actions.js", "embed/**/engine.html", "embed/**/index.html"]
     }
   ]
 }

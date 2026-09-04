@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-03",
+  "updatedAt": "2026-09-04",
   "project": "toolbox",
   "keySources": {
     "content": "toolbox/post-content.json",
@@ -216,7 +216,7 @@
       "category": "초간단 툴박스",
       "status": "published",
       "replacementTool": null,
-      "latestVersion": "1.11.0v",
+      "latestVersion": "1.11.1v",
       "paths": {
         "definition": "toolbox/tools/image-resizer-compressor.md",
         "post": "toolbox/posts/image-resizer-compressor.html",

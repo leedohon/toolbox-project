@@ -1,0 +1,9 @@
+{
+  "tool": "image-resizer-compressor",
+  "version": "1.11.1v",
+  "releaseDate": "2026-09-04",
+  "changeLevel": "minimum",
+  "changes": [
+    "Alt+S가 웹 설정 오류 대신 샘플 이미지를 즉시 불러오도록 수정했습니다."
+  ]
+}

@@ -377,6 +377,11 @@
       "at": "2026-09-04T22:05:00+09:00",
       "action": "deployed",
       "note": "커밋 c288633을 main에 푸시하고 Pages 실행 33882923922 성공 확인. Blogger 공개 글의 1.11.2v 패치노트와 자식 iframe release=1.11.2v 로드를 캐시 우회 주소에서 검증함"
+    },
+    {
+      "at": "2026-09-05T00:24:33+09:00",
+      "action": "blocked",
+      "note": "사용량 unavailable 경고 후 validate 재개. 연결된 브라우저는 인앱 브라우저뿐이었고 공개 Base64 엔진에서 Alt+S 입력 시 CDP Input.dispatchKeyEvent 시간 초과가 다시 발생해 일반 Chrome 또는 Edge 1280px 검증 대기 상태를 유지함"
     }
   ]
 }

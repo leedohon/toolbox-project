@@ -5,5 +5,9 @@
   "changeLevel": "minimum",
   "changes": [
     "Blogger 내부 이미지 엔진이 최신 1.11.2v 캐시 키를 사용하도록 동기화했습니다."
+  ],
+  "qa": [
+    "GitHub Pages 배포 실행 33882923922의 성공을 확인했습니다.",
+    "Blogger 공개 게시글에서 1.11.2v 패치노트와 release=1.11.2v 내부 이미지 엔진 로드를 확인했습니다."
   ]
 }

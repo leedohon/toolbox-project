@@ -132,6 +132,8 @@
     "공개 Base64 엔진 1280px 가로 넘침 0px 확인 후 실제 Alt+S 키 입력에서 인앱 브라우저 제어 시간 초과 재현",
     "Blogger 공개 글의 1.11.1v 패치노트는 확인됐으나 이미지 자식 iframe 캐시 키가 release=1.11.0v로 남은 것을 발견",
     "이미지 도구 1.11.2v 생성, 허브 모듈 캐시 키 동기화, 릴리스·모듈·인라인·색인 검사와 Blogger LIVE 갱신 통과",
+    "커밋 c288633을 main에 푸시하고 Pages 실행 33882923922 성공과 HEAD·origin/main 일치를 확인",
+    "Blogger 공개 글에서 1.11.2v 패치노트와 release=1.11.2v 자식 iframe 로드를 캐시 우회 주소로 확인",
     "공개 Pages와 Blogger 6개 모두 HTTP 200 및 새 버전 확인"
   ],
   "knownIssueMatches": [
@@ -156,12 +158,12 @@
   },
   "git": {
     "branch": "main",
-    "commit": "97aa9e34597aff43d66e54ddeb95bee1b163f2f7",
+    "commit": "c28863374c4caee15f9a31a4f9b0135800778b05",
     "pushed": true
   },
   "deployment": {
     "status": "completed",
-    "runId": 33858851807,
+    "runId": 33882923922,
     "urls": [
       "https://leedohon.github.io/toolbox-project/embed/qr-barcode-generator/",
       "https://leedohon.github.io/toolbox-project/embed/json-tools/",
@@ -370,6 +372,11 @@
       "at": "2026-09-04T21:40:00+09:00",
       "action": "fixed",
       "note": "사용자 확인 요청으로 Blogger 공개 글을 직접 점검해 1.11.1v 패치노트 반영은 확인했으나 자식 iframe의 release=1.11.0v 캐시 키 누락을 발견. 1.11.2v를 만들고 modules.json을 동기화한 뒤 기존 Blogger LIVE 글을 다시 갱신함"
+    },
+    {
+      "at": "2026-09-04T22:05:00+09:00",
+      "action": "deployed",
+      "note": "커밋 c288633을 main에 푸시하고 Pages 실행 33882923922 성공 확인. Blogger 공개 글의 1.11.2v 패치노트와 자식 iframe release=1.11.2v 로드를 캐시 우회 주소에서 검증함"
     }
   ]
 }
